@@ -1,0 +1,95 @@
+{
+  "paper_id": "divot-diffusion-powers-video-tokenizer-for-comprehension-and-generation--ccf284d02f",
+  "paper_title": "Divot: Diffusion Powers Video Tokenizer for Comprehension and Generation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:29.765330+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Divot： Diffusion Powers Video Tokenizer for Comprehension and Generation.pdf",
+    "filename": "Divot： Diffusion Powers Video Tokenizer for Comprehension and Generation.pdf",
+    "sha1": "ccf284d02fac524db803285890a9e56e62c767b9",
+    "page_count": 12
+  },
+  "core_story": {
+    "problem": "The primary challenge of achieving unified video compre- hension and generation lies in developing a versatile video tokenizer that can effectively address the complexities inher- ent in video data.",
+    "limitation": "Introduction In recent years, the rapid evolution of Multimodal Large Lan- guage Models (MLLMs) [12, 15–17, 55–57, 77, 86, 91, 93] has demonstrated significant progresses in unified image understanding and generation, which empowers LLMs [ 6, 11, 60] with the ability to generate images beyond texts.",
+    "insight": "Abstract In recent years, there has been a significant surge of inter- est in unifying image comprehension and generation within Large Language Models (LLMs).",
+    "proposed_method": "In this work, we introduce Divot, a Diffusion-Powered Video Tokenizer, which leverages the diffusion process for self- supervised video representation learning.",
+    "experimental_evidence": "Experimental results demon- strate that our diffusion-based video tokenizer, when inte- grated with a pre-trained LLM, achieves competitive perfor- mance across various video comprehension and generation benchmarks.",
+    "summary": "The primary challenge of achieving unified video compre- hension and generation lies in developing a versatile video tokenizer that can effectively address the complexities inher- ent in video data. Introduction In recent years, the rapid evolution of Multimodal Large Lan- guage Models (MLLMs) [12, 15–17, 55–57, 77, 86, 91, 93] has demonstrated significant progresses in unified image understanding and generation, which empowers LLMs [ 6, 11, 60] with the ability to generate images beyond texts. Abstract In recent years, there has been a significant surge of inter- est in unifying image comprehension and generation within Large Language Models (LLMs). In this work, we introduce Divot, a Diffusion-Powered Video Tokenizer, which leverages the diffusion process for self- supervised video representation learning. Experimental results demon- strate that our diffusion-based video tokenizer, when inte- grated with a pre-trained LLM, achieves competitive perfor- mance across various video comprehension and generation benchmarks."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction In recent years, the rapid evolution of Multimodal Large Lan- guage Models (MLLMs) [12, 15–17, 55–57, 77, 86, 91, 93] has demonstrated significant progresses in unified image understanding and generation, which empowers LLMs [ 6, 11, 60] with the ability to generate images beyond texts.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction In recent years, the rapid evolution of Multimodal Large Lan- guage Models (MLLMs) [12, 15–17, 55–57, 77, 86, 91, 93] has demonstrated significant progresses in unified image understanding and generation, which empowers LLMs [ 6, 11, 60] with the ability to generate images beyond texts. While these work primarily focus on image-text data, the extension of this unification to the video domain remains VideoTo kenizer DiffusionModel sparse denseAddNoise Denoiseforself-supervisedlearning Generation samedurationconditionLLMComprehension LLM “Mugmovesdown” “Mugmovesdown” Tokenization Figure 1. We utilize the diffusion procedure to learn a video tok- enizer in a self-supervised manner for unified comprehension and generation, where the spatiotemporal representations serve as the condition of a diffusion model to de-noise video clips. Additionally, the proxy diffusion model functions as a de-tokenizer to decode realistic video clips from the video representations. relatively under-explored."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Achieving unified video compre- hension and generation is essential for the development of more sophisticated artificial intelligence (AI) systems that are capable of understanding and creating dynamic visual content in the real world.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Achieving unified video compre- hension and generation is essential for the development of more sophisticated artificial intelligence (AI) systems that are capable of understanding and creating dynamic visual content in the real world. The primary challenge of achieving unified video compre- hension and generation lies in developing a versatile video tokenizer that can effectively address the complexities inher- ent in video data. This tokenizer should be able to obtain robust video representations that serve as inputs of MLLMs for video comprehension, and these representations can be further decoded into realistic video clips to enable video gen- eration. Unlike static images, videos encompass both spatial characteristics and temporal dynamics, making their repre- sentation significantly more complex."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "Recent pioneering work [26, 40, 74] adopt a discrete video tokenizer for uni- fying video comprehension and generation, where a video is represented as a sequence of discrete frame tokens, or keyframe tokens followed by discrete motion tokens.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Recent pioneering work [26, 40, 74] adopt a discrete video tokenizer for uni- fying video comprehension and generation, where a video is represented as a sequence of discrete frame tokens, or keyframe tokens followed by discrete motion tokens. This approach eases video generation with a LLM through an au- toregressive next-token prediction mechanism, but sacrifices the performance of multimodal understanding, as pointed out by recent work [77]. In this work, we aim to investigate an alternative approach by utilizing continuous video repre- sentations to unify video comprehension and generation. To this end, we introduce Divot, a Diffusion-Powered This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [],
+    "insight_expression": [],
+    "method_expression": [],
+    "experiment_expression": [],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Abstract In recent years, there has been a significant surge of inter- est in unifying image comprehension and generation within Large Language Models (LLMs).",
+    "Achieving unified video compre- hension and generation is essential for the development of more sophisticated artificial intelligence (AI) systems that are capable of understanding and creating dynamic visual content in the real world.",
+    "Additionally, the proxy diffusion model functions as a de-tokenizer to decode realistic video clips from the video representations. relatively under-explored.",
+    "Additionally, the video diffusion model inherently functions as a de-tokenizer, de- coding videos from their representations.",
+    "Building upon the Divot tokenizer, we present Divot-LLM through video-to-text autoregression and text-to-video generation by modeling the distributions of continuous-valued Divot features with a Gaussian Mixture Model.",
+    "Conclusion In this work, we introduce Divot, a diffusion-powered video tokenizer learned in a self-supervised manner for unified comprehension and generation.",
+    "Divot- LLM achieves competitive performance in video compre- hension and generation benchmarks, and enables video sto- rytelling effectively.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experimental results demon- strate that our diffusion-based video tokenizer, when inte- grated with a pre-trained LLM, achieves competitive perfor- mance across various video comprehension and generation benchmarks.",
+    "In this work, we aim to investigate an alternative approach by utilizing continuous video repre- sentations to unify video comprehension and generation.",
+    "In this work, we introduce Divot, a Diffusion-Powered Video Tokenizer, which leverages the diffusion process for self- supervised video representation learning.",
+    "Models and codes are available at https://github.com/TencentARC/Divot."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nIn recent years, there has been a significant surge of inter-\nest in unifying image comprehension and generation within\nLarge Language Models (LLMs). This growing interest\nhas prompted us to explore extending this unification to\nvideos. The core challenge lies in developing a versatile\nvideo tokenizer that captures both the spatial characteristics\nand temporal dynamics of videos to obtain representations\nfor LLMs, and the representations can be further decoded\ninto realistic video clips to enable video generation. In\nthis work, we introduce Divot, a Diffusion-Powered Video\nTokenizer, which leverages the diffusion process for self-\nsupervised video representation learning. We posit that if\na video diffusion model can effectively de-noise video clips\nby taking the features of a video tokenizer as the condi-\ntion, then the tokenizer has successfully captured robust\nspatial and temporal information. Additionally, the video\ndiffusion model inherently functions as a de-tokenizer, de-\ncoding videos from their representations. Building upon the\nDivot tokenizer, we present Divot-LLM through video-to-text\nautoregression and text-to-video generation by modeling\nthe distributions of continuous-valued Divot features with\na Gaussian Mixture Model. Experimental results demon-\nstrate that our diffusion-based video tokenizer, when inte-\ngrated with a pre-trained LLM, achieves competitive perfor-\nmance across various video comprehension and generation\nbenchmarks. The instruction tuned Divot-LLM also excels\nin video storytelling, generating interleaved narratives and\ncorresponding videos. Models and codes are available at\nhttps://github.com/TencentARC/Divot.",
+    "introduction": "1. Introduction\nIn recent years, the rapid evolution of Multimodal Large Lan-\nguage Models (MLLMs) [12, 15–17, 55–57, 77, 86, 91, 93]\nhas demonstrated significant progresses in unified image\nunderstanding and generation, which empowers LLMs [ 6,\n11, 60] with the ability to generate images beyond texts.\nWhile these work primarily focus on image-text data, the\nextension of this unification to the video domain remains\nVideoTo kenizer\nDiffusionModel\nsparse\ndenseAddNoise\nDenoiseforself-supervisedlearning\nGeneration\nsamedurationconditionLLMComprehension\nLLM\n“Mugmovesdown”\n“Mugmovesdown”\nTokenization\nFigure 1. We utilize the diffusion procedure to learn a video tok-\nenizer in a self-supervised manner for unified comprehension and\ngeneration, where the spatiotemporal representations serve as the\ncondition of a diffusion model to de-noise video clips. Additionally,\nthe proxy diffusion model functions as a de-tokenizer to decode\nrealistic video clips from the video representations.\nrelatively under-explored. Achieving unified video compre-\nhension and generation is essential for the development of\nmore sophisticated artificial intelligence (AI) systems that\nare capable of understanding and creating dynamic visual\ncontent in the real world.\nThe primary challenge of achieving unified video compre-\nhension and generation lies in developing a versatile video\ntokenizer that can effectively address the complexities inher-\nent in video data. This tokenizer should be able to obtain\nrobust video representations that serve as inputs of MLLMs\nfor video comprehension, and these representations can be\nfurther decoded into realistic video clips to enable video gen-\neration. Unlike static images, videos encompass both spatial\ncharacteristics and temporal dynamics, making their repre-\nsentation significantly more complex. Recent pioneering\nwork [26, 40, 74] adopt a discrete video tokenizer for uni-\nfying video comprehension and generation, where a video\nis represented as a sequence of discrete frame tokens, or\nkeyframe tokens followed by discrete motion tokens. This\napproach eases video generation with a LLM through an au-\ntoregressive next-token prediction mechanism, but sacrifices\nthe performance of multimodal understanding, as pointed\nout by recent work [77]. In this work, we aim to investigate\nan alternative approach by utilizing continuous video repre-\nsentations to unify video comprehension and generation.\nTo this end, we introduce Divot, a Diffusion-Powered\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Method",
+    "experiments": "4. Experiment",
+    "conclusion": "5. Conclusion\nIn this work, we introduce Divot, a diffusion-powered video\ntokenizer learned in a self-supervised manner for unified\ncomprehension and generation. We further investigate effec-\ntive approaches for modeling continuous video representa-\ntions with the LLM and present Divot-LLM to understand\nand generate video content in a single framework. Divot-\nLLM achieves competitive performance in video compre-\nhension and generation benchmarks, and enables video sto-\nrytelling effectively. We hope our work will draw increased\nattention to unifying video comprehension and generation\nthrough the design of sophisticated tokenizers.\nLimitation. As we primarily focus on exploring effective\nrepresentations and approaches for video generation with a\nunified LLM, the current model is trained to predict video\nrepresentations for only a single clip and does not generate\nlonger videos, which will be explored in our future work."
+  }
+}

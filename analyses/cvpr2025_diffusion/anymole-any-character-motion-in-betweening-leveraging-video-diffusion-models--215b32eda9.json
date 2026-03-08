@@ -1,0 +1,118 @@
+{
+  "paper_id": "anymole-any-character-motion-in-betweening-leveraging-video-diffusion-models--215b32eda9",
+  "paper_title": "AnyMoLe: Any Character Motion In-betweening Leveraging Video Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:05.853984+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/AnyMoLe： Any Character Motion In-betweening Leveraging Video Diffusion Models.pdf",
+    "filename": "AnyMoLe： Any Character Motion In-betweening Leveraging Video Diffusion Models.pdf",
+    "sha1": "215b32eda98b3d0bf40b4b2b5a7d52e2d37d5c66",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "In recent years, while the adoption of mo- tion capture (MOCAP) technologies has helped alleviate this manual burden, its high costs and infeasibility for cer- tain characters and animals present significant challenges.",
+    "limitation": "In this process, we observed that naively generating an interpolated video and reconstructing a 3D character often yielded unsatisfactory results due to: 1) limited contextual understanding, 2) domain gaps between real-world and rendered scenes, and 3) difficulties in accu- rately tracking motion from a generated video.",
+    "insight": "In this process, we observed that naively generating an interpolated video and reconstructing a 3D character often yielded unsatisfactory results due to: 1) limited contextual understanding, 2) domain gaps between real-world and rendered scenes, and 3) difficulties in accu- rately tracking motion from a generated video.",
+    "proposed_method": "In this work, we introduce AnyMoLe, a novel method that addresses this lim- itation by leveraging video diffusion models to generate mo- tion in-between frames for arbitrary characters without ex- ternal data.",
+    "experimental_evidence": "Visualization of a generated frame from a fast turn- around, showing ambiguity that can hinder joint estimation. entire process.",
+    "summary": "In recent years, while the adoption of mo- tion capture (MOCAP) technologies has helped alleviate this manual burden, its high costs and infeasibility for cer- tain characters and animals present significant challenges. In this process, we observed that naively generating an interpolated video and reconstructing a 3D character often yielded unsatisfactory results due to: 1) limited contextual understanding, 2) domain gaps between real-world and rendered scenes, and 3) difficulties in accu- rately tracking motion from a generated video. In this process, we observed that naively generating an interpolated video and reconstructing a 3D character often yielded unsatisfactory results due to: 1) limited contextual understanding, 2) domain gaps between real-world and rendered scenes, and 3) difficulties in accu- rately tracking motion from a generated video. In this work, we introduce AnyMoLe, a novel method that addresses this lim- itation by leveraging video diffusion models to generate mo- tion in-between frames for arbitrary characters without ex- ternal data. Visualization of a generated frame from a fast turn- around, showing ambiguity that can hinder joint estimation. entire process."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Keyframe interpolation is essential in the animation cre- ation process, providing smooth and natural transitions be- tween keyframes to achieve lifelike character movements.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Keyframe interpolation is essential in the animation cre- ation process, providing smooth and natural transitions be- tween keyframes to achieve lifelike character movements. Traditionally, this process has been highly labor-intensive, often involving extensive manual adjustments to refine the animation. In recent years, while the adoption of mo- tion capture (MOCAP) technologies has helped alleviate this manual burden, its high costs and infeasibility for cer- tain characters and animals present significant challenges. To address these limitations, deep learning-based motion in-betweening methods have emerged, making notable ad- vancements [12, 18]."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "These efforts have focused on devel- oping sophisticated architectures [9, 13, 32, 33] and uti- lizing large datasets [18] to generate realistic motion se- quences over long durations.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "These efforts have focused on devel- oping sophisticated architectures [9, 13, 32, 33] and uti- lizing large datasets [18] to generate realistic motion se- quences over long durations. Nevertheless, a major hur- dle persists: training existing in-betweening models still demands vast amounts of MOCAP or manually keyframed Figure 1. AnyMoLe generates in-between motion from context frames and keyframes without requiring external training data. data for each character. This is a crucial issue, as motion in- betweening is not only valuable for well-documented char- acters but is even more essential for those that are difficult to capture with MOCAP or lack extensive keyframed data."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "problem_statement",
+      "main_message": "Recent advancements in video generation models, trained on web-scale video datasets, have enabled the gen- eration of realistic videos from arbitrary text [4–6, 16] or images [46, 56].",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Recent advancements in video generation models, trained on web-scale video datasets, have enabled the gen- eration of realistic videos from arbitrary text [4–6, 16] or images [46, 56]. Additionally, some models have demon- strated the ability to interpolate between two images, natu- rally generating a range of transitioning scene elements or camera movements [10, 46, 47]. These capabilities align closely with the goal of motion in-betweening, as video generation models excel at creating smooth transitions and continuous motion. Therefore, these models can address data scarcity issues often encountered in 3D motion in- betweening and leverage the generation of realistic motions from rendered keyframes, which become the essential foun- dation of our motion in-betweening process."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "method_overview",
+      "main_message": "We propose a novel motion in-betweening method, AnyMoLe, which addresses the problem of scarcity of character-specific datasets.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "We propose a novel motion in-betweening method, AnyMoLe, which addresses the problem of scarcity of character-specific datasets. AnyMoLe leverages video dif- fusion models to generate in-betweening motion through a sequential process of rendering, video generation, and mo- tion optimization. In this process, we observed that naively generating an interpolated video and reconstructing a 3D character often yielded unsatisfactory results due to: 1) limited contextual understanding, 2) domain gaps between real-world and rendered scenes, and 3) difficulties in accu- rately tracking motion from a generated video. To address these issues, we propose components specifically designed to overcome each challenge."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methods",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "This is a crucial issue, as motion in- betweening is not only valuable for well-documented char- acters but is even more essential for those that are difficult to capture with MOCAP or lack extensive keyframed data."
+    ],
+    "limitation_expression": [
+      "Nevertheless, a major hur- dle persists: training existing in-betweening models still demands vast amounts of MOCAP or manually keyframed Figure 1.",
+      "In this process, we observed that naively generating an interpolated video and reconstructing a 3D character often yielded unsatisfactory results due to: 1) limited contextual understanding, 2) domain gaps between real-world and rendered scenes, and 3) difficulties in accu- rately tracking motion from a generated video.",
+      "While our method requires training only a lightweight pose estimator using pretrained feature extractors and finetuning the video diffusion model on a small dataset, the overall process still necessitates five to six hours to complete the Figure 9.",
+      "To acheive this, we first identified three primary challenges associated with the naive application of these video diffusion models to motion in-betweening tasks: 1) limited contextual un- derstanding, 2) domain gaps, and 3) difficulties in tracking motion from generated videos."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Addition- ally, we propose a “motion-video mimicking” optimization technique, enabling seamless motion generation for charac- ters with arbitrary joint structures using 2D and 3D-aware features.",
+      "We propose a novel motion in-betweening method, AnyMoLe, which addresses the problem of scarcity of character-specific datasets.",
+      "To address these issues, we propose components specifically designed to overcome each challenge.",
+      "While our method requires training only a lightweight pose estimator using pretrained feature extractors and finetuning the video diffusion model on a small dataset, the overall process still necessitates five to six hours to complete the Figure 9."
+    ],
+    "experiment_expression": [
+      "Additionally, for motions with fast or com- plex dynamics as shown in Figure 10, rapid movements can blur the generated videos, causing ambiguity—especially in distinguishing left from right joints—and thus hamper- ing motion estimation."
+    ],
+    "contribution_expression": [
+      "We believe that our contributions broaden the use of video generation models and will stimulate further research in 3D character motion synthesis, particularly for characters that are challenging to capture with MOCAP or to animate manually."
+    ]
+  },
+  "notable_sentences": [
+    "Addition- ally, we propose a “motion-video mimicking” optimization technique, enabling seamless motion generation for charac- ters with arbitrary joint structures using 2D and 3D-aware features.",
+    "Additionally, for motions with fast or com- plex dynamics as shown in Figure 10, rapid movements can blur the generated videos, causing ambiguity—especially in distinguishing left from right joints—and thus hamper- ing motion estimation.",
+    "Discussion and Conclusion We proposed a novel motion in-betweening method to over- come the limitations posed by requirements of datasets.",
+    "To address these issues, we propose components specifically designed to overcome each challenge.",
+    "We propose a novel motion in-betweening method, AnyMoLe, which addresses the problem of scarcity of character-specific datasets.",
+    "Abstract Despite recent advancements in learning-based motion in- betweening, a key limitation has been overlooked: the re- quirement for character-specific datasets.",
+    "Additionally, some models have demon- strated the ability to interpolate between two images, natu- rally generating a range of transitioning scene elements or camera movements [10, 46, 47].",
+    "AnyMoLe generates in-between motion from context frames and keyframes without requiring external training data. data for each character.",
+    "AnyMoLe leverages video dif- fusion models to generate in-betweening motion through a sequential process of rendering, video generation, and mo- tion optimization.",
+    "AnyMoLe significantly reduces data dependency while generating smooth and realistic transitions, making it applicable to a wide range of motion in-betweening tasks.",
+    "By addressing these key challenges, our approach is the first to success- fully achieve motion in-betweening for arbitrary characters without the need for external data.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDespite recent advancements in learning-based motion in-\nbetweening, a key limitation has been overlooked: the re-\nquirement for character-specific datasets. In this work, we\nintroduce AnyMoLe, a novel method that addresses this lim-\nitation by leveraging video diffusion models to generate mo-\ntion in-between frames for arbitrary characters without ex-\nternal data. Our approach employs a two-stage frame gen-\neration process to enhance contextual understanding. Fur-\nthermore, to bridge the domain gap between real-world and\nrendered character animations, we introduce ICAdapt, a\nfine-tuning technique for video diffusion models. Addition-\nally, we propose a “motion-video mimicking” optimization\ntechnique, enabling seamless motion generation for charac-\nters with arbitrary joint structures using 2D and 3D-aware\nfeatures. AnyMoLe significantly reduces data dependency\nwhile generating smooth and realistic transitions, making it\napplicable to a wide range of motion in-betweening tasks.\nThe code and videos are available at project page.",
+    "introduction": "1. Introduction\nKeyframe interpolation is essential in the animation cre-\nation process, providing smooth and natural transitions be-\ntween keyframes to achieve lifelike character movements.\nTraditionally, this process has been highly labor-intensive,\noften involving extensive manual adjustments to refine the\nanimation. In recent years, while the adoption of mo-\ntion capture (MOCAP) technologies has helped alleviate\nthis manual burden, its high costs and infeasibility for cer-\ntain characters and animals present significant challenges.\nTo address these limitations, deep learning-based motion\nin-betweening methods have emerged, making notable ad-\nvancements [12, 18]. These efforts have focused on devel-\noping sophisticated architectures [9, 13, 32, 33] and uti-\nlizing large datasets [18] to generate realistic motion se-\nquences over long durations. Nevertheless, a major hur-\ndle persists: training existing in-betweening models still\ndemands vast amounts of MOCAP or manually keyframed\nFigure 1. AnyMoLe generates in-between motion from context\nframes and keyframes without requiring external training data.\ndata for each character. This is a crucial issue, as motion in-\nbetweening is not only valuable for well-documented char-\nacters but is even more essential for those that are difficult\nto capture with MOCAP or lack extensive keyframed data.\nRecent advancements in video generation models,\ntrained on web-scale video datasets, have enabled the gen-\neration of realistic videos from arbitrary text [4–6, 16] or\nimages [46, 56]. Additionally, some models have demon-\nstrated the ability to interpolate between two images, natu-\nrally generating a range of transitioning scene elements or\ncamera movements [10, 46, 47]. These capabilities align\nclosely with the goal of motion in-betweening, as video\ngeneration models excel at creating smooth transitions and\ncontinuous motion. Therefore, these models can address\ndata scarcity issues often encountered in 3D motion in-\nbetweening and leverage the generation of realistic motions\nfrom rendered keyframes, which become the essential foun-\ndation of our motion in-betweening process.\nWe propose a novel motion in-betweening method,\nAnyMoLe, which addresses the problem of scarcity of\ncharacter-specific datasets. AnyMoLe leverages video dif-\nfusion models to generate in-betweening motion through a\nsequential process of rendering, video generation, and mo-\ntion optimization. In this process, we observed that naively\ngenerating an interpolated video and reconstructing a 3D\ncharacter often yielded unsatisfactory results due to: 1)\nlimited contextual understanding, 2) domain gaps between\nreal-world and rendered scenes, and 3) difficulties in accu-\nrately tracking motion from a generated video. To address\nthese issues, we propose components specifically designed\nto overcome each challenge.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Methods\nGiven two seconds of context motion and target key frames\nfor a 3D character, AnyMoLe performs 3D motion in-\nbetweening using a video diffusion model, as illustrated in\nFigure 2. The process can be described as follows:",
+    "experiments": "4. Experiments",
+    "conclusion": "6. Discussion and Conclusion\nWe proposed a novel motion in-betweening method to over-\ncome the limitations posed by requirements of datasets.\nWhile our method requires training only a lightweight pose\nestimator using pretrained feature extractors and finetuning\nthe video diffusion model on a small dataset, the overall\nprocess still necessitates five to six hours to complete the\nFigure 9. From understanding of the context, AnyMoLe can natu-\nrally generate in-between frames in a multi-object scenario.\nFigure 10. Visualization of a generated frame from a fast turn-\naround, showing ambiguity that can hinder joint estimation.\nentire process. Additionally, for motions with fast or com-\nplex dynamics as shown in Figure 10, rapid movements can\nblur the generated videos, causing ambiguity—especially\nin distinguishing left from right joints—and thus hamper-\ning motion estimation. One possible direction to miti-\ngate time requirements and improve robustness against a\nfew ambiguous frames in generated videos is to train a\ncontext-informed, character-agnostic 3D joint estimator. If\nsuch pretraining can be achieved without sacrificing perfor-\nmance, it would significantly reduce computational time for\ntraining Scene-specific joint estimator and ensure robust-\nness, even when encountering blurry frames, due to its con-\ntextual understanding.\nIn this paper, we introduced a novel method for mo-\ntion in-betweening that effectively leverages video diffusion\nmodels to overcome the limitation of requiring character-\nspecific dataset, which has been overlooked. To acheive\nthis, we first identified three primary challenges associated\nwith the naive application of these video diffusion models\nto motion in-betweening tasks: 1) limited contextual un-\nderstanding, 2) domain gaps, and 3) difficulties in tracking\nmotion from generated videos. To address these challenges,\nwe introduced a two-stage video generation process using\ncontext frames, the ICAdapt method, motion-video mim-\nicking, and a scene-specific joint estimator. By addressing\nthese key challenges, our approach is the first to success-\nfully achieve motion in-betweening for arbitrary characters\nwithout the need for external data. We believe that our\ncontributions broaden the use of video generation models\nand will stimulate further research in 3D character motion\nsynthesis, particularly for characters that are challenging to\ncapture with MOCAP or to animate manually."
+  }
+}

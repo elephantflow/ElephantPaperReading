@@ -1,0 +1,99 @@
+{
+  "paper_id": "streetcrafter-street-view-synthesis-with-controllable-video-diffusion-models--0480183c91",
+  "paper_title": "StreetCrafter: Street View Synthesis with Controllable Video Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:35.230318+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/StreetCrafter： Street View Synthesis with Controllable Video Diffusion Models.pdf",
+    "filename": "StreetCrafter： Street View Synthesis with Controllable Video Diffusion Models.pdf",
+    "sha1": "0480183c91ea43ecc49c9a8add377c614cfd359e",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Modeling dynamic street scenes is a crucial step in devel- oping autonomous driving simulators.",
+    "limitation": "This issue arises from the insufficient observation in the training input for these regions and the limited ability of view extrapolation for reconstruction-based methods.",
+    "insight": "Recent methods [26, 39] have achieved great success in novel view synthesis for static scene reconstruction, provid- ing valuable insights for dynamic street modeling.",
+    "proposed_method": "To mitigate this prob- lem, we introduce StreetCrafter, a novel controllable video diffusion model that utilizes LiDAR point cloud renderings as pixel-level conditions, which fully exploits the genera- tive prior for novel view synthesis, while preserving pre- cise camera control.",
+    "experimental_evidence": "Ex- periments on Waymo Open Dataset and PandaSet demon- strate that our model enables flexible control over viewpoint changes, enlarging the view synthesis regions for satisfying rendering, which outperforms existing methods.",
+    "summary": "Introduction Modeling dynamic street scenes is a crucial step in devel- oping autonomous driving simulators. This issue arises from the insufficient observation in the training input for these regions and the limited ability of view extrapolation for reconstruction-based methods. Recent methods [26, 39] have achieved great success in novel view synthesis for static scene reconstruction, provid- ing valuable insights for dynamic street modeling. To mitigate this prob- lem, we introduce StreetCrafter, a novel controllable video diffusion model that utilizes LiDAR point cloud renderings as pixel-level conditions, which fully exploits the genera- tive prior for novel view synthesis, while preserving pre- cise camera control. Ex- periments on Waymo Open Dataset and PandaSet demon- strate that our model enables flexible control over viewpoint changes, enlarging the view synthesis regions for satisfying rendering, which outperforms existing methods."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "key_insight",
+      "main_message": "Introduction Modeling dynamic street scenes is a crucial step in devel- oping autonomous driving simulators.",
+      "writing_strategy": "Introduces an observation that motivates the proposed direction.",
+      "evidence_text": "1. Introduction\nModeling dynamic street scenes is a crucial step in devel-\noping autonomous driving simulators. Models capable of\ngenerating high-quality views can enable closed-loop eval-\nuations of autonomous systems and create corner-case data\nat a low cost. The primary challenge is to achieve real-time\nand high-quality view synthesis across diverse trajectories\nusing vehicle RGB and LiDAR data of a single trajectory.\nRecent methods [26, 39] have achieved great success in\nnovel view synthesis for static scene reconstruction, provid-\ning valuable insights for dynamic street modeling. Based on\nthis, recent works [71, 82] extend 3DGS [26] to dynamic\nstreet scenes by modeling moving vehicles through a scene\ngraph. While these methods enable high-quality, real-time\nview synthesis, significant artifacts appear in viewpoints\nthat are far from the training trajectory, as shown in Fig-\nure 1. This issue arises from the insufficient observation in\nthe training input for these regions and the limited ability of\nview extrapolation for reconstruction-based methods.\nMeanwhile, video diffusion models [2, 12] have demon-\nstrated the ability to generate photorealistic views for novel\ncamera traj"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "are high-level instructions and lack fine-grained controlla- bility, thereby hindering their application in autonomous driving simulation.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "are high-level instructions and lack fine-grained controlla-\nbility, thereby hindering their application in autonomous\ndriving simulation.\nIn this paper, we propose StreetCrafter, a novel control-\nlable video diffusion model, which enables precise control\nover novel view synthesis in street scenes. Our key obser-\nvation is that point cloud rendering from LiDAR sensors\nprovides precise geometric information, which despite be-\ning incomplete and noisy, can serve as a precise camera\npose representation. To utilize this representation, we in-\ncorporate the point cloud rendering as a condition for video\ndiffusion models. Specifically, we aggregate the colorized\nLiDAR from adjacent frames to form a global point cloud\nin world space, which is then rendered to RGB images\nbased on the given camera pose input, serving as a pixel-\nlevel pose condition in image space. Thanks to the pixel-\nlevel condition, we empirically find that even training only\non the sequences of single-lane driving data enables high-\nquality view synthesis across multiple lanes during test-\ning by changing the conditions based on novel view input.\nMoreover, the proposed pixel-level condition can be uti-\nlized to enable s"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Introduction Modeling dynamic street scenes is a crucial step in devel- oping autonomous driving simulators."
+    ],
+    "limitation_expression": [
+      "This issue arises from the insufficient observation in the training input for these regions and the limited ability of view extrapolation for reconstruction-based methods.",
+      "However, these mod- els typically rely on text prompts as control signals, which This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "However, StreetCrafter faces the challenges of high ren- dering latency, particularly 0.2fps for a 576 × 1024 frame."
+    ],
+    "insight_expression": [
+      "This motivates us to further distill StreetCrafter into a dy- namic 3DGS [26, 71] representation, enabling it to perform real-time high-quality view synthesis under large viewpoint changes."
+    ],
+    "method_expression": [
+      "In this paper, we propose StreetCrafter, a novel control- lable video diffusion model, which enables precise control over novel view synthesis in street scenes.",
+      "We evaluate our method on Waymo Open Dataset [50] and PandaSet [67].",
+      "The experimental results show that our method outperforms the state-of-the-art methods in terms of image quality, particularly for view extrapolation, while maintaining the ability of real-time rendering.",
+      "Our method also enables various scene editing operations without the need for per-scene optimization, such as object removal, re- placement and translation.",
+      "Overall, this work makes the following contributions: • We propose a novel controllable video diffusion model, StreetCrafter, which provides precise camera control for novel view synthesis of street scenes. • We demonstrate that StreetCrafter can be efficiently dis- tilled into a dynamic 3D scene representation, achieving state-of-the-art performance in street view synthesis."
+    ],
+    "experiment_expression": [
+      "While these methods enable high-quality, real-time view synthesis, significant artifacts appear in viewpoints that are far from the training trajectory, as shown in Fig- ure 1.",
+      "Moreover, the proposed pixel-level condition can be uti- lized to enable scene editing operations without per-scene optimization, simply by manipulating the LiDAR points as shown in Figure 1.",
+      "Overall, this work makes the following contributions: • We propose a novel controllable video diffusion model, StreetCrafter, which provides precise camera control for novel view synthesis of street scenes. • We demonstrate that StreetCrafter can be efficiently dis- tilled into a dynamic 3D scene representation, achieving state-of-the-art performance in street view synthesis."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, StreetCrafter faces the challenges of high ren- dering latency, particularly 0.2fps for a 576 × 1024 frame.",
+    "However, these mod- els typically rely on text prompts as control signals, which This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "In this paper, we propose StreetCrafter, a novel control- lable video diffusion model, which enables precise control over novel view synthesis in street scenes.",
+    "Moreover, the proposed pixel-level condition can be uti- lized to enable scene editing operations without per-scene optimization, simply by manipulating the LiDAR points as shown in Figure 1.",
+    "While these methods enable high-quality, real-time view synthesis, significant artifacts appear in viewpoints that are far from the training trajectory, as shown in Fig- ure 1.",
+    "822 are high-level instructions and lack fine-grained controlla- bility, thereby hindering their application in autonomous driving simulation.",
+    "Abstract This paper aims to tackle the problem of photorealistic view synthesis from vehicle sensor data.",
+    "Based on this, recent works [71, 82] extend 3DGS [26] to dynamic street scenes by modeling moving vehicles through a scene graph.",
+    "By further distilling StreetCrafter into a 3DGS [26] model, we enable real-time view synthesis in challenging scenarios, such as lane shift.",
+    "Conclusion This paper introduced StreetCrafter, a controllable video diffusion model for street view synthesis.",
+    "Detailed ablation and comparisons are conducted on several datasets, demonstrating the effectiveness of the proposed methods.",
+    "Ex- periments on Waymo Open Dataset and PandaSet demon- strate that our model enables flexible control over viewpoint changes, enlarging the view synthesis regions for satisfying rendering, which outperforms existing methods."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nThis paper aims to tackle the problem of photorealistic view\nsynthesis from vehicle sensor data. Recent advancements\nin neural scene representation have achieved notable suc-\ncess in rendering high-quality autonomous driving scenes,\nbut the performance significantly degrades as the viewpoint\ndeviates from the training trajectory. To mitigate this prob-\nlem, we introduce StreetCrafter, a novel controllable video\ndiffusion model that utilizes LiDAR point cloud renderings\nas pixel-level conditions, which fully exploits the genera-\ntive prior for novel view synthesis, while preserving pre-\ncise camera control. Moreover, the utilization of pixel-level\nLiDAR conditions allows us to make accurate pixel-level\nedits to target scenes. In addition, the generative prior of\nStreetCrafter can be effectively incorporated into dynamic\nscene representations to achieve real-time rendering. Ex-\nperiments on Waymo Open Dataset and PandaSet demon-\nstrate that our model enables flexible control over viewpoint\nchanges, enlarging the view synthesis regions for satisfying\nrendering, which outperforms existing methods. The code\nis available at https://zju3dv.github.io/street crafter.\n∗Equal contribution. †Corresponding author.",
+    "introduction": "1. Introduction\nModeling dynamic street scenes is a crucial step in devel-\noping autonomous driving simulators. Models capable of\ngenerating high-quality views can enable closed-loop eval-\nuations of autonomous systems and create corner-case data\nat a low cost. The primary challenge is to achieve real-time\nand high-quality view synthesis across diverse trajectories\nusing vehicle RGB and LiDAR data of a single trajectory.\nRecent methods [26, 39] have achieved great success in\nnovel view synthesis for static scene reconstruction, provid-\ning valuable insights for dynamic street modeling. Based on\nthis, recent works [71, 82] extend 3DGS [26] to dynamic\nstreet scenes by modeling moving vehicles through a scene\ngraph. While these methods enable high-quality, real-time\nview synthesis, significant artifacts appear in viewpoints\nthat are far from the training trajectory, as shown in Fig-\nure 1. This issue arises from the insufficient observation in\nthe training input for these regions and the limited ability of\nview extrapolation for reconstruction-based methods.\nMeanwhile, video diffusion models [2, 12] have demon-\nstrated the ability to generate photorealistic views for novel\ncamera trajectories from just a few input images, leveraging\ntraining on large-scale video datasets. However, these mod-\nels typically rely on text prompts as control signals, which\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n822\n\nare high-level instructions and lack fine-grained controlla-\nbility, thereby hindering their application in autonomous\ndriving simulation.\nIn this paper, we propose StreetCrafter, a novel control-\nlable video diffusion model, which enables precise control\nover novel view synthesis in street scenes. Our key obser-\nvation is that point cloud rendering from LiDAR sensors\nprovides precise geometric information, which despite be-\ning incomplete and noisy, can serve as a precise camera\npose representation. To utilize this representation, we in-\ncorporate the point cloud rendering as a condition for video\ndiffusion models. Specifically, we aggregate the colorized\nLiDAR from adjacent frames to form a global point cloud\nin world space, which is then rendered to RGB images\nbased on the given camera pose input, serving as a pixel-\nlevel pose condition in image space. Thanks to the pixel-\nlevel condition, we empirically find that even training only\non the sequences of single-lane driving data enables high-\nquality view synthesis across multiple lanes during test-\ning by changing the conditions based on novel view input.\nMoreover, the proposed pixel-level condition can be uti-\nlized to enable scene editing operations without per-scene\noptimization, simply by manipulating the LiDAR points as\nshown in Figure 1.\nHowever, StreetCrafter faces the challenges of high ren-\ndering latency, particularly 0.2fps for a 576 × 1024 frame.\nThis motivates us to further distill StreetCrafter into a dy-\nnamic 3DGS [26, 71] representation, enabling it to perform\nreal-time high-quality view synthesis under large viewpoint\nchanges. Specifically, we apply StreetCrafter to generate\na series of images along the novel trajectory. These gen-\nerated images can serve as extra supervision for the scene\nrepresentation beyond the original training trajectory inputs.\nThis distillation process further combines the advantages of\n3D scene representation and video diffusion model, achiev-\ning state-of-the-art performance in rendering results.\nWe evaluate our method on Waymo Open Dataset [50]\nand PandaSet [67]. The experimental results show that our\nmethod outperforms the state-of-the-art methods in terms\nof image quality, particularly for view extrapolation, while\nmaintaining the ability of real-time rendering. Our method\nalso enables various scene editing operations without the\nneed for per-scene optimization, such as object removal, re-\nplacement and translation.\nOverall, this work makes the following contributions:\n• We propose a novel controllable video diffusion model,\nStreetCrafter, which provides precise camera control for\nnovel view synthesis of street scenes.\n• We demonstrate that StreetCrafter can be efficiently dis-\ntilled into a dynamic 3D scene representation, achieving\nstate-of-the-art performance in street view synthesis.",
+    "method": "3. Method\nGiven a recorded autonomous driving scene with calibrated\nimages, LiDAR point clouds, and corresponding object\ntracklets, our goal is to develop a model capable of synthe-\nsizing photorealistic images for novel views. We first give a\nbrief introduction to video diffusion models and 3D Gaus-\nsian Splatting in Section 3.1. Then, we introduce our con-\ntrollable video diffusion model StreetCrafter in Section 3.2.\nFinally, Section 3.3 discusses how to distill StreetCrafter\ninto a 3D representation for real-time rendering.",
+    "experiments": "5. Experiments",
+    "conclusion": "6. Conclusion\nThis paper introduced StreetCrafter, a controllable video\ndiffusion model for street view synthesis. The key in-\nsight is to leverage sparse yet geometrically accurate Li-\nDAR to provide pixel-level conditions for precise camera\ncontrol, enabling the model to generate consistent video\nframes aligned with the camera inputs. By further distilling\nStreetCrafter into a 3DGS [26] model, we enable real-time\nview synthesis in challenging scenarios, such as lane shift.\nMoreover, scene editing is possible by providing modified\nLiDAR conditions to the video diffusion model. Detailed\nablation and comparisons are conducted on several datasets,\ndemonstrating the effectiveness of the proposed methods.\nThis work also has some known limitations. First, col-\nlecting the necessary LiDAR data and object tracklets for\ntraining StreetCrafter is costly due to the extensive data\ncollection and processing requirements. Second, the infer-\nence speed of StreetCrafter remains significantly short of\nreal-time due to the architecture of video denoising U-Net.\nFuture work could consider employing a more advanced\nmodel for real-time inference."
+  }
+}

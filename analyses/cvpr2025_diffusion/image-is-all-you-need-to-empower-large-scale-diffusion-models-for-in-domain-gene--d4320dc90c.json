@@ -1,0 +1,121 @@
+{
+  "paper_id": "image-is-all-you-need-to-empower-large-scale-diffusion-models-for-in-domain-gene--d4320dc90c",
+  "paper_title": "Image is All You Need to Empower Large-scale Diffusion Models for In-Domain Generation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:53.059010+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Image is All You Need to Empower Large-scale Diffusion Models for In-Domain Generation.pdf",
+    "filename": "Image is All You Need to Empower Large-scale Diffusion Models for In-Domain Generation.pdf",
+    "sha1": "d4320dc90c6d55af5a9898fb440468ef00c0fa78",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Then, we propose a guidance-decoupled prior preservation method to address these challenges.",
+    "limitation": "However, the generated results often fail to fully align with specific data domains, as shown in orange in Fig.",
+    "insight": "Motivated by the powerful generative capabilities and broad applications of diffusion models, we are driven to explore leveraging label-free data to em- power these models for in-domain generation.",
+    "proposed_method": "To address this challenge, we propose a guidance-decoupled prior preservation mecha- nism to achieve high generative quality and controllability by image-only data, inspired by preserving the pre-trained model from a denoising guidance perspective.",
+    "experimental_evidence": "Extensive experiments demonstrate the superiority of our method in domain-specific synthesis and its compati- bility with various diffusion-based control methods and ap- plications.",
+    "summary": "Then, we propose a guidance-decoupled prior preservation method to address these challenges. However, the generated results often fail to fully align with specific data domains, as shown in orange in Fig. Motivated by the powerful generative capabilities and broad applications of diffusion models, we are driven to explore leveraging label-free data to em- power these models for in-domain generation. To address this challenge, we propose a guidance-decoupled prior preservation mecha- nism to achieve high generative quality and controllability by image-only data, inspired by preserving the pre-trained model from a denoising guidance perspective. Extensive experiments demonstrate the superiority of our method in domain-specific synthesis and its compati- bility with various diffusion-based control methods and ap- plications."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction In-domain generation aims to accomplish various tasks within a specific domain, often requiring tailored ap- proaches and labeled data.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction In-domain generation aims to accomplish various tasks within a specific domain, often requiring tailored ap- proaches and labeled data. For instance, pix2pix [19] was developed for image-to-image translation ( e.g., converting segmentation or edge images to realistic images), relying on paired images for training. Similarly, InterfaceGAN[45] enables attribute-based image editing but requires attribute- labeled images to train editing vectors. Such traditional methods[6, 12, 19, 45] depend heavily on specific gener- ative tasks and data domains, which limits their generaliza- tion capability."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Thanks to billion-scale image-text datasets [2, 37, 43, 44] and advances in large-scale natural language mod- els [9, 35, 36], recent research on diffusion models has pushed the boundaries of AI-generated content, greatly en- hancing both the diversity and controllability of gener- ated outputs [39].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Thanks to billion-scale image-text datasets [2, 37, 43, 44] and advances in large-scale natural language mod- els [9, 35, 36], recent research on diffusion models has pushed the boundaries of AI-generated content, greatly en- hancing both the diversity and controllability of gener- ated outputs [39]. With various control mechanisms and approaches ( e.g., ControlNet[61], SDEdit[29]), diffusion models can also perform diverse generative tasks beyond text-to-image synthesis, alleviating the data demands of tra- ditional generative methods. However, the generated results often fail to fully align with specific data domains, as shown in orange in Fig. While fine-tuning a pre-trained model on domain- specific data is an intuitive way to inject domain knowl- edge, it is challenging to balance fidelity with controllabil- ity, as illustrated in Fig."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "method_overview",
+      "main_message": "For example, fine-tuning can improve the quality of face generation but may gradually re- duce the effect of control prompts like wearing hat .",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "For example, fine-tuning can improve the quality of face generation but may gradually re- duce the effect of control prompts like wearing hat . In this work, we first identify this phenomenon caused by con- ditional guidance and unconditional guidance catastrophic forgetting during fine-tuning. These two guidances are in- tegrated by classifier-free guidance for improved generative capability, which is employed in most text-to-image diffu- sion models. Then, we propose a guidance-decoupled prior preservation method to address these challenges."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "problem_statement",
+      "main_message": "We decou- ple the conditional guidance in CFG into two parts: domain guidance, which is optimized in fine-tuning to enhance fi- delity, and control guidance, which is preserved for control- lability.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "We decou- ple the conditional guidance in CFG into two parts: domain guidance, which is optimized in fine-tuning to enhance fi- delity, and control guidance, which is preserved for control- lability. With introducing multiple guidances in the synthe- sis process, the control guidance and unconditional guid- ance, which we want to preserve during personalization, are directly predicted by diffusion priors, while the domain guidance is predicted by an independent diffusion model. Additionally, we introduce an efficient domain knowledge learning mechanism, designing a null-text Diffusion Model to learn domain knowledge in a concise way. We conduct extensive experiments to demonstrate the ef- fects of our proposed task and validate the superiority of our approach."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "contribution_summary",
+      "main_message": "To summarize, our contributions are as follows: • We present the task of aligning large-scale diffusion mod- els with specific domains using only image data to per- form a variety of generative tasks. • We propose a guidance-decoupled prior preservation mechanism to address guidance forgetting during fine- tuning, which decouples domain guidance to learn do- main knowledge with other guidance preserved.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "To summarize, our contributions are as follows: • We present the task of aligning large-scale diffusion mod- els with specific domains using only image data to per- form a variety of generative tasks. • We propose a guidance-decoupled prior preservation mechanism to address guidance forgetting during fine- tuning, which decouples domain guidance to learn do- main knowledge with other guidance preserved. Besides, we propose an efficient learning mechanism to learn do- main knowledge. • We present the pipeline of our proposed method for in-domain generation tasks and conduct experiments and comparisons across multiple domains and tasks to demonstrate the effectiveness and advancement of our ap- proach."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Fine-tuning a pre-trained generative model on domain data is an intu- itive but challenging way and often requires complex man- ual hyper-parameter adjustments since the limited diversity of the training data can easily disrupt the model’s origi- † The first two authors contributed to this paper equally. ∗ Corresponding author: Lu Yang.",
+      "However, the generated results often fail to fully align with specific data domains, as shown in orange in Fig."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this challenge, we propose a guidance-decoupled prior preservation mecha- nism to achieve high generative quality and controllability by image-only data, inspired by preserving the pre-trained model from a denoising guidance perspective.",
+      "Extensive experiments demonstrate the superiority of our method in domain-specific synthesis and its compati- bility with various diffusion-based control methods and ap- plications.",
+      "Then, we propose a guidance-decoupled prior preservation method to address these challenges.",
+      "To summarize, our contributions are as follows: • We present the task of aligning large-scale diffusion mod- els with specific domains using only image data to per- form a variety of generative tasks. • We propose a guidance-decoupled prior preservation mechanism to address guidance forgetting during fine- tuning, which decouples domain guidance to learn do- main knowledge with other guidance preserved.",
+      "Besides, we propose an efficient learning mechanism to learn do- main knowledge. • We present the pipeline of our proposed method for in-domain generation tasks and conduct experiments and comparisons across multiple domains and tasks to demonstrate the effectiveness and advancement of our ap- proach.",
+      "To tackle this challenge, we propose a guidance-decoupled prior preservation mechanism that sep- arates conditional guidance into two components: domain guidance for alignment and control guidance for maintain- ing the models controllability.",
+      "We then outline the generative pipeline of our method to achieve diverse in-domain generation tasks."
+    ],
+    "experiment_expression": [
+      "Extensive experiments demonstrate the superiority of our method in domain-specific synthesis and its compati- bility with various diffusion-based control methods and ap- plications.",
+      "However, the generated results often fail to fully align with specific data domains, as shown in orange in Fig.",
+      "We conduct extensive experiments to demonstrate the ef- fects of our proposed task and validate the superiority of our approach.",
+      "Besides, we propose an efficient learning mechanism to learn do- main knowledge. • We present the pipeline of our proposed method for in-domain generation tasks and conduct experiments and comparisons across multiple domains and tasks to demonstrate the effectiveness and advancement of our ap- proach.",
+      "We conduct experiments across three domains to demonstrate the effec- tiveness of our proposed method."
+    ],
+    "contribution_expression": [
+      "To summarize, our contributions are as follows: • We present the task of aligning large-scale diffusion mod- els with specific domains using only image data to per- form a variety of generative tasks. • We propose a guidance-decoupled prior preservation mechanism to address guidance forgetting during fine- tuning, which decouples domain guidance to learn do- main knowledge with other guidance preserved."
+    ]
+  },
+  "notable_sentences": [
+    "However, the generated results often fail to fully align with specific data domains, as shown in orange in Fig.",
+    "Extensive experiments demonstrate the superiority of our method in domain-specific synthesis and its compati- bility with various diffusion-based control methods and ap- plications.",
+    "Then, we propose a guidance-decoupled prior preservation method to address these challenges.",
+    "To summarize, our contributions are as follows: • We present the task of aligning large-scale diffusion mod- els with specific domains using only image data to per- form a variety of generative tasks. • We propose a guidance-decoupled prior preservation mechanism to address guidance forgetting during fine- tuning, which decouples domain guidance to learn do- main knowledge with other guidance preserved.",
+    "We conduct extensive experiments to demonstrate the ef- fects of our proposed task and validate the superiority of our approach.",
+    "18358 aphotooffacewearinghat aphotoofface fine-tuningstep TextualAlignment DomainFidelity Figure 2.",
+    "Abstract In-domain generation aims to perform a variety of tasks within a specific domain, such as unconditional genera- tion, text-to-image, image editing, 3D generation, and more.",
+    "Additionally, we introduce an efficient domain knowledge learning mechanism, designing a null-text Diffusion Model to learn domain knowledge in a concise way.",
+    "Additionally, we introduce an efficient learning approach by incorporating a null-text diffusion model, ensuring both simplicity and effectiveness.",
+    "Besides, we propose an efficient learning mechanism to learn do- main knowledge. • We present the pipeline of our proposed method for in-domain generation tasks and conduct experiments and comparisons across multiple domains and tasks to demonstrate the effectiveness and advancement of our ap- proach.",
+    "Besides, we theoretically illustrate a multi-guidance in-domain gen- eration pipeline for a variety of generative tasks, leveraging multiple guidances from distinct diffusion models and con- ditions.",
+    "Challenge of fine-tuning diffusion models on domain data."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nIn-domain generation aims to perform a variety of tasks\nwithin a specific domain, such as unconditional genera-\ntion, text-to-image, image editing, 3D generation, and more.\nEarly research typically required training specialized gen-\nerators for each unique task and domain, often relying on\nfully-labeled data. Motivated by the powerful generative\ncapabilities and broad applications of diffusion models,\nwe are driven to explore leveraging label-free data to em-\npower these models for in-domain generation. Fine-tuning\na pre-trained generative model on domain data is an intu-\nitive but challenging way and often requires complex man-\nual hyper-parameter adjustments since the limited diversity\nof the training data can easily disrupt the model’s origi-\n† The first two authors contributed to this paper equally.\n∗ Corresponding author: Lu Yang.\nCode is available at https://github.com/PRIV-Creation/\nIn-domain-Generation-Diffusion .\nnal generative capabilities. To address this challenge, we\npropose a guidance-decoupled prior preservation mecha-\nnism to achieve high generative quality and controllability\nby image-only data, inspired by preserving the pre-trained\nmodel from a denoising guidance perspective. We decou-\nple domain-related guidance from the conditional guidance\nused in classifier-free guidance mechanisms to preserve\nopen-world control guidance and unconditional guidance\nfrom the pre-trained model. We further propose an efficient\ndomain knowledge learning technique to train an additional\ntext-free UNet copy to predict domain guidance. Besides,\nwe theoretically illustrate a multi-guidance in-domain gen-\neration pipeline for a variety of generative tasks, leveraging\nmultiple guidances from distinct diffusion models and con-\nditions. Extensive experiments demonstrate the superiority\nof our method in domain-specific synthesis and its compati-\nbility with various diffusion-based control methods and ap-\nplications.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n18358\n\naphotooffacewearinghat\naphotoofface\nfine-tuningstep\nTextualAlignment\nDomainFidelity\nFigure 2. Challenge of fine-tuning diffusion models on domain\ndata. We show the fine-tuning process of Stable Diffusion v1.5\nwith a facial image dataset (i.e., FFHQ[20]). The open-world con-\ntrollability of pre-trained diffusion models is gradually decreased\nduring the fine-tuning process, with domain fidelity improved.",
+    "introduction": "1. Introduction\nIn-domain generation aims to accomplish various tasks\nwithin a specific domain, often requiring tailored ap-\nproaches and labeled data. For instance, pix2pix [19] was\ndeveloped for image-to-image translation ( e.g., converting\nsegmentation or edge images to realistic images), relying\non paired images for training. Similarly, InterfaceGAN[45]\nenables attribute-based image editing but requires attribute-\nlabeled images to train editing vectors. Such traditional\nmethods[6, 12, 19, 45] depend heavily on specific gener-\native tasks and data domains, which limits their generaliza-\ntion capability.\nThanks to billion-scale image-text datasets [2, 37, 43,\n44] and advances in large-scale natural language mod-\nels [9, 35, 36], recent research on diffusion models has\npushed the boundaries of AI-generated content, greatly en-\nhancing both the diversity and controllability of gener-\nated outputs [39]. With various control mechanisms and\napproaches ( e.g., ControlNet[61], SDEdit[29]), diffusion\nmodels can also perform diverse generative tasks beyond\ntext-to-image synthesis, alleviating the data demands of tra-\nditional generative methods. However, the generated results\noften fail to fully align with specific data domains, as shown\nin orange in Fig. 1.\nWhile fine-tuning a pre-trained model on domain-\nspecific data is an intuitive way to inject domain knowl-\nedge, it is challenging to balance fidelity with controllabil-\nity, as illustrated in Fig. 2. For example, fine-tuning can\nimprove the quality of face generation but may gradually re-\nduce the effect of control prompts like wearing hat . In\nthis work, we first identify this phenomenon caused by con-\nditional guidance and unconditional guidance catastrophic\nforgetting during fine-tuning. These two guidances are in-\ntegrated by classifier-free guidance for improved generative\ncapability, which is employed in most text-to-image diffu-\nsion models. Then, we propose a guidance-decoupled prior\npreservation method to address these challenges. We decou-\nple the conditional guidance in CFG into two parts: domain\nguidance, which is optimized in fine-tuning to enhance fi-\ndelity, and control guidance, which is preserved for control-\nlability. With introducing multiple guidances in the synthe-\nsis process, the control guidance and unconditional guid-\nance, which we want to preserve during personalization,\nare directly predicted by diffusion priors, while the domain\nguidance is predicted by an independent diffusion model.\nAdditionally, we introduce an efficient domain knowledge\nlearning mechanism, designing a null-text Diffusion Model\nto learn domain knowledge in a concise way.\nWe conduct extensive experiments to demonstrate the ef-\nfects of our proposed task and validate the superiority of our\napproach. To summarize, our contributions are as follows:\n• We present the task of aligning large-scale diffusion mod-\nels with specific domains using only image data to per-\nform a variety of generative tasks.\n• We propose a guidance-decoupled prior preservation\nmechanism to address guidance forgetting during fine-\ntuning, which decouples domain guidance to learn do-\nmain knowledge with other guidance preserved. Besides,\nwe propose an efficient learning mechanism to learn do-\nmain knowledge.\n• We present the pipeline of our proposed method for\nin-domain generation tasks and conduct experiments\nand comparisons across multiple domains and tasks to\ndemonstrate the effectiveness and advancement of our ap-\nproach.",
+    "method": "3. Method",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nIn this research, we address the task of enhancing large-\nscale diffusion models for in-domain generation using only\nimage data. Our goal is to enable these models to generate\nimages that faithfully represent the given domains, achiev-\ning high fidelity, diversity, and controllability. Moreover,\nour approach is designed to be compatible with various con-\ntrol methods, allowing the model to perform a wide range\nof generative tasks. To tackle this challenge, we propose a\nguidance-decoupled prior preservation mechanism that sep-\narates conditional guidance into two components: domain\nguidance for alignment and control guidance for maintain-\ning the models controllability. Additionally, we introduce\nan efficient learning approach by incorporating a null-text\ndiffusion model, ensuring both simplicity and effectiveness.\nWe then outline the generative pipeline of our method to\nachieve diverse in-domain generation tasks. We conduct\nexperiments across three domains to demonstrate the effec-\ntiveness of our proposed method.\n18365"
+  }
+}

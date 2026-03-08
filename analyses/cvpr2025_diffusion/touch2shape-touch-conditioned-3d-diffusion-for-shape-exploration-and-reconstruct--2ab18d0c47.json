@@ -1,0 +1,129 @@
+{
+  "paper_id": "touch2shape-touch-conditioned-3d-diffusion-for-shape-exploration-and-reconstruct--2ab18d0c47",
+  "paper_title": "Touch2Shape: Touch-Conditioned 3D Diffusion for Shape Exploration and Reconstruction",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:41.227816+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Touch2Shape： Touch-Conditioned 3D Diffusion for Shape Exploration and Reconstruction.pdf",
+    "filename": "Touch2Shape： Touch-Conditioned 3D Diffusion for Shape Exploration and Reconstruction.pdf",
+    "sha1": "2ab18d0c472e59d79be13dd4f63d136a796552a5",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "However, acquiring 3D data presents greater challenges and costs compared to 2D image and text data.",
+    "limitation": "However, acquiring 3D data presents greater challenges and costs compared to 2D image and text data.",
+    "insight": "This motivates further research into 3D reconstruc- tion across new modalities.",
+    "proposed_method": "Especially, we propose Touch2Shape, a touch-conditioned diffusion model for shape exploration through continuous touch and shape reconstruction by inte- grating all captured tactile images (along with the optional visual image).",
+    "experimental_evidence": "Experiments validate the reconstruction quality thorough both qualita- tively and quantitative analysis, and our touch exploration policy further boosts reconstruction performance. *Corresponding authors.",
+    "summary": "However, acquiring 3D data presents greater challenges and costs compared to 2D image and text data. However, acquiring 3D data presents greater challenges and costs compared to 2D image and text data. This motivates further research into 3D reconstruc- tion across new modalities. Especially, we propose Touch2Shape, a touch-conditioned diffusion model for shape exploration through continuous touch and shape reconstruction by inte- grating all captured tactile images (along with the optional visual image). Experiments validate the reconstruction quality thorough both qualita- tively and quantitative analysis, and our touch exploration policy further boosts reconstruction performance. *Corresponding authors."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction 3D generation and reconstruction tasks have emerged as key focal points in the ﬁelds of computer vision and graph- ics, offering valuable applications in areas like autonomous driving and robot interactions characterized by environmen- tal occlusions and camera measurement errors [ 5, 6, 32].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction 3D generation and reconstruction tasks have emerged as key focal points in the ﬁelds of computer vision and graph- ics, offering valuable applications in areas like autonomous driving and robot interactions characterized by environmen- tal occlusions and camera measurement errors [ 5, 6, 32]. However, acquiring 3D data presents greater challenges and costs compared to 2D image and text data. This underscores the critical importance of ongoing research into 3D recon- struction and generation. Diffusion models have garnered substantial attention in generative tasks for their innovative approaches and promis- ing results."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "While their impact has been particularly notable in 2D image generation [ 10, 27], these models are also be- ing applied to 3D tasks.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "While their impact has been particularly notable in 2D image generation [ 10, 27], these models are also be- ing applied to 3D tasks. Pioneering projects such as SDFu- sion [5] and DiffusionSDF [ 6] have demonstrated the abil- ity to create the 3D shapes using visual images or multi- modal data. However, the current focus is on 3D shape re- construction based on predetermined partial observations. This limitation presents challenges on two fronts."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "key_insight",
+      "main_message": "Firstly, while current methods can estimate the overall shape of a target from limited data, they may overlook the local de- tails of objects, making it challenging to generate complex shapes.",
+      "writing_strategy": "Introduces an observation that motivates the proposed direction.",
+      "evidence_text": "Firstly, while current methods can estimate the overall shape of a target from limited data, they may overlook the local de- tails of objects, making it challenging to generate complex shapes. This motivates further research into 3D reconstruc- tion across new modalities. Secondly, practical scenarios present challenges where environmental factors like occlu- sions and varying lighting conditions impede the complete extraction of crucial local information. The complexity of real-world conditions underscores the necessity of actively exploring the target to capture information and facilitate the reconstruction process."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "method_overview",
+      "main_message": "In this work, we employ a simulated robotic arm guided by a trained policy model to touch the target, enabling the acquisition of tactile images to reconstruct the target through touch interaction.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "In this work, we employ a simulated robotic arm guided by a trained policy model to touch the target, enabling the acquisition of tactile images to reconstruct the target through touch interaction. Tactile images provide local 3D shape information, including spatial contact points and de- tailed shape information, enhancing the reconstruction of local details, while visual data assists in predicting overall shape characteristics. Especially, we propose Touch2Shape, a touch-conditioned diffusion model for shape exploration through continuous touch and shape reconstruction by inte- grating all captured tactile images (along with the optional visual image). The reason for utilizing the diffusion model is to leverage its powerful generative capabilities to assist the model in generating a latent shape when the initial data perception is limited."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "The latent shape is then used to guide the policy model to predict beneﬁcial touch locations for re- construction based on potential missing areas.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "The latent shape is then used to guide the policy model to predict beneﬁcial touch locations for re- construction based on potential missing areas. To train the exploration policy, we integrate the diffusion model with reinforcement learning and design a reward function. In contrast to previous methods, our approach not only produces superior 3D reconstruction outputs but also elim- inates the need to generate the ﬁnal shape at every step. Due to the fact that the diffusion model can generate a low-dimensional and compact latent space, we only gen- erate the full reconstruction of the target object at the ﬁ- nal step."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Extensive experiments validate the effectiveness of our method, demonstrating signiﬁcant improvements in both reconstruction performance and the ability to improve reconstruction quality through touch exploration.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "Extensive experiments validate the effectiveness of our method, demonstrating signiﬁcant improvements in both reconstruction performance and the ability to improve reconstruction quality through touch exploration. The main contributions of this article are as follows: • We propose Touch2Shape, a touch-conditioned 3D diffu- sion model for shape exploration and reconstruction, uti- lizing the latent vector to guide the touch location plan- ning and shape decoding. • Touch2Shape utilizes contrastive touch encoder to embed touch information and shapes in a joint space. • We propose a touch shape fusion module to optimize the reconstructed shape using touch information. • We combine the diffusion model with reinforcement learning for shape exploration policy training and design the corresponding reward function."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "This underscores the critical importance of ongoing research into 3D recon- struction and generation.",
+      "Secondly, practical scenarios present challenges where environmental factors like occlu- sions and varying lighting conditions impede the complete extraction of crucial local information."
+    ],
+    "limitation_expression": [
+      "While excelling in global context understanding, they struggle to capture the local details of complex shapes and limited to the occlusion and lighting conditions.",
+      "However, acquiring 3D data presents greater challenges and costs compared to 2D image and text data.",
+      "However, the current focus is on 3D shape re- construction based on predetermined partial observations.",
+      "Firstly, while current methods can estimate the overall shape of a target from limited data, they may overlook the local de- tails of objects, making it challenging to generate complex shapes.",
+      "The reason for utilizing the diffusion model is to leverage its powerful generative capabilities to assist the model in generating a latent shape when the initial data perception is limited."
+    ],
+    "insight_expression": [
+      "This motivates further research into 3D reconstruc- tion across new modalities."
+    ],
+    "method_expression": [
+      "Especially, we propose Touch2Shape, a touch-conditioned diffusion model for shape exploration through continuous touch and shape reconstruction by inte- grating all captured tactile images (along with the optional visual image).",
+      "Extensive experiments validate the effectiveness of our method, demonstrating signiﬁcant improvements in both reconstruction performance and the ability to improve reconstruction quality through touch exploration.",
+      "The main contributions of this article are as follows: • We propose Touch2Shape, a touch-conditioned 3D diffu- sion model for shape exploration and reconstruction, uti- lizing the latent vector to guide the touch location plan- ning and shape decoding. • Touch2Shape utilizes contrastive touch encoder to embed touch information and shapes in a joint space. • We propose a touch shape fusion module to optimize the reconstructed shape using touch information. • We combine the diffusion model with reinforcement learning for shape exploration policy training and design the corresponding reward function.",
+      "Extensive experiments demonstrate the effectiveness of our method, showcasing notable enhancements in reconstruction quality and shape optimization through grasping exploration compared to the state-of-the-art methods."
+    ],
+    "experiment_expression": [
+      "Extensive experiments validate the effectiveness of our method, demonstrating signiﬁcant improvements in both reconstruction performance and the ability to improve reconstruction quality through touch exploration.",
+      "Method As shown in Figure 1, we train a touch-conditioned dif- fusion model to implicitly represent the target object infor- mation for shape exploration and reconstruction.",
+      "Extensive experiments demonstrate the effectiveness of our method, showcasing notable enhancements in reconstruction quality and shape optimization through grasping exploration compared to the state-of-the-art methods."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Especially, we propose Touch2Shape, a touch-conditioned diffusion model for shape exploration through continuous touch and shape reconstruction by inte- grating all captured tactile images (along with the optional visual image).",
+    "Extensive experiments demonstrate the effectiveness of our method, showcasing notable enhancements in reconstruction quality and shape optimization through grasping exploration compared to the state-of-the-art methods.",
+    "Extensive experiments validate the effectiveness of our method, demonstrating signiﬁcant improvements in both reconstruction performance and the ability to improve reconstruction quality through touch exploration.",
+    "However, acquiring 3D data presents greater challenges and costs compared to 2D image and text data.",
+    "However, the current focus is on 3D shape re- construction based on predetermined partial observations.",
+    "Method As shown in Figure 1, we train a touch-conditioned dif- fusion model to implicitly represent the target object infor- mation for shape exploration and reconstruction.",
+    "2022RJ01), and the Ningbo Major Research and Develop- ment Plan Project of China (No.",
+    "2022ZD0210500), the National Natural Science Foun- dation of China under Grant 62441216/62332019, the Distinguished Y oung Scholars Funding of Dalian (No.",
+    "Abstract Diffusion models have made breakthroughs in 3D gen- eration tasks.",
+    "Acknowledgments This work is supported in part by the National Key Research and Development Program of China (No.",
+    "Additional experimental details can be found in the supplementary material.",
+    "Conclusion In this work, we present Touch2Shape, which leverages a touch-conditioned diffusion model to explore the target object and reconstruct the 3D shape through touch interac- tion."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models have made breakthroughs in 3D gen-\neration tasks. Current 3D diffusion models focus on recon-\nstructing target shape from images or a set of partial obser-\nvations. While excelling in global context understanding,\nthey struggle to capture the local details of complex shapes\nand limited to the occlusion and lighting conditions. To\novercome these limitations, we utilize tactile images to cap-\nture the local 3D information and propose a Touch2Shape\nmodel, which leverages a touch-conditioned diffusion model\nto explore and reconstruct the target shape from touch. F or\nshape reconstruction, we have developed a touch embed-\nding module to condition the diffusion model in creating a\ncompact representation and a touch shape fusion module to\nreﬁne the reconstructed shape. F or shape exploration, we\ncombine the diffusion model with reinforcement learning to\ntrain a policy. This involves using the generated latent vec-\ntor from the diffusion model to guide the touch exploration\npolicy training through a novel reward design. Experiments\nvalidate the reconstruction quality thorough both qualita-\ntively and quantitative analysis, and our touch exploration\npolicy further boosts reconstruction performance.\n*Corresponding authors.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n5656",
+    "introduction": "1. Introduction\n3D generation and reconstruction tasks have emerged as\nkey focal points in the ﬁelds of computer vision and graph-\nics, offering valuable applications in areas like autonomous\ndriving and robot interactions characterized by environmen-\ntal occlusions and camera measurement errors [ 5, 6, 32].\nHowever, acquiring 3D data presents greater challenges and\ncosts compared to 2D image and text data. This underscores\nthe critical importance of ongoing research into 3D recon-\nstruction and generation.\nDiffusion models have garnered substantial attention in\ngenerative tasks for their innovative approaches and promis-\ning results. While their impact has been particularly notable\nin 2D image generation [ 10, 27], these models are also be-\ning applied to 3D tasks. Pioneering projects such as SDFu-\nsion [5] and DiffusionSDF [ 6] have demonstrated the abil-\nity to create the 3D shapes using visual images or multi-\nmodal data. However, the current focus is on 3D shape re-\nconstruction based on predetermined partial observations.\nThis limitation presents challenges on two fronts. Firstly,\nwhile current methods can estimate the overall shape of a\ntarget from limited data, they may overlook the local de-\ntails of objects, making it challenging to generate complex\nshapes. This motivates further research into 3D reconstruc-\ntion across new modalities. Secondly, practical scenarios\npresent challenges where environmental factors like occlu-\nsions and varying lighting conditions impede the complete\nextraction of crucial local information. The complexity of\nreal-world conditions underscores the necessity of actively\nexploring the target to capture information and facilitate the\nreconstruction process.\nIn this work, we employ a simulated robotic arm guided\nby a trained policy model to touch the target, enabling\nthe acquisition of tactile images to reconstruct the target\nthrough touch interaction. Tactile images provide local 3D\nshape information, including spatial contact points and de-\ntailed shape information, enhancing the reconstruction of\nlocal details, while visual data assists in predicting overall\nshape characteristics. Especially, we propose Touch2Shape,\na touch-conditioned diffusion model for shape exploration\nthrough continuous touch and shape reconstruction by inte-\ngrating all captured tactile images (along with the optional\nvisual image). The reason for utilizing the diffusion model\nis to leverage its powerful generative capabilities to assist\nthe model in generating a latent shape when the initial data\nperception is limited. The latent shape is then used to guide\nthe policy model to predict beneﬁcial touch locations for re-\nconstruction based on potential missing areas. To train the\nexploration policy, we integrate the diffusion model with\nreinforcement learning and design a reward function.\nIn contrast to previous methods, our approach not only\nproduces superior 3D reconstruction outputs but also elim-\ninates the need to generate the ﬁnal shape at every step.\nDue to the fact that the diffusion model can generate a\nlow-dimensional and compact latent space, we only gen-\nerate the full reconstruction of the target object at the ﬁ-\nnal step. Extensive experiments validate the effectiveness\nof our method, demonstrating signiﬁcant improvements in\nboth reconstruction performance and the ability to improve\nreconstruction quality through touch exploration.\nThe main contributions of this article are as follows:\n• We propose Touch2Shape, a touch-conditioned 3D diffu-\nsion model for shape exploration and reconstruction, uti-\nlizing the latent vector to guide the touch location plan-\nning and shape decoding.\n• Touch2Shape utilizes contrastive touch encoder to embed\ntouch information and shapes in a joint space.\n• We propose a touch shape fusion module to optimize the\nreconstructed shape using touch information.\n• We combine the diffusion model with reinforcement\nlearning for shape exploration policy training and design\nthe corresponding reward function.",
+    "method": "3. Method\nAs shown in Figure 1, we train a touch-conditioned dif-\nfusion model to implicitly represent the target object infor-\nmation for shape exploration and reconstruction. In test\nstage, we gather tactile images (T0,. . . ,Tn→ 1) from the tar-\nget, utilizing the trained diffusion model to obtain a low-\ndimensional representation for predicting the subsequent\ntouch location. The shape is also reconstructed based on\nall the captured tactile information.\nFigure 2 illustrates the architecture of our Touch2Shape\nModel. Following SDFusion [ 5], we employ the volumet-\nric Truncated Signed Distance Field (T-SDF) to model the\ndistribution across 3D shapes and a 3D variant of the V ec-\ntor Quantised-V ariational AutoEncoder (VQ-V AE) [38] for\n5658\n\nencoding and decoding 3D shapes. Let the input shape is\nrepresented as the T-SDF volume X ↑ RD↑ D↑ D , the en-\ncoder is Es and the decoder is Ds, we encode the input\nshape into the latent vector z and decode the vector to the\ngenerated shape X↓:\nz = Es(X), and X↓= Ds(VQ (z)), (1)\nwhere VQ is the quantization step.\nWe pretrained the VQ-V AE model on both ABC dataset\n[21] and ShapeNet dataset [ 3]. Using the encoded latent\nvector, gaussian noise is added at random timestaps t, and\na denoising model is trained based on the touch condition\n(Section 3.1). The touch charts prediction model is pre-\ntrained as [ 33, 34]. Contrastive learning is employed to\nembed touch information and shapes in a joint space. The\npolicy model receives the denoised vector as input and is\ntrained using reinforcement learning (Section 3.2). The\ngeneration of the ﬁnal shape is optimized through tactile\ndata (Section 3.3).",
+    "experiments": "4. Experiment\nIn this section, we describe the experiment settings and\nthen compare our model with the state-of-art touch-based\n3D reconstruction methods and validate our policy training\nstrategy. Through the ablation study, we validate the neces-\nsity of each module. Additional experimental details can be\nfound in the supplementary material.",
+    "conclusion": "5. Conclusion\nIn this work, we present Touch2Shape, which leverages\na touch-conditioned diffusion model to explore the target\nobject and reconstruct the 3D shape through touch interac-\ntion. The generated latent vector from the diffusion model\nserves as a compact shape representation, guiding the policy\nmodel to predict beneﬁcial touch locations for reconstruc-\ntion based on potential missing areas. For shape reconstruc-\ntion, we created a touch embedding module to condition the\ndiffusion model and propose a touch shape fusion module\nto enhance the reconstructed shape. Extensive experiments\ndemonstrate the effectiveness of our method, showcasing\nnotable enhancements in reconstruction quality and shape\noptimization through grasping exploration compared to the\nstate-of-the-art methods.\nThere are also some future directions. Firstly, it’s in-\nteresting to transfer Touch2Shape from the simulation to a\nreal robot platform for object exploration and reconstruc-\ntion. Secondly, the extension of Touch2Shape to full scene\nreconstruction through tactile exploration presents another\nfascinating dimension. Lastly, the study of integrating tech-\nniques like neural rendering could offer an intriguing path-\nway for leveraging active touch sensing to synthesis multi-\nview visual image.\nT VV + T GT\nFigure 6. visualization results among tactile only (T), visual only\n(V), and vision+touch (V+T) modalities.\nAcknowledgments\nThis work is supported in part by the National\nKey Research and Development Program of China (No.\n2022ZD0210500), the National Natural Science Foun-\ndation of China under Grant 62441216/62332019, the\nDistinguished Y oung Scholars Funding of Dalian (No.\n2022RJ01), and the Ningbo Major Research and Develop-\nment Plan Project of China (No. 2023Z225)."
+  }
+}

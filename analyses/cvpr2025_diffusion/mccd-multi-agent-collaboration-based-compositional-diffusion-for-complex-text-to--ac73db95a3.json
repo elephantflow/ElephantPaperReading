@@ -1,0 +1,95 @@
+{
+  "paper_id": "mccd-multi-agent-collaboration-based-compositional-diffusion-for-complex-text-to--ac73db95a3",
+  "paper_title": "MCCD: Multi-Agent Collaboration-based Compositional Diffusion for Complex Text-to-Image Generation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:00.567361+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/MCCD： Multi-Agent Collaboration-based Compositional Diffusion for Complex Text-to-Image Generation.pdf",
+    "filename": "MCCD： Multi-Agent Collaboration-based Compositional Diffusion for Complex Text-to-Image Generation.pdf",
+    "sha1": "ac73db95a37468db2ab0ca53cbe57bd9643c4913",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Some studies attempt to introduce additional conditions to solve the problems above, which can be divided into two parts: (i) spatial information-based methods [ 19, 20, 26, 40, 42], and (ii) feedback-based methods.",
+    "limitation": "However, despite their noteworthy performance in generating realistic images consistent with text prompts, these models have large limitations in processing complex textual prompts and generating complex scenes, leading to unsatisfactory image generation [ 10, 20, 22].",
+    "insight": "Abstract Diffusion models have shown excellent performance in text- to-image generation.",
+    "proposed_method": "Therefore, we propose a Multi-agent Collaboration-based Compositional Diffusion (MCCD) for text-to-image generation for complex scenes.",
+    "experimental_evidence": "Abstract Diffusion models have shown excellent performance in text- to-image generation.",
+    "summary": "Some studies attempt to introduce additional conditions to solve the problems above, which can be divided into two parts: (i) spatial information-based methods [ 19, 20, 26, 40, 42], and (ii) feedback-based methods. However, despite their noteworthy performance in generating realistic images consistent with text prompts, these models have large limitations in processing complex textual prompts and generating complex scenes, leading to unsatisfactory image generation [ 10, 20, 22]. Abstract Diffusion models have shown excellent performance in text- to-image generation. Therefore, we propose a Multi-agent Collaboration-based Compositional Diffusion (MCCD) for text-to-image generation for complex scenes. Abstract Diffusion models have shown excellent performance in text- to-image generation."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction Recently, diffusion models [ 7, 29, 31, 37] have shown sig- niﬁcant advancements in Text-to-Image (T2I) generation, such as Stable Diffusion [ 29], Imagen [ 30] and DALL-E 2/3 [2, 28].",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "1. Introduction\nRecently, diffusion models [ 7, 29, 31, 37] have shown sig-\nniﬁcant advancements in Text-to-Image (T2I) generation,\nsuch as Stable Diffusion [ 29], Imagen [ 30] and DALL-E\n2/3 [2, 28]. However, despite their noteworthy performance\nin generating realistic images consistent with text prompts,\nthese models have large limitations in processing complex\ntextual prompts and generating complex scenes, leading to\nunsatisfactory image generation [ 10, 20, 22]. Therefore,\nT2I models require powerful spatial perceptions that can\n§Corresponding authors. *Equal contributions.\nprecisely align multiple objects with different attributes and\ncomplex relationships involved in compositional prompts.\nSome studies attempt to introduce additional conditions\nto solve the problems above, which can be divided into two\nparts: (i) spatial information-based methods [ 19, 20, 26, 40,\n42], and (ii) feedback-based methods. Spatial information-\nbased methods utilize additional spatial information (e.g.,\nlayouts and boxes) as conditions to enhance the composi-\ntionality of T2I generation. For example, GLIGEN [ 19]\nintroduces trainable gated self-attention layers to integrate\nspatial inputs based on "
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "sion (MCCD) for high-quality text-to-image generation and complex scene generation.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "sion (MCCD) for high-quality text-to-image generation\nand complex scene generation. Our novelty stems from\nthree core contributions: (i) We propose a multi-agent\ncollaboration-based scene parsing module that constructs\nmultiple agents with different tasks to implement collabora-\ntion in forward thought chain reasoning and backward feed-\nback processes to precisely parse key scene elements. (ii)\nFurthermore, Hierarchical Compositional diffusion is pro-\nposed to achieve sufﬁcient interaction among parsed multi-\nple scene elements and accurately generate complex scenes\nthat match the text prompt. (iii) Comprehensive qualitative\nand quantitative experiments demonstrate that our method\nsigniﬁcantly improves the performance of the baseline mod-\nels in a training-free manner, which has large advantages."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, despite their noteworthy performance in generating realistic images consistent with text prompts, these models have large limitations in processing complex textual prompts and generating complex scenes, leading to unsatisfactory image generation [ 10, 20, 22].",
+      "However, the above methods suffer from the following limitations: (i) lacking ﬁne-grained and precise spatial information guidance, resulting in unrealis- tic spatial locations and relations in the generated images."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Therefore, we propose a Multi-agent Collaboration-based Compositional Diffusion (MCCD) for text-to-image generation for complex scenes.",
+      "To address the above-mentioned problems, we propose a Multi-agent Collaboration-based Compositional Diffu- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "Our novelty stems from three core contributions: (i) We propose a multi-agent collaboration-based scene parsing module that constructs multiple agents with different tasks to implement collabora- tion in forward thought chain reasoning and backward feed- back processes to precisely parse key scene elements.",
+      "(iii) Comprehensive qualitative and quantitative experiments demonstrate that our method signiﬁcantly improves the performance of the baseline mod- els in a training-free manner, which has large advantages.",
+      "Conclusion In this paper, we propose Multi-Agent Collaboration-based Compositional Diffusion (MCCD) for generating high- quality complex scenes.",
+      "In ad- dition, we propose a hierarchical compositional diffusion that utilizes dynamic integration of overlapping regions, re- gional enhancement, and latent space smoothness to gener- ate realistic and aesthetically pleasing images.",
+      "Comprehen- sive experiments prove the advantages of our method."
+    ],
+    "experiment_expression": [
+      "Comprehensive experiments demonstrate that our MCCD signiﬁcantly im- proves the performance of the baseline models in a training- free manner , providing a substantial advantage in complex scene generation.",
+      "(iii) Comprehensive qualitative and quantitative experiments demonstrate that our method signiﬁcantly improves the performance of the baseline mod- els in a training-free manner, which has large advantages."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion In this paper, we propose Multi-Agent Collaboration-based Compositional Diffusion (MCCD) for generating high- quality complex scenes.",
+    "However, the above methods suffer from the following limitations: (i) lacking ﬁne-grained and precise spatial information guidance, resulting in unrealis- tic spatial locations and relations in the generated images.",
+    "In ad- dition, we propose a hierarchical compositional diffusion that utilizes dynamic integration of overlapping regions, re- gional enhancement, and latent space smoothness to gener- ate realistic and aesthetically pleasing images.",
+    "Therefore, we propose a Multi-agent Collaboration-based Compositional Diffusion (MCCD) for text-to-image generation for complex scenes.",
+    "To address the above-mentioned problems, we propose a Multi-agent Collaboration-based Compositional Diffu- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "(ii) Difﬁculty in obtaining high-quality image feedback to effectively optimize the image generation.",
+    "(ii) Furthermore, Hierarchical Compositional diffusion is pro- posed to achieve sufﬁcient interaction among parsed multi- ple scene elements and accurately generate complex scenes that match the text prompt.",
+    "(iii) Comprehensive qualitative and quantitative experiments demonstrate that our method signiﬁcantly improves the performance of the baseline mod- els in a training-free manner, which has large advantages.",
+    "(iii) Fine-tuning of the T2I model ( e.g., stable diffusion) results in a large amount of computational and time overheads.",
+    "13263 sion (MCCD) for high-quality text-to-image generation and complex scene generation.",
+    "Abstract Diffusion models have shown excellent performance in text- to-image generation.",
+    "Comprehen- sive experiments prove the advantages of our method."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models have shown excellent performance in text-\nto-image generation. Nevertheless, existing methods often\nsuffer from performance bottlenecks when handling com-\nplex prompts that involve multiple objects, characteris-\ntics, and relations. Therefore, we propose a Multi-agent\nCollaboration-based Compositional Diffusion (MCCD) for\ntext-to-image generation for complex scenes. Speciﬁcally,\nwe design a multi-agent collaboration-based scene parsing\nmodule that generates an agent system comprising multiple\nagents with distinct tasks, utilizing MLLMs to extract var-\nious scene elements effectively. In addition, Hierarchical\nCompositional diffusion utilizes a Gaussian mask and ﬁl-\ntering to reﬁne bounding box regions and enhance objects\nthrough region enhancement, resulting in the accurate and\nhigh-ﬁdelity generation of complex scenes. Comprehensive\nexperiments demonstrate that our MCCD signiﬁcantly im-\nproves the performance of the baseline models in a training-\nfree manner , providing a substantial advantage in complex\nscene generation.",
+    "introduction": "1. Introduction\nRecently, diffusion models [ 7, 29, 31, 37] have shown sig-\nniﬁcant advancements in Text-to-Image (T2I) generation,\nsuch as Stable Diffusion [ 29], Imagen [ 30] and DALL-E\n2/3 [2, 28]. However, despite their noteworthy performance\nin generating realistic images consistent with text prompts,\nthese models have large limitations in processing complex\ntextual prompts and generating complex scenes, leading to\nunsatisfactory image generation [ 10, 20, 22]. Therefore,\nT2I models require powerful spatial perceptions that can\n§Corresponding authors. *Equal contributions.\nprecisely align multiple objects with different attributes and\ncomplex relationships involved in compositional prompts.\nSome studies attempt to introduce additional conditions\nto solve the problems above, which can be divided into two\nparts: (i) spatial information-based methods [ 19, 20, 26, 40,\n42], and (ii) feedback-based methods. Spatial information-\nbased methods utilize additional spatial information (e.g.,\nlayouts and boxes) as conditions to enhance the composi-\ntionality of T2I generation. For example, GLIGEN [ 19]\nintroduces trainable gated self-attention layers to integrate\nspatial inputs based on the pre-trained stable diffusion mod-\nels. ReCo [ 40] utilizes additional sets of positional to-\nkens for T2I generation to achieve effective region con-\ntrol and ﬁne-tune the pre-trained T2I models. Feedback-\nbased methods [ 9, 15–17, 32, 35] use the generated images\nas feedback to optimize the T2I generation. For instance,\nDreamSync [ 32] utilizes a visual question answer model\nand an aesthetic quality evaluation model to recognize ﬁne-\ngrained discrepancies between the generated image and the\ntextual input, thus enhancing the semantic alignment ca-\npabilities of the T2I model. GORS [ 15] ﬁne-tunes pre-\ntrained T2I models leveraging generated images aligned to\nthe text prompt and text-image alignment reward-weighted\nloss. Parrot [ 17] jointly optimizes the T2I model with a\nmulti-reward optimization strategy to improve the quality\nof image generation. However, the above methods suffer\nfrom the following limitations: (i) lacking ﬁne-grained and\nprecise spatial information guidance, resulting in unrealis-\ntic spatial locations and relations in the generated images.\n(ii) Difﬁculty in obtaining high-quality image feedback to\neffectively optimize the image generation. (iii) Fine-tuning\nof the T2I model ( e.g., stable diffusion) results in a large\namount of computational and time overheads.\nTo address the above-mentioned problems, we propose\na Multi-agent Collaboration-based Compositional Diffu-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n13263\n\nsion (MCCD) for high-quality text-to-image generation\nand complex scene generation. Our novelty stems from\nthree core contributions: (i) We propose a multi-agent\ncollaboration-based scene parsing module that constructs\nmultiple agents with different tasks to implement collabora-\ntion in forward thought chain reasoning and backward feed-\nback processes to precisely parse key scene elements. (ii)\nFurthermore, Hierarchical Compositional diffusion is pro-\nposed to achieve sufﬁcient interaction among parsed multi-\nple scene elements and accurately generate complex scenes\nthat match the text prompt. (iii) Comprehensive qualitative\nand quantitative experiments demonstrate that our method\nsigniﬁcantly improves the performance of the baseline mod-\nels in a training-free manner, which has large advantages.",
+    "method": "3. Methodology",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nIn this paper, we propose Multi-Agent Collaboration-based\nCompositional Diffusion (MCCD) for generating high-\nquality complex scenes. Speciﬁcally, we design a multi-\nagent collaboration-based scene parsing module to fully ex-\ntract the scene elements contained in the text by construct-\ning a multi-intelligentsia system based on MLLMs. In ad-\ndition, we propose a hierarchical compositional diffusion\nthat utilizes dynamic integration of overlapping regions, re-\ngional enhancement, and latent space smoothness to gener-\nate realistic and aesthetically pleasing images. Comprehen-\nsive experiments prove the advantages of our method."
+  }
+}

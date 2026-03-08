@@ -1,0 +1,92 @@
+{
+  "paper_id": "decentralized-diffusion-models--15321ca215",
+  "paper_title": "Decentralized Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:16.579699+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Decentralized Diffusion Models.pdf",
+    "filename": "Decentralized Diffusion Models.pdf",
+    "sha1": "15321ca215fdeff457ca63129fd8c3d067d16f37",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "As these models continue to grow in size and capability, they encounter significant systems-level challenges that mirror those faced in LLM training.",
+    "limitation": "However, these models de- mand enormous training compute.",
+    "insight": "Abstract Large-scale AI model training divides work across thou- sands of GPUs, then synchronizes gradients across them at each step.",
+    "proposed_method": "Our method trains a set of expert diffusion models over partitions of the dataset, each in full isolation from one another.",
+    "experimental_evidence": "We show that the ensemble collectively optimizes the same ob- jective as a single model trained over the whole dataset.",
+    "summary": "As these models continue to grow in size and capability, they encounter significant systems-level challenges that mirror those faced in LLM training. However, these models de- mand enormous training compute. Abstract Large-scale AI model training divides work across thou- sands of GPUs, then synchronizes gradients across them at each step. Our method trains a set of expert diffusion models over partitions of the dataset, each in full isolation from one another. We show that the ensemble collectively optimizes the same ob- jective as a single model trained over the whole dataset."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Diffusion models achieve breakthrough results in image gen- eration [36, 37], video modeling [ 4], and robotic control through diffusion policies [10].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nDiffusion models achieve breakthrough results in image gen-\neration [36, 37], video modeling [ 4], and robotic control\nthrough diffusion policies [10]. However, these models de-\nmand enormous training compute. Even early successes\nin image diffusion underscored this, with Stable Diffusion\n1.5’s training consuming over 6,000 A100 GPU days [7, 31].\nVideo diffusion models require a step-function increase in\n*Work partially done when author was an intern at Luma AI\n†Author is an advisor to Luma AI\nDecentralized Diffusion TrainingMonolithic Diffusion Training\nDataset\nFigure 1. Decentralized Diffusion Models (DDM). Left: Existing\ndiffusion models (monolithic) require synchronized, centralized\ntraining across thousands of GPUs, making high-quality training\nsystems expensive and inaccessible. Right: DDM divides a diffu-\nsion model into an ensemble of expert models, each trained on its\nown data cluster in complete isolation. This ensemble collectively\noptimizes the same diffusion objective as a single model trained on\nall the data. This enables flexible training across diverse cloud or\nacademic compute facilities. At inference, the ensemble delivers\nimproved performance at t"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "Decentralized diffusion models train on readily-available hardware and generate high quality, diverse images.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Figure 2. Decentralized diffusion models train on readily-available hardware and generate high quality, diverse images. We present\nselected samples from our 8x3B parameter model.\n23324"
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "“foundation”-scale models [3], where it is increasingly dif- ficult to build datacenters with enough power capacity for the scale of modern training runs [28].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "“foundation”-scale models [3], where it is increasingly dif-\nficult to build datacenters with enough power capacity for\nthe scale of modern training runs [28]. Independent training\nprovides additional benefits, such as the ability to execute\nacross heterogeneous hardware, making it possible to reuse\nexisting training clusters alongside newer infrastructure.\nDecentralized diffusion models employ a new training\nobjective, Decentralized Flow Matching (DFM), which par-\ntitions the training data into K groups and trains a dedicated\ndiffusion model over each. We refer to these specialized\nmodels as experts, inspired by the Mixture of Experts (MoE)\nliterature [16]. An independently trained router model or-\nchestrates these experts, determining which are most appro-\npriate at test-time. We show that this ensemble of expert\nmodels collectively optimizes the same global objective as a\nsingle model trained on the entire dataset.\nDuring each inference step, the router predicts each ex-\npert’s relevance to the input noise and condition. The expert\npredictions are then linearly combined, weighed by their as-\nsociated relevance scores. It is more efficient to use a subset\nof specialized experts f"
+    }
+  ],
+  "method_structure": [],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "High-bandwidth interconnect becomes a critical bottleneck, storage systems must handle massive streaming datasets and persistent hardware failures can crash or silently slow the training process [1, 14]."
+    ],
+    "limitation_expression": [
+      "However, these models de- mand enormous training compute."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Our method trains a set of expert diffusion models over partitions of the dataset, each in full isolation from one another."
+    ],
+    "experiment_expression": [
+      "We conduct extensive experiments on ImageNet and LAION Aesthetics, showing that decentralized diffusion models FLOP-for-FLOP outperform standard dif- fusion models.",
+      "We demonstrate that we can distill experts into a single dense model to achieve convenient inference.",
+      "This is made possible by the additional parametrization provided by multiple specialized experts to outperform a generalist model.",
+      "Finally, we demonstrate the scaling ability of DDMs by training a large decentralized model with eight 3-billion parameter experts, resulting in high definition image generation, as shown in Figure 2."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Finally, we demonstrate the scaling ability of DDMs by training a large decentralized model with eight 3-billion parameter experts, resulting in high definition image generation, as shown in Figure 2.",
+    "However, these models de- mand enormous training compute.",
+    "We conduct extensive experiments on ImageNet and LAION Aesthetics, showing that decentralized diffusion models FLOP-for-FLOP outperform standard dif- fusion models.",
+    "23324 “foundation”-scale models [3], where it is increasingly dif- ficult to build datacenters with enough power capacity for the scale of modern training runs [28].",
+    "Abstract Large-scale AI model training divides work across thou- sands of GPUs, then synchronizes gradients across them at each step.",
+    "An independently trained router model or- chestrates these experts, determining which are most appro- priate at test-time.",
+    "As these models continue to grow in size and capability, they encounter significant systems-level challenges that mirror those faced in LLM training.",
+    "At inference time, the experts ensemble through a lightweight router.",
+    "At inference, the ensemble delivers improved performance at the same FLOP-cost, making high-quality diffusion model training more efficient and accessible.",
+    "Decentralization is also helpful for training This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "Decentralized Diffusion Models (DDM).",
+    "Decentralized Diffusion Models also integrate easily into existing diffusion training environments."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nLarge-scale AI model training divides work across thou-\nsands of GPUs, then synchronizes gradients across them\nat each step. This incurs a significant network burden that\nonly centralized, monolithic clusters can support, driving up\ninfrastructure costs and straining power systems. We pro-\npose Decentralized Diffusion Models, a scalable framework\nfor distributing diffusion model training across independent\nclusters or datacenters by eliminating the dependence on a\ncentralized, high-bandwidth networking fabric. Our method\ntrains a set of expert diffusion models over partitions of the\ndataset, each in full isolation from one another. At inference\ntime, the experts ensemble through a lightweight router. We\nshow that the ensemble collectively optimizes the same ob-\njective as a single model trained over the whole dataset. This\nmeans we can divide the training burden among a number\nof “compute islands, ” lowering infrastructure costs and im-\nproving resilience to localized GPU failures. Decentralized\ndiffusion models empower researchers to take advantage\nof smaller, more cost-effective and more readily available\ncompute like on-demand GPU nodes rather than central\nintegrated systems. We conduct extensive experiments on\nImageNet and LAION Aesthetics, showing that decentralized\ndiffusion models FLOP-for-FLOP outperform standard dif-\nfusion models. We finally scale our approach to 24 billion\nparameters, demonstrating that high-quality diffusion mod-\nels can now be trained with just eight individual GPU nodes\nin less than a week.",
+    "introduction": "1. Introduction\nDiffusion models achieve breakthrough results in image gen-\neration [36, 37], video modeling [ 4], and robotic control\nthrough diffusion policies [10]. However, these models de-\nmand enormous training compute. Even early successes\nin image diffusion underscored this, with Stable Diffusion\n1.5’s training consuming over 6,000 A100 GPU days [7, 31].\nVideo diffusion models require a step-function increase in\n*Work partially done when author was an intern at Luma AI\n†Author is an advisor to Luma AI\nDecentralized Diffusion TrainingMonolithic Diffusion Training\nDataset\nFigure 1. Decentralized Diffusion Models (DDM). Left: Existing\ndiffusion models (monolithic) require synchronized, centralized\ntraining across thousands of GPUs, making high-quality training\nsystems expensive and inaccessible. Right: DDM divides a diffu-\nsion model into an ensemble of expert models, each trained on its\nown data cluster in complete isolation. This ensemble collectively\noptimizes the same diffusion objective as a single model trained on\nall the data. This enables flexible training across diverse cloud or\nacademic compute facilities. At inference, the ensemble delivers\nimproved performance at the same FLOP-cost, making high-quality\ndiffusion model training more efficient and accessible. See Figure 2\nfor large-scale DDM model samples.\nthese resources. For instance, Meta’s Movie Gen trains on\nup to 6,114 H100 GPUs [32]—nearly GPT-3 scale [ 6]. As\nthese models continue to grow in size and capability, they\nencounter significant systems-level challenges that mirror\nthose faced in LLM training. High-bandwidth interconnect\nbecomes a critical bottleneck, storage systems must handle\nmassive streaming datasets and persistent hardware failures\ncan crash or silently slow the training process [1, 14]. The\nresult is a fragile integrated system where performance and\nreliability depend on complex interactions between arrays of\naccelerators and networking hardware. This is challenging\nand costly for large industry labs—untenable for academics.\nWe present Decentralized Diffusion Models, a scalable\nmethod for distributing the modeling burdening of diffu-\nsion across independent expert models, each trained on its\nown “compute island” with no cross-communication. This\nenables training with scattered resources, leveraging cost-\neffective cloud compute or combining resources across mul-\ntiple clusters. Decentralization is also helpful for training\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n23323\n\nFigure 2. Decentralized diffusion models train on readily-available hardware and generate high quality, diverse images. We present\nselected samples from our 8x3B parameter model.\n23324\n\n“foundation”-scale models [3], where it is increasingly dif-\nficult to build datacenters with enough power capacity for\nthe scale of modern training runs [28]. Independent training\nprovides additional benefits, such as the ability to execute\nacross heterogeneous hardware, making it possible to reuse\nexisting training clusters alongside newer infrastructure.\nDecentralized diffusion models employ a new training\nobjective, Decentralized Flow Matching (DFM), which par-\ntitions the training data into K groups and trains a dedicated\ndiffusion model over each. We refer to these specialized\nmodels as experts, inspired by the Mixture of Experts (MoE)\nliterature [16]. An independently trained router model or-\nchestrates these experts, determining which are most appro-\npriate at test-time. We show that this ensemble of expert\nmodels collectively optimizes the same global objective as a\nsingle model trained on the entire dataset.\nDuring each inference step, the router predicts each ex-\npert’s relevance to the input noise and condition. The expert\npredictions are then linearly combined, weighed by their as-\nsociated relevance scores. It is more efficient to use a subset\nof specialized experts for each query. This serves as a sparse\nmodel, leveraging selective computation similar to MoE.\nSparse inference is compute-efficient but remains memory-\nintensive. We demonstrate that we can distill experts into a\nsingle dense model to achieve convenient inference.\nWe evaluate our approach on ImageNet and a filtered\nsubset of LAION-Aesthetics, where we compare DDMs\nagainst existing monolithic diffusion model training. We\nsystematically vary the number of experts to analyze its im-\npact on downstream generation tasks, where we find that\nDDMs with eight experts consistently achieve the best per-\nformance, even outperforming a single model trained with\nthe same compute. This is made possible by the additional\nparametrization provided by multiple specialized experts to\noutperform a generalist model. Finally, we demonstrate the\nscaling ability of DDMs by training a large decentralized\nmodel with eight 3-billion parameter experts, resulting in\nhigh definition image generation, as shown in Figure 2.\nDecentralized Diffusion Models also integrate easily into\nexisting diffusion training environments. They reuse nearly\neverything from existing diffusion infrastructure—training\ncode, dataloading, systems optimizations, noise schedules\nand architectures. See our blog post for a visual walkthrough\nand pseudocode.",
+    "method": "",
+    "experiments": "4. Experiments\nWe evaluate the effectiveness of decentralized diffusion mod-\nels on the academic ImageNet dataset and a subset of the\nLAION [ 39] dataset filtered for aesthetic scores of 5 or\nhigher, which more closely resembles real-world training\nscenarios. Our goal is to analyze decentralized diffusion\nmodels under typical conditions so that practitioners can\nconfidently adopt the method. For this reason, we use stan-\ndard architectures, hyperparameters and data when possible.",
+    "conclusion": ""
+  }
+}

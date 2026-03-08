@@ -1,0 +1,119 @@
+{
+  "paper_id": "motionstone-decoupled-motion-intensity-modulation-with-diffusion-transformer-for--2b53744f13",
+  "paper_title": "MotionStone: Decoupled Motion Intensity Modulation with Diffusion Transformer for Image-to-Video Generation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:05.029317+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/MotionStone： Decoupled Motion Intensity Modulation with Diffusion Transformer for Image-to-Video Generation.pdf",
+    "filename": "MotionStone： Decoupled Motion Intensity Modulation with Diffusion Transformer for Image-to-Video Generation.pdf",
+    "sha1": "2b53744f13fb11e6a5e27d9d3315f15ce85480de",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Image-to-Video (I2V) generation animates static images into fun creative videos which has attracted broad interests in research and industry [ 14, 16, 29, 38, 45, 48].",
+    "limitation": "However, these methods require complex and hard-to-obtain control conditions as inputs, and the training data must be metic- ulously preprocessed for model training, preventing them from reliably generalizing to videos in the wild.",
+    "insight": "Abstract The image-to-video (I2V) generation is conditioned on the static image, which has been enhanced recently by the motion intensity as an additional control signal.",
+    "proposed_method": "In this paper, we introduce MotionStone, a general I2V diffusion model to enable decoupled modeling and control of video motion.",
+    "experimental_evidence": "Experimental results demonstrate the stability of the proposed motion estimator and the state-of-the-art performance of MotionStone on I2V generation.",
+    "summary": "Introduction Image-to-Video (I2V) generation animates static images into fun creative videos which has attracted broad interests in research and industry [ 14, 16, 29, 38, 45, 48]. However, these methods require complex and hard-to-obtain control conditions as inputs, and the training data must be metic- ulously preprocessed for model training, preventing them from reliably generalizing to videos in the wild. Abstract The image-to-video (I2V) generation is conditioned on the static image, which has been enhanced recently by the motion intensity as an additional control signal. In this paper, we introduce MotionStone, a general I2V diffusion model to enable decoupled modeling and control of video motion. Experimental results demonstrate the stability of the proposed motion estimator and the state-of-the-art performance of MotionStone on I2V generation."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Image-to-Video (I2V) generation animates static images into fun creative videos which has attracted broad interests in research and industry [ 14, 16, 29, 38, 45, 48].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Image-to-Video (I2V) generation animates static images into fun creative videos which has attracted broad interests in research and industry [ 14, 16, 29, 38, 45, 48]. The key to achieving high-quality I2V results lies in synthesiz- ing sufﬁcient temporal dynamics, which requires effective frame-to-frame motion modeling. Some methods [ 4, 11, 20, 25, 26, 36, 41, 49] introduce additional conditions into diffusion models, e.g., optical ﬂow, motion trajectories, or depth maps, to better capture motion dynamics. However, these methods require complex and hard-to-obtain control conditions as inputs, and the training data must be metic- ulously preprocessed for model training, preventing them from reliably generalizing to videos in the wild."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "Recently, several I2V works [ 7, 10, 22] explore text- based motion control and introduce motion intensity as the essential control signal on motion patterns.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Recently, several I2V works [ 7, 10, 22] explore text- based motion control and introduce motion intensity as the essential control signal on motion patterns. For example, LivePhoto [ 7] and Cinemo [ 22] leverage text prompts to direct motion and integrate SSIM [ 40] to modulate motion intensity. Although these motion-aware models demon- strate improved controllability in motion and enhanced gen- eration quality, the estimation of motion intensity remains inadequate due to the discrepancy between their motion modeling strategy and human motion perception. As a result, the diffusion model is unable to accurately capture the real motion intensity in a video clip during training, which negatively impacts the convergence process."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "Furthermore, as shown in Fig.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Furthermore, as shown in Fig. 2, motion patterns in real-world videos could be very complicated including both object motion and camera movement. Applying traditional motion extractors, which are not speciﬁcally designed for video motion modeling, to estimate motion across entire videos, is unattainable to distinguish between different types of motion, thereby limiting precise control over motion dynamics. A straightforward way is to learn a motion estimator to predict human perception of object and camera motion intensity in videos."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "method_overview",
+      "main_message": "In this paper, we introduce MotionStone, a general I2V diffusion model to enable decoupled modeling and control of video motion.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "In this paper, we introduce MotionStone, a general I2V diffusion model to enable decoupled modeling and control of video motion. The core of MotionStone is the independent motion estimator, comprising a motion modeling backbone and dual heads to disentangle object and camera motion. Speciﬁcally, we ﬁrst propose a video motion annotation method, which requires human annotators to distinguish the relative motion intensity of objects and cameras in randomly selected video pairs. Then the proposed motion estimator is trained using a contrastive learning strategy with these relatively annotated video pairs."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "For the structure of the motion estimator, we employ a learnable TAdaConv [ 17] as the motion feature Camera Motion Object Motion Figure 2.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "For the structure of the motion estimator, we employ a learnable TAdaConv [ 17] as the motion feature Camera Motion Object Motion Figure 2. Illustration of the motion decoupling . Decoupling these two types of motion helps the diffusion model learn speciﬁc motion patterns, thereby improving the dynamics and controllabil- ity of the generated video. extractor, integrating the pairwise ranking loss and MLP- based motion heads to facilitate motion disentanglement. During the training phase of the diffusion model, we freeze the pre-trained motion estimator and use its predic- tion result as an additional input for noise prediction at each step."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "background",
+      "main_message": "In particular, we design a decoupled motion score injection method that allows the model to discern whether each motion intensity control signal originates from the camera or the object, thus achieving decoupled motion modeling in training.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "In particular, we design a decoupled motion score injection method that allows the model to discern whether each motion intensity control signal originates from the camera or the object, thus achieving decoupled motion modeling in training. Extensive quantitative and qualitative results demonstrate that MotionStone achieves state-of- the-art performance in text-guided motion control through its decoupled motion intensity guidance and conditional injection, as shown in Fig. MotionStone animates diverse real-world images across various domains, skillfully decomposing motion into object and camera components. With its decoupled motion guidance, MotionStone al- lows users to customize motion intensity, enabling a wide range of motion effects."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, these methods require complex and hard-to-obtain control conditions as inputs, and the training data must be metic- ulously preprocessed for model training, preventing them from reliably generalizing to videos in the wild."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Method Our method is built on a pretrained video diffusion model [ 46], consisting primarily of a diffusion trans- former [ 28] and a 3D V AE [ 46].",
+      "3.4, we propose a new scheme for injecting motion intensity.",
+      "Conclusion In this work, we propose MotionStone, a general image- to-video (I2V) generation framework that enables decou- pled modeling and control of video motion."
+    ],
+    "experiment_expression": [
+      "Experimental results demonstrate the stability of the proposed motion estimator and the state-of-the-art performance of MotionStone on I2V generation.",
+      "Furthermore, as shown in Fig.",
+      "Extensive quantitative and qualitative results demonstrate that MotionStone achieves state-of- the-art performance in text-guided motion control through its decoupled motion intensity guidance and conditional injection, as shown in Fig."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "3.4, we propose a new scheme for injecting motion intensity.",
+    "Conclusion In this work, we propose MotionStone, a general image- to-video (I2V) generation framework that enables decou- pled modeling and control of video motion.",
+    "Extensive quantitative and qualitative results demonstrate that MotionStone achieves state-of- the-art performance in text-guided motion control through its decoupled motion intensity guidance and conditional injection, as shown in Fig.",
+    "Furthermore, as shown in Fig.",
+    "However, these methods require complex and hard-to-obtain control conditions as inputs, and the training data must be metic- ulously preprocessed for model training, preventing them from reliably generalizing to videos in the wild.",
+    "2, motion patterns in real-world videos could be very complicated including both object motion and camera movement.",
+    "22864 motion estimator to serve as a general plug-in enhancer for both data processing and video generation training.",
+    "3.1, followed by presenting the overall pipeline in Sec.",
+    "3.3, we provide a detailed explanation of motion intensity estimation, and in Sec.",
+    "A straightforward way is to learn a motion estimator to predict human perception of object and camera motion intensity in videos.",
+    "Abstract The image-to-video (I2V) generation is conditioned on the static image, which has been enhanced recently by the motion intensity as an additional control signal.",
+    "As a result, the diffusion model is unable to accurately capture the real motion intensity in a video clip during training, which negatively impacts the convergence process."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nThe image-to-video (I2V) generation is conditioned on\nthe static image, which has been enhanced recently by the\nmotion intensity as an additional control signal. These\nmotion-aware models are appealing to generate diverse\nmotion patterns, yet there lacks a reliable motion estimator\nfor training such models on large-scale video set in the\nwild. Traditional metrics, e.g., SSIM or optical ﬂow, are\nhard to generalize to arbitrary videos, while, it is very tough\nfor human annotators to label the abstract motion intensity\nneither . Furthermore, the motion intensity shall reveal\n*Work done during internship at Ant Group. †Project lead.\n‡Corresponding author.\nboth local object motion and global camera movement,\nwhich has not been studied before. This paper addresses\nthe challenge with a new motion estimator , capable of\nmeasuring the decoupled motion intensities of objects and\ncameras in video. We leverage the contrastive learning\non randomly paired videos and distinguish the video with\ngreater motion intensity. Such a paradigm is friendly\nfor annotation and easy to scale up to achieve stable\nperformance on motion estimation. We then present a\nnew I2V model, named MotionStone, developed with\nthe decoupled motion estimator . Experimental results\ndemonstrate the stability of the proposed motion estimator\nand the state-of-the-art performance of MotionStone on\nI2V generation. These advantages warrant the decoupled\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n22864\n\nmotion estimator to serve as a general plug-in enhancer for\nboth data processing and video generation training.",
+    "introduction": "1. Introduction\nImage-to-Video (I2V) generation animates static images\ninto fun creative videos which has attracted broad interests\nin research and industry [ 14, 16, 29, 38, 45, 48]. The\nkey to achieving high-quality I2V results lies in synthesiz-\ning sufﬁcient temporal dynamics, which requires effective\nframe-to-frame motion modeling. Some methods [ 4, 11,\n20, 25, 26, 36, 41, 49] introduce additional conditions into\ndiffusion models, e.g., optical ﬂow, motion trajectories, or\ndepth maps, to better capture motion dynamics. However,\nthese methods require complex and hard-to-obtain control\nconditions as inputs, and the training data must be metic-\nulously preprocessed for model training, preventing them\nfrom reliably generalizing to videos in the wild.\nRecently, several I2V works [ 7, 10, 22] explore text-\nbased motion control and introduce motion intensity as the\nessential control signal on motion patterns. For example,\nLivePhoto [ 7] and Cinemo [ 22] leverage text prompts to\ndirect motion and integrate SSIM [ 40] to modulate motion\nintensity. Although these motion-aware models demon-\nstrate improved controllability in motion and enhanced gen-\neration quality, the estimation of motion intensity remains\ninadequate due to the discrepancy between their motion\nmodeling strategy and human motion perception. As a\nresult, the diffusion model is unable to accurately capture\nthe real motion intensity in a video clip during training,\nwhich negatively impacts the convergence process.\nFurthermore, as shown in Fig. 2, motion patterns in\nreal-world videos could be very complicated including both\nobject motion and camera movement. Applying traditional\nmotion extractors, which are not speciﬁcally designed for\nvideo motion modeling, to estimate motion across entire\nvideos, is unattainable to distinguish between different\ntypes of motion, thereby limiting precise control over\nmotion dynamics. A straightforward way is to learn a\nmotion estimator to predict human perception of object and\ncamera motion intensity in videos.\nIn this paper, we introduce MotionStone, a general\nI2V diffusion model to enable decoupled modeling and\ncontrol of video motion. The core of MotionStone\nis the independent motion estimator, comprising a motion\nmodeling backbone and dual heads to disentangle object\nand camera motion. Speciﬁcally, we ﬁrst propose a\nvideo motion annotation method, which requires human\nannotators to distinguish the relative motion intensity of\nobjects and cameras in randomly selected video pairs.\nThen the proposed motion estimator is trained using a\ncontrastive learning strategy with these relatively annotated\nvideo pairs. For the structure of the motion estimator, we\nemploy a learnable TAdaConv [ 17] as the motion feature\nCamera Motion Object Motion\nFigure 2. Illustration of the motion decoupling . Decoupling\nthese two types of motion helps the diffusion model learn speciﬁc\nmotion patterns, thereby improving the dynamics and controllabil-\nity of the generated video.\nextractor, integrating the pairwise ranking loss and MLP-\nbased motion heads to facilitate motion disentanglement.\nDuring the training phase of the diffusion model, we\nfreeze the pre-trained motion estimator and use its predic-\ntion result as an additional input for noise prediction at each\nstep. In particular, we design a decoupled motion score\ninjection method that allows the model to discern whether\neach motion intensity control signal originates from the\ncamera or the object, thus achieving decoupled motion\nmodeling in training. Extensive quantitative and qualitative\nresults demonstrate that MotionStone achieves state-of-\nthe-art performance in text-guided motion control through\nits decoupled motion intensity guidance and conditional\ninjection, as shown in Fig. 1. MotionStone animates\ndiverse real-world images across various domains, skillfully\ndecomposing motion into object and camera components.\nWith its decoupled motion guidance, MotionStone al-\nlows users to customize motion intensity, enabling a wide\nrange of motion effects.",
+    "method": "3. Method\nOur method is built on a pretrained video diffusion\nmodel [ 46], consisting primarily of a diffusion trans-\nformer [ 28] and a 3D V AE [ 46]. We ﬁrst give a brief\nintroduction to the process of the video diffusion model\nin Sec. 3.1, followed by presenting the overall pipeline in\nSec. 3.2. In Sec. 3.3, we provide a detailed explanation of\nmotion intensity estimation, and in Sec. 3.4, we propose a\nnew scheme for injecting motion intensity.",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nIn this work, we propose MotionStone, a general image-\nto-video (I2V) generation framework that enables decou-\npled modeling and control of video motion. To achieve\nthis, we train a dedicated motion estimator that directly\npredicts object and camera motion intensities in line with\nhuman perception. To address the challenge that human\nannotators cannot directly label absolute motion intensities,\nwe develop a novel annotation method for video pairs\nspeciﬁcally for training the motion estimator. We design\na motion estimator with a backbone for video motion\nrepresentation and disentangled heads to predict object and\ncamera motion, trained using a contrastive learning strategy.\nFinally, we inject the predicted motion intensities into a\ndiffusion model, thereby improving training convergence\nand user customization ability. This entire pipeline demon-\nstrates impressive performance across diverse domains and\ntask instructions.\n22871"
+  }
+}

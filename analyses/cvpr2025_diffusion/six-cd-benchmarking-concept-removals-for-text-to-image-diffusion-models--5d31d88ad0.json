@@ -1,0 +1,101 @@
+{
+  "paper_id": "six-cd-benchmarking-concept-removals-for-text-to-image-diffusion-models--5d31d88ad0",
+  "paper_title": "Six-CD: Benchmarking Concept Removals for Text-to-image Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:33.513680+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Six-CD： Benchmarking Concept Removals for Text-to-image Diffusion Models.pdf",
+    "filename": "Six-CD： Benchmarking Concept Removals for Text-to-image Diffusion Models.pdf",
+    "sha1": "5d31d88ad0c4c3cbcd75fa699f59a5dee2c5ad53",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "To ensure the integrity of the model developers, it is crucial to design benign models that censor malicious concepts and produce only safe and appropriate content.",
+    "limitation": "However, T2I diffusion models can be ex- ploited for malicious purposes, such as creating images de- picting violence, nudity, or fake celebrity images in undesir- able contexts like jail [ 14, 20, 26, 30, 33, 38, 39].",
+    "insight": "In this benchmark, we conduct a thorough evaluation of concept removals, with the experimental observations and discussions offering valuable insights in the ﬁeld.",
+    "proposed_method": "To address these gaps, we propose to benchmark the concept removal methods by introducing a new dataset, Six-CD, along with a novel evaluation met- ric.",
+    "experimental_evidence": "Abstract Text-to-image (T2I) diffusion models have shown excep- tional capabilities in generating images that closely corre- spond to textual prompts.",
+    "summary": "To ensure the integrity of the model developers, it is crucial to design benign models that censor malicious concepts and produce only safe and appropriate content. However, T2I diffusion models can be ex- ploited for malicious purposes, such as creating images de- picting violence, nudity, or fake celebrity images in undesir- able contexts like jail [ 14, 20, 26, 30, 33, 38, 39]. In this benchmark, we conduct a thorough evaluation of concept removals, with the experimental observations and discussions offering valuable insights in the ﬁeld. To address these gaps, we propose to benchmark the concept removal methods by introducing a new dataset, Six-CD, along with a novel evaluation met- ric. Abstract Text-to-image (T2I) diffusion models have shown excep- tional capabilities in generating images that closely corre- spond to textual prompts."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Diffusion models have demonstrated remarkable capabili- ties in image generation [6, 11, 12, 40, 41], particularly text- to-image (T2I) diffusion models [ 4, 29, 32].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Diffusion models have demonstrated remarkable capabili- ties in image generation [6, 11, 12, 40, 41], particularly text- to-image (T2I) diffusion models [ 4, 29, 32]. These mod- els have gained widespread popularity and deployment due to their ability to generate images that precisely align with textual prompts. However, T2I diffusion models can be ex- ploited for malicious purposes, such as creating images de- picting violence, nudity, or fake celebrity images in undesir- able contexts like jail [ 14, 20, 26, 30, 33, 38, 39]. To ensure the integrity of the model developers, it is crucial to design benign models that censor malicious concepts and produce only safe and appropriate content."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Strategies have been proposed to mitigate the malicious generation.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Strategies have been proposed to mitigate the malicious generation. For example, in the data collection stage, Sta- ble Diffusion (SD) [ 32] and Adobe [ 31] ﬁlter out the Not- Safe-For-Work (NSFW) contents in training data. After im- age generation, SD uses a detector to ensure the images are benign, removing unwanted ones. However, training data ﬁltering requires retraining and will be inefﬁcient if the model has already been trained on various data."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "For open- sourced models like SD [ 32], the detector can be easily dis- abled by modifying the source code.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "For open- sourced models like SD [ 32], the detector can be easily dis- abled by modifying the source code. Therefore, concept removal techniques have been proposed to edit a trained model’s parameters to prevent generating malicious con- cepts [ 7, 18, 19, 34, 44]. For instance, methods are pro- posed to ﬁne-tune the models to replace unwanted concepts with benign alternatives [ 7, 18, 44]. Besides, to accelerate ﬁne-tuning, some methods ﬁne-tune the linear components (e.g. the weight matrix of cross attention) using the closed- form optimal solution [ 8, 22, 42]."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "key_insight",
+      "main_message": "Alternatively, there are methods modifying the output during inference to bypass ﬁne-tuning [3, 36].",
+      "writing_strategy": "Introduces an observation that motivates the proposed direction.",
+      "evidence_text": "Alternatively, there are methods modifying the output during inference to bypass ﬁne-tuning [3, 36]. While there is rich literature improving concept removal methods, we observe three potential issues:"
+    }
+  ],
+  "method_structure": [],
+  "experiment_structure": [
+    {
+      "section_heading": "2. Effective prompts. Through extensive experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "To ensure the integrity of the model developers, it is crucial to design benign models that censor malicious concepts and produce only safe and appropriate content."
+    ],
+    "limitation_expression": [
+      "However , the advancement of T2I diffusion models presents signiﬁcant risks, as the models could be exploited for malicious purposes, such as gener- ating images with violence or nudity, or creating unautho- rized portraits of public ﬁgures in inappropriate contexts.",
+      "However, T2I diffusion models can be ex- ploited for malicious purposes, such as creating images de- picting violence, nudity, or fake celebrity images in undesir- able contexts like jail [ 14, 20, 26, 30, 33, 38, 39].",
+      "However, training data ﬁltering requires retraining and will be inefﬁcient if the model has already been trained on various data.",
+      "While our benchmark may have a limitation in the inconvenient detection metric for art styles (using the CLIP score for art styles, instead of the detection rate from a classiﬁer like other categories), it still offers a thorough and practical evaluation across the various method settings."
+    ],
+    "insight_expression": [
+      "5.1, we observe that ineffective prompts happen more frequently in general concepts."
+    ],
+    "method_expression": [
+      "To address these gaps, we propose to benchmark the concept removal methods by introducing a new dataset, Six-CD, along with a novel evaluation met- ric."
+    ],
+    "experiment_expression": [
+      "Through extensive experiments in Sec."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "5.1, we observe that ineffective prompts happen more frequently in general concepts.",
+    "However, T2I diffusion models can be ex- ploited for malicious purposes, such as creating images de- picting violence, nudity, or fake celebrity images in undesir- able contexts like jail [ 14, 20, 26, 30, 33, 38, 39].",
+    "However, training data ﬁltering requires retraining and will be inefﬁcient if the model has already been trained on various data.",
+    "Through extensive experiments in Sec.",
+    "To address these gaps, we propose to benchmark the concept removal methods by introducing a new dataset, Six-CD, along with a novel evaluation met- ric.",
+    "While there is rich literature improving concept removal methods, we observe three potential issues: 2.",
+    "Abstract Text-to-image (T2I) diffusion models have shown excep- tional capabilities in generating images that closely corre- spond to textual prompts.",
+    "After im- age generation, SD uses a detector to ensure the images are benign, removing unwanted ones.",
+    "Alternatively, there are methods modifying the output during inference to bypass ﬁne-tuning [3, 36].",
+    "Besides, to accelerate ﬁne-tuning, some methods ﬁne-tune the linear components (e.g. the weight matrix of cross attention) using the closed- form optimal solution [ 8, 22, 42].",
+    "Conclusion and Ethical Statement In this work, we address the lack of a systematic benchmark for concept removal methods by introducing a comprehen- sive and effective dataset and a new evaluation metric.",
+    "Despite involving the generation of sensitive content such as nudity and violence, it is strictly for research pur- poses and does not intend to produce or promote inappro- priate material."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nText-to-image (T2I) diffusion models have shown excep-\ntional capabilities in generating images that closely corre-\nspond to textual prompts. However , the advancement of T2I\ndiffusion models presents signiﬁcant risks, as the models\ncould be exploited for malicious purposes, such as gener-\nating images with violence or nudity, or creating unautho-\nrized portraits of public ﬁgures in inappropriate contexts.\nTo mitigate these risks, concept removal methods have been\nproposed. These methods aim to modify diffusion models\nto prevent the generation of malicious and unwanted con-\ncepts. Despite these efforts, existing research faces sev-\neral challenges: (1) a lack of consistent comparisons on\na comprehensive dataset, (2) ineffective prompts in harm-\nful and nudity concepts, (3) overlooked evaluation of the\nability to generate the benign part within prompts contain-\ning malicious concepts. To address these gaps, we propose\nto benchmark the concept removal methods by introducing\na new dataset, Six-CD, along with a novel evaluation met-\nric. In this benchmark, we conduct a thorough evaluation of\nconcept removals, with the experimental observations and\ndiscussions offering valuable insights in the ﬁeld.",
+    "introduction": "1. Introduction\nDiffusion models have demonstrated remarkable capabili-\nties in image generation [6, 11, 12, 40, 41], particularly text-\nto-image (T2I) diffusion models [ 4, 29, 32]. These mod-\nels have gained widespread popularity and deployment due\nto their ability to generate images that precisely align with\ntextual prompts. However, T2I diffusion models can be ex-\nploited for malicious purposes, such as creating images de-\npicting violence, nudity, or fake celebrity images in undesir-\nable contexts like jail [ 14, 20, 26, 30, 33, 38, 39]. To ensure\nthe integrity of the model developers, it is crucial to design\nbenign models that censor malicious concepts and produce\nonly safe and appropriate content.\nStrategies have been proposed to mitigate the malicious\ngeneration. For example, in the data collection stage, Sta-\nble Diffusion (SD) [ 32] and Adobe [ 31] ﬁlter out the Not-\nSafe-For-Work (NSFW) contents in training data. After im-\nage generation, SD uses a detector to ensure the images\nare benign, removing unwanted ones. However, training\ndata ﬁltering requires retraining and will be inefﬁcient if the\nmodel has already been trained on various data. For open-\nsourced models like SD [ 32], the detector can be easily dis-\nabled by modifying the source code. Therefore, concept\nremoval techniques have been proposed to edit a trained\nmodel’s parameters to prevent generating malicious con-\ncepts [ 7, 18, 19, 34, 44]. For instance, methods are pro-\nposed to ﬁne-tune the models to replace unwanted concepts\nwith benign alternatives [ 7, 18, 44]. Besides, to accelerate\nﬁne-tuning, some methods ﬁne-tune the linear components\n(e.g. the weight matrix of cross attention) using the closed-\nform optimal solution [ 8, 22, 42]. Alternatively, there are\nmethods modifying the output during inference to bypass\nﬁne-tuning [3, 36].\nWhile there is rich literature improving concept removal\nmethods, we observe three potential issues:",
+    "method": "",
+    "experiments": "2. Effective prompts. Through extensive experiments\nin Sec. 3.2 and Sec. 5.1, we observe that ineffective\nprompts happen more frequently in general concepts.\nThis is because the prompts of these concepts are usu-\nally diverse and implicit, unlike the precise and ex-\nplicit prompts for speciﬁc concepts. Thus, in Six-CD,\nwe provide additional subsets (with highly effective\nprompts only) for general concepts. Evaluation of ef-\nfective prompts can be more efﬁcient and also fairer\nwhen compared with speciﬁc concepts.",
+    "conclusion": "6. Conclusion and Ethical Statement\nIn this work, we address the lack of a systematic benchmark\nfor concept removal methods by introducing a comprehen-\nsive and effective dataset and a new evaluation metric. Us-\ning this benchmark, we conduct an extensive evaluation of\nconcept removal methods. Our experimental observations\nprovide valuable and practical insights for future research\nin this ﬁeld. While our benchmark may have a limitation\nin the inconvenient detection metric for art styles (using the\nCLIP score for art styles, instead of the detection rate from\na classiﬁer like other categories), it still offers a thorough\nand practical evaluation across the various method settings.\nEthical statement. This work provides a comprehen-\nsive evaluation framework for concept removal, which is\ntargeted to mitigate the potential malicious use of text-to-\nimage diffusion models. Our research is conducted respon-\nsibly, transparently, and deeply dedicated to ethical stan-\ndards. Despite involving the generation of sensitive content\nsuch as nudity and violence, it is strictly for research pur-\nposes and does not intend to produce or promote inappro-\npriate material. On the contrary, our work aims to advance\nefforts to prevent the generation of inappropriate content."
+  }
+}

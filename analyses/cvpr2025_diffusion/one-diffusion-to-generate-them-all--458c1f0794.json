@@ -1,0 +1,129 @@
+{
+  "paper_id": "one-diffusion-to-generate-them-all--458c1f0794",
+  "paper_title": "One Diffusion to Generate Them All",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:12.886283+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/One Diffusion to Generate Them All.pdf",
+    "filename": "One Diffusion to Generate Them All.pdf",
+    "sha1": "458c1f0794a6a4ae8de8e426d739e889c90faecb",
+    "page_count": 12
+  },
+  "core_story": {
+    "problem": "Designing a uniﬁed architecture for diverse image syn- thesis tasks presents signiﬁcant challenges.",
+    "limitation": "However, despite these advancements, diffusion models are typically trained individually for either T2I generation or speciﬁc tasks.",
+    "insight": "Abstract We introduceOneDiffusion, a versatile, large-scale dif- fusion model that seamlessly supports bidirectional image synthesis and understanding across diverse tasks.",
+    "proposed_method": "Abstract We introduceOneDiffusion, a versatile, large-scale dif- fusion model that seamlessly supports bidirectional image synthesis and understanding across diverse tasks.",
+    "experimental_evidence": "Experimental results demonstrate competitive performance across tasks in both generation and prediction such as text-to-image, multiview generation, ID preservation, depth estimation and camera pose estimation despite a relatively small training dataset.",
+    "summary": "Designing a uniﬁed architecture for diverse image syn- thesis tasks presents signiﬁcant challenges. However, despite these advancements, diffusion models are typically trained individually for either T2I generation or speciﬁc tasks. Abstract We introduceOneDiffusion, a versatile, large-scale dif- fusion model that seamlessly supports bidirectional image synthesis and understanding across diverse tasks. Abstract We introduceOneDiffusion, a versatile, large-scale dif- fusion model that seamlessly supports bidirectional image synthesis and understanding across diverse tasks. Experimental results demonstrate competitive performance across tasks in both generation and prediction such as text-to-image, multiview generation, ID preservation, depth estimation and camera pose estimation despite a relatively small training dataset."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Diffusion models, particularly in text-to-image (T2I) gen- eration, have recently achieved remarkable results.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Diffusion models, particularly in text-to-image (T2I) gen- eration, have recently achieved remarkable results. Models such as DALL-E [46], Imagen [46], and Stable Diffusion [15, 44, 50] have established new benchmarks for generat- ing high-quality, photorealistic images from text prompts. Additionally, recent studies have demonstrated the effec- tiveness of diffusion models in various other computer vi- sion tasks, such as depth estimation [23] or optical ﬂow esti- mation [38, 53], etc. However, despite these advancements, diffusion models are typically trained individually for either T2I generation or speciﬁc tasks."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "problem_statement",
+      "main_message": "In contrast, large language models (LLMs) (e.g.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "In contrast, large language models (LLMs) (e.g. GPT- 4[ 1]) have demonstrated their ability to function as univer- sal models. They can perform a wide range of tasks across different domains without the need for task-speciﬁc mod- ules, and can effectively handle tasks they have not been explicitly trained in a zero-shot manner. This universality has been immensely valuable; it has dramatically simpliﬁed using training and scaling these models, and ultimately led to better performance."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "This incentivizes us to ask whether diffusion models can become universal in a similar way.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "This incentivizes us to ask whether diffusion models can become universal in a similar way. Designing a uniﬁed architecture for diverse image syn- thesis tasks presents signiﬁcant challenges. Current meth- ods often depend on external add-ons to handle new tasks. For example, ControlNet [73] or T2I-Adapter [40] require specialized modules to encode the conditional inputs, and personalization models typically require encoding the iden- tity through a pretrained facial recognition network and adding auxiliary losses to preserve identity [21, 63, 68]."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "problem_statement",
+      "main_message": "Ad- ditionally, tasks vary widely in their input requirements.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Ad- ditionally, tasks vary widely in their input requirements. For instance, multi-view generation alone requires handling ar- bitrary input-output view combinations, posed or unposed images, and camera pose conditioning [18, 25, 35, 54, 62], while image understanding tasks require diverse outputs such as depth, pose, or segmentation. Finally, existing train- ing recipes are often tightly tuned to particular tasks and therefore cannot be relied on to generalize between tasks. In this work, we present OneDiffusion – a uniﬁed diffusion model that seamlessly supports bidirectional im- age synthesis and understanding across diverse tasks."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "problem_statement",
+      "main_message": "Our approach enables a single model to perform multiple tasks without the need for external losses and add-ons.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Our approach enables a single model to perform multiple tasks without the need for external losses and add-ons. Inspired by recent advances in diffusion models for sequential data [7, 51, 74], we model all conditions and target images as a sequence of “views” with varying noise levels during train- ing. At inference, any of the views can be used as a condi- tional input, or set to noise and then used to generate an output image. Conditioning text can also be changed to deﬁne the task, and specify additional conditioning details (e.g. camera pose)."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "problem_statement",
+      "main_message": "The simple, but ﬂexible, framework al- lows our model to support many kinds image generation and image understanding tasks with a uniﬁed architecture and training objective.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "The simple, but ﬂexible, framework al- lows our model to support many kinds image generation and image understanding tasks with a uniﬁed architecture and training objective. To demonstrate how general purpose our training al- gorithm is, we train OneDiffusion completely from scratch. First, we train on text-to-image task to equip the model with general image synthesis abilities, then on our One-Gen dataset to learn the full set of tasks. Our ﬁnal model has 2.8 billion parameters and is equipped with a diverse set of skills, shown in Figure 1."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "problem_statement",
+      "main_message": "The model also adapts naturally to various resolutions, enabling zero-shot high-resolution generation even when such resolutions were not encountered during training.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "The model also adapts naturally to various resolutions, enabling zero-shot high-resolution generation even when such resolutions were not encountered during training. We evaluate OneDiffusion on a diverse set of both generative and predictive tasks. On T2I, OneDiffusion efﬁciently generates high-quality images while utilizing fewer number of parameters. In the multiview generation task, OneDiffusion demonstrates performance compa- rable to state-of-the-art methods that are speciﬁcally de- signed and exclusively trained for this purpose."
+    },
+    {
+      "paragraph_index": 8,
+      "paragraph_role": "problem_statement",
+      "main_message": "We also show that OneDiffusion supports novel conditioning setups, such as text-to-multi-view and image-to-multi-view.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "We also show that OneDiffusion supports novel conditioning setups, such as text-to-multi-view and image-to-multi-view. For high-variability tasks like face identiﬁcation from a single image, the model is capable of generating multiple consistent images featuring diverse expressions and poses, demonstrating strong generalization to unseen domains."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, despite these advancements, diffusion models are typically trained individually for either T2I generation or speciﬁc tasks."
+    ],
+    "insight_expression": [],
+    "method_expression": [],
+    "experiment_expression": [
+      "Experimental results demonstrate competitive performance across tasks in both generation and prediction such as text-to-image, multiview generation, ID preservation, depth estimation and camera pose estimation despite a relatively small training dataset.",
+      "To demonstrate how general purpose our training al- gorithm is, we train OneDiffusion completely from scratch.",
+      "Conclusion Our experiments demonstrate that OneDiffusion achieves impressive results across a variety of tasks, including conditional T2I generation, depth estimation, open vocabulary semantic segmentation, pose estimation, multi-view generation, ID customization and camera pose estimation."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, despite these advancements, diffusion models are typically trained individually for either T2I generation or speciﬁc tasks.",
+    "Abstract We introduceOneDiffusion, a versatile, large-scale dif- fusion model that seamlessly supports bidirectional image synthesis and understanding across diverse tasks.",
+    "Ad- ditionally, tasks vary widely in their input requirements.",
+    "Additionally, OneDiffusion allows for multi-view generation, cam- era pose estimation, and instant personalization using se- quential image inputs.",
+    "Additionally, recent studies have demonstrated the effec- tiveness of diffusion models in various other computer vi- sion tasks, such as depth estimation [23] or optical ﬂow esti- mation [38, 53], etc.",
+    "At inference, any of the views can be used as a condi- tional input, or set to noise and then used to generate an output image.",
+    "Conditioning text can also be changed to deﬁne the task, and specify additional conditioning details (e.g. camera pose).",
+    "Current meth- ods often depend on external add-ons to handle new tasks.",
+    "Designing a uniﬁed architecture for diverse image syn- thesis tasks presents signiﬁcant challenges.",
+    "Details about additional qualitive examples are in the Appendix.",
+    "Experiments We evaluate our OneDiffusion model on broad range of image generation and understanding tasks.",
+    "Finally, existing train- ing recipes are often tightly tuned to particular tasks and therefore cannot be relied on to generalize between tasks."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWe introduceOneDiffusion, a versatile, large-scale dif-\nfusion model that seamlessly supports bidirectional image\nsynthesis and understanding across diverse tasks. It en-\nables conditional generation from inputs such as text, depth,\npose, layout, and semantic maps, while also handling tasks\nlike image deblurring, upscaling, and reverse processes\nsuch as depth estimation and segmentation. Additionally,\nOneDiffusion allows for multi-view generation, cam-\nera pose estimation, and instant personalization using se-\nquential image inputs. Our model takes a straightforward\nyet effective approach by treating all tasks as frame se-\nquences with varying noise scales during training, allow-\ning any frame to act as a conditioning image at inference\ntime. Our uniﬁed training framework removes the need\nfor specialized architectures, supports scalable multi-task\ntraining, and adapts smoothly to any resolution, enhancing\nboth generalization and scalability. Experimental results\ndemonstrate competitive performance across tasks in both\ngeneration and prediction such as text-to-image, multiview\ngeneration, ID preservation, depth estimation and camera\npose estimation despite a relatively small training dataset.\nOur code and checkpoint are freely available at https:\n//github.com/lehduong/OneDiffusion.",
+    "introduction": "1. Introduction\nDiffusion models, particularly in text-to-image (T2I) gen-\neration, have recently achieved remarkable results. Models\nsuch as DALL-E [46], Imagen [46], and Stable Diffusion\n[15, 44, 50] have established new benchmarks for generat-\ning high-quality, photorealistic images from text prompts.\nAdditionally, recent studies have demonstrated the effec-\ntiveness of diffusion models in various other computer vi-\nsion tasks, such as depth estimation [23] or optical ﬂow esti-\nmation [38, 53], etc. However, despite these advancements,\ndiffusion models are typically trained individually for either\nT2I generation or speciﬁc tasks.\nIn contrast, large language models (LLMs) (e.g. GPT-\n4[ 1]) have demonstrated their ability to function as univer-\nsal models. They can perform a wide range of tasks across\ndifferent domains without the need for task-speciﬁc mod-\nules, and can effectively handle tasks they have not been\nexplicitly trained in a zero-shot manner. This universality\nhas been immensely valuable; it has dramatically simpliﬁed\nusing training and scaling these models, and ultimately led\nto better performance. This incentivizes us to ask whether\ndiffusion models can become universal in a similar way.\nDesigning a uniﬁed architecture for diverse image syn-\nthesis tasks presents signiﬁcant challenges. Current meth-\nods often depend on external add-ons to handle new tasks.\nFor example, ControlNet [73] or T2I-Adapter [40] require\nspecialized modules to encode the conditional inputs, and\npersonalization models typically require encoding the iden-\ntity through a pretrained facial recognition network and\nadding auxiliary losses to preserve identity [21, 63, 68]. Ad-\nditionally, tasks vary widely in their input requirements. For\ninstance, multi-view generation alone requires handling ar-\nbitrary input-output view combinations, posed or unposed\nimages, and camera pose conditioning [18, 25, 35, 54, 62],\nwhile image understanding tasks require diverse outputs\nsuch as depth, pose, or segmentation. Finally, existing train-\ning recipes are often tightly tuned to particular tasks and\ntherefore cannot be relied on to generalize between tasks.\nIn this work, we present OneDiffusion – a uniﬁed\ndiffusion model that seamlessly supports bidirectional im-\nage synthesis and understanding across diverse tasks. Our\napproach enables a single model to perform multiple tasks\nwithout the need for external losses and add-ons. Inspired\nby recent advances in diffusion models for sequential data\n[7, 51, 74], we model all conditions and target images as a\nsequence of “views” with varying noise levels during train-\ning. At inference, any of the views can be used as a condi-\ntional input, or set to noise and then used to generate an\noutput image. Conditioning text can also be changed to\ndeﬁne the task, and specify additional conditioning details\n(e.g. camera pose). The simple, but ﬂexible, framework al-\nlows our model to support many kinds image generation\nand image understanding tasks with a uniﬁed architecture\nand training objective.\nTo demonstrate how general purpose our training al-\ngorithm is, we train OneDiffusion completely from\nscratch. First, we train on text-to-image task to equip the\nmodel with general image synthesis abilities, then on our\nOne-Gen dataset to learn the full set of tasks. Our ﬁnal\nmodel has 2.8 billion parameters and is equipped with a\ndiverse set of skills, shown in Figure 1. The model also\nadapts naturally to various resolutions, enabling zero-shot\nhigh-resolution generation even when such resolutions were\nnot encountered during training.\nWe evaluate OneDiffusion on a diverse set of both\ngenerative and predictive tasks. On T2I, OneDiffusion\nefﬁciently generates high-quality images while utilizing\nfewer number of parameters. In the multiview generation\ntask, OneDiffusion demonstrates performance compa-\nrable to state-of-the-art methods that are speciﬁcally de-\nsigned and exclusively trained for this purpose. We also\nshow that OneDiffusion supports novel conditioning\nsetups, such as text-to-multi-view and image-to-multi-view.\nFor high-variability tasks like face identiﬁcation from a\nsingle image, the model is capable of generating multiple\nconsistent images featuring diverse expressions and poses,\ndemonstrating strong generalization to unseen domains.\n2672",
+    "method": "3. Methodology",
+    "experiments": "5. Experiments\nWe evaluate our OneDiffusion model on broad range of\nimage generation and understanding tasks. We do not per-\nform task-speciﬁc ﬁnetuning in any results. Details about\nadditional qualitive examples are in the Appendix.",
+    "conclusion": "6. Conclusion\nOur experiments demonstrate that OneDiffusion\nachieves impressive results across a variety of tasks,\nincluding conditional T2I generation, depth estimation,\nopen vocabulary semantic segmentation, pose estimation,\nmulti-view generation, ID customization and camera pose\nestimation. We believe this work advances the capabilities\nof diffusion models, providing a versatile and scalable\nsolution comparable to the ﬂexibility offered by large\nlanguage models. This represents a signiﬁcant step toward\ndeveloping a general-purpose vision model that can serve\nas the backbone for a wide variety of applications.\n2678"
+  }
+}

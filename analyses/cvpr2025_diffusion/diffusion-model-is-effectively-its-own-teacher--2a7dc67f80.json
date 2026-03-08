@@ -1,0 +1,104 @@
+{
+  "paper_id": "diffusion-model-is-effectively-its-own-teacher--2a7dc67f80",
+  "paper_title": "Diffusion Model is Effectively Its Own Teacher",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:26.884008+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Diffusion Model is Effectively Its Own Teacher.pdf",
+    "filename": "Diffusion Model is Effectively Its Own Teacher.pdf",
+    "sha1": "2a7dc67f80f7a806032afd3e8cf4a583bb7fe71a",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Diffusion-based generative models [ 5, 16, 51] have gained signiﬁcant attention for their remarkable capability to gen- erate diverse, high-ﬁdelity outputs across various domains.",
+    "limitation": "However, the student models are constrained by the performance of the teacher model, with their training aimed at matching, but not surpassing, the teacher’s perfor- mance.",
+    "insight": "We further validate the ef- fectiveness of our method on text-to-image diffusion models, such as Stable Diffusion, and also observe notable improve- ment in image quality.",
+    "proposed_method": "Abstract In this paper , we introduce a novel self-distillation paradigm for improving the performance of diffusion mod- els.",
+    "experimental_evidence": "Previous studies have shown that introducing a teacher to distill the diffusion model can enhance its sampling efﬁ- ciency.",
+    "summary": "Introduction Diffusion-based generative models [ 5, 16, 51] have gained signiﬁcant attention for their remarkable capability to gen- erate diverse, high-ﬁdelity outputs across various domains. However, the student models are constrained by the performance of the teacher model, with their training aimed at matching, but not surpassing, the teacher’s perfor- mance. We further validate the ef- fectiveness of our method on text-to-image diffusion models, such as Stable Diffusion, and also observe notable improve- ment in image quality. Abstract In this paper , we introduce a novel self-distillation paradigm for improving the performance of diffusion mod- els. Previous studies have shown that introducing a teacher to distill the diffusion model can enhance its sampling efﬁ- ciency."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Diffusion-based generative models [ 5, 16, 51] have gained signiﬁcant attention for their remarkable capability to gen- erate diverse, high-ﬁdelity outputs across various domains.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "1. Introduction\nDiffusion-based generative models [ 5, 16, 51] have gained\nsigniﬁcant attention for their remarkable capability to gen-\nerate diverse, high-ﬁdelity outputs across various domains.\nIt has been proven effective in tasks such as image synthe-\nsis [ 42, 44, 46], video generation [ 1, 17, 18] and natural\nlanguage processing [ 27, 33]. Unlike previous generative\napproaches like V AEs [24] and GANs [12], Diffusion Mod-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n12901"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "els (DMs) rely on a unique process where noise is gradu- ally reﬁned into meaningful data by reversing a speciﬁed noise pathway [ 20].",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "els (DMs) rely on a unique process where noise is gradu-\nally reﬁned into meaningful data by reversing a speciﬁed\nnoise pathway [ 20]. This iterative noise-to-data transfor-\nmation gives DMs exceptional versatility, allowing them\nto be applied successfully in image editing [ 21], inpaint-\ning [35], super-resolution [11], object detection [3], 3D gen-\neration [43], etc.\nRecent studies have emphasized the effectiveness of\nknowledge distillation [15] as a tool for enhancing inference\nefﬁciency or accelerating pre-training for diffusion mod-\nels [ 38, 50]. These methods typically achieve distillation\nthrough the use of an external teacher model or a teacher\nwith more sampling steps. To improve inference efﬁciency,\napproaches such as progressive distillation and consistency\ndistillation [ 23, 36, 47, 52] employ an extensive multi-step\nsampling process as a teacher model to distill the student\nmodel with fewer steps. These teacher models more accu-\nrately approximate the denoising trajectory, thereby guiding\nthe student model to enable the few-step generation or even\none-step generation [ 7]. Other studies [ 13, 19, 22] focus\non distilling compact diffusion models by training smaller\nmod"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, the student models are constrained by the performance of the teacher model, with their training aimed at matching, but not surpassing, the teacher’s perfor- mance.",
+      "However, our method also has certain limitations.",
+      "For in- stance, we still rely on suboptimal approaches to approxi- mate the prediction of the intermediate step."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To this end, we propose a new paradigm called Self Step-Distillation (SSD).",
+      "We propose two forms, explicit SSD and implicit SSD (iSSD), to perform N-step to N-step distillation from the diffusion model itself to achieve improved image quality.",
+      "Addition- ally, our method is compatible with the distillation method designed for few-step inference.",
+      "We further validate the ef- fectiveness of our method on text-to-image diffusion models, such as Stable Diffusion, and also observe notable improve- ment in image quality.",
+      "To achieve this, we propose a fusion of predictions and features across different steps, and redeﬁne the computational ﬂow for the student model.",
+      "With our method, a self-distilled DiT-XL/2 with 50 sampling steps surpasses the performance of the pre-trained DiT- XL/2 with 250 sampling steps (2.02 vs 2.14 in FID).",
+      "To further examine the N -to-N distillation setting and show that our method is complementary to the few-step distil- lation, we applied our method on a progressively distilled DiT-XL/2.",
+      "Additionally, we tested the generalizability of our method by applying it to Stable Diffusion, conﬁrming its effective- ness in the text-to-image setting.",
+      "Consequently, our method can be con- sidered a quick self-improvement technique for diffusion models, which we further show that it can operate without dependence on training data.",
+      "Conclusion In this paper, we propose a novel self-distillation approach named Self Step-Distillation.",
+      "Experimental results demonstrate that our method signiﬁcantly outperforms the performance of the teacher model, achieving substantial improvements in both conditional generation and text-to-image generation.",
+      "However, our method also has certain limitations."
+    ],
+    "experiment_expression": [
+      "The effectiveness of SSD is validated through extensive experiments on diffu- *Corresponding author sion transformers of various sizes and across different sam- pling steps.",
+      "To summarize, the contributions of our work are: • We demonstrate for the ﬁrst time that self-distillation can enhance the performance of diffusion models itself, sig- niﬁcantly surpassing the original model. • We introduce a novel self-distillation framework for dif- fusion models, termed Self Step-Distillation.",
+      "By corrupt- ing and fusing predictions and intermediate activations, we redeﬁne the computational ﬂow of the teacher and stu- dent diffusion model to facilitate self-distillation. • We analyze the underlying mechanisms of this unique self-distillation approach and reveal its connection to high-order solvers. • Experimental results demonstrate that our self-distillation method signiﬁcantly enhances the performance of diffu- sion models, including both DiT and Stable Diffusion, as well as distilled few-step diffusion models.",
+      "Experiment In this section, we demonstrate the effectiveness of our pro- posed method.",
+      "Experimental results demonstrate that our method signiﬁcantly outperforms the performance of the teacher model, achieving substantial improvements in both conditional generation and text-to-image generation."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion In this paper, we propose a novel self-distillation approach named Self Step-Distillation.",
+    "However, our method also has certain limitations.",
+    "However, the student models are constrained by the performance of the teacher model, with their training aimed at matching, but not surpassing, the teacher’s perfor- mance.",
+    "The effectiveness of SSD is validated through extensive experiments on diffu- *Corresponding author sion transformers of various sizes and across different sam- pling steps.",
+    "To achieve this, we propose a fusion of predictions and features across different steps, and redeﬁne the computational ﬂow for the student model.",
+    "To this end, we propose a new paradigm called Self Step-Distillation (SSD).",
+    "We propose two forms, explicit SSD and implicit SSD (iSSD), to perform N-step to N-step distillation from the diffusion model itself to achieve improved image quality.",
+    "12901 els (DMs) rely on a unique process where noise is gradu- ally reﬁned into meaningful data by reversing a speciﬁed noise pathway [ 20].",
+    "Abstract In this paper , we introduce a novel self-distillation paradigm for improving the performance of diffusion mod- els.",
+    "Addition- ally, our method is compatible with the distillation method designed for few-step inference.",
+    "Additionally, Section 4.3 provides the results of applying these meth- ods to text-to-image generation.",
+    "Additionally, our method is relatively sensitive to hyperparameters."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nIn this paper , we introduce a novel self-distillation\nparadigm for improving the performance of diffusion mod-\nels. Previous studies have shown that introducing a teacher\nto distill the diffusion model can enhance its sampling efﬁ-\nciency. We raise an intriguing question: can the diffusion\nmodel itself serve as its teacher to further improve the per-\nformance of itself? To this end, we propose a new paradigm\ncalled Self Step-Distillation (SSD). The core idea of SSD\nis to integrate the predictions or the intermediate activa-\ntions of the diffusion model at each timestep with its pre-\nceding timestep through a fusion mechanism. We propose\ntwo forms, explicit SSD and implicit SSD (iSSD), to perform\nN-step to N-step distillation from the diffusion model itself\nto achieve improved image quality. We further elucidate\nthe relationship between SSD and high-order solver , high-\nlighting their underlying relationship. The effectiveness of\nSSD is validated through extensive experiments on diffu-\n*Corresponding author\nsion transformers of various sizes and across different sam-\npling steps. Our results show that this novel self-distillation\nparadigm can signiﬁcantly enhance performance. Addition-\nally, our method is compatible with the distillation method\ndesigned for few-step inference. Notably, with iSSD trained\nless than one epoch, we obtain a 32-step DiT-XL/2 achiev-\ning an FID of 1.99, outperforming the original 250-step\nDiT-XL/2 with an FID of 2.26. We further validate the ef-\nfectiveness of our method on text-to-image diffusion models,\nsuch as Stable Diffusion, and also observe notable improve-\nment in image quality.",
+    "introduction": "1. Introduction\nDiffusion-based generative models [ 5, 16, 51] have gained\nsigniﬁcant attention for their remarkable capability to gen-\nerate diverse, high-ﬁdelity outputs across various domains.\nIt has been proven effective in tasks such as image synthe-\nsis [ 42, 44, 46], video generation [ 1, 17, 18] and natural\nlanguage processing [ 27, 33]. Unlike previous generative\napproaches like V AEs [24] and GANs [12], Diffusion Mod-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n12901\n\nels (DMs) rely on a unique process where noise is gradu-\nally reﬁned into meaningful data by reversing a speciﬁed\nnoise pathway [ 20]. This iterative noise-to-data transfor-\nmation gives DMs exceptional versatility, allowing them\nto be applied successfully in image editing [ 21], inpaint-\ning [35], super-resolution [11], object detection [3], 3D gen-\neration [43], etc.\nRecent studies have emphasized the effectiveness of\nknowledge distillation [15] as a tool for enhancing inference\nefﬁciency or accelerating pre-training for diffusion mod-\nels [ 38, 50]. These methods typically achieve distillation\nthrough the use of an external teacher model or a teacher\nwith more sampling steps. To improve inference efﬁciency,\napproaches such as progressive distillation and consistency\ndistillation [ 23, 36, 47, 52] employ an extensive multi-step\nsampling process as a teacher model to distill the student\nmodel with fewer steps. These teacher models more accu-\nrately approximate the denoising trajectory, thereby guiding\nthe student model to enable the few-step generation or even\none-step generation [ 7]. Other studies [ 13, 19, 22] focus\non distilling compact diffusion models by training smaller\nmodels under the supervision of larger, high-capacity mod-\nels. Besides, [ 60] demonstrates that aligning model repre-\nsentations using guidance from an external pre-trained vi-\nsion encoder can facilitate faster convergence.\nThe aforementioned methods can signiﬁcantly enhance\nthe sampling efﬁciency of diffusion models through dis-\ntillation. However, the student models are constrained by\nthe performance of the teacher model, with their training\naimed at matching, but not surpassing, the teacher’s perfor-\nmance. This raises an intriguing question: Can distillation\nbe leveraged to improve the generation quality of the dif-\nfusion model itself, potentially exceeding the performance\nof the teacher model? This shifts the focus from traditional\nN -to-M step distillation or model compression for speed to\na form of N -to-N step self-distillation aimed at enhancing\nthe generation quality of the original diffusion model.\nWe thereby explore the unique form of self-distillation\nwithin diffusion models. While self-distillation has been\nstudied extensively in conventional architectures [ 10, 39,\n61, 62], its application to diffusion models remains unex-\nplored. explore the special way that self-distillation oper-\nates in diffusion models by utilizing the properties of dif-\nfusion models. Given the temporal relationships between\nsteps that form a sequence of predictions, we introduce Self\nStep-Distillation in both explicit and implicit forms. The\ncore idea is that, with careful design, the model can enhance\nits performance by mimicking the next-step prediction. To\nachieve this, we propose a fusion of predictions and features\nacross different steps, and redeﬁne the computational ﬂow\nfor the student model. Once the student model is trained, it\ncan be reverted to the original computational pipeline. We\nalso illustrate how this fusion mechanism relates to high-\norder solvers.\nWe mainly conduct our experiments on diffusion trans-\nformers [ 40] due to their exceptional performance. We\nconduct experiments on DiT models ranging from DiT-\nS/2 to DiT-XL/2 and sampling steps from 4 to 250. With\nour method, a self-distilled DiT-XL/2 with 50 sampling\nsteps surpasses the performance of the pre-trained DiT-\nXL/2 with 250 sampling steps (2.02 vs 2.14 in FID). To\nfurther examine the N -to-N distillation setting and show\nthat our method is complementary to the few-step distil-\nlation, we applied our method on a progressively distilled\nDiT-XL/2. This resulted in an enhanced generation qual-\nity, with an FID of 1.99 achieved using 32 sampling steps.\nAdditionally, we tested the generalizability of our method\nby applying it to Stable Diffusion, conﬁrming its effective-\nness in the text-to-image setting. All experiments require\nfewer than 10k optimization steps and a short training dura-\ntion—approximately 40 minutes for DiT-XL/2 and 3 hours\nfor Stable Diffusion. Consequently, our method can be con-\nsidered a quick self-improvement technique for diffusion\nmodels, which we further show that it can operate without\ndependence on training data.\nTo summarize, the contributions of our work are:\n• We demonstrate for the ﬁrst time that self-distillation can\nenhance the performance of diffusion models itself, sig-\nniﬁcantly surpassing the original model.\n• We introduce a novel self-distillation framework for dif-\nfusion models, termed Self Step-Distillation. By corrupt-\ning and fusing predictions and intermediate activations,\nwe redeﬁne the computational ﬂow of the teacher and stu-\ndent diffusion model to facilitate self-distillation.\n• We analyze the underlying mechanisms of this unique\nself-distillation approach and reveal its connection to\nhigh-order solvers.\n• Experimental results demonstrate that our self-distillation\nmethod signiﬁcantly enhances the performance of diffu-\nsion models, including both DiT and Stable Diffusion, as\nwell as distilled few-step diffusion models.",
+    "method": "3. Method\nIn this section, we elaborate on the design of our self-\ndistillation framework. We ﬁrst show our proposed frame-\nwork of the self-distillation paradigm in Section 3.2, and\nthen give the explanation about why it works in Section 3.3\nand Section 3.4.",
+    "experiments": "4. Experiment\nIn this section, we demonstrate the effectiveness of our pro-\nposed method. In Section 4.2, we present empirical ev-\nidence that both SSD and iSSD consistently enhance the\nperformance of a pre-trained DiT across various image res-\nolutions, model sizes, and sampling steps. Additionally,\nSection 4.3 provides the results of applying these meth-\nods to text-to-image generation. Section 4.4 highlights how\niSSD can be applied to distilled models, yielding further\nperformance improvements. Finally, Section 4.5 offers an\nin-depth analysis.",
+    "conclusion": "5. Conclusion\nIn this paper, we propose a novel self-distillation approach\nnamed Self Step-Distillation. We introduce two forms for\nSelf Step-Distillation. Furthermore, we explain this ap-\nproach by analyzing it through the lens of distillation with\nhigh-order samplers. Experimental results demonstrate that\nour method signiﬁcantly outperforms the performance of\nthe teacher model, achieving substantial improvements in\nboth conditional generation and text-to-image generation.\nHowever, our method also has certain limitations. For in-\nstance, we still rely on suboptimal approaches to approxi-\nmate the prediction of the intermediate step. Additionally,\nour method is relatively sensitive to hyperparameters."
+  }
+}

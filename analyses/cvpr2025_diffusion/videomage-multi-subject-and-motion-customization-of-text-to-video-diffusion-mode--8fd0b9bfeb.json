@@ -1,0 +1,93 @@
+{
+  "paper_id": "videomage-multi-subject-and-motion-customization-of-text-to-video-diffusion-mode--8fd0b9bfeb",
+  "paper_title": "VideoMage: Multi-Subject and Motion Customization of Text-to-Video Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:50.153683+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/VideoMage： Multi-Subject and Motion Customization of Text-to-Video Diffusion Models.pdf",
+    "filename": "VideoMage： Multi-Subject and Motion Customization of Text-to-Video Diffusion Models.pdf",
+    "sha1": "8fd0b9bfeb265642940f692261c26475e2658532",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "To address this challenge, several works [14, 24, 43, 44] have explored customizing a desirable subject identity into synthesized videos.",
+    "limitation": "However, while high-quality and diverse videos can now be synthesized, relying solely on text descriptions cannot offer precise control over desirable content that accurately aligns with user intents [24].",
+    "insight": "Abstract Customized text-to-video generation aims to produce high-quality videos that incorporate user-specified subject identities or motion patterns.",
+    "proposed_method": "To tackle this challenge, we propose a unified framework Video- Mage for video customization over both multiple subjects and their interactive motions.",
+    "experimental_evidence": "Extensive experiments demonstrate that VideoMage outperforms ex- isting methods, generating coherent, user-controlled videos with consistent subject identities and interactions.",
+    "summary": "To address this challenge, several works [14, 24, 43, 44] have explored customizing a desirable subject identity into synthesized videos. However, while high-quality and diverse videos can now be synthesized, relying solely on text descriptions cannot offer precise control over desirable content that accurately aligns with user intents [24]. Abstract Customized text-to-video generation aims to produce high-quality videos that incorporate user-specified subject identities or motion patterns. To tackle this challenge, we propose a unified framework Video- Mage for video customization over both multiple subjects and their interactive motions. Extensive experiments demonstrate that VideoMage outperforms ex- isting methods, generating coherent, user-controlled videos with consistent subject identities and interactions."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction In recent years, unprecedented success in diffusion mod- els [17, 37, 38] has greatly improved the generation of pho- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\nIn recent years, unprecedented success in diffusion mod-\nels [17, 37, 38] has greatly improved the generation of pho-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n17603"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "torealistic videos [ 3, 16, 18, 19, 35] from textual descrip- tions, enabling new possibilities for video content creation.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "torealistic videos [ 3, 16, 18, 19, 35] from textual descrip-\ntions, enabling new possibilities for video content creation.\nHowever, while high-quality and diverse videos can now\nbe synthesized, relying solely on text descriptions cannot\noffer precise control over desirable content that accurately\naligns with user intents [24]. Therefore, customizing user-\nspecific video concepts from the provided references draws\nsignificant attention from both academics and industry.\nTo address this challenge, several works [14, 24, 43, 44]\nhave explored customizing a desirable subject identity into\nsynthesized videos. For example, AnimateDiff [ 14] ani-\nmates the user-provided subject by tuning temporal modules\ninserted into the pre-trained image diffusion models. Video-\nBooth [24] further employs cross-frame attention to preserve\nthe fine-grained visual appearance of the customized subject.\nFurthermore, CustomVideo [43] fine-tunes cross-attention\nlayers on all involved subjects simultaneously to customize\nmultiple subjects within a scene. However, these approaches\nmerely focus on the customization of thestatic subject. They\nare limited to offering users or video creators the ability\nto personal"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, existing methods mainly focus on personalizing a single concept, either sub- ject identity or motion pattern, limiting their effectiveness for multiple subjects with the desired motion patterns.",
+      "However, while high-quality and diverse videos can now be synthesized, relying solely on text descriptions cannot offer precise control over desirable content that accurately aligns with user intents [24].",
+      "However, these approaches merely focus on the customization of thestatic subject.",
+      "They are limited to offering users or video creators the ability to personalize their desired dynamic motions (e.g., specific dancing styles) into output videos, severely hampering the flexibility of video content customization.",
+      "However, simply tuning temporal modules without prop- erly disentangling motion information from reference videos causes severe appearance leakage issues, resulting in the derived motion patterns that cannot be applied with arbitrary subject identities."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To tackle this challenge, we propose a unified framework Video- Mage for video customization over both multiple subjects and their interactive motions.",
+      "To address this challenge, several works [14, 24, 43, 44] have explored customizing a desirable subject identity into synthesized videos.",
+      "We now summarize the contributions of this work below: • We propose VideoMage, a unified framework that first enables video concept customization for multiple subject identities and their interactive motion. • We introduce a novel appearance-agnostic motion learning by advancing negative classifier-free guidance to disentan- gle underlying motion patterns from appearance. • We develop a spatial-temporal collaborative composition scheme to compose the obtained multi-subject and motion LoRAs for generating coherent multi-subject interactions in the desired motion pattern."
+    ],
+    "experiment_expression": [
+      "Extensive experiments demonstrate that VideoMage outperforms ex- isting methods, generating coherent, user-controlled videos with consistent subject identities and interactions."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion In this paper, we proposed a unified frameworkVideoMage to enable video customization of text-to-video diffusion mod- els among user-provided subject identities and the desired motion patterns.",
+    "Extensive experiments demonstrate that VideoMage outperforms ex- isting methods, generating coherent, user-controlled videos with consistent subject identities and interactions.",
+    "However, existing methods mainly focus on personalizing a single concept, either sub- ject identity or motion pattern, limiting their effectiveness for multiple subjects with the desired motion patterns.",
+    "However, these approaches merely focus on the customization of thestatic subject.",
+    "However, while high-quality and diverse videos can now be synthesized, relying solely on text descriptions cannot offer precise control over desirable content that accurately aligns with user intents [24].",
+    "In this paper, we proposeVideoMage, a unified framework for video content customization that enables controllability over subject identities and motion patterns.",
+    "To tackle the above problem, we proposeVideoMage, a unified framework for customizing multiple subjects and in- teractive motions for text-to-video generation.",
+    "To tackle this challenge, we propose a unified framework Video- Mage for video customization over both multiple subjects and their interactive motions.",
+    "17603 torealistic videos [ 3, 16, 18, 19, 35] from textual descrip- tions, enabling new possibilities for video content creation.",
+    "3.1), we detail how we utilize LoRA modules to learn visual and motion infor- mation from input images and reference videos, respectively (Sec.",
+    "Abstract Customized text-to-video generation aims to produce high-quality videos that incorporate user-specified subject identities or motion patterns.",
+    "As a result, the aforementioned methods can only handle single (i.e., subject or motion) concept customization."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nCustomized text-to-video generation aims to produce\nhigh-quality videos that incorporate user-specified subject\nidentities or motion patterns. However, existing methods\nmainly focus on personalizing a single concept, either sub-\nject identity or motion pattern, limiting their effectiveness\nfor multiple subjects with the desired motion patterns. To\ntackle this challenge, we propose a unified framework Video-\nMage for video customization over both multiple subjects\nand their interactive motions. VideoMage employs subject\nand motion LoRAs to capture personalized content from\nuser-provided images and videos, along with an appearance-\nagnostic motion learning approach to disentangle motion\npatterns from visual appearance. Furthermore, we develop\na spatial-temporal composition scheme to guide interactions\namong subjects within the desired motion patterns. Extensive\nexperiments demonstrate that VideoMage outperforms ex-\nisting methods, generating coherent, user-controlled videos\nwith consistent subject identities and interactions. Project\nPage: https://jasper0314-huang.github.io/\nvideomage-customization/",
+    "introduction": "1. Introduction\nIn recent years, unprecedented success in diffusion mod-\nels [17, 37, 38] has greatly improved the generation of pho-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n17603\n\ntorealistic videos [ 3, 16, 18, 19, 35] from textual descrip-\ntions, enabling new possibilities for video content creation.\nHowever, while high-quality and diverse videos can now\nbe synthesized, relying solely on text descriptions cannot\noffer precise control over desirable content that accurately\naligns with user intents [24]. Therefore, customizing user-\nspecific video concepts from the provided references draws\nsignificant attention from both academics and industry.\nTo address this challenge, several works [14, 24, 43, 44]\nhave explored customizing a desirable subject identity into\nsynthesized videos. For example, AnimateDiff [ 14] ani-\nmates the user-provided subject by tuning temporal modules\ninserted into the pre-trained image diffusion models. Video-\nBooth [24] further employs cross-frame attention to preserve\nthe fine-grained visual appearance of the customized subject.\nFurthermore, CustomVideo [43] fine-tunes cross-attention\nlayers on all involved subjects simultaneously to customize\nmultiple subjects within a scene. However, these approaches\nmerely focus on the customization of thestatic subject. They\nare limited to offering users or video creators the ability\nto personalize their desired dynamic motions (e.g., specific\ndancing styles) into output videos, severely hampering the\nflexibility of video content customization.\nOn the other hand, to empower the users with the control-\nlability of dynamic motion, recent methods [23, 28, 32, 48,\n51] have designed modules to capture motion patterns from\nthe conditioned reference videos. For instance, Customize-\nA-Video [32] fine-tunes low-rank adaptation (LoRA) [21]\ninserted into temporal attention layers to learn the desired\nmotion pattern. Similarly, MotionDirector [ 51] employs\nLoRA to learn motion by using an objective that captures the\ndifferences between an anchor frame and the other frames.\nHowever, simply tuning temporal modules without prop-\nerly disentangling motion information from reference videos\ncauses severe appearance leakage issues, resulting in the\nderived motion patterns that cannot be applied with arbitrary\nsubject identities. Moreover, without guidance for subjects\nand motion composition, the model struggles to precisely\ncontrol the interaction among these customized video con-\ncepts. As a result, the aforementioned methods can only\nhandle single (i.e., subject or motion) concept customization.\nJointly customizing multiple video concepts by free-form\nprompts that describe multiple subjects and desired motion\npatterns remains a challenging and unsolved problem.\nIn this paper, we proposeVideoMage, a unified framework\nfor video content customization that enables controllability\nover subject identities and motion patterns. VideoMage in-\nvolves subject and motion LoRAs to capture respective infor-\nmation from user-provided images and videos. To ensure the\nmotion LoRAs would not be contaminated by visual appear-\nance, we introduce an appearance-agnostic motion learning\napproach, which isolates motion patterns from reference\nvideos. More specifically, we employ negative classifier-\nfree guidance [12, 22] conditioned on the visual appearance,\neffectively disentangling motion from appearance details.\nWith the learned subject and motion LoRAs, we introduce a\nspatial-temporal collaborative composition scheme to guide\ninteractions among multiple subjects in the desired motion\npattern. We advance gradient-based fusion and spatial atten-\ntion regularization to absorb the multi-subject information\nwhile encouraging distinct spatial arrangements of subjects.\nBy iteratively guiding the generation process using subject\nand motion LoRAs, VideoMage synthesizes output videos\nwith enhanced user control and spatiotemporal coherence.\nWe now summarize the contributions of this work below:\n• We propose VideoMage, a unified framework that first\nenables video concept customization for multiple subject\nidentities and their interactive motion.\n• We introduce a novel appearance-agnostic motion learning\nby advancing negative classifier-free guidance to disentan-\ngle underlying motion patterns from appearance.\n• We develop a spatial-temporal collaborative composition\nscheme to compose the obtained multi-subject and motion\nLoRAs for generating coherent multi-subject interactions\nin the desired motion pattern.",
+    "method": "3. Method\nProblem Formulation. We first define the setting and no-\ntations. Given N subjects, each represented by 3-5 images\ndenoted as xs,i for the i-th subject (omitting the individual\nimage index for simplicity), a reference interactive motion\nvideo xm, and a user-provided text prompt ctgt, our goal is\nto generate a video based on ctgt in which these N subjects\ninteract according to the motion pattern.\nTo tackle the above problem, we proposeVideoMage, a\nunified framework for customizing multiple subjects and in-\nteractive motions for text-to-video generation. With a quick\nreview of video diffusion models (Sec. 3.1), we detail how\nwe utilize LoRA modules to learn visual and motion infor-\nmation from input images and reference videos, respectively\n(Sec. 3.2). Instead of naive combination, a unique spatial-\ntemporal collaborative composition scheme is presented to\nintegrate the learned subjects/motion LoRAs for video gen-\neration (Sec. 3.3).",
+    "experiments": "4. Experiment",
+    "conclusion": "5. Conclusion\nIn this paper, we proposed a unified frameworkVideoMage\nto enable video customization of text-to-video diffusion mod-\nels among user-provided subject identities and the desired\nmotion patterns. In VideoMage, we employ multi-subject\nand appearance-agnostic motion learning to derive the cus-\ntomized LoRAs, while presenting a spatial-temporal collab-\norative composition scheme to mutually align subject and\nmotion components for synthesizing videos with sufficiently\nvisual and temporal fidelity. We conducted extensive quanti-\ntative and qualitative evaluations onVideoMage, validating\nits superior controllability over previous video customization\nmethods."
+  }
+}

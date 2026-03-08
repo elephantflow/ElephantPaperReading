@@ -1,0 +1,93 @@
+{
+  "paper_id": "learning-temporally-consistent-video-depth-from-video-diffusion-priors--4c452b86d6",
+  "paper_title": "Learning Temporally Consistent Video Depth from Video Diffusion Priors",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:58.015327+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Learning Temporally Consistent Video Depth from Video Diffusion Priors.pdf",
+    "filename": "Learning Temporally Consistent Video Depth from Video Diffusion Priors.pdf",
+    "sha1": "4c452b86d6ec04f1c82f6b50651118f64e055662",
+    "page_count": 12
+  },
+  "core_story": {
+    "problem": "Introduction Monocular image depth estimation methods have achieved signiﬁcant advancements in recent years.",
+    "limitation": "However, such approaches cannot fully encode contextual information between clips.",
+    "insight": "Abstract This work addresses the challenge of streamed video depth estimation, which expects not only per-frame accuracy but, more importantly, cross-frame consistency.",
+    "proposed_method": "Speciﬁcally, we propose a consistent context- aware training and inference strategy for arbitrarily long videos to provide cross-clip context.",
+    "experimental_evidence": "Extensive experi- mental results validate our design choices and demonstrate the superiority of our approach, dubbed ChronoDepth.",
+    "summary": "Introduction Monocular image depth estimation methods have achieved signiﬁcant advancements in recent years. However, such approaches cannot fully encode contextual information between clips. Abstract This work addresses the challenge of streamed video depth estimation, which expects not only per-frame accuracy but, more importantly, cross-frame consistency. Speciﬁcally, we propose a consistent context- aware training and inference strategy for arbitrarily long videos to provide cross-clip context. Extensive experi- mental results validate our design choices and demonstrate the superiority of our approach, dubbed ChronoDepth."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction Monocular image depth estimation methods have achieved signiﬁcant advancements in recent years.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "1. Introduction\nMonocular image depth estimation methods have achieved\nsigniﬁcant advancements in recent years. Despite notable\n→denotes equal contribution. † corresponding author.\nprogresses in spatial precision [ 19, 22, 27, 40, 55, 56, 74,\n75, 79, 82], these single-image depth estimation methods\nare built based on an i.i.d. assumption between frames.\nAs there is no contextual information before or after each\nframe, this approach is inherently prone to ﬂickering and\ntemporal inconsistency. In the meantime, many applications\nin AR/VR, robotics, and video editing require an estimation\nof consistent depth over time, which calls for video depth\nestimation tools that exhibit both spatial accuracy and tem-\nporal consistency.\nFor arbitrarily long videos, given the purpose of au-\ntoregressive inference and the limitation of computing re-\nsources, it is necessary to split it into multiple smaller video\nclips to process them in a streamed manner. Existing meth-\nods [69, 73] leverage the attention mechanism in a general-\nizable manner to aggregate contextual information for each\nvideo clip. However, such approaches cannot fully encode\ncontextual information between clips. Therefore, ﬂicker-"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "method_overview",
+      "main_message": "Illustration of different inference strategies for inﬁnitely long videos.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Figure 2. Illustration of different inference strategies for inﬁnitely long videos. (a) Naive sliding window inference; (b) Inference with\nreplacement trick; (c) Our proposed consistent context-aware inference. F , W denotes number of clip and overlapping frames respectively.\nhigh spatial quality and temporal consistency. We argue\nvideo diffusion models can be repurposed for video depth\nestimation in the wake of diffusion-based single-image\ndepth estimatiors [ 22, 40], yielding feed-forward estima-\ntion without requiring camera poses across frames. This\nrepurposing process, however, is not merely a straightfor-\nward extension of monocular depth prediction. It requires\ncareful consideration of the contextual information between\nclips to ensure temporal consistency across a long video.\nTherefore, we propose a novel video depth estima-\ntor, named ChronoDepth, to leverage a video diffusion\nmodel to provide context cues within and between clips, re-\nsulting in much higher temporal consistency compared to\nthe use of single-image diffusion models – see Fig. 1, as\nhighlighted by the smoother depth depicted by extracting\ny-t slices from the results by our model against a state-of-\nthe-art s"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experimental Results",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, such approaches cannot fully encode contextual information between clips.",
+      "Therefore, ﬂicker- ing issues still persist across clips.",
+      "However, these approaches heavily hinge on precise camera poses and require a long optimization time.",
+      "This repurposing process, however, is not merely a straightfor- ward extension of monocular depth prediction."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Speciﬁcally, we propose a consistent context- aware training and inference strategy for arbitrarily long videos to provide cross-clip context.",
+      "Therefore, we propose a novel video depth estima- tor, named ChronoDepth, to leverage a video diffusion model to provide context cues within and between clips, re- sulting in much higher temporal consistency compared to the use of single-image diffusion models – see Fig.",
+      "To address this, our proposed strategy uses previously predicted depth frames for context without adding noise, ensuring consistency across frames (Fig."
+    ],
+    "experiment_expression": [
+      "Extensive experi- mental results validate our design choices and demonstrate the superiority of our approach, dubbed ChronoDepth.",
+      "In terms of cross-clip context, we systematically eval- uate different strategies, and propose a consistent context- aware inference as shown in Fig."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, such approaches cannot fully encode contextual information between clips.",
+    "However, these approaches heavily hinge on precise camera poses and require a long optimization time.",
+    "In terms of cross-clip context, we systematically eval- uate different strategies, and propose a consistent context- aware inference as shown in Fig.",
+    "Speciﬁcally, we propose a consistent context- aware training and inference strategy for arbitrarily long videos to provide cross-clip context.",
+    "This repurposing process, however, is not merely a straightfor- ward extension of monocular depth prediction.",
+    "(a) Naive sliding window inference; (b) Inference with replacement trick; (c) Our proposed consistent context-aware inference.",
+    "1, as highlighted by the smoother depth depicted by extracting y-t slices from the results by our model against a state-of- the-art single-image model [ 40].",
+    "2 (a)) does not ensure tempo- ral consistency.",
+    "2 (b)), but this leads to inconsistent contextual information due to noise variations [ 31].",
+    "3.1 and discuss its is- sues in artitray-length video inference.",
+    "3.2 and our training protocols in Sec.",
+    "A common method to add context between clips is the “replacement trick” in video diffusion mod- els [31, 88], used in our concurrent work DepthCrafter [ 33]."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nThis work addresses the challenge of streamed video depth\nestimation, which expects not only per-frame accuracy but,\nmore importantly, cross-frame consistency. We argue that\nsharing contextual information between frames or clips is\npivotal in fostering temporal consistency. Therefore, we\nreformulate depth prediction into a conditional generation\nproblem to provide contextual information within a clip and\nacross clips. Speciﬁcally, we propose a consistent context-\naware training and inference strategy for arbitrarily long\nvideos to provide cross-clip context. We sample indepen-\ndent noise levels for each frame within a clip during train-\ning while using a sliding window strategy and initializing\noverlapping frames with previously predicted frames with-\nout adding noise. Moreover , we design an effective training\nstrategy to provide context within a clip. Extensive experi-\nmental results validate our design choices and demonstrate\nthe superiority of our approach, dubbed ChronoDepth.\nProject page: xdimlab.github.io/ChronoDepth.",
+    "introduction": "1. Introduction\nMonocular image depth estimation methods have achieved\nsigniﬁcant advancements in recent years. Despite notable\n→denotes equal contribution. † corresponding author.\nprogresses in spatial precision [ 19, 22, 27, 40, 55, 56, 74,\n75, 79, 82], these single-image depth estimation methods\nare built based on an i.i.d. assumption between frames.\nAs there is no contextual information before or after each\nframe, this approach is inherently prone to ﬂickering and\ntemporal inconsistency. In the meantime, many applications\nin AR/VR, robotics, and video editing require an estimation\nof consistent depth over time, which calls for video depth\nestimation tools that exhibit both spatial accuracy and tem-\nporal consistency.\nFor arbitrarily long videos, given the purpose of au-\ntoregressive inference and the limitation of computing re-\nsources, it is necessary to split it into multiple smaller video\nclips to process them in a streamed manner. Existing meth-\nods [69, 73] leverage the attention mechanism in a general-\nizable manner to aggregate contextual information for each\nvideo clip. However, such approaches cannot fully encode\ncontextual information between clips. Therefore, ﬂicker-\ning issues still persist across clips. Another line of meth-\nods leverages test-time training (TTT) paradigms [ 43, 48,\n64, 70, 85] to alleviate this issue, wherein they ﬁne-tune a\nsingle-image depth model on the testing videos and inject\ntemporal context through test-time optimization. However,\nthese approaches heavily hinge on precise camera poses and\nrequire a long optimization time.\nRecent advancements in video generative models [ 8, 9,\n15, 31] have demonstrated signiﬁcant growth, achieving\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n22841\n\nFigure 2. Illustration of different inference strategies for inﬁnitely long videos. (a) Naive sliding window inference; (b) Inference with\nreplacement trick; (c) Our proposed consistent context-aware inference. F , W denotes number of clip and overlapping frames respectively.\nhigh spatial quality and temporal consistency. We argue\nvideo diffusion models can be repurposed for video depth\nestimation in the wake of diffusion-based single-image\ndepth estimatiors [ 22, 40], yielding feed-forward estima-\ntion without requiring camera poses across frames. This\nrepurposing process, however, is not merely a straightfor-\nward extension of monocular depth prediction. It requires\ncareful consideration of the contextual information between\nclips to ensure temporal consistency across a long video.\nTherefore, we propose a novel video depth estima-\ntor, named ChronoDepth, to leverage a video diffusion\nmodel to provide context cues within and between clips, re-\nsulting in much higher temporal consistency compared to\nthe use of single-image diffusion models – see Fig. 1, as\nhighlighted by the smoother depth depicted by extracting\ny-t slices from the results by our model against a state-of-\nthe-art single-image model [ 40]. Speciﬁcally, to effectively\nmodel context within a single clip with good generalization,\nwe ﬁnetune video diffusion models, drawing inspiration\nfrom recent efforts that leverage image generative model\npriors for single-frame tasks [ 17, 18, 22, 27, 37, 40, 59, 74,\n87]. In terms of cross-clip context, we systematically eval-\nuate different strategies, and propose a consistent context-\naware inference as shown in Fig. 2. At inference time, pro-\ncessing video through a sliding window without carrying\ncontext across frames (Fig. 2 (a)) does not ensure tempo-\nral consistency. A common method to add context between\nclips is the “replacement trick” in video diffusion mod-\nels [31, 88], used in our concurrent work DepthCrafter [ 33].\nThis approach involves initializing overlapping frames by\nadding noise to previously predicted depth frames (Fig. 2\n(b)), but this leads to inconsistent contextual information\ndue to noise variations [ 31]. To address this, our proposed\nstrategy uses previously predicted depth frames for context\nwithout adding noise, ensuring consistency across frames\n(Fig. 2 (c)). This is enabled by applying different noise lev-\nels to each frame during training, allowing the model to de-\nnoise across varying noise levels.\nFurthermore, we conduct thorough comparisons be-\ntween various protocols to train ChronoDepth, empiri-\ncally ﬁnding an effective training strategy fully exploring\nimage and video depth datasets, identifying a sequential\ntraining of spatial and temporal layers as the most effec-\ntive one, where the spatial layers are ﬁrst trained and kept\nfrozen during the training of the temporal layers.\nQuantitative and qualitative results on open-world video\nbenchmarks conﬁrm that ChronoDepth achieves state-\nof-the-art temporal consistency on video depth estimation,\nwhile maintaining spatial accuracy comparable with state-\nof-the-art single-image depth estimation methods.",
+    "method": "3. Method\nIn this section, we introduce ChronoDepth, a consis-\ntent video depth estimator derived from a video foundation\nmodel, speciﬁcally from Stable Video Diffusion (SVD) [ 8].\nGiven an arbitrary-length video, our goal is to generate\nspatial-accurate and temporal-consistent video depth. We\nﬁrst introduce the straightforward way of repurposing SVD\nfor video depth estimation in Sec. 3.1 and discuss its is-\nsues in artitray-length video inference. Next, we elaborate\non our consistent context-aware strategy in Sec. 3.2 and our\ntraining protocols in Sec. 3.3.",
+    "experiments": "4. Experimental Results",
+    "conclusion": "5. Conclusion\nThis paper introduced ChronoDepth, a video depth es-\ntimator that prioritizes temporal consistency by leveraging\nvideo generation priors. Our exploration of various train-\ning and inference strategies has led us to identify the most\neffective approach to tame SVD into a consistent depth\npredictor, resulting in superior performance. Speciﬁcally,\nChronoDepth outperforms existing methods in terms of\ntemporal consistency, surpassing both image and video\ndepth estimation techniques, while maintaining comparable\nspatial accuracy. We contend our empirical insights into\nharnessing video generation models for depth estimation\nlay the groundwork for future investigations in this domain."
+  }
+}

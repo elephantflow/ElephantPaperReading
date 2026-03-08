@@ -1,0 +1,95 @@
+{
+  "paper_id": "improving-diffusion-inverse-problem-solving-with-decoupled-noise-annealing--5d190ceed5",
+  "paper_title": "Improving Diffusion Inverse Problem Solving with Decoupled Noise Annealing",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:53.871823+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Improving Diffusion Inverse Problem Solving with Decoupled Noise Annealing.pdf",
+    "filename": "Improving Diffusion Inverse Problem Solving with Decoupled Noise Annealing.pdf",
+    "sha1": "5d190ceed504803073621dea5b88728f16a95a84",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Inverse problems are ubiquitous in science and engineering, with applications ranging from image restoration [ 13, 30, 34, 44, 49, 59], medical imaging [ 10, 11, 17, 22, 23, 50] to as- trophotography [1, 19, 51, 52].",
+    "limitation": "As a result, xt can at most correct local errors in xt`\u0000t but struggles to correct global errors that require signiﬁcant modiﬁcations to the prior sam- ple.",
+    "insight": "20895 unique solution; instead, multiple solutions may exist that are consistent with the observed measurement.",
+    "proposed_method": "To address this challenge, we propose a new method called Decoupled Annealing Poste- rior Sampling (DAPS) that relies on a novel noise annealing process.",
+    "experimental_evidence": "We demonstrate that DAPS signiﬁcantly improves sample quality and stability across multiple image restoration tasks, partic- ularly in complicated nonlinear inverse problems.",
+    "summary": "Introduction Inverse problems are ubiquitous in science and engineering, with applications ranging from image restoration [ 13, 30, 34, 44, 49, 59], medical imaging [ 10, 11, 17, 22, 23, 50] to as- trophotography [1, 19, 51, 52]. As a result, xt can at most correct local errors in xt`\u0000t but struggles to correct global errors that require signiﬁcant modiﬁcations to the prior sam- ple. 20895 unique solution; instead, multiple solutions may exist that are consistent with the observed measurement. To address this challenge, we propose a new method called Decoupled Annealing Poste- rior Sampling (DAPS) that relies on a novel noise annealing process. We demonstrate that DAPS signiﬁcantly improves sample quality and stability across multiple image restoration tasks, partic- ularly in complicated nonlinear inverse problems."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Inverse problems are ubiquitous in science and engineering, with applications ranging from image restoration [ 13, 30, 34, 44, 49, 59], medical imaging [ 10, 11, 17, 22, 23, 50] to as- trophotography [1, 19, 51, 52].",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\nInverse problems are ubiquitous in science and engineering,\nwith applications ranging from image restoration [ 13, 30, 34,\n44, 49, 59], medical imaging [ 10, 11, 17, 22, 23, 50] to as-\ntrophotography [1, 19, 51, 52]. Solving an inverse problem\ninvolves ﬁnding the underlying signal x0 from its partial,\nnoisy measurement y. Since the measurement process is typ-\nically noisy and many-to-one, inverse problems do not have a\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n20895"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "method_overview",
+      "main_message": "unique solution; instead, multiple solutions may exist that are consistent with the observed measurement.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "unique solution; instead, multiple solutions may exist that are\nconsistent with the observed measurement. In the Bayesian\ninverse problem framework, the solution space is character-\nized by the posterior distribution ppx0 | yq9ppy | x0qppx0q,\nwhere ppy | x0q represents the noisy measurement process,\nand ppx0q is the prior distribution. In this work, we aim to\nsolve Bayesian inverse problems where the measurement\nprocess ppy | x0q is known, and the prior distribution ppx0q\nis captured by a deep generative model trained on a corre-\nsponding dataset.\nAs score-based diffusion models [21, 26, 27, 47–49] have\nrisen to dominance in modeling high-dimensional data distri-\nbutions like images, audio, and video, they have become the\nleading method for estimating the prior distribution ppx0q\nin Bayesian inverse problems. A diffusion model generates\na sample x0 by smoothly removing noise from an unstruc-\ntured initial noise sample xT through solving stochastic\ndifferential equations (SDEs). In particular, each step of\nthe sampling process recursively converts a noisy sample\nxt`\u0000t, where \u0000t ° 0 denotes the step size, to a slightly\nless noisy sample xt until t Ò 0. This iterative structure\nin the"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However , this process struggles to correct errors from earlier sampling steps, leading to worse performance in complicated nonlinear inverse prob- lems, such as phase retrieval."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this challenge, we propose a new method called Decoupled Annealing Poste- rior Sampling (DAPS) that relies on a novel noise annealing process.",
+      "To address this challenge, we propose a new framework for solving general inverse problems, termed Decoupled Annealing Posterior Sampling (DAPS).",
+      "Our method employs a new noise annealing process inspired by the diffusion sam- pling process, where we decouple the consecutive samples xt`\u0000t and xt in the sampling trajectory, allowing samplers to correct large, global errors made in earlier steps.",
+      "Empirically, our method demonstrates signiﬁcantly im- proved performance on various inverse problems compared to existing approaches, ranging from image restoration to compressed sensing MRI.",
+      "Our method can be combined with diffusion models in both raw pixel space and learned latent space, which we refer to as DAPS and LatentDAPS, respectively.",
+      "Conclusion In summary, we propose Decoupled Annealing Posterior Sampling (DAPS) for solving inverse problems, particularly those with complex nonlinear measurement processes such as phase retrieval.",
+      "Our method decouples consecutive sample points in a diffusion sampling trajectory, allowing them to vary considerably, thereby enabling DAPS to explore a larger solution space."
+    ],
+    "experiment_expression": [
+      "We demonstrate that DAPS signiﬁcantly improves sample quality and stability across multiple image restoration tasks, partic- ularly in complicated nonlinear inverse problems.",
+      "We also demonstrate how DAPS can be applied to inverse problems on categorical data with pre-trained discrete diffusion mod- els.",
+      "Empirically, we demonstrate that DAPS generates samples with better visual quality and stability compared to existing methods when solving a wide range of challenging inverse problems."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion In summary, we propose Decoupled Annealing Posterior Sampling (DAPS) for solving inverse problems, particularly those with complex nonlinear measurement processes such as phase retrieval.",
+    "However , this process struggles to correct errors from earlier sampling steps, leading to worse performance in complicated nonlinear inverse prob- lems, such as phase retrieval.",
+    "To address this challenge, we propose a new framework for solving general inverse problems, termed Decoupled Annealing Posterior Sampling (DAPS).",
+    "To address this challenge, we propose a new method called Decoupled Annealing Poste- rior Sampling (DAPS) that relies on a novel noise annealing process.",
+    "1, both methods provide superior reconstructions with improved visual perceptual quality across a wide range of nonlinear inverse problems.",
+    "20895 unique solution; instead, multiple solutions may exist that are consistent with the observed measurement.",
+    "A diffusion model generates a sample x0 by smoothly removing noise from an unstruc- tured initial noise sample xT through solving stochastic differential equations (SDEs).",
+    "Abstract Diffusion models have recently achieved success in solving Bayesian inverse problems with learned data priors.",
+    "Additionally, DAPS performs well with a small number of neural network evaluations (approximately 100), striking a better balance between efﬁciency and sample quality.",
+    "As a result, xt can at most correct local errors in xt`\u0000t but struggles to correct global errors that require signiﬁcant modiﬁcations to the prior sam- ple.",
+    "As illustrated in Fig.",
+    "As the noise gradually anneals to zero, the time marginal ppxt | yq smoothly converges to the posterior distribution ppx0 | yq, providing samples that approximately solve the Bayesian inverse problem."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models have recently achieved success in solving\nBayesian inverse problems with learned data priors. Cur-\nrent methods build on top of the diffusion sampling process,\nwhere each denoising step makes small modiﬁcations to sam-\nples from the previous step. However , this process struggles\nto correct errors from earlier sampling steps, leading to\nworse performance in complicated nonlinear inverse prob-\nlems, such as phase retrieval. To address this challenge, we\npropose a new method called Decoupled Annealing Poste-\nrior Sampling (DAPS) that relies on a novel noise annealing\nprocess. Speciﬁcally, we decouple consecutive steps in a\ndiffusion sampling trajectory, allowing them to vary consid-\n†Work partially done at the California Institute of Technology.\n*These authors contributed equally to this work\nerably from one another while ensuring their time-marginals\nanneal to the true posterior as we reduce noise levels. This\napproach enables the exploration of a larger solution space,\nimproving the success rate for accurate reconstructions. We\ndemonstrate that DAPS signiﬁcantly improves sample quality\nand stability across multiple image restoration tasks, partic-\nularly in complicated nonlinear inverse problems.",
+    "introduction": "1. Introduction\nInverse problems are ubiquitous in science and engineering,\nwith applications ranging from image restoration [ 13, 30, 34,\n44, 49, 59], medical imaging [ 10, 11, 17, 22, 23, 50] to as-\ntrophotography [1, 19, 51, 52]. Solving an inverse problem\ninvolves ﬁnding the underlying signal x0 from its partial,\nnoisy measurement y. Since the measurement process is typ-\nically noisy and many-to-one, inverse problems do not have a\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n20895\n\nunique solution; instead, multiple solutions may exist that are\nconsistent with the observed measurement. In the Bayesian\ninverse problem framework, the solution space is character-\nized by the posterior distribution ppx0 | yq9ppy | x0qppx0q,\nwhere ppy | x0q represents the noisy measurement process,\nand ppx0q is the prior distribution. In this work, we aim to\nsolve Bayesian inverse problems where the measurement\nprocess ppy | x0q is known, and the prior distribution ppx0q\nis captured by a deep generative model trained on a corre-\nsponding dataset.\nAs score-based diffusion models [21, 26, 27, 47–49] have\nrisen to dominance in modeling high-dimensional data distri-\nbutions like images, audio, and video, they have become the\nleading method for estimating the prior distribution ppx0q\nin Bayesian inverse problems. A diffusion model generates\na sample x0 by smoothly removing noise from an unstruc-\ntured initial noise sample xT through solving stochastic\ndifferential equations (SDEs). In particular, each step of\nthe sampling process recursively converts a noisy sample\nxt`\u0000t, where \u0000t ° 0 denotes the step size, to a slightly\nless noisy sample xt until t Ò 0. This iterative structure\nin the diffusion sampling process can be leveraged to fa-\ncilitate Bayesian inverse problem solving. In fact, prior\nresearch [ 5, 13, 46] has shown that given measurement y\nand a diffusion model prior ppx0q, we can sample from the\nposterior distribution ppx0 | yq by perturbing a reverse-time\nSDE using an approximate gradient of the measurement\nprocess, rxt log ppy | xtq, at every step of the SDE solver.\nDespite the remarkable success of these methods in solv-\ning many real-world inverse problems, like image coloriza-\ntion [ 30, 32, 49], image super-resolution [ 13, 30, 46, 49],\ncomputed tomography [ 45, 50], and magnetic resonance\nimaging [23, 50], they face signiﬁcant challenges in more\ncomplex inverse problems with nonlinear measurement pro-\ncesses, such as phase retrieval and nonlinear motion de-\nblurring. This is partially because, in prior methods, each\ndenoising step approximately samples from the distribution\nppxt | xt`\u0000t, yq. This causes xt and xt`\u0000t to be close\nto each other because of using a small step size \u0000t in dis-\ncretizing the reverse-time SDE. As a result, xt can at most\ncorrect local errors in xt`\u0000t but struggles to correct global\nerrors that require signiﬁcant modiﬁcations to the prior sam-\nple. This issue is exacerbated when the methods are applied\nto complicated, nonlinear inverse problems, such as phase\nretrieval, where they often converge to undesired samples\nthat are consistent with the measurement but reside in low-\nprobability areas of the prior distribution.\nTo address this challenge, we propose a new framework\nfor solving general inverse problems, termed Decoupled\nAnnealing Posterior Sampling (DAPS). Our method employs\na new noise annealing process inspired by the diffusion sam-\npling process, where we decouple the consecutive samples\nxt`\u0000t and xt in the sampling trajectory, allowing samplers\nto correct large, global errors made in earlier steps. Instead of\nrepetitively sampling from ppxt | xt`\u0000t, yq as in previous\nmethods, which restricts the distances between consecutive\nsamples xt`\u0000t and xt, DAPS recursively samples from the\nmarginal distribution ppxt | yq. As illustrated in Fig. 2, we\nfactorize the time marginal ppxt | yq into three conditional\ndistributions and sample from them in turn by solving the re-\nverse diffusion process, simulating Langevin dynamics, and\nadding noise according to the forward diffusion process. We\nshow that this creates approximate samples from correspond-\ning marginal distributions. As the noise gradually anneals\nto zero, the time marginal ppxt | yq smoothly converges to\nthe posterior distribution ppx0 | yq, providing samples that\napproximately solve the Bayesian inverse problem.\nEmpirically, our method demonstrates signiﬁcantly im-\nproved performance on various inverse problems compared\nto existing approaches, ranging from image restoration to\ncompressed sensing MRI. Our method can be combined\nwith diffusion models in both raw pixel space and learned\nlatent space, which we refer to as DAPS and LatentDAPS,\nrespectively. As shown in Fig. 1, both methods provide\nsuperior reconstructions with improved visual perceptual\nquality across a wide range of nonlinear inverse problems.\nOur approach exhibits remarkable stability and sampling\nquality, particularly for challenging nonlinear inverse prob-\nlems. On the FFHQ 256 dataset, we achieve PSNR values\nof 30.72 dB and 27.12 dB for the phase retrieval and high\ndynamic range tasks, representing improvements of 1.98 dB\nand 4.39 dB over the previous state-of-the-art results, respec-\ntively. We apply DAPS to large-scale text-conditioned latent\ndiffusion models, showing its scalability to high-resolution\nimage restoration tasks. Beyond image restoration tasks,\nDAPS achieves a PSNR of 31.49 dB, showing a 2.70 dB im-\nprovement over previous diffusion-based methods. We also\ndemonstrate how DAPS can be applied to inverse problems\non categorical data with pre-trained discrete diffusion mod-\nels. Additionally, DAPS performs well with a small number\nof neural network evaluations (approximately 100), striking\na better balance between efﬁciency and sample quality.",
+    "method": "3. Method",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nIn summary, we propose Decoupled Annealing Posterior\nSampling (DAPS) for solving inverse problems, particularly\nthose with complex nonlinear measurement processes such\nas phase retrieval. Our method decouples consecutive sample\npoints in a diffusion sampling trajectory, allowing them to\nvary considerably, thereby enabling DAPS to explore a larger\nsolution space. Empirically, we demonstrate that DAPS\ngenerates samples with better visual quality and stability\ncompared to existing methods when solving a wide range of\nchallenging inverse problems."
+  }
+}

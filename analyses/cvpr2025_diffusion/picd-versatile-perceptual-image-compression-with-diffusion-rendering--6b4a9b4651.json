@@ -1,0 +1,89 @@
+{
+  "paper_id": "picd-versatile-perceptual-image-compression-with-diffusion-rendering--6b4a9b4651",
+  "paper_title": "PICD: Versatile Perceptual Image Compression with Diffusion Rendering",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:15.326150+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/PICD： Versatile Perceptual Image Compression with Diffusion Rendering.pdf",
+    "filename": "PICD： Versatile Perceptual Image Compression with Diffusion Rendering.pdf",
+    "sha1": "6b4a9b465189614420d902bd61531310bbcd8c27",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction With recent advancements in generative models, perceptual image compression has acquired the capability to compress ∗The work was done when Tongda Xu was a full-time intern with Microsoft Research Asia.",
+    "limitation": "Introduction With recent advancements in generative models, perceptual image compression has acquired the capability to compress ∗The work was done when Tongda Xu was a full-time intern with Microsoft Research Asia.",
+    "insight": "Abstract Recently, perceptual image compression has achieved significant advancements, delivering high visual quality at low bitrates for natural images.",
+    "proposed_method": "To tackle this challenge, we propose versatile perceptual screen image compression with diffu- sion rendering ( PICD), a codec that works well for both screen and natural images.",
+    "experimental_evidence": "Abstract Recently, perceptual image compression has achieved significant advancements, delivering high visual quality at low bitrates for natural images.",
+    "summary": "Introduction With recent advancements in generative models, perceptual image compression has acquired the capability to compress ∗The work was done when Tongda Xu was a full-time intern with Microsoft Research Asia. Introduction With recent advancements in generative models, perceptual image compression has acquired the capability to compress ∗The work was done when Tongda Xu was a full-time intern with Microsoft Research Asia. Abstract Recently, perceptual image compression has achieved significant advancements, delivering high visual quality at low bitrates for natural images. To tackle this challenge, we propose versatile perceptual screen image compression with diffu- sion rendering ( PICD), a codec that works well for both screen and natural images. Abstract Recently, perceptual image compression has achieved significant advancements, delivering high visual quality at low bitrates for natural images."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction With recent advancements in generative models, perceptual image compression has acquired the capability to compress ∗The work was done when Tongda Xu was a full-time intern with Microsoft Research Asia.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\nWith recent advancements in generative models, perceptual\nimage compression has acquired the capability to compress\n∗The work was done when Tongda Xu was a full-time intern with\nMicrosoft Research Asia.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n28436"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "0.15 0.10 0.05 0.00 0.05 0.10 BD-T ext Accuracy+ 20 10 0 10 20",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "0.15\n 0.10\n 0.05\n 0.00 0.05 0.10\nBD-T ext Accuracy+\n20\n10\n0\n10\n20"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3.1. Overall Framework and Rationale",
+      "purpose": "Gives the high-level system view before module details.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experimental Results",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, for screen con- tent, existing methods often produce noticeable artifacts when compressing text.",
+      "However, this approach proves to be ineffective at low bitrates (See Table 3)."
+    ],
+    "insight_expression": [
+      "To comprehend why PICD achieves optimal bitrate for preserving text information, we observe that Z should be completely determined by Y as per Eq."
+    ],
+    "method_expression": [
+      "To tackle this challenge, we propose versatile perceptual screen image compression with diffu- sion rendering ( PICD), a codec that works well for both screen and natural images.",
+      "More specifically, we propose a compression framework that encodes the text and image separately, and renders them into one image using diffu- sion model."
+    ],
+    "experiment_expression": [],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, for screen con- tent, existing methods often produce noticeable artifacts when compressing text.",
+    "However, this approach proves to be ineffective at low bitrates (See Table 3).",
+    "More specifically, we propose a compression framework that encodes the text and image separately, and renders them into one image using diffu- sion model.",
+    "To comprehend why PICD achieves optimal bitrate for preserving text information, we observe that Z should be completely determined by Y as per Eq.",
+    "To tackle this challenge, we propose versatile perceptual screen image compression with diffu- sion rendering ( PICD), a codec that works well for both screen and natural images.",
+    "(4) As the proposed approach works well for both screen and natural images using diffusion rendering, we name it versa- tile perceptual image compression using diffusion rendering (PICD).",
+    "(5) Then according to Kraft’s inequality [12], the optimal bi- trate for compressing Z losslessly and then compressing Y given Z, is equivalent to compressing Y alone: H(Y |Z) + H(Z) = H(Y ) + H(Z|Y ) = H(Y ).",
+    "(6) From this intuitive reasoning, we can conclude that PICD is nearly optimal for preserving text information Z.",
+    "(7) Therefore, PICD achieves optimal perceptual quality de- fined by Blau and Michaeli [6].",
+    "28436 0.15 0.10 0.05 0.00 0.05 0.10 BD-T ext Accuracy+ 20 10 0 10 20 3.1.",
+    "7 [2] Eirikur Agustsson, Michael Tschannen, Fabian Mentzer, Radu Timofte, and Luc Van Gool.",
+    "Abstract Recently, perceptual image compression has achieved significant advancements, delivering high visual quality at low bitrates for natural images."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRecently, perceptual image compression has achieved\nsignificant advancements, delivering high visual quality at\nlow bitrates for natural images. However, for screen con-\ntent, existing methods often produce noticeable artifacts\nwhen compressing text. To tackle this challenge, we propose\nversatile perceptual screen image compression with diffu-\nsion rendering ( PICD), a codec that works well for both\nscreen and natural images. More specifically, we propose\na compression framework that encodes the text and image\nseparately, and renders them into one image using diffu-\nsion model. For this diffusion rendering, we integrate con-\nditional information into diffusion models at three distinct\nlevels: 1). Domain level: We fine-tune the base diffusion\nmodel using text content prompts with screen content. 2).\nAdaptor level: We develop an efficient adaptor to control\nthe diffusion model using compressed image and text as in-\nput. 3). Instance level: We apply instance-wise guidance\nto further enhance the decoding process. Empirically, our\nPICD surpasses existing perceptual codecs in terms of both\ntext accuracy and perceptual quality. Additionally, without\ntext conditions, our approach serves effectively as a percep-\ntual codec for natural images.",
+    "introduction": "1. Introduction\nWith recent advancements in generative models, perceptual\nimage compression has acquired the capability to compress\n∗The work was done when Tongda Xu was a full-time intern with\nMicrosoft Research Asia.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n28436\n\n0.15\n 0.10\n 0.05\n 0.00 0.05 0.10\nBD-T ext Accuracy+\n20\n10\n0\n10\n20",
+    "method": "3.1. Overall Framework and Rationale\nWe first describe the PICD for screen images and then sim-\nplify PICD for natural images. The foundational framework\nof PICD for screen images is as follows:\n• Encoding: We first extract the text Z = h(X) using Op-\ntical Character Recognition (OCR) model h(.) and com-\npress it losslessly. Then, we encode the image X with Z\nas a condition, into the bitstream Y = fθ(X|Z).\n• Decoding: We first decode text Z then the image ¯X =\ngθ(Y |Z). Next, we merge the ¯X with Z into one image\nusing conditional diffusion model ˆX ∼ pθ(X| ¯X, Z). We\nname this merging process Diffusion Rendering.\nIn the rest of this section, we provide an explanation\nof the optimality of PICD. Specifically, we show that: 1)\nPICD is optimal for preserving text informationZ; 2) PICD\nachieves best perceptual quality.\nPICD is Optimal for Preserving Text InformationLet\nh(.) denote an OCR algorithm extracting text content and its\ncorresponding location, such that Z = h(X) represents the\nOCR output. We define the reconstructed text as accurate\nwhen the OCR output for the reconstructed image, ˆZ =\nh( ˆX), corresponds exactly to Z:\nˆZ = h( ˆX) = h(gθ(Y )) = Z. (3)\n28437\n\nFigure 3. The overall framework of our proposed PICD.\nAt first glance, one might propose attaining this objective\nby integrating an additional loss function, such as ||h( ˆX) −\nZ||2, into the training process [24]. However, this approach\nproves to be ineffective at low bitrates (See Table 3).\nIn this study, we introduce a more straightforward ap-\nproach to tackle this challenge. We begin by encoding Z\nlosslessly, followed by encoding X with Z as a condition.\nSubsequently, we renderZ together with the compressed ¯X\nto produce a single decoded image, ˆX. The rendering is fa-\ncilitated by a conditional diffusion model, which employs\nboth the compressed image ¯X and the text Z, i.e.,\n¯X = gθ(Y |Z), ˆX ∼ p(X| ¯X, Z). (4)\nAs the proposed approach works well for both screen and\nnatural images using diffusion rendering, we name it versa-\ntile perceptual image compression using diffusion rendering\n(PICD). To comprehend why PICD achieves optimal bitrate\nfor preserving text information, we observe that Z should\nbe completely determined by Y as per Eq. 3. This condi-\ntion implies that the entropy of Z given Y is zero, i.e.,\nH(Z|Y ) = 0. (5)\nThen according to Kraft’s inequality [12], the optimal bi-\ntrate for compressing Z losslessly and then compressing Y\ngiven Z, is equivalent to compressing Y alone:\nH(Y |Z) + H(Z) = H(Y ) + H(Z|Y ) = H(Y ). (6)\nFrom this intuitive reasoning, we can conclude that PICD is\nnearly optimal for preserving text information Z.\nPICD is Optimal for Perceptual Quality On the other\nhand, PICD satisfies the perfect perceptual codec constraint\np( ˆX) = p(X). More specifically, we have:\np( ˆX) =\nZ\np( ¯X, Z)p(X| ¯X, Z)d ¯XdZ = p(X). (7)\nTherefore, PICD achieves optimal perceptual quality de-\nfined by Blau and Michaeli [6].",
+    "experiments": "4. Experimental Results",
+    "conclusion": "6. Discussion & Conclusion\nOne limitation of the PICD is its decoding speed. The\ninstance-level guidance [11] requires a decoding time of ap-\nproximately 30 seconds, which is 3 times slower than other\ndiffusion codecs. Faster guidance methods [50] could be\nemployed, while we defer this aspect to future research.\nIn conclusion, we present the PICD, a versatile percep-\ntual image codec which excels for both screen and natural\nimages. The PICD builds on a pre-trained diffusion model\nby incorporating conditions across domain, adaptor, and in-\nstance levels. The PICD not only achieves high text ac-\ncuracy and perceptual quality for screen content but also\nproves to be an effective perceptual codec for natural im-\nages.\nReferences\n[1] Workshop and challenge on learned image compression\n(clic). 7\n[2] Eirikur Agustsson, Michael Tschannen, Fabian Mentzer,\nRadu Timofte, and Luc Van Gool. Generative adversar-\nial networks for extreme learned image compression. In"
+  }
+}

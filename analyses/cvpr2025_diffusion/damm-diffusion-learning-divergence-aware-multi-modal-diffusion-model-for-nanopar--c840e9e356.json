@@ -1,0 +1,90 @@
+{
+  "paper_id": "damm-diffusion-learning-divergence-aware-multi-modal-diffusion-model-for-nanopar--c840e9e356",
+  "paper_title": "DAMM-Diffusion: Learning Divergence-Aware Multi-Modal Diffusion Model for Nanoparticles Distribution Prediction",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:14.747486+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/DAMM-Diffusion： Learning Divergence-Aware Multi-Modal Diffusion Model for Nanoparticles Distribution Prediction.pdf",
+    "filename": "DAMM-Diffusion： Learning Divergence-Aware Multi-Modal Diffusion Model for Nanoparticles Distribution Prediction.pdf",
+    "sha1": "c840e9e356e0730651983af6b5f86d728711e2c5",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Nanoparticles (NPs) present a promising avenue for the di- agnosis and treatment of tumors [7, 20].",
+    "limitation": "Introduction Nanoparticles (NPs) present a promising avenue for the di- agnosis and treatment of tumors [7, 20].",
+    "insight": "Abstract The prediction of nanoparticles (NPs) distribution is crucial for the diagnosis and treatment of tumors.",
+    "proposed_method": "To address the above issues, we propose a Divergence-Aware Multi-Modal Diffusion model (i.e., DAMM-Diffusion)t o adaptively generate the prediction results from uni-modal and multi-modal branches in a uniﬁed network.",
+    "experimental_evidence": "However , the distribution divergence among multi-modal TME components may cause side effects i.e., the best uni- modal model may outperform the joint generative model.",
+    "summary": "Introduction Nanoparticles (NPs) present a promising avenue for the di- agnosis and treatment of tumors [7, 20]. Introduction Nanoparticles (NPs) present a promising avenue for the di- agnosis and treatment of tumors [7, 20]. Abstract The prediction of nanoparticles (NPs) distribution is crucial for the diagnosis and treatment of tumors. To address the above issues, we propose a Divergence-Aware Multi-Modal Diffusion model (i.e., DAMM-Diffusion)t o adaptively generate the prediction results from uni-modal and multi-modal branches in a uniﬁed network. However , the distribution divergence among multi-modal TME components may cause side effects i.e., the best uni- modal model may outperform the joint generative model."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Nanoparticles (NPs) present a promising avenue for the di- agnosis and treatment of tumors [7, 20].",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction Nanoparticles (NPs) present a promising avenue for the di- agnosis and treatment of tumors [7, 20]. Leveraging the En- hanced Permeability and Retention (EPR) effect, NPs can selectively accumulate in tumor tissues due to their leaky blood vessels and compromised lymphatic drainage [ 9, 25]. Hence, the accurate prediction of NPs distribution can help deliver drugs to the tumor site, resulting in improved thera- peutic outcomes [33]. Recent studies indicate that the tumor microenvironment (TME) components, such as blood ves- sels and nuclei, highly affect the delivery and distribution of NPs across tumors [ 14, 33]."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "It has become a research hotspot to infer the distribution of NPs by considering the spread of multiple TME components basing on the ﬂuo- rescence [ 11] or mass spectrometry imaging [ 1].",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "It has become a research hotspot to infer the distribution of NPs by considering the spread of multiple TME components basing on the ﬂuo- rescence [ 11] or mass spectrometry imaging [ 1]. But until now, accurately predicting intratumoral nanomedicine dis- tribution remains challenging due to the complex spatial re- lationship between different tumor microenvironments and nanomedicine accumulation [42]. This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Abstract The prediction of nanoparticles (NPs) distribution is crucial for the diagnosis and treatment of tumors."
+    ],
+    "limitation_expression": [
+      "However , the distribution divergence among multi-modal TME components may cause side effects i.e., the best uni- modal model may outperform the joint generative model."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address the above issues, we propose a Divergence-Aware Multi-Modal Diffusion model (i.e., DAMM-Diffusion)t o adaptively generate the prediction results from uni-modal and multi-modal branches in a uniﬁed network.",
+      "Conclusion In this paper, we propose DAMM-Diffusion which can con- sider both uni-modal and multi-modal branches to perform the reverse step of the diffusion model in a uniﬁed network."
+    ],
+    "experiment_expression": [
+      "However , the distribution divergence among multi-modal TME components may cause side effects i.e., the best uni- modal model may outperform the joint generative model."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion In this paper, we propose DAMM-Diffusion which can con- sider both uni-modal and multi-modal branches to perform the reverse step of the diffusion model in a uniﬁed network.",
+    "However , the distribution divergence among multi-modal TME components may cause side effects i.e., the best uni- modal model may outperform the joint generative model.",
+    "To address the above issues, we propose a Divergence-Aware Multi-Modal Diffusion model (i.e., DAMM-Diffusion)t o adaptively generate the prediction results from uni-modal and multi-modal branches in a uniﬁed network.",
+    "(a) The Uni-modal method predicts the distribution of NPs by vessels.",
+    "(b) The multi-modal method predicts the dis- tribution of NPs by the combination of vessels and nuclei.",
+    "(c) Our DAMM-Diffusion considers both uni-modal and multi-modal branches for NPs distribution prediction by considering the diver- gence among nuclei and vessels channels.",
+    "Abstract The prediction of nanoparticles (NPs) distribution is crucial for the diagnosis and treatment of tumors.",
+    "Acknowledgments This work is supported by the National Natural Science Foundation of China (Nos.62136004,62272226,82372019).",
+    "Additional results on the multi-modal brain image synthesis task further vali- date the effectiveness of the proposed method.",
+    "But until now, accurately predicting intratumoral nanomedicine dis- tribution remains challenging due to the complex spatial re- lationship between different tumor microenvironments and nanomedicine accumulation [42].",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Hence, it has become a research hotspot to generate the NPs distribution by the aid of multi-modal TME components."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nThe prediction of nanoparticles (NPs) distribution is crucial\nfor the diagnosis and treatment of tumors. Recent studies\nindicate that the heterogeneity of tumor microenvironment\n(TME) highly affects the distribution of NPs across tumors.\nHence, it has become a research hotspot to generate the NPs\ndistribution by the aid of multi-modal TME components.\nHowever , the distribution divergence among multi-modal\nTME components may cause side effects i.e., the best uni-\nmodal model may outperform the joint generative model. To\naddress the above issues, we propose a Divergence-Aware\nMulti-Modal Diffusion model (i.e., DAMM-Diffusion)t o\nadaptively generate the prediction results from uni-modal\nand multi-modal branches in a uniﬁed network. In detail,\nthe uni-modal branch is composed of the U-Net architec-\nture while the multi-modal branch extends it by introducing\ntwo novel fusion modules i.e., Multi-Modal Fusion Module\n(MMFM) and Uncertainty-Aware Fusion Module (UAFM).\nSpeciﬁcally, the MMFM is proposed to fuse features from\nmultiple modalities, while the UAFM module is introduced\nto learn the uncertainty map for cross-attention compu-\ntation. F ollowing the individual prediction results from\neach branch, the Divergence-Aware Multi-Modal Predictor\n(DAMMP) module is proposed to assess the consistency of\nmulti-modal data with the uncertainty map, which deter-\nmines whether the ﬁnal prediction results come from multi-\nmodal or uni-modal predictions. We predict the NPs dis-\ntribution given the TME components of tumor vessels and\ncell nuclei, and the experimental results show that DAMM-\nDiffusion can generate the distribution of NPs with higher\naccuracy than the comparing methods. Additional results\non the multi-modal brain image synthesis task further vali-\ndate the effectiveness of the proposed method. The code is\nreleased\n† .\n*Corresponding authors\n† https://github.com/JJ-ZHOU-Code/DAMM-Diffusion\n୭\nఏ\nݕݕሻ\nఏ\nݕሻ\nForward process\nReverse process\nVessels\nݕ௩\n்଴௧ିଵ௧\n(a) (b)\n(c)\nUni-modal Generator Multi-modal Generator\nDAMM-Diffusion\nNuclei\nݕ୬\nNuclei\nVessels\nVessels\nNPs\nNPsNPs\nNoise\nFigure 1. The illustration of different NPs distribution prediction\nmethods. (a) The Uni-modal method predicts the distribution of\nNPs by vessels. (b) The multi-modal method predicts the dis-\ntribution of NPs by the combination of vessels and nuclei. (c)\nOur DAMM-Diffusion considers both uni-modal and multi-modal\nbranches for NPs distribution prediction by considering the diver-\ngence among nuclei and vessels channels.",
+    "introduction": "1. Introduction\nNanoparticles (NPs) present a promising avenue for the di-\nagnosis and treatment of tumors [7, 20]. Leveraging the En-\nhanced Permeability and Retention (EPR) effect, NPs can\nselectively accumulate in tumor tissues due to their leaky\nblood vessels and compromised lymphatic drainage [ 9, 25].\nHence, the accurate prediction of NPs distribution can help\ndeliver drugs to the tumor site, resulting in improved thera-\npeutic outcomes [33]. Recent studies indicate that the tumor\nmicroenvironment (TME) components, such as blood ves-\nsels and nuclei, highly affect the delivery and distribution\nof NPs across tumors [ 14, 33]. It has become a research\nhotspot to infer the distribution of NPs by considering the\nspread of multiple TME components basing on the ﬂuo-\nrescence [ 11] or mass spectrometry imaging [ 1]. But until\nnow, accurately predicting intratumoral nanomedicine dis-\ntribution remains challenging due to the complex spatial re-\nlationship between different tumor microenvironments and\nnanomedicine accumulation [42].\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Method",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nIn this paper, we propose DAMM-Diffusion which can con-\nsider both uni-modal and multi-modal branches to perform\nthe reverse step of the diffusion model in a uniﬁed network.\nThe experimental results on predicting the NPs distribution\npixels-to-pixels verify the advantages of DAMM-Diffusion\nin comparison with the existing studies.\nAcknowledgments\nThis work is supported by the National Natural Science\nFoundation of China (Nos.62136004,62272226,82372019)."
+  }
+}

@@ -11,12 +11,17 @@ Elephant helps your paper reading, but the repository is optimized for one speci
 ```text
 ElephantPaperReading/
   analyses/
-    cvpr2025/
+    cvpr2025_first10/
+      *.json
+    cvpr2025_diffusion/
+      *.json
+    cvpr2025_diffusion_transformer_video/
       *.json
   schemas/
     paper_analysis.schema.json
   scripts/
     analyze_papers.py
+    build_site_index.py
 ```
 
 ## What Each JSON Contains
@@ -56,6 +61,14 @@ python3 scripts/analyze_papers.py \
   --limit 3 \
   --overwrite
 ```
+
+## Current Collections
+
+- `cvpr2025_first10`: initial showcase set for the public-facing site
+- `cvpr2025_diffusion`: papers whose titles explicitly contain `diffusion`
+- `cvpr2025_diffusion_transformer_video`: narrower title-matched subset for `diffusion transformer`, `DiT`, or `video diffusion`
+
+The site index in `data/index.json` merges papers across collections by `paper_id`, so overlapping papers appear once with multiple collection tags.
 
 ## Notes
 

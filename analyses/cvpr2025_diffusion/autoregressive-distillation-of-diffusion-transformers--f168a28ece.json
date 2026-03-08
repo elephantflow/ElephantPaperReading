@@ -1,0 +1,103 @@
+{
+  "paper_id": "autoregressive-distillation-of-diffusion-transformers--f168a28ece",
+  "paper_title": "Autoregressive Distillation of Diffusion Transformers",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:06.939464+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Autoregressive Distillation of Diffusion Transformers.pdf",
+    "filename": "Autoregressive Distillation of Diffusion Transformers.pdf",
+    "sha1": "f168a28ece91b461461d90061925e82fd6294a99",
+    "page_count": 12
+  },
+  "core_story": {
+    "problem": "Introduction Diffusion models currently dominate image synthesis land- scape due to their striking generalization capabilities and unprecedented visual quality [8, 12, 56, 61].",
+    "limitation": "However, sam- pling from DMs requires repeated neural network evalua- tions [44], which makes the high-resolution image synthesis slow and resource-intensive.",
+    "insight": "Abstract Diffusion models with transformer architectures have demonstrated promising capabilities in generating high- fidelity images and scalability for high resolution.",
+    "proposed_method": "To address this limitation, we propose AutoRegressive Distil- lation (ARD), a novel approach that leverages the histori- cal trajectory of the ODE to predict future steps.",
+    "experimental_evidence": "Abstract Diffusion models with transformer architectures have demonstrated promising capabilities in generating high- fidelity images and scalability for high resolution.",
+    "summary": "Introduction Diffusion models currently dominate image synthesis land- scape due to their striking generalization capabilities and unprecedented visual quality [8, 12, 56, 61]. However, sam- pling from DMs requires repeated neural network evalua- tions [44], which makes the high-resolution image synthesis slow and resource-intensive. Abstract Diffusion models with transformer architectures have demonstrated promising capabilities in generating high- fidelity images and scalability for high resolution. To address this limitation, we propose AutoRegressive Distil- lation (ARD), a novel approach that leverages the histori- cal trajectory of the ODE to predict future steps. Abstract Diffusion models with transformer architectures have demonstrated promising capabilities in generating high- fidelity images and scalability for high resolution."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Diffusion models currently dominate image synthesis land- scape due to their striking generalization capabilities and unprecedented visual quality [8, 12, 56, 61].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Diffusion models currently dominate image synthesis land- scape due to their striking generalization capabilities and unprecedented visual quality [8, 12, 56, 61]. Unlike gener- ative adversarial networks (GANs) [16], the stable training of DMs facilitates their expansion to high-resolution image generation. Recently, models based on Diffusion Trans- formers (DiT) [54] architecture gained significant popu- larity due to their excellent scaling properties and ability to generate high-resolution images [5, 6]. However, sam- pling from DMs requires repeated neural network evalua- tions [44], which makes the high-resolution image synthesis slow and resource-intensive."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "DMs generate samples by solving the denoising process numerically.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "DMs generate samples by solving the denoising process numerically. The denoising process has a probability flow ordinary differential equation (ODE) formulation [69, 71], which provides deterministic coupling between noise and samples. To reduce sampling costs, a series of distillation models [17, 27, 42, 45, 62, 72, 86] have been developed that learn to predict ODE solution with fewer steps. However, few-step student models suffer from exposure bias [53, 57] because the student’s intermediate prediction often deviates from the teacher’s ODE due to estimation errors."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "method_overview",
+      "main_message": "The errors accumulate during iterative sampling, causing the predic- tion to become more erroneous as we approach a solution.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "The errors accumulate during iterative sampling, causing the predic- tion to become more erroneous as we approach a solution. To address exposure bias in few-step distillation models, we propose an AutoRegressive Distillation (ARD) method for diffusion transformers. ARD predicts the next sample xτs−1 based on both the current estimate xτs and the en- tire historical trajectory, which is more informative. This approach offers two benefits: it reduces accumulated errors and provides a better source of coarse-grained information which is contained in the historical trajectory."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "limitation",
+      "main_message": "Incorporat- ing the historical trajectory in the lower layers further in- troduces an inductive bias to handle coarse-grained infor- mation.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Incorporat- ing the historical trajectory in the lower layers further in- troduces an inductive bias to handle coarse-grained infor- mation. We find that when distilling based on the whole historical trajectory, the FID degradation from the teacher is five times lower than that of the baselines on ImageNet 256p, with only 1.1% more computation required. Our ap- proach also scales well and can be used to distill 1024p text- to-image diffusion transformers, which outperform public distillation approaches in text-image alignment metrics."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, sam- pling from DMs requires repeated neural network evalua- tions [44], which makes the high-resolution image synthesis slow and resource-intensive.",
+      "However, few-step student models suffer from exposure bias [53, 57] because the student’s intermediate prediction often deviates from the teacher’s ODE due to estimation errors."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this limitation, we propose AutoRegressive Distil- lation (ARD), a novel approach that leverages the histori- cal trajectory of the ODE to predict future steps.",
+      "To address exposure bias in few-step distillation models, we propose an AutoRegressive Distillation (ARD) method for diffusion transformers."
+    ],
+    "experiment_expression": [
+      "Our ap- proach also scales well and can be used to distill 1024p text- to-image diffusion transformers, which outperform public distillation approaches in text-image alignment metrics."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, few-step student models suffer from exposure bias [53, 57] because the student’s intermediate prediction often deviates from the teacher’s ODE due to estimation errors.",
+    "However, sam- pling from DMs requires repeated neural network evalua- tions [44], which makes the high-resolution image synthesis slow and resource-intensive.",
+    "To address exposure bias in few-step distillation models, we propose an AutoRegressive Distillation (ARD) method for diffusion transformers.",
+    "To address this limitation, we propose AutoRegressive Distil- lation (ARD), a novel approach that leverages the histori- cal trajectory of the ODE to predict future steps.",
+    "(a, b) Overall scheme of the baseline and proposed distillation methods.",
+    "(c, d) Comparison of the efficiency-performance trade-offs of the distillation methods and public generative models on ImageNet 256p.",
+    "(d) A comparison of recent generative models.",
+    "15745 (a) Step Distillation (baseline) (b) AutoRegressive Distillation (ours) (c) A Comparison of distillation methods.",
+    "A line of work has focused on dis- tilling solutions to probability flow ODEs into few-step stu- dent models.",
+    "ARD modifies the teacher transformer architecture by adding token-wise time embedding to mark each input from the trajectory history and employs a block-wise causal attention mask for train- ing.",
+    "ARD of- fers two key benefits: 1) it mitigates exposure bias by uti- ∗Work done during an internship at Meta GenAI.†Meta GenAI. §ETH Z¨urich. ‡KAIST.",
+    "ARD predicts the next sample xτs−1 based on both the current estimate xτs and the en- tire historical trajectory, which is more informative."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models with transformer architectures have\ndemonstrated promising capabilities in generating high-\nfidelity images and scalability for high resolution. How-\never, iterative sampling process required for synthesis is\nvery resource-intensive. A line of work has focused on dis-\ntilling solutions to probability flow ODEs into few-step stu-\ndent models. Nevertheless, existing methods have been lim-\nited by their reliance on the most recent denoised samples\nas input, rendering them susceptible to exposure bias. To\naddress this limitation, we propose AutoRegressive Distil-\nlation (ARD), a novel approach that leverages the histori-\ncal trajectory of the ODE to predict future steps. ARD of-\nfers two key benefits: 1) it mitigates exposure bias by uti-\n∗Work done during an internship at Meta GenAI.†Meta GenAI. §ETH\nZ¨urich. ‡KAIST. Correspondence to: alsdudrla10@kaist.ac.kr\nlizing a predicted historical trajectory that is less suscep-\ntible to accumulated errors, and 2) it leverages the pre-\nvious history of the ODE trajectory as a more effective\nsource of coarse-grained information. ARD modifies the\nteacher transformer architecture by adding token-wise time\nembedding to mark each input from the trajectory history\nand employs a block-wise causal attention mask for train-\ning. Furthermore, incorporating historical inputs only in\nlower transformer layers enhances performance and effi-\nciency. We validate the effectiveness of ARD in a class-\nconditioned generation on ImageNet and T2I synthesis. Our\nmodel achieves a 5× reduction in FID degradation com-\npared to the baseline methods while requiring only 1.1%\nextra FLOPs on ImageNet-256. Moreover, ARD reaches\nFID of 1.84 on ImageNet-256 in merely 4 steps and outper-\nforms the publicly available 1024p text-to-image distilled\nmodels in prompt adherence score with a minimal drop\nin FID compared to the teacher. Project page: https:\n//github.com/alsdudrla10/ARD.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n15745\n\n(a) Step Distillation (baseline)\n(b) AutoRegressive Distillation (ours)\n (c) A Comparison of distillation methods.\n (d) A comparison of recent generative models.\nFigure 2. (a, b) Overall scheme of the baseline and proposed distillation methods. The training trajectory is given by the teacher ODE. (c,\nd) Comparison of the efficiency-performance trade-offs of the distillation methods and public generative models on ImageNet 256p.",
+    "introduction": "1. Introduction\nDiffusion models currently dominate image synthesis land-\nscape due to their striking generalization capabilities and\nunprecedented visual quality [8, 12, 56, 61]. Unlike gener-\native adversarial networks (GANs) [16], the stable training\nof DMs facilitates their expansion to high-resolution image\ngeneration. Recently, models based on Diffusion Trans-\nformers (DiT) [54] architecture gained significant popu-\nlarity due to their excellent scaling properties and ability\nto generate high-resolution images [5, 6]. However, sam-\npling from DMs requires repeated neural network evalua-\ntions [44], which makes the high-resolution image synthesis\nslow and resource-intensive.\nDMs generate samples by solving the denoising process\nnumerically. The denoising process has a probability flow\nordinary differential equation (ODE) formulation [69, 71],\nwhich provides deterministic coupling between noise and\nsamples. To reduce sampling costs, a series of distillation\nmodels [17, 27, 42, 45, 62, 72, 86] have been developed that\nlearn to predict ODE solution with fewer steps. However,\nfew-step student models suffer from exposure bias [53, 57]\nbecause the student’s intermediate prediction often deviates\nfrom the teacher’s ODE due to estimation errors. The errors\naccumulate during iterative sampling, causing the predic-\ntion to become more erroneous as we approach a solution.\nTo address exposure bias in few-step distillation models,\nwe propose an AutoRegressive Distillation (ARD) method\nfor diffusion transformers. ARD predicts the next sample\nxτs−1 based on both the current estimate xτs and the en-\ntire historical trajectory, which is more informative. This\napproach offers two benefits: it reduces accumulated errors\nand provides a better source of coarse-grained information\nwhich is contained in the historical trajectory. Incorporat-\ning the historical trajectory in the lower layers further in-\ntroduces an inductive bias to handle coarse-grained infor-\nmation. We find that when distilling based on the whole\nhistorical trajectory, the FID degradation from the teacher\nis five times lower than that of the baselines on ImageNet\n256p, with only 1.1% more computation required. Our ap-\nproach also scales well and can be used to distill 1024p text-\nto-image diffusion transformers, which outperform public\ndistillation approaches in text-image alignment metrics.",
+    "method": "3. Method\nIn this section we introduce the AutoRegressive Distillation\n(ARD) of diffusion transformers (DiT). Figure 2b provides\nan overview of the ARD process. We’ll break down the\nprobabilistic formulations of distillation in Section 3.1, then\nmove on to the transformer architecture design for our stu-\ndent model in Section 3.2. Lastly, we’ll cover training and\ninference in Section 3.3.",
+    "experiments": "4. Experiments\nThis section empirically validates the effectiveness of ARD.\nSection 4.1 explains the results of class-conditional image\nsynthesis on ImageNet [10]. Section 4.2 presents the exper-\nimental results for text-conditional image synthesis.",
+    "conclusion": "5. Conclusion\nThis paper introduced a novel few-step distillation method\nfor the diffusion transformers that generalizes step distil-\nlation by leveraging the entire historical ODE trajectory in\nan autoregressive way. We also introduced a modified trans-\nformer architecture to support the autoregressive distillation\ndesign. The use of ODE trajectory mitigates exposure bias\nby maintaining the ground truth input signal at every step.\nBy analyzing the historical trajectory as a better source of\ncoarse-grained information, ARD introduces an additional\ndesign choice of using historical trajectory only in lower\nlayers based on attention weight analysis. The empirical re-\nsults show that ARD outperforms step distillation and sur-\npasses public few-step generative models."
+  }
+}

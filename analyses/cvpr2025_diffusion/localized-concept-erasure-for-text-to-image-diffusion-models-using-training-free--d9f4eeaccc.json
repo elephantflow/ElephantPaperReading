@@ -1,0 +1,90 @@
+{
+  "paper_id": "localized-concept-erasure-for-text-to-image-diffusion-models-using-training-free--d9f4eeaccc",
+  "paper_title": "Localized Concept Erasure for Text-to-Image Diffusion Models Using Training-Free Gated Low-Rank Adaptation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:59.456171+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Localized Concept Erasure for Text-to-Image Diffusion Models Using Training-Free Gated Low-Rank Adaptation.pdf",
+    "filename": "Localized Concept Erasure for Text-to-Image Diffusion Models Using Training-Free Gated Low-Rank Adaptation.pdf",
+    "sha1": "d9f4eeaccc9a8caa24eee2d81db073889c3ad113",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "However, previous approaches often encounter challenges in main- taining remaining concepts while removing target concepts present in a localized region when they exist in a same im- age, resulting in unintended fidelity degradation.",
+    "limitation": "However, these approaches require substantial computational resources [47], introduce new biases [9], and could be circumvented by bypassing filters and guides [44].",
+    "insight": "Abstract Fine-tuning based concept erasing has demonstrated promising results in preventing generation of harmful con- tents from text-to-image diffusion models by removing tar- get concepts while preserving remaining concepts.",
+    "proposed_method": "As a solution for the localized concept erasure, we propose a training-free approach, dubbed Gated Low- rank adaptation for Concept Erasure (GLoCE), that injects a lightweight module into the diffusion model.",
+    "experimental_evidence": "Abstract Fine-tuning based concept erasing has demonstrated promising results in preventing generation of harmful con- tents from text-to-image diffusion models by removing tar- get concepts while preserving remaining concepts.",
+    "summary": "However, previous approaches often encounter challenges in main- taining remaining concepts while removing target concepts present in a localized region when they exist in a same im- age, resulting in unintended fidelity degradation. However, these approaches require substantial computational resources [47], introduce new biases [9], and could be circumvented by bypassing filters and guides [44]. Abstract Fine-tuning based concept erasing has demonstrated promising results in preventing generation of harmful con- tents from text-to-image diffusion models by removing tar- get concepts while preserving remaining concepts. As a solution for the localized concept erasure, we propose a training-free approach, dubbed Gated Low- rank adaptation for Concept Erasure (GLoCE), that injects a lightweight module into the diffusion model. Abstract Fine-tuning based concept erasing has demonstrated promising results in preventing generation of harmful con- tents from text-to-image diffusion models by removing tar- get concepts while preserving remaining concepts."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction Large-scale Text-to-Image (T2I) diffusion models have achieved significant success in generating refined images *Equal contribution. † Corresponding author. that faithfully reflect the given text prompts [6, 8, 34, 37, 43, 48, 50, 60].",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "Introduction Large-scale Text-to-Image (T2I) diffusion models have achieved significant success in generating refined images *Equal contribution. † Corresponding author. that faithfully reflect the given text prompts [6, 8, 34, 37, 43, 48, 50, 60]. Despite their success, they also raised seri- ous risks of potentially generating images including “Not Safe For Work (NSFW)” contents [40, 44, 51, 54], such as copyrighted, offensive, and explicit contents. To mitigate these risks, previous works for erasing malicious concepts have proposed various approaches, such as dataset curation [10, 47], post-generation filtering [26, 44], or guided infer- ence [51]. However, these approaches require substantial computational resources [47], introduce new biases [9], and could be circumvented by bypassing filters and guides [44]."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "To overcome their susceptibilities, fine-tuning ap- proaches have shown promising results in concept erasure while preserving remaining concepts [11–13, 22, 29, 35, 63].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "To overcome their susceptibilities, fine-tuning ap- proaches have shown promising results in concept erasure while preserving remaining concepts [11–13, 22, 29, 35, 63]. As the primary goal of concept erasing, these methods focused on improving the efficacy of erasing target concepts [13, 25, 59] and considered the specificity for preserving re- maining concepts [5, 35, 36]. To further maintain the gener- ation capability of diffusion models after concept erasure, it is required to remove only the image region containing the target concept when it locally appears in an image and leave the other regions intact, since otherwise it reduces the over- all generation capability of the diffusion models. However, previous approaches often encounter challenges in main- taining remaining concepts while removing target concepts present in a localized region when they exist in a same im- age, resulting in unintended fidelity degradation."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "method_overview",
+      "main_message": "To address these limitations, we introduce a framework called localized concept erasure, which deletes only the spe- cific image region where the target concept appears, with minimal effect on the surrounding areas.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "To address these limitations, we introduce a framework called localized concept erasure, which deletes only the spe- cific image region where the target concept appears, with minimal effect on the surrounding areas. As a solution for the localized concept erasure, we propose a training-free ap- proach, Gated Low-rank adaptation for Concept Erasure (GLoCE), which injects a lightweight module consisting of low-rank matrices and a gate whose parameters are de- termined only by generation of few images without train- ing. For effective erasure, we project embeddings of a tar- get concept onto their subspace to remove principal compo- nents of the concept, and then map the reduced embeddings to a low-rank embedding subspace of a distant but related This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, prior arts of- ten compromise fidelity of the other image regions in order to erase the localized target concept appearing in a spe- cific area, thereby reducing the overall performance of im- age generation.",
+      "However, these approaches require substantial computational resources [47], introduce new biases [9], and could be circumvented by bypassing filters and guides [44].",
+      "However, previous approaches often encounter challenges in main- taining remaining concepts while removing target concepts present in a localized region when they exist in a same im- age, resulting in unintended fidelity degradation."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "As a solution for the localized concept erasure, we propose a training-free approach, dubbed Gated Low- rank adaptation for Concept Erasure (GLoCE), that injects a lightweight module into the diffusion model.",
+      "As a solution for the localized concept erasure, we propose a training-free ap- proach, Gated Low-rank adaptation for Concept Erasure (GLoCE), which injects a lightweight module consisting of low-rank matrices and a gate whose parameters are de- termined only by generation of few images without train- ing."
+    ],
+    "experiment_expression": [
+      "Extensive experiments demonstrated GLoCE not only improves the image fidelity to text prompts after erasing the localized target concepts, but also outper- forms prior arts in efficacy, specificity, and robustness by large margin and can be extended to mass concept erasure."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "As a solution for the localized concept erasure, we propose a training-free approach, dubbed Gated Low- rank adaptation for Concept Erasure (GLoCE), that injects a lightweight module into the diffusion model.",
+    "However, previous approaches often encounter challenges in main- taining remaining concepts while removing target concepts present in a localized region when they exist in a same im- age, resulting in unintended fidelity degradation.",
+    "However, prior arts of- ten compromise fidelity of the other image regions in order to erase the localized target concept appearing in a spe- cific area, thereby reducing the overall performance of im- age generation.",
+    "However, these approaches require substantial computational resources [47], introduce new biases [9], and could be circumvented by bypassing filters and guides [44].",
+    "Abstract Fine-tuning based concept erasing has demonstrated promising results in preventing generation of harmful con- tents from text-to-image diffusion models by removing tar- get concepts while preserving remaining concepts.",
+    "Additionally, we evaluated the celebrities era- sure when prompts only include single concept.",
+    "As a remedy for the localized concept erasure, we proposed a training-free approach, dubbed Gated Low- rank adaptation for Concept Erasure (GLoCE), by injecting a lightweight module consisting of low-rank matrices and an adaptable gate whose parameters are determined only by a few generation of images.",
+    "As a solution for the localized concept erasure, we propose a training-free ap- proach, Gated Low-rank adaptation for Concept Erasure (GLoCE), which injects a lightweight module consisting of low-rank matrices and a gate whose parameters are de- termined only by generation of few images without train- ing.",
+    "As the backbone, we utilized the SD v1.4 [49] as the backbone for all tasks and generated images by DDIM with 50 steps.",
+    "As the primary goal of concept erasing, these methods focused on improving the efficacy of erasing target concepts [13, 25, 59] and considered the specificity for preserving re- maining concepts [5, 35, 36].",
+    "Code is available at https://github.com/Hyun1A/GLoCE.",
+    "Despite their success, they also raised seri- ous risks of potentially generating images including “Not Safe For Work (NSFW)” contents [40, 44, 51, 54], such as copyrighted, offensive, and explicit contents."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nFine-tuning based concept erasing has demonstrated\npromising results in preventing generation of harmful con-\ntents from text-to-image diffusion models by removing tar-\nget concepts while preserving remaining concepts. To main-\ntain the generation capability of diffusion models after con-\ncept erasure, it is necessary to remove only the image region\ncontaining the target concept when it locally appears in an\nimage, leaving other regions intact. However, prior arts of-\nten compromise fidelity of the other image regions in order\nto erase the localized target concept appearing in a spe-\ncific area, thereby reducing the overall performance of im-\nage generation. To address these limitations, we first intro-\nduce a framework called localized concept erasure, which\nallows for the deletion of only the specific area containing\nthe target concept in the image while preserving the other\nregions. As a solution for the localized concept erasure,\nwe propose a training-free approach, dubbed Gated Low-\nrank adaptation for Concept Erasure (GLoCE), that injects\na lightweight module into the diffusion model. GLoCE con-\nsists of low-rank matrices and a simple gate, determined\nonly by several generation steps for concepts without train-\ning. By directly applying GLoCE to image embeddings and\ndesigning the gate to activate only for target concepts,\nGLoCE can selectively remove only the region of the tar-\nget concepts, even when target and remaining concepts co-\nexist within an image. Extensive experiments demonstrated\nGLoCE not only improves the image fidelity to text prompts\nafter erasing the localized target concepts, but also outper-\nforms prior arts in efficacy, specificity, and robustness by\nlarge margin and can be extended to mass concept erasure.\nCode is available at https://github.com/Hyun1A/GLoCE.",
+    "introduction": "1. Introduction\nLarge-scale Text-to-Image (T2I) diffusion models have\nachieved significant success in generating refined images\n*Equal contribution. † Corresponding author.\nthat faithfully reflect the given text prompts [6, 8, 34, 37,\n43, 48, 50, 60]. Despite their success, they also raised seri-\nous risks of potentially generating images including “Not\nSafe For Work (NSFW)” contents [40, 44, 51, 54], such\nas copyrighted, offensive, and explicit contents. To mitigate\nthese risks, previous works for erasing malicious concepts\nhave proposed various approaches, such as dataset curation\n[10, 47], post-generation filtering [26, 44], or guided infer-\nence [51]. However, these approaches require substantial\ncomputational resources [47], introduce new biases [9], and\ncould be circumvented by bypassing filters and guides [44].\nTo overcome their susceptibilities, fine-tuning ap-\nproaches have shown promising results in concept erasure\nwhile preserving remaining concepts [11–13, 22, 29, 35,\n63]. As the primary goal of concept erasing, these methods\nfocused on improving the efficacy of erasing target concepts\n[13, 25, 59] and considered the specificity for preserving re-\nmaining concepts [5, 35, 36]. To further maintain the gener-\nation capability of diffusion models after concept erasure, it\nis required to remove only the image region containing the\ntarget concept when it locally appears in an image and leave\nthe other regions intact, since otherwise it reduces the over-\nall generation capability of the diffusion models. However,\nprevious approaches often encounter challenges in main-\ntaining remaining concepts while removing target concepts\npresent in a localized region when they exist in a same im-\nage, resulting in unintended fidelity degradation.\nTo address these limitations, we introduce a framework\ncalled localized concept erasure, which deletes only the spe-\ncific image region where the target concept appears, with\nminimal effect on the surrounding areas. As a solution for\nthe localized concept erasure, we propose a training-free ap-\nproach, Gated Low-rank adaptation for Concept Erasure\n(GLoCE), which injects a lightweight module consisting\nof low-rank matrices and a gate whose parameters are de-\ntermined only by generation of few images without train-\ning. For effective erasure, we project embeddings of a tar-\nget concept onto their subspace to remove principal compo-\nnents of the concept, and then map the reduced embeddings\nto a low-rank embedding subspace of a distant but related\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "",
+    "experiments": "4. Experiments\nWe conducted experiments on localized celebrities era-\nsure where text prompts contain both target and remaining\ncelebrities. Additionally, we evaluated the celebrities era-\nsure when prompts only include single concept. Then, we\nfocused on removing explicit content and evaluated the ro-\nbustness against recent red-teaming tools. We also experi-\nmented on artistic styles erasure, though the target concept\nis not localized in specific regions. We compared the pro-\nposed method with six recent baselines for celebrities and\nartistic styles erasure: FMN [59], ESD-x and ESD-u [12],\nUCE [13], MACE [35], and RECE [15]. As the backbone,\nwe utilized the SD v1.4 [49] as the backbone for all tasks\nand generated images by DDIM with 50 steps. For local-\nized celebrities erasure, we further evaluated the proposed\nmethod using SD v3 [10] and generated images by 28 steps.",
+    "conclusion": "5. Conclusion\nIn this work, we introduced a framework called localized\nconcept erasure, aiming to selectively erase the target con-\ncepts appearing in local regions while preserving the re-\nmaining concepts in the other regions when they coexist in\nan image. As a remedy for the localized concept erasure,\nwe proposed a training-free approach, dubbed Gated Low-\nrank adaptation for Concept Erasure (GLoCE), by injecting\na lightweight module consisting of low-rank matrices and\nan adaptable gate whose parameters are determined only\nby a few generation of images. Through extensive experi-\nments, we demonstrated that GLoCE not only significantly\nimproves fidelity to text prompts, but also surpasses prior\napproaches in efficacy, specificity, and robustness."
+  }
+}

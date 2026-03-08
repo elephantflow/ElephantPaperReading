@@ -1,0 +1,95 @@
+{
+  "paper_id": "difflocks-generating-3d-hair-from-a-single-image-using-diffusion-models--e08766622e",
+  "paper_title": "DiffLocks: Generating 3D Hair from a Single Image using Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:25.376421+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/DiffLocks： Generating 3D Hair from a Single Image using Diffusion Models.pdf",
+    "filename": "DiffLocks： Generating 3D Hair from a Single Image using Diffusion Models.pdf",
+    "sha1": "e08766622ee47802c734ddbae1064b0a2a13587d",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Realistic 3D hair is a crucial component of digital humans [ 1, 2, 8, 12, 18, 38, 45], which have wide applications in *Joint ﬁrst author †Work done during an internship at Meshcapade Synthetic hair dataset Real image 3D hair 3 seconds Figure 1.",
+    "limitation": "Furthermore, these methods struggle to handle male-pattern baldness and very curly hair such as afro-like hairstyles, which have a complex geomet- ric structure (see [ 47]).",
+    "insight": "Abstract We address the task of generating 3D hair geometry from a single image, which is challenging due to the diver- sity of hairstyles and the lack of paired image-to-3D hair data.",
+    "proposed_method": "By using a pretrained image backbone, our method generalizes to in-the-wild images despite being trained only on synthetic data.",
+    "experimental_evidence": "Abstract We address the task of generating 3D hair geometry from a single image, which is challenging due to the diver- sity of hairstyles and the lack of paired image-to-3D hair data.",
+    "summary": "Introduction Realistic 3D hair is a crucial component of digital humans [ 1, 2, 8, 12, 18, 38, 45], which have wide applications in *Joint ﬁrst author †Work done during an internship at Meshcapade Synthetic hair dataset Real image 3D hair 3 seconds Figure 1. Furthermore, these methods struggle to handle male-pattern baldness and very curly hair such as afro-like hairstyles, which have a complex geomet- ric structure (see [ 47]). Abstract We address the task of generating 3D hair geometry from a single image, which is challenging due to the diver- sity of hairstyles and the lack of paired image-to-3D hair data. By using a pretrained image backbone, our method generalizes to in-the-wild images despite being trained only on synthetic data. Abstract We address the task of generating 3D hair geometry from a single image, which is challenging due to the diver- sity of hairstyles and the lack of paired image-to-3D hair data."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Realistic 3D hair is a crucial component of digital humans [ 1, 2, 8, 12, 18, 38, 45], which have wide applications in *Joint ﬁrst author †Work done during an internship at Meshcapade Synthetic hair dataset Real image 3D hair 3 seconds Figure 1.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nRealistic 3D hair is a crucial component of digital humans\n[\n1, 2, 8, 12, 18, 38, 45], which have wide applications in\n*Joint ﬁrst author\n†Work done during an internship at Meshcapade\nSynthetic hair dataset Real image 3D hair\n3 seconds\nFigure 1. Given a single RGB image DiffLocks generates accu-\nrate 3D strands using a diffusion model. The model is trained on\na novel synthetic hair dataset containing RGB images and corre-\nsponding 3D strands.\ngames, media and entertainment. Accurate hair represen-\ntation greatly enhances the character’s realism and overall\nvisual quality. Unfortunately, both generating realistic hair\nand reconstructing it from an image are challenging due to\nthe complex 3D geometry and the wide variety of hairstyles.\nSince the release of the ﬁrst 3D synthetic hair dataset\n[\n11], numerous methods for hair reconstruction have been\nproposed. Multi-view capture methods [ 17, 29, 31, 54, 57]\nand video-based approaches [ 24, 41, 49] are able to recon-\nstruct high-ﬁdelity 3D hair but are time-intensive and chal-\nlenging to deploy due to their reliance on expensive capture\nequipment or strict capture conditions.\nIn contrast, single-view methods [\n3, 37, 48,"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "cess requires signiﬁcant manual effort.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "cess requires signiﬁcant manual effort.\nTo cope with limited training data, previous approaches\nrely on several intermediate representations to simplify the\nproblem. Most prior methods rely on oriented ﬁlters to\ncapture the structure of hair in images. They also do not\nmodel hair strands directly but, instead, use a smaller num-\nber of guide strands and then upsample these to generate a\nhairstyle. Additionally, several methods use variational au-\ntoencoding to compress the guide strands across the scalp\ninto a low-dimensional representation. All of these ap-\nproaches are designed to cope with limtied training data but\nhave two effects: (1) they limit the ability to model the com-\nplex spatial relationships between individual strands, and\n(2) they limit realism by working with low-dimensional rep-\nresentations. Effectively, they work in a compressed low-\ndimensional space and then need to upsample the results\nand post-process them to increase realism.\nWe take a different approach and focus on creating a suf-\nﬁcient amount of training data that we can remove the sim-\nplifying assumptions of previous methods. To that end, we\npresent a novel 3D synthetic hair dataset consisting of 40K\n"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Introduction Realistic 3D hair is a crucial component of digital humans [ 1, 2, 8, 12, 18, 38, 45], which have wide applications in *Joint ﬁrst author †Work done during an internship at Meshcapade Synthetic hair dataset Real image 3D hair 3 seconds Figure 1."
+    ],
+    "limitation_expression": [
+      "Previous methods are primarily trained on synthetic data and cope with the limited amount of such data by using low-dimensional intermediate representations, such as guide strands and scalp-level embeddings, that require post-processing to decode, upsample, and add realism.",
+      "These approaches fail to reconstruct detailed hair , strug- gle with curly hair , or are limited to handling only a few hairstyles.",
+      "However, their datasets are not re- leased, do not have paired RGB images, or the creation pro- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "To cope with limited training data, previous approaches rely on several intermediate representations to simplify the problem."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "By using a pretrained image backbone, our method generalizes to in-the-wild images despite being trained only on synthetic data.",
+      "We also perform ablation studies to assess the importance of the different components of our method (a) Synthetic Image (b) Scalp density (c) Raw scalp texture (d) Interpolated texture Figure 5.",
+      "We compare our method with Hairstep [ 55] and Neu- ralHDHair [ 48] as they are both state-of-the-art methods for reconstructing 3D hair from a single image.",
+      "Our method can create highly intricate 3D strands, surpassing previous methods and without requiring heuristic-based methods to increase the realism."
+    ],
+    "experiment_expression": [
+      "3.2); And 3) training a conditional diffusion model, DiffLocks, using the generated synthetic images and the scalp textures as shown in Fig."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "3.2); And 3) training a conditional diffusion model, DiffLocks, using the generated synthetic images and the scalp textures as shown in Fig.",
+    "However, their datasets are not re- leased, do not have paired RGB images, or the creation pro- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "10847 cess requires signiﬁcant manual effort.",
+    "3.1); 2) Parameterization of hair strands and hairstyles into a canonical scalp space to ob- tain scalp textures (Sec.",
+    "Abstract We address the task of generating 3D hair geometry from a single image, which is challenging due to the diver- sity of hairstyles and the lack of paired image-to-3D hair data.",
+    "Accurate hair represen- tation greatly enhances the character’s realism and overall visual quality.",
+    "Acknowledgments and Disclosures.",
+    "Additionally, several methods use variational au- toencoding to compress the guide strands across the scalp into a low-dimensional representation.",
+    "By using a pretrained image backbone, our method generalizes to in-the-wild images despite being trained only on synthetic data.",
+    "Conclusion We proposed a novel approach for generating 3D hair strands from a single image by ﬁrst creating the largest dataset to date of synthetic hair paired with RGB im- ages, and then by proposing an image-conditioned diffu- sion model based on scalp textures.",
+    "Data and code is available at https: //radualexandru.github.io/difflocks/.",
+    "Effectively, they work in a compressed low- dimensional space and then need to upsample the results and post-process them to increase realism."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWe address the task of generating 3D hair geometry from\na single image, which is challenging due to the diver-\nsity of hairstyles and the lack of paired image-to-3D hair\ndata. Previous methods are primarily trained on synthetic\ndata and cope with the limited amount of such data by\nusing low-dimensional intermediate representations, such\nas guide strands and scalp-level embeddings, that require\npost-processing to decode, upsample, and add realism.\nThese approaches fail to reconstruct detailed hair , strug-\ngle with curly hair , or are limited to handling only a\nfew hairstyles. To overcome these limitations, we pro-\npose DiffLocks, a novel framework that enables detailed\nreconstruction of a wide variety of hairstyles directly from\na single image. First, we address the lack of 3D hair\ndata by automating the creation of the largest synthetic\nhair dataset to date, containing 40K hairstyles. Second,\nwe leverage the synthetic hair dataset to learn an image-\nconditioned diffusion-transfomer model that generates ac-\ncurate 3D strands from a single frontal image. By using\na pretrained image backbone, our method generalizes to\nin-the-wild images despite being trained only on synthetic\ndata. Our diffusion model predicts a scalp texture map in\nwhich any point in the map contains the latent code for an\nindividual hair strand. These codes are directly decoded\nto 3D strands without post-processing techniques. Rep-\nresenting individual strands, instead of guide strands, en-\nables the transformer to model the detailed spatial struc-\nture of complex hairstyles. With this, DiffLocks can recover\nhighly curled hair , like afro hairstyles, from a single image\nfor the ﬁrst time. Data and code is available at\nhttps:\n//radualexandru.github.io/difflocks/.",
+    "introduction": "1. Introduction\nRealistic 3D hair is a crucial component of digital humans\n[\n1, 2, 8, 12, 18, 38, 45], which have wide applications in\n*Joint ﬁrst author\n†Work done during an internship at Meshcapade\nSynthetic hair dataset Real image 3D hair\n3 seconds\nFigure 1. Given a single RGB image DiffLocks generates accu-\nrate 3D strands using a diffusion model. The model is trained on\na novel synthetic hair dataset containing RGB images and corre-\nsponding 3D strands.\ngames, media and entertainment. Accurate hair represen-\ntation greatly enhances the character’s realism and overall\nvisual quality. Unfortunately, both generating realistic hair\nand reconstructing it from an image are challenging due to\nthe complex 3D geometry and the wide variety of hairstyles.\nSince the release of the ﬁrst 3D synthetic hair dataset\n[\n11], numerous methods for hair reconstruction have been\nproposed. Multi-view capture methods [ 17, 29, 31, 54, 57]\nand video-based approaches [ 24, 41, 49] are able to recon-\nstruct high-ﬁdelity 3D hair but are time-intensive and chal-\nlenging to deploy due to their reliance on expensive capture\nequipment or strict capture conditions.\nIn contrast, single-view methods [\n3, 37, 48, 51, 55],\nwhich reconstruct 3D hair from a single image, are faster,\nmore accessible, and user-friendly. These methods, how-\never, often produce low-detail hair and handle only a re-\nstricted range of hairstyles. Furthermore, these methods\nstruggle to handle male-pattern baldness and very curly hair\nsuch as afro-like hairstyles, which have a complex geomet-\nric structure (see [\n47]). Previous methods suffer from a lack\nof diverse and comprehensive hairstyle training datasets.\nTo increase training set diversity, GroomGen [\n56], HAAR\n[42] and Fake It Till Y ou Make It [ 46] use artist-created\nhairstyles together with data augmentation techniques to\ntrain their methods. However, their datasets are not re-\nleased, do not have paired RGB images, or the creation pro-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n10847\n\ncess requires signiﬁcant manual effort.\nTo cope with limited training data, previous approaches\nrely on several intermediate representations to simplify the\nproblem. Most prior methods rely on oriented ﬁlters to\ncapture the structure of hair in images. They also do not\nmodel hair strands directly but, instead, use a smaller num-\nber of guide strands and then upsample these to generate a\nhairstyle. Additionally, several methods use variational au-\ntoencoding to compress the guide strands across the scalp\ninto a low-dimensional representation. All of these ap-\nproaches are designed to cope with limtied training data but\nhave two effects: (1) they limit the ability to model the com-\nplex spatial relationships between individual strands, and\n(2) they limit realism by working with low-dimensional rep-\nresentations. Effectively, they work in a compressed low-\ndimensional space and then need to upsample the results\nand post-process them to increase realism.\nWe take a different approach and focus on creating a suf-\nﬁcient amount of training data that we can remove the sim-\nplifying assumptions of previous methods. To that end, we\npresent a novel 3D synthetic hair dataset consisting of 40K\nsamples covering a wide variety of hairstyles; see Fig.",
+    "method": "3. Method\nIn this section, we present our pipeline for 3D hair re-\nconstruction from a single image, consisting of three key\nstages: 1) A data generation pipeline using Blender’s ge-\nometry nodes to create a large, diverse, image-3D paired\nsynthetic hair dataset (Sec.\n3.1); 2) Parameterization of hair\nstrands and hairstyles into a canonical scalp space to ob-\ntain scalp textures (Sec.\n3.2); And 3) training a conditional\ndiffusion model, DiffLocks, using the generated synthetic\nimages and the scalp textures as shown in Fig.\n2.",
+    "experiments": "4. Experiments\nWe evaluate DiffLocks using both synthetic data and in-the-\nwild images. We also perform ablation studies to assess\nthe importance of the different components of our method\n(a) Synthetic\nImage\n(b) Scalp density\n (c) Raw scalp\ntexture\n(d) Interpolated\ntexture\nFigure 5. Scalp interpolation. Embedding each strand onto a the\nscalp texture can leave gaps where no strand is present. In order to\nenable probabilistic sampling of strands, we interpolate the sparse\nstrand embeddings to achieve a smooth scalp texture that can be\nsampled at any position according to the density.\nRGB Input Blender\nofﬂine(40 s)\nUnreal Engine\nreal-time(16 ms)\nFigure 6. Rendering/Simulation. Our generated hair can be di-\nrectly imported into Blender or Unreal Engine as an Alembic ﬁle.\nIn Unreal Engine, the hair can be rendered in real-time with high-\nquality physics simulation (see Supplemental Video).\n(Sec. 4.4). For implementation details and additional exper-\niments, please refer to SupMat.\nWe compare our method with Hairstep [ 55] and Neu-\nralHDHair [ 48] as they are both state-of-the-art methods\nfor reconstructing 3D hair from a single image. We also\ncompare with the conditional 3D hair generation method of\nHAAR [\n42] although it is mainly designed for text-to-hair.",
+    "conclusion": "6. Conclusion\nWe proposed a novel approach for generating 3D hair\nstrands from a single image by ﬁrst creating the largest\ndataset to date of synthetic hair paired with RGB im-\nages, and then by proposing an image-conditioned diffu-\nsion model based on scalp textures. Our method can create\nhighly intricate 3D strands, surpassing previous methods\nand without requiring heuristic-based methods to increase\nthe realism.\nAcknowledgments and Disclosures. We give thanks to\nNathan Bajandas for all the Unreal images and videos.\nWhile MJB is a co-founder and Chief Scientist at\nMeshcapade, his research in this project was performed\nsolely at, and funded solely by, the Max Planck Society."
+  }
+}

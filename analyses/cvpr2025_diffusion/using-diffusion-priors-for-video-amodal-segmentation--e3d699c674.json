@@ -1,0 +1,90 @@
+{
+  "paper_id": "using-diffusion-priors-for-video-amodal-segmentation--e3d699c674",
+  "paper_title": "Using Diffusion Priors for Video Amodal Segmentation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:47.019066+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Using Diffusion Priors for Video Amodal Segmentation.pdf",
+    "filename": "Using Diffusion Priors for Video Amodal Segmentation.pdf",
+    "sha1": "e3d699c674e95c1f4f46d3aab161e60e4ff934ec",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "In a monocular setup, amodal per- ception is an ill-posed problem because there are multiple plausible explanations for how an object boundary should be extended in an occluded region.",
+    "limitation": "However, these approaches are set in the single-frame setting, where they struggle with cases where objects are heavily or completely occluded.",
+    "insight": "One key insight is that founda- tional diffusion models trained to generate pixels also bake- in strong priors on object shape.",
+    "proposed_method": "To this end, we propose to tackle video amodal segmentation by formulating it as a conditional generation task, capitalizing on the foundational knowledge in video generative models.",
+    "experimental_evidence": "We benchmark our approach alongside a wide array of state-of-the-art methods on four datasets and show a dra- matic improvement of upto 13% for amodal segmentation in an object’s occluded region.",
+    "summary": "In a monocular setup, amodal per- ception is an ill-posed problem because there are multiple plausible explanations for how an object boundary should be extended in an occluded region. However, these approaches are set in the single-frame setting, where they struggle with cases where objects are heavily or completely occluded. One key insight is that founda- tional diffusion models trained to generate pixels also bake- in strong priors on object shape. To this end, we propose to tackle video amodal segmentation by formulating it as a conditional generation task, capitalizing on the foundational knowledge in video generative models. We benchmark our approach alongside a wide array of state-of-the-art methods on four datasets and show a dra- matic improvement of upto 13% for amodal segmentation in an object’s occluded region."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Gestalt psychology [ 25] suggests that human perception in- herently organizes visual elements into cohesive wholes.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\nGestalt psychology [\n25] suggests that human perception in-\nherently organizes visual elements into cohesive wholes.\nWhen an object is occluded, humans can often infer the\ncomplete outline of the object – an ability that is devel-\noped in humans in their early years [\n20, 33]. Addition-\nally, object permanence [ 2] suggests that with some tem-\nporal context, humans can perceive objects to persist even\nwhen they undergo complete occlusions. Replicating these\nphenomena of gestalt psychology and object permanence in\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n22890"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "method_overview",
+      "main_message": "object segmentation has traditionally been ignored, as the community has focused largely on segmenting the visible or modal regions of objects (as exempliﬁed by models like SAM [ 24, 39]).",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "object segmentation has traditionally been ignored, as the\ncommunity has focused largely on segmenting the visible\nor modal regions of objects (as exempliﬁed by models like\nSAM [\n24, 39]). Recent focus has shifted to include amodal\nsegmentation [ 26, 59], which involves segmenting an ob-\nject’s full shape, including both visible and occluded parts.\nThis task has broad real-world applications, including safe\nnavigation in robotic manipulation and autonomous driv-\ning [\n36, 40], understanding occluder-occludee relationships\nin complex scenes [57], and enhancing advanced image and\nvideo editing tools [ 34].\nWhy is this hard? In a monocular setup, amodal per-\nception is an ill-posed problem because there are multiple\nplausible explanations for how an object boundary should\nbe extended in an occluded region. Recent innovations for\namodal segmentation [\n34, 56] and inpainting [ 30, 35] use\ndiffusion frameworks for learning this multi-modal distri-\nbution, but they are not able to handle scenarios where an\nobject could be fully-occluded. This issue is exacerbated\nby the lack of real-world datasets that have groundtruths for\nboth amodal masks of objects, and their RGB content.\nStatus quo. "
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, these approaches are set in the single-frame setting, where they struggle with cases where objects are heavily or completely occluded.",
+      "However, existing video amodal seg- mentation algorithms [ 9, 54] are typically limited to rigid objects, and are dependent on additional inputs (like cam- era poses or optical ﬂow) which hinders their scalability and therefore, generalization to unseen data."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To this end, we propose to tackle video amodal segmentation by formulating it as a conditional generation task, capitalizing on the foundational knowledge in video generative models.",
+      "Our method is simple; we re- purpose these models to condition on a sequence of modal mask frames of an object along with contextual pseudo- depth maps, to learn which object boundary may be oc- cluded and therefore, extended to hallucinate the complete extent of an object.",
+      "To address these challenges, we propose re- purposing a video diffusion model, Stable Video Diffusion (SVD) [ 3], to achieve highly accurate and generalizable video amodal segmentation."
+    ],
+    "experiment_expression": [
+      "We train on only syn- thetic data, but demonstrate strong zero-shot generalization to real-world data."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, these approaches are set in the single-frame setting, where they struggle with cases where objects are heavily or completely occluded.",
+    "To address these challenges, we propose re- purposing a video diffusion model, Stable Video Diffusion (SVD) [ 3], to achieve highly accurate and generalizable video amodal segmentation.",
+    "To this end, we propose to tackle video amodal segmentation by formulating it as a conditional generation task, capitalizing on the foundational knowledge in video generative models.",
+    "22890 object segmentation has traditionally been ignored, as the community has focused largely on segmenting the visible or modal regions of objects (as exempliﬁed by models like SAM [ 24, 39]).",
+    "A potential solution is to approach amodal segmentation in a multi-frame setting [ 23] so as to infer complete occlusions with temporal context.",
+    "Abstract Object permanence in humans is a fundamental cue that helps in understanding persistence of objects, even when they are fully occluded in the scene.",
+    "Addition- ally, object permanence [ 2] suggests that with some tem- poral context, humans can perceive objects to persist even when they undergo complete occlusions.",
+    "But crucially, our multi-frame video setup allows us to propagate object shape and content across time; e.g., one can infer the shape of a fully occluded by object by looking at other frames where it is visible (Fig.",
+    "Despite this, current image-based amodal segmentation algorithms [ 11, 22, 34, 48, 49, 56, 57] have shown impressive performance.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Few amodal methods exist; single-image segmentation methods cannot handle high-levels of occlu- sions which are better inferred using temporal information, and multi-frame methods have focused solely on segment- ing rigid objects.",
+    "However, existing video amodal seg- mentation algorithms [ 9, 54] are typically limited to rigid objects, and are dependent on additional inputs (like cam- era poses or optical ﬂow) which hinders their scalability and therefore, generalization to unseen data."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nObject permanence in humans is a fundamental cue that\nhelps in understanding persistence of objects, even when\nthey are fully occluded in the scene. Present day methods\nin object segmentation do not account for this amodal na-\nture of the world, and only work for segmentation of visible\nor modal objects. Few amodal methods exist; single-image\nsegmentation methods cannot handle high-levels of occlu-\nsions which are better inferred using temporal information,\nand multi-frame methods have focused solely on segment-\ning rigid objects. To this end, we propose to tackle video\namodal segmentation by formulating it as a conditional\ngeneration task, capitalizing on the foundational knowledge\nin video generative models. Our method is simple; we re-\npurpose these models to condition on a sequence of modal\nmask frames of an object along with contextual pseudo-\ndepth maps, to learn which object boundary may be oc-\ncluded and therefore, extended to hallucinate the complete\nextent of an object. This is followed by a content completion\nstage which is able to inpaint the occluded regions of an ob-\nject. We benchmark our approach alongside a wide array\nof state-of-the-art methods on four datasets and show a dra-\nmatic improvement of upto 13% for amodal segmentation in\nan object’s occluded region.",
+    "introduction": "1. Introduction\nGestalt psychology [\n25] suggests that human perception in-\nherently organizes visual elements into cohesive wholes.\nWhen an object is occluded, humans can often infer the\ncomplete outline of the object – an ability that is devel-\noped in humans in their early years [\n20, 33]. Addition-\nally, object permanence [ 2] suggests that with some tem-\nporal context, humans can perceive objects to persist even\nwhen they undergo complete occlusions. Replicating these\nphenomena of gestalt psychology and object permanence in\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n22890\n\nobject segmentation has traditionally been ignored, as the\ncommunity has focused largely on segmenting the visible\nor modal regions of objects (as exempliﬁed by models like\nSAM [\n24, 39]). Recent focus has shifted to include amodal\nsegmentation [ 26, 59], which involves segmenting an ob-\nject’s full shape, including both visible and occluded parts.\nThis task has broad real-world applications, including safe\nnavigation in robotic manipulation and autonomous driv-\ning [\n36, 40], understanding occluder-occludee relationships\nin complex scenes [57], and enhancing advanced image and\nvideo editing tools [ 34].\nWhy is this hard? In a monocular setup, amodal per-\nception is an ill-posed problem because there are multiple\nplausible explanations for how an object boundary should\nbe extended in an occluded region. Recent innovations for\namodal segmentation [\n34, 56] and inpainting [ 30, 35] use\ndiffusion frameworks for learning this multi-modal distri-\nbution, but they are not able to handle scenarios where an\nobject could be fully-occluded. This issue is exacerbated\nby the lack of real-world datasets that have groundtruths for\nboth amodal masks of objects, and their RGB content.\nStatus quo. Despite this, current image-based amodal\nsegmentation algorithms [\n11, 22, 34, 48, 49, 56, 57] have\nshown impressive performance. However, these approaches\nare set in the single-frame setting, where they struggle with\ncases where objects are heavily or completely occluded. A\npotential solution is to approach amodal segmentation in a\nmulti-frame setting [\n23] so as to infer complete occlusions\nwith temporal context. However, existing video amodal seg-\nmentation algorithms [ 9, 54] are typically limited to rigid\nobjects, and are dependent on additional inputs (like cam-\nera poses or optical ﬂow) which hinders their scalability and\ntherefore, generalization to unseen data.\nKey insight. To address these challenges, we propose re-\npurposing a video diffusion model, Stable Video Diffusion\n(SVD) [\n3], to achieve highly accurate and generalizable\nvideo amodal segmentation. One key insight is that founda-\ntional diffusion models trained to generate pixels also bake-\nin strong priors on object shape. Such priors have been ex-\npoited by conditional image generation [\n38, 42, 58] meth-\nods that condition on semantic maps and object boundaries.\nWe similarly exploit these priors for our task. But crucially,\nour multi-frame video setup allows us to propagate object\nshape and content across time; e.g., one can infer the shape\nof a fully occluded by object by looking at other frames\nwhere it is visible (Fig.\n1).\nOur proposed model achieves state-of-the-art perfor-\nmance across four synthetic and real-world video datasets,\ncompared to a wide-variety of single-frame and multi-frame\namodal segmentation baselines. We train on only syn-\nthetic data, but demonstrate strong zero-shot generalization\nto real-world data. Thanks to the multi-modal generation\ncapability of diffusion models, our approach can provide\nmultiple plausible interpretations for the completion of oc-\ncluded objects. We show that the outputs of our approach\ncan be used for downstream applications like 4D recon-\nstruction, scene manipulation, and pseudo-groundtruth gen-\neration.",
+    "method": "3. Method\nConsider a video sequence {I1, I2, . . . , IT } with modal\n(or visible) segmentation masks {M1, M2, . . . , MT } for\na target object. Such masks can be readily obtained by\nconventional modal segmentors, such as Segment Anything\nv2 [\n39]. We ﬁrst describe a (diffusion-based) model to gen-\nerating amodal masks {A1, A2, . . . , AT } that capture the\nfull extent of the target object, including occluded portions.\nWe then train a second stage (diffusion-based) model that\nuses the input video and amodal masks to ﬁll in (or inpaint)\nthe RGB content of the occluded areas {C1, C2, · · ·, CT }.",
+    "experiments": "4. Experiments",
+    "conclusion": ""
+  }
+}

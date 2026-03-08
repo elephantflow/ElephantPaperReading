@@ -1,0 +1,95 @@
+{
+  "paper_id": "hierarchical-flow-diffusion-for-efficient-frame-interpolation--b5283aa24b",
+  "paper_title": "Hierarchical Flow Diffusion for Efficient Frame Interpolation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:50.171245+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Hierarchical Flow Diffusion for Efficient Frame Interpolation.pdf",
+    "filename": "Hierarchical Flow Diffusion for Efficient Frame Interpolation.pdf",
+    "sha1": "b5283aa24be8a6131049c06b40984eb7681da577",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "However, since predicting bilateral flow between two frames is an ill-posed problem with many possible solu- tions in essence, most of them can only produce an over- smoothed mean solution, as shown in Fig.",
+    "limitation": "However, since predicting bilateral flow between two frames is an ill-posed problem with many possible solu- tions in essence, most of them can only produce an over- smoothed mean solution, as shown in Fig.",
+    "insight": "Abstract Most recent diffusion-based methods still show a large gap compared to non-diffusion methods for video frame interpo- lation, in both accuracy and efficiency.",
+    "proposed_method": "We propose to model bilateral optical flow explicitly by hierarchical diffusion models, which has much smaller search space in the denoising procedure.",
+    "experimental_evidence": "Abstract Most recent diffusion-based methods still show a large gap compared to non-diffusion methods for video frame interpo- lation, in both accuracy and efficiency.",
+    "summary": "However, since predicting bilateral flow between two frames is an ill-posed problem with many possible solu- tions in essence, most of them can only produce an over- smoothed mean solution, as shown in Fig. However, since predicting bilateral flow between two frames is an ill-posed problem with many possible solu- tions in essence, most of them can only produce an over- smoothed mean solution, as shown in Fig. Abstract Most recent diffusion-based methods still show a large gap compared to non-diffusion methods for video frame interpo- lation, in both accuracy and efficiency. We propose to model bilateral optical flow explicitly by hierarchical diffusion models, which has much smaller search space in the denoising procedure. Abstract Most recent diffusion-based methods still show a large gap compared to non-diffusion methods for video frame interpo- lation, in both accuracy and efficiency."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Video frame interpolation aims to generate intermediate frames given a pair of consecutive frames from video.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Video frame interpolation aims to generate intermediate frames given a pair of consecutive frames from video. It is a fundamental video understanding task in computer vi- sion [48], and has many real applications such as slow- motion generation [21], video compression [50], and novel view synthesis [26]. Existing methods have made great progress based on an encoder-decoder paradigm with bilateral flow as an in- termediate supervision signal [19, 25, 27, 28, 30, 40, 51, 54]. However, since predicting bilateral flow between two frames is an ill-posed problem with many possible solu- tions in essence, most of them can only produce an over- smoothed mean solution, as shown in Fig."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "Some recent methods try to use diffusion tech- niques [8, 15, 44] for video frame interpolation [7, 20, 32], This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Some recent methods try to use diffusion tech- niques [8, 15, 44] for video frame interpolation [7, 20, 32], This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Approach",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Abstract Most recent diffusion-based methods still show a large gap compared to non-diffusion methods for video frame interpo- lation, in both accuracy and efficiency.",
+      "However, since predicting bilateral flow between two frames is an ill-posed problem with many possible solu- tions in essence, most of them can only produce an over- smoothed mean solution, as shown in Fig.",
+      "However, unlike common diffusion-based methods, which are usually less efficient and cannot handle complex motions and large displace- ments, we introduce a hierarchical flow diffusion frame- work to address those problems."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "We propose to model bilateral optical flow explicitly by hierarchical diffusion models, which has much smaller search space in the denoising procedure.",
+      "Our method achieves state of the art in accuracy, and 10+ times faster than other diffusion-based methods.",
+      "Our method is built on top of the diffusion model [15, 44].",
+      "3 shows the overview of our framework.",
+      "Experiments We evaluate our method in this section.",
+      "We first discuss implementation details of our method and the experimental settings, and then compare it with state-of-the-art methods, followed by systematic ablation studies.",
+      "We train our method on Vimeo90k [52], which consists of 50k triplets designed for video frame interpolation."
+    ],
+    "experiment_expression": [
+      "However, since predicting bilateral flow between two frames is an ill-posed problem with many possible solu- tions in essence, most of them can only produce an over- smoothed mean solution, as shown in Fig."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, since predicting bilateral flow between two frames is an ill-posed problem with many possible solu- tions in essence, most of them can only produce an over- smoothed mean solution, as shown in Fig.",
+    "However, unlike common diffusion-based methods, which are usually less efficient and cannot handle complex motions and large displace- ments, we introduce a hierarchical flow diffusion frame- work to address those problems.",
+    "We propose to model bilateral optical flow explicitly by hierarchical diffusion models, which has much smaller search space in the denoising procedure.",
+    "3 shows the overview of our framework.",
+    "Abstract Most recent diffusion-based methods still show a large gap compared to non-diffusion methods for video frame interpo- lation, in both accuracy and efficiency.",
+    "Approach Given a pair of consecutive frames, our goal is to gener- ate the intermediate frame.",
+    "Based on the flow diffusion model, we then use a flow-guided images synthe- sizer to produce the final result.",
+    "Conclusion We have introduced a hierarchical flow diffusion model for video frame interpolation.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Existing methods have made great progress based on an encoder-decoder paradigm with bilateral flow as an in- termediate supervision signal [19, 25, 27, 28, 30, 40, 51, 54].",
+    "Experiments We evaluate our method in this section.",
+    "For data aug- mentation, we randomly crop 256 ×256 patches and per- form random rotation, flipping, and frame order reversing, following previous methods [25, 27, 32]."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nMost recent diffusion-based methods still show a large gap\ncompared to non-diffusion methods for video frame interpo-\nlation, in both accuracy and efficiency. Most of them formu-\nlate the problem as a denoising procedure in latent space\ndirectly, which is less effective caused by the large latent\nspace. We propose to model bilateral optical flow explicitly\nby hierarchical diffusion models, which has much smaller\nsearch space in the denoising procedure. Based on the flow\ndiffusion model, we then use a flow-guided images synthe-\nsizer to produce the final result. We train the flow diffusion\nmodel and the image synthesizer end to end. Our method\nachieves state of the art in accuracy, and 10+ times faster\nthan other diffusion-based methods. The project page is at:\nhttps://hfd-interpolation.github.io.",
+    "introduction": "1. Introduction\nVideo frame interpolation aims to generate intermediate\nframes given a pair of consecutive frames from video. It\nis a fundamental video understanding task in computer vi-\nsion [48], and has many real applications such as slow-\nmotion generation [21], video compression [50], and novel\nview synthesis [26].\nExisting methods have made great progress based on\nan encoder-decoder paradigm with bilateral flow as an in-\ntermediate supervision signal [19, 25, 27, 28, 30, 40, 51,\n54]. However, since predicting bilateral flow between two\nframes is an ill-posed problem with many possible solu-\ntions in essence, most of them can only produce an over-\nsmoothed mean solution, as shown in Fig. 1 with SGM-VFI.\nSome recent methods try to use diffusion tech-\nniques [8, 15, 44] for video frame interpolation [7, 20, 32],\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Approach\nGiven a pair of consecutive frames, our goal is to gener-\nate the intermediate frame. Our method is built on top of\nthe diffusion model [15, 44]. However, unlike common\ndiffusion-based methods, which are usually less efficient\nand cannot handle complex motions and large displace-\nments, we introduce a hierarchical flow diffusion frame-\nwork to address those problems. Fig. 3 shows the overview\nof our framework.",
+    "experiments": "4. Experiments\nWe evaluate our method in this section. We first discuss\nimplementation details of our method and the experimental\nsettings, and then compare it with state-of-the-art methods,\nfollowed by systematic ablation studies.\nImplementation details. We train our method on\nVimeo90k [52], which consists of 50k triplets designed for\nvideo frame interpolation. We train the flow diffusion mod-\nels with the finest resolution of 256 ×256. For data aug-\nmentation, we randomly crop 256 ×256 patches and per-\nform random rotation, flipping, and frame order reversing,\nfollowing previous methods [25, 27, 32]. We use AdamW\noptimizer [29] and anneal the learning rate from 4e-4 to 4e-\n5 based on One-Cycle strategy [43], for both the training of",
+    "conclusion": "5. Conclusion\nWe have introduced a hierarchical flow diffusion model for\nvideo frame interpolation. Instead of formulating frame\ninterpolation as a denoising procedure in the latent space,\nwe proposed to model optical flow explicitly from coarse\nto fine by hierarchical diffusion models, which has much\nsmaller search space in each denoising step, and can handle\ncomplex motions and large displacements. In experiments,\nour approach demonstrates the effectiveness of the hierar-\nchical diffusion models by generating high-quality interpo-\nlated frames, which outperforms state-of-the-art methods,\nand 10+ times faster than other diffusion-based methods."
+  }
+}

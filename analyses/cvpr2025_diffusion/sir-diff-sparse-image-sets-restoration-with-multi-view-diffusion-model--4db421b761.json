@@ -1,0 +1,83 @@
+{
+  "paper_id": "sir-diff-sparse-image-sets-restoration-with-multi-view-diffusion-model--4db421b761",
+  "paper_title": "SIR-DIFF: Sparse Image Sets Restoration with Multi-View Diffusion Model",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:26.177202+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/SIR-DIFF： Sparse Image Sets Restoration with Multi-View Diffusion Model.pdf",
+    "filename": "SIR-DIFF： Sparse Image Sets Restoration with Multi-View Diffusion Model.pdf",
+    "sha1": "4db421b761e4473bc08074497c2f1212bca6074c",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Image restoration approaches [8, 16, 29, 53] typically pro- cess degraded images in isolation, confronting the challenge of the original scene content.",
+    "limitation": "Introduction Image restoration approaches [8, 16, 29, 53] typically pro- cess degraded images in isolation, confronting the challenge of the original scene content.",
+    "insight": "We leverage our key insight that multiple corrupted photographs of the same scene contain comple- mentary information that can aid superior denoising out- comes.",
+    "proposed_method": "Abstract The computer vision community has developed numer- ous techniques for digitally restoring true scene informa- tion from single-view degraded photographs, an important yet extremely ill-posed task.",
+    "experimental_evidence": "Our experiments show that our multi-view approach outperforms existing single-view im- * Equal contribution age and even video-based methods on image deblurring and super-resolution tasks.",
+    "summary": "Introduction Image restoration approaches [8, 16, 29, 53] typically pro- cess degraded images in isolation, confronting the challenge of the original scene content. Introduction Image restoration approaches [8, 16, 29, 53] typically pro- cess degraded images in isolation, confronting the challenge of the original scene content. We leverage our key insight that multiple corrupted photographs of the same scene contain comple- mentary information that can aid superior denoising out- comes. Abstract The computer vision community has developed numer- ous techniques for digitally restoring true scene informa- tion from single-view degraded photographs, an important yet extremely ill-posed task. Our experiments show that our multi-view approach outperforms existing single-view im- * Equal contribution age and even video-based methods on image deblurring and super-resolution tasks."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Image restoration approaches [8, 16, 29, 53] typically pro- cess degraded images in isolation, confronting the challenge of the original scene content.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nImage restoration approaches [8, 16, 29, 53] typically pro-\ncess degraded images in isolation, confronting the challenge\nof the original scene content. Yet in practice, we frequently\ncapture multiple photographs of meaningful moments, yield-\ning a natural collection of views of the same scene, albeit\nsome degraded. This common behavior presents an untapped\nopportunity: leveraging multiple captures to enhance image\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n21620"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "key_insight",
+      "main_message": "quality and better preserve our visual memories.",
+      "writing_strategy": "Introduces an observation that motivates the proposed direction.",
+      "evidence_text": "quality and better preserve our visual memories.\nIn this work, we present a novel perspective on image\nrestoration by reformulating it as a multi-view collaborative\nrestoration task. We leverage our key insight that multiple\ncorrupted photographs of the same scene contain comple-\nmentary information that can aid superior denoising out-\ncomes. The concept of multi-image fusion for quality en-\nhancement has been explored in classical super-resolution\ntechniques where sub-pixel shifted images are combined to\nreconstruct fractional pixel information [19]. Our approach\nrevisits this paradigm in a fundamentally wider context by\nusing neural attention mechanisms to implicitly fuse overlap-\nping information from general multi-view images to enhance\neven severe aberrations.\nNotably, our multi-view restoration framework has partic-\nular signiﬁcance for 3D computer vision applications. Many\nreal-world tasks, from robotic SLAM to novel-view synthe-\nsis, rely fundamentally on multi-view imagery of a scene.\nWhen restoring degraded images within such multi-view sets,\nmaintaining geometric consistency across views is crucial to\npreserve the underlying 3D scene assumptions. Traditional\nsingle-view "
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "When restoring degraded images within such multi-view sets, maintaining geometric consistency across views is crucial to preserve the underlying 3D scene assumptions."
+    ],
+    "limitation_expression": [],
+    "insight_expression": [],
+    "method_expression": [],
+    "experiment_expression": [],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "21620 quality and better preserve our visual memories.",
+    "Abstract The computer vision community has developed numer- ous techniques for digitally restoring true scene informa- tion from single-view degraded photographs, an important yet extremely ill-posed task.",
+    "Beyond image restoration, our architecture shows promise in other multi-view tasks, notably achiev- ing competitive depth estimation accuracy and geometric consistency compared to leading single-view methods.",
+    "Conclusion & Limitations We present SIR-Diff, a simple and effective approach for multi-view image restoration, addressing blurring and low- resolution degradation across multiple images simultane- ously.",
+    "Critically, our model is trained to output 3D consistent images, making it a promising tool for applications requiring robust multi-view integration, such as 3D reconstruction or pose estimation.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experiment We evaluate SIR-Diff on the task ofsparse view motion de- blurring and super-resolution in a zero-shot setting§ 4.2, and discuss our deblurring results in§ 4.4 and super-resolution re- sults in § 4.5.",
+    "For downstream applications, we show that our multi-view restoration strategy signiﬁcantly enhances 3D reconstruction quality, as evidenced by im- proved novel-view synthesis accuracy and feature-matching success rates.",
+    "Future work will explore efﬁcient cross-image attention mecha- nisms, such as selective patch attention along epipolar lines, and develop explicit guarantees for 3D view consistency.",
+    "In contrast, our restoration approach naturally enforces view consistency through learned neural priors.",
+    "In the 21621 Figure 2.",
+    "In this work, we present a novel perspective on image restoration by reformulating it as a multi-view collaborative restoration task."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nThe computer vision community has developed numer-\nous techniques for digitally restoring true scene informa-\ntion from single-view degraded photographs, an important\nyet extremely ill-posed task. In this work, we tackle image\nrestoration from a different perspective by jointly denoising\nmultiple photographs of the same scene. Our core hypothesis\nis that degraded images capturing a shared scene contain\ncomplementary information that, when combined, better con-\nstrains the restoration problem. To this end, we implement\na powerful multi-view diffusion model that jointly gener-\nates uncorrupted views by extracting rich information from\nmulti-view relationships. Our experiments show that our\nmulti-view approach outperforms existing single-view im-\n* Equal contribution\nage and even video-based methods on image deblurring and\nsuper-resolution tasks. Critically, our model is trained to\noutput 3D consistent images, making it a promising tool for\napplications requiring robust multi-view integration, such\nas 3D reconstruction or pose estimation. Project website:\nhttps://myc634.github.io/sirdiff/",
+    "introduction": "1. Introduction\nImage restoration approaches [8, 16, 29, 53] typically pro-\ncess degraded images in isolation, confronting the challenge\nof the original scene content. Yet in practice, we frequently\ncapture multiple photographs of meaningful moments, yield-\ning a natural collection of views of the same scene, albeit\nsome degraded. This common behavior presents an untapped\nopportunity: leveraging multiple captures to enhance image\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n21620\n\nquality and better preserve our visual memories.\nIn this work, we present a novel perspective on image\nrestoration by reformulating it as a multi-view collaborative\nrestoration task. We leverage our key insight that multiple\ncorrupted photographs of the same scene contain comple-\nmentary information that can aid superior denoising out-\ncomes. The concept of multi-image fusion for quality en-\nhancement has been explored in classical super-resolution\ntechniques where sub-pixel shifted images are combined to\nreconstruct fractional pixel information [19]. Our approach\nrevisits this paradigm in a fundamentally wider context by\nusing neural attention mechanisms to implicitly fuse overlap-\nping information from general multi-view images to enhance\neven severe aberrations.\nNotably, our multi-view restoration framework has partic-\nular signiﬁcance for 3D computer vision applications. Many\nreal-world tasks, from robotic SLAM to novel-view synthe-\nsis, rely fundamentally on multi-view imagery of a scene.\nWhen restoring degraded images within such multi-view sets,\nmaintaining geometric consistency across views is crucial to\npreserve the underlying 3D scene assumptions. Traditional\nsingle-view restoration methods, inevitably introduce incon-\nsistencies that can compromise these geometric constraints.\nIn contrast, our restoration approach naturally enforces view\nconsistency through learned neural priors.\nWe implement our approach, dubbed SIR-Diff ( Sparse\nImage Restoration with Diffusion), through an innovative\nmulti-view diffusion model architecture. Our choice of diffu-\nsion models is motivated by their natural handling of uncer-\ntainty in image restoration. We extend the UNet-based Stable\nDiffusion [35] architecture to process multiple views jointly\nby introducing three key components: (1) a uniﬁed encoder\nfor diverse degraded inputs including low-resolution, blurred,\nand regular RGB images, (2) a hybrid 2D-3D convolutional\nstructure derived from SVD (Stable Video Diffusion) [4, 5],\nand (3) a 3D self-attention Transformer that enables cross-\nview attention across all spatial and multi-view tokens.\nWe evaluate and show zero-shot performance on Scan-\nnet++ [61], ETH3D [38], and CO3D [32] for multi-view de-\nblurring and super-resolution tasks and their 3D downstream\napplications. SIR-Diff consistently outperforms existing\nsingle-image and video restoration methods for multi-view\nrestoration tasks in both image quality and our proposed 3D\nview consistency metrics. For downstream applications, we\nshow that our multi-view restoration strategy signiﬁcantly\nenhances 3D reconstruction quality, as evidenced by im-\nproved novel-view synthesis accuracy and feature-matching\nsuccess rates. Beyond image restoration, our architecture\nshows promise in other multi-view tasks, notably achiev-\ning competitive depth estimation accuracy and geometric\nconsistency compared to leading single-view methods.",
+    "method": "3. Method\nIn this section, we discuss our proposed approach, SIR-\nDiff, which can generate and restore sparse image sets from\n3D scenes or objects conditioned on their degraded inputs.\nSpeciﬁcally, we showcase our approach to two challeng-\ning tasks: motion deblurring and super-resolution. In the\n21621\n\nFigure 2. Method Overview. Our model is a UNet-based latent diffusion model that takes as input a degraded sparse image set and outputs\na set of restored consistent images. The core of our approach is a diffusion model that jointly denoises image latents across multiple views\nby relying on our spatial-3D ResNet and 3D Self-Attn transformer. We use pre-trained encoder-decoders from SD2.1 [35] and train our\ndenoising UNet on those encoded latents. We show view-consistent results for the task of Deblurring and Super-Resolution.\nfollowing sections, we discuss our problem setup in § 3.1,\nmulti-view image restoration diffusion model in § 3.2, and\nour proposed model architecture in § 3.3.",
+    "experiments": "4. Experiment\nWe evaluate SIR-Diff on the task ofsparse view motion de-\nblurring and super-resolution in a zero-shot setting§ 4.2, and\ndiscuss our deblurring results in§ 4.4 and super-resolution re-\nsults in § 4.5. We discuss implementation details in§ 4.2, and\nnow we start by discussing evaluation metrics in§ 4.1. Please\nrefer to supplementary materials for the ablation study.",
+    "conclusion": "5. Conclusion & Limitations\nWe present SIR-Diff, a simple and effective approach for\nmulti-view image restoration, addressing blurring and low-\nresolution degradation across multiple images simultane-\nously. SIR-Diff outperforms leading single-view methods\nin sparse-view restoration and enables 3D-consistent im-\nage restoration for 3D computer vision applications. Future\nwork will explore efﬁcient cross-image attention mecha-\nnisms, such as selective patch attention along epipolar lines,\nand develop explicit guarantees for 3D view consistency."
+  }
+}

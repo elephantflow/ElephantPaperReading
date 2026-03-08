@@ -1,0 +1,97 @@
+{
+  "paper_id": "3dtopia-xl-scaling-high-quality-3d-asset-generation-via-primitive-diffusion--80f36d620b",
+  "paper_title": "3DTopia-XL: Scaling High-quality 3D Asset Generation via Primitive Diffusion",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:03:58.522442+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/3DTopia-XL： Scaling High-quality 3D Asset Generation via Primitive Diffusion.pdf",
+    "filename": "3DTopia-XL： Scaling High-quality 3D Asset Generation via Primitive Diffusion.pdf",
+    "sha1": "80f36d620ba00c757472f7181c1ba2bfd986b667",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Plus, reconstruction-based models also suffer from a low-diversity problem as deterministic methods.",
+    "limitation": "However, these methods suf- fer from time-consuming optimization, poor geometry, and multifaceted inconsistency.",
+    "insight": "Moreover, we do extensive ablation studies to motivate our design choices for a better efficiency-quality tradeoff in the context of gen- erative modeling with PrimX.",
+    "proposed_method": "On top of the novel representation, we propose a generative framework based on Diffusion Transformer (DiT), which comprises 1) Primitive Patch Compression, 2) and Latent Primitive Dif- fusion.",
+    "experimental_evidence": "Extensive qualitative and quantitative evaluations are conducted to demonstrate that 3DTopia-XL significantly outperforms existing methods in generating high-quality 3D assets with fine-grained textures and materials, efficiently bridging the quality gap between generative models and real-world applications.",
+    "summary": "Plus, reconstruction-based models also suffer from a low-diversity problem as deterministic methods. However, these methods suf- fer from time-consuming optimization, poor geometry, and multifaceted inconsistency. Moreover, we do extensive ablation studies to motivate our design choices for a better efficiency-quality tradeoff in the context of gen- erative modeling with PrimX. On top of the novel representation, we propose a generative framework based on Diffusion Transformer (DiT), which comprises 1) Primitive Patch Compression, 2) and Latent Primitive Dif- fusion. Extensive qualitative and quantitative evaluations are conducted to demonstrate that 3DTopia-XL significantly outperforms existing methods in generating high-quality 3D assets with fine-grained textures and materials, efficiently bridging the quality gap between generative models and real-world applications."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction High-quality 3D assets are essential for various real-world applications like films, gaming, and virtual reality.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\nHigh-quality 3D assets are essential for various real-world\napplications like films, gaming, and virtual reality. How-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n26576"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "ever, creating high-quality 3D assets involves extensive manual labor and expertise.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "ever, creating high-quality 3D assets involves extensive\nmanual labor and expertise. Therefore, it further fuels\nthe demand for automatic 3D content creation techniques,\nwhich automatically generate 3D assets from visual or tex-\ntual inputs by using 3D generative models.\nFortunately, rapid progress has been witnessed in the\nfield of 3D generative models recently. Existing state-\nof-the-art techniques can be sorted into three categories.\n1) Methods based on Score Distillation Sampling (SDS)\n[37, 44] lift 2D diffusion priors into 3D representation\nby per-scene optimization. However, these methods suf-\nfer from time-consuming optimization, poor geometry, and\nmultifaceted inconsistency. 2) Methods based on sparse-\nview reconstruction [14, 54] that leverage large models to\nregress 3D assets from single- or multi-view images. Most\nof these methods are built upon triplane-NeRF [3] repre-\nsentation. However, due to the triplane’s parameter ineffi-\nciency, the valid parameter space is limited to low resolu-\ntions in those models, leading to relatively low-quality 3D\nassets. Plus, reconstruction-based models also suffer from\na low-diversity problem as deterministic methods. 3) Meth-\nods as n"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Despite recent advancements in 3D gen- erative models, existing methods still face challenges with optimization speed, geometric fidelity, and the lack of assets for physically based rendering (PBR).",
+      "However, these methods suf- fer from time-consuming optimization, poor geometry, and multifaceted inconsistency.",
+      "However, due to the triplane’s parameter ineffi- ciency, the valid parameter space is limited to low resolu- tions in those models, leading to relatively low-quality 3D assets."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "On top of the novel representation, we propose a generative framework based on Diffusion Transformer (DiT), which comprises 1) Primitive Patch Compression, 2) and Latent Primitive Dif- fusion.",
+      "To address the limitations above, we propose 3DTopia- XL, a high-quality native 3D generative model for 3D as- sets at scale.",
+      "Extensive experiments are conducted both qualitatively and quantitatively to evaluate the effectiveness of our method in text-to-3D and image-to-3D tasks.",
+      "In conclusion, we summa- rize our contributions as follows: 1) We propose a novel 3D representation, PrimX, for high-quality 3D content cre- ation, which is efficient, tensorial, and renderable.",
+      "On top of PrimX, we propose Latent Primitive Diffusion for scalable 3D generative mod- els, together with practical techniques to export PBR assets ready for graphics pipelines."
+    ],
+    "experiment_expression": [
+      "Extensive qualitative and quantitative evaluations are conducted to demonstrate that 3DTopia-XL significantly outperforms existing methods in generating high-quality 3D assets with fine-grained textures and materials, efficiently bridging the quality gap between generative models and real-world applications.",
+      "Extensive experiments are conducted both qualitatively and quantitatively to evaluate the effectiveness of our method in text-to-3D and image-to-3D tasks.",
+      "4) We demonstrate the superior quality and impressive applications of 3DTopia-XL for image-to- 3D and text-to-3D tasks."
+    ],
+    "contribution_expression": [
+      "In conclusion, we summa- rize our contributions as follows: 1) We propose a novel 3D representation, PrimX, for high-quality 3D content cre- ation, which is efficient, tensorial, and renderable."
+    ]
+  },
+  "notable_sentences": [
+    "In conclusion, we summa- rize our contributions as follows: 1) We propose a novel 3D representation, PrimX, for high-quality 3D content cre- ation, which is efficient, tensorial, and renderable.",
+    "Extensive experiments are conducted both qualitatively and quantitatively to evaluate the effectiveness of our method in text-to-3D and image-to-3D tasks.",
+    "However, due to the triplane’s parameter ineffi- ciency, the valid parameter space is limited to low resolu- tions in those models, leading to relatively low-quality 3D assets.",
+    "However, these methods suf- fer from time-consuming optimization, poor geometry, and multifaceted inconsistency.",
+    "On top of PrimX, we propose Latent Primitive Diffusion for scalable 3D generative mod- els, together with practical techniques to export PBR assets ready for graphics pipelines.",
+    "On top of the novel representation, we propose a generative framework based on Diffusion Transformer (DiT), which comprises 1) Primitive Patch Compression, 2) and Latent Primitive Dif- fusion.",
+    "To address the limitations above, we propose 3DTopia- XL, a high-quality native 3D generative model for 3D as- sets at scale.",
+    "1) Methods based on Score Distillation Sampling (SDS) [37, 44] lift 2D diffusion priors into 3D representation by per-scene optimization.",
+    "2) Methods based on sparse- view reconstruction [14, 54] that leverage large models to regress 3D assets from single- or multi-view images.",
+    "2) We introduce a scalable generative framework, 3DTopia-XL, tailored for generating high-quality 3D assets with high- resolution geometry, texture, and materials.",
+    "26576 ever, creating high-quality 3D assets involves extensive manual labor and expertise.",
+    "3) Meth- ods as native 3D generative models [23, 58] aim to model the probabilistic distribution of 3D assets, generating 3D objects given input conditions."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nThe increasing demand for high-quality 3D assets across\nvarious industries necessitates efficient and automated 3D\ncontent creation. Despite recent advancements in 3D gen-\nerative models, existing methods still face challenges with\noptimization speed, geometric fidelity, and the lack of assets\nfor physically based rendering (PBR). In this paper, we in-\ntroduce 3DTopia-XL, a scalable native 3D generative model\ndesigned to overcome these limitations. 3DTopia-XL lever-\nages a novel primitive-based 3D representation, PrimX,\nwhich encodes detailed shape, albedo, and material field\ninto a compact tensorial format, facilitating the modeling\nof high-resolution geometry with PBR assets. On top of the\nnovel representation, we propose a generative framework\nbased on Diffusion Transformer (DiT), which comprises 1)\nPrimitive Patch Compression, 2) and Latent Primitive Dif-\nfusion. 3DTopia-XL learns to generate high-quality 3D as-\nsets from textual or visual inputs. Extensive qualitative and\nquantitative evaluations are conducted to demonstrate that\n3DTopia-XL significantly outperforms existing methods in\ngenerating high-quality 3D assets with fine-grained textures\nand materials, efficiently bridging the quality gap between\ngenerative models and real-world applications.",
+    "introduction": "1. Introduction\nHigh-quality 3D assets are essential for various real-world\napplications like films, gaming, and virtual reality. How-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n26576\n\never, creating high-quality 3D assets involves extensive\nmanual labor and expertise. Therefore, it further fuels\nthe demand for automatic 3D content creation techniques,\nwhich automatically generate 3D assets from visual or tex-\ntual inputs by using 3D generative models.\nFortunately, rapid progress has been witnessed in the\nfield of 3D generative models recently. Existing state-\nof-the-art techniques can be sorted into three categories.\n1) Methods based on Score Distillation Sampling (SDS)\n[37, 44] lift 2D diffusion priors into 3D representation\nby per-scene optimization. However, these methods suf-\nfer from time-consuming optimization, poor geometry, and\nmultifaceted inconsistency. 2) Methods based on sparse-\nview reconstruction [14, 54] that leverage large models to\nregress 3D assets from single- or multi-view images. Most\nof these methods are built upon triplane-NeRF [3] repre-\nsentation. However, due to the triplane’s parameter ineffi-\nciency, the valid parameter space is limited to low resolu-\ntions in those models, leading to relatively low-quality 3D\nassets. Plus, reconstruction-based models also suffer from\na low-diversity problem as deterministic methods. 3) Meth-\nods as native 3D generative models [23, 58] aim to model\nthe probabilistic distribution of 3D assets, generating 3D\nobjects given input conditions. Yet, few of them are capa-\nble of generating high-quality 3D objects with Physically\nBased Rendering (PBR) assets, which are geometry, tex-\nture, and material packed into a GLB file.\nTo address the limitations above, we propose 3DTopia-\nXL, a high-quality native 3D generative model for 3D as-\nsets at scale. Our key idea is scaling the powerful diffusion\ntransformer [36] on top of a novel primitive-based 3D repre-\nsentation. At the core of 3DTopia-XL is an efficient 3D rep-\nresentation, PrimX, which encodes the shape, albedo, and\nmaterial of a textured mesh in a compact N × D tensor, en-\nabling the modeling of high-resolution geometry with PBR\nassets. In specific, we anchor N primitives to the positions\nsampled on the mesh surface. Each primitive is a tiny voxel,\nparameterized by its 3D position, a global scale factor, and\ncorresponding spatially varied payload for SDF, RGB, and\nmaterial. Note that the proposed representation differenti-\nates itself from the shape-only representation M-SDF [58]\nthat PrimX encodes shape, color, and material in a unified\nway. It also supports efficient differentiable rendering, lead-\ning to the great potential to learn from not only 3D data but\nalso image collections. Moreover, we carefully design ini-\ntialization and fine-tuning strategy that enables PrimX to be\nrapidly tensorized from a textured mesh (GLB file) which\nis ten times faster than the triplane under the same setting.\nThanks to the tensorial and compact PrimX, we scale\nthe 3D generative modeling using latent primitive diffusion\nwith Transformers, where we treat each 3D object as a set of\nprimitives. In specific, the proposed 3D generation frame-\nwork consists of two modules. 1) Primitive Patch Compres-\nsion uses a 3D V AE for spatial compression of each indi-\nvidual primitive to get latent primitive tokens; and 2) La-\ntent Primitive Diffusion leverages the Diffusion Transform-\ners (DiT) [36] to model global correlation of latent prim-\nitive tokens for generative modeling. The significant effi-\nciency of the proposed representation allows us to achieve\nhigh-resolution generative training using a clean and unified\nframework without super-resolution to upscale the underly-\ning 3D representation or post-hoc optimization-based mesh\nrefinement.\nIn addition, we also carefully design algorithms for high-\nquality 3D PBR asset extraction from PrimX, to ensure re-\nversible transformations between PrimX and textured mesh.\nAn issue for most 3D generation models [49, 54] is that they\nuse vertex coloring to represent the object’s texture, leading\nto a significant quality drop when exporting their generation\nresults into mesh format. Thanks to the high-quality surface\nmodeled by Signed Distance Field (SDF) in PrimX, we pro-\npose to extract the 3D shape with zero-level contouring and\nsample texture and material values in a high-resolution UV\nspace. This leads to high-quality asset extraction with con-\nsiderably fewer vertices, which is also ready to be packed\ninto GLB format for downstream tasks.\nExtensive experiments are conducted both qualitatively\nand quantitatively to evaluate the effectiveness of our\nmethod in text-to-3D and image-to-3D tasks. Moreover, we\ndo extensive ablation studies to motivate our design choices\nfor a better efficiency-quality tradeoff in the context of gen-\nerative modeling with PrimX. In conclusion, we summa-\nrize our contributions as follows: 1) We propose a novel\n3D representation, PrimX, for high-quality 3D content cre-\nation, which is efficient, tensorial, and renderable. 2) We\nintroduce a scalable generative framework, 3DTopia-XL,\ntailored for generating high-quality 3D assets with high-\nresolution geometry, texture, and materials. 3) Practical\ntechniques for assets extraction from 3D representation to\navoid quality gap. 4) We demonstrate the superior quality\nand impressive applications of 3DTopia-XL for image-to-\n3D and text-to-3D tasks.",
+    "method": "3. Methodology",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nWe present 3DTopia-XL, a native 3D diffusion model for\nPBR asset generation given textual or visual inputs. Central\nto our approach is PrimX, an innovative primitive-based 3D\nrepresentation that is parameter-efficient, tensorial, and ren-\nderable. It encodes shape, albedo, and material into a com-\npact N ×D tensor, enabling the modeling of high-resolution\ngeometry with PBR assets. On top of PrimX, we propose\nLatent Primitive Diffusion for scalable 3D generative mod-\nels, together with practical techniques to export PBR assets\nready for graphics pipelines."
+  }
+}

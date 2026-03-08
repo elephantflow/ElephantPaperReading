@@ -1,0 +1,98 @@
+{
+  "paper_id": "accelerating-diffusion-transformer-via-increment-calibrated-caching-with-channel--262f9d5ac0",
+  "paper_title": "Accelerating Diffusion Transformer via Increment-Calibrated Caching with Channel-Aware Singular Value Decomposition",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:01.093880+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Accelerating Diffusion Transformer via Increment-Calibrated Caching with Channel-Aware Singular Value Decomposition.pdf",
+    "filename": "Accelerating Diffusion Transformer via Increment-Calibrated Caching with Channel-Aware Singular Value Decomposition.pdf",
+    "sha1": "262f9d5ac0bb956b66466229ba7011c8a56ca93f",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "This is crucial because, as observed in various transformer-based models [43, 45], the outlier issues in DiT can adversely affect inference results.",
+    "limitation": "However, DiTs are still burdened with the iterative na- ture inherent in DMs.",
+    "insight": "This is crucial because, as observed in various transformer-based models [43, 45], the outlier issues in DiT can adversely affect inference results.",
+    "proposed_method": "To deal with the possible correction fail- ure arising from outlier activations, we introduce channel- aware Singular V alue Decomposition (SVD), which fur- ther strengthens the calibration effect.",
+    "experimental_evidence": "Experimental re- sults show that our method always achieve better perfor- mance than existing naive caching methods with a similar computation resource budget.",
+    "summary": "This is crucial because, as observed in various transformer-based models [43, 45], the outlier issues in DiT can adversely affect inference results. However, DiTs are still burdened with the iterative na- ture inherent in DMs. This is crucial because, as observed in various transformer-based models [43, 45], the outlier issues in DiT can adversely affect inference results. To deal with the possible correction fail- ure arising from outlier activations, we introduce channel- aware Singular V alue Decomposition (SVD), which fur- ther strengthens the calibration effect. Experimental re- sults show that our method always achieve better perfor- mance than existing naive caching methods with a similar computation resource budget."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Diffusion models (DMs) [ 14, 29, 37, 38] have emerged as one of the most popular generative models, exhibiting great generation quality and diversity especially in the area of contiguous modalities, including images [ 31], videos [36], and audios [ 6].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nDiffusion models (DMs) [ 14, 29, 37, 38] have emerged as\none of the most popular generative models, exhibiting great\ngeneration quality and diversity especially in the area of\ncontiguous modalities, including images [ 31], videos [36],\nand audios [ 6]. Throughout the reverse process of DMs,\nexpected contents are gradually synthesized with a multi-\nstep reﬁnement. Although initial DMs are based on U-\nNet architectures [ 32], recent works have demonstrated\nthat transformer-based DMs, i.e., Diffusion Transformers\n(DiTs) can serve as a competitive alternative [ 30]. DiTs\nbeneﬁt from the exceptional scalability inherent in trans-\n*Corresponding Author\nformer architecture [ 40], which has been extensively vali-\ndated in various tasks, including image recognition [ 9] and\nlanguage modeling [18].\nHowever, DiTs are still burdened with the iterative na-\nture inherent in DMs. This means their high-ﬁdelity syn-\nthesis results usually come at the cost of substantial la-\ntency, exacerbating deployment difﬁculties and necessitat-\ning efﬁciency improvement. The existing strategies to ac-\ncelerate DiT models can be categorized into three primary\napproaches: timestep reduction, weigh"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "30-step DDIM Non-caching 灅1 MACs 45% Complexity Reduction 35-step DDIM ICC (CD-SVD, p=2, r=192) 灅0.55 MACs Figure 1.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "30-step DDIM\nNon-caching\n灅1 MACs\n45%\nComplexity\nReduction\n35-step DDIM\nICC\n(CD-SVD,\np=2, r=192)\n灅0.55 MACs\nFigure 1. Visualization of increment-calibrated caching on DiT-XL/2.\nFIDĻ = 3.49\n#MACs = 4.74 T\nFIDĻ = 11.70\n#MACs = 4.74 T\nFIDĻ = 28.04\n#MACs = 3.98T\nOriginal\nRank = 1152\nApproximated\nRank = 768\nApproximated\nRank = 640\nLimited\nComplexity\nReduction\nConsistency\nLoss\nSevere\nQuality\nDegradation\nExcessive\nFID\nIncrease\nFigure 2. Degraded generation results of directly performing SVD\non DiT-XL/2 at the resolution of 256 × 256.\nfull potential of cache-based acceleration.\nIn this paper, we present increment-calibrated caching,\na novel training-free method to accelerate DiT that distin-\nguishes itself from aforementioned three approaches. It\ncan been seen as a complementary combination of weight-\noriented approximation and cache-based acceleration, in-\nstead of roughly packing these two techniques together.\nUnlike methods that directly convert the original model\ninto a reduced version with SVD, we treat the low-rank\napproximated weights as calibration parameters. During\nthe reverse process, these calibration parameters are lever-\naged to reﬁne the cached values derived from the origina"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "This is crucial because, as observed in various transformer-based models [43, 45], the outlier issues in DiT can adversely affect inference results."
+    ],
+    "limitation_expression": [
+      "However, DiTs are still burdened with the iterative na- ture inherent in DMs.",
+      "However, enhancing generation efﬁciency by decreasing the model size of DiTs is a non-trivial task, especially when retraining is not feasi- ble.",
+      "FIDĻ = 3.49 #MACs = 4.74 T FIDĻ = 11.70 #MACs = 4.74 T FIDĻ = 28.04 #MACs = 3.98T Original Rank = 1152 Approximated Rank = 768 Approximated Rank = 640 Limited Complexity Reduction Consistency Loss Severe Quality Degradation Excessive FID Increase Figure 2."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Experimental re- sults show that our method always achieve better perfor- mance than existing naive caching methods with a similar computation resource budget.",
+      "When compared with 35-step DDIM, our method eliminates more than 45 % computation and improves IS by 12 at the cost of less than 0.06 FID in- crease.",
+      "To the best of our knowledge, it is the pioneering work that aims to calibrate the cache of DMs in a training-free manner. • We propose channel-aware SVD, a reﬁned SVD variant that improves increment-calibrated caching for DiT and mitigates outlier issues that could undermine the calibra- tion effect. • The proposed methods are validated on state-of-the-art DiT model DiT-XL/2 [30] for conditional image synthe- sis and for PixArt- α[4] text-to-image generation.",
+      "Compared with 35-step DDIM, our method eliminates more than 45% computation and improves IS by 12 at the cost of less than 0.06 FID increase.",
+      "Conclusion In this work, we propose increment-calibrated caching, a novel method to reduce the computation complexity of DiT in a training-free manner.",
+      "Experimental results show that our method largely outperforms naive caching method in performance.",
+      "Besides, compared with 35-step DDIM, our method eliminates more than 45 % computations and improves IS by 12 at the cost of less than 0.06 FID increase."
+    ],
+    "experiment_expression": [
+      "Regarding the experimental results of SVD-based ap- proximation, as shown in Fig.",
+      "Ex- perimental results show that our proposed method largely outperform naive caching methods with a similar compu- tation budget."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion In this work, we propose increment-calibrated caching, a novel method to reduce the computation complexity of DiT in a training-free manner.",
+    "However, DiTs are still burdened with the iterative na- ture inherent in DMs.",
+    "However, enhancing generation efﬁciency by decreasing the model size of DiTs is a non-trivial task, especially when retraining is not feasi- ble.",
+    "Regarding the experimental results of SVD-based ap- proximation, as shown in Fig.",
+    "18011 30-step DDIM Non-caching 灅1 MACs 45% Complexity Reduction 35-step DDIM ICC (CD-SVD, p=2, r=192) 灅0.55 MACs Figure 1.",
+    "2, even when approximately 33% of the ranks are removed across all layers, the compu- tational overhead does not diminish accordingly.",
+    "Abstract Diffusion transformer (DiT) models have achieved remark- able success in image generation, thanks for their excep- tional generative capabilities and scalability.",
+    "Although existing cache-based acceleration methods try to utilize the inherent temporal similarity to skip redun- dant computations of DiT, the lack of correction may in- duce potential quality degradation.",
+    "Although initial DMs are based on U- Net architectures [ 32], recent works have demonstrated that transformer-based DMs, i.e., Diffusion Transformers (DiTs) can serve as a competitive alternative [ 30].",
+    "Besides, compared with 35-step DDIM, our method eliminates more than 45 % computations and improves IS by 12 at the cost of less than 0.06 FID increase.",
+    "Cache-based acceleration techniques are proposed to leverage the multi-step property of diffusion process con- trarily and exploit the inherent temporal similarities to by- pass redundant computations [ 16, 26, 35].",
+    "Combing the ideology of low-rank approximation and caching-based acceleration, increment-calibrated caching corrects cached activations from previous timesteps and guides them towards required accurate results in the subsequent timesteps."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion transformer (DiT) models have achieved remark-\nable success in image generation, thanks for their excep-\ntional generative capabilities and scalability. Nonetheless,\nthe iterative nature of diffusion models (DMs) results in\nhigh computation complexity, posing challenges for deploy-\nment. Although existing cache-based acceleration methods\ntry to utilize the inherent temporal similarity to skip redun-\ndant computations of DiT, the lack of correction may in-\nduce potential quality degradation. In this paper , we pro-\npose increment-calibrated caching, a training-free method\nfor DiT acceleration, where the calibration parameters are\ngenerated from the pre-trained model itself with low-rank\napproximation. To deal with the possible correction fail-\nure arising from outlier activations, we introduce channel-\naware Singular V alue Decomposition (SVD), which fur-\nther strengthens the calibration effect. Experimental re-\nsults show that our method always achieve better perfor-\nmance than existing naive caching methods with a similar\ncomputation resource budget. When compared with 35-step\nDDIM, our method eliminates more than 45 % computation\nand improves IS by 12 at the cost of less than 0.06 FID in-\ncrease.",
+    "introduction": "1. Introduction\nDiffusion models (DMs) [ 14, 29, 37, 38] have emerged as\none of the most popular generative models, exhibiting great\ngeneration quality and diversity especially in the area of\ncontiguous modalities, including images [ 31], videos [36],\nand audios [ 6]. Throughout the reverse process of DMs,\nexpected contents are gradually synthesized with a multi-\nstep reﬁnement. Although initial DMs are based on U-\nNet architectures [ 32], recent works have demonstrated\nthat transformer-based DMs, i.e., Diffusion Transformers\n(DiTs) can serve as a competitive alternative [ 30]. DiTs\nbeneﬁt from the exceptional scalability inherent in trans-\n*Corresponding Author\nformer architecture [ 40], which has been extensively vali-\ndated in various tasks, including image recognition [ 9] and\nlanguage modeling [18].\nHowever, DiTs are still burdened with the iterative na-\nture inherent in DMs. This means their high-ﬁdelity syn-\nthesis results usually come at the cost of substantial la-\ntency, exacerbating deployment difﬁculties and necessitat-\ning efﬁciency improvement. The existing strategies to ac-\ncelerate DiT models can be categorized into three primary\napproaches: timestep reduction, weight-oriented approxi-\nmation [ 5], and cache-based acceleration [ 26, 35]. Re-\nsearch works within the ﬁrst approach are devoted to re-\nducing the required reverse steps, including adopting fast\nsamplers [23, 24, 37, 44] or distilling the original trajectory\ninto fewer timesteps [33, 39].\nMethods that fall under the category of weight-oriented\napproximation are inspired by the general methodology to\ndecrease the complexity of neural networks. These works\ntypically concentrate on eliminating redundant weight el-\nements through pruning [ 11], adopting low-bit quantiza-\ntion [5, 12], or employing low-rank approximation such as\nSingular Value Decomposition (SVD). However, enhancing\ngeneration efﬁciency by decreasing the model size of DiTs\nis a non-trivial task, especially when retraining is not feasi-\nble. Regarding the experimental results of SVD-based ap-\nproximation, as shown in Fig. 2, even when approximately\n33% of the ranks are removed across all layers, the compu-\ntational overhead does not diminish accordingly. Moreover,\nthe generated images suffer from substantial quality degra-\ndation and lose the consistency with the original model.\nCache-based acceleration techniques are proposed to\nleverage the multi-step property of diffusion process con-\ntrarily and exploit the inherent temporal similarities to by-\npass redundant computations [ 16, 26, 35]. In this case,\nthe intermediate features of previous timesteps are cached\nand directly used to approximate the outputs of subsequent\ntimesteps without any corrections. Current related works\nprimarily focus on designing an optimal caching mecha-\nnism, while ignoring the calibration of the cached value.\nThis oversight may lead to quality drop and constrain the\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n18011\n\n30-step DDIM\nNon-caching\n灅1 MACs\n45%\nComplexity\nReduction\n35-step DDIM\nICC\n(CD-SVD,\np=2, r=192)\n灅0.55 MACs\nFigure 1. Visualization of increment-calibrated caching on DiT-XL/2.\nFIDĻ = 3.49\n#MACs = 4.74 T\nFIDĻ = 11.70\n#MACs = 4.74 T\nFIDĻ = 28.04\n#MACs = 3.98T\nOriginal\nRank = 1152\nApproximated\nRank = 768\nApproximated\nRank = 640\nLimited\nComplexity\nReduction\nConsistency\nLoss\nSevere\nQuality\nDegradation\nExcessive\nFID\nIncrease\nFigure 2. Degraded generation results of directly performing SVD\non DiT-XL/2 at the resolution of 256 × 256.\nfull potential of cache-based acceleration.\nIn this paper, we present increment-calibrated caching,\na novel training-free method to accelerate DiT that distin-\nguishes itself from aforementioned three approaches. It\ncan been seen as a complementary combination of weight-\noriented approximation and cache-based acceleration, in-\nstead of roughly packing these two techniques together.\nUnlike methods that directly convert the original model\ninto a reduced version with SVD, we treat the low-rank\napproximated weights as calibration parameters. During\nthe reverse process, these calibration parameters are lever-\naged to reﬁne the cached values derived from the original\nmodel through an increment term, instructing them towards\nthe desired accurate results. This ensures that increment-\ncalibrated caching achieves a superior balance between ef-\nﬁciency and performance compared to conventional naive\ncaching mechanisms.\nFurthermore, we substitute the original SVD with\nchannel-aware SVD, a reﬁned variant that takes the chan-\nnel sensitivity into consideration. In contrast to the origi-\nnal version, channel-aware SVD strengthens the calibration\neffect by placing greater emphasis on activation-sensitive\nchannels. This is crucial because, as observed in various\ntransformer-based models [43, 45], the outlier issues in DiT\ncan adversely affect inference results. Main contributions\nof this paper are summarized as follows,\n• We introduce increment-calibrated caching, a training-\nfree method tailored for the acceleration of DiT. To the\nbest of our knowledge, it is the pioneering work that aims\nto calibrate the cache of DMs in a training-free manner.\n• We propose channel-aware SVD, a reﬁned SVD variant\nthat improves increment-calibrated caching for DiT and\nmitigates outlier issues that could undermine the calibra-\ntion effect.\n• The proposed methods are validated on state-of-the-art\nDiT model DiT-XL/2 [30] for conditional image synthe-\nsis and for PixArt- α[4] text-to-image generation. Ex-\nperimental results show that our proposed method largely\noutperform naive caching methods with a similar compu-\ntation budget. Compared with 35-step DDIM, our method\neliminates more than 45% computation and improves IS\nby 12 at the cost of less than 0.06 FID increase.",
+    "method": "3. Methodology",
+    "experiments": "4. Experiment",
+    "conclusion": "5. Conclusion\nIn this work, we propose increment-calibrated caching, a\nnovel method to reduce the computation complexity of\nDiT in a training-free manner. Combing the ideology of\nlow-rank approximation and caching-based acceleration,\nincrement-calibrated caching corrects cached activations\nfrom previous timesteps and guides them towards required\naccurate results in the subsequent timesteps. This process\nis ensured with calibration parameters that are generated\nfrom the pre-trained model itself with SVD-based low-rank\napproximation. We further introduce channel-aware SVD,\nwhich takes the channel sensitivity into consideration and\nprevents harmful outlier issues. Experimental results show\nthat our method largely outperforms naive caching method\nin performance. Besides, compared with 35-step DDIM,\nour method eliminates more than 45 % computations and\nimproves IS by 12 at the cost of less than 0.06 FID increase.\nAcknowledgements\nThis work was supported in part by the National Key Re-\nsearch and Development Program of China under Grant\n2023YFB4404603; and in part by the National Natural Sci-\nence Foundation of China under Grant 92164301, Grant\n62204003, Grant 62225401, and Grant 61927901."
+  }
+}

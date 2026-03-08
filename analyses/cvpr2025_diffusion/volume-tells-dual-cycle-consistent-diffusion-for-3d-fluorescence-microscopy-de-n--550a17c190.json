@@ -1,0 +1,80 @@
+{
+  "paper_id": "volume-tells-dual-cycle-consistent-diffusion-for-3d-fluorescence-microscopy-de-n--550a17c190",
+  "paper_title": "Volume Tells: Dual Cycle-Consistent Diffusion for 3D Fluorescence Microscopy De-noising and Super-Resolution",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:51.047149+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Volume Tells： Dual Cycle-Consistent Diffusion for 3D Fluorescence Microscopy De-noising and Super-Resolution.pdf",
+    "filename": "Volume Tells： Dual Cycle-Consistent Diffusion for 3D Fluorescence Microscopy De-noising and Super-Resolution.pdf",
+    "sha1": "550a17c1903f5722f5545bd64c20c20347bc1319",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction 3D fluorescence confocal (FC) microscopy is crucial to reveal detailed volumetric structures within biological sam- ples, which is often inaccessible in traditional 2D imaging.",
+    "limitation": "Introduction 3D fluorescence confocal (FC) microscopy is crucial to reveal detailed volumetric structures within biological sam- ples, which is often inaccessible in traditional 2D imaging.",
+    "insight": "Abstract 3D fluorescence microscopy is essential for understand- ing fundamental life processes through long-term live-cell imaging.",
+    "proposed_method": "Abstract 3D fluorescence microscopy is essential for understand- ing fundamental life processes through long-term live-cell imaging.",
+    "experimental_evidence": "Experimen- tal results on 10 in vivo cellular dataset demonstrate high improvements in both de-noising and super-resolution, with axial resolution enhanced from ∼ 430 nm to ∼ 90 nm.",
+    "summary": "Introduction 3D fluorescence confocal (FC) microscopy is crucial to reveal detailed volumetric structures within biological sam- ples, which is often inaccessible in traditional 2D imaging. Introduction 3D fluorescence confocal (FC) microscopy is crucial to reveal detailed volumetric structures within biological sam- ples, which is often inaccessible in traditional 2D imaging. Abstract 3D fluorescence microscopy is essential for understand- ing fundamental life processes through long-term live-cell imaging. Abstract 3D fluorescence microscopy is essential for understand- ing fundamental life processes through long-term live-cell imaging. Experimen- tal results on 10 in vivo cellular dataset demonstrate high improvements in both de-noising and super-resolution, with axial resolution enhanced from ∼ 430 nm to ∼ 90 nm."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction 3D fluorescence confocal (FC) microscopy is crucial to reveal detailed volumetric structures within biological sam- ples, which is often inaccessible in traditional 2D imaging.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction 3D fluorescence confocal (FC) microscopy is crucial to reveal detailed volumetric structures within biological sam- ples, which is often inaccessible in traditional 2D imaging. This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Introduction 3D fluorescence confocal (FC) microscopy is crucial to reveal detailed volumetric structures within biological sam- ples, which is often inaccessible in traditional 2D imaging."
+    ],
+    "limitation_expression": [
+      "However, due to inherent issues in imaging princi- ples, it faces significant challenges including spatially vary- ing noise and anisotropic resolution, where the axial res- olution lags behind the lateral resolution up to 4.5 times."
+    ],
+    "insight_expression": [],
+    "method_expression": [],
+    "experiment_expression": [
+      "Experimen- tal results on 10 in vivo cellular dataset demonstrate high improvements in both de-noising and super-resolution, with axial resolution enhanced from ∼ 430 nm to ∼ 90 nm."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, due to inherent issues in imaging princi- ples, it faces significant challenges including spatially vary- ing noise and anisotropic resolution, where the axial res- olution lags behind the lateral resolution up to 4.5 times.",
+    "Abstract 3D fluorescence microscopy is essential for understand- ing fundamental life processes through long-term live-cell imaging.",
+    "Conclusion The proposed VTCD leverages the unique imaging pri- ors of 3D fluorescence microscopy, and within the frame- work of cycle training, it models de-noising and SR as two conditional diffusion models without paired GT.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experimen- tal results on 10 in vivo cellular dataset demonstrate high improvements in both de-noising and super-resolution, with axial resolution enhanced from ∼ 430 nm to ∼ 90 nm.",
+    "Introduction 3D fluorescence confocal (FC) microscopy is crucial to reveal detailed volumetric structures within biological sam- ples, which is often inaccessible in traditional 2D imaging.",
+    "Meanwhile, laser power is kept low to maintain cell viabil- ity, leading to inaccessible low-noise and high-resolution paired ground truth (GT).",
+    "Moreover, the VTCD framework is designed to generalize across var- ious experimental conditions, making it a versatile tool for improving the quality of 3D fluorescence microscopy data.",
+    "Specifically, a spatially iso-distributed denoiser is designed to exploit the noise distribution consistency be- tween adjacent low-noise and high-noise regions within the 3D cell volume, suppressing the spatially varying noise.",
+    "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "This ap- proach addresses the limitations of current deep learning- based methods in de-noising and SR for 3D fluorescence microscopy, while simultaneously achieving de-noising and SR of 3D cell volumes.",
+    "This dual capability is par- ticularly beneficial for understanding fundamental life pro- cesses in long-term time-lapse live-cell studies."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\n3D fluorescence microscopy is essential for understand-\ning fundamental life processes through long-term live-cell\nimaging. However, due to inherent issues in imaging princi-\nples, it faces significant challenges including spatially vary-\ning noise and anisotropic resolution, where the axial res-\nolution lags behind the lateral resolution up to 4.5 times.\nMeanwhile, laser power is kept low to maintain cell viabil-\nity, leading to inaccessible low-noise and high-resolution\npaired ground truth (GT). To tackle these limitations, a\ndual Cycle-consistent Diffusion is proposed to effectively\nmine intra-volume imaging priors within 3D cell volumes\n1Department of Electrical Engineering, City University of Hong Kong,\nHong Kong (SAR China)\n2Centre for Intelligent Multidimensional Data Analysis, Hong Kong\nScience Park, Hong Kong (SAR China)\n3Department of Biology, Hong Kong Baptist University, Hong Kong\n(SAR China)\n*Equal contributions\n†Correspondence: rogerhzk@gmail.com\nin an unsupervised manner, i.e., Volume Tells (VTCD),\nachieving de-noising and super-resolution (SR) simultane-\nously. Specifically, a spatially iso-distributed denoiser is\ndesigned to exploit the noise distribution consistency be-\ntween adjacent low-noise and high-noise regions within the\n3D cell volume, suppressing the spatially varying noise.\nThen, in light of the structural consistency of the cell vol-\nume, a cross-plane global-propagation SR module propa-\ngates high-resolution details from the XY plane into adja-\ncent regions in the XZ and YZ planes, progressively enhanc-\ning resolution across the entire 3D cell volume. Experimen-\ntal results on 10 in vivo cellular dataset demonstrate high\nimprovements in both de-noising and super-resolution, with\naxial resolution enhanced from ∼ 430 nm to ∼ 90 nm.",
+    "introduction": "1. Introduction\n3D fluorescence confocal (FC) microscopy is crucial to\nreveal detailed volumetric structures within biological sam-\nples, which is often inaccessible in traditional 2D imaging.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Methodology",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nThe proposed VTCD leverages the unique imaging pri-\nors of 3D fluorescence microscopy, and within the frame-\nwork of cycle training, it models de-noising and SR as two\nconditional diffusion models without paired GT. This ap-\nproach addresses the limitations of current deep learning-\nbased methods in de-noising and SR for 3D fluorescence\nmicroscopy, while simultaneously achieving de-noising and\nSR of 3D cell volumes. Through the dual objectives of de-\nnoising and SR, VTCD not only restores the suppressed de-\ntails in the Z-axis but also enhances the structural consis-\ntency across 3D cell volumes. This dual capability is par-\nticularly beneficial for understanding fundamental life pro-\ncesses in long-term time-lapse live-cell studies. Moreover,\nthe VTCD framework is designed to generalize across var-\nious experimental conditions, making it a versatile tool for\nimproving the quality of 3D fluorescence microscopy data."
+  }
+}

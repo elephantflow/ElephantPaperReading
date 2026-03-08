@@ -1,0 +1,115 @@
+{
+  "paper_id": "osdface-one-step-diffusion-model-for-face-restoration--34c62afd7f",
+  "paper_title": "OSDFace: One-Step Diffusion Model for Face Restoration",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:12.677094+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/OSDFace： One-Step Diffusion Model for Face Restoration.pdf",
+    "filename": "OSDFace： One-Step Diffusion Model for Face Restoration.pdf",
+    "sha1": "34c62afd7f28d6d25a5d02329a5797fe79b23fe9",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Blur, noise, downsampling, and JPEG compression are common degradation types that can significantly affect the quality of face images, leading to an ill-posed problem.",
+    "limitation": "However, due to the severe degradation of face images, generative models with strong prior knowledge exhibit irreplaceable advantages.",
+    "insight": "Abstract Diffusion models have demonstrated impressive perfor- mance in face restoration.",
+    "proposed_method": "In this work, we propose OSDFace, a novel one-step diffu- sion model for face restoration.",
+    "experimental_evidence": "Abstract Diffusion models have demonstrated impressive perfor- mance in face restoration.",
+    "summary": "Blur, noise, downsampling, and JPEG compression are common degradation types that can significantly affect the quality of face images, leading to an ill-posed problem. However, due to the severe degradation of face images, generative models with strong prior knowledge exhibit irreplaceable advantages. Abstract Diffusion models have demonstrated impressive perfor- mance in face restoration. In this work, we propose OSDFace, a novel one-step diffu- sion model for face restoration. Abstract Diffusion models have demonstrated impressive perfor- mance in face restoration."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Face restoration aims to restore high-quality (HQ) face im- ages from degraded low-quality (LQ) inputs caused by com- plex degradation processes.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Face restoration aims to restore high-quality (HQ) face im- ages from degraded low-quality (LQ) inputs caused by com- plex degradation processes. Blur, noise, downsampling, and JPEG compression are common degradation types that can significantly affect the quality of face images, leading to an ill-posed problem. Recent advancements focus on lever- aging CNN-based methods and Transformer-based meth- ods [51, 58, 61, 74] to restore HQ face images, and have shown remarkable performance. However, due to the severe degradation of face images, generative models with strong prior knowledge exhibit irreplaceable advantages."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Generative adversarial networks (GANs) [14] and dif- *Equal contribution. †Corresponding authors.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "Generative adversarial networks (GANs) [14] and dif- *Equal contribution. †Corresponding authors. HQ (512×512) LQ (512 ×512) PGDiff [64] DifFace [70] MACs (T) / Time (s) / # Steps 481.0 / 85.8 / 1,000 18.68 / 7.05 / 250 DiffBIR [32] OSEDiff [59] OSEDiff* [59] OSDFace (ours) 189.2 / 9.03 / 50 2.269 / 0.13 / 1 2.269 / 0.13 / 1 2.132 / 0.10 / 1 Figure 1. Visual samples of diffusion-based face restoration meth- ods. We provide multiply-accumulate operations (MACs), time, and number of timesteps during inference."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "Our OSDFace achieves a more natural and faithful visual result than other ones. fusion models [18, 46, 47] have gained considerable at- tention for generating high-fidelity images with percep- tual details.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Our OSDFace achieves a more natural and faithful visual result than other ones. fusion models [18, 46, 47] have gained considerable at- tention for generating high-fidelity images with percep- tual details. Many efforts, such as DifFace [70] and Diff- BIR [32], have also been applied to restoring HQ face im- ages [3, 6, 7, 36, 38, 49, 54, 64, 66]. However, GANs are challenging to train and may encounter issues such as mode collapse and training instability. Conversely, diffusion mod- els produce promising results but require multiple forward passes during inference, leading to increased computational cost and longer inference time."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "To speed up the diffusion inference, one-step diffusion (OSD) models [28, 59] have emerged as a promising re- search topic.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "To speed up the diffusion inference, one-step diffusion (OSD) models [28, 59] have emerged as a promising re- search topic. Benefiting from the recently developed gen- erative diffusion models, especially large-scale pretrained text-to-image (T2I) models [40, 41], OSD models [28, 59] enjoy the powerful restoration capability and fast inference speed. It is anticipated that OSD models could be highly competitive in face restoration practical applications. 1, most diffusion-based face restora- tion methods can effectively recover basic facial features such as eyes, mouth, and contour."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "limitation",
+      "main_message": "However, details, such as realistic-looking hair and complex background, often re- main unharmonious.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "However, details, such as realistic-looking hair and complex background, often re- main unharmonious. The primary issue lies in the insuf- ficient incorporation of face priors [62]. Some diffusion- based methods [7, 32, 70] rely solely on the diffusion This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, due to the severe degradation of face images, generative models with strong prior knowledge exhibit irreplaceable advantages.",
+      "However, GANs are challenging to train and may encounter issues such as mode collapse and training instability.",
+      "However, details, such as realistic-looking hair and complex background, often re- main unharmonious."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "In this work, we propose OSDFace, a novel one-step diffu- sion model for face restoration.",
+      "Specifically, we propose a visual representation embedder (VRE) to better capture prior information and understand the input face.",
+      "To accomplish this, we propose an innovative one- step diffusion model (see Fig.",
+      "Conclusion We propose OSDFace, a high-speed diffusion model that enhances face image quality in one step.",
+      "Our method bridges the gap between the powerful generative capabili- ties of text-to-image diffusion models and the specific re- quirements of face restoration."
+    ],
+    "experiment_expression": [
+      "Experimental results demonstrate that OSDFace surpasses current state-of-the-art (SOTA) meth- ods in both visual quality and quantitative metrics, gen- erating high-fidelity, natural face images with high iden- tity consistency.",
+      "Extensive experiments demonstrate that OSDFace achieves superior performance compared to recent state-of-the-art methods."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion We propose OSDFace, a high-speed diffusion model that enhances face image quality in one step.",
+    "Extensive experiments demonstrate that OSDFace achieves superior performance compared to recent state-of-the-art methods.",
+    "However, GANs are challenging to train and may encounter issues such as mode collapse and training instability.",
+    "However, details, such as realistic-looking hair and complex background, often re- main unharmonious.",
+    "However, due to the severe degradation of face images, generative models with strong prior knowledge exhibit irreplaceable advantages.",
+    "In this work, we propose OSDFace, a novel one-step diffu- sion model for face restoration.",
+    "Specifically, we propose a visual representation embedder (VRE) to better capture prior information and understand the input face.",
+    "To accomplish this, we propose an innovative one- step diffusion model (see Fig.",
+    "1, most diffusion-based face restora- tion methods can effectively recover basic facial features such as eyes, mouth, and contour.",
+    "3) focused on face restora- tion.",
+    "Abstract Diffusion models have demonstrated impressive perfor- mance in face restoration.",
+    "Additionally, we incorporate a facial identity loss derived from face recognition to further ensure identity consistency."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models have demonstrated impressive perfor-\nmance in face restoration. Yet, their multi-step inference\nprocess remains computationally intensive, limiting their\napplicability in real-world scenarios. Moreover, existing\nmethods often struggle to generate face images that are har-\nmonious, realistic, and consistent with the subject’s identity.\nIn this work, we propose OSDFace, a novel one-step diffu-\nsion model for face restoration. Specifically, we propose\na visual representation embedder (VRE) to better capture\nprior information and understand the input face. In VRE,\nlow-quality faces are processed by a visual tokenizer and\nsubsequently embedded with a vector-quantized dictionary\nto generate visual prompts. Additionally, we incorporate a\nfacial identity loss derived from face recognition to further\nensure identity consistency. We further employ a generative\nadversarial network (GAN) as a guidance model to encour-\nage distribution alignment between the restored face and\nthe ground truth. Experimental results demonstrate that\nOSDFace surpasses current state-of-the-art (SOTA) meth-\nods in both visual quality and quantitative metrics, gen-\nerating high-fidelity, natural face images with high iden-\ntity consistency. The code and model will be released at\nhttps://github.com/jkwang28/OSDFace.",
+    "introduction": "1. Introduction\nFace restoration aims to restore high-quality (HQ) face im-\nages from degraded low-quality (LQ) inputs caused by com-\nplex degradation processes. Blur, noise, downsampling, and\nJPEG compression are common degradation types that can\nsignificantly affect the quality of face images, leading to\nan ill-posed problem. Recent advancements focus on lever-\naging CNN-based methods and Transformer-based meth-\nods [51, 58, 61, 74] to restore HQ face images, and have\nshown remarkable performance. However, due to the severe\ndegradation of face images, generative models with strong\nprior knowledge exhibit irreplaceable advantages.\nGenerative adversarial networks (GANs) [14] and dif-\n*Equal contribution.\n†Corresponding authors.\nHQ (512×512) LQ (512 ×512) PGDiff [64] DifFace [70]\nMACs (T) / Time (s) / # Steps 481.0 / 85.8 / 1,000 18.68 / 7.05 / 250\nDiffBIR [32] OSEDiff [59] OSEDiff* [59] OSDFace (ours)\n189.2 / 9.03 / 50 2.269 / 0.13 / 1 2.269 / 0.13 / 1 2.132 / 0.10 / 1\nFigure 1. Visual samples of diffusion-based face restoration meth-\nods. We provide multiply-accumulate operations (MACs), time,\nand number of timesteps during inference. Our OSDFace achieves\na more natural and faithful visual result than other ones.\nfusion models [18, 46, 47] have gained considerable at-\ntention for generating high-fidelity images with percep-\ntual details. Many efforts, such as DifFace [70] and Diff-\nBIR [32], have also been applied to restoring HQ face im-\nages [3, 6, 7, 36, 38, 49, 54, 64, 66]. However, GANs are\nchallenging to train and may encounter issues such as mode\ncollapse and training instability. Conversely, diffusion mod-\nels produce promising results but require multiple forward\npasses during inference, leading to increased computational\ncost and longer inference time.\nTo speed up the diffusion inference, one-step diffusion\n(OSD) models [28, 59] have emerged as a promising re-\nsearch topic. Benefiting from the recently developed gen-\nerative diffusion models, especially large-scale pretrained\ntext-to-image (T2I) models [40, 41], OSD models [28, 59]\nenjoy the powerful restoration capability and fast inference\nspeed. It is anticipated that OSD models could be highly\ncompetitive in face restoration practical applications.\nAs shown in Fig. 1, most diffusion-based face restora-\ntion methods can effectively recover basic facial features\nsuch as eyes, mouth, and contour. However, details, such\nas realistic-looking hair and complex background, often re-\nmain unharmonious. The primary issue lies in the insuf-\nficient incorporation of face priors [62]. Some diffusion-\nbased methods [7, 32, 70] rely solely on the diffusion\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Method\nWe aim to extract as many features as possible from low-\nquality (LQ) source images. These features are used as\nprompts to guide the diffusion model in generating realis-\ntic faces that closely resemble the individuals in the original\nimages. To accomplish this, we propose an innovative one-\nstep diffusion model (see Fig. 3) focused on face restora-\ntion. This model enhances the realism of the generated faces\nwhile preserving the characteristics of LQ images.",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nWe propose OSDFace, a high-speed diffusion model that\nenhances face image quality in one step. Our method\nbridges the gap between the powerful generative capabili-\nties of text-to-image diffusion models and the specific re-\nquirements of face restoration. By introducing a visual\nprompt consistent with the model’s original conditional in-\nput, we effectively utilize prior information from the low-\nquality faces themselves. This enables the model to gen-\nerate more realistic and high-fidelity face images. Our ap-\nproach not only addresses the limitations of previous meth-\nods but also sets a new direction for incorporating visual\npriors into diffusion models for face restoration. Extensive\nexperiments demonstrate that OSDFace achieves superior\nperformance compared to recent state-of-the-art methods."
+  }
+}

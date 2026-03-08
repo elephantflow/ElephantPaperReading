@@ -1,0 +1,94 @@
+{
+  "paper_id": "an-end-to-end-robust-point-cloud-semantic-segmentation-network-with-single-step---b05685d126",
+  "paper_title": "An End-to-End Robust Point Cloud Semantic Segmentation Network with Single-Step Conditional Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:04.793886+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/An End-to-End Robust Point Cloud Semantic Segmentation Network with Single-Step Conditional Diffusion Models.pdf",
+    "filename": "An End-to-End Robust Point Cloud Semantic Segmentation Network with Single-Step Conditional Diffusion Models.pdf",
+    "sha1": "b05685d1260e78506e75d850e4965f1b165af4e4",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Point cloud, as a fundamental 3D representation, pro- vides the most crucial data structure support for 3D tasks.",
+    "limitation": "Introduction Point cloud, as a fundamental 3D representation, pro- vides the most crucial data structure support for 3D tasks.",
+    "insight": "2) To address the above problems, in this paper, we rethink the existing end-to-end framework of conditional DDPMs, initially revealing some key insights into the DDPM advan- tages and limitations in point cloud semantic segmentation.",
+    "proposed_method": "In this paper , we propose an end-to-end robust semantic Segmentation Network based on a Conditional- Noise Framework (CNF) of D DPMs, named CDSegNet.",
+    "experimental_evidence": "Meanwhile, beneﬁting from the noise system of DDPMs, CDSegNet exhibits strong ro- bustness for data noise and sparsity in experiments.",
+    "summary": "Introduction Point cloud, as a fundamental 3D representation, pro- vides the most crucial data structure support for 3D tasks. Introduction Point cloud, as a fundamental 3D representation, pro- vides the most crucial data structure support for 3D tasks. 2) To address the above problems, in this paper, we rethink the existing end-to-end framework of conditional DDPMs, initially revealing some key insights into the DDPM advan- tages and limitations in point cloud semantic segmentation. In this paper , we propose an end-to-end robust semantic Segmentation Network based on a Conditional- Noise Framework (CNF) of D DPMs, named CDSegNet. Meanwhile, beneﬁting from the noise system of DDPMs, CDSegNet exhibits strong ro- bustness for data noise and sparsity in experiments."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Point cloud, as a fundamental 3D representation, pro- vides the most crucial data structure support for 3D tasks.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nPoint cloud, as a fundamental 3D representation, pro-\nvides the most crucial data structure support for 3D tasks.\nBeneﬁting from the rapid development of 3D devices and\ncontinuous innovation in data synthesis techniques, large-\nscale scene point clouds have become accessible [ 1, 5, 10,\n13]. Therefore, accurate semantic understanding of 3D\nscenes, applied to a wide range of 3D downstream tasks\nsuch as autonomous driving [ 47], robotic technology [ 36],\nand virtual reality [ 23], has gained increasing attention.\n∗Corresponding Author. https://github.com/QWTforGithub/CDSegNet\nFigure 1. The training and inference difference between NCF and\nCNF. NCF dominated by NN, relies on the noise ﬁtting quality,\nrequiring extensive training and inference iterations. In contrast,\nCNF alleviates the noise ﬁtting necessity by focusing on CN, clev-\nerly avoiding this issue, alongside retaining the DDPM robustness.\nEncouraged by deep learning, a large number of learn-\nable point cloud semantic segmentation methods have\nachieved signiﬁcant results in recent years [ 8, 24, 50, 52,\n53, 64]. Nevertheless, these methods often overlook the fact\nthat raw point clouds from 3D devices are usual"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "though some methods can accelerate the DDPM sampling process [31, 44], they still require dozens of steps, alongside a sub-optimization process.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "though some methods can accelerate the DDPM sampling\nprocess [31, 44], they still require dozens of steps, alongside\na sub-optimization process. Moreover, the complex distri-\nbution of 3D scenes makes it difﬁcult for DDPMs to achieve\nsatisfactory results in an end-to-end manner. (see Fig. 2)\nTo address the above problems, in this paper, we rethink\nthe existing end-to-end framework of conditional DDPMs,\ninitially revealing some key insights into the DDPM advan-\ntages and limitations in point cloud semantic segmentation.\nInspired by these core insights, we design a Conditional-\nNoise Framework (CNF, see Fig. 1(b)) of DDPMs, effec-\ntively preserving advantages and circumventing limitations.\nUnlike NCF, CNF treats NN and CN as the auxiliary net-\nwork and the dominant network in 3D tasks, respectively. In\nthis way, NN in CNF can still inherit the noise construction\nsystem of DDPMs, thus preserving the noise and sparsity\nrobustness from DDPMs. Meanwhile, this also enables NN\nin CNF to relax the requirement of ﬁtting the scores from\ntask targets. Therefore, CNF allows the model to follow the\nDDPM pattern in training but not in inference, overcoming\nthe demand for extensive iterations from"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Introduction Point cloud, as a fundamental 3D representation, pro- vides the most crucial data structure support for 3D tasks."
+    ],
+    "limitation_expression": [
+      "27325 though some methods can accelerate the DDPM sampling process [31, 44], they still require dozens of steps, alongside a sub-optimization process.",
+      "In this way, NN in CNF can still inherit the noise construction system of DDPMs, thus preserving the noise and sparsity robustness from DDPMs."
+    ],
+    "insight_expression": [
+      "This motivates the generalization ability of CDSegNet in unknown scenes [32, 40, 51]."
+    ],
+    "method_expression": [
+      "In this paper , we propose an end-to-end robust semantic Segmentation Network based on a Conditional- Noise Framework (CNF) of D DPMs, named CDSegNet.",
+      "Furthermore, we propose an end-to-end robust point cloud semantic segmentation network based on CNF, called CDSegNet.",
+      "Our key contributions can be summarized as: • We systematically analyze and identify the advantages and limitations of DDPMs with a Noise-Conditional Framework in point cloud semantic segmentation, offer- ing new knowledge for DDPMs in 3D tasks. • We design a Conditional-Noise Framework of DDPMs, preserving strengths while circumventing shortcomings. • We propose an end-to-end robust point cloud segmenta- tion network based on CNF, CDSegNet, exhibiting strong robustness and requiring only a single-step inference. • Comprehensive experiments on large-scale indoor and outdoor benchmarks demonstrate that CDSegNet achieves signiﬁcant performance and strong robustness."
+    ],
+    "experiment_expression": [
+      "Our key contributions can be summarized as: • We systematically analyze and identify the advantages and limitations of DDPMs with a Noise-Conditional Framework in point cloud semantic segmentation, offer- ing new knowledge for DDPMs in 3D tasks. • We design a Conditional-Noise Framework of DDPMs, preserving strengths while circumventing shortcomings. • We propose an end-to-end robust point cloud segmenta- tion network based on CNF, CDSegNet, exhibiting strong robustness and requiring only a single-step inference. • Comprehensive experiments on large-scale indoor and outdoor benchmarks demonstrate that CDSegNet achieves signiﬁcant performance and strong robustness."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Furthermore, we propose an end-to-end robust point cloud semantic segmentation network based on CNF, called CDSegNet.",
+    "In this paper , we propose an end-to-end robust semantic Segmentation Network based on a Conditional- Noise Framework (CNF) of D DPMs, named CDSegNet.",
+    "1(b)) of DDPMs, effec- tively preserving advantages and circumventing limitations.",
+    "2) To address the above problems, in this paper, we rethink the existing end-to-end framework of conditional DDPMs, initially revealing some key insights into the DDPM advan- tages and limitations in point cloud semantic segmentation.",
+    "2025JJ50338) and Shanghai Education Committee AI Project (No.",
+    "27325 though some methods can accelerate the DDPM sampling process [31, 44], they still require dozens of steps, alongside a sub-optimization process.",
+    "Al- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "Along another research line, DDPMs [ 16] with a strong noise-robust denoising architecture, originated from and ﬂourished in image generation [ 11, 28, 41], have been ex- plored in various 3D tasks [ 34, 39, 54, 66].",
+    "Based on this, we further proposed an end-to- end robust point cloud segmentation network, CDSegNet.",
+    "Beneﬁting from the rapid development of 3D devices and continuous innovation in data synthesis techniques, large- scale scene point clouds have become accessible [ 1, 5, 10, 13].",
+    "CDSegNet demonstrated the strong robustness to the data noise and sparsity, while requiring a single-step inference.",
+    "Conclusion In this paper, we systematically revealed some key in- sights of DDPMs in point cloud semantic segmentation."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nExisting conditional Denoising Diffusion Probabilistic\nModels (DDPMs) with a Noise-Conditional Framework\n(NCF) remain challenging for 3D scene understanding\ntasks, as the complex geometric details in scenes increase\nthe difﬁculty of ﬁtting the gradients of the data distribu-\ntion (the scores) from semantic labels. This also results in\nlonger training and inference time for DDPMs compared to\nnon-DDPMs. From a different perspective, we delve deeply\ninto the model paradigm dominated by the Conditional\nNetwork. In this paper , we propose an end-to-end robust\nsemantic Segmentation Network based on a Conditional-\nNoise Framework (CNF) of D DPMs, named CDSegNet.\nSpeciﬁcally, CDSegNet models the Noise Network (NN) as\na learnable noise-feature generator . This enables the Con-\nditional Network (CN) to understand 3D scene semantics\nunder multi-level feature perturbations, enhancing the gen-\neralization in unseen scenes. Meanwhile, beneﬁting from\nthe noise system of DDPMs, CDSegNet exhibits strong ro-\nbustness for data noise and sparsity in experiments. More-\nover , thanks to CNF , CDSegNet can generate the semantic\nlabels in a single-step inference like non-DDPMs, due to\navoiding directly ﬁtting the scores from semantic labels in\nthe dominant network of CDSegNet. On public indoor and\noutdoor benchmarks, CDSegNet signiﬁcantly outperforms\nexisting methods, achieving state-of-the-art performance.",
+    "introduction": "1. Introduction\nPoint cloud, as a fundamental 3D representation, pro-\nvides the most crucial data structure support for 3D tasks.\nBeneﬁting from the rapid development of 3D devices and\ncontinuous innovation in data synthesis techniques, large-\nscale scene point clouds have become accessible [ 1, 5, 10,\n13]. Therefore, accurate semantic understanding of 3D\nscenes, applied to a wide range of 3D downstream tasks\nsuch as autonomous driving [ 47], robotic technology [ 36],\nand virtual reality [ 23], has gained increasing attention.\n∗Corresponding Author. https://github.com/QWTforGithub/CDSegNet\nFigure 1. The training and inference difference between NCF and\nCNF. NCF dominated by NN, relies on the noise ﬁtting quality,\nrequiring extensive training and inference iterations. In contrast,\nCNF alleviates the noise ﬁtting necessity by focusing on CN, clev-\nerly avoiding this issue, alongside retaining the DDPM robustness.\nEncouraged by deep learning, a large number of learn-\nable point cloud semantic segmentation methods have\nachieved signiﬁcant results in recent years [ 8, 24, 50, 52,\n53, 64]. Nevertheless, these methods often overlook the fact\nthat raw point clouds from 3D devices are usually perturbed\nand sparse [ 5, 42], making them sensitive to data noise and\nsparsity [21, 43, 56]. This limits the optimal segmentation\naccuracy, especially recognizing in object boundaries and\nsmall objects [60, 61].\nAlong another research line, DDPMs [ 16] with a strong\nnoise-robust denoising architecture, originated from and\nﬂourished in image generation [ 11, 28, 41], have been ex-\nplored in various 3D tasks [ 34, 39, 54, 66]. They typi-\ncally consider the 3D task as a conditional generation prob-\nlem, built upon the Noise-Conditional Framework (NCF,\nsee Fig. 1(a)). In general, the Conditional Network (CN)\nextracts the conditional features for generating guidance.\nMeanwhile, the Noise Network (NN) predicts the scores\n[45] from task targets, dominating the results of tasks.\nUnfortunately, this framework poses challenges when\napplied to real-time 3D scene understanding tasks, such as\nautonomous driving. This is because, to better ﬁt the scores\nfrom task targets, DDPMs typically require more training\nand inference steps compared to non-DDPMs [ 44, 45]. Al-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n27325\n\nthough some methods can accelerate the DDPM sampling\nprocess [31, 44], they still require dozens of steps, alongside\na sub-optimization process. Moreover, the complex distri-\nbution of 3D scenes makes it difﬁcult for DDPMs to achieve\nsatisfactory results in an end-to-end manner. (see Fig. 2)\nTo address the above problems, in this paper, we rethink\nthe existing end-to-end framework of conditional DDPMs,\ninitially revealing some key insights into the DDPM advan-\ntages and limitations in point cloud semantic segmentation.\nInspired by these core insights, we design a Conditional-\nNoise Framework (CNF, see Fig. 1(b)) of DDPMs, effec-\ntively preserving advantages and circumventing limitations.\nUnlike NCF, CNF treats NN and CN as the auxiliary net-\nwork and the dominant network in 3D tasks, respectively. In\nthis way, NN in CNF can still inherit the noise construction\nsystem of DDPMs, thus preserving the noise and sparsity\nrobustness from DDPMs. Meanwhile, this also enables NN\nin CNF to relax the requirement of ﬁtting the scores from\ntask targets. Therefore, CNF allows the model to follow the\nDDPM pattern in training but not in inference, overcoming\nthe demand for extensive iterations from DDPMs.\nFurthermore, we propose an end-to-end robust point\ncloud semantic segmentation network based on CNF,\ncalled CDSegNet. Speciﬁcally, CDSegNet treats NN as a\nlightweight noise-feature generator. The noise information\nfrom NN, effectively ﬁltered via a Feature Fusion Module\n(FFM), reasonably perturbs the semantic features in CN.\nThis motivates the generalization ability of CDSegNet in\nunknown scenes [32, 40, 51]. Meanwhile, under CNF, CD-\nSegNet can follow the noise addition pattern of DDPMs\nduring training, maintaining the robustness to noise from\nthe modeled distribution [ 39] and the robustness to sparse\nscenes and insufﬁcient data. Moreover, beneﬁting from the\ndominance of CN in CNF, CDSegNet can be regarded as\na non-DDPM during inference. This enables CDSegNet to\nproduce the semantic labels in a single-step inference.\nTo the best of our knowledge, we are the ﬁrst end-to-end\nattempt to introduce DDPMs into point cloud semantic seg-\nmentation [30, 65]. We lower the threshold and encourage\nmore researchers to further explore applications of DDPMs\nto 3D tasks. Our key contributions can be summarized as:\n• We systematically analyze and identify the advantages\nand limitations of DDPMs with a Noise-Conditional\nFramework in point cloud semantic segmentation, offer-\ning new knowledge for DDPMs in 3D tasks.\n• We design a Conditional-Noise Framework of DDPMs,\npreserving strengths while circumventing shortcomings.\n• We propose an end-to-end robust point cloud segmenta-\ntion network based on CNF, CDSegNet, exhibiting strong\nrobustness and requiring only a single-step inference.\n• Comprehensive experiments on large-scale indoor\nand outdoor benchmarks demonstrate that CDSegNet\nachieves signiﬁcant performance and strong robustness.",
+    "method": "4. Methodology",
+    "experiments": "5. Experiments",
+    "conclusion": "6. Conclusion\nIn this paper, we systematically revealed some key in-\nsights of DDPMs in point cloud semantic segmentation.\nMeanwhile, to preserve the advantages while overcoming\nthe limitations, a Conditional-Noise Framework of DDPMs\nis designed. Based on this, we further proposed an end-to-\nend robust point cloud segmentation network, CDSegNet.\nCDSegNet demonstrated the strong robustness to the data\nnoise and sparsity, while requiring a single-step inference.\nMoreover, we provided a more understandable explanation\nfor the noise robustness from DDPMs. Overall, we have\nlowered the barrier for applying DDPMs, with the hope of\nencouraging broader extensions of DDPMs in 3D tasks.\nAcknowledgments. This work was supported in part\nby the Frontier Technologies R &D Program of Jiangsu\nunder grant BF2024070, in part by the National Natu-\nral Science Foundation of China under Grant 62471235,\nand in part by Hunan Natural Science Foundation Project\n(No. 2025JJ50338) and Shanghai Education Committee AI\nProject (No. JW AIYB-2)."
+  }
+}

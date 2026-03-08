@@ -1,0 +1,106 @@
+{
+  "paper_id": "flash-split-2d-reflection-removal-with-flash-cues-and-latent-diffusion-separatio--3dcd6749f8",
+  "paper_title": "Flash-Split: 2D Reflection Removal with Flash Cues and Latent Diffusion Separation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:43.702866+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Flash-Split： 2D Reflection Removal with Flash Cues and Latent Diffusion Separation.pdf",
+    "filename": "Flash-Split： 2D Reflection Removal with Flash Cues and Latent Diffusion Separation.pdf",
+    "sha1": "3dcd6749f85127a855328be5187260553b439801",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "To overcome this challenge, ex- isting approaches have leveraged various prior assumptions.",
+    "limitation": "However, these as- sumptions might not always hold in real-world scenarios.",
+    "insight": "Abstract Transparent surfaces, such as glass, create complex re- flections that obscure images and challenge downstream computer vision applications.",
+    "proposed_method": "We introduce Flash-Split, a robust framework for separating transmitted and reflected light using a single (potentially misaligned) pair of flash/no- flash images.",
+    "experimental_evidence": "We validate Flash-Split on challenging real-world scenes and demonstrate it signif- icantly outperforms existing methods.",
+    "summary": "To overcome this challenge, ex- isting approaches have leveraged various prior assumptions. However, these as- sumptions might not always hold in real-world scenarios. Abstract Transparent surfaces, such as glass, create complex re- flections that obscure images and challenge downstream computer vision applications. We introduce Flash-Split, a robust framework for separating transmitted and reflected light using a single (potentially misaligned) pair of flash/no- flash images. We validate Flash-Split on challenging real-world scenes and demonstrate it signif- icantly outperforms existing methods."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Scenes with transparent surfaces, especially glass, fre- quently surround us and create specular reflections.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Scenes with transparent surfaces, especially glass, fre- quently surround us and create specular reflections. In such scenes, what we perceive is a combination of transmitted and reflected light. This study aims to separate the trans- mitted and reflected 2D scenes. Reflection removal and separation have garnered signif- icant interest in the low-level vision community [29, 30, 33, 61, 69]."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "By removing and separating the reflections in the scene, we can not only enhance visual quality but also boost the performance of downstream vision tasks such as depth estimation, robot navigation, object classification, and scene understanding [22, 53, 56].",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "By removing and separating the reflections in the scene, we can not only enhance visual quality but also boost the performance of downstream vision tasks such as depth estimation, robot navigation, object classification, and scene understanding [22, 53, 56]. Separating the reflection from the transmission is a chal- *Equal contribution. †Corresponding author: mingyang@umd.edu Flash Ours T ransmission Ours R eflection No-Flash Baseline T ransmission Baseline R eflection Figure 1. Left: We separated the transmitted and reflected scenes by capturing one image with camera flash and another with no flash, despite them being potentially misaligned due to hand shake. Right: Our proposed Flash-Split method archives a precise separa- tion of the transmission and the reflection, performing much better than the baseline [31]. lenging task due to its highly under-determined nature."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "With both the transmission and reflection being unknown, it is challenging to solve for each of them just based on their summed intensities.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "With both the transmission and reflection being unknown, it is challenging to solve for each of them just based on their summed intensities. To overcome this challenge, ex- isting approaches have leveraged various prior assumptions. Some approaches, for example, assume the reflection is out of focus [3, 64] or that the front and back sides of the glass cause significant double reflection [45]. However, these as- sumptions might not always hold in real-world scenarios."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "On the other hand, adding illumination control, e.g., us- ing the built-in flash of a camera, is both accessible to ev- eryday users and demonstrates significant potential in re- ducing the under-determined nature of reflection separation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "On the other hand, adding illumination control, e.g., us- ing the built-in flash of a camera, is both accessible to ev- eryday users and demonstrates significant potential in re- ducing the under-determined nature of reflection separation. Specifically, the flash/no-flash technique [1] performs re- flection separation by capturing two images from the same viewpoint: one image with the camera flash on and an- other image with the camera flash off. While the camera flash boosts the intensity of the transmitted scene, it mostly leaves the reflected scene unchanged (more details in Sec- tion 3.2). Consequently, by subtracting the image captured without flash from the image captured with flash, we can retrieve a transmission scene free of reflections [29]."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Proposed Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experimental Results",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, these as- sumptions might not always hold in real-world scenarios."
+    ],
+    "insight_expression": [],
+    "method_expression": [],
+    "experiment_expression": [
+      "We validate Flash-Split on challenging real-world scenes and demonstrate it signif- icantly outperforms existing methods."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, these as- sumptions might not always hold in real-world scenarios.",
+    "Abstract Transparent surfaces, such as glass, create complex re- flections that obscure images and challenge downstream computer vision applications.",
+    "By performing reflection separation in the latent space, we ef- fectively circumvent the flash/no-flash misalignment issue.",
+    "Conclusions In conclusion, our Flash-Split method provides a robust so- lution for reflection separation in transparent surfaces, over- coming the need for precise flash/no-flash alignment.",
+    "Consequently, by subtracting the image captured without flash from the image captured with flash, we can retrieve a transmission scene free of reflections [29].",
+    "Evaluations on both simulated and challenging real-world data confirm our effectiveness, marking a sub- stantial improvement in practical reflection separation.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experimental Results 7.",
+    "In such scenes, what we perceive is a combination of transmitted and reflected light.",
+    "Introduction Scenes with transparent surfaces, especially glass, fre- quently surround us and create specular reflections.",
+    "Left: We separated the transmitted and reflected scenes by capturing one image with camera flash and another with no flash, despite them being potentially misaligned due to hand shake.",
+    "On the other hand, adding illumination control, e.g., us- ing the built-in flash of a camera, is both accessible to ev- eryday users and demonstrates significant potential in re- ducing the under-determined nature of reflection separation."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nTransparent surfaces, such as glass, create complex re-\nflections that obscure images and challenge downstream\ncomputer vision applications. We introduce Flash-Split, a\nrobust framework for separating transmitted and reflected\nlight using a single (potentially misaligned) pair of flash/no-\nflash images. Our core idea is to perform flash-informed\nreflection separation iteratively in a low-dimensional latent\nspace. Specifically, Flash-Split consists of two stages. Stage\n1 separates the reflection latent and transmission latent via\na dual-branch diffusion model that is conditioned on an en-\ncoded flash/no-flash latent pair. This stage effectively miti-\ngates the flash/no-flash misalignment issue. Stage 2 restores\nhigh-resolution, faithful details to the separated latents via\na cross-latent decoding process that is conditioned on the\noriginal images before separation. We validate Flash-Split\non challenging real-world scenes and demonstrate it signif-\nicantly outperforms existing methods. Our project webpage\nis at https://flash-split.github.io/.",
+    "introduction": "1. Introduction\nScenes with transparent surfaces, especially glass, fre-\nquently surround us and create specular reflections. In such\nscenes, what we perceive is a combination of transmitted\nand reflected light. This study aims to separate the trans-\nmitted and reflected 2D scenes.\nReflection removal and separation have garnered signif-\nicant interest in the low-level vision community [29, 30,\n33, 61, 69]. By removing and separating the reflections\nin the scene, we can not only enhance visual quality but\nalso boost the performance of downstream vision tasks such\nas depth estimation, robot navigation, object classification,\nand scene understanding [22, 53, 56].\nSeparating the reflection from the transmission is a chal-\n*Equal contribution.\n†Corresponding author: mingyang@umd.edu\nFlash\nOurs T ransmission Ours R eflection\nNo-Flash Baseline T ransmission Baseline R eflection\nFigure 1. Left: We separated the transmitted and reflected scenes\nby capturing one image with camera flash and another with no\nflash, despite them being potentially misaligned due to hand shake.\nRight: Our proposed Flash-Split method archives a precise separa-\ntion of the transmission and the reflection, performing much better\nthan the baseline [31].\nlenging task due to its highly under-determined nature.\nWith both the transmission and reflection being unknown,\nit is challenging to solve for each of them just based on\ntheir summed intensities. To overcome this challenge, ex-\nisting approaches have leveraged various prior assumptions.\nSome approaches, for example, assume the reflection is out\nof focus [3, 64] or that the front and back sides of the glass\ncause significant double reflection [45]. However, these as-\nsumptions might not always hold in real-world scenarios.\nOn the other hand, adding illumination control, e.g., us-\ning the built-in flash of a camera, is both accessible to ev-\neryday users and demonstrates significant potential in re-\nducing the under-determined nature of reflection separation.\nSpecifically, the flash/no-flash technique [1] performs re-\nflection separation by capturing two images from the same\nviewpoint: one image with the camera flash on and an-\nother image with the camera flash off. While the camera\nflash boosts the intensity of the transmitted scene, it mostly\nleaves the reflected scene unchanged (more details in Sec-\ntion 3.2). Consequently, by subtracting the image captured\nwithout flash from the image captured with flash, we can\nretrieve a transmission scene free of reflections [29].\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Proposed Method",
+    "experiments": "5. Experimental Results",
+    "conclusion": "7. Conclusions\nIn conclusion, our Flash-Split method provides a robust so-\nlution for reflection separation in transparent surfaces, over-\ncoming the need for precise flash/no-flash alignment. By\nperforming reflection separation in the latent space, we ef-\nfectively circumvent the flash/no-flash misalignment issue.\nWe also employ a cross-latent decoding module to restore\ndetailed and faithful features of the separated scenes from\ntheir latents. Evaluations on both simulated and challenging\nreal-world data confirm our effectiveness, marking a sub-\nstantial improvement in practical reflection separation."
+  }
+}

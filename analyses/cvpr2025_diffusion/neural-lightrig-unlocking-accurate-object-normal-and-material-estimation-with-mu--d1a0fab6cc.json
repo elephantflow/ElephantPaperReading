@@ -1,0 +1,98 @@
+{
+  "paper_id": "neural-lightrig-unlocking-accurate-object-normal-and-material-estimation-with-mu--d1a0fab6cc",
+  "paper_title": "Neural LightRig: Unlocking Accurate Object Normal and Material Estimation with Multi-Light Diffusion",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:06.011388+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Neural LightRig： Unlocking Accurate Object Normal and Material Estimation with Multi-Light Diffusion.pdf",
+    "filename": "Neural LightRig： Unlocking Accurate Object Normal and Material Estimation with Multi-Light Diffusion.pdf",
+    "sha1": "d1a0fab6ccffcdc76fef6bfe8e829cadd45469fb",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "26514 otal problem in graphics and computer vision.",
+    "limitation": "Introduction Recovering the geometry and physically-based rendering (PBR) materials of real-world objects from images is a piv- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "insight": "Abstract Recovering the geometry and materials of objects from a single image is challenging due to its under-constrained na- ture.",
+    "proposed_method": "In this paper, we proposed a data- driven approach for jointly estimating the surface normal and PBR materials of objects from a single image.",
+    "experimental_evidence": "Extensive experi- ments validate that our approach significantly outperforms state-of-the-art methods, enabling accurate surface normal and PBR material estimation with vivid relighting effects.",
+    "summary": "26514 otal problem in graphics and computer vision. Introduction Recovering the geometry and physically-based rendering (PBR) materials of real-world objects from images is a piv- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Abstract Recovering the geometry and materials of objects from a single image is challenging due to its under-constrained na- ture. In this paper, we proposed a data- driven approach for jointly estimating the surface normal and PBR materials of objects from a single image. Extensive experi- ments validate that our approach significantly outperforms state-of-the-art methods, enabling accurate surface normal and PBR material estimation with vivid relighting effects."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Recovering the geometry and physically-based rendering (PBR) materials of real-world objects from images is a piv- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\nRecovering the geometry and physically-based rendering\n(PBR) materials of real-world objects from images is a piv-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n26514"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "otal problem in graphics and computer vision.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "otal problem in graphics and computer vision. This task,\nalso known as inverse rendering, facilitates a wide range\nof applications, such as video gaming, augmented and vir-\ntual reality, and robotics. In this paper, we proposed a data-\ndriven approach for jointly estimating the surface normal\nand PBR materials of objects from a single image. Due\nto the complex interaction among geometry, materials, and\nenvironmental lighting, this ill-posed problem remains par-\nticularly challenging.\nPrior research [6, 17] has predominantly focused on\noptimization-based generation through differentiable ren-\ndering, which compares forward-rendered images with in-\nput images to refine normals and PBR materials. How-\never, these methods are often time-consuming and heav-\nily reliant on the capabilities of the differentiable ren-\nderer [27]. Though some works explored feed-forward es-\ntimation [34, 54, 57], their quality and generalizability still\nremain challenging, due to the inherently ill-posed nature of\ninferring geometry and materials from a single image.\nFor precise normal and material acquisition, photometric\nstereo techniques [51] are widely employed, as they miti-\ngate ambiguity by capturing"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Approach",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Though some works explored feed-forward es- timation [34, 54, 57], their quality and generalizability still remain challenging, due to the inherently ill-posed nature of inferring geometry and materials from a single image.",
+      "However, interpreting these properties from a single lighting condition is challenging due to the the under- constrained nature of the problem."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Our key contributions are as follows: • We propose a novel approach for object normal and PBR estimation from monocular images, reformulating this ill- posed problem by simulating multi-lighting conditions. • We construct a synthetic dataset for multi-light image generation and surface property estimation.",
+      "With this dataset, we demonstrate the capability to manipulate dif- fusion models for consistent multi-light generation. • Extensive experiments validate the effectiveness of our method, establishing new state-of-the-art results.",
+      "To address this, we pro- pose Neural LightRig, as illustrated in Fig.",
+      "We further describe the construction of our synthetic dataset, LightProp, which supports both stages of our framework, in Sec.",
+      "Experiments We evaluate our method across various tasks.",
+      "For PBR material prediction , we compare our method with a data-driven method by Yi et al. [54], an optimization method IntrinsicAnything [8], and a diffusion-based model RGB↔X [57].",
+      "We also compare our method with diffusion-based image relighting models DiLightNet [56] and IC-Light [60], using a captioning model [39] to gen- erate prompts.",
+      "Extensive experiments demon- strate that our method achieves significant improvements in both quality and generalizability."
+    ],
+    "experiment_expression": [
+      "Given the promising advances in image diffusion models, we ask the question: can we develop a multi-light diffu- sion model to simulate images illuminated by different di- rectional light sources, thereby improving surface normal and material estimation (as shown in Fig.",
+      "Given an input image, the multi- light diffusion model produces consistent and high-quality relit images under various point light sources (as shown in Fig.",
+      "With this dataset, we demonstrate the capability to manipulate dif- fusion models for consistent multi-light generation. • Extensive experiments validate the effectiveness of our method, establishing new state-of-the-art results.",
+      "Extensive experiments demon- strate that our method achieves significant improvements in both quality and generalizability."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Extensive experiments demon- strate that our method achieves significant improvements in both quality and generalizability.",
+    "Given an input image, the multi- light diffusion model produces consistent and high-quality relit images under various point light sources (as shown in Fig.",
+    "However, interpreting these properties from a single lighting condition is challenging due to the the under- constrained nature of the problem.",
+    "In this paper, we proposed a data- driven approach for jointly estimating the surface normal and PBR materials of objects from a single image.",
+    "With this dataset, we demonstrate the capability to manipulate dif- fusion models for consistent multi-light generation. • Extensive experiments validate the effectiveness of our method, establishing new state-of-the-art results.",
+    "2) By using these varied light- ing images to reduce estimation uncertainty, we train a large G-buffer model with a U-Net backbone to accurately predict surface normals and materials.",
+    "26514 otal problem in graphics and computer vision.",
+    "3.1) to gen- erate multi-light images from the input, which then act as enriched conditions to alleviate the inherent ambiguity in G-buffer prediction model (Sec.",
+    "Abstract Recovering the geometry and materials of objects from a single image is challenging due to its under-constrained na- ture.",
+    "Approach Given an image I, we aim to estimate both its surface normal n and PBR materials (albedo a, roughness r, and metallic m), where n, a ∈ RH×W ×3 and r, m ∈ RH×W ×1.",
+    "Code and dataset are available on our project page at https://projects.zxhezexin.com/neural-lightrig.",
+    "Comprehensive visual results are provided in the supplementary materials and on our project page."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRecovering the geometry and materials of objects from a\nsingle image is challenging due to its under-constrained na-\nture. In this paper, we present Neural LightRig , a novel\nframework that boosts intrinsic estimation by leveraging\nauxiliary multi-lighting conditions from 2D diffusion pri-\nors. Specifically, 1) we first leverage illumination priors\nfrom large-scale diffusion models to build our multi-light\ndiffusion model on a synthetic relighting dataset with ded-\nicated designs. This diffusion model generates multiple\nconsistent images, each illuminated by point light sources\n* Equal contribution. Work done during Zexin He’s internship at\nShanghai AI Lab.\nin different directions. 2) By using these varied light-\ning images to reduce estimation uncertainty, we train a\nlarge G-buffer model with a U-Net backbone to accurately\npredict surface normals and materials. Extensive experi-\nments validate that our approach significantly outperforms\nstate-of-the-art methods, enabling accurate surface normal\nand PBR material estimation with vivid relighting effects.\nCode and dataset are available on our project page at\nhttps://projects.zxhezexin.com/neural-lightrig.",
+    "introduction": "1. Introduction\nRecovering the geometry and physically-based rendering\n(PBR) materials of real-world objects from images is a piv-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n26514\n\notal problem in graphics and computer vision. This task,\nalso known as inverse rendering, facilitates a wide range\nof applications, such as video gaming, augmented and vir-\ntual reality, and robotics. In this paper, we proposed a data-\ndriven approach for jointly estimating the surface normal\nand PBR materials of objects from a single image. Due\nto the complex interaction among geometry, materials, and\nenvironmental lighting, this ill-posed problem remains par-\nticularly challenging.\nPrior research [6, 17] has predominantly focused on\noptimization-based generation through differentiable ren-\ndering, which compares forward-rendered images with in-\nput images to refine normals and PBR materials. How-\never, these methods are often time-consuming and heav-\nily reliant on the capabilities of the differentiable ren-\nderer [27]. Though some works explored feed-forward es-\ntimation [34, 54, 57], their quality and generalizability still\nremain challenging, due to the inherently ill-posed nature of\ninferring geometry and materials from a single image.\nFor precise normal and material acquisition, photometric\nstereo techniques [51] are widely employed, as they miti-\ngate ambiguity by capturing multiple images from the same\nviewpoint with various lighting. These images are illumi-\nnated by different point light sources, which provide vari-\nations in surface reflectance to enrich information. How-\never, such methods [10, 13, 28] often require complex cap-\nture systems with sophisticated cameras or lighting setups,\nwhich can be costly and impractical for in-the-wild images.\nGiven the promising advances in image diffusion models,\nwe ask the question: can we develop a multi-light diffu-\nsion model to simulate images illuminated by different di-\nrectional light sources, thereby improving surface normal\nand material estimation (as shown in Fig. 1)?\nOur motivation arises from recent advances in 3D gener-\nation, which employ diffusion models [30, 43] to generate\nmulti-view images and train reconstruction models [21] for\n3D reconstruction. These multi-view diffusion models have\ndemonstrated the potential to manipulate camera views of\npre-trained image diffusion models such as Stable Diffu-\nsion [38]. Similarly, we aim to expand the use of pre-trained\ndiffusion models for multi-light image generation.\nIn this work, we present Neural LightRig for joint nor-\nmal and material estimation of objects from monocular im-\nages, which consists of a multi-light diffusion model and a\nlarge prediction model. Given an input image, the multi-\nlight diffusion model produces consistent and high-quality\nrelit images under various point light sources (as shown in\nFig. 4). To achieve this, we create a synthetic relighting\ndataset for training with Blender [9]. With a dedicated ar-\nchitecture and training design, our diffusion model enables\nthe multi-light generation of objects from arbitrary cate-\ngories. The large G-buffer model then processes the gen-\nerated multi-light images to produce surface normals and\nPBR materials, such as albedo, roughness, and metallic. We\nemploy a UNet architecture for efficient and high-resolution\nprediction, with end-to-end supervision at the pixel level.\nTo bridge the domain gap between multi-light images ren-\ndered from 3D objects and those generated by diffusion\nmodels, we further design a series of data augmentation\nstrategies for domain alignment.\nTaken together, the proposed framework demonstrates\nremarkable performance on both synthetic and real-world\nimages. Extensive qualitative and quantitative evaluations\nshow that Neural LightRig surpasses existing approaches\nin surface normal estimation, PBR material estimation, and\nsingle-image relighting. Comprehensive visual results are\nprovided in the supplementary materials and on our project\npage. Our key contributions are as follows:\n• We propose a novel approach for object normal and PBR\nestimation from monocular images, reformulating this ill-\nposed problem by simulating multi-lighting conditions.\n• We construct a synthetic dataset for multi-light image\ngeneration and surface property estimation. With this\ndataset, we demonstrate the capability to manipulate dif-\nfusion models for consistent multi-light generation.\n• Extensive experiments validate the effectiveness of our\nmethod, establishing new state-of-the-art results.",
+    "method": "3. Approach\nGiven an image I, we aim to estimate both its surface\nnormal n and PBR materials (albedo a, roughness r,\nand metallic m), where n, a ∈ RH×W ×3 and r, m ∈\nRH×W ×1. These surface properties, commonly known\nas G-buffers in graphics, are collectively denoted as B =\n{n, a, r, m}. However, interpreting these properties from a\nsingle lighting condition is challenging due to the the under-\nconstrained nature of the problem. To address this, we pro-\npose Neural LightRig, as illustrated in Fig. 2. Our approach\nleverages a multi-light diffusion model (Sec. 3.1) to gen-\nerate multi-light images from the input, which then act as\nenriched conditions to alleviate the inherent ambiguity in\nG-buffer prediction model (Sec. 3.2). We further describe\nthe construction of our synthetic dataset, LightProp, which\nsupports both stages of our framework, in Sec. 3.3.",
+    "experiments": "4. Experiments\nWe evaluate our method across various tasks. For nor-\nmal estimation , we benchmark against regression-based\nmethod DSINE [2] and diffusion-based methods GeoWiz-\nard [16], Marigold [25] and StableNormal [53]. For\nPBR material prediction , we compare our method with\na data-driven method by Yi et al. [54], an optimization\nmethod IntrinsicAnything [8], and a diffusion-based model\nRGB↔X [57]. For image relighting , we use ground-\ntruth normal maps and predicted PBR materials from base-\nlines [8, 54, 57] to render relit images, serving as re-\nlighting baselines. We also compare our method with\ndiffusion-based image relighting models DiLightNet [56]\nand IC-Light [60], using a captioning model [39] to gen-\nerate prompts.",
+    "conclusion": "5. Conclusion\nIn this work, we present Neural LightRig, a framework ca-\npable of estimating accurate surface normals and PBR ma-\nterials from a single image. Leveraging a multi-light dif-\nfusion model, we generated consistent relit images under\nvarious directional light sources. These generated images\nsignificantly reduce the inherent ambiguity when estimat-\ning surface properties, serving as enriched conditions for the\nG-Buffer prediction model. Extensive experiments demon-\nstrate that our method achieves significant improvements in\nboth quality and generalizability. Future work will focus on\nextending this approach to more complex scenes and inte-\ngrating it with 3D reconstruction systems."
+  }
+}

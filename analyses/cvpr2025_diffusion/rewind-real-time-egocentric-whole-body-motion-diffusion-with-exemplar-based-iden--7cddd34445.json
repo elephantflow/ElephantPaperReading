@@ -1,0 +1,93 @@
+{
+  "paper_id": "rewind-real-time-egocentric-whole-body-motion-diffusion-with-exemplar-based-iden--7cddd34445",
+  "paper_title": "REWIND: Real-Time Egocentric Whole-Body Motion Diffusion with Exemplar-Based Identity Conditioning",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:20.686175+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/REWIND： Real-Time Egocentric Whole-Body Motion Diffusion with Exemplar-Based Identity Conditioning.pdf",
+    "filename": "REWIND： Real-Time Egocentric Whole-Body Motion Diffusion with Exemplar-Based Identity Conditioning.pdf",
+    "sha1": "7cddd344452b3528de74b43dcd73f69173fbc374",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "The quality of estimated whole-body (i.e., body and hands) motion is crucial in creating a realis- tic experience in interpersonal communication, while subtle pose changes (e.g., ﬁnger poses in Fig.",
+    "limitation": "Introduction Egocentric human motion estimation is essential for deliv- ering immersive and realistic experiences in AR/VR appli- cations, such as gaming and telepresence.",
+    "insight": "Abstract We present REWIND (Real-Time Egocentric Whole- Body MotionD iffusion), a one-step diffusion model for real- time, high-ﬁdelity human motion estimation from egocen- tric image inputs.",
+    "proposed_method": "To enable real-time inference, we introduce (1) cascaded body-hand denoising diffusion, which effec- tively models the correlation between egocentric body and hand motions in a fast, feed-forward manner , and (2) dif- fusion distillation, which enables high-quality motion esti- mation with a single denoising step.",
+    "experimental_evidence": "Through ex- tensive experiments, we demonstrate that REWIND signif- icantly outperforms the existing baselines both with and without exemplar-based identity conditioning.",
+    "summary": "The quality of estimated whole-body (i.e., body and hands) motion is crucial in creating a realis- tic experience in interpersonal communication, while subtle pose changes (e.g., ﬁnger poses in Fig. Introduction Egocentric human motion estimation is essential for deliv- ering immersive and realistic experiences in AR/VR appli- cations, such as gaming and telepresence. Abstract We present REWIND (Real-Time Egocentric Whole- Body MotionD iffusion), a one-step diffusion model for real- time, high-ﬁdelity human motion estimation from egocen- tric image inputs. To enable real-time inference, we introduce (1) cascaded body-hand denoising diffusion, which effec- tively models the correlation between egocentric body and hand motions in a fast, feed-forward manner , and (2) dif- fusion distillation, which enables high-quality motion esti- mation with a single denoising step. Through ex- tensive experiments, we demonstrate that REWIND signif- icantly outperforms the existing baselines both with and without exemplar-based identity conditioning."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Egocentric human motion estimation is essential for deliv- ering immersive and realistic experiences in AR/VR appli- cations, such as gaming and telepresence.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction Egocentric human motion estimation is essential for deliv- ering immersive and realistic experiences in AR/VR appli- cations, such as gaming and telepresence. For instance, imagine engaging in a conversation with your friend in a virtual environment. The quality of estimated whole-body (i.e., body and hands) motion is crucial in creating a realis- tic experience in interpersonal communication, while subtle pose changes (e.g., ﬁnger poses in Fig. 1b) can signiﬁcantly impact the intended message."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "7095 Developing a live-drivable method that enables accurate",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "The quality of estimated whole-body (i.e., body and hands) motion is crucial in creating a realis- tic experience in interpersonal communication, while subtle pose changes (e.g., ﬁnger poses in Fig."
+    ],
+    "limitation_expression": [
+      "However, existing egocentric pose or mo- tion estimation methods fall short in achieving the accu- racy and speed needed for highly realistic VR/AR expe- riences.",
+      "This cascading scheme approxi- mately models the correlation between body and hands in a fast, feed-forward manner (cf. iterative whole-body re- ﬁnement used in EgoWholeMocap [ 49]) while still inherit- ing the advantages of specialized body and hand estimation (e.g., effectively handling domain differences)."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To this end, we propose a novel identity conditioning method based on a small set of pose exemplars of the target identity, which further enhances motion estimation quality.",
+      "To address this challenge, EgoWholeMocap [ 49], the ﬁrst method for whole-body motion estimation from ego- centric images, proposes to leverage specialist models for body and hands.",
+      "To this end, we propose novel exemplar-based identity conditioning (Sec.",
+      "Although our method outperforms existing state-of-the-art methods, we observed that a small portion of the reconstructed motions leads to self-penetrations."
+    ],
+    "experiment_expression": [
+      "Through ex- tensive experiments, we demonstrate that REWIND signif- icantly outperforms the existing baselines both with and without exemplar-based identity conditioning."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Although our method outperforms existing state-of-the-art methods, we observed that a small portion of the reconstructed motions leads to self-penetrations.",
+    "However, existing egocentric pose or mo- tion estimation methods fall short in achieving the accu- racy and speed needed for highly realistic VR/AR expe- riences.",
+    "To this end, we propose a novel identity conditioning method based on a small set of pose exemplars of the target identity, which further enhances motion estimation quality.",
+    "To this end, we propose novel exemplar-based identity conditioning (Sec.",
+    "To this end, we proposed (1) cascaded denoising diffusion, (2) a causal relative-temporal Trans- former trained with diffusion distillation, and optionally, (3) exemplar-based identity conditioning.",
+    "1a) – can effectively reduce hand motion ambiguities.",
+    "1b) can signiﬁcantly impact the intended message.",
+    "3.1), where body motion is sampled ﬁrst and then hand motion is sampled conditioned on the previously sam- pled upper body motion.",
+    "3.2), which is fully causal and generalizable to unseen motion lengths.",
+    "3.3) to enable real-time inference ( > 30 FPS) with a single de- noising step, while preserving high output motion quality.",
+    "3.4), where motion estimation is conditioned on the target iden- tity parameterized by a small set of pose exemplars.",
+    "7095 Developing a live-drivable method that enables accurate and realistic egocentric whole-body motion estimation is thus essential."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWe present REWIND (Real-Time Egocentric Whole-\nBody MotionD iffusion), a one-step diffusion model for real-\ntime, high-ﬁdelity human motion estimation from egocen-\ntric image inputs. While an existing method for egocentric\nwhole-body (i.e., body and hands) motion estimation is non-\nreal-time and acausal due to diffusion-based iterative mo-\ntion reﬁnement to capture correlations between body and\nhand poses, REWIND operates in a fully causal and real-\ntime manner . To enable real-time inference, we introduce\n(1) cascaded body-hand denoising diffusion, which effec-\ntively models the correlation between egocentric body and\nhand motions in a fast, feed-forward manner , and (2) dif-\nfusion distillation, which enables high-quality motion esti-\nmation with a single denoising step. Our denoising diffu-\nsion model is based on a modiﬁed Transformer architec-\nture, designed to causally model output motions while en-\nhancing generalizability to unseen motion lengths. Addi-\ntionally, REWIND optionally supports identity-conditioned\nmotion estimation when identity prior is available. To this\nend, we propose a novel identity conditioning method based\non a small set of pose exemplars of the target identity, which\nfurther enhances motion estimation quality. Through ex-\ntensive experiments, we demonstrate that REWIND signif-\nicantly outperforms the existing baselines both with and\nwithout exemplar-based identity conditioning.",
+    "introduction": "1. Introduction\nEgocentric human motion estimation is essential for deliv-\nering immersive and realistic experiences in AR/VR appli-\ncations, such as gaming and telepresence. For instance,\nimagine engaging in a conversation with your friend in a\nvirtual environment. The quality of estimated whole-body\n(i.e., body and hands) motion is crucial in creating a realis-\ntic experience in interpersonal communication, while subtle\npose changes (e.g., ﬁnger poses in Fig. 1b) can signiﬁcantly\nimpact the intended message.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "7095\n\nDeveloping a live-drivable method that enables accurate\nand realistic egocentric whole-body motion estimation is\nthus essential. However, existing egocentric pose or mo-\ntion estimation methods fall short in achieving the accu-\nracy and speed needed for highly realistic VR/AR expe-\nriences. They typically focus on tracking body-only mo-\ntions [ 1, 2, 6, 23, 47, 48, 51], neglecting the importance\nof hands in fully capturing the intricacies of human mo-\ntions [ 49]. Directly extending the existing body-only esti-\nmation methods for whole-body estimation yields subopti-\nmal results, as body and hands signiﬁcantly differ in scale in\nboth input images and output motions [5, 11, 31, 37, 54, 59].\nTo address this challenge, EgoWholeMocap [ 49], the\nﬁrst method for whole-body motion estimation from ego-\ncentric images, proposes to leverage specialist models for\nbody and hands. It ﬁrst performs per-frame pose estima-\ntion for body and hands separately, and then reﬁnes the out-\nput poses using an unconditional whole-body motion prior\nto model correlations between different body parts. While\nthis approach improves whole-body motion estimation per-\nformance, it is non-real-time and acausal (i.e., depends on\nfuture information) due to iterative reﬁnement steps using\nan acausal diffusion-based motion prior. Thus, it cannot be\nused for real-time egocentric motion tracking applications.\nIn this work, we introduce R EWIND (Real-Time\nEgocentric Whole-Body MotionD iffusion), a one-step dif-\nfusion model for real-time, high-ﬁdelity human motion es-\ntimation from egocentric image inputs. To achieve both\nfast inference speed and high whole-body motion accuracy,\nwe ﬁrst introduce cascaded body-hand denoising diffu-\nsion (Sec. 3.1), where body motion is sampled ﬁrst and then\nhand motion is sampled conditioned on the previously sam-\npled upper body motion. This cascading scheme approxi-\nmately models the correlation between body and hands in\na fast, feed-forward manner (cf. iterative whole-body re-\nﬁnement used in EgoWholeMocap [ 49]) while still inherit-\ning the advantages of specialized body and hand estimation\n(e.g., effectively handling domain differences). We further\nargue that this approach is particularly effective for our tar-\ngeted egocentric image inputs, where hands are often placed\noutside the ﬁeld of view or occluded. As hands and upper\nbody poses are known to have meaningful correlations [33],\nconditioning on estimated upper body motion – often pro-\nvided with more reliable input egocentric observations (e.g.,\nFig. 1a) – can effectively reduce hand motion ambiguities.\nWe build these specialist denoising diffusion mod-\nels based on causal relative-temporal Transformer\n(Sec. 3.2), which is fully causal and generalizable to unseen\nmotion lengths. We use windowed relative-temporal atten-\ntion to learn temporal motion features that are invariant to\nthe total sequence length or absolute timesteps, in contrast\nto motion diffusion models based on vanilla attention (e.g.,\nmotion prior used in EgoWholeMocap [ 49]). During net-\nwork training, we employ diffusion distillation (Sec. 3.3)\nto enable real-time inference ( > 30 FPS) with a single de-\nnoising step, while preserving high output motion quality.\nNot only introducing an effective real-time framework,\nwe take a step further and explore identity-aware motion\nestimation to further enhance output quality when an addi-\ntional identity prior is available. To this end, we propose\nnovel exemplar-based identity conditioning (Sec. 3.4),\nwhere motion estimation is conditioned on the target iden-\ntity parameterized by a small set of pose exemplars. While\nthis identity parameterization has not yet been considered in\nexisting works on human pose or motion estimation, we em-\npirically ﬁnd it to be the most effective compared to widely\nused identity parameterizations (e.g., height, bone lengths,\nshape parameters). In the experiments, R EWIND achieves\nstate-of-the-art whole-body motion estimation results, both\nwith and without additional identity priors. Please also\nrefer to our supplementary video, where R EWIND esti-\nmates signiﬁcantly more plausible motions than the base-\nlines [ 49, 51], even from challenging egocentric input ob-\nservations (e.g., occluded or truncated views).",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nWe introduced a real-time, fully causal framework that en-\nables high-quality whole-body motion estimation from ego-\ncentric images. To this end, we proposed (1) cascaded\ndenoising diffusion, (2) a causal relative-temporal Trans-\nformer trained with diffusion distillation, and optionally,\n(3) exemplar-based identity conditioning. We empirically\nshowed that ours leads to more accurate and natural mo-\ntions compared to the competitive baselines.\nLimitations. Although our method outperforms existing\nstate-of-the-art methods, we observed that a small portion\nof the reconstructed motions leads to self-penetrations. In-\nvestigating effective methods to avoid self-penetrations in\negocentric human motion estimation would be an interest-\ning direction for future work."
+  }
+}

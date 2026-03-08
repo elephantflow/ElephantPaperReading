@@ -1,0 +1,83 @@
+{
+  "paper_id": "everything-to-the-synthetic-diffusion-driven-test-time-adaptation-via-synthetic---0a0da25f83",
+  "paper_title": "Everything to the Synthetic: Diffusion-driven Test-time Adaptation via Synthetic-Domain Alignment",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:39.808193+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Everything to the Synthetic： Diffusion-driven Test-time Adaptation via Synthetic-Domain Alignment.pdf",
+    "filename": "Everything to the Synthetic： Diffusion-driven Test-time Adaptation via Synthetic-Domain Alignment.pdf",
+    "sha1": "0a0da25f8329bc893fa08ae761f8c3eb266b842b",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Test-Time Adaptation (TTA) [15, 17, 31, 46, 61, 65, 66, 68, 71] is an emerging research field that tackles domain mis- alignment when source models are evaluated on shifted tar- get data.",
+    "limitation": "Introduction Test-Time Adaptation (TTA) [15, 17, 31, 46, 61, 65, 66, 68, 71] is an emerging research field that tackles domain mis- alignment when source models are evaluated on shifted tar- get data.",
+    "insight": "Our key insight is to fine-tune the source model with synthetic data to ensure better alignment.",
+    "proposed_method": "Abstract Test-time adaptation (TTA) aims to improve the perfor- mance of source-domain pre-trained models on previously unseen, shifted target domains.",
+    "experimental_evidence": "Extensive experiments across classi- fiers, segmenters, and multimodal large language models (MLLMs, e.g., LLaVA) demonstrate that SDA achieves su- perior domain alignment and consistently outperforms ex- isting diffusion-driven TTA methods.",
+    "summary": "Introduction Test-Time Adaptation (TTA) [15, 17, 31, 46, 61, 65, 66, 68, 71] is an emerging research field that tackles domain mis- alignment when source models are evaluated on shifted tar- get data. Introduction Test-Time Adaptation (TTA) [15, 17, 31, 46, 61, 65, 66, 68, 71] is an emerging research field that tackles domain mis- alignment when source models are evaluated on shifted tar- get data. Our key insight is to fine-tune the source model with synthetic data to ensure better alignment. Abstract Test-time adaptation (TTA) aims to improve the perfor- mance of source-domain pre-trained models on previously unseen, shifted target domains. Extensive experiments across classi- fiers, segmenters, and multimodal large language models (MLLMs, e.g., LLaVA) demonstrate that SDA achieves su- perior domain alignment and consistently outperforms ex- isting diffusion-driven TTA methods."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Test-Time Adaptation (TTA) [15, 17, 31, 46, 61, 65, 66, 68, 71] is an emerging research field that tackles domain mis- alignment when source models are evaluated on shifted tar- get data.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Test-Time Adaptation (TTA) [15, 17, 31, 46, 61, 65, 66, 68, 71] is an emerging research field that tackles domain mis- alignment when source models are evaluated on shifted tar- get data. Unlike traditional domain adaptation (DA) [16, 37, 57] and source-free adaptation (SFA) [28, 30, 33], TTA ad- dresses more practical scenarios where neither source data nor complete target data are accessible. Instead, the adapta- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, in this paper, we reveal that although the synthetic data in diffusion- driven TTA seems indistinguishable from the source data, it is unaligned with, or even markedly different from the latter for deep networks."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this issue, we pro- pose a Synthetic-Domain Alignment (SDA) framework.",
+      "To tackle this issue, we propose the synthetic-domain align- ment (SDA) framework in Sec."
+    ],
+    "experiment_expression": [
+      "Extensive experiments across classi- fiers, segmenters, and multimodal large language models (MLLMs, e.g., LLaVA) demonstrate that SDA achieves su- perior domain alignment and consistently outperforms ex- isting diffusion-driven TTA methods.",
+      "4.3, we demonstrate SDA’s advantages through Grad-CAM visual- izations [59] and data stream sensitivity tests.",
+      "Extensive experiments across classi- fiers, segmenters, and MLLMs indicate that SDA achieves enhanced domain alignment and superior performance."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion In this paper, we proposed Synthetic-Domain Alignment (SDA), a novel test-time adaptation (TTA) framework that simultaneously aligns the domains of the source model and target data with the synthetic domain of a diffusion model.",
+    "Extensive experiments across classi- fiers, segmenters, and MLLMs indicate that SDA achieves enhanced domain alignment and superior performance.",
+    "However, in this paper, we reveal that although the synthetic data in diffusion- driven TTA seems indistinguishable from the source data, it is unaligned with, or even markedly different from the latter for deep networks.",
+    "To tackle this issue, we propose the synthetic-domain align- ment (SDA) framework in Sec.",
+    "3.3 and introduce its key technique, the mix of diffusion (MoD) in Sec.",
+    "4.3, we demonstrate SDA’s advantages through Grad-CAM visual- izations [59] and data stream sensitivity tests.",
+    "4.4 validate the design choices in our SDA framework.",
+    "Abstract Test-time adaptation (TTA) aims to improve the perfor- mance of source-domain pre-trained models on previously unseen, shifted target domains.",
+    "As the domains of the model and data are aligned, SDA converts the cross-domain TTA task into an easier in-domain prediction task.",
+    "Compared to existing diffusion-driven TTA methods, SDA significantly mitigates the source-synthetic domain misalignment issue.",
+    "Compared to traditional TTA methods, SDA maintains insensitivity to different data streams.",
+    "Comparison results on ImageNet-C."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nTest-time adaptation (TTA) aims to improve the perfor-\nmance of source-domain pre-trained models on previously\nunseen, shifted target domains. Traditional TTA meth-\nods primarily adapt model weights based on target data\nstreams, making model performance sensitive to the amount\nand order of target data. The recently proposed diffusion-\ndriven TTA methods mitigate this by adapting model in-\nputs instead of weights, where an unconditional diffusion\nmodel, trained on the source domain, transforms target-\ndomain data into a synthetic domain that is expected to\napproximate the source domain. However, in this paper,\nwe reveal that although the synthetic data in diffusion-\ndriven TTA seems indistinguishable from the source data,\nit is unaligned with, or even markedly different from the\nlatter for deep networks. To address this issue, we pro-\npose a Synthetic-Domain Alignment (SDA) framework. Our\nkey insight is to fine-tune the source model with synthetic\ndata to ensure better alignment. Specifically, we first\nemploy a conditional diffusion model to generate labeled\n*Corresponding authors.\nsamples, creating a synthetic dataset. Subsequently, we\nuse the aforementioned unconditional diffusion model to\nadd noise to and denoise each sample before fine-tuning.\nThis Mix of Diffusion (MoD) process mitigates the poten-\ntial domain misalignment between the conditional and un-\nconditional models. Extensive experiments across classi-\nfiers, segmenters, and multimodal large language models\n(MLLMs, e.g., LLaVA) demonstrate that SDA achieves su-\nperior domain alignment and consistently outperforms ex-\nisting diffusion-driven TTA methods. Our code is avail-\nable at https://github.com/SHI-Labs/Diffusion-Driven-Test-\nTime-Adaptation-via-Synthetic-Domain-Alignment.",
+    "introduction": "1. Introduction\nTest-Time Adaptation (TTA) [15, 17, 31, 46, 61, 65, 66, 68,\n71] is an emerging research field that tackles domain mis-\nalignment when source models are evaluated on shifted tar-\nget data. Unlike traditional domain adaptation (DA) [16, 37,\n57] and source-free adaptation (SFA) [28, 30, 33], TTA ad-\ndresses more practical scenarios where neither source data\nnor complete target data are accessible. Instead, the adapta-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Methodology\nIn this section, we introduce the background of diffusion-\ndriven TTA methods and identify their source-synthetic do-\nmain misalignment issue in Sec. 3.1 and Sec. 3.2. To\ntackle this issue, we propose the synthetic-domain align-\nment (SDA) framework in Sec. 3.3 and introduce its key\ntechnique, the mix of diffusion (MoD) in Sec. 3.4.",
+    "experiments": "4. Experiments\nIn this section, we first evaluate SDA on ImageNet clas-\nsifiers with standard TTA benchmarks in Sec. 4.1. Next,\nwe assess SDA’s scalability across different dataset sizes,\ntasks, and model architectures in Sec. 4.2. In Sec. 4.3, we\ndemonstrate SDA’s advantages through Grad-CAM visual-\nizations [59] and data stream sensitivity tests. Finally, ab-\nlation studies in Sec. 4.4 validate the design choices in our\nSDA framework.\nModel Source MEMO DiffPure GDA DDA SDA (Ours)\nResNet-50 18.7 24.7 16.8 31.8 29.7 32.5 (+2.8)\nSwin-T 33.5 29.5 24.8 42.2 40.0 42.5 (+2.5)\nConvNeXt-T 39.3 37.8 28.8 44.8 44.2 47.0 (+2.8)\nSwin-B 40.5 37.0 28.9 - 44.5 47.4 (+2.9)\nConvNeXt-B 45.6 45.8 32.7 - 49.4 51.9 (+2.5)\nTable 3. Comparison results on ImageNet-C. We compare SDA\nwith source models, MEMO [71], DiffPure [46], GDA [65] and\nDDA [17]. Results are the average accuracy across 15 adaptation\ndomains at severity level 5. SDA shows consistent performance\nimprovements compared to baselines.",
+    "conclusion": "5. Conclusion\nIn this paper, we proposed Synthetic-Domain Alignment\n(SDA), a novel test-time adaptation (TTA) framework that\nsimultaneously aligns the domains of the source model and\ntarget data with the synthetic domain of a diffusion model.\nFor the source model, SDA introduces a Mix of Diffusion\n(MoD) technique, which generates synthetic data to adapt\nthe source model to a synthetic-domain model. MoD in-\nvolves a conditional diffusion model for data generation\nand an unconditional diffusion model for data alignment.\nFor the target data, SDA utilizes the aforementioned uncon-\nditional diffusion model to project the target data to syn-\nthetic data. As the domains of the model and data are\naligned, SDA converts the cross-domain TTA task into an\neasier in-domain prediction task. Compared to existing\ndiffusion-driven TTA methods, SDA significantly mitigates\nthe source-synthetic domain misalignment issue. Compared\nto traditional TTA methods, SDA maintains insensitivity to\ndifferent data streams. Extensive experiments across classi-\nfiers, segmenters, and MLLMs indicate that SDA achieves\nenhanced domain alignment and superior performance."
+  }
+}

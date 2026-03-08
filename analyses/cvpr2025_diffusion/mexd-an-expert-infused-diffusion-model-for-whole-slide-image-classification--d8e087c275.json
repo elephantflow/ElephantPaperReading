@@ -1,0 +1,87 @@
+{
+  "paper_id": "mexd-an-expert-infused-diffusion-model-for-whole-slide-image-classification--d8e087c275",
+  "paper_title": "MExD: An Expert-Infused Diffusion Model for Whole-Slide Image Classification",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:01.468543+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/MExD： An Expert-Infused Diffusion Model for Whole-Slide Image Classification.pdf",
+    "filename": "MExD： An Expert-Infused Diffusion Model for Whole-Slide Image Classification.pdf",
+    "sha1": "d8e087c275eeedb7202be4266feb40f1e684d002",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "By analyzing each patch individu- ally and then aggregating the results, MIL enables efficient slide-level classification with a single label, effectively ad- dressing the challenges of WSI analysis [1, 12].",
+    "limitation": "However, despite its effectiveness, this strategy faces several challenges.",
+    "insight": "Introduction Histological Whole Slide Image (WSI) classification is es- sential in digital pathology, automating diagnosis and sub- typing while extracting insights from high-resolution scans to support prognosis and treatment planning [2, 11, 32].",
+    "proposed_method": "To address these issues, we propose MExD, an Expert-Infused Diffusion Model that combines the strengths of a Mixture-of-Experts (MoE) mechanism with a diffusion model for enhanced classification.",
+    "experimental_evidence": "Abstract Whole Slide Image (WSI) classification poses unique chal- lenges due to the vast image size and numerous non- informative regions, which introduce noise and cause data imbalance during feature aggregation.",
+    "summary": "By analyzing each patch individu- ally and then aggregating the results, MIL enables efficient slide-level classification with a single label, effectively ad- dressing the challenges of WSI analysis [1, 12]. However, despite its effectiveness, this strategy faces several challenges. Introduction Histological Whole Slide Image (WSI) classification is es- sential in digital pathology, automating diagnosis and sub- typing while extracting insights from high-resolution scans to support prognosis and treatment planning [2, 11, 32]. To address these issues, we propose MExD, an Expert-Infused Diffusion Model that combines the strengths of a Mixture-of-Experts (MoE) mechanism with a diffusion model for enhanced classification. Abstract Whole Slide Image (WSI) classification poses unique chal- lenges due to the vast image size and numerous non- informative regions, which introduce noise and cause data imbalance during feature aggregation."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "key_insight",
+      "main_message": "Introduction Histological Whole Slide Image (WSI) classification is es- sential in digital pathology, automating diagnosis and sub- typing while extracting insights from high-resolution scans to support prognosis and treatment planning [2, 11, 32].",
+      "writing_strategy": "Introduces an observation that motivates the proposed direction.",
+      "evidence_text": "1. Introduction\nHistological Whole Slide Image (WSI) classification is es-\nsential in digital pathology, automating diagnosis and sub-\ntyping while extracting insights from high-resolution scans\nto support prognosis and treatment planning [2, 11, 32].\nWSIs, with sizes ranging from 100 million to 10 billion pix-\nels, are too large for conventional deep learning techniques,\nwhich were originally designed for much smaller natural or\nmedical images. To tackle this, the “decompose and aggre-\ngate” strategy has proven effective, breaking down WSIs\ninto manageable patches to extract features and then com-\nbining them into a final representation for classification. A\npromising application of this strategy is Multiple Instance\n*Corresponding author: Fan Yang (fanyang uestc@hotmail.com)\nFigure 1. Idea Illustration . (a) Unlike the conventional MIL-\nbased discriminative approaches for WSI processing, (b) we em-\nploy the Dyn-MoE to extract/mine effective conditional informa-\ntion from WSI, employing a generative framework to infer classi-\nfication results.\nLearning (MIL), which treats each WSI as abag containing\nsmaller image patches. By analyzing each patch individu-\nally and then aggregating"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "level representation is non-trivial.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "level representation is non-trivial. Standard aggregation\nmethods—such as simple averaging or max pooling—may\nbe inadequate for capturing the intricate interrelationships\nand spatial dependencies among patches. Some advanced\ntechniques, including reinforcement learning to guide fea-\nture integration [54] and the use of dynamic graph mod-\nels [26], have been employed to better learn integrated fea-\ntures. However, these methods are still limited by the influ-\nence of noise and irrelevant patches, as they fundamentally\nrely on discriminative feature integration paradigms that are\ninherently susceptible to such interference.\nTo address these challenges, we introduce the Expert-\nInfused Diffusion Model (MExD), a novel paradigm that\nintegrates the Mixture-of-Experts (MoE) mechanism with a\ndiffusion-based conditional generative model, as illustrated\nin Fig. 1. A key component of MExD is the Dynamic\nMixture-of-Experts (Dyn-MoE) aggregator, which intelli-\ngently routes instances to specialized experts based on their\nrelevance and characteristics. This dynamic routing mecha-\nnism ensures focused attention on minority classes, enhanc-\ning sensitivity to rare but clinically significant instan"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, despite its effectiveness, this strategy faces several challenges.",
+      "Although cluster- ing [24, 50] and attention mechanisms [23, 30] have been introduced to tackle this issue, these methods may still not fully mitigate the bias toward the majority class.",
+      "However, these methods are still limited by the influ- ence of noise and irrelevant patches, as they fundamentally rely on discriminative feature integration paradigms that are inherently susceptible to such interference."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address these issues, we propose MExD, an Expert-Infused Diffusion Model that combines the strengths of a Mixture-of-Experts (MoE) mechanism with a diffusion model for enhanced classification."
+    ],
+    "experiment_expression": [],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, despite its effectiveness, this strategy faces several challenges.",
+    "However, these methods are still limited by the influ- ence of noise and irrelevant patches, as they fundamentally rely on discriminative feature integration paradigms that are inherently susceptible to such interference.",
+    "To address these issues, we propose MExD, an Expert-Infused Diffusion Model that combines the strengths of a Mixture-of-Experts (MoE) mechanism with a diffusion model for enhanced classification.",
+    "20789 level representation is non-trivial.",
+    "A key component of MExD is the Dynamic Mixture-of-Experts (Dyn-MoE) aggregator, which intelli- gently routes instances to specialized experts based on their relevance and characteristics.",
+    "A promising application of this strategy is Multiple Instance *Corresponding author: Fan Yang (fanyang uestc@hotmail.com) Figure 1.",
+    "A significant issue is data imbalance: within a bag, positive instances (e.g., those containing can- cerous cells) are often vastly outnumbered bynegative ones.",
+    "Abstract Whole Slide Image (WSI) classification poses unique chal- lenges due to the vast image size and numerous non- informative regions, which introduce noise and cause data imbalance during feature aggregation.",
+    "Additionally, its generative Diff-C iteratively de- noises Gaussian noise using expert insights and prior pre- dictions, resulting in stable outcomes.",
+    "Aggregating the extracted fea- tures from individual patches into a comprehensive slide- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "Although cluster- ing [24, 50] and attention mechanisms [23, 30] have been introduced to tackle this issue, these methods may still not fully mitigate the bias toward the majority class.",
+    "Another challenge lies in the current shortcomings of feature integration methods."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWhole Slide Image (WSI) classification poses unique chal-\nlenges due to the vast image size and numerous non-\ninformative regions, which introduce noise and cause data\nimbalance during feature aggregation. To address these\nissues, we propose MExD, an Expert-Infused Diffusion\nModel that combines the strengths of a Mixture-of-Experts\n(MoE) mechanism with a diffusion model for enhanced\nclassification. MExD balances patch feature distribution\nthrough a novel MoE-based aggregator that selectively em-\nphasizes relevant information, effectively filtering noise,\naddressing data imbalance, and extracting essential fea-\ntures. These features are then integrated via a diffusion-\nbased generative process to directly yield the class distri-\nbution for the WSI. Moving beyond conventional discrim-\ninative approaches, MExD represents the first generative\nstrategy in WSI classification, capturing fine-grained de-\ntails for robust and precise results. Our MExD is validated\non three widely-used benchmarks—Camelyon16, TCGA-\nNSCLC, and BRACS—consistently achieving state-of-the-\nart performance in both binary and multi-class tasks. Our\ncode and model are available at https://github.\ncom/JWZhao-uestc/MExD.",
+    "introduction": "1. Introduction\nHistological Whole Slide Image (WSI) classification is es-\nsential in digital pathology, automating diagnosis and sub-\ntyping while extracting insights from high-resolution scans\nto support prognosis and treatment planning [2, 11, 32].\nWSIs, with sizes ranging from 100 million to 10 billion pix-\nels, are too large for conventional deep learning techniques,\nwhich were originally designed for much smaller natural or\nmedical images. To tackle this, the “decompose and aggre-\ngate” strategy has proven effective, breaking down WSIs\ninto manageable patches to extract features and then com-\nbining them into a final representation for classification. A\npromising application of this strategy is Multiple Instance\n*Corresponding author: Fan Yang (fanyang uestc@hotmail.com)\nFigure 1. Idea Illustration . (a) Unlike the conventional MIL-\nbased discriminative approaches for WSI processing, (b) we em-\nploy the Dyn-MoE to extract/mine effective conditional informa-\ntion from WSI, employing a generative framework to infer classi-\nfication results.\nLearning (MIL), which treats each WSI as abag containing\nsmaller image patches. By analyzing each patch individu-\nally and then aggregating the results, MIL enables efficient\nslide-level classification with a single label, effectively ad-\ndressing the challenges of WSI analysis [1, 12].\nHowever, despite its effectiveness, this strategy faces\nseveral challenges. A significant issue is data imbalance:\nwithin a bag, positive instances (e.g., those containing can-\ncerous cells) are often vastly outnumbered bynegative ones.\nThis imbalance can bias the model toward the majority\nclass, leading it to overlook or misclassify important minor-\nity instances and resulting in poor sensitivity for detecting\nrare but clinically significant features. Although cluster-\ning [24, 50] and attention mechanisms [23, 30] have been\nintroduced to tackle this issue, these methods may still not\nfully mitigate the bias toward the majority class. This is es-\npecially true when positive instances are extremely scarce;\nunder such circumstances, these mechanisms may be less\neffective because they typically operate within a unified\nmodel that processes all patches collectively, lacking ded-\nicated components focused on minority classes.\nAnother challenge lies in the current shortcomings of\nfeature integration methods. Aggregating the extracted fea-\ntures from individual patches into a comprehensive slide-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n20789\n\nlevel representation is non-trivial. Standard aggregation\nmethods—such as simple averaging or max pooling—may\nbe inadequate for capturing the intricate interrelationships\nand spatial dependencies among patches. Some advanced\ntechniques, including reinforcement learning to guide fea-\nture integration [54] and the use of dynamic graph mod-\nels [26], have been employed to better learn integrated fea-\ntures. However, these methods are still limited by the influ-\nence of noise and irrelevant patches, as they fundamentally\nrely on discriminative feature integration paradigms that are\ninherently susceptible to such interference.\nTo address these challenges, we introduce the Expert-\nInfused Diffusion Model (MExD), a novel paradigm that\nintegrates the Mixture-of-Experts (MoE) mechanism with a\ndiffusion-based conditional generative model, as illustrated\nin Fig. 1. A key component of MExD is the Dynamic\nMixture-of-Experts (Dyn-MoE) aggregator, which intelli-\ngently routes instances to specialized experts based on their\nrelevance and characteristics. This dynamic routing mecha-\nnism ensures focused attention on minority classes, enhanc-\ning sensitivity to rare but clinically significant instances and\nreducing bias toward the majority class. In essence, Dyn-\nMoE extracts essential conditional information—drawing\nfrom both expert insights and prior prediction—to effec-\ntively guide subsequent operations.\nMoreover, we introduce a novel generative-based learn-\ning and inference approach within MExD for WSI classifi-\ncation. Our Diffusion Classifier (Diff-C) leverages the ex-\npert and prior knowledge extracted by Dyn-MoE through\na customized diffusion process, supported by a multi-layer\nperceptron (MLP) network. This integration of expert-\ndriven insights with the generative capabilities of the dif-\nfusion model enables the Diff-C to directly predict accu-\nrate and reliable slide-level classifications. Additionally,\nthe diffusion-based generative approach excels at mitigat-\ning noise and effectively capturing the relationships within\nthe underlying data distribution, thereby enhancing the ro-\nbustness of the model’s learning and inference. This inno-\nvative strategy not only captures intricate interdependencies\namong patches but also ensures that the final predictions are\ncoherent and meaningful, significantly improving classifi-\ncation performance and reliability in WSI analysis. Overall,\nthe contributions of this work can be summarized as:\n• A new paradigm for WSI classification. MExD is the\nfirst to apply generative techniques for WSI classification,\noffering a novel solution to data imbalance, noise reduc-\ntion, and feature integration, and laying the foundation for\nfuture research.\n• A novel diffusion model fused with the MoE approach.\nWe introduce a novel diffusion model seamlessly in-\ntegrated with Mixture-of-Experts (MoE), which, unlike\nstandard diffusion models, incorporates experts focused\non specific instances, thereby more effectively addressing\nthe inherent challenges of WSI analysis.\n• State-of-the-art results on widely-used benchmarks.\nMExD demonstrates exceptional performance in accu-\nrately classifying WSI, setting new standards on promi-\nnent benchmarks such as Camelyon16, TCGA-NSCLC,\nand BRACS.",
+    "method": "3. Method",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nIn this work, we introduce MExD, a novel WSI classifica-\ntion framework that combines a conditional generative ap-\nproach with Mixture-of-Experts (MoE). MExD includes a\nDyn-MoE aggregator that dynamically selects relevant in-\nstances, addressing data imbalance and improving repre-\nsentation. Additionally, its generative Diff-C iteratively de-\nnoises Gaussian noise using expert insights and prior pre-\ndictions, resulting in stable outcomes. This blend of MoE\nand generative classification offers a promising new ap-\nproach to WSI classification with broader applications in\ncomputer vision."
+  }
+}

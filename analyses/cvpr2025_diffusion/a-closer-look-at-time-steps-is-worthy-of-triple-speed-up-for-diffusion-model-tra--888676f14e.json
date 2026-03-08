@@ -1,0 +1,119 @@
+{
+  "paper_id": "a-closer-look-at-time-steps-is-worthy-of-triple-speed-up-for-diffusion-model-tra--888676f14e",
+  "paper_title": "A Closer Look at Time Steps is Worthy of Triple Speed-Up for Diffusion Model Training",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:03:59.100719+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/A Closer Look at Time Steps is Worthy of Triple Speed-Up for Diffusion Model Training.pdf",
+    "filename": "A Closer Look at Time Steps is Worthy of Triple Speed-Up for Diffusion Model Training.pdf",
+    "sha1": "888676f14e4e0ca672f5e2752eff8a47e578ed70",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Training diffusion models is not usually affordable for many researchers, especially for ones in academia.",
+    "limitation": "ConvergenceDecelerationAcceleration E(? ?) 0 1000250 750500 t Var(? ?) E(? ?) Var(? ?) b) easy-to-learn 0 1000250 750500 low loss loss t a) almost pure noise proportion Limited benefits from convergence area.",
+    "insight": "Abstract Training diffusion models is always a computation- intensive task.",
+    "proposed_method": "In this paper, we introduce a novel speed-up method for diffusion model training, called SpeeD, which is based on a closer look at time steps.",
+    "experimental_evidence": "SpeeD demonstrates strong robustness across vari- ous architectures and datasets, achieving significant accel- eration on multiple diffusion-based image generation tasks.",
+    "summary": "Introduction Training diffusion models is not usually affordable for many researchers, especially for ones in academia. ConvergenceDecelerationAcceleration E(? ?) 0 1000250 750500 t Var(? ?) E(? ?) Var(? ?) b) easy-to-learn 0 1000250 750500 low loss loss t a) almost pure noise proportion Limited benefits from convergence area. Abstract Training diffusion models is always a computation- intensive task. In this paper, we introduce a novel speed-up method for diffusion model training, called SpeeD, which is based on a closer look at time steps. SpeeD demonstrates strong robustness across vari- ous architectures and datasets, achieving significant accel- eration on multiple diffusion-based image generation tasks."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Training diffusion models is not usually affordable for many researchers, especially for ones in academia.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction Training diffusion models is not usually affordable for many researchers, especially for ones in academia. For example, DALL·E 2 [43] needs 40K A100 GPU days and Sora [44] at least necessitates 126K H100 GPU days. Therefore, accel- erating the training for diffusion models has become urgent for broader generative AI and related applications. Recently, some acceleration methods for diffusion train- ing focus on time steps, primarily using re-weighting and re-sampling 1) Re-weighting on the time steps based on heuristic rules."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "P2 [8] and Min-SNR [17] use monotonous ∗equal contribution, †corresponding author.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "P2 [8] and Min-SNR [17] use monotonous ∗equal contribution, †corresponding author. ConvergenceDecelerationAcceleration E(? ?) 0 1000250 750500 t Var(? ?) E(? ?) Var(? ?) b) easy-to-learn 0 1000250 750500 low loss loss t a) almost pure noise proportion Limited benefits from convergence area. Closer look at time steps: More than half of the time steps are almost pure noise and easy-to-learn. Motivation: de- signing an efficient training via analyzing process increment δt at different time steps."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "E(δt) and Var(δt) are the mean and variance of process increments δt.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "E(δt) and Var(δt) are the mean and variance of process increments δt. Two histograms represent the propor- tions of the process increments at different noise levels (left) and the proportions of the time steps (right) in the three areas. The loss curve is obtained from DDPM [20] on CIFAR-10 [33]. and single-peak weighting strategies according to sign-to- noise ratios (SNR) in different time steps. 2) Re-sampling the time steps."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "Log-Normal [28] assigns high sampling probabilities for the middle time steps of the diffusion pro- cess.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Log-Normal [28] assigns high sampling probabilities for the middle time steps of the diffusion pro- cess. CLTS [67] proposes a curriculum learning based time step schedule, gradually tuning the sampling probability from uniform to Gaussian by interpolation for acceleration as shown in Fig. To investigate the essence of the above accelerations, we take a closer look at the time steps. As shown in the left of Fig."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "1, we visualize the changes of mean and variance of the process increment δt := xt+1 − xt at time step t.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1, we visualize the changes of mean and variance of the process increment δt := xt+1 − xt at time step t. The time steps are divided into three areas: acceleration, decel- eration, and convergence. We identify the characteristics of three areas of the time steps. One can easily find that This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "background",
+      "main_message": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3.5. Compatibility with other acceleration methods",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "3. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Our key findings are: i) Time steps can be empirically divided into acceleration, deceleration, and convergence areas based on the process increment. ii) These time steps are imbalanced, with many concentrated in the convergence area. iii) The concen- trated steps provide limited benefits for diffusion training.",
+      "ConvergenceDecelerationAcceleration E(? ?) 0 1000250 750500 t Var(? ?) E(? ?) Var(? ?) b) easy-to-learn 0 1000250 750500 low loss loss t a) almost pure noise proportion Limited benefits from convergence area.",
+      "The core insights are: 1) suppressing the sampling probabilities of time steps that offer limited benefits to diffusion training (i.e., those with extremely small losses), and 2) emphasizing the im- portance of time steps with rapidly changing process incre- ments."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this, we design an asymmetric sampling strategy that reduces the frequency of steps from the convergence area while increasing the sampling probability in other ar- eas.",
+      "Additionally, we propose a weighting strategy to em- phasize the importance of time steps with rapid-change process increments."
+    ],
+    "experiment_expression": [
+      "CLTS [67] proposes a curriculum learning based time step schedule, gradually tuning the sampling probability from uniform to Gaussian by interpolation for acceleration as shown in Fig.",
+      "As shown in the left of Fig."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Additionally, we propose a weighting strategy to em- phasize the importance of time steps with rapid-change process increments.",
+    "As shown in the left of Fig.",
+    "CLTS [67] proposes a curriculum learning based time step schedule, gradually tuning the sampling probability from uniform to Gaussian by interpolation for acceleration as shown in Fig.",
+    "1, we visualize the changes of mean and variance of the process increment δt := xt+1 − xt at time step t.",
+    "2) Re-sampling the time steps.",
+    "200 400 600 800 1000 Training Steps (K) 1.6 1.7 1.8 1.9 2.0log(FID) DiT MDT MDT w/ SpeeD (a) FID-Iteration curve comparisons on ImageNet-1K.",
+    "50 100 150 200 Million Training Images (M) 0.26 0.28 0.30 0.32 0.34log(FID) EDM FDM FDM w/ SpeeD (b) FID-Iteration curve comparisons on CIFAR-10.",
+    "7M iterations are used in DiT to train ImageNet in the original work [47], which 1) is not the amount of resource usage that can be achieved in general research.",
+    "Abstract Training diffusion models is always a computation- intensive task.",
+    "All the results are obtained on ImageNet-1K dataset.",
+    "As a plug-and-play and architecture- agnostic approach, SpeeD consistently achieves 3× accel- eration across various diffusion architectures, datasets, and tasks.",
+    "Based on the official implementation, we compare EDM, FDM, and FDM + SpeeD on CIFAR-10 of 32 × 32 images."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nTraining diffusion models is always a computation-\nintensive task. In this paper, we introduce a novel speed-up\nmethod for diffusion model training, called SpeeD, which is\nbased on a closer look at time steps. Our key findings are:\ni) Time steps can be empirically divided into acceleration,\ndeceleration, and convergence areas based on the process\nincrement. ii) These time steps are imbalanced, with many\nconcentrated in the convergence area. iii) The concen-\ntrated steps provide limited benefits for diffusion training.\nTo address this, we design an asymmetric sampling strategy\nthat reduces the frequency of steps from the convergence\narea while increasing the sampling probability in other ar-\neas. Additionally, we propose a weighting strategy to em-\nphasize the importance of time steps with rapid-change\nprocess increments. As a plug-and-play and architecture-\nagnostic approach, SpeeD consistently achieves 3× accel-\neration across various diffusion architectures, datasets, and\ntasks. Notably, due to its simple design, our approach sig-\nnificantly reduces the cost of diffusion model training with\nminimal overhead. Our research enables more researchers\nto train diffusion models at a lower cost.",
+    "introduction": "1. Introduction\nTraining diffusion models is not usually affordable for many\nresearchers, especially for ones in academia. For example,\nDALL·E 2 [43] needs 40K A100 GPU days and Sora [44] at\nleast necessitates 126K H100 GPU days. Therefore, accel-\nerating the training for diffusion models has become urgent\nfor broader generative AI and related applications.\nRecently, some acceleration methods for diffusion train-\ning focus on time steps, primarily using re-weighting and\nre-sampling 1) Re-weighting on the time steps based on\nheuristic rules. P2 [8] and Min-SNR [17] use monotonous\n∗equal contribution, †corresponding author.\nConvergenceDecelerationAcceleration\nE(? ?)\n0 1000250 750500 t\nVar(? ?)\nE(? ?) Var(? ?)\nb) easy-to-learn\n0 1000250 750500\nlow loss\nloss\nt\na) almost pure noise\nproportion\nLimited benefits from\nconvergence area.\nFigure 1. Closer look at time steps: More than half of the time\nsteps are almost pure noise and easy-to-learn. Motivation: de-\nsigning an efficient training via analyzing process increment δt at\ndifferent time steps. E(δt) and Var(δt) are the mean and variance\nof process increments δt. Two histograms represent the propor-\ntions of the process increments at different noise levels (left) and\nthe proportions of the time steps (right) in the three areas. The loss\ncurve is obtained from DDPM [20] on CIFAR-10 [33].\nand single-peak weighting strategies according to sign-to-\nnoise ratios (SNR) in different time steps. 2) Re-sampling\nthe time steps. Log-Normal [28] assigns high sampling\nprobabilities for the middle time steps of the diffusion pro-\ncess. CLTS [67] proposes a curriculum learning based time\nstep schedule, gradually tuning the sampling probability\nfrom uniform to Gaussian by interpolation for acceleration\nas shown in Fig. 2.\nTo investigate the essence of the above accelerations, we\ntake a closer look at the time steps. As shown in the left\nof Fig. 1, we visualize the changes of mean and variance of\nthe process increment δt := xt+1 − xt at time step t. The\ntime steps are divided into three areas: acceleration, decel-\neration, and convergence. We identify the characteristics\nof three areas of the time steps. One can easily find that\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3.5. Compatibility with other acceleration methods\nUntil now, we evaluate the effectiveness and generaliza-\ntion of our proposed method: SpeeD is a task-agnostic\nand architecture-agnostic diffusion acceleration approach.\nIs SpeeD compatible with other acceleration techniques?\nTo investigate this, we apply our approach with two re-\n12939\n\n10 50 100 150 200\nTraining iteration (K)\n1.25\n1.50\n1.75\n2.00\n2.25\n2.50log(FID)\nDiT-XL/2\nOurs\n10\n20 30 40 50 /uni00000037/uni00000055/uni00000044/uni0000004c/uni00000051/uni0000004c/uni00000051/uni0000004a/uni00000003/uni0000004c/uni00000057/uni00000048/uni00000055/uni00000044/uni00000057/uni0000004c/uni00000052/uni00000051/uni00000003/uni0000000b/uni0000002e/uni0000000c\n1.4\n1.6\n1.8\n2.0\n2.2\n2.4\n2.6\n/uni0000004f/uni00000052/uni0000004a/uni0000000b/uni00000029/uni0000002c/uni00000027/uni0000000c/uni00000030/uni0000004c/uni00000051/uni00000010/uni00000036/uni00000031/uni00000035\n/uni00000032/uni00000058/uni00000055/uni00000056\n10\n20 30 40 50 /uni00000037/uni00000055/uni00000044/uni0000004c/uni00000051/uni0000004c/uni00000051/uni0000004a/uni00000003/uni0000004c/uni00000057/uni00000048/uni00000055/uni00000044/uni00000057/uni0000004c/uni00000052/uni00000051/uni00000003/uni0000000b/uni0000002e/uni0000000c\n1.4\n1.6\n1.8\n2.0\n2.2\n2.4\n2.6\n/uni0000004f/uni00000052/uni0000004a/uni0000000b/uni00000029/uni0000002c/uni00000027/uni0000000c/uni00000026/uni0000002f\n/uni00000037/uni00000036/uni00000032/uni00000058/uni00000055/uni00000056\nFigure 6. We plot the FID-Iteration curves of our approach and other methods on the MetFaces dataset. SpeeD accelerates other methods\nobviously. The horizontal and vertical axes represent the training iterations and log(FID), respectively. Detailed ones are in appendix.\n200 400 600 800 1000\nTraining Steps (K)\n1.6\n1.7\n1.8\n1.9\n2.0log(FID)\nDiT\nMDT\nMDT w/ SpeeD\n(a) FID-Iteration curve comparisons on ImageNet-1K.\n50 100 150 200\nMillion Training Images (M)\n0.26\n0.28\n0.30\n0.32\n0.34log(FID)\nEDM\nFDM\nFDM w/ SpeeD (b) FID-Iteration curve comparisons on CIFAR-10.\nFigure 7. SpeeD works well with recent acceleration algorithms and can consistently further accelerate the diffusion model training. We\nplot the figures using log(FID) for better visualization.\ncent proposed algorithms: masked diffusion transformer\n(MDT) [12] and fast diffusion model (FDM) [66].\nMDT + SpeeD. MDT [12] proposes a masked diffusion\ntransformer method, which applies a masking scheme in la-\ntent space to enhance the contextual learning ability of dif-\nfusion probabilistic models explicitly. MDT can speed up\nthe diffusion training by 10 times. They evaluate their MDT\nwith DiT-S/2. We just inject our SpeeD on their MDT and\nreport FID-Iteration curves for comparison in Fig. 7a. All\nthe results are obtained on ImageNet-1K dataset. Our ap-\nproach can further accelerate MDT at least by 4 ×, which\nindicates the good compatibility of SpeeD.\nFDM + SpeeD. Fast Diffusion Model [66] is a diffusion\nprocess acceleration method inspired by the classic momen-\ntum approach to solve optimization problem in parameter\nspace. By integrating momentum into the diffusion process,\nit achieves similar performance as EDM [28] with less train-\ning cost. Based on the official implementation, we compare\nEDM, FDM, and FDM + SpeeD on CIFAR-10 of 32 × 32\nimages. FDM accelerates the EDM by about 1.6 ×. SpeeD\ncan further reduce the training cost around 1.6 ×.",
+    "experiments": "3. Experiments\nIn this section, the visualization is provided in Section 3.1.\nComparison with SOTA methods in is provided mainly on\nImageNet-1K dataset. The compared baselines and sched-\nuler settings including SDE-VP/VE and EDM. The com-\nparison and ablations on most related hyperparameters and\ntasks are empirically verified.",
+    "conclusion": "5. Conclusion\nSpeeD , a approach for accelerating diffusion training by\nclosely examining time steps is proposed. The core insights\nare: 1) suppressing the sampling probabilities of time steps\nthat offer limited benefits to diffusion training (i.e., those\nwith extremely small losses), and 2) emphasizing the im-\nportance of time steps with rapidly changing process incre-\nments. SpeeD demonstrates strong robustness across vari-\nous architectures and datasets, achieving significant accel-\neration on multiple diffusion-based image generation tasks.\nExtensive theoretical analyses in this paper, are provided.\nReferring to previous works [8, 11, 14, 17, 46, 47, 67],\nour experiments train 50K, 100K, and 400K in MetFaces\n256 × 256, FFHQ 256 × 256, and ImageNet-1K, respec-\ntively. 7M iterations are used in DiT to train ImageNet\nin the original work [47], which 1) is not the amount of\nresource usage that can be achieved in general research.\nMeanwhile, 2) the focus is on the acceleration effect of\ntraining, and a direct comparison of the ultimate conver-\ngence stage is unnecessary for this work."
+  }
+}

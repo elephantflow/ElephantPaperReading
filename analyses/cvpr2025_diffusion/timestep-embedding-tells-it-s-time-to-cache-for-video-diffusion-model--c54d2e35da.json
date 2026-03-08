@@ -1,0 +1,83 @@
+{
+  "paper_id": "timestep-embedding-tells-it-s-time-to-cache-for-video-diffusion-model--c54d2e35da",
+  "paper_title": "Timestep Embedding Tells: It's Time to Cache for Video Diffusion Model",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:39.556006+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Timestep Embedding Tells： It's Time to Cache for Video Diffusion Model.pdf",
+    "filename": "Timestep Embedding Tells： It's Time to Cache for Video Diffusion Model.pdf",
+    "sha1": "c54d2e35dad5c9ae022323b307a7252bb369c8d1",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Recent years have witnessed the emergence of diffusion models [13, 16, 46, 48], as a fundamental backbone for vi- sual generation.",
+    "limitation": "Introduction Recent years have witnessed the emergence of diffusion models [13, 16, 46, 48], as a fundamental backbone for vi- sual generation.",
+    "insight": "Abstract As a fundamental backbone for video generation, diffusion models are challenged by low inference speed due to the se- quential nature of denoising.",
+    "proposed_method": "In this study, we introduce Timestep Embedding Aware Cache (TeaCache), a training-free caching approach that estimates and lever- ages the fluctuating differences among model outputs across timesteps.",
+    "experimental_evidence": "Experiments show that TeaCache achieves up to 4.41× acceleration over Open-Sora-Plan with negli- gible (-0.07% Vbench score) degradation of visual quality.",
+    "summary": "Introduction Recent years have witnessed the emergence of diffusion models [13, 16, 46, 48], as a fundamental backbone for vi- sual generation. Introduction Recent years have witnessed the emergence of diffusion models [13, 16, 46, 48], as a fundamental backbone for vi- sual generation. Abstract As a fundamental backbone for video generation, diffusion models are challenged by low inference speed due to the se- quential nature of denoising. In this study, we introduce Timestep Embedding Aware Cache (TeaCache), a training-free caching approach that estimates and lever- ages the fluctuating differences among model outputs across timesteps. Experiments show that TeaCache achieves up to 4.41× acceleration over Open-Sora-Plan with negli- gible (-0.07% Vbench score) degradation of visual quality."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Recent years have witnessed the emergence of diffusion models [13, 16, 46, 48], as a fundamental backbone for vi- sual generation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Recent years have witnessed the emergence of diffusion models [13, 16, 46, 48], as a fundamental backbone for vi- sual generation. The model architecture has evolved from U-Net [4, 35, 37] to diffusion transformers (DiT) [34], which greatly increased model capacities. Empowered by DiT, video generation models [1, 2, 22, 31, 58, 62] have reached a groundbreaking level. Despite of the substantial efficacy of these powerful models, their inference speed remains a pivotal impediment to wider adoption [25]."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "This core limitation arises from the sequential denoising procedure inherent to their reverse phase, which inhibits parallel decoding [42].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "This core limitation arises from the sequential denoising procedure inherent to their reverse phase, which inhibits parallel decoding [42]. Moreover, as model parameters scale up and the requirements for higher resolution and longer durations of videos escalate [9, 58], the inference process experiences a further decline in speed. To accelerate the visual generation procedure, distilla- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, such a strategy neglects the fact that differences among model outputs are not uniform across timesteps, which hinders selecting the appropriate model outputs to cache, leading to a poor balance between inference efficiency and visual quality."
+    ],
+    "insight_expression": [],
+    "method_expression": [],
+    "experiment_expression": [],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Abstract As a fundamental backbone for video generation, diffusion models are challenged by low inference speed due to the se- quential nature of denoising.",
+    "Conclusion In this study, we introduceTeaCache, a novel, training-free approach designed to significantly accelerate video synthe- sis inference while maintaining high-quality output.",
+    "Despite of the substantial efficacy of these powerful models, their inference speed remains a pivotal impediment to wider adoption [25].",
+    "Empowered by DiT, video generation models [1, 2, 22, 31, 58, 62] have reached a groundbreaking level.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experiments show that TeaCache achieves up to 4.41× acceleration over Open-Sora-Plan with negli- gible (-0.07% Vbench score) degradation of visual quality.",
+    "However, such a strategy neglects the fact that differences among model outputs are not uniform across timesteps, which hinders selecting the appropriate model outputs to cache, leading to a poor balance between inference efficiency and visual quality.",
+    "In this study, we introduce Timestep Embedding Aware Cache (TeaCache), a training-free caching approach that estimates and lever- ages the fluctuating differences among model outputs across timesteps.",
+    "Introduction Recent years have witnessed the emergence of diffusion models [13, 16, 46, 48], as a fundamental backbone for vi- sual generation.",
+    "Moreover, as model parameters scale up and the requirements for higher resolution and longer durations of videos escalate [9, 58], the inference process experiences a further decline in speed.",
+    "Previous methods speed up the models by caching and reusing model outputs at uniformly selected timesteps.",
+    "Rather than directly using the time-consuming model outputs, TeaCache focuses on model inputs, which have a strong correlation with the modeloutputs while in- curring negligible computational cost."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nAs a fundamental backbone for video generation, diffusion\nmodels are challenged by low inference speed due to the se-\nquential nature of denoising. Previous methods speed up the\nmodels by caching and reusing model outputs at uniformly\nselected timesteps. However, such a strategy neglects the\nfact that differences among model outputs are not uniform\nacross timesteps, which hinders selecting the appropriate\nmodel outputs to cache, leading to a poor balance between\ninference efficiency and visual quality. In this study, we\nintroduce Timestep Embedding Aware Cache (TeaCache),\na training-free caching approach that estimates and lever-\nages the fluctuating differences among model outputs across\ntimesteps. Rather than directly using the time-consuming\nmodel outputs, TeaCache focuses on model inputs, which\nhave a strong correlation with the modeloutputs while in-\ncurring negligible computational cost. TeaCache first mod-\nulates the noisy inputs using the timestep embeddings to en-\nsure their differences better approximating those of model\noutputs. TeaCache then introduces a rescaling strategy to\n*Work was done during internship at Alibaba Group.\n†Project Leader. ‡Corresponding author.\nrefine the estimated differences and utilizes them to indicate\noutput caching. Experiments show that TeaCache achieves\nup to 4.41× acceleration over Open-Sora-Plan with negli-\ngible (-0.07% Vbench score) degradation of visual quality.",
+    "introduction": "1. Introduction\nRecent years have witnessed the emergence of diffusion\nmodels [13, 16, 46, 48], as a fundamental backbone for vi-\nsual generation. The model architecture has evolved from\nU-Net [4, 35, 37] to diffusion transformers (DiT) [34],\nwhich greatly increased model capacities. Empowered by\nDiT, video generation models [1, 2, 22, 31, 58, 62] have\nreached a groundbreaking level.\nDespite of the substantial efficacy of these powerful\nmodels, their inference speed remains a pivotal impediment\nto wider adoption [25]. This core limitation arises from\nthe sequential denoising procedure inherent to their reverse\nphase, which inhibits parallel decoding [42]. Moreover, as\nmodel parameters scale up and the requirements for higher\nresolution and longer durations of videos escalate [9, 58],\nthe inference process experiences a further decline in speed.\nTo accelerate the visual generation procedure, distilla-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Methodology",
+    "experiments": "4. Experiment",
+    "conclusion": "5. Conclusion\nIn this study, we introduceTeaCache, a novel, training-free\napproach designed to significantly accelerate video synthe-\nsis inference while maintaining high-quality output. We\nanalyze the correlation between model input and output,\nobserving that similarity of timsetep embedding modulated\nnoisy input in consecutive timesteps shows strong correla-"
+  }
+}

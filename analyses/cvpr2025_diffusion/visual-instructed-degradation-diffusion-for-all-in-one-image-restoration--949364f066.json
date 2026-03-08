@@ -1,0 +1,98 @@
+{
+  "paper_id": "visual-instructed-degradation-diffusion-for-all-in-one-image-restoration--949364f066",
+  "paper_title": "Visual-Instructed Degradation Diffusion for All-in-One Image Restoration",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:50.862958+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Visual-Instructed Degradation Diffusion for All-in-One Image Restoration.pdf",
+    "filename": "Visual-Instructed Degradation Diffusion for All-in-One Image Restoration.pdf",
+    "sha1": "949364f06685082a9b3691526e13135285be69df",
+    "page_count": 14
+  },
+  "core_story": {
+    "problem": "This encompasses various challenges, includ- ing denoising [8, 95, 121], deblurring [110, 111, 122], de- hazing [64, 109], deraining [16, 17, 42], JPEG artifact re- moval [25, 41], etc.",
+    "limitation": "However, these approaches often struggle with gen- eralization, requiring separate models for each degradation type, which limits their practical applicability in real-world *Equal contribution. † Project lead.",
+    "insight": "Abstract Image restoration tasks like deblurring, denoising, and de- hazing usually need distinct models for each degradation type, restricting their generalization in real-world scenar- ios with mixed or unknown degradations.",
+    "proposed_method": "In this work, we propose Defusion, a novel all-in-one image restoration framework that utilizes visual instruction-guided degrada- tion diffusion.",
+    "experimental_evidence": "Comprehensive ex- periments demonstrate that Defusion outperforms state-of- the-art methods across diverse image restoration tasks, in- cluding complex and real-world degradations.",
+    "summary": "This encompasses various challenges, includ- ing denoising [8, 95, 121], deblurring [110, 111, 122], de- hazing [64, 109], deraining [16, 17, 42], JPEG artifact re- moval [25, 41], etc. However, these approaches often struggle with gen- eralization, requiring separate models for each degradation type, which limits their practical applicability in real-world *Equal contribution. † Project lead. Abstract Image restoration tasks like deblurring, denoising, and de- hazing usually need distinct models for each degradation type, restricting their generalization in real-world scenar- ios with mixed or unknown degradations. In this work, we propose Defusion, a novel all-in-one image restoration framework that utilizes visual instruction-guided degrada- tion diffusion. Comprehensive ex- periments demonstrate that Defusion outperforms state-of- the-art methods across diverse image restoration tasks, in- cluding complex and real-world degradations."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction Image restoration is a fundamental task in computer vision, aiming to recover high-quality images from their degraded counterparts.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "1. Introduction\nImage restoration is a fundamental task in computer vision,\naiming to recover high-quality images from their degraded\ncounterparts. This encompasses various challenges, includ-\ning denoising [8, 95, 121], deblurring [110, 111, 122], de-\nhazing [64, 109], deraining [16, 17, 42], JPEG artifact re-\nmoval [25, 41], etc. Traditional deep learning-based ap-\nproaches have achieved remarkable progress by develop-\ning task-specific models that excel in individual restoration\ntasks. However, these approaches often struggle with gen-\neralization, requiring separate models for each degradation\ntype, which limits their practical applicability in real-world\n*Equal contribution. † Project lead. Project Page.\n♡Work done during internship at Ant Group.\nGround\nHQ\nRainy LQ\nDark LQ\nComposite LQ\nVisual Instruct\nfor “rainy”\nComposite\nVisual Instruct\nVisual Instruct\nfor “dark”\nFigure 1. Visual instructions speak for visual degradations. Vi-\nsual instructions are constructed by applying the artifacts of im-\nage degradations upon the composition of basic image elements\n(dubbed visual grounds). They faithfully demonstrate the visual\neffects of degradations and their compositions.\nscenarios w"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "speak for visual and guide the image restoration model with visual instructions as explicit priors.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "speak for visual and guide the image restoration model with\nvisual instructions as explicit priors. Our visual instruc-\ntions are constructed to demonstrate the artifacts of image\ndegradations as visual guidance. This is achieved by apply-\ning the image corruption process (e.g. raining or noising)\nof the LQ images upon the visual grounds consisting of ba-\nsic visual elements such as random textures, basic shapes,\nstandard colors, etc, as shown in Fig. 1. The resulting visual\ninstructions encode the exact visual effects (e.g. rain lines\nor noisy “dots”) of the degradation with a minimal loss of\ninformation. The primary benefit is that the resulting visual\ninstructions are inherently aligned with visual degradation\npatterns. For example, the combined visual instruction in\nFig. 1 can naturally show similar distortions as the compos-\nite LQ images. This makes the visual instructions suitable\nfor low-level vision tasks.\nWe propose a unified diffusion-based image restoration\nframework, Degradation Diffusion, which is guided by our\nvisual instructions to denoise in the degradation space. The\ndiffusion model provides generative priors for the restored\nimages, conditioned on the LQ images t"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "3. We conducted comprehensive experiments on various",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, these approaches often struggle with gen- eralization, requiring separate models for each degradation type, which limits their practical applicability in real-world *Equal contribution. † Project lead.",
+      "However, ex- isting methods face challenges in deriving effective priors that align with the visual structures of degraded images."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "In this work, we propose Defusion, a novel all-in-one image restoration framework that utilizes visual instruction-guided degrada- tion diffusion.",
+      "To address this limitation, all-in-one image restoration methods handling various degradations in a single model have gained significant attention [4, 59, 65, 84, 86, 143].",
+      "Given the above limitations, we propose to let visual This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "We propose a unified diffusion-based image restoration framework, Degradation Diffusion, which is guided by our visual instructions to denoise in the degradation space."
+    ],
+    "experiment_expression": [
+      "Comprehensive ex- periments demonstrate that Defusion outperforms state-of- the-art methods across diverse image restoration tasks, in- cluding complex and real-world degradations.",
+      "They faithfully demonstrate the visual effects of degradations and their compositions. scenarios with complex degradations.",
+      "Our visual instruc- tions are constructed to demonstrate the artifacts of image degradations as visual guidance.",
+      "This is achieved by apply- ing the image corruption process (e.g. raining or noising) of the LQ images upon the visual grounds consisting of ba- sic visual elements such as random textures, basic shapes, standard colors, etc, as shown in Fig.",
+      "We conducted comprehensive experiments on various image restoration tasks under different scenarios in- cluding complex and unseen degradations, and the re- sults demonstrate that Defusion consistently outper- forms state-of-the-art methods.",
+      "Extensive experiments demonstrate Defusion’s state-of-the-art perfor- mance in various image restoration tasks, including com- plex real-world scenarios with multiple degradations."
+    ],
+    "contribution_expression": [
+      "Our contributions are summarized as follows: 3."
+    ]
+  },
+  "notable_sentences": [
+    "Extensive experiments demonstrate Defusion’s state-of-the-art perfor- mance in various image restoration tasks, including com- plex real-world scenarios with multiple degradations.",
+    "Given the above limitations, we propose to let visual This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "However, ex- isting methods face challenges in deriving effective priors that align with the visual structures of degraded images.",
+    "However, these approaches often struggle with gen- eralization, requiring separate models for each degradation type, which limits their practical applicability in real-world *Equal contribution. † Project lead.",
+    "In this work, we propose Defusion, a novel all-in-one image restoration framework that utilizes visual instruction-guided degrada- tion diffusion.",
+    "Our contributions are summarized as follows: 3.",
+    "We propose a unified diffusion-based image restoration framework, Degradation Diffusion, which is guided by our visual instructions to denoise in the degradation space.",
+    "1 can naturally show similar distortions as the compos- ite LQ images.",
+    "12764 speak for visual and guide the image restoration model with visual instructions as explicit priors.",
+    "2 depicts the overall framework.",
+    "3.1 describes the construction of our visual instructions.",
+    "3.2 formulates the instruction- guided diffusion model in degradation space."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nImage restoration tasks like deblurring, denoising, and de-\nhazing usually need distinct models for each degradation\ntype, restricting their generalization in real-world scenar-\nios with mixed or unknown degradations. In this work,\nwe propose Defusion, a novel all-in-one image restoration\nframework that utilizes visual instruction-guided degrada-\ntion diffusion. Unlike existing methods that rely on task-\nspecific models or ambiguous text-based priors, Defusion\nconstructs explicit visual instructions that align with the vi-\nsual degradation patterns. These instructions are grounded\nby applying degradations to standardized visual elements,\ncapturing intrinsic degradation features while agnostic to\nimage semantics. Defusion then uses these visual instruc-\ntions to guide a diffusion-based model that operates di-\nrectly in the degradation space, where it reconstructs high-\nquality images by denoising the degradation effects with en-\nhanced stability and generalizability. Comprehensive ex-\nperiments demonstrate that Defusion outperforms state-of-\nthe-art methods across diverse image restoration tasks, in-\ncluding complex and real-world degradations.",
+    "introduction": "1. Introduction\nImage restoration is a fundamental task in computer vision,\naiming to recover high-quality images from their degraded\ncounterparts. This encompasses various challenges, includ-\ning denoising [8, 95, 121], deblurring [110, 111, 122], de-\nhazing [64, 109], deraining [16, 17, 42], JPEG artifact re-\nmoval [25, 41], etc. Traditional deep learning-based ap-\nproaches have achieved remarkable progress by develop-\ning task-specific models that excel in individual restoration\ntasks. However, these approaches often struggle with gen-\neralization, requiring separate models for each degradation\ntype, which limits their practical applicability in real-world\n*Equal contribution. † Project lead. Project Page.\n♡Work done during internship at Ant Group.\nGround\nHQ\nRainy LQ\nDark LQ\nComposite LQ\nVisual Instruct\nfor “rainy”\nComposite\nVisual Instruct\nVisual Instruct\nfor “dark”\nFigure 1. Visual instructions speak for visual degradations. Vi-\nsual instructions are constructed by applying the artifacts of im-\nage degradations upon the composition of basic image elements\n(dubbed visual grounds). They faithfully demonstrate the visual\neffects of degradations and their compositions.\nscenarios with complex degradations.\nTo address this limitation, all-in-one image restoration\nmethods handling various degradations in a single model\nhave gained significant attention [4, 59, 65, 84, 86, 143].\nThey use implicit or explicit prior knowledge to identify\ndegradation patterns and guide restoration. However, ex-\nisting methods face challenges in deriving effective priors\nthat align with the visual structures of degraded images.\nImplicit priors are extracted from input low-quality (LQ)\nimages by task-specific sub-networks [14, 84] or learnable\nprompts [4, 59, 86, 143]; they are essentially equivalent\nto increasing the parameter counts, limiting their gener-\nalizability to complex degradations [43]. Explicit priors,\ntypically text descriptions processed by language models\n[19, 131], suffer from weak alignment with low-level vi-\nsual structures [66, 124]. Text descriptions are typically\ncoarse or agnostic to degradations [13] due to inherent lan-\nguage ambiguity and a lossy language-vision bridge. Thus,\nthe text descriptions may collapse into category labels, crip-\npling the benefit of the added complexity.\nGiven the above limitations, we propose to let visual\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n12764\n\nspeak for visual and guide the image restoration model with\nvisual instructions as explicit priors. Our visual instruc-\ntions are constructed to demonstrate the artifacts of image\ndegradations as visual guidance. This is achieved by apply-\ning the image corruption process (e.g. raining or noising)\nof the LQ images upon the visual grounds consisting of ba-\nsic visual elements such as random textures, basic shapes,\nstandard colors, etc, as shown in Fig. 1. The resulting visual\ninstructions encode the exact visual effects (e.g. rain lines\nor noisy “dots”) of the degradation with a minimal loss of\ninformation. The primary benefit is that the resulting visual\ninstructions are inherently aligned with visual degradation\npatterns. For example, the combined visual instruction in\nFig. 1 can naturally show similar distortions as the compos-\nite LQ images. This makes the visual instructions suitable\nfor low-level vision tasks.\nWe propose a unified diffusion-based image restoration\nframework, Degradation Diffusion, which is guided by our\nvisual instructions to denoise in the degradation space. The\ndiffusion model provides generative priors for the restored\nimages, conditioned on the LQ images through an Image\nRestoration Bridge (IRB) to preserve the structural priors\nof the LQ images and maintain visual consistency between\nLQ and restored images. Visual instructions, which capture\nthe prominent intrinsic artifacts that degradations induce on\ntextures, colors, lightness, and other image elements, con-\ntrol the model to perform restoration tasks. Specifically, vi-\nsual instructions are “tokenized” and hint the model of the\ndegradations in the LQ images via a Visual Instruct Adapter\n(VIA). Moreover, Defusion operates within the degradation\nspace defined as the space of transformations between LQ\nand HQ images, which aligns with the visual instructions\ndescribing the degradation. The restoration model is jointly\ntrained on multiple tasks. During inference, it follows vi-\nsual instructions to handle various degradation types.\nOur contributions are summarized as follows:",
+    "method": "3. Method\nThis section introduces the proposed diffusion-based all-in-\none image restoration method, Defusion. Fig. 2 depicts the\noverall framework. Sec. 3.1 describes the construction of\nour visual instructions. Sec. 3.2 formulates the instruction-\nguided diffusion model in degradation space. Sec. 3.3 de-\ntails the conditioning mechanisms with the visual instruc-\ntions via a Visual Instruction Adapter (VIA) and condition\ngeneration on the LQ images with an Image Restoration\nBridge (IRB).",
+    "experiments": "3. We conducted comprehensive experiments on various\nimage restoration tasks under different scenarios in-\ncluding complex and unseen degradations, and the re-\nsults demonstrate that Defusion consistently outper-\nforms state-of-the-art methods.",
+    "conclusion": "5. Conclusion\nWe present Defusion, a novel image restoration frame-\nwork utilizing visual instruction-guided degradation diffu-\nsion. Defusion aligns visual instructions with degradation\npatterns, surpassing traditional methods dependent on am-\nbiguous text-based priors or task-specific models. Oper-\nating in degradation space, our model reconstructs high-\nquality images by denoising the shift between LQ and HQ\nimages, enhancing stability and performance. Extensive\nexperiments demonstrate Defusion’s state-of-the-art perfor-\nmance in various image restoration tasks, including com-\nplex real-world scenarios with multiple degradations. The\nproposed approach sets new state-of-the-art for multitask\nimage restoration with a unified model based on generative\nmodels, providing a robust solution to handle a wide range\nof restoration applications in the real world.\nAcknowledgments This work was supported by Bei-\njing Natural Science Foundation (JQ24022), CAAI-Ant\nGroup Research Fund CAAI-MYJJ 2024-02, the National\nNatural Science Foundation of China (No. 62372451,\nNo. 62192785, No. 62372082, No. 62403462), the\nKey Research and Development Program of Xinjiang\nUyghur Autonomous Region, Grant No. 2023B03024."
+  }
+}

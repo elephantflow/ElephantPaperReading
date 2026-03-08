@@ -1,0 +1,91 @@
+{
+  "paper_id": "diffusion-renderer-neural-inverse-and-forward-rendering-with-video-diffusion-mod--1aaf23579b",
+  "paper_title": "Diffusion Renderer: Neural Inverse and Forward Rendering with Video Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:27.190840+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Diffusion Renderer： Neural Inverse and Forward Rendering with Video Diffusion Models.pdf",
+    "filename": "Diffusion Renderer： Neural Inverse and Forward Rendering with Video Diffusion Models.pdf",
+    "sha1": "1aaf23579bba8597e56344c47409ad636dd9c528",
+    "page_count": 12
+  },
+  "core_story": {
+    "problem": "Such a scene de- scription is either designed by artists (synthetic scenes) or re- constructed from data—also known as the inverse rendering problem [2, 3].",
+    "limitation": "However, acquiring high quality surface and material representations is challenging in real-world scenarios, limiting the practicality of PBR methods (Fig.",
+    "insight": "Abstract Understanding and modeling lighting effects are fundamen- tal tasks in computer vision and graphics.",
+    "proposed_method": "Therefore, we introduce DIFFUSION RENDERER , a neural approach that addresses the dual problem of inverse and forward rendering within a holistic framework.",
+    "experimental_evidence": "Experiments demonstrate that DIFFUSION RENDERER effectively approximates inverse and forwards rendering, consistently outperforming the state-of- the-art.",
+    "summary": "Such a scene de- scription is either designed by artists (synthetic scenes) or re- constructed from data—also known as the inverse rendering problem [2, 3]. However, acquiring high quality surface and material representations is challenging in real-world scenarios, limiting the practicality of PBR methods (Fig. Abstract Understanding and modeling lighting effects are fundamen- tal tasks in computer vision and graphics. Therefore, we introduce DIFFUSION RENDERER , a neural approach that addresses the dual problem of inverse and forward rendering within a holistic framework. Experiments demonstrate that DIFFUSION RENDERER effectively approximates inverse and forwards rendering, consistently outperforming the state-of- the-art."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Understanding and modeling light transport forms the ba- sis of Physically Based Rendering (PBR) [ 59].",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\nUnderstanding and modeling light transport forms the ba-\nsis of Physically Based Rendering (PBR) [ 59]. Modern\npath tracing algorithms, as regularly used in the gaming and\nmovie industries, simulate light transport to render images\nthat cannot be distinguished from photographs. The quality\nof such PBR-rendered images heavily depends on the accu-\nracy and realism of the scene’s surface geometry, material\nproperties, and lighting representations. Such a scene de-\nscription is either designed by artists (synthetic scenes) or re-\nconstructed from data—also known as the inverse rendering\nproblem [2, 3]. Inverse rendering has been extensively stud-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n26069"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "method_overview",
+      "main_message": "ied, particularly for applications like relighting and object insertion into real-world scenes [20, 41, 75, 88].",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "ied, particularly for applications like relighting and object\ninsertion into real-world scenes [20, 41, 75, 88]. However,\nacquiring high quality surface and material representations is\nchallenging in real-world scenarios, limiting the practicality\nof PBR methods (Fig. 2).\nWhile physically-based rendering and inverse rendering\nare usually considered separately, we propose to consider\nthem jointly. Our approach draws inspiration from the suc-\ncess of large-scale generative models [8, 65], which \"render\"\nphotorealistic images from simple text prompts without any\nexplicit understanding of PBR. These models learn the under-\nlying distribution of real-world images from a vast amounts\nof data, implicitly capturing the complex lighting effects.\nSpecifically, we propose DIFFUSION RENDERER , a\ngeneral-purpose neural rendering engine that can synthesize\nlight transport simulation—such as shadows and reflections—\nby leveraging the powerful priors of video diffusion models.\nConditioned on input geometry, material buffers, and envi-\nronment map light source, DIFFUSION RENDERER acts as a\nneural approximation of path-traced shading. DIFFUSION -\nRENDERER is designed to remain faithful to the condit"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Data is a critical aspect of learning-based methods."
+    ],
+    "limitation_expression": [
+      "However, acquiring high quality surface and material representations is challenging in real-world scenarios, limiting the practicality of PBR methods (Fig."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "While physically-based rendering and inverse rendering are usually considered separately, we propose to consider them jointly.",
+      "Specifically, we propose DIFFUSION RENDERER , a general-purpose neural rendering engine that can synthesize light transport simulation—such as shadows and reflections— by leveraging the powerful priors of video diffusion models.",
+      "Fi- nally, we show applications of our method in Sec."
+    ],
+    "experiment_expression": [
+      "Experiments demonstrate that DIFFUSION RENDERER effectively approximates inverse and forwards rendering, consistently outperforming the state-of- the-art."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, acquiring high quality surface and material representations is challenging in real-world scenarios, limiting the practicality of PBR methods (Fig.",
+    "Specifically, we propose DIFFUSION RENDERER , a general-purpose neural rendering engine that can synthesize light transport simulation—such as shadows and reflections— by leveraging the powerful priors of video diffusion models.",
+    "While physically-based rendering and inverse rendering are usually considered separately, we propose to consider them jointly.",
+    "1), transforming G-buffers [56] and lighting into a photorealistic video.",
+    "26069 ied, particularly for applications like relighting and object insertion into real-world scenes [20, 41, 75, 88].",
+    "3, the neural forward renderer (Sec.",
+    "4.1) approximates physi- cally based light transport (Eq.",
+    "4.2) reconstructs geometry and material buffers from input video.",
+    "5.1 details our experimental settings.",
+    "5.2), inverse rendering (Sec.",
+    "5.3), and relighting (Sec.",
+    "Abstract Understanding and modeling lighting effects are fundamen- tal tasks in computer vision and graphics."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nUnderstanding and modeling lighting effects are fundamen-\ntal tasks in computer vision and graphics. Classic physically-\nbased rendering (PBR) accurately simulates the light trans-\nport, but relies on precise scene representations–explicit\n3D geometry, high-quality material properties, and lighting\nconditions–that are often impractical to obtain in real-world\nscenarios. Therefore, we introduce DIFFUSION RENDERER ,\na neural approach that addresses the dual problem of inverse\nand forward rendering within a holistic framework. Lever-\naging powerful video diffusion model priors, the inverse ren-\ndering model accurately estimates G-buffers from real-world\nvideos, providing an interface for image editing tasks, and\ntraining data for the rendering model. Conversely, our ren-\ndering model generates photorealistic images from G-buffers\nwithout explicit light transport simulation. Specifically, we\nfirst train a video diffusion model for inverse rendering on\nsynthetic data, which generalizes well to real-world videos\nand allows us to auto-label diverse real-world videos. We\nthen co-train our rendering model using both synthetic and\nauto-labeled real-world data. Experiments demonstrate that\nDIFFUSION RENDERER effectively approximates inverse and\nforwards rendering, consistently outperforming the state-of-\nthe-art. Our model enables practical applications from a\nsingle video input—including relighting, material editing,\nand realistic object insertion.",
+    "introduction": "1. Introduction\nUnderstanding and modeling light transport forms the ba-\nsis of Physically Based Rendering (PBR) [ 59]. Modern\npath tracing algorithms, as regularly used in the gaming and\nmovie industries, simulate light transport to render images\nthat cannot be distinguished from photographs. The quality\nof such PBR-rendered images heavily depends on the accu-\nracy and realism of the scene’s surface geometry, material\nproperties, and lighting representations. Such a scene de-\nscription is either designed by artists (synthetic scenes) or re-\nconstructed from data—also known as the inverse rendering\nproblem [2, 3]. Inverse rendering has been extensively stud-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n26069\n\nied, particularly for applications like relighting and object\ninsertion into real-world scenes [20, 41, 75, 88]. However,\nacquiring high quality surface and material representations is\nchallenging in real-world scenarios, limiting the practicality\nof PBR methods (Fig. 2).\nWhile physically-based rendering and inverse rendering\nare usually considered separately, we propose to consider\nthem jointly. Our approach draws inspiration from the suc-\ncess of large-scale generative models [8, 65], which \"render\"\nphotorealistic images from simple text prompts without any\nexplicit understanding of PBR. These models learn the under-\nlying distribution of real-world images from a vast amounts\nof data, implicitly capturing the complex lighting effects.\nSpecifically, we propose DIFFUSION RENDERER , a\ngeneral-purpose neural rendering engine that can synthesize\nlight transport simulation—such as shadows and reflections—\nby leveraging the powerful priors of video diffusion models.\nConditioned on input geometry, material buffers, and envi-\nronment map light source, DIFFUSION RENDERER acts as a\nneural approximation of path-traced shading. DIFFUSION -\nRENDERER is designed to remain faithful to the conditioning\nsignals, while adhering to the distribution of real-world im-\nages. As a result, we bypass the need for precise scene\nrepresentations and description, as our model learns to han-\ndle imperfections in the input data.\nTraining such a model requires some amount of high\nquality and diverse data, including data with noisy conditions\nto ensure robustness. Therefore, we first train an inverse\nrenderer, a video diffusion model to map input RGB videos\nto intrinsic properties. Although trained solely on synthetic\ndata, the inverse rendering model generalizes robustly to real-\nworld scenarios. We then use it to generate “pseudo-labels”\nfor diverse real-world videos. Combining both real-world\nauto-labeled data and synthetic data, we train our forward\nrenderer video diffusion model.\nDIFFUSION RENDERER outperforms state-of-the-art\nmethods and effectively approximates the complex func-\ntionalities of inverse and forward rendering, allowing us\nto relight images and videos across diverse scenes and\nto synthesize consistent shadows and reflections without\nexplicit path tracing and 3D scene representation. Our model\ncan relight any scene from only a single video input, and\nprovides fundamental tools for editing tasks such as material\nediting and realistic object insertion. To summarize:\n• We develop a state-of-the-art inverse rendering method\nfor videos of synthetic and real-world scenes.\n• We repurpose a video diffusion model as a neural render-\ning engine that can synthesize photorealistic images and\nvideos conditioned on noisy G-buffers.\n• From a single video input,DIFFUSION RENDERER enables\nrelighting, material editing, and virtual object insertion\nin a unified framework, expanding the possibilities for\nreal-world neural rendering applications.\nReference SSRT SSRT side view Ours\nInput Estimated G-buffer SSRT relit Ours relit\nFigure 2. Classic PBR relies on explicit 3D geometry, e.g., meshes.\nWhen it is not available, screen space ray tracing (SSRT) struggles\nto accurately represent shadows and reflections (top). PBR is also\nsensitive to errors in G-buffers – SSRT with estimated G-buffers\nfrom inverse rendering models often fails to deliver quality results\n(bottom). DIFFUSION RENDERER bypasses these issues, producing\nphotorealistic results without 3D geometry or perfect G-buffers.",
+    "method": "4. Method\nDIFFUSION RENDERER is a unified framework comprising\ntwo video diffusion models designed for the dual tasks of\nneural forward and inverse rendering. As illustrated in Fig. 3,\nthe neural forward renderer (Sec. 4.1) approximates physi-\ncally based light transport (Eq. 1), transforming G-buffers\n[56] and lighting into a photorealistic video. The neural in-\nverse renderer (Sec. 4.2) reconstructs geometry and material\nbuffers from input video. The neural forward and inverse\nrenderers are based on pre-trained video diffusion models\nand fine-tuned for conditional generation [34, 36, 83].\nData is a critical aspect of learning-based methods. We\ndescribe our data curation workflow and synthetic-real joint\ntraining strategies in Sec. 4.3 and Sec. 4.4. Finally, we\ndiscuss image editing applications in Sec. 4.5.",
+    "experiments": "5. Experiments\nWe extensively evaluateDIFFUSION RENDERER on a diverse\nrange of synthetic and real-world datasets. Sec. 5.1 details\nour experimental settings. We compare and ablate across\nthree main tasks: image generation from G-buffers (Sec. 5.2),\ninverse rendering (Sec. 5.3), and relighting (Sec. 5.4). Fi-\nnally, we show applications of our method in Sec. 5.5.",
+    "conclusion": ""
+  }
+}

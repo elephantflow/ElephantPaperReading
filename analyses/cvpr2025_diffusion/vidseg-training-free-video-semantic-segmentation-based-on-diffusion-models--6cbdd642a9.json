@@ -1,0 +1,88 @@
+{
+  "paper_id": "vidseg-training-free-video-semantic-segmentation-based-on-diffusion-models--6cbdd642a9",
+  "paper_title": "VidSeg: Training-free Video Semantic Segmentation based on Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:48.756169+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/VidSeg： Training-free Video Semantic Segmentation based on Diffusion Models.pdf",
+    "filename": "VidSeg： Training-free Video Semantic Segmentation based on Diffusion Models.pdf",
+    "sha1": "6cbdd642a9d0676b298273154aa5dd9e40dff94c",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Diffusion models [2, 9, 17, 20, 21] have showcased remark- able capabilities in learning complex data distributions effec- tively.",
+    "limitation": "Introduction Diffusion models [2, 9, 17, 20, 21] have showcased remark- able capabilities in learning complex data distributions effec- tively.",
+    "insight": "Abstract We introduce the first training-free approach for Video Semantic Segmentation (VSS) based on pre-trained diffusion models, termed VidSeg.",
+    "proposed_method": "Abstract We introduce the first training-free approach for Video Semantic Segmentation (VSS) based on pre-trained diffusion models, termed VidSeg.",
+    "experimental_evidence": "Experiments show that our proposed approach significantly outperforms existing training-free image seman- tic segmentation approaches on various VSS benchmarks without any training or fine-tuning.",
+    "summary": "Introduction Diffusion models [2, 9, 17, 20, 21] have showcased remark- able capabilities in learning complex data distributions effec- tively. Introduction Diffusion models [2, 9, 17, 20, 21] have showcased remark- able capabilities in learning complex data distributions effec- tively. Abstract We introduce the first training-free approach for Video Semantic Segmentation (VSS) based on pre-trained diffusion models, termed VidSeg. Abstract We introduce the first training-free approach for Video Semantic Segmentation (VSS) based on pre-trained diffusion models, termed VidSeg. Experiments show that our proposed approach significantly outperforms existing training-free image seman- tic segmentation approaches on various VSS benchmarks without any training or fine-tuning."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Diffusion models [2, 9, 17, 20, 21] have showcased remark- able capabilities in learning complex data distributions effec- tively.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Diffusion models [2, 9, 17, 20, 21] have showcased remark- able capabilities in learning complex data distributions effec- tively. This was achieved by exploiting their scalability to train on large-scale datasets [1, 22], allowing them to gen- erate high-quality images and videos with soaring diversity and fidelity. Interestingly, those models could learn a pro- found understanding of images and their semantics as an indirect consequence of their large-scale training. This enti- tled them to be considered as Foundation Models with high degrees of generalizability and comprehension of images."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "As a result, a growing research direction attempts to use the internal representations of diffusion models to perform This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "As a result, a growing research direction attempts to use the internal representations of diffusion models to perform This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, we find their performance on videos to be subpar due to the absence of any modeling of temporal information inherent in the video data."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "We propose building a scene context model based on the diffusion features, where the model is autoregressively updated to adapt to scene changes.",
+      "To refine these maps further, we propose a correspondence-based refinement strategy that aggregates predictions temporally, resulting in more confi- dent predictions.",
+      "Method Our method encompasses three main components, as illus- trated in Figure 3.",
+      "Finally, we propose a masked modu- lation approach that produces less noisy and more stable full-resolution segmentation maps (4.3)."
+    ],
+    "experiment_expression": [],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Finally, we propose a masked modu- lation approach that produces less noisy and more stable full-resolution segmentation maps (4.3).",
+    "However, we find their performance on videos to be subpar due to the absence of any modeling of temporal information inherent in the video data.",
+    "To refine these maps further, we propose a correspondence-based refinement strategy that aggregates predictions temporally, resulting in more confi- dent predictions.",
+    "We propose building a scene context model based on the diffusion features, where the model is autoregressively updated to adapt to scene changes.",
+    "We proposed a pipeline tailored for VSS that leverages image and video diffusion features, and at- tempts to enhance their temporal consistency.",
+    "A growing research direction at- tempts to employ diffusion models to perform downstream vi- sion tasks by exploiting their deep understanding of image se- mantics.",
+    "Abstract We introduce the first training-free approach for Video Semantic Segmentation (VSS) based on pre-trained diffusion models, termed VidSeg.",
+    "As a result, a growing research direction attempts to use the internal representations of diffusion models to perform This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "Conclusions In this work, we introduced the first training-free method for Video Semantic Segmentation (VSS) using pre-trained diffusion models.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experiments To the best of our knowledge, no training-free diffusion- based video semantic segmentation (VSS) approach exists.",
+    "Experiments show that our proposed approach significantly outperforms existing training-free image seman- tic segmentation approaches on various VSS benchmarks without any training or fine-tuning."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWe introduce the first training-free approach for Video\nSemantic Segmentation (VSS) based on pre-trained diffusion\nmodels, termed VidSeg. A growing research direction at-\ntempts to employ diffusion models to perform downstream vi-\nsion tasks by exploiting their deep understanding of image se-\nmantics. Yet, the majority of these approaches have focused\non image-related tasks like semantic segmentation, with less\nemphasis on video tasks such as VSS. Ideally, diffusion-based\nimage semantic segmentation approaches can be applied to\nvideos in a frame-by-frame manner. However, we find their\nperformance on videos to be subpar due to the absence of\nany modeling of temporal information inherent in the video\ndata. To this end, we tackle this problem and introduce a\nframework tailored for VSS based on pre-trained image and\nvideo diffusion models. We propose building a scene context\nmodel based on the diffusion features, where the model is\nautoregressively updated to adapt to scene changes. This\ncontext model predicts per-frame coarse segmentation maps\nthat are temporally consistent. To refine these maps further,\nwe propose a correspondence-based refinement strategy that\naggregates predictions temporally, resulting in more confi-\ndent predictions. Finally, we introduce a masked modulation\napproach to upsample the coarse maps to a high-quality full\nresolution. Experiments show that our proposed approach\nsignificantly outperforms existing training-free image seman-\ntic segmentation approaches on various VSS benchmarks\nwithout any training or fine-tuning. Moreover, it rivals su-\npervised VSS approaches on the VSPW dataset despite not\nbeing explicitly trained for VSS.",
+    "introduction": "1. Introduction\nDiffusion models [2, 9, 17, 20, 21] have showcased remark-\nable capabilities in learning complex data distributions effec-\ntively. This was achieved by exploiting their scalability to\ntrain on large-scale datasets [1, 22], allowing them to gen-\nerate high-quality images and videos with soaring diversity\nand fidelity. Interestingly, those models could learn a pro-\nfound understanding of images and their semantics as an\nindirect consequence of their large-scale training. This enti-\ntled them to be considered as Foundation Models with high\ndegrees of generalizability and comprehension of images.\nAs a result, a growing research direction attempts to use\nthe internal representations of diffusion models to perform\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "4. Method\nOur method encompasses three main components, as illus-\ntrated in Figure 3. First, we construct a scene context model\n22987\n\n𝑧𝑡 ∗ + Ƹ𝑧𝑡 ∗ 1 − = ǁ𝑧𝑡\n…\nStage 1: Scene Context Model Init.\nStage 3: Masked-Modulation\nVAE\nEncoder\nBlock 6 Block 7 Block 8\nLatent Blending\nModulating ±𝜆\nDifference Maps\n𝒟 = {𝐷1, 𝐷2, … , 𝐷𝐿}\nInput Frame\n𝑋1\nInput Frames\n𝑋2…𝐵\nVideo Segmentation\nMaps\n𝒩(0, 𝐼)\nKNN\nΩ\nK-Means\nKNN\nΩ\nFeature\nExtraction\nStage 2: Coarse Masks Prediction\n𝐴𝑟𝑔𝑀𝑎𝑥\n…\nKNN\nΩ To the next batch of frames …\n𝑧𝑡\n𝑀1\nƸ𝑧𝑡\nFeature Aggregation\nVAE\nDecoder\nCBR\n𝐼±\n𝑀2...𝐵\n𝑌1…𝐵\n෨𝐹1\n෨𝐹2…𝐵\n෨𝐹1…𝐵\n෩𝑀2...𝐵 ෩𝑀1...𝐵\nFigure 3. Our Video Semantic Segmentation (VSS) approach encompasses three stages. In Stage 1, we initialize a Scene Context Model Ω\nas a KNN classifier with the aggregated diffusion features eF 1 of the first frame and a coarse mask M 1 produced by K-Means clustering.\nIn Stage 2, we use the context model Ω to predict coarse masks for the remaining frames in the batch M 2...B. We refine the coarse maps\nM 1...B using our correspondence-based refinement (CBR). In Stage 3, we use the refined coarse masks to modulate the attention layers of\nthe diffusion process with factor ±λ to obtain a modulated latent ˆzt. Then, we blend ˆzt with the original unmodulated latent zt using the\ncoarse masks to obtain a less noisy latent ezt. Finally, the latent ezt is decoded to obtain images I +, I− that are used to compute a set of\ndifference maps per segment l ∈ L. The final predictions are made by applying an arg max operation over the difference maps similar to\n[15]. The process is repeated for the following batch of frames where the context model is updated in an autoregressive manner using the\ncoarse masks M 1...B and their corresponding features eF 1...B.\nto produce coarse segmentation maps based on the diffusion\nfeatures (Section 4.1). Then, we introduce a correspondence-\nbased refinement strategy to curate the coarse segmentation\nmaps (Section 4.2). Finally, we propose a masked modu-\nlation approach that produces less noisy and more stable\nfull-resolution segmentation maps (4.3). We also provide\nsome details on adapting our approach to employ features\nfrom Stable Video Diffusion (SVD) in Section 4.4.",
+    "experiments": "5. Experiments\nTo the best of our knowledge, no training-free diffusion-\nbased video semantic segmentation (VSS) approach exists.\nTherefore, we compare against existing training-free image\nsegmentation methods by adapting them to the VSS setting.",
+    "conclusion": "7. Conclusions\nIn this work, we introduced the first training-free method\nfor Video Semantic Segmentation (VSS) using pre-trained\ndiffusion models. We proposed a pipeline tailored for VSS\nthat leverages image and video diffusion features, and at-\ntempts to enhance their temporal consistency. Experiments\nshowed that our proposed approach significantly outperforms\ntraining-free image semantic segmentation methods on sev-\neral VSS benchmarks, and performs comparably well to\nsupervised methods on VSPW dataset."
+  }
+}

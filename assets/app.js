@@ -1,12 +1,14 @@
 const state = {
   papers: [],
   activeTheme: "All",
+  activeCollection: "All",
   query: "",
 };
 
 const grid = document.querySelector("#paper-grid");
 const cardTemplate = document.querySelector("#paper-card-template");
 const searchInput = document.querySelector("#search-input");
+const collectionFilter = document.querySelector("#collection-filter");
 const themeFilter = document.querySelector("#theme-filter");
 const paperCount = document.querySelector("#paper-count");
 const themeCount = document.querySelector("#theme-count");
@@ -39,6 +41,9 @@ function classifyCardTitle(el) {
 
 function matchesPaper(paper) {
   const themeOk = state.activeTheme === "All" || paper.theme === state.activeTheme;
+  const collectionOk =
+    state.activeCollection === "All" ||
+    (paper.collections || []).includes(state.activeCollection);
   const haystack = [
     paper.paper_title,
     paper.story_summary,
@@ -49,7 +54,7 @@ function matchesPaper(paper) {
     .join(" ")
     .toLowerCase();
   const queryOk = haystack.includes(state.query.toLowerCase());
-  return themeOk && queryOk;
+  return themeOk && collectionOk && queryOk;
 }
 
 function renderPapers() {
@@ -58,7 +63,14 @@ function renderPapers() {
   for (const paper of papers) {
     const node = cardTemplate.content.firstElementChild.cloneNode(true);
     node.querySelector(".theme-pill").textContent = paper.theme;
-    node.querySelector(".dataset-pill").textContent = paper.dataset;
+    const collections = node.querySelector(".collection-list");
+    collections.innerHTML = "";
+    for (const label of paper.collections || []) {
+      const chip = document.createElement("span");
+      chip.className = "dataset-pill";
+      chip.textContent = label;
+      collections.appendChild(chip);
+    }
     const title = node.querySelector(".paper-title");
     title.textContent = paper.paper_title;
     classifyCardTitle(title);
@@ -71,6 +83,23 @@ function renderPapers() {
     link.href = paper.detail_path;
     grid.appendChild(node);
     fitBlock(title, 3, 0.96);
+  }
+}
+
+function renderCollections(collections) {
+  const items = ["All", ...collections];
+  collectionFilter.innerHTML = "";
+  for (const item of items) {
+    const button = document.createElement("button");
+    button.className = `chip${state.activeCollection === item ? " is-active" : ""}`;
+    button.type = "button";
+    button.textContent = item;
+    button.addEventListener("click", () => {
+      state.activeCollection = item;
+      renderCollections(collections);
+      renderPapers();
+    });
+    collectionFilter.appendChild(button);
   }
 }
 
@@ -98,6 +127,7 @@ async function init() {
   paperCount.textContent = payload.stats.paper_count;
   themeCount.textContent = payload.stats.theme_count;
   fitBlock(heroTitle, 6, 2.2);
+  renderCollections(payload.collections || []);
   renderThemes(payload.themes);
   renderPapers();
 }

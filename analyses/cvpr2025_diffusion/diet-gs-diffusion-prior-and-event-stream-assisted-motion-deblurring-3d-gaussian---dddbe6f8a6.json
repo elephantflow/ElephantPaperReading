@@ -1,0 +1,97 @@
+{
+  "paper_id": "diet-gs-diffusion-prior-and-event-stream-assisted-motion-deblurring-3d-gaussian---dddbe6f8a6",
+  "paper_title": "DiET-GS: Diffusion Prior and Event Stream-Assisted Motion Deblurring 3D Gaussian Splatting",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:21.244696+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/DiET-GS： Diffusion Prior and Event Stream-Assisted Motion Deblurring 3D Gaussian Splatting.pdf",
+    "filename": "DiET-GS： Diffusion Prior and Event Stream-Assisted Motion Deblurring 3D Gaussian Splatting.pdf",
+    "sha1": "dddbe6f8a6e64de57fc4a4bc8cc22c4a37933466",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Novel view synthesis plays an important role in various vi- sion applications such as scene understanding [17, 27, 58], virtual reality [18, 60], image processing [9, 29, 32],etc.",
+    "limitation": "However, it falls short of real-time rendering and efficient training, limiting its application in real-world sce- narios.",
+    "insight": "Motivated by this distinct competency, several recent works have ex- plored the potential of recovering sharp 3D representations from event streams.",
+    "proposed_method": "Specifically, we introduce the novel framework to constrain 3DGS with event dou- ble integral, achieving both accurate color and well-defined details.",
+    "experimental_evidence": "Qualitative and quantitative results on both synthetic and real-world data demonstrate that our DiET-GS is capable of producing better quality of novel views compared to the existing baselines.",
+    "summary": "Introduction Novel view synthesis plays an important role in various vi- sion applications such as scene understanding [17, 27, 58], virtual reality [18, 60], image processing [9, 29, 32],etc. However, it falls short of real-time rendering and efficient training, limiting its application in real-world sce- narios. Motivated by this distinct competency, several recent works have ex- plored the potential of recovering sharp 3D representations from event streams. Specifically, we introduce the novel framework to constrain 3DGS with event dou- ble integral, achieving both accurate color and well-defined details. Qualitative and quantitative results on both synthetic and real-world data demonstrate that our DiET-GS is capable of producing better quality of novel views compared to the existing baselines."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "method_overview",
+      "main_message": "Introduction Novel view synthesis plays an important role in various vi- sion applications such as scene understanding [17, 27, 58], virtual reality [18, 60], image processing [9, 29, 32],etc.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "1. Introduction\nNovel view synthesis plays an important role in various vi-\nsion applications such as scene understanding [17, 27, 58],\nvirtual reality [18, 60], image processing [9, 29, 32],etc. To\nthis end, Neural Radiance Fields (NeRF) [31] achieves no-\ntable success in generating high-quality novel views by re-\nconstructing implicit 3D representations with a deep neural\nnetwork. However, it falls short of real-time rendering and\nefficient training, limiting its application in real-world sce-\nnarios. Recently, 3D Gaussian Splatting (3DGS) [15] has\nemerged as an efficient alternative to NeRF by representing\nscenes with explicit 3D Gaussian primitives. The explicit\nrepresentation of 3DGS serves as a lightweight replacement\nof the implicit neural representations used in NeRF, achiev-\ning better training and rendering efficiency as well as visual\nquality of novel views.\nTo enable high-quality 3D reconstructions, both NeRF\nand 3DGS rely on multi-view images that are perfectly cap-\nFigure 1. Given a set of blurry images and corresponding event\nstreams, we propose a novel framework to construct deblurring\n3DGS by jointly leveraging the EDI [33] formulation and a pre-\ntrained diffusion "
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "images into the framework as direct color supervision for 3D NeRF.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "images into the framework as direct color supervision for\n3D NeRF. Nonetheless, the estimated color exhibits blur\naround the edges since it does not account for the blur for-\nmation. E 2NeRF and following works [3, 23, 37, 61] ex-\nplicitly model the blur formation process to further enhance\nthe color and edge details. However, most of these exist-\ning works still rely on blurry images alone to recover ac-\ncurate color, often resulting in unwanted color artifacts. To\nsupplement color guidance, Ev-DeblurNeRF [3] proposes\nto exploit the explicit relationship of Event Double Integral\n(EDI) between blurry images and event streams.\nIn this paper, we propose DiET-GS, a Di\nffusion prior\nand E venT stream-assisted motion deblurring 3DGS . As\nillustrated in Fig. 1, our framework comprises two main\nstages: DiET-GS and DiET-GS++. Our Stage 1: DiET-GS\nfirst optimizes the deblurring 3DGS by jointly leveraging\nthe real-captured event streams and the prior knowledge of\na pretrained diffusion model. To restore both accurate color\nand well-defined details, we introduce a novel framework\nthat uses the EDI prior to achieve 1) fine-grained details, 2)\naccurate color, and 3) regularization. Specifically"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Our Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, they often reach sub-optimal visual quality in either restoring inac- curate color or losing fine-grained details.",
+      "However, it falls short of real-time rendering and efficient training, limiting its application in real-world sce- narios.",
+      "However, this preliminary condition is often unavailable in the real world.",
+      "The camera has to remain absolutely still during this lengthy exposure time.",
+      "However, most of these exist- ing works still rely on blurry images alone to recover ac- curate color, often resulting in unwanted color artifacts."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Our framework effec- tively leverages blur-free event streams and diffusion prior in a two-stage training strategy.",
+      "Additionally, we propose a simple technique to leverage diffusion prior to further enhance the edge details.",
+      "Given a set of blurry images and corresponding event streams, we propose a novel framework to construct deblurring 3DGS by jointly leveraging the EDI [33] formulation and a pre- trained diffusion model as a prior.",
+      "In this paper, we propose DiET-GS, a Di ffusion prior and E venT stream-assisted motion deblurring 3DGS .",
+      "1, our framework comprises two main stages: DiET-GS and DiET-GS++.",
+      "Specifically, in addi- tion to the EDI color guidance proposed by [3], we propose further constraints to recover fine-grained details by model- ing EDI in the brightness domain through a learnable cam- era response function.",
+      "Once opti- mized, our method is capable of recovering well-defined details with accurate color from the input blurry images. • Qualitative and quantitative results show that our frame- work significantly surpasses the existing baselines, achieving the best visual quality."
+    ],
+    "experiment_expression": [
+      "Qualitative and quantitative results on both synthetic and real-world data demonstrate that our DiET-GS is capable of producing better quality of novel views compared to the existing baselines."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Additionally, we propose a simple technique to leverage diffusion prior to further enhance the edge details.",
+    "Given a set of blurry images and corresponding event streams, we propose a novel framework to construct deblurring 3DGS by jointly leveraging the EDI [33] formulation and a pre- trained diffusion model as a prior.",
+    "However, it falls short of real-time rendering and efficient training, limiting its application in real-world sce- narios.",
+    "However, most of these exist- ing works still rely on blurry images alone to recover ac- curate color, often resulting in unwanted color artifacts.",
+    "However, they often reach sub-optimal visual quality in either restoring inac- curate color or losing fine-grained details.",
+    "However, this preliminary condition is often unavailable in the real world.",
+    "In this paper, we propose DiET-GS, a Di ffusion prior and E venT stream-assisted motion deblurring 3DGS .",
+    "Specifically, in addi- tion to the EDI color guidance proposed by [3], we propose further constraints to recover fine-grained details by model- ing EDI in the brightness domain through a learnable cam- era response function.",
+    "1, our framework comprises two main stages: DiET-GS and DiET-GS++.",
+    "2 shows an illustration of our DiET-GS framework which consists of two stages.",
+    "21739 images into the framework as direct color supervision for 3D NeRF.",
+    "4.1) con- structs a deblurring 3DGS by leveraging an EDI constraint derived from real-captured data and the prior knowledge of a pretrained diffusion model."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nReconstructing sharp 3D representations from blurry\nmulti-view images is a long-standing problem in computer\nvision. Recent works attempt to enhance high-quality novel\nview synthesis from the motion blur by leveraging event-\nbased cameras, benefiting from high dynamic range and\nmicrosecond temporal resolution. However, they often\nreach sub-optimal visual quality in either restoring inac-\ncurate color or losing fine-grained details. In this paper,\nwe present DiET-GS, a diffusion prior and event stream-\nassisted motion deblurring 3DGS. Our framework effec-\ntively leverages blur-free event streams and diffusion prior\nin a two-stage training strategy. Specifically, we introduce\nthe novel framework to constrain 3DGS with event dou-\nble integral, achieving both accurate color and well-defined\ndetails. Additionally, we propose a simple technique to\nleverage diffusion prior to further enhance the edge details.\nQualitative and quantitative results on both synthetic and\nreal-world data demonstrate that our DiET-GS is capable\nof producing better quality of novel views compared to the\nexisting baselines. Our project page is: DiET-GS.github.io.",
+    "introduction": "1. Introduction\nNovel view synthesis plays an important role in various vi-\nsion applications such as scene understanding [17, 27, 58],\nvirtual reality [18, 60], image processing [9, 29, 32],etc. To\nthis end, Neural Radiance Fields (NeRF) [31] achieves no-\ntable success in generating high-quality novel views by re-\nconstructing implicit 3D representations with a deep neural\nnetwork. However, it falls short of real-time rendering and\nefficient training, limiting its application in real-world sce-\nnarios. Recently, 3D Gaussian Splatting (3DGS) [15] has\nemerged as an efficient alternative to NeRF by representing\nscenes with explicit 3D Gaussian primitives. The explicit\nrepresentation of 3DGS serves as a lightweight replacement\nof the implicit neural representations used in NeRF, achiev-\ning better training and rendering efficiency as well as visual\nquality of novel views.\nTo enable high-quality 3D reconstructions, both NeRF\nand 3DGS rely on multi-view images that are perfectly cap-\nFigure 1. Given a set of blurry images and corresponding event\nstreams, we propose a novel framework to construct deblurring\n3DGS by jointly leveraging the EDI [33] formulation and a pre-\ntrained diffusion model as a prior. Our DiET-GS++ enables high-\nquality novel-view synthesis by recovering precise color and well-\ndefined details from the blurry multi-view images.\ntured and free from any artifact. However, this preliminary\ncondition is often unavailable in the real world. For ex-\nample, a camera needs prolonged exposure time in a low\nlight environment to allow enough light to reach the sensor\nfor image formation. The camera has to remain absolutely\nstill during this lengthy exposure time. Any camera motion\nduring the capture leads to undesired motion blur. To cir-\ncumvent this issue, a line of works [19, 29, 34, 54, 66] has\nattempted to recover sharp 3D representations from blurry\nmulti-view images. Despite the promising potential, it is\nnon-trivial to restore fine-grained details from blurry images\nalone and thus often leading to sub-optimal visual quality.\nSeveral recent works have shown the efficacy of event-\nbased cameras, significantly improving motion deblurring\nin images captured from standard frame-based cameras.\nEvent sensors enable blur-free measurements of brightness\nchanges, benefiting from higher dynamic range and tem-\nporal resolution compared to standard cameras. Motivated\nby this distinct competency, several recent works have ex-\nplored the potential of recovering sharp 3D representations\nfrom event streams. Earlier works [1, 11, 42] focus on\nutilizing solely event-based data, lacking the capacity to\npreserve color information. E-NeRF [16] combines blurry\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n21739\n\nimages into the framework as direct color supervision for\n3D NeRF. Nonetheless, the estimated color exhibits blur\naround the edges since it does not account for the blur for-\nmation. E 2NeRF and following works [3, 23, 37, 61] ex-\nplicitly model the blur formation process to further enhance\nthe color and edge details. However, most of these exist-\ning works still rely on blurry images alone to recover ac-\ncurate color, often resulting in unwanted color artifacts. To\nsupplement color guidance, Ev-DeblurNeRF [3] proposes\nto exploit the explicit relationship of Event Double Integral\n(EDI) between blurry images and event streams.\nIn this paper, we propose DiET-GS, a Di\nffusion prior\nand E venT stream-assisted motion deblurring 3DGS . As\nillustrated in Fig. 1, our framework comprises two main\nstages: DiET-GS and DiET-GS++. Our Stage 1: DiET-GS\nfirst optimizes the deblurring 3DGS by jointly leveraging\nthe real-captured event streams and the prior knowledge of\na pretrained diffusion model. To restore both accurate color\nand well-defined details, we introduce a novel framework\nthat uses the EDI prior to achieve 1) fine-grained details, 2)\naccurate color, and 3) regularization. Specifically, in addi-\ntion to the EDI color guidance proposed by [3], we propose\nfurther constraints to recover fine-grained details by model-\ning EDI in the brightness domain through a learnable cam-\nera response function. This learnable approach naturally\nconsiders the potential variation between RGB values and\npixel intensity, leading to better real-world adaptation and\nthus effectively recovering intricate details. The EDI con-\nstraints from both RGB space [3] and brightness domain en-\nable mutual compensation between color fidelity and fine-\ngrained details, resulting in optimal visual quality. Addi-\ntionally, we derive a regularization term from the EDI prior\nto further facilitate the optimization by ensuring the cycle\nconsistency among the objective terms.\nTo achieve more natural image refinement, we further\nincorporate diffusion prior in DiET-GS using the Renoised\nScore Distillation (RSD) proposed by [20]. Nonetheless,\nwe empirically find that jointly leveraging both priors from\nreal-captured data and a pretrained diffusion model often\nweakens the full effect of diffusion prior. Consequently,\nour Stage 2: DiET-GS++ is further introduced to maximize\nthe effect of diffusion guidance by adding extra learnable\nparameters to each 3D Gaussian in the pretrained DiET-\nGS. Unlike [20], DiET-GS++ directly renders latent resid-\nual from the 3D Gaussians, resulting in a simpler frame-\nwork to leverage RSD optimization. Finally, resulting im-\nages from DiET-GS are further refined by solely relying on\ndiffusion prior while edge details are effectively enhanced.\nOur main contributions are summarized as follows:\n• A novel framework to construct deblurring 3DGS by\njointly leveraging event streams and the prior knowledge\nof a pretrained diffusion model.\n• A two-stage train38ing strategy to effectively utilize real-\ncaptured data and diffusion prior together. Once opti-\nmized, our method is capable of recovering well-defined\ndetails with accurate color from the input blurry images.\n• Qualitative and quantitative results show that our frame-\nwork significantly surpasses the existing baselines,\nachieving the best visual quality.",
+    "method": "4. Our Method\nFig. 2 shows an illustration of our DiET-GS framework\nwhich consists of two stages. Stage 1 ( cf . Sec. 4.1) con-\nstructs a deblurring 3DGS by leveraging an EDI constraint\nderived from real-captured data and the prior knowledge of\na pretrained diffusion model. Stage 2 ( cf . Sec. 4.2) further\nrefines the resulting images from Stage 1 by solely relying\non diffusion prior to further enhance the edge details.",
+    "experiments": "5. Experiments",
+    "conclusion": "6. Conclusion.\nDiET-GS is a novel framework that deblurs motion-blurred\nimages using event streams and a pretrained score func-\ntion. Our two-stage strategy leverages 3DGS with EDI con-\nstraints to recover sharp images with accurate color and fine\ndetails, while a diffusion prior enhances edge clarity."
+  }
+}

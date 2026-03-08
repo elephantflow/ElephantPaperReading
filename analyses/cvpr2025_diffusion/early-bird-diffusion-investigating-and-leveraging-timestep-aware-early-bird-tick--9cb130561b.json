@@ -1,0 +1,87 @@
+{
+  "paper_id": "early-bird-diffusion-investigating-and-leveraging-timestep-aware-early-bird-tick--9cb130561b",
+  "paper_title": "Early-Bird Diffusion: Investigating and Leveraging Timestep-Aware Early-Bird Tickets in Diffusion Models for Efficient Training",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:35.879828+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Early-Bird Diffusion： Investigating and Leveraging Timestep-Aware Early-Bird Tickets in Diffusion Models for Efficient Training.pdf",
+    "filename": "Early-Bird Diffusion： Investigating and Leveraging Timestep-Aware Early-Bird Tickets in Diffusion Models for Efficient Training.pdf",
+    "sha1": "9cb130561b50b242fa447388d46d250736b6b6d5",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Diffusion Models (DMs) [ 15, 29, 33] have become power- ful generative tools, transforming noise into structured sam- *Equal contribution.",
+    "limitation": "Training these models, however, is prohibitively ex- pensive; popular models like RAPHAEL [ 36] and DALL·E 2 [ 26] can require tens of thousands of A100 GPU days, leading to significant financial and time costs.",
+    "insight": "Building on the insights from DM pruning and EB train- ing, we explore the possibility of exceeding the efficiency vs. quality trade-offs of the current train-prune-finetune pipeline [ 7] for DMs without fully training a DM model.",
+    "proposed_method": "In this paper, we propose EB-Diff-Train, a new efficient DM training ap- proach that is orthogonal to other methods of accelerat- ing DM training, by investigating and leveraging Early- Bird (EB) tickets—sparse subnetworks that manifest early in the training process and maintain high generation qual- ity.",
+    "experimental_evidence": "Extensive experiments validate the ex- istence of both traditional and timestep-aware EB tickets, as well as the effectiveness of our proposed EB-Diff-Train method.",
+    "summary": "Introduction Diffusion Models (DMs) [ 15, 29, 33] have become power- ful generative tools, transforming noise into structured sam- *Equal contribution. Training these models, however, is prohibitively ex- pensive; popular models like RAPHAEL [ 36] and DALL·E 2 [ 26] can require tens of thousands of A100 GPU days, leading to significant financial and time costs. Building on the insights from DM pruning and EB train- ing, we explore the possibility of exceeding the efficiency vs. quality trade-offs of the current train-prune-finetune pipeline [ 7] for DMs without fully training a DM model. In this paper, we propose EB-Diff-Train, a new efficient DM training ap- proach that is orthogonal to other methods of accelerat- ing DM training, by investigating and leveraging Early- Bird (EB) tickets—sparse subnetworks that manifest early in the training process and maintain high generation qual- ity. Extensive experiments validate the ex- istence of both traditional and timestep-aware EB tickets, as well as the effectiveness of our proposed EB-Diff-Train method."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction Diffusion Models (DMs) [ 15, 29, 33] have become power- ful generative tools, transforming noise into structured sam- *Equal contribution.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "1. Introduction\nDiffusion Models (DMs) [ 15, 29, 33] have become power-\nful generative tools, transforming noise into structured sam-\n*Equal contribution.\nFigure 1. FID (lower values indicate higher generation quality) vs.\nrelative training time (lower values indicate greater runtime effi-\nciency) under different pruning rates (“ p”) for the CIFAR-10 [ 20]\ndataset and the DDPM [15] model, comparing our methods against\nthe standard train-prune-finetune method paired with random [ 8],\nmagnitude [12], Taylor [ 25], and Diff-Pruning [ 7] pruning meth-\nods. “Scratch” indicates a model pruned then retrained from ran-\ndom initialization, “Unpruned” is the model without any pruning,\n“EB” (as detailed in Sec. 4.1) uses a single EB ticket across all\ntimesteps, and “TA-EB” (as detailed in Sec. 4.2) employs three\ntimestep-aware EB tickets for specific regions. Smaller circles in-\ndicate higher pruning rates; relative training time represents the\nratio to the unpruned model’s training time. Generation quality is\nmeasured by the FID [ 14] score.\nples and achieving state-of-the-art (SOTA) generation qual-\nity [5]. Training these models, however, is prohibitively ex-\npensive; popular models like R"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "to each timestep [ 3, 13, 34], introducing new model ar- chitectures [ 1, 21, 28], and employing pruning strategies [7, 18, 40].",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "to each timestep [ 3, 13, 34], introducing new model ar-\nchitectures [ 1, 21, 28], and employing pruning strategies\n[7, 18, 40]. Although these strategies alleviate some compu-\ntational burdens, they typically still necessitate fully training\nan unpruned model as an initial step, incurring substantial\ninitial training costs.\nIn parallel, the “Lottery Ticket Hypothesis” (LTH) [ 8]\nsuggests the existence of “winning tickets”, sparse subnet-\nworks that, when fully trained, can perform as well or bet-\nter than the original dense network. Extending this concept,\n“Early-Bird” (EB) tickets [37] have been developed to iden-\ntify high-performing subnetworks that emerge early in train-\ning, reducing the need to fully train a dense model to conver-\ngence. This concept has shown the potential to significantly\nlower training costs across various machine learning models\n[2, 17, 37, 38].\nBuilding on the insights from DM pruning and EB train-\ning, we explore the possibility of exceeding the efficiency\nvs. quality trade-offs of the current train-prune-finetune\npipeline [ 7] for DMs without fully training a DM model.\nIn addition, previous studies [ 1, 21, 34] have shown that\ndifferent timestep regio"
+    }
+  ],
+  "method_structure": [],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "These tickets adapt their sparsity levels according to the importance of corresponding timestep regions, allow- ing for aggressive sparsity during non-critical regions while conserving computational resources for crucial timestep re- gions."
+    ],
+    "limitation_expression": [
+      "Training these models, however, is prohibitively ex- pensive; popular models like RAPHAEL [ 36] and DALL·E 2 [ 26] can require tens of thousands of A100 GPU days, leading to significant financial and time costs.",
+      "Although these strategies alleviate some compu- tational burdens, they typically still necessitate fully training an unpruned model as an initial step, incurring substantial initial training costs."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "In this paper, we propose EB-Diff-Train, a new efficient DM training ap- proach that is orthogonal to other methods of accelerat- ing DM training, by investigating and leveraging Early- Bird (EB) tickets—sparse subnetworks that manifest early in the training process and maintain high generation qual- ity.",
+      "Conclusion In this work, we propose EB-Diff-Train, an efficient DM training framework leveraging both traditional and timestep-aware EB tickets."
+    ],
+    "experiment_expression": [
+      "Extensive experiments validate the ex- istence of both traditional and timestep-aware EB tickets, as well as the effectiveness of our proposed EB-Diff-Train method.",
+      "Exper- iments demonstrate EB-Diff-Train achieves 2.9 × to 5.8 × faster training than dense models and up to 10.3 × speedup over train-prune-finetune baselines."
+    ],
+    "contribution_expression": [
+      "In summary, our contributions are as follows: 5."
+    ]
+  },
+  "notable_sentences": [
+    "Conclusion In this work, we propose EB-Diff-Train, an efficient DM training framework leveraging both traditional and timestep-aware EB tickets.",
+    "Extensive experiments validate the ex- istence of both traditional and timestep-aware EB tickets, as well as the effectiveness of our proposed EB-Diff-Train method.",
+    "In summary, our contributions are as follows: 5.",
+    "Training these models, however, is prohibitively ex- pensive; popular models like RAPHAEL [ 36] and DALL·E 2 [ 26] can require tens of thousands of A100 GPU days, leading to significant financial and time costs.",
+    "4.1 as “EB-Diff-Train (EB)” and those following Sec.",
+    "4.1) uses a single EB ticket across all timesteps, and “TA-EB” (as detailed in Sec.",
+    "4.2 as “EB-Diff-Train (TA- EB)”, which denote tickets that apply varying pruning rates across different timestep regions.",
+    "4.2) employs three timestep-aware EB tickets for specific regions.",
+    "7675 to each timestep [ 3, 13, 34], introducing new model ar- chitectures [ 1, 21, 28], and employing pruning strategies [7, 18, 40].",
+    "Abstract Training diffusion models (DMs) requires substantial computational resources due to multiple forward and back- ward passes across numerous timesteps, motivating re- search into efficient training techniques.",
+    "Acknowledgment This work is supported by the Department of Health and Human Services Advanced Research Projects Agency for",
+    "Although these strategies alleviate some compu- tational burdens, they typically still necessitate fully training an unpruned model as an initial step, incurring substantial initial training costs."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nTraining diffusion models (DMs) requires substantial\ncomputational resources due to multiple forward and back-\nward passes across numerous timesteps, motivating re-\nsearch into efficient training techniques. In this paper, we\npropose EB-Diff-Train, a new efficient DM training ap-\nproach that is orthogonal to other methods of accelerat-\ning DM training, by investigating and leveraging Early-\nBird (EB) tickets—sparse subnetworks that manifest early\nin the training process and maintain high generation qual-\nity. We first investigate the existence of traditional EB tick-\nets in DMs, enabling competitive generation quality with-\nout fully training a dense model. Then, we delve into the\nconcept of diffusion-dedicated EB tickets, drawing on in-\nsights from varying importance of different timestep re-\ngions. These tickets adapt their sparsity levels according\nto the importance of corresponding timestep regions, allow-\ning for aggressive sparsity during non-critical regions while\nconserving computational resources for crucial timestep re-\ngions. Building on this, we develop an efficient DM train-\ning technique that derives timestep-aware EB tickets, trains\nthem in parallel, and combines them during inference for\nimage generation. Extensive experiments validate the ex-\nistence of both traditional and timestep-aware EB tickets,\nas well as the effectiveness of our proposed EB-Diff-Train\nmethod. This approach can significantly reduce training\ntime both spatially and temporally—achieving 2.9 ×∼5.8×\nspeedups over training unpruned dense models, and up to\n10.3× faster training compared to standard train-prune-\nfinetune pipelines—without compromising generative qual-\nity. Our code is available at https://github.com/GATECH-\nEIC/Early-Bird-Diffusion.",
+    "introduction": "1. Introduction\nDiffusion Models (DMs) [ 15, 29, 33] have become power-\nful generative tools, transforming noise into structured sam-\n*Equal contribution.\nFigure 1. FID (lower values indicate higher generation quality) vs.\nrelative training time (lower values indicate greater runtime effi-\nciency) under different pruning rates (“ p”) for the CIFAR-10 [ 20]\ndataset and the DDPM [15] model, comparing our methods against\nthe standard train-prune-finetune method paired with random [ 8],\nmagnitude [12], Taylor [ 25], and Diff-Pruning [ 7] pruning meth-\nods. “Scratch” indicates a model pruned then retrained from ran-\ndom initialization, “Unpruned” is the model without any pruning,\n“EB” (as detailed in Sec. 4.1) uses a single EB ticket across all\ntimesteps, and “TA-EB” (as detailed in Sec. 4.2) employs three\ntimestep-aware EB tickets for specific regions. Smaller circles in-\ndicate higher pruning rates; relative training time represents the\nratio to the unpruned model’s training time. Generation quality is\nmeasured by the FID [ 14] score.\nples and achieving state-of-the-art (SOTA) generation qual-\nity [5]. Training these models, however, is prohibitively ex-\npensive; popular models like RAPHAEL [ 36] and DALL·E\n2 [ 26] can require tens of thousands of A100 GPU days,\nleading to significant financial and time costs. This chal-\nlenge has spurred the development of various efficient diffu-\nsion training techniques such as assigning different weights\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n7675\n\nto each timestep [ 3, 13, 34], introducing new model ar-\nchitectures [ 1, 21, 28], and employing pruning strategies\n[7, 18, 40]. Although these strategies alleviate some compu-\ntational burdens, they typically still necessitate fully training\nan unpruned model as an initial step, incurring substantial\ninitial training costs.\nIn parallel, the “Lottery Ticket Hypothesis” (LTH) [ 8]\nsuggests the existence of “winning tickets”, sparse subnet-\nworks that, when fully trained, can perform as well or bet-\nter than the original dense network. Extending this concept,\n“Early-Bird” (EB) tickets [37] have been developed to iden-\ntify high-performing subnetworks that emerge early in train-\ning, reducing the need to fully train a dense model to conver-\ngence. This concept has shown the potential to significantly\nlower training costs across various machine learning models\n[2, 17, 37, 38].\nBuilding on the insights from DM pruning and EB train-\ning, we explore the possibility of exceeding the efficiency\nvs. quality trade-offs of the current train-prune-finetune\npipeline [ 7] for DMs without fully training a DM model.\nIn addition, previous studies [ 1, 21, 34] have shown that\ndifferent timestep regions contribute variably to the denois-\ning process, with some regions proving easier to learn than\nothers. By harnessing these unique properties of DMs, we\naim to significantly reduce training time without compro-\nmising on generation quality. We pose the following key\nresearch questions: Q1: Do EB tickets exist in DMs? Q2:\nCan we identify and leverage diffusion-dedicated timestep-\naware EB tickets for efficient training? In summary, our\ncontributions are as follows:",
+    "method": "",
+    "experiments": "5. Experiments\nIn this section, we empirically validate the effectiveness of\nour proposed EB-Diff-Train by comparing it with the SOTA\ntraining baseline across five datasets and two diffusion mod-\nels. To differentiate between the two types of EB tickets, we\nrefer to those drawn according to Sec. 4.1 as “EB-Diff-Train\n(EB)” and those following Sec. 4.2 as “EB-Diff-Train (TA-\nEB)”, which denote tickets that apply varying pruning rates\nacross different timestep regions.",
+    "conclusion": "6. Conclusion\nIn this work, we propose EB-Diff-Train, an efficient\nDM training framework leveraging both traditional and\ntimestep-aware EB tickets. Our approach identifies tradi-\ntional EB tickets in DMs and extends this concept by ex-\nploring the varying importance of timestep regions, intro-\nducing timestep-aware EB tickets with distinct pruning rates\nfor different regions. These specialized subnetworks are\ntrained in parallel and combined during inference. Exper-\niments demonstrate EB-Diff-Train achieves 2.9 × to 5.8 ×\nfaster training than dense models and up to 10.3 × speedup\nover train-prune-finetune baselines.\nAcknowledgment\nThis work is supported by the Department of Health and\nHuman Services Advanced Research Projects Agency for"
+  }
+}

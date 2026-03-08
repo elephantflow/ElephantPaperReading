@@ -1,0 +1,105 @@
+{
+  "paper_id": "material-anything-generating-materials-for-any-3d-object-via-diffusion--07d4360f11",
+  "paper_title": "Material Anything: Generating Materials for Any 3D Object via Diffusion",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:02.900897+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Material Anything： Generating Materials for Any 3D Object via Diffusion.pdf",
+    "filename": "Material Anything： Generating Materials for Any 3D Object via Diffusion.pdf",
+    "sha1": "07d4360f11df0a6f16d19889a2f66bdc445300b4",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "High-quality physical materials ensure that 3D objects ap- pear consistent and realistic under various lighting condi- tions, crucial for applications such as video games, vir- tual reality, and film production.",
+    "limitation": "However, this creation process is tedious and time-consuming, requiring expertise in graphic design.",
+    "insight": "Abstract We present Material Anything , a fully-automated, unified diffusion framework designed to generate physically-based materials for 3D objects.",
+    "proposed_method": "By employing a progressive material generation strategy guided by these confidence masks, along with a UV-space material refiner, our method ensures consistent, UV-ready material outputs.",
+    "experimental_evidence": "Extensive experiments demon- strate our approach outperforms existing methods across a wide range of object categories and lighting conditions. * Work was done during an internship at Shanghai AI Lab. † Corresponding authors.",
+    "summary": "High-quality physical materials ensure that 3D objects ap- pear consistent and realistic under various lighting condi- tions, crucial for applications such as video games, vir- tual reality, and film production. However, this creation process is tedious and time-consuming, requiring expertise in graphic design. Abstract We present Material Anything , a fully-automated, unified diffusion framework designed to generate physically-based materials for 3D objects. By employing a progressive material generation strategy guided by these confidence masks, along with a UV-space material refiner, our method ensures consistent, UV-ready material outputs. Extensive experiments demon- strate our approach outperforms existing methods across a wide range of object categories and lighting conditions. * Work was done during an internship at Shanghai AI Lab. † Corresponding authors."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Physically Based Rendering (PBR) involves complex in- teractions between geometry, materials, and illumination.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nPhysically Based Rendering (PBR) involves complex in-\nteractions between geometry, materials, and illumination.\nHigh-quality physical materials ensure that 3D objects ap-\npear consistent and realistic under various lighting condi-\ntions, crucial for applications such as video games, vir-\ntual reality, and film production. Given the meshes in\nFig. 1, a skilled artist can create realistic textures and ma-\nterials using software like Blender [5] and Substance 3D\nPainter [2]. However, this creation process is tedious and\ntime-consuming, requiring expertise in graphic design. De-\nspite recent advances in 3D texture painting [6, 24, 29, 45],\nthey often fail to accurately model materials that disentan-\ngle light and texture, resulting in baked-in shading effects\nlike unwanted highlights and shadows.\nSeveral recent works have emerged to tackle the chal-\nlenge of generating materials for 3D objects; however,\nthey remain largely impractical due to their complexity and\nspecificity. These approaches either require specific opti-\nmizations for each case [43, 50] or rely on multi-modal\nmodels like GPT4-V [1] to retrieve materials for different\nparts of an object [13, 49]. Consequ"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Complex pipelines that involve mul- tiple models (e.g., SAM [20] and GPT for segmentation and assignment) may lead to system instability.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "promised robustness. Complex pipelines that involve mul-\ntiple models (e.g., SAM [20] and GPT for segmentation and\nassignment) may lead to system instability. (3) Limited\ngeneralization. Existing methods are sensitive to lighting\nand struggle to handle a broad spectrum of scenarios, in-\ncluding realistic lighting ( e.g., real-world scans), unrealis-\ntic lighting (e.g., generated textures), and absence of light-\ning (e.g., albedo). To tackle these challenges, we propose\nMaterial Anything, a fully automated, stable, and univer-\nsal generative model for physical materials. Our method\naccepts any 3D mesh as input and generates high-quality\nmaterial maps through a two-stage pipeline: image-space\nmaterial generation and UV-space material refinement.\nGiven a 3D object, the image-space material diffusion\nmodel aims to produce PBR materials for each view of it.\nConsidering the limited availability of PBR data, we lever-\nage a pre-trained image diffusion model and adapt it to ma-\nterial estimation using a novel triple-head architecture and\nrendering loss, which together help stabilize training and\nbridge the gap between natural images and material maps.\nOnce trained, this model can automatic"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Approach",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "High-quality physical materials ensure that 3D objects ap- pear consistent and realistic under various lighting condi- tions, crucial for applications such as video games, vir- tual reality, and film production."
+    ],
+    "limitation_expression": [
+      "However, this creation process is tedious and time-consuming, requiring expertise in graphic design.",
+      "Several recent works have emerged to tackle the chal- lenge of generating materials for 3D objects; however, they remain largely impractical due to their complexity and specificity.",
+      "Consequently, such approaches face significant challenges: (1) Limited scalability.",
+      "(3) Limited generalization.",
+      "Considering the limited availability of PBR data, we lever- age a pre-trained image diffusion model and adapt it to ma- terial estimation using a novel triple-head architecture and rendering loss, which together help stabilize training and bridge the gap between natural images and material maps.",
+      "Extensive experiments demonstrate a signifi- cant improvement of our method over current approaches."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "By employing a progressive material generation strategy guided by these confidence masks, along with a UV-space material refiner, our method ensures consistent, UV-ready material outputs.",
+      "To tackle these challenges, we propose Material Anything, a fully automated, stable, and univer- sal generative model for physical materials.",
+      "Our method accepts any 3D mesh as input and generates high-quality material maps through a two-stage pipeline: image-space material generation and UV-space material refinement.",
+      "Extensive experiments demonstrate a signifi- cant improvement of our method over current approaches.",
+      "Unlike existing methods that treat these scenarios as separate tasks, our method unifies them un- der a single framework.",
+      "Our framework cen- ters on two core components.",
+      "Experiments We compare our method with texture generation methods, Text2Tex [6], SyncMVD [24], and Paint3D [45].",
+      "Ad- ditionally, we assess our method alongside optimization- based material generation approaches, NvDiffRec [26] and DreamMat [50], and a retrieval-based method, Make-it- Real [13].",
+      "Extensive exper- iments have demonstrated that our method can generate high-quality PBR materials for various objects, with a clear improvement over existing methods."
+    ],
+    "experiment_expression": [
+      "Extensive experiments demon- strate our approach outperforms existing methods across a wide range of object categories and lighting conditions. * Work was done during an internship at Shanghai AI Lab. † Corresponding authors.",
+      "Extensive experiments demonstrate a signifi- cant improvement of our method over current approaches."
+    ],
+    "contribution_expression": [
+      "We summarize our contributions as follows: • A fully automated, stable, and universal model to gener- ate physical materials for diverse 3D objects, achieving state-of-the-art performance. • A material diffusion model with illumination confidence to handle various lighting conditions with one model. • A progressive material generation scheme guided by con- fidence masks, along with a UV-space material diffusion model, to generate consistent and UV-ready materials."
+    ]
+  },
+  "notable_sentences": [
+    "Conclusion We proposed Material Anything, a unified framework to generate PBR materials for various 3D objects, including texture-less, albedo-only, generated, and scanned meshes.",
+    "Extensive experiments demon- strate our approach outperforms existing methods across a wide range of object categories and lighting conditions. * Work was done during an internship at Shanghai AI Lab. † Corresponding authors.",
+    "Extensive experiments demonstrate a signifi- cant improvement of our method over current approaches.",
+    "However, this creation process is tedious and time-consuming, requiring expertise in graphic design.",
+    "Several recent works have emerged to tackle the chal- lenge of generating materials for 3D objects; however, they remain largely impractical due to their complexity and specificity.",
+    "To tackle these challenges, we propose Material Anything, a fully automated, stable, and univer- sal generative model for physical materials.",
+    "(1) For meshes with realistic lighting effects, the confidence mask is set to a higher value, enabling the model to utilize illumination cues to predict the materials accurately.",
+    "(2) Com- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "(2) For meshes with lighting-free textures, the confidence is set to low, allow- ing the model to generate materials based on prompts and global semantic cues.",
+    "(3) Limited generalization.",
+    "1, a skilled artist can create realistic textures and ma- terials using software like Blender [5] and Substance 3D Painter [2].",
+    "2, is a unified frame- work for generating high-quality physical materials for 3D objects, accommodating various lighting and texture sce- narios."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWe present Material Anything , a fully-automated, unified\ndiffusion framework designed to generate physically-based\nmaterials for 3D objects. Unlike existing methods that rely\non complex pipelines or case-specific optimizations, Mate-\nrial Anything offers a robust, end-to-end solution adaptable\nto objects under diverse lighting conditions. Our approach\nleverages a pre-trained image diffusion model, enhanced\nwith a triple-head architecture and rendering loss to im-\nprove stability and material quality. Additionally, we in-\ntroduce confidence masks as a dynamic switcher within the\ndiffusion model, enabling it to effectively handle both tex-\ntured and texture-less objects across varying lighting con-\nditions. By employing a progressive material generation\nstrategy guided by these confidence masks, along with a\nUV-space material refiner, our method ensures consistent,\nUV-ready material outputs. Extensive experiments demon-\nstrate our approach outperforms existing methods across a\nwide range of object categories and lighting conditions.\n* Work was done during an internship at Shanghai AI Lab.\n† Corresponding authors.",
+    "introduction": "1. Introduction\nPhysically Based Rendering (PBR) involves complex in-\nteractions between geometry, materials, and illumination.\nHigh-quality physical materials ensure that 3D objects ap-\npear consistent and realistic under various lighting condi-\ntions, crucial for applications such as video games, vir-\ntual reality, and film production. Given the meshes in\nFig. 1, a skilled artist can create realistic textures and ma-\nterials using software like Blender [5] and Substance 3D\nPainter [2]. However, this creation process is tedious and\ntime-consuming, requiring expertise in graphic design. De-\nspite recent advances in 3D texture painting [6, 24, 29, 45],\nthey often fail to accurately model materials that disentan-\ngle light and texture, resulting in baked-in shading effects\nlike unwanted highlights and shadows.\nSeveral recent works have emerged to tackle the chal-\nlenge of generating materials for 3D objects; however,\nthey remain largely impractical due to their complexity and\nspecificity. These approaches either require specific opti-\nmizations for each case [43, 50] or rely on multi-modal\nmodels like GPT4-V [1] to retrieve materials for different\nparts of an object [13, 49]. Consequently, such approaches\nface significant challenges: (1) Limited scalability. Each\ncase requires specific parameter adjustments, hindering the\nend-to-end automation of the creation process. (2) Com-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n26556\n\npromised robustness. Complex pipelines that involve mul-\ntiple models (e.g., SAM [20] and GPT for segmentation and\nassignment) may lead to system instability. (3) Limited\ngeneralization. Existing methods are sensitive to lighting\nand struggle to handle a broad spectrum of scenarios, in-\ncluding realistic lighting ( e.g., real-world scans), unrealis-\ntic lighting (e.g., generated textures), and absence of light-\ning (e.g., albedo). To tackle these challenges, we propose\nMaterial Anything, a fully automated, stable, and univer-\nsal generative model for physical materials. Our method\naccepts any 3D mesh as input and generates high-quality\nmaterial maps through a two-stage pipeline: image-space\nmaterial generation and UV-space material refinement.\nGiven a 3D object, the image-space material diffusion\nmodel aims to produce PBR materials for each view of it.\nConsidering the limited availability of PBR data, we lever-\nage a pre-trained image diffusion model and adapt it to ma-\nterial estimation using a novel triple-head architecture and\nrendering loss, which together help stabilize training and\nbridge the gap between natural images and material maps.\nOnce trained, this model can automatically generate materi-\nals for the views rendered from general 3D objects without\npredefined categories or part-level masks.\nTo enable the image-space material diffusion model to\nsupport 3D objects across various lighting scenarios, we\nintroduce a confidence mask to indicate illumination cer-\ntainty and propose a data augmentation strategy to simulate\nvarious lighting conditions during training. (1) For meshes\nwith realistic lighting effects, the confidence mask is set to\na higher value, enabling the model to utilize illumination\ncues to predict the materials accurately. (2) For meshes with\nlighting-free textures, the confidence is set to low, allow-\ning the model to generate materials based on prompts and\nglobal semantic cues. (3) For generated objects and texture-\nless objects (we initially use a texture generation method to\ncreate coarse textures), their textures may exhibit unreal-\nistic lighting effects that deviate from physical laws, often\nresulting in exaggerated highlights and shadows. In such\ncases, the confidence mask is adaptively set to varying val-\nues, ensuring the model relies on local semantic to generate\nplausible materials, as the lighting cues are unreliable.\nWhile the image-space model can effectively gener-\nate materials for each single view, directly applying it to\na 3D object can lead to appearance inconsistency across\nviews. To boost multi-view consistency, we introduce a\nconfidence-aware progressive material generation scheme\nthat uses the confidence mask to prompt our diffusion model\nto produce materials consistent with previous views. Af-\nter progressively generating the materials for all views, we\nproject them into UV space for further refinement, achiev-\ning 3D-consistent and high-quality UV maps that are user-\nfriendly and easy to edit.\nTogether, these components enable Material Anything to\nachieve remarkable performance in material generation. To\ntrain the model, we build a Material3D dataset, comprising\nover 80K objects with high-quality PBR materials and UV\nunwrapping. Extensive experiments demonstrate a signifi-\ncant improvement of our method over current approaches.\nWe summarize our contributions as follows:\n• A fully automated, stable, and universal model to gener-\nate physical materials for diverse 3D objects, achieving\nstate-of-the-art performance.\n• A material diffusion model with illumination confidence\nto handle various lighting conditions with one model.\n• A progressive material generation scheme guided by con-\nfidence masks, along with a UV-space material diffusion\nmodel, to generate consistent and UV-ready materials.",
+    "method": "3. Approach\nMaterial Anything, illustrated in Fig. 2, is a unified frame-\nwork for generating high-quality physical materials for 3D\nobjects, accommodating various lighting and texture sce-\nnarios. It effectively handles (1) texture-less objects, (2)\nalbedo-only objects (without lighting effects), (3) scanned\nobjects (realistic lighting), and (4) generated objects (unre-\nalistic lighting). Unlike existing methods that treat these\nscenarios as separate tasks, our method unifies them un-\nder a single framework. To this end, we reformulate 3D\nmaterial generation as an image-based material estimation\ntask, enabling the use of pre-trained image diffusion models\nand simplifying the overall process. Our framework cen-\nters on two core components. First, we employ a diffusion-\nbased material estimator equipped with confidence masks,\nwhich generates materials for each view of the input object\n(Sec. 3.1). Next, we introduce a progressive material gener-\nation strategy that utilizes confidence masks to ensure con-\nsistency of generated materials across views, and further in-\ntegrate a UV-space diffusion model for material refinement.\n(Sec. 3.2). Finally, we provide the construction details of\nour Material3D dataset in Sec. 3.3.",
+    "experiments": "4. Experiments\nWe compare our method with texture generation methods,\nText2Tex [6], SyncMVD [24], and Paint3D [45]. Ad-\nditionally, we assess our method alongside optimization-\nbased material generation approaches, NvDiffRec [26] and\nDreamMat [50], and a retrieval-based method, Make-it-\nReal [13]. Finally, we also include comparisons with the\nclosed-source methods, Rodin Gen-1 [10] and Tripo3D [3].",
+    "conclusion": "5. Conclusion\nWe proposed Material Anything, a unified framework to\ngenerate PBR materials for various 3D objects, including\ntexture-less, albedo-only, generated, and scanned meshes.\nBy leveraging a well-designed material diffusion model,\nour approach can generate high-fidelity materials in a feed-\nforward manner. To unify various input objects under com-\nplex lighting conditions, we introduced a mask to indicate\nconfidence levels for different illuminations, which also en-\nhances multi-view material consistency. Extensive exper-\niments have demonstrated that our method can generate\nhigh-quality PBR materials for various objects, with a clear\nimprovement over existing methods.\nAcknowledgements. The work is supported by the NSFC\nproject under Grant 62031023."
+  }
+}

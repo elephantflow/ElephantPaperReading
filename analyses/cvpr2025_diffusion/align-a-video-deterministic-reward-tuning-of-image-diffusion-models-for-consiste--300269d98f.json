@@ -1,0 +1,95 @@
+{
+  "paper_id": "align-a-video-deterministic-reward-tuning-of-image-diffusion-models-for-consiste--300269d98f",
+  "paper_title": "Align-A-Video: Deterministic Reward Tuning of Image Diffusion Models for Consistent Video Editing",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:04.577356+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Align-A-Video： Deterministic Reward Tuning of Image Diffusion Models for Consistent Video Editing.pdf",
+    "filename": "Align-A-Video： Deterministic Reward Tuning of Image Diffusion Models for Consistent Video Editing.pdf",
+    "sha1": "300269d98f4b7bb235113576ebb62336532d959b",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "This reveals a fundamental challenge in video editing: Ex- isting approaches treat temporal consistency as a primary optimization target, yet inadvertently suppress the ﬂexibil- ity required for high-ﬁdelity semantic preservation and vi- sual reﬁnement.",
+    "limitation": "However, diffusion models have yet to achieve high-quality performance in video generation.",
+    "insight": "Abstract Due to control limitations in the denoising process and the lack of training, zero-shot video editing methods often struggle to meet user instructions, resulting in generated videos that are visually unappealing and fail to fully satisfy expectations.",
+    "proposed_method": "To address this problem, we propose Align- A-Video, a video editing pipeline that incorporates human feedback through reward ﬁne-tuning.",
+    "experimental_evidence": "Extensive qualita- tive and quantitative experiments conﬁrm the effectiveness of using reward ﬁne-tuning in Align-A-Video, signiﬁcantly improving the overall quality of generated videos.",
+    "summary": "This reveals a fundamental challenge in video editing: Ex- isting approaches treat temporal consistency as a primary optimization target, yet inadvertently suppress the ﬂexibil- ity required for high-ﬁdelity semantic preservation and vi- sual reﬁnement. However, diffusion models have yet to achieve high-quality performance in video generation. Abstract Due to control limitations in the denoising process and the lack of training, zero-shot video editing methods often struggle to meet user instructions, resulting in generated videos that are visually unappealing and fail to fully satisfy expectations. To address this problem, we propose Align- A-Video, a video editing pipeline that incorporates human feedback through reward ﬁne-tuning. Extensive qualita- tive and quantitative experiments conﬁrm the effectiveness of using reward ﬁne-tuning in Align-A-Video, signiﬁcantly improving the overall quality of generated videos."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction The rapid advancement of diffusion models [ 11, 28, 31, 47] has signiﬁcantly enhanced image generation technologies, enabling precise manipulation of various image attributes [2, 14].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nThe rapid advancement of diffusion models [ 11, 28, 31, 47]\nhas signiﬁcantly enhanced image generation technologies,\nenabling precise manipulation of various image attributes\n[2, 14]. However, diffusion models have yet to achieve\nhigh-quality performance in video generation. Due to the\ncomplexity of temporal motion in videos, training a video\ndiffusion model requires substantial data and computational\n*Corresponding author.\nNote: Research Institute for Autonomous Intelligent Systems & School of\nComputer Science and Technology, Tongji University (co-ﬁrst afﬁliations).\nInput Video Flatten TokenFlow Align-A-Video(Ours)\nTo ĀSuperman is skiingā\nFigure 1. Given a source input video and a text prompt, we utilize\na pre-trained image diffusion model [ 24] to edit the video. State-\nof-the-art zero-shot video editing methods, such as Flatten [ 5] and\nTokenFlow [10], struggle to generate content that is align with the\ntext prompt. Our proposed method achieves improved text align-\nment and better visual quality.\nresources [ 37, 45]. To avoid learning temporal dynam-\nics from scratch, zero-shot video editing methods lever-\nage pre-trained image diffusion models to transform sourc"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "method_overview",
+      "main_message": "inter-frame coherence, their heavy reliance on ﬁxed priors introduces two critical limitations: semantic ﬁdelity degra- dation and visual quality compromise, as shown in Fig.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "inter-frame coherence, their heavy reliance on ﬁxed priors\nintroduces two critical limitations: semantic ﬁdelity degra-\ndation and visual quality compromise, as shown in Fig. 1.\nThis reveals a fundamental challenge in video editing: Ex-\nisting approaches treat temporal consistency as a primary\noptimization target, yet inadvertently suppress the ﬂexibil-\nity required for high-ﬁdelity semantic preservation and vi-\nsual reﬁnement.\nText-Guided\nV2V Generation\nPrompt Source\nvideo\nReward Tuning\nPrompt Anchor\nFrame\nReward\nModel\nInference\nPrompt Source\nVideo\nAlign-A-Video\nFrozen Trainable Frozen\nFigure 2. Overview of the Align-A-Video Framework.\nIn this paper, we introduce a novel method for video edit-\ning tasks, comprising two key components: image reward\noptimization and video editing inference, as shown in Fig."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "2074 inter-frame coherence, their heavy reliance on ﬁxed priors introduces two critical limitations: semantic ﬁdelity degra- dation and visual quality compromise, as shown in Fig."
+    ],
+    "limitation_expression": [
+      "However, diffusion models have yet to achieve high-quality performance in video generation.",
+      "However, successfully apply- ing image diffusion models to the video domain is a chal- lenging task."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this problem, we propose Align- A-Video, a video editing pipeline that incorporates human feedback through reward ﬁne-tuning.",
+      "To reduce optimization costs for expected noise distribu- tions, we propose a deterministic reward tuning strategy.",
+      "To accelerate and stabilize the training process, we propose deterministic reward tuning.",
+      "Extensive experiments demonstrate that our method achieves superior results in visual quality, semantic ﬁdelity, and temporal consistency."
+    ],
+    "experiment_expression": [
+      "2074 inter-frame coherence, their heavy reliance on ﬁxed priors introduces two critical limitations: semantic ﬁdelity degra- dation and visual quality compromise, as shown in Fig.",
+      "In this paper, we introduce a novel method for video edit- ing tasks, comprising two key components: image reward optimization and video editing inference, as shown in Fig.",
+      "Extensive experiments demonstrate that our method achieves superior results in visual quality, semantic ﬁdelity, and temporal consistency."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "2074 inter-frame coherence, their heavy reliance on ﬁxed priors introduces two critical limitations: semantic ﬁdelity degra- dation and visual quality compromise, as shown in Fig.",
+    "Extensive experiments demonstrate that our method achieves superior results in visual quality, semantic ﬁdelity, and temporal consistency.",
+    "However, diffusion models have yet to achieve high-quality performance in video generation.",
+    "However, successfully apply- ing image diffusion models to the video domain is a chal- lenging task.",
+    "In this paper, we introduce a novel method for video edit- ing tasks, comprising two key components: image reward optimization and video editing inference, as shown in Fig.",
+    "To accelerate and stabilize the training process, we propose deterministic reward tuning.",
+    "To address this problem, we propose Align- A-Video, a video editing pipeline that incorporates human feedback through reward ﬁne-tuning.",
+    "To reduce optimization costs for expected noise distribu- tions, we propose a deterministic reward tuning strategy.",
+    "Conclusion In this paper, we present Align-A-Video, a novel method that leverages human preferences to guide text-driven V2V synthesis.",
+    "Due to the complexity of temporal motion in videos, training a video diffusion model requires substantial data and computational *Corresponding author.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Extensive qualita- tive and quantitative experiments conﬁrm the effectiveness of using reward ﬁne-tuning in Align-A-Video, signiﬁcantly improving the overall quality of generated videos."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDue to control limitations in the denoising process and\nthe lack of training, zero-shot video editing methods often\nstruggle to meet user instructions, resulting in generated\nvideos that are visually unappealing and fail to fully satisfy\nexpectations. To address this problem, we propose Align-\nA-Video, a video editing pipeline that incorporates human\nfeedback through reward ﬁne-tuning. Our approach con-\nsists of two key steps: 1) Deterministic Reward Fine-tuning.\nTo reduce optimization costs for expected noise distribu-\ntions, we propose a deterministic reward tuning strategy.\nThis method improves tuning stability by increasing sample\ndeterminism, allowing the tuning process to be completed\nin minutes; 2) Feature Propagation Across Frames. We op-\ntimize a selected anchor frame and propagate its features to\nthe remaining frames, improving both visual quality and se-\nmantic ﬁdelity. This approach avoids temporal consistency\ndegradation from reward optimization. Extensive qualita-\ntive and quantitative experiments conﬁrm the effectiveness\nof using reward ﬁne-tuning in Align-A-Video, signiﬁcantly\nimproving the overall quality of generated videos.",
+    "introduction": "1. Introduction\nThe rapid advancement of diffusion models [ 11, 28, 31, 47]\nhas signiﬁcantly enhanced image generation technologies,\nenabling precise manipulation of various image attributes\n[2, 14]. However, diffusion models have yet to achieve\nhigh-quality performance in video generation. Due to the\ncomplexity of temporal motion in videos, training a video\ndiffusion model requires substantial data and computational\n*Corresponding author.\nNote: Research Institute for Autonomous Intelligent Systems & School of\nComputer Science and Technology, Tongji University (co-ﬁrst afﬁliations).\nInput Video Flatten TokenFlow Align-A-Video(Ours)\nTo ĀSuperman is skiingā\nFigure 1. Given a source input video and a text prompt, we utilize\na pre-trained image diffusion model [ 24] to edit the video. State-\nof-the-art zero-shot video editing methods, such as Flatten [ 5] and\nTokenFlow [10], struggle to generate content that is align with the\ntext prompt. Our proposed method achieves improved text align-\nment and better visual quality.\nresources [ 37, 45]. To avoid learning temporal dynam-\nics from scratch, zero-shot video editing methods lever-\nage pre-trained image diffusion models to transform source\nvideos into new ones while preserving the original mo-\ntion [ 5, 10, 18, 22, 44, 49]. However, successfully apply-\ning image diffusion models to the video domain is a chal-\nlenging task. It requires addressing the following key as-\npects: 1) Temporal consistency : cross-frame constraints\nfor motion consistency; 2) Semantic ﬁdelity : generated\ncontent matches the input text descriptions; 3) Visual qual-\nity: aligns with the user’s aesthetic preferences.\nCurrent state-of-the-art methods [ 5, 10, 41, 44, 49]\nachieve temporal consistency by imposing strict control\nconditions, such as DDIM inversion [ 31], attention feature\ninjection [ 35], depth guidance [ 46], and optical-ﬂow con-\nstraints [43]. While these techniques successfully stabilize\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n2074\n\ninter-frame coherence, their heavy reliance on ﬁxed priors\nintroduces two critical limitations: semantic ﬁdelity degra-\ndation and visual quality compromise, as shown in Fig. 1.\nThis reveals a fundamental challenge in video editing: Ex-\nisting approaches treat temporal consistency as a primary\noptimization target, yet inadvertently suppress the ﬂexibil-\nity required for high-ﬁdelity semantic preservation and vi-\nsual reﬁnement.\nText-Guided\nV2V Generation\nPrompt Source\nvideo\nReward Tuning\nPrompt Anchor\nFrame\nReward\nModel\nInference\nPrompt Source\nVideo\nAlign-A-Video\nFrozen Trainable Frozen\nFigure 2. Overview of the Align-A-Video Framework.\nIn this paper, we introduce a novel method for video edit-\ning tasks, comprising two key components: image reward\noptimization and video editing inference, as shown in Fig.",
+    "method": "3. Methodology",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nIn this paper, we present Align-A-Video, a novel method\nthat leverages human preferences to guide text-driven V2V\nsynthesis. To accelerate and stabilize the training process,\nwe propose deterministic reward tuning. To achieve consis-\ntent optimization across frames, we introduce anchor frame\nfeature propagation. Extensive experiments demonstrate\nthat our method achieves superior results in visual quality,\nsemantic ﬁdelity, and temporal consistency."
+  }
+}

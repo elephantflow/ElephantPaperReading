@@ -1,0 +1,94 @@
+{
+  "paper_id": "aerogen-enhancing-remote-sensing-object-detection-with-diffusion-driven-data-gen--bc8c8e9103",
+  "paper_title": "AeroGen: Enhancing Remote Sensing Object Detection with Diffusion-Driven Data Generation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:03.246175+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/AeroGen： Enhancing Remote Sensing Object Detection with Diffusion-Driven Data Generation.pdf",
+    "filename": "AeroGen： Enhancing Remote Sensing Object Detection with Diffusion-Driven Data Generation.pdf",
+    "sha1": "bc8c8e9103e4e2818d6d9cc4722b4831b09b4ee4",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "The emergence of generative models [11, 25] provides a new solution to this problem.",
+    "limitation": "Introduction Object detection is a key technology for understanding and analyzing remote sensing images.",
+    "insight": "Abstract Remote sensing image object detection (RSIOD) aims to identify and locate specific objects within satellite or aerial imagery.",
+    "proposed_method": "Additionally, we propose an end-to-end data augmentation framework that integrates a diversity-conditioned generator and a filtering mechanism to enhance both the diversity and quality of generated data.",
+    "experimental_evidence": "Experimental results demonstrate that the synthetic data produced by our method are of high quality and diversity.",
+    "summary": "The emergence of generative models [11, 25] provides a new solution to this problem. Introduction Object detection is a key technology for understanding and analyzing remote sensing images. Abstract Remote sensing image object detection (RSIOD) aims to identify and locate specific objects within satellite or aerial imagery. Additionally, we propose an end-to-end data augmentation framework that integrates a diversity-conditioned generator and a filtering mechanism to enhance both the diversity and quality of generated data. Experimental results demonstrate that the synthetic data produced by our method are of high quality and diversity."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Object detection is a key technology for understanding and analyzing remote sensing images.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\nObject detection is a key technology for understanding and\nanalyzing remote sensing images. It enables efficient pro-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n3614"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "cessing of large-scale satellite data to extract and identify critical information, such as land cover changes [42], urban development status [16], and the impacts of natural disasters [45].",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "cessing of large-scale satellite data to extract and identify\ncritical information, such as land cover changes [42], urban\ndevelopment status [16], and the impacts of natural disasters\n[45]. Through object detection, researchers can automati-\ncally extract terrestrial targets from complex remote sensing\nimages, including buildings, vehicles, roads, bridges, farm-\nlands, and forests. This information can be further applied\nin environmental monitoring, urban planning, land use anal-\nysis, and disaster emergency management.\nWith the rapid development of deep learning, supervised\nlearning-based object detection algorithms have made sig-\nnificant progress in remote sensing image analysis [49]. Al-\nthough these algorithms can accurately locate and classify\nmultiple objects in remote sensing images, they are heavily\ndependent on a large number of labelled training data. How-\never, obtaining sufficient annotated data for remote sensing\nimages is particularly challenging. Due to the presence of\nnumerous and complex targets in remote sensing images,\nthe manual annotation process is not only time-consuming\nand labour-intensive but also requires annotators to possess\nspecialized knowledge, thu"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3619 Method Dataset Modality FID↓ CAS↑ YOLO Score↑",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "3614 cessing of large-scale satellite data to extract and identify critical information, such as land cover changes [42], urban development status [16], and the impacts of natural disasters [45]."
+    ],
+    "limitation_expression": [
+      "However, there is a scarcity of labeled data in cur- rent RSIOD datasets, which significantly limits the perfor- mance of current detection algorithms."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this issue, this paper proposes a layout-controllable diffusion generative model (i.e.",
+      "Additionally, we propose an end-to-end data augmentation framework that integrates a diversity-conditioned generator and a filtering mechanism to enhance both the diversity and quality of generated data.",
+      "Experimental results demonstrate that the synthetic data produced by our method are of high quality and diversity.",
+      "In summary, the contributions of our work are threefold: • We propose a layout-controllable diffusion model (i.e., AeroGen) specifically designed for remote sensing im- ages."
+    ],
+    "experiment_expression": [
+      "Experimental results demonstrate that the synthetic data produced by our method are of high quality and diversity.",
+      "Notably, the original GliGen method does not support rotated bounding box conditions; therefore, we modified the layout encoding (as shown in Fig.",
+      "Experiments In this section, we conducted extensive experiments to ver- ify the generative capabilities of AeroGen and its auxiliary data augmentation ability to support downstream RSIOD 5."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Additionally, we propose an end-to-end data augmentation framework that integrates a diversity-conditioned generator and a filtering mechanism to enhance both the diversity and quality of generated data.",
+    "Experiments In this section, we conducted extensive experiments to ver- ify the generative capabilities of AeroGen and its auxiliary data augmentation ability to support downstream RSIOD 5.",
+    "However, there is a scarcity of labeled data in cur- rent RSIOD datasets, which significantly limits the perfor- mance of current detection algorithms.",
+    "In summary, the contributions of our work are threefold: • We propose a layout-controllable diffusion model (i.e., AeroGen) specifically designed for remote sensing im- ages.",
+    "Notably, the original GliGen method does not support rotated bounding box conditions; therefore, we modified the layout encoding (as shown in Fig.",
+    "2 (a)) and retrained the model.",
+    "3614 cessing of large-scale satellite data to extract and identify critical information, such as land cover changes [42], urban development status [16], and the impacts of natural disasters [45].",
+    "4 compares the results of AeroGen with those of other methods.",
+    "Abstract Remote sensing image object detection (RSIOD) aims to identify and locate specific objects within satellite or aerial imagery.",
+    "AeroGen shows su- perior layout consistency and an enhanced capability for generating small objects.",
+    "AeroGen) tailored for RSIOD.",
+    "Al- though these algorithms can accurately locate and classify multiple objects in remote sensing images, they are heavily dependent on a large number of labelled training data."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRemote sensing image object detection (RSIOD) aims to\nidentify and locate specific objects within satellite or aerial\nimagery. However, there is a scarcity of labeled data in cur-\nrent RSIOD datasets, which significantly limits the perfor-\nmance of current detection algorithms. Although existing\ntechniques, e.g., data augmentation and semi-supervised\nlearning, can mitigate this scarcity issue to some extent,\nthey are heavily dependent on high-quality labeled data\nand perform worse in rare object classes. To address this\nissue, this paper proposes a layout-controllable diffusion\ngenerative model (i.e. AeroGen) tailored for RSIOD. To\nour knowledge, AeroGen is the first model to simultane-\nously support horizontal and rotated bounding box con-\ndition generation, thus enabling the generation of high-\n*Corresponding author: caoxiangyong@mail.xjtu.edu.cn\nquality synthetic images that meet specific layout and ob-\nject category requirements. Additionally, we propose an\nend-to-end data augmentation framework that integrates a\ndiversity-conditioned generator and a filtering mechanism\nto enhance both the diversity and quality of generated data.\nExperimental results demonstrate that the synthetic data\nproduced by our method are of high quality and diversity.\nFurthermore, the synthetic RSIOD data can significantly\nimprove the detection performance of existing RSIOD mod-\nels, i.e., the mAP metrics on DIOR, DIOR-R, and HRSC\ndatasets are improved by 3.7%, 4.3%, and 2.43%, respec-\ntively. The code is available at here.",
+    "introduction": "1. Introduction\nObject detection is a key technology for understanding and\nanalyzing remote sensing images. It enables efficient pro-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n3614\n\ncessing of large-scale satellite data to extract and identify\ncritical information, such as land cover changes [42], urban\ndevelopment status [16], and the impacts of natural disasters\n[45]. Through object detection, researchers can automati-\ncally extract terrestrial targets from complex remote sensing\nimages, including buildings, vehicles, roads, bridges, farm-\nlands, and forests. This information can be further applied\nin environmental monitoring, urban planning, land use anal-\nysis, and disaster emergency management.\nWith the rapid development of deep learning, supervised\nlearning-based object detection algorithms have made sig-\nnificant progress in remote sensing image analysis [49]. Al-\nthough these algorithms can accurately locate and classify\nmultiple objects in remote sensing images, they are heavily\ndependent on a large number of labelled training data. How-\never, obtaining sufficient annotated data for remote sensing\nimages is particularly challenging. Due to the presence of\nnumerous and complex targets in remote sensing images,\nthe manual annotation process is not only time-consuming\nand labour-intensive but also requires annotators to possess\nspecialized knowledge, thus leading to high costs.\nAlthough traditional data augmentation methods [4]\n(e.g., rotation and scaling) and enhancement techniques\nsuitable for object detection (e.g., image mirror [15], object-\ncentric cropping [21], and copy-paste [7]) can increase data\ndiversity to some extent, they do not address the fundamen-\ntal issue of insufficient data. The emergence of generative\nmodels [11, 25] provides a new solution to this problem.\nCurrently, in the field of natural images, numerous high-\nperformance generative models [27, 31] have been devel-\noped, capable of generating high-quality images from text\nconditions and also achieving significant progress in layout\ncontrol. For remote sensing images, the application of gen-\nerative models is usually combined with specific tasks, such\nas change detection [46], semantic segmentation [34] and\nroad extraction [33]. These studies have been highly suc-\ncessful in utilizing data obtained from generative models to\naugment real-world datasets, thereby enhancing the perfor-\nmance of target models in downstream tasks. Therefore,\nutilizing generative diffusion models to fit the distribution\nof existing datasets and generate new samples to enhance\nthe diversity and richness of remote sensing datasets is a\nfeasible solution.\nIn this paper, we focus on the remote sensing image ob-\nject detection (RSIOD) task and construct a layout gener-\nation model (i.e., AeroGen) specifically designed for this\ntask. The proposed AeroGen model allows for the specifi-\ncation of layout prior conditions with horizontal and rotated\nbounding boxes, enabling the generation of high-quality re-\nmote sensing images that meet specified conditions, thus\nfilling a gap in the research field of RSIOD. Based on\nthe AeroGen model, we further propose a conditional\ngeneration-based end-to-end data augmentation framework.\nUnlike pipeline-style data augmentation schemes in the nat-\nural image domain [43], our proposed pipeline is imple-\nmented by directly synthesizing RSIOD data through con-\nditional generative models, thus eliminating the need for\nadditional instance-pasting procedures. By introducing a\ndiversity-conditioned generator and generation quality eval-\nuation, we further enhance the diversity and quality of the\ngenerated images, thereby achieving end-to-end data aug-\nmentation for downstream object detection tasks. More-\nover, we also design a novel filtering mechanism in this data\naugmentation pipeline to select high-quality synthetic train-\ning images, thus further boosting the performance.\nIn summary, the contributions of our work are threefold:\n• We propose a layout-controllable diffusion model (i.e.,\nAeroGen) specifically designed for remote sensing im-\nages. This model can generate high-quality RSIOD train-\ning datasets that conform to specified categories and spa-\ntial positions. To our knowledge, AeroGen is the first\ngenerative model to support layout conditional control for\nboth horizontal and rotated bounding boxes.\n• We design a novel end-to-end data augmentation frame-\nwork that integrates the proposed AeroGen generative\nmodel with a layout condition generator as well as an im-\nage filter. This framework can produce synthetic RSIOD\ntraining datasets with high diversity and quality.\n• Experimental results show that the synthetic data can im-\nprove the performance of current RSIOD models, with\nimprovements in mAP metrics by 3.7%, 4.3%, and 2.43%\non the DIOR, DIOR-R, and HRSC datasets, respectively.\nNotably, the performance in some rare object classes also\nsignificantly improves, e.g., achieving improvements of\n17.8%, 14.7%, and 12.6% in the GF, DAM, and APO cat-\negories, respectively.",
+    "method": "3619\n\nMethod Dataset Modality FID↓ CAS↑ YOLO Score↑\nLostGAN [32]\nDIOR [16] HBB\n57.10 46.02 14.3/27.3/15.2\nLayout Diffusion [44] 45.31 56.98 20.0/37.4/19.3\nReCo [39] 42.56 55.42 21.1/40.7/23.1\nGLIGEN [17] 41.31 63.50 25.8/44.4/27.8\nAeroGen (Ours) 38.57 76.84 29.8/54.2/31.6\nGLIGEN [17]† DIOR-R [3] OBB 48.43 58.89 24.6/41.6/25.1\nAeroGen (Ours) 35.07 74.13 29.6/57.6/32.0\nGLIGEN [17]† HRSC [22] OBB 66.69 43.35 23.4/44.7/26.3\nAeroGen (Ours) 45.86 51.19 27.1/51.0/27.6\nTable 2. Quantitative results of the generated images by different methods. For the Oriented Bounding Box (OBB) modality, we replicated\nthe GLIGEN† method to account for the rotated bounding box. The best results are in bold.\nthe DIOR-R and HRSC datasets with rotated bounding\nboxes, where AeroGen consistently excelled. Notably, the\noriginal GliGen method does not support rotated bounding\nbox conditions; therefore, we modified the layout encoding\n(as shown in Fig. 2 (a)) and retrained the model.\nQualitative Evaluation. Fig. 4 compares the results of\nAeroGen with those of other methods. AeroGen shows su-\nperior layout consistency and an enhanced capability for\ngenerating small objects. Besides, we present experimen-\ntal results on natural images in the supplemental material.",
+    "experiments": "4. Experiments\nIn this section, we conducted extensive experiments to ver-\nify the generative capabilities of AeroGen and its auxiliary\ndata augmentation ability to support downstream RSIOD",
+    "conclusion": "5. Conclusion\nThis paper introduces AeroGen, a layout-controllable dif-\nfusion model designed to enhance remote sensing image\ndatasets for target detection. The model comprises two pri-\nmary components: a layout generation model that creates\nhigh-quality remote sensing images based on predefined\nlayout conditions, and a data generation pipeline that incor-\nporates a diversity of condition generators for the diffusion\nmodel. The pipeline employs a double filtering mechanism\nto exclude low-quality generation conditions and images,\nthereby ensuring the semantic and layout consistency of the\ngenerated images. By combining synthetic and real images\nin the training set, AeroGen significantly improves model\nperformance in downstream tasks. This work highlights the\npotential of generative modeling in enhancing the datasets\nof remote sensing image processing tasks."
+  }
+}

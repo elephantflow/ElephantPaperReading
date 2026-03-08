@@ -1,0 +1,139 @@
+{
+  "paper_id": "mimir-improving-video-diffusion-models-for-precise-text-understanding--f0e26ec5e1",
+  "paper_title": "Mimir: Improving Video Diffusion Models for Precise Text Understanding",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:12:44.355890+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_transformer_video_pdfs/Mimir： Improving Video Diffusion Models for Precise Text Understanding.pdf",
+    "filename": "Mimir： Improving Video Diffusion Models for Precise Text Understanding.pdf",
+    "sha1": "f0e26ec5e185695ee0b48601461ab912241b1d5c",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Language is the most natural and efficient way for human to convey perspectives and creative ideas after thousands of years of evolution [13, 16].",
+    "limitation": "To render text descriptions into video clips, current video diffusion models borrow features from text encoders yet struggle with limited text comprehension [6, 20, 38].",
+    "insight": "This limitation has motivated researchers to explore semantic enhancement us- ing large language models (LLMs), given their remarkable capabilities in text-related tasks [1, 49].",
+    "proposed_method": "In this paper, we introduce Mimir which is an end- to-end training framework featuring a carefully tailored Token Fuser to harmonize the outputs from text encoders and decoder-only language models.",
+    "experimental_evidence": "The recent success of large language models (LLMs) showcases the power ofdecoder-only transformers, which offers three clear benefits for text-to-video (T2V) generation, namely, precise text understanding resulting from the superior scalability, imagination beyond the input text enabled by next token prediction, and flexibility to *Equal contribution. †Work done during internship at Ant Group. ‡Project lead and corresponding author. prioritize user interests through instruction tuning.",
+    "summary": "Introduction Language is the most natural and efficient way for human to convey perspectives and creative ideas after thousands of years of evolution [13, 16]. To render text descriptions into video clips, current video diffusion models borrow features from text encoders yet struggle with limited text comprehension [6, 20, 38]. This limitation has motivated researchers to explore semantic enhancement us- ing large language models (LLMs), given their remarkable capabilities in text-related tasks [1, 49]. In this paper, we introduce Mimir which is an end- to-end training framework featuring a carefully tailored Token Fuser to harmonize the outputs from text encoders and decoder-only language models. The recent success of large language models (LLMs) showcases the power ofdecoder-only transformers, which offers three clear benefits for text-to-video (T2V) generation, namely, precise text understanding resulting from the superior scalability, imagination beyond the input text enabled by next token prediction, and flexibility to *Equal contribution. †Work done during internship at Ant Group. ‡Project lead and corresponding author. prioritize user interests through instruction tuning."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Language is the most natural and efficient way for human to convey perspectives and creative ideas after thousands of years of evolution [13, 16].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Language is the most natural and efficient way for human to convey perspectives and creative ideas after thousands of years of evolution [13, 16]. To render text descriptions into video clips, current video diffusion models borrow features from text encoders yet struggle with limited text comprehension [6, 20, 38]. Many diffusion based studies have explored powerful text encoders such as CLIP [31] and T5 [32], which still yield limited text understanding, particularly in video generation. In fact, human-provided concise prompts cannot capture the vast spatiotemporal visual details in videos, such as the speed of a moving car or background changes along its route."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "problem_statement",
+      "main_message": "This limitation has motivated researchers to explore semantic enhancement us- ing large language models (LLMs), given their remarkable capabilities in text-related tasks [1, 49].",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This limitation has motivated researchers to explore semantic enhancement us- ing large language models (LLMs), given their remarkable capabilities in text-related tasks [1, 49]. The recent success of LLMs showcases the power of decoder-only transformers, which offers three clear benefits for T2V generation. Firstly, it ensures precise text under- standing which stems from terabytes of training data and the scalability of LLMs. Secondly, the capability for next token prediction allows the model to generate imaginative content that extends beyond the original input text, demonstrating creativity and contextual extrapolation."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "Finally, instruction tuning facilitates flexibility in prioritizing user interests, allowing the model to adapt its responses according to specific user directives.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Finally, instruction tuning facilitates flexibility in prioritizing user interests, allowing the model to adapt its responses according to specific user directives. Therefore, we aim to achieve the integration of heterogeneous ( i.e., encoder and decoder- only) LLMs to improve video diffusion models especially for precise text understanding. Achieving such integration is challenging due to the inherent volatility of decoder-only language models, i.e., these models prioritize predicting future tokens over rep- resenting the current text [29, 49, 55], thereby leading to the feature distribution gap and hindering the direct use of LLMs in established T2V models. A promising approach involves fine-tuning a decoder-only model to function as an encoder [49]."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "method_overview",
+      "main_message": "Recent T2I [13, 29, 55] have also explored various methods to enhance text prompt encoding.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Recent T2I [13, 29, 55] have also explored various methods to enhance text prompt encoding. However, we contend that these strategies constrain the full potential of decoder-only LLMs, particularly regarding their reasoning capabilities through next token prediction. In this paper, we introduce Mimir which is an end- to-end training framework featuring a carefully tailored Token Fuser to harmonize the outputs from text encoders and decoder-only language models. Such a design allows Mimir to fully leverage learned video priors while capital- izing on the text-related capabilities of LLMs."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "Specifically, the token fuser consists of two components.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Specifically, the token fuser consists of two components. (1) It achieves non-destructive fusion by using Zero-Conv layers to merge the encoder tokens with all query and answer tokens gen- erated by the decoder-only model. This integration fully takes advantage of the LLM’s capacity for reasoning. (2) LLM Decoder-only Encoder Text Video Generation Query t-SNE Visualization Token Fuser Decoder-only Encoder Ours Token Fuser Distribution Shift by Tokens Figure 2."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "method_overview",
+      "main_message": "The core idea of Mimir.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "The core idea of Mimir. Text Encoder is well suited for fine-tuning pre-trained T2V models (✓), however it struggles with limited text comprehension ( %). In contrast, Decoder-only LLM excels at precise text understanding ( ✓), but cannot be directly used in established video generation models since the feature distribution gap and the feature volatility ( %) . Therefore, we propose the token fuser in Mimir to harmonize multiple tokens, achieving precise text understanding (✓) in T2V generation (✓)."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "contribution_summary",
+      "main_message": "The proposed semantic stabilizer, which employs learnable parameters to stabilize fluctuating text features ( e.g., fea- tures from different answers like ‘ old car ’, ‘dilapidated machine’, and ‘speeding car’, which are detailed in Sec.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "The proposed semantic stabilizer, which employs learnable parameters to stabilize fluctuating text features ( e.g., fea- tures from different answers like ‘ old car ’, ‘dilapidated machine’, and ‘speeding car’, which are detailed in Sec. In summary, as shown in Fig. 2, Mimir integrates the decoder-only language model and ViT-style text encoder, trained within the diffusion framework to achieve precise text understanding ( ✓) in T2V generation ( ✓). Extensive quantitative and qualitative (Fig."
+    },
+    {
+      "paragraph_index": 8,
+      "paragraph_role": "background",
+      "main_message": "1) results demonstrate the effectiveness of our approach in generating high-quality videos with excellent text comprehension, especially when processing short captions and managing shifting motions.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1) results demonstrate the effectiveness of our approach in generating high-quality videos with excellent text comprehension, especially when processing short captions and managing shifting motions."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "2. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "3. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "To render text descriptions into video clips, current video diffusion models borrow features from text encoders yet struggle with limited text compre- hension.",
+      "To render text descriptions into video clips, current video diffusion models borrow features from text encoders yet struggle with limited text comprehension [6, 20, 38].",
+      "Many diffusion based studies have explored powerful text encoders such as CLIP [31] and T5 [32], which still yield limited text understanding, particularly in video generation.",
+      "However, we contend that these strategies constrain the full potential of decoder-only LLMs, particularly regarding their reasoning capabilities through next token prediction.",
+      "Text Encoder is well suited for fine-tuning pre-trained T2V models (✓), however it struggles with limited text comprehension ( %)."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Therefore, we propose the token fuser in Mimir to harmonize multiple tokens, achieving precise text understanding (✓) in T2V generation (✓).",
+      "Experiments In this section, we comprehensively evaluate our method and provide a detailed analysis of the reasons behind the ef- fectiveness of our improvements, as well as the advantages of our approach in video generation performance.",
+      "Conclusion In this paper, we propose a text-to-video diffusion model, Mimir, which leverages large language model embeddings within the video diffusion transformer to achieve precise text understanding for video spatiotemporal semantics.",
+      "Extensive quantitative and qualitative com- parisons, along with a detailed user study, demonstrate the superior performance of our method."
+    ],
+    "experiment_expression": [
+      "Extensive quantitative and qualitative results demonstrate the effectiveness of Mimir in generating high-quality videos with excellent text comprehension, especially when processing short captions and managing shifting motions.",
+      "In summary, as shown in Fig.",
+      "1) results demonstrate the effectiveness of our approach in generating high-quality videos with excellent text comprehension, especially when processing short captions and managing shifting motions.",
+      "Extensive quantitative and qualitative com- parisons, along with a detailed user study, demonstrate the superior performance of our method."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion In this paper, we propose a text-to-video diffusion model, Mimir, which leverages large language model embeddings within the video diffusion transformer to achieve precise text understanding for video spatiotemporal semantics.",
+    "However, we contend that these strategies constrain the full potential of decoder-only LLMs, particularly regarding their reasoning capabilities through next token prediction.",
+    "In summary, as shown in Fig.",
+    "Text Encoder is well suited for fine-tuning pre-trained T2V models (✓), however it struggles with limited text comprehension ( %).",
+    "Therefore, we propose the token fuser in Mimir to harmonize multiple tokens, achieving precise text understanding (✓) in T2V generation (✓).",
+    "(1) It achieves non-destructive fusion by using Zero-Conv layers to merge the encoder tokens with all query and answer tokens gen- erated by the decoder-only model.",
+    "(2) LLM Decoder-only Encoder Text Video Generation Query t-SNE Visualization Token Fuser Decoder-only Encoder Ours Token Fuser Distribution Shift by Tokens Figure 2.",
+    "1) results demonstrate the effectiveness of our approach in generating high-quality videos with excellent text comprehension, especially when processing short captions and managing shifting motions.",
+    "2, Mimir integrates the decoder-only language model and ViT-style text encoder, trained within the diffusion framework to achieve precise text understanding ( ✓) in T2V generation ( ✓).",
+    "A promising approach involves fine-tuning a decoder-only model to function as an encoder [49].",
+    "Ab- lation studies and visualizations validate the effectiveness of Mimir.",
+    "Abstract Text serves as the key control signal in video generation due to its narrative nature."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nText serves as the key control signal in video generation\ndue to its narrative nature. To render text descriptions into\nvideo clips, current video diffusion models borrow features\nfrom text encoders yet struggle with limited text compre-\nhension. The recent success of large language models\n(LLMs) showcases the power ofdecoder-only transformers,\nwhich offers three clear benefits for text-to-video (T2V)\ngeneration, namely, precise text understanding resulting\nfrom the superior scalability, imagination beyond the input\ntext enabled by next token prediction, and flexibility to\n*Equal contribution. †Work done during internship at Ant Group.\n‡Project lead and corresponding author.\nprioritize user interests through instruction tuning. Never-\ntheless, the feature distribution gap emerging from the two\ndifferent text modeling paradigms hinders the direct use of\nLLMs in established T2V models. This work addresses this\nchallenge with Mimir, an end-to-end training framework\nfeaturing a carefully tailored token fuser to harmonize\nthe outputs from text encoders and LLMs. Such a design\nallows the T2V model to fully leverage learned video priors\nwhile capitalizing on the text-related capability of LLMs.\nExtensive quantitative and qualitative results demonstrate\nthe effectiveness of Mimir in generating high-quality\nvideos with excellent text comprehension, especially when\nprocessing short captions and managing shifting motions.\nProject page: https://lucaria-academy.github.io/Mimir/\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n23978",
+    "introduction": "1. Introduction\nLanguage is the most natural and efficient way for human\nto convey perspectives and creative ideas after thousands\nof years of evolution [13, 16]. To render text descriptions\ninto video clips, current video diffusion models borrow\nfeatures from text encoders yet struggle with limited text\ncomprehension [6, 20, 38]. Many diffusion based studies\nhave explored powerful text encoders such as CLIP [31]\nand T5 [32], which still yield limited text understanding,\nparticularly in video generation. In fact, human-provided\nconcise prompts cannot capture the vast spatiotemporal\nvisual details in videos, such as the speed of a moving car\nor background changes along its route. This limitation has\nmotivated researchers to explore semantic enhancement us-\ning large language models (LLMs), given their remarkable\ncapabilities in text-related tasks [1, 49].\nThe recent success of LLMs showcases the power of\ndecoder-only transformers, which offers three clear benefits\nfor T2V generation. Firstly, it ensures precise text under-\nstanding which stems from terabytes of training data and the\nscalability of LLMs. Secondly, the capability for next token\nprediction allows the model to generate imaginative content\nthat extends beyond the original input text, demonstrating\ncreativity and contextual extrapolation. Finally, instruction\ntuning facilitates flexibility in prioritizing user interests,\nallowing the model to adapt its responses according to\nspecific user directives. Therefore, we aim to achieve the\nintegration of heterogeneous ( i.e., encoder and decoder-\nonly) LLMs to improve video diffusion models especially\nfor precise text understanding.\nAchieving such integration is challenging due to the\ninherent volatility of decoder-only language models, i.e.,\nthese models prioritize predicting future tokens over rep-\nresenting the current text [29, 49, 55], thereby leading to\nthe feature distribution gap and hindering the direct use of\nLLMs in established T2V models. A promising approach\ninvolves fine-tuning a decoder-only model to function as\nan encoder [49]. Recent T2I [13, 29, 55] have also\nexplored various methods to enhance text prompt encoding.\nHowever, we contend that these strategies constrain the\nfull potential of decoder-only LLMs, particularly regarding\ntheir reasoning capabilities through next token prediction.\nIn this paper, we introduce Mimir which is an end-\nto-end training framework featuring a carefully tailored\nToken Fuser to harmonize the outputs from text encoders\nand decoder-only language models. Such a design allows\nMimir to fully leverage learned video priors while capital-\nizing on the text-related capabilities of LLMs. Specifically,\nthe token fuser consists of two components. (1) It achieves\nnon-destructive fusion by using Zero-Conv layers to merge\nthe encoder tokens with all query and answer tokens gen-\nerated by the decoder-only model. This integration fully\ntakes advantage of the LLM’s capacity for reasoning. (2)\nLLM\nDecoder-only\nEncoder\nText\nVideo Generation\nQuery\nt-SNE Visualization\nToken\nFuser\nDecoder-only\nEncoder\nOurs\nToken Fuser\nDistribution Shift\nby\nTokens\nFigure 2. The core idea of Mimir. Text Encoder is well suited for\nfine-tuning pre-trained T2V models (✓), however it struggles with\nlimited text comprehension ( %). In contrast, Decoder-only LLM\nexcels at precise text understanding ( ✓), but cannot be directly\nused in established video generation models since the feature\ndistribution gap and the feature volatility ( %) . Therefore, we\npropose the token fuser in Mimir to harmonize multiple tokens,\nachieving precise text understanding (✓) in T2V generation (✓).\nThe proposed semantic stabilizer, which employs learnable\nparameters to stabilize fluctuating text features ( e.g., fea-\ntures from different answers like ‘ old car ’, ‘dilapidated\nmachine’, and ‘speeding car’, which are detailed in Sec. 2.3\nand Sec. 3.3).\nIn summary, as shown in Fig. 2, Mimir integrates the\ndecoder-only language model and ViT-style text encoder,\ntrained within the diffusion framework to achieve precise\ntext understanding ( ✓) in T2V generation ( ✓). Extensive\nquantitative and qualitative (Fig. 1) results demonstrate the\neffectiveness of our approach in generating high-quality\nvideos with excellent text comprehension, especially when\nprocessing short captions and managing shifting motions.",
+    "method": "2. Methodology\nIn this section, we first present the preliminaries of diffusion\nmodels in Section 2.1 and describe the different types of\ntokens in Section 2.2. Then, we introduce the details of the\ntoken fuser in Section 2.3, which consists of two compo-\nnents: Non-Destructive Fusion and Semantic Stabilizer.",
+    "experiments": "3. Experiments\nIn this section, we comprehensively evaluate our method\nand provide a detailed analysis of the reasons behind the ef-\nfectiveness of our improvements, as well as the advantages\nof our approach in video generation performance.",
+    "conclusion": "5. Conclusion\nIn this paper, we propose a text-to-video diffusion model,\nMimir, which leverages large language model embeddings\nwithin the video diffusion transformer to achieve precise\ntext understanding for video spatiotemporal semantics. The\ncore innovation of our approach lies in the token fuser,\nwhich fuse semantic features from encoder and decoder-\nonly language models with different distributions. Ab-\nlation studies and visualizations validate the effectiveness\nof Mimir. Extensive quantitative and qualitative com-\nparisons, along with a detailed user study, demonstrate\nthe superior performance of our method. Please refer to\nSupplementary Materials to view the limitations, ethical\nconsiderations and other details.\n23985"
+  }
+}

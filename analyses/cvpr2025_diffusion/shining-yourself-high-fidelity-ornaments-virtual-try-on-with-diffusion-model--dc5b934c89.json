@@ -1,0 +1,126 @@
+{
+  "paper_id": "shining-yourself-high-fidelity-ornaments-virtual-try-on-with-diffusion-model--dc5b934c89",
+  "paper_title": "Shining Yourself: High-Fidelity Ornaments Virtual Try-on with Diffusion Model",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:31.927378+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Shining Yourself： High-Fidelity Ornaments Virtual Try-on with Diffusion Model.pdf",
+    "filename": "Shining Yourself： High-Fidelity Ornaments Virtual Try-on with Diffusion Model.pdf",
+    "sha1": "dc5b934c891588766ad9924a4d6bd33c006fa22d",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "The main challenge of virtual try-on is how to generate a realistic fitting effect while preserving the fidelity of the garment.",
+    "limitation": "However, few works focus on virtual try-ons of orna- ments such as bracelets, rings, earrings, and necklaces, de- spite significant practical demand.",
+    "insight": "Abstract While virtual try-on for clothes and shoes with diffusion models has gained attraction, virtual try-on for ornaments, such as bracelets, rings, earrings, and necklaces, remains *Completed during the internship at SenseTime Research †Corresponding authors largely unexplored.",
+    "proposed_method": "Experimen- tal results demonstrate that our method successfully wears ornaments from reference images onto target models, han- dling substantial differences in scale and pose while pre- serving identity and achieving realistic visual effects.",
+    "experimental_evidence": "Experimen- tal results demonstrate that our method successfully wears ornaments from reference images onto target models, han- dling substantial differences in scale and pose while pre- serving identity and achieving realistic visual effects.",
+    "summary": "The main challenge of virtual try-on is how to generate a realistic fitting effect while preserving the fidelity of the garment. However, few works focus on virtual try-ons of orna- ments such as bracelets, rings, earrings, and necklaces, de- spite significant practical demand. Abstract While virtual try-on for clothes and shoes with diffusion models has gained attraction, virtual try-on for ornaments, such as bracelets, rings, earrings, and necklaces, remains *Completed during the internship at SenseTime Research †Corresponding authors largely unexplored. Experimen- tal results demonstrate that our method successfully wears ornaments from reference images onto target models, han- dling substantial differences in scale and pose while pre- serving identity and achieving realistic visual effects. Experimen- tal results demonstrate that our method successfully wears ornaments from reference images onto target models, han- dling substantial differences in scale and pose while pre- serving identity and achieving realistic visual effects."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction As diffusion model [9, 15, 16, 22, 24, 26, 40] becomes the de facto standard in image generation, it’s also widely adopted in the field of virtual try-on [7, 17, 32, 35, 39, 42].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction As diffusion model [9, 15, 16, 22, 24, 26, 40] becomes the de facto standard in image generation, it’s also widely adopted in the field of virtual try-on [7, 17, 32, 35, 39, 42]. Given a reference image of an item and a target image of a model, the task is to get a preview of the fitting effect us- ing image generation methods. Since no in-person wearing or physical fitting room is required, it has great potential for massive advertising materials generation in various applica- tions of retail, e-commerce, and advertisement. The main challenge of virtual try-on is how to generate a realistic fitting effect while preserving the fidelity of the garment."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Massive efforts [7, 17, 32, 35, 39] have been ded- icated to solving the problem in the field of garments.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Massive efforts [7, 17, 32, 35, 39] have been ded- icated to solving the problem in the field of garments. The methods usually employ a network module (e.g., CLIP im- age encoder [21] or ReferenceNet [11, 16]) to extract gar- ment features, which are injected into the process of dif- fusion denoising to preserve the identity and details of the garment. It has made great progress to be widely adopted for commercial use. However, few works focus on virtual try-ons of orna- ments such as bracelets, rings, earrings, and necklaces, de- spite significant practical demand."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "Virtual try-on for or- naments presents unique challenges that existing methods struggle to address effectively.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Virtual try-on for or- naments presents unique challenges that existing methods struggle to address effectively. 1) Most ornaments often feature intricate, small-scale geometric structures, such as rings and holes, that are difficult to preserve in virtual try- ons. In contrast, garments typically have sparser and/or re- peated textures and lack complex geometric details. 2) For garment try-ons, generative visual artifacts can blend with natural cloth deformations and wrinkles, reducing their visi- bility."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "method_overview",
+      "main_message": "However, most ornaments are rigid or consist of rigid components, making any distortion or artifacts immediately noticeable.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "However, most ornaments are rigid or consist of rigid components, making any distortion or artifacts immediately noticeable. 3) Most garment virtual try-on methods require silhouette, skeleton, and semantic maps as additional inputs, while even the coarse silhouette mask of the ornament is not easy to depict due to its diverse structures and pose- depended occlusion. To tackle the problems, we propose a method to predict an accurate wearing mask to align the poses and scales be- tween ornaments and models without additional inputs such as the silhouette, skeleton, or semantic maps. Our method also preserves structures and detailed features using a mask- guided attention of ornaments and models to preserve ge- ometric structures."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Specifically, to obtain a precise pose- aware wearing mask without explicit extraction of various maps of ornaments and models, we refine the mask from an input mask as coarse as a bounding box.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "Specifically, to obtain a precise pose- aware wearing mask without explicit extraction of various maps of ornaments and models, we refine the mask from an input mask as coarse as a bounding box. A refined mask is then estimated using the intermediate features in the gener- ation, which is further used as input to predict a more ac- curate one iteratively. As the mask indicates structure in- formation, especially for multiple and tiny geometric struc- tures, we formulate the attention layers to implicitly learn a mapping between the reference mask and the ground truth mask to preserve the structure patterns in ornaments. In summary, our contributions are as follows: • To the best of our knowledge, we are the first to use dif- fusion models for virtual try-ons of various ornaments including bracelets, rings, earrings, and necklaces."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "method_overview",
+      "main_message": "Our method can generate realistic virtual try-on results as well as high-fidelity preservation of ornament identity. • We propose an iterative scheme to estimate a pose-aware wearing mask to significantly improve the pose and scale alignments between ornaments and models.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Our method can generate realistic virtual try-on results as well as high-fidelity preservation of ornament identity. • We propose an iterative scheme to estimate a pose-aware wearing mask to significantly improve the pose and scale alignments between ornaments and models. It also facili- tates virtual try-on applications without the requirements of various additional inputs such as silhouette, semantic, and skeleton maps. • By constraining attention to learning a mapping between reference and wearing masks, our method improves geo- metric feature preservation, especially for tiny items with complicated geometric structures, such as ornaments."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, few works focus on virtual try-ons of orna- ments such as bracelets, rings, earrings, and necklaces, de- spite significant practical demand.",
+      "However, most ornaments are rigid or consist of rigid components, making any distortion or artifacts immediately noticeable."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Experimen- tal results demonstrate that our method successfully wears ornaments from reference images onto target models, han- dling substantial differences in scale and pose while pre- serving identity and achieving realistic visual effects.",
+      "To tackle the problems, we propose a method to predict an accurate wearing mask to align the poses and scales be- tween ornaments and models without additional inputs such as the silhouette, skeleton, or semantic maps.",
+      "Our method also preserves structures and detailed features using a mask- guided attention of ornaments and models to preserve ge- ometric structures.",
+      "Our method can generate realistic virtual try-on results as well as high-fidelity preservation of ornament identity. • We propose an iterative scheme to estimate a pose-aware wearing mask to significantly improve the pose and scale alignments between ornaments and models.",
+      "It also facili- tates virtual try-on applications without the requirements of various additional inputs such as silhouette, semantic, and skeleton maps. • By constraining attention to learning a mapping between reference and wearing masks, our method improves geo- metric feature preservation, especially for tiny items with complicated geometric structures, such as ornaments.",
+      "Methodology We propose a zero-shot method for ornament virtual try- on with a reference ornament image, a target model image, 361 and a coarse bounding box.",
+      "The framework of our method is illustrated in Fig.",
+      "Conclusion We propose the virtual try-on ornament task for the first time.",
+      "Currently, our method is biased toward reference images rather than ground truth images, which lack specular reflections to a certain extent."
+    ],
+    "experiment_expression": [
+      "Experimen- tal results demonstrate that our method successfully wears ornaments from reference images onto target models, han- dling substantial differences in scale and pose while pre- serving identity and achieving realistic visual effects."
+    ],
+    "contribution_expression": [
+      "In summary, our contributions are as follows: • To the best of our knowledge, we are the first to use dif- fusion models for virtual try-ons of various ornaments including bracelets, rings, earrings, and necklaces."
+    ]
+  },
+  "notable_sentences": [
+    "Conclusion We propose the virtual try-on ornament task for the first time.",
+    "However, few works focus on virtual try-ons of orna- ments such as bracelets, rings, earrings, and necklaces, de- spite significant practical demand.",
+    "However, most ornaments are rigid or consist of rigid components, making any distortion or artifacts immediately noticeable.",
+    "In summary, our contributions are as follows: • To the best of our knowledge, we are the first to use dif- fusion models for virtual try-ons of various ornaments including bracelets, rings, earrings, and necklaces.",
+    "Methodology We propose a zero-shot method for ornament virtual try- on with a reference ornament image, a target model image, 361 and a coarse bounding box.",
+    "To tackle the problems, we propose a method to predict an accurate wearing mask to align the poses and scales be- tween ornaments and models without additional inputs such as the silhouette, skeleton, or semantic maps.",
+    "1) Most ornaments often feature intricate, small-scale geometric structures, such as rings and holes, that are difficult to preserve in virtual try- ons.",
+    "2) For garment try-ons, generative visual artifacts can blend with natural cloth deformations and wrinkles, reducing their visi- bility.",
+    "359 ment virtual try-ons.",
+    "A refined mask is then estimated using the intermediate features in the gener- ation, which is further used as input to predict a more ac- curate one iteratively.",
+    "Besides, inaccurate control over wearing orientations (e.g., rotated along a wrist) leading to featured components being hidden behind the wrist occasionally.",
+    "Currently, our method is biased toward reference images rather than ground truth images, which lack specular reflections to a certain extent."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWhile virtual try-on for clothes and shoes with diffusion\nmodels has gained attraction, virtual try-on for ornaments,\nsuch as bracelets, rings, earrings, and necklaces, remains\n*Completed during the internship at SenseTime Research\n†Corresponding authors\nlargely unexplored. Due to the intricate tiny patterns and\nrepeated geometric sub-structures in most ornaments, it is\nmuch more difficult to guarantee identity and appearance\nconsistency under large pose and scale variances between\nornaments and models. This paper proposes the task of\nvirtual try-on for ornaments and presents a method to im-\nprove the geometric and appearance preservation of orna-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n359\n\nment virtual try-ons. Specifically, we estimate an accu-\nrate wearing mask to improve the alignments between or-\nnaments and models in an iterative scheme alongside the\ndenoising process. To preserve structure details, we further\nregularize attention layers to map the reference ornament\nmask to the wearing mask in an implicit way. Experimen-\ntal results demonstrate that our method successfully wears\nornaments from reference images onto target models, han-\ndling substantial differences in scale and pose while pre-\nserving identity and achieving realistic visual effects.",
+    "introduction": "1. Introduction\nAs diffusion model [9, 15, 16, 22, 24, 26, 40] becomes\nthe de facto standard in image generation, it’s also widely\nadopted in the field of virtual try-on [7, 17, 32, 35, 39, 42].\nGiven a reference image of an item and a target image of a\nmodel, the task is to get a preview of the fitting effect us-\ning image generation methods. Since no in-person wearing\nor physical fitting room is required, it has great potential for\nmassive advertising materials generation in various applica-\ntions of retail, e-commerce, and advertisement.\nThe main challenge of virtual try-on is how to generate\na realistic fitting effect while preserving the fidelity of the\ngarment. Massive efforts [7, 17, 32, 35, 39] have been ded-\nicated to solving the problem in the field of garments. The\nmethods usually employ a network module (e.g., CLIP im-\nage encoder [21] or ReferenceNet [11, 16]) to extract gar-\nment features, which are injected into the process of dif-\nfusion denoising to preserve the identity and details of the\ngarment. It has made great progress to be widely adopted\nfor commercial use.\nHowever, few works focus on virtual try-ons of orna-\nments such as bracelets, rings, earrings, and necklaces, de-\nspite significant practical demand. Virtual try-on for or-\nnaments presents unique challenges that existing methods\nstruggle to address effectively. 1) Most ornaments often\nfeature intricate, small-scale geometric structures, such as\nrings and holes, that are difficult to preserve in virtual try-\nons. In contrast, garments typically have sparser and/or re-\npeated textures and lack complex geometric details. 2) For\ngarment try-ons, generative visual artifacts can blend with\nnatural cloth deformations and wrinkles, reducing their visi-\nbility. However, most ornaments are rigid or consist of rigid\ncomponents, making any distortion or artifacts immediately\nnoticeable. 3) Most garment virtual try-on methods require\nsilhouette, skeleton, and semantic maps as additional inputs,\nwhile even the coarse silhouette mask of the ornament is\nnot easy to depict due to its diverse structures and pose-\ndepended occlusion.\nTo tackle the problems, we propose a method to predict\nan accurate wearing mask to align the poses and scales be-\ntween ornaments and models without additional inputs such\nas the silhouette, skeleton, or semantic maps. Our method\nalso preserves structures and detailed features using a mask-\nguided attention of ornaments and models to preserve ge-\nometric structures. Specifically, to obtain a precise pose-\naware wearing mask without explicit extraction of various\nmaps of ornaments and models, we refine the mask from an\ninput mask as coarse as a bounding box. A refined mask is\nthen estimated using the intermediate features in the gener-\nation, which is further used as input to predict a more ac-\ncurate one iteratively. As the mask indicates structure in-\nformation, especially for multiple and tiny geometric struc-\ntures, we formulate the attention layers to implicitly learn a\nmapping between the reference mask and the ground truth\nmask to preserve the structure patterns in ornaments. In\nsummary, our contributions are as follows:\n• To the best of our knowledge, we are the first to use dif-\nfusion models for virtual try-ons of various ornaments\nincluding bracelets, rings, earrings, and necklaces. Our\nmethod can generate realistic virtual try-on results as well\nas high-fidelity preservation of ornament identity.\n• We propose an iterative scheme to estimate a pose-aware\nwearing mask to significantly improve the pose and scale\nalignments between ornaments and models. It also facili-\ntates virtual try-on applications without the requirements\nof various additional inputs such as silhouette, semantic,\nand skeleton maps.\n• By constraining attention to learning a mapping between\nreference and wearing masks, our method improves geo-\nmetric feature preservation, especially for tiny items with\ncomplicated geometric structures, such as ornaments.",
+    "method": "3. Methodology\nWe propose a zero-shot method for ornament virtual try-\non with a reference ornament image, a target model image,\n361\n\nand a coarse bounding box. The bounding box coarsely in-\ndicates the wearing location as ornament wearing is user-\nspecific (e.g., a ring has its finger symbolism). We can gen-\nerate realistic and high-fidelity fitting effects without addi-\ntional inputs such as pose and semantic maps. The model\ncomprises two vital components: 1) an iterative pose-aware\nwearing mask prediction and refinement module from the\nbounding box, which improves pose alignments between\nthe ornament and the model; 2) a mask-guided attention\nmodule to improve identity and detail preservation. The\nframework of our method is illustrated in Fig. 2a.",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nWe propose the virtual try-on ornament task for the first\ntime. To tackle the more challenging problems of intri-\ncate geometric structures in ornaments, we devise two mod-\nules of mask prediction and mask-guided attention to ob-\ntain accurate wearing masks and impose geometric struc-\ntures, which preserve both appearance details and geomet-\nric structures to achieve identity consistency. Currently,\nour method is biased toward reference images rather than\nground truth images, which lack specular reflections to a\ncertain extent. Inspired by the work [38], we would like to\nadd more fine-grained lighting control in our future work.\nBesides, inaccurate control over wearing orientations (e.g.,\nrotated along a wrist) leading to featured components being\nhidden behind the wrist occasionally. Secondary masks and\nlocal feature injection into the diffusion process may fix the\nproblem."
+  }
+}

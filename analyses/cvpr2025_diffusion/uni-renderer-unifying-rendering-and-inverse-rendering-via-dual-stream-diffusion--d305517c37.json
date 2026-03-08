@@ -1,0 +1,136 @@
+{
+  "paper_id": "uni-renderer-unifying-rendering-and-inverse-rendering-via-dual-stream-diffusion--d305517c37",
+  "paper_title": "Uni-Renderer: Unifying Rendering and Inverse Rendering Via Dual Stream Diffusion",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:45.423432+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Uni-Renderer： Unifying Rendering and Inverse Rendering Via Dual Stream Diffusion.pdf",
+    "filename": "Uni-Renderer： Unifying Rendering and Inverse Rendering Via Dual Stream Diffusion.pdf",
+    "sha1": "d305517c37b0f7386040744659da241e3589336f",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Physically based rendering is crucial in computer vision and graphics for producing photorealistic 2D images from 3D models, textures, and lighting setups.",
+    "limitation": "However, its recursive tracing incurs significant computational demands, posing challenges for real-time im- plementation.",
+    "insight": "The map- ping from observed images back to intrinsic properties is not one-to-one, leading to ambiguity and suboptimal per- formance.",
+    "proposed_method": "To address these challenges, we propose a data-driven method that jointly models rendering and inverse rendering as two conditional ∗ Equal contribution. †Corresponding Author.",
+    "experimental_evidence": "Our method demonstrates strong performance in real-world cases, achiev- ing photo-realistic rendering and inverse rendering that gen- eralizes well beyond synthetic training data.",
+    "summary": "Introduction Physically based rendering is crucial in computer vision and graphics for producing photorealistic 2D images from 3D models, textures, and lighting setups. However, its recursive tracing incurs significant computational demands, posing challenges for real-time im- plementation. The map- ping from observed images back to intrinsic properties is not one-to-one, leading to ambiguity and suboptimal per- formance. To address these challenges, we propose a data-driven method that jointly models rendering and inverse rendering as two conditional ∗ Equal contribution. †Corresponding Author. Our method demonstrates strong performance in real-world cases, achiev- ing photo-realistic rendering and inverse rendering that gen- eralizes well beyond synthetic training data."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Physically based rendering is crucial in computer vision and graphics for producing photorealistic 2D images from 3D models, textures, and lighting setups.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Physically based rendering is crucial in computer vision and graphics for producing photorealistic 2D images from 3D models, textures, and lighting setups. This process is essential in animation [ 43], and architectural visualization [23]. At its core, the rendering equation [ 18] models the flow of light energy within a scene, offering an ideal con- ditional distribution transfer function for rendering. Monte Carlo light-transport simulations [ 34], utilizing path trac- ing [24], are commonly employed to evaluate the rendering equation."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "However, its recursive tracing incurs significant computational demands, posing challenges for real-time im- plementation.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "However, its recursive tracing incurs significant computational demands, posing challenges for real-time im- plementation. Inverse rendering, which aims to deduce ge- ometric, material, and lighting information from images, has long been studied due to its under-constrained nature [10]. This approach allows the reconstructed 3D model to be directly integrated into rendering engines, thereby play- ing a critical role in downstream applications such as game production [25]. Recent advancements employ differentiable rendering for 3D representations [5, 45] or focus on direct decompo- sition of intrinsics using 2D object priors [ 7, 11]."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "These approaches use differentiable renderer to integrate intrinsic properties into RGB images, facilitating loss computation against ground-truth images for optimization.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "These approaches use differentiable renderer to integrate intrinsic properties into RGB images, facilitating loss computation against ground-truth images for optimization. For instance, MaterialGAN [11] leverages StyleGAN2 [19] to synthesize realistic material properties using a large-scale, spatially- varying material dataset [7], while other works [4, 22, 44, 46] utilize diffusion models to achieve better results. Neverthe- less, the ambiguity between geometry, materials, and lighting still hinders the effectiveness of decomposition. The map- ping from observed images back to intrinsic properties is not one-to-one, leading to ambiguity and suboptimal per- formance."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "method_overview",
+      "main_message": "The most similar work to ours is RGB2X [ 47], which performs both forward and inverse rendering using two separate diffusion models.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "The most similar work to ours is RGB2X [ 47], which performs both forward and inverse rendering using two separate diffusion models. However, it fails to estab- lish a connection between the two processes, treating them independently. Ambiguity issue still exists. To alleviate this issue, we propose to jointly learn the two distributions together."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "problem_statement",
+      "main_message": "By integrating rendering and inverse rendering into a single framework from a multi-task learning perspective, the two processes can facilitate each other.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "By integrating rendering and inverse rendering into a single framework from a multi-task learning perspective, the two processes can facilitate each other. This joint learning allows us to use the inverted intrinsic proper- ties to perform another cycle of rendering, effectively creat- ing a cycle-consistent constrains. This cycle rendering can mitigate the ambiguity problem by enforcing consistency between the intrinsic properties and the rendered images, leading to improved performance. In this work, we explicitly model the rendering process and inverse rendering as two conditional generation tasks."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "method_overview",
+      "main_message": "Inspired by UniDiffuser [ 1], we utilize two distinct time schedules to model both conditional generation tasks within a single diffusion pipeline.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Inspired by UniDiffuser [ 1], we utilize two distinct time schedules to model both conditional generation tasks within a single diffusion pipeline. By cross-conditioning two pre- trained diffusion models through a dual streaming module, we achieve both rendering and inverse rendering in a unified framework. To summarize, we introduce Uni-renderer which utilizes a pre-trained diffusion model to handle both rendering and inverse rendering in a unified framework. The key contribu- tions of our method are as follows: • We propose a data-driven method to approximate the ren- dering equation."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "method_overview",
+      "main_message": "By modeling rendering and inverse ren- dering as two conditional generation tasks, we design a unified diffusion model with a tailored dual stream module for cross-condition generation. • We render a synthetic dataset of different fine-grained material edits using 200K 3D objects with randomized in- trinsic attributes by varying one of the rendering elements at a time while keeping the others constant. • Extensive experiments validate the effectiveness of our method, achieving robust disentangling of intrinsic prop- erties and demonstrating a strong capability to recognize changes in rendering.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "By modeling rendering and inverse ren- dering as two conditional generation tasks, we design a unified diffusion model with a tailored dual stream module for cross-condition generation. • We render a synthetic dataset of different fine-grained material edits using 200K 3D objects with randomized in- trinsic attributes by varying one of the rendering elements at a time while keeping the others constant. • Extensive experiments validate the effectiveness of our method, achieving robust disentangling of intrinsic prop- erties and demonstrating a strong capability to recognize changes in rendering."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Approach",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Introduction Physically based rendering is crucial in computer vision and graphics for producing photorealistic 2D images from 3D models, textures, and lighting setups.",
+      "This approach allows the reconstructed 3D model to be directly integrated into rendering engines, thereby play- ing a critical role in downstream applications such as game production [25]."
+    ],
+    "limitation_expression": [
+      "However, its recursive tracing incurs significant computational demands, posing challenges for real-time im- plementation.",
+      "Neverthe- less, the ambiguity between geometry, materials, and lighting still hinders the effectiveness of decomposition.",
+      "However, it fails to estab- lish a connection between the two processes, treating them independently.",
+      "Ambiguity issue still exists.",
+      "Despite this suc- cess, there are still limitations when applying our approach to certain real-world scenarios, primarily due to the domain gap between synthetic training data and real-world images."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address these challenges, we propose a data-driven method that jointly models rendering and inverse rendering as two conditional ∗ Equal contribution. †Corresponding Author.",
+      "Combined with a meticulously prepared dataset, our method effectively decomposition of intrinsic properties and demonstrating a strong capability to recognize changes during rendering.",
+      "To alleviate this issue, we propose to jointly learn the two distributions together.",
+      "The key contribu- tions of our method are as follows: • We propose a data-driven method to approximate the ren- dering equation.",
+      "By modeling rendering and inverse ren- dering as two conditional generation tasks, we design a unified diffusion model with a tailored dual stream module for cross-condition generation. • We render a synthetic dataset of different fine-grained material edits using 200K 3D objects with randomized in- trinsic attributes by varying one of the rendering elements at a time while keeping the others constant. • Extensive experiments validate the effectiveness of our method, achieving robust disentangling of intrinsic prop- erties and demonstrating a strong capability to recognize changes in rendering.",
+      "Our method demonstrates strong performance in real-world cases, achiev- ing photo-realistic rendering and inverse rendering that gen- eralizes well beyond synthetic training data.",
+      "To address this, future work will focus on incorporating more real-world data into our training process."
+    ],
+    "experiment_expression": [
+      "By modeling rendering and inverse ren- dering as two conditional generation tasks, we design a unified diffusion model with a tailored dual stream module for cross-condition generation. • We render a synthetic dataset of different fine-grained material edits using 200K 3D objects with randomized in- trinsic attributes by varying one of the rendering elements at a time while keeping the others constant. • Extensive experiments validate the effectiveness of our method, achieving robust disentangling of intrinsic prop- erties and demonstrating a strong capability to recognize changes in rendering.",
+      "Experiments We present qualitative and quantitive analysis in Section 4.1 to demonstrate the rendering capabilities of our model."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, it fails to estab- lish a connection between the two processes, treating them independently.",
+    "However, its recursive tracing incurs significant computational demands, posing challenges for real-time im- plementation.",
+    "The key contribu- tions of our method are as follows: • We propose a data-driven method to approximate the ren- dering equation.",
+    "To address these challenges, we propose a data-driven method that jointly models rendering and inverse rendering as two conditional ∗ Equal contribution. †Corresponding Author.",
+    "To alleviate this issue, we propose to jointly learn the two distributions together.",
+    "Abstract Rendering and inverse rendering are pivotal tasks in both computer vision and graphics.",
+    "Additionally, the inverse conditional distribution transfer is intractable due to the inherent ambiguity.",
+    "Ambiguity issue still exists.",
+    "At its core, the rendering equation [ 18] models the flow of light energy within a scene, offering an ideal con- ditional distribution transfer function for rendering.",
+    "Best viewed in color . to-real adaptation is less effective.",
+    "By cross-conditioning two pre- trained diffusion models through a dual streaming module, we achieve both rendering and inverse rendering in a unified framework.",
+    "By expanding our dataset with real- world examples, we aim to enhance the model’s ability to bridge the synthetic-real domain gap, enabling better gener- alization and higher-quality rendering results across diverse real-world scenes."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRendering and inverse rendering are pivotal tasks in both\ncomputer vision and graphics. The rendering equation is the\ncore of the two tasks, as an ideal conditional distribution\ntransfer function from intrinsic properties to RGB images.\nDespite achieving promising results of existing rendering\nmethods, they merely approximate the ideal estimation for\na specific scene and come with a high computational cost.\nAdditionally, the inverse conditional distribution transfer is\nintractable due to the inherent ambiguity. To address these\nchallenges, we propose a data-driven method that jointly\nmodels rendering and inverse rendering as two conditional\n∗ Equal contribution. †Corresponding Author.\nThis project is supported by Quwan Technology.\ngeneration tasks within a single diffusion framework. In-\nspired by UniDiffuser, we utilize two distinct time schedules\nto model both tasks, and with a tailored dual streaming mod-\nule, we achieve cross-conditioning of two pre-trained diffu-\nsion models. This unified approach, named Uni-Renderer,\nallows the two processes to facilitate each other through a\ncycle-consistent constrain, mitigating ambiguity by enforc-\ning consistency between intrinsic properties and rendered\nimages. Combined with a meticulously prepared dataset,\nour method effectively decomposition of intrinsic properties\nand demonstrating a strong capability to recognize changes\nduring rendering.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n26504",
+    "introduction": "1. Introduction\nPhysically based rendering is crucial in computer vision\nand graphics for producing photorealistic 2D images from\n3D models, textures, and lighting setups. This process is\nessential in animation [\n43], and architectural visualization\n[23]. At its core, the rendering equation [ 18] models the\nflow of light energy within a scene, offering an ideal con-\nditional distribution transfer function for rendering. Monte\nCarlo light-transport simulations [ 34], utilizing path trac-\ning [24], are commonly employed to evaluate the rendering\nequation. However, its recursive tracing incurs significant\ncomputational demands, posing challenges for real-time im-\nplementation. Inverse rendering, which aims to deduce ge-\nometric, material, and lighting information from images,\nhas long been studied due to its under-constrained nature\n[10]. This approach allows the reconstructed 3D model to\nbe directly integrated into rendering engines, thereby play-\ning a critical role in downstream applications such as game\nproduction [25].\nRecent advancements employ differentiable rendering\nfor 3D representations [5, 45] or focus on direct decompo-\nsition of intrinsics using 2D object priors [ 7, 11]. These\napproaches use differentiable renderer to integrate intrinsic\nproperties into RGB images, facilitating loss computation\nagainst ground-truth images for optimization. For instance,\nMaterialGAN [11] leverages StyleGAN2 [19] to synthesize\nrealistic material properties using a large-scale, spatially-\nvarying material dataset [7], while other works [4, 22, 44, 46]\nutilize diffusion models to achieve better results. Neverthe-\nless, the ambiguity between geometry, materials, and lighting\nstill hinders the effectiveness of decomposition. The map-\nping from observed images back to intrinsic properties is\nnot one-to-one, leading to ambiguity and suboptimal per-\nformance. The most similar work to ours is RGB2X [\n47],\nwhich performs both forward and inverse rendering using\ntwo separate diffusion models. However, it fails to estab-\nlish a connection between the two processes, treating them\nindependently. Ambiguity issue still exists.\nTo alleviate this issue, we propose to jointly learn the two\ndistributions together. By integrating rendering and inverse\nrendering into a single framework from a multi-task learning\nperspective, the two processes can facilitate each other. This\njoint learning allows us to use the inverted intrinsic proper-\nties to perform another cycle of rendering, effectively creat-\ning a cycle-consistent constrains. This cycle rendering can\nmitigate the ambiguity problem by enforcing consistency\nbetween the intrinsic properties and the rendered images,\nleading to improved performance.\nIn this work, we explicitly model the rendering process\nand inverse rendering as two conditional generation tasks.\nInspired by UniDiffuser [ 1], we utilize two distinct time\nschedules to model both conditional generation tasks within\na single diffusion pipeline. By cross-conditioning two pre-\ntrained diffusion models through a dual streaming module,\nwe achieve both rendering and inverse rendering in a unified\nframework.\nTo summarize, we introduce Uni-renderer which utilizes\na pre-trained diffusion model to handle both rendering and\ninverse rendering in a unified framework. The key contribu-\ntions of our method are as follows:\n• We propose a data-driven method to approximate the ren-\ndering equation. By modeling rendering and inverse ren-\ndering as two conditional generation tasks, we design a\nunified diffusion model with a tailored dual stream module\nfor cross-condition generation.\n• We render a synthetic dataset of different fine-grained\nmaterial edits using 200K 3D objects with randomized in-\ntrinsic attributes by varying one of the rendering elements\nat a time while keeping the others constant.\n• Extensive experiments validate the effectiveness of our\nmethod, achieving robust disentangling of intrinsic prop-\nerties and demonstrating a strong capability to recognize\nchanges in rendering.",
+    "method": "3. Approach\nGiven a single RGB image I, inverse rendering aims at\ndecomposing it into intrinsic attributes including metal-\nlic m, roughness r, albedo a, surface normal n, specu-\nlar lighting s and diffuse lighting d, which is formulated\nas {m, r, a, n, s, d} = InverseRenderer(I). For later refer-\nence, we denote the combination of attributes as C. Ren-\nderer takes attributes as input and renders them into RGB\nimage denoted as\nI = Renderer(C). We formulate a dual\nstream diffusion model as renderer and inverse renderer si-\nmultaneously. We start by briefly revisiting physically based\nrendering (PBR) and Unidiffuser [1] in Section 3.1. Next,\nwe introduce our dual stream diffusion framework in Section",
+    "experiments": "4. Experiments\nWe present qualitative and quantitive analysis in Section 4.1\nto demonstrate the rendering capabilities of our model. The\ninverse rendering results can be found in Section 4.2.",
+    "conclusion": "5. Conclusion\nWe present a method that allows photo-realistic rendering\nand inverse rendering in a unified framework. Our method\ndemonstrates strong performance in real-world cases, achiev-\ning photo-realistic rendering and inverse rendering that gen-\neralizes well beyond synthetic training data. Despite this suc-\ncess, there are still limitations when applying our approach to\ncertain real-world scenarios, primarily due to the domain gap\nbetween synthetic training data and real-world images. This\ngap can lead to challenges in accurately handling complex\nor unfamiliar objects and environments, where the synthetic-\nAlbedoNormalRef. Image DiffuseSpecularRoughnessMetallic\nFigure 8. Real World Inversing. We present different real-world\ninversing cases under different lighting conditions. Best viewed in\ncolor .\nto-real adaptation is less effective. To address this, future\nwork will focus on incorporating more real-world data into\nour training process. By expanding our dataset with real-\nworld examples, we aim to enhance the model’s ability to\nbridge the synthetic-real domain gap, enabling better gener-\nalization and higher-quality rendering results across diverse\nreal-world scenes."
+  }
+}

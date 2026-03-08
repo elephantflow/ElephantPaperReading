@@ -1,0 +1,135 @@
+{
+  "paper_id": "blind-bitstream-corrupted-video-recovery-via-metadata-guided-diffusion-model--88c837aa7a",
+  "paper_title": "Blind Bitstream-corrupted Video Recovery via Metadata-guided Diffusion Model",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:08.985401+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Blind Bitstream-corrupted Video Recovery via Metadata-guided Diffusion Model.pdf",
+    "filename": "Blind Bitstream-corrupted Video Recovery via Metadata-guided Diffusion Model.pdf",
+    "sha1": "88c837aa7a24797491f15e8763f6f93687e51778",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "To address this challenge, we propose a Metadata-Guided Diffusion Model (M-GDM), specifically designed for this novel problem.",
+    "limitation": "However, such an assumption is overly idealistic and impractical in real-world scenarios.",
+    "insight": "Abstract Bitstream-corrupted video recovery aims to fill in realis- tic video content due to bitstream corruption during video storage or transmission.",
+    "proposed_method": "To address these challenges, we introduce a Metadata-Guided Diffusion Model, dubbed M-GDM.",
+    "experimental_evidence": "Extensive experiment results validate the effectiveness of our method and demon- strate its superiority in the blind video recovery task.",
+    "summary": "To address this challenge, we propose a Metadata-Guided Diffusion Model (M-GDM), specifically designed for this novel problem. However, such an assumption is overly idealistic and impractical in real-world scenarios. Abstract Bitstream-corrupted video recovery aims to fill in realis- tic video content due to bitstream corruption during video storage or transmission. To address these challenges, we introduce a Metadata-Guided Diffusion Model, dubbed M-GDM. Extensive experiment results validate the effectiveness of our method and demon- strate its superiority in the blind video recovery task."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Bitstream-corrupted video recovery [16] aims to restore vi- sually coherent content in videos that have been degraded due to “bit loss” during compression, storage, and transmis- sion.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Bitstream-corrupted video recovery [16] aims to restore vi- sually coherent content in videos that have been degraded due to “bit loss” during compression, storage, and transmis- sion. This task is essential due to its broader applications, like digital archiving. Meanwhile, it is quite challenging since those corruptions often introduce unpredictable and irreversible errors into decoded frames, leading to serious and complex corruption patterns. For effective recovery, the corrupted areas should be smoothly blended with the sur- roundings and filled with natural content, and the original intact regions should be preserved."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Most existing methods [12, 27, 35–37] have a strong as- sumption that accurately annotated masks of the corrupted areas are available, as shown in Fig.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Most existing methods [12, 27, 35–37] have a strong as- sumption that accurately annotated masks of the corrupted areas are available, as shown in Fig. 2 (a), which means the regions to be recovered are known in advance. However, such an assumption is overly idealistic and impractical in real-world scenarios. A video of just a few seconds may contain hundreds of millions of pixels, making it laborious and infeasible to manually annotate which pixels are cor- rupted."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "method_overview",
+      "main_message": "As a result, these methods face significant limita- tions when trying to apply them to practical applications.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "As a result, these methods face significant limita- tions when trying to apply them to practical applications. In this paper, we consider a new blind bitstream- corrupted video recovery setting, where the model is re- quired to restore the corrupted regions in a video with- out any predefined masks. To address this challenge, we propose a Metadata-Guided Diffusion Model (M-GDM), specifically designed for this novel problem. M-GDM builds upon a latent diffusion model [20], leveraging the powerful generative capabilities of the diffusion model to handle severe, large-scale corruptions."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "To guide the diffu- sion model concentrated on the corrupted regions, we lever- age inherent video metadata, as shown in Fig.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "To guide the diffu- sion model concentrated on the corrupted regions, we lever- age inherent video metadata, as shown in Fig. 2 (b), as a corruption indicator and design a dual-stream metadata en- coder. We find the video metadata, including motion vectors Decoded FramesAnnotated Masks Corrupted BitstreamModel (a) Previous Approach Labour-intensive Decoded FramesExtracted Metadata Corrupted BitstreamModel (b) Our Approach xxx Easy Access Figure 2. Comparison of the Previous and Proposed Ap- proaches."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "(a) Previous approaches rely on predefined input masks, which are labor-intensive and difficult to obtain.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "(a) Previous approaches rely on predefined input masks, which are labor-intensive and difficult to obtain. (b) Our approach employs easily accessible metadata extracted from the bitstream as guidance without using any predefined masks. and frame types, strongly correlates with corruption pat- terns. Thus, they can be used to indicate the corrupted re- gions. The metadata encoder is composed of two modality- specific encoders to deal with motion vectors and frame types separately."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "background",
+      "main_message": "We extract the corresponding embeddings and aggregate them into the latent space.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "We extract the corresponding embeddings and aggregate them into the latent space. Throughout the diffusion process, the aggregated representation will be in- jected into the cross-attention layers to interact with the cor- rupted frame latent. The metadata can help us guide the diffusion model to focus on the corrupted areas to better ex- ploit the generative prior. To preserve the intact area from being modified, we in- troduce a prior-driven mask predictor generating pseudo masks for corrupted regions."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "background",
+      "main_message": "The predictor receives atten- tion results from the diffusion model and metadata repre- sentations from the dual-stream metadata encoder, which stands for the diffusion prior and the metadata prior, respec- tively.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "The predictor receives atten- tion results from the diffusion model and metadata repre- sentations from the dual-stream metadata encoder, which stands for the diffusion prior and the metadata prior, respec- tively. To supervise the pseudo masks in training, we use binarized residuals between corrupted frames and ground- truth frames as supervision. The estimated pseudo masks play the same role as previous predefined masks. They will be used by the hard masking mechanism to separate intact regions from corrupted frames and recovered regions from the diffusion model output."
+    },
+    {
+      "paragraph_index": 8,
+      "paragraph_role": "background",
+      "main_message": "Such a process will elim- inate the potential negative effects on intact regions.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Such a process will elim- inate the potential negative effects on intact regions. How- ever, pseudo masks are not always perfect, and there will exist some gradients at the region boundaries due to the hard masking mechanism. For this purpose, we design a post-refinement module that contains stacked residual Swin transformer blocks to keep the content consistent."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, manually annotating these masks is laborious and time-consuming, limiting the appli- cability of existing methods in real-world scenarios.",
+      "However, imperfections in pseudo mask predic- tions and hard masking processes often result in boundary artifacts.",
+      "However, such an assumption is overly idealistic and impractical in real-world scenarios."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Mean- while, to preserve the intact regions, we propose a prior- driven mask predictor that generates pseudo masks for the corrupted regions by leveraging the metadata prior and dif- fusion prior.",
+      "Extensive experiment results validate the effectiveness of our method and demon- strate its superiority in the blind video recovery task.",
+      "To address this challenge, we propose a Metadata-Guided Diffusion Model (M-GDM), specifically designed for this novel problem.",
+      "Preliminaries: We build our framework on a diffusion- based model [20]."
+    ],
+    "experiment_expression": [
+      "Most existing methods [12, 27, 35–37] have a strong as- sumption that accurately annotated masks of the corrupted areas are available, as shown in Fig.",
+      "To guide the diffu- sion model concentrated on the corrupted regions, we lever- age inherent video metadata, as shown in Fig."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, imperfections in pseudo mask predic- tions and hard masking processes often result in boundary artifacts.",
+    "However, manually annotating these masks is laborious and time-consuming, limiting the appli- cability of existing methods in real-world scenarios.",
+    "However, such an assumption is overly idealistic and impractical in real-world scenarios.",
+    "Mean- while, to preserve the intact regions, we propose a prior- driven mask predictor that generates pseudo masks for the corrupted regions by leveraging the metadata prior and dif- fusion prior.",
+    "Most existing methods [12, 27, 35–37] have a strong as- sumption that accurately annotated masks of the corrupted areas are available, as shown in Fig.",
+    "To address this challenge, we propose a Metadata-Guided Diffusion Model (M-GDM), specifically designed for this novel problem.",
+    "To guide the diffu- sion model concentrated on the corrupted regions, we lever- age inherent video metadata, as shown in Fig.",
+    "(a) Previous approaches rely on predefined input masks, which are labor-intensive and difficult to obtain.",
+    "(b) Our approach employs easily accessible metadata extracted from the bitstream as guidance without using any predefined masks. and frame types, strongly correlates with corruption pat- terns.",
+    "(ii) how to recover contents from exten- sive and irregular regions, especially when large portions of frames are severely degraded?",
+    "2 (a), which means the regions to be recovered are known in advance.",
+    "2 (b), as a corruption indicator and design a dual-stream metadata en- coder."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nBitstream-corrupted video recovery aims to fill in realis-\ntic video content due to bitstream corruption during video\nstorage or transmission. Most existing methods typically\nassume that the predefined masks of the corrupted regions\nare known in advance. However, manually annotating these\nmasks is laborious and time-consuming, limiting the appli-\ncability of existing methods in real-world scenarios. There-\nfore, we expect to relax this assumption by defining a new\n*Corresponding author\nblind video recovery setting where the recovery of corrupted\nregions does not rely on predefined masks. There are two\nsignificant challenges in this setting: (i) without predefined\nmasks, how accurately can a model identify the regions re-\nquiring recovery? (ii) how to recover contents from exten-\nsive and irregular regions, especially when large portions of\nframes are severely degraded? To address these challenges,\nwe introduce a Metadata-Guided Diffusion Model, dubbed\nM-GDM. To enable a diffusion model focusing on the cor-\nrupted regions, we leverage intrinsic video metadata as a\ncorruption indicator and design a dual-stream metadata en-\ncoder. This encoder first embeds the motion vectors and\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n22975\n\nframe types of a video separately and then merges them into\na unified metadata representation. The metadata represen-\ntation will interact with the corrupted latent feature through\ncross-attention mechanisms at each diffusion step. Mean-\nwhile, to preserve the intact regions, we propose a prior-\ndriven mask predictor that generates pseudo masks for the\ncorrupted regions by leveraging the metadata prior and dif-\nfusion prior. These pseudo masks enable the separation and\nrecombination of intact and recovered regions through hard\nmasking. However, imperfections in pseudo mask predic-\ntions and hard masking processes often result in boundary\nartifacts. Thus, we introduce a post-refinement module that\nrefines the hard-masked outputs, enhancing the consistency\nbetween intact and recovered regions. Extensive experiment\nresults validate the effectiveness of our method and demon-\nstrate its superiority in the blind video recovery task.",
+    "introduction": "1. Introduction\nBitstream-corrupted video recovery [16] aims to restore vi-\nsually coherent content in videos that have been degraded\ndue to “bit loss” during compression, storage, and transmis-\nsion. This task is essential due to its broader applications,\nlike digital archiving. Meanwhile, it is quite challenging\nsince those corruptions often introduce unpredictable and\nirreversible errors into decoded frames, leading to serious\nand complex corruption patterns. For effective recovery, the\ncorrupted areas should be smoothly blended with the sur-\nroundings and filled with natural content, and the original\nintact regions should be preserved.\nMost existing methods [12, 27, 35–37] have a strong as-\nsumption that accurately annotated masks of the corrupted\nareas are available, as shown in Fig. 2 (a), which means the\nregions to be recovered are known in advance. However,\nsuch an assumption is overly idealistic and impractical in\nreal-world scenarios. A video of just a few seconds may\ncontain hundreds of millions of pixels, making it laborious\nand infeasible to manually annotate which pixels are cor-\nrupted. As a result, these methods face significant limita-\ntions when trying to apply them to practical applications.\nIn this paper, we consider a new blind bitstream-\ncorrupted video recovery setting, where the model is re-\nquired to restore the corrupted regions in a video with-\nout any predefined masks. To address this challenge, we\npropose a Metadata-Guided Diffusion Model (M-GDM),\nspecifically designed for this novel problem. M-GDM\nbuilds upon a latent diffusion model [20], leveraging the\npowerful generative capabilities of the diffusion model to\nhandle severe, large-scale corruptions. To guide the diffu-\nsion model concentrated on the corrupted regions, we lever-\nage inherent video metadata, as shown in Fig. 2 (b), as a\ncorruption indicator and design a dual-stream metadata en-\ncoder. We find the video metadata, including motion vectors\nDecoded FramesAnnotated Masks\nCorrupted BitstreamModel\n(a) Previous Approach\nLabour-intensive\nDecoded FramesExtracted Metadata\nCorrupted BitstreamModel\n(b) Our Approach\nxxx\nEasy Access\nFigure 2. Comparison of the Previous and Proposed Ap-\nproaches. (a) Previous approaches rely on predefined input\nmasks, which are labor-intensive and difficult to obtain. (b) Our\napproach employs easily accessible metadata extracted from the\nbitstream as guidance without using any predefined masks.\nand frame types, strongly correlates with corruption pat-\nterns. Thus, they can be used to indicate the corrupted re-\ngions. The metadata encoder is composed of two modality-\nspecific encoders to deal with motion vectors and frame\ntypes separately. We extract the corresponding embeddings\nand aggregate them into the latent space. Throughout the\ndiffusion process, the aggregated representation will be in-\njected into the cross-attention layers to interact with the cor-\nrupted frame latent. The metadata can help us guide the\ndiffusion model to focus on the corrupted areas to better ex-\nploit the generative prior.\nTo preserve the intact area from being modified, we in-\ntroduce a prior-driven mask predictor generating pseudo\nmasks for corrupted regions. The predictor receives atten-\ntion results from the diffusion model and metadata repre-\nsentations from the dual-stream metadata encoder, which\nstands for the diffusion prior and the metadata prior, respec-\ntively. To supervise the pseudo masks in training, we use\nbinarized residuals between corrupted frames and ground-\ntruth frames as supervision. The estimated pseudo masks\nplay the same role as previous predefined masks. They\nwill be used by the hard masking mechanism to separate\nintact regions from corrupted frames and recovered regions\nfrom the diffusion model output. Such a process will elim-\ninate the potential negative effects on intact regions. How-\never, pseudo masks are not always perfect, and there will\nexist some gradients at the region boundaries due to the\nhard masking mechanism. For this purpose, we design a\npost-refinement module that contains stacked residual Swin\ntransformer blocks to keep the content consistent.",
+    "method": "3. Methodology\nNotations: Let X = {xi ∈ RH×W ×3}N\ni=1 represent the\ndecoded corrupted frames from the video bitstream, where\nN denotes the number of frames. Our objective is to re-\nstore the video frames ˆY = {ˆyi ∈ RH×W ×3}N\ni=1. Y =\n{yi ∈ RH×W ×3}N\ni=1 represents the corresponding ground\ntruth frames for comparison. We expect ˆY to be closely\naligned with Y in both spatial and temporal dimensions.\nThe motion vectors between frames are denoted as V =\n{vi ∈ RH×W ×4}N\ni=1 and the frame type of each frame is\ndenoted as F = {fi ∈ RN }N\ni=1. For simplicity, we use one\nframe as an example.\nPreliminaries: We build our framework on a diffusion-\nbased model [20]. The diffusion model consists of the for-\nward and backward processes. Formally, for an input sam-\nple x0, the forward process tries to add noise:\nxt = γtx0 + δtϵ, ϵ ∼ N (0, I), (1)\nwhere γt and δt are coefficients determined by the diffusion\nschedule, ϵ is the added Gaussian noise.",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nIn this paper, we introduced a novel framework, Metadata-\nGuided Diffusion Model (M-GDM), specifically for blind\nbitstream-corrupted video recovery. Unlike traditional\nmethods that heavily rely on predefined masks, M-GDM\nleverages inherent video metadata to automatically identify\nand recover corrupted regions. Our approach eliminates the\nneed of annotated masks as input and thus is more practical.\nCompared to previous methods, our M-GDM achieves su-\nperior visual recovery performance in terms of both frame\nquality and temporal consistency. Though our recovered re-\nsults are visually promising, we also observed there exists\nslight color deviation from original corrupted videos. This\nis probably due to the adopted video stable diffusion model\nthat was originally designed for video generation rather than\nrecovery. We believe that by designing a network more suit-\nable for video recovery, the color deviation phenomenon\ncan be effectively alleviated. Overall, M-GDM sets a new\nstandard for blind bitstream-corrupted video restoration and\nsheds light on video metadata-guided recovery tasks.\nAcknowledgments\nThis research is funded in part by ARC-Discovery\ngrant (DP220100800 to XY) and ARC-DECRA grant\n(DE230100477 to XY). We thank all anonymous reviewers\nand ACs for their constructive suggestions."
+  }
+}

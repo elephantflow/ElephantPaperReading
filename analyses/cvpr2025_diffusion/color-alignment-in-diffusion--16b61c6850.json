@@ -1,0 +1,104 @@
+{
+  "paper_id": "color-alignment-in-diffusion--16b61c6850",
+  "paper_title": "Color Alignment in Diffusion",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:13.289790+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Color Alignment in Diffusion.pdf",
+    "filename": "Color Alignment in Diffusion.pdf",
+    "sha1": "16b61c6850868c10eb2ee6d5dab58f98987d99d5",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Recently, diffusion models [18] and their large-scale text- conditioned variants [36, 39] have demonstrated impressive quality and diversity of generated contents in image syn- thesis.",
+    "limitation": "However, due to the inherent randomness in the diffusion pro- cess, it remains challenging to control generated contents at a fine-grained level, for instance, synthesizing image pixels following some given content and generic color distribution.",
+    "insight": "Abstract Diffusion models have shown great promise in synthesiz- ing visually appealing images.",
+    "proposed_method": "To address this, we introduce a novel color alignment al- gorithm that confines the generative process in diffusion models within a given color pattern.",
+    "experimental_evidence": "Abstract Diffusion models have shown great promise in synthesiz- ing visually appealing images.",
+    "summary": "Introduction Recently, diffusion models [18] and their large-scale text- conditioned variants [36, 39] have demonstrated impressive quality and diversity of generated contents in image syn- thesis. However, due to the inherent randomness in the diffusion pro- cess, it remains challenging to control generated contents at a fine-grained level, for instance, synthesizing image pixels following some given content and generic color distribution. Abstract Diffusion models have shown great promise in synthesiz- ing visually appealing images. To address this, we introduce a novel color alignment al- gorithm that confines the generative process in diffusion models within a given color pattern. Abstract Diffusion models have shown great promise in synthesiz- ing visually appealing images."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "method_overview",
+      "main_message": "Introduction Recently, diffusion models [18] and their large-scale text- conditioned variants [36, 39] have demonstrated impressive quality and diversity of generated contents in image syn- thesis.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "1. Introduction\nRecently, diffusion models [18] and their large-scale text-\nconditioned variants [36, 39] have demonstrated impressive\nquality and diversity of generated contents in image syn-\nthesis. Subsequent works have explored leveraging this ca-\npability for possible controllability, incorporating various\nconstraints, such as structural [30, 35, 48] and reference con-\nstraints [14, 46], which typically serve as additional inputs.\nHowever, due to the inherent randomness in the diffusion pro-\ncess, it remains challenging to control generated contents at\na fine-grained level, for instance, synthesizing image pixels\nfollowing some given content and generic color distribution.\nIn this paper, we focus on such a fine-grained control over\npixel colors in synthesized images to meet with three color-\nconditioned generation criteria: the accuracy in adhering to\ngiven color values; the completeness of covering proportions\nof the specified colors; and thedisentanglement of the colors\n(a) Condition\n (b) Ours\n (c) Baselines\nFigure 1. Examples of color-conditioned generation from dif-\nferent methods. Color conditions (a) can be derived from imagery\n(top two rows) or manual drawing (bottom tw"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "our method accepts a color condition via a color pattern, determining color values and their proportions in a synthe- sized image.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "our method accepts a color condition via a color pattern,\ndetermining color values and their proportions in a synthe-\nsized image. Different from the regular diffusion approach,\nwe perform the color alignment on intermediate samples or\nlatent representations during the diffusion process prior to\ninputting them into a denoising model for image synthesis,\nthereby facilitating the perception of the conditional colors\nin diffusion models while preserving the overall attribution\nof the diffusion process. Furthermore, our method can sup-\nport various settings: re-training of a color-aligned diffusion\nmodel; fine-tuning of a color-aligned diffusion model from a\npre-trained regular diffusion model; and zero-shot approx-\nimation (training-free) of the color alignment process with\na pre-trained diffusion model. We validate our method by\ndemonstrating its capabilities across various color condi-\ntions and compare it with existing baselines on benchmark\ndatasets. In summary, we make the following contributions:\n• We address a challenging task: fine-grained color-\nconditioned image synthesis. We aim to generate images\nthat closely follow a specified color pattern that defines\ncolor values and p"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Proposed method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, it remains chal- lenging to condition the synthesis at a fine-grained level, for instance, synthesizing image pixels following some generic color pattern.",
+      "This strategy simplifies the prediction in diffusion models within a color manifold while still allowing plausible structures in generated contents, thus enabling the generation of diverse contents that comply with the target color pattern.",
+      "However, due to the inherent randomness in the diffusion pro- cess, it remains challenging to control generated contents at a fine-grained level, for instance, synthesizing image pixels following some given content and generic color distribution."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this, we introduce a novel color alignment al- gorithm that confines the generative process in diffusion models within a given color pattern.",
+      "Our method (b) can generate pixels closely aligned with the color conditions and effectively disentangle the colors into different structures.",
+      "In this paper, we propose an effective yet control-easy method facilitating color alignment in diffusion models for color-conditioned image synthesis.",
+      "28446 our method accepts a color condition via a color pattern, determining color values and their proportions in a synthe- sized image.",
+      "Furthermore, our method can sup- port various settings: re-training of a color-aligned diffusion model; fine-tuning of a color-aligned diffusion model from a pre-trained regular diffusion model; and zero-shot approx- imation (training-free) of the color alignment process with a pre-trained diffusion model.",
+      "We validate our method by demonstrating its capabilities across various color condi- tions and compare it with existing baselines on benchmark datasets.",
+      "Our approach thus enhances the controllability and flexibility of image generation. • We propose a novel color alignment method that operates on the diffusion process of diffusion models, allowing the diffusion to effectively perceive color conditions while maintaining the quality and diversity of generated con- tents.",
+      "3.3 extend our tech- nique to latent diffusion models, where we address typical challenges in latent space diffusion and demonstrate our method’s ability via fine-tuning of a pre-trained latent diffu- sion model to a color-aligned one.",
+      "3.4, we present a zero-shot variant of our method that achieves simi- lar generation quality without extra training.",
+      "Conclusion and Discussion We propose a color alignment method that operates on the diffusion process of diffusion models.",
+      "First, while our method can condition on color values and proportions, it is worthwhile to understand the influence of the spatial information in the color conditions."
+    ],
+    "experiment_expression": [
+      "Experimental results demonstrate our state- of-the-art performance in conditioning and controlling of color pixels, while maintaining on-par generation quality and diversity in comparison with regular diffusion models.",
+      "We derive various settings including re-training, fine-tuning, and a zero-shot approximation, to adapt our color alignment method into different down-stream needs. • We conduct extensive experiments to validate our proposed method in various scenarios and controllability settings.",
+      "Our results demonstrate state-of-the-art performance com- pared with existing baselines.",
+      "3.3 extend our tech- nique to latent diffusion models, where we address typical challenges in latent space diffusion and demonstrate our method’s ability via fine-tuning of a pre-trained latent diffu- sion model to a color-aligned one."
+    ],
+    "contribution_expression": [
+      "In summary, we make the following contributions: • We address a challenging task: fine-grained color- conditioned image synthesis."
+    ]
+  },
+  "notable_sentences": [
+    "Conclusion and Discussion We propose a color alignment method that operates on the diffusion process of diffusion models.",
+    "However, it remains chal- lenging to condition the synthesis at a fine-grained level, for instance, synthesizing image pixels following some generic color pattern.",
+    "In this paper, we propose an effective yet control-easy method facilitating color alignment in diffusion models for color-conditioned image synthesis.",
+    "1, where previous works often produce suboptimal results that do not align with the afore- mentioned criteria.",
+    "28446 our method accepts a color condition via a color pattern, determining color values and their proportions in a synthe- sized image.",
+    "3.1 review the regular diffusion process.",
+    "3.2, we introduce our color alignment technique un- der its simplest setting, i.e., re-training of a diffusion model with color alignment.",
+    "3.3 extend our tech- nique to latent diffusion models, where we address typical challenges in latent space diffusion and demonstrate our method’s ability via fine-tuning of a pre-trained latent diffu- sion model to a color-aligned one.",
+    "3.4, we present a zero-shot variant of our method that achieves simi- lar generation quality without extra training.",
+    "Abstract Diffusion models have shown great promise in synthesiz- ing visually appealing images.",
+    "Color conditions (a) can be derived from imagery (top two rows) or manual drawing (bottom two rows).",
+    "Different attempts of color-conditioned image genera- tion are visualized in Fig."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models have shown great promise in synthesiz-\ning visually appealing images. However, it remains chal-\nlenging to condition the synthesis at a fine-grained level, for\ninstance, synthesizing image pixels following some generic\ncolor pattern. Existing image synthesis methods often pro-\nduce contents that fall outside the desired pixel conditions.\nTo address this, we introduce a novel color alignment al-\ngorithm that confines the generative process in diffusion\nmodels within a given color pattern. Specifically, we project\ndiffusion terms, either imagery samples or latent representa-\ntions, into a conditional color space to align with the input\ncolor distribution. This strategy simplifies the prediction in\ndiffusion models within a color manifold while still allowing\nplausible structures in generated contents, thus enabling the\ngeneration of diverse contents that comply with the target\ncolor pattern. Experimental results demonstrate our state-\nof-the-art performance in conditioning and controlling of\ncolor pixels, while maintaining on-par generation quality\nand diversity in comparison with regular diffusion models.",
+    "introduction": "1. Introduction\nRecently, diffusion models [18] and their large-scale text-\nconditioned variants [36, 39] have demonstrated impressive\nquality and diversity of generated contents in image syn-\nthesis. Subsequent works have explored leveraging this ca-\npability for possible controllability, incorporating various\nconstraints, such as structural [30, 35, 48] and reference con-\nstraints [14, 46], which typically serve as additional inputs.\nHowever, due to the inherent randomness in the diffusion pro-\ncess, it remains challenging to control generated contents at\na fine-grained level, for instance, synthesizing image pixels\nfollowing some given content and generic color distribution.\nIn this paper, we focus on such a fine-grained control over\npixel colors in synthesized images to meet with three color-\nconditioned generation criteria: the accuracy in adhering to\ngiven color values; the completeness of covering proportions\nof the specified colors; and thedisentanglement of the colors\n(a) Condition\n (b) Ours\n (c) Baselines\nFigure 1. Examples of color-conditioned generation from dif-\nferent methods. Color conditions (a) can be derived from imagery\n(top two rows) or manual drawing (bottom two rows). Input text\nprompts are “painting” and “pen” (1st & 3rd rows), and “boat” (2nd\n& 4th rows). Our method (b) can generate pixels closely aligned\nwith the color conditions and effectively disentangle the colors into\ndifferent structures. Existing baselines [14, 36, 46, 48] (from top to\nbottom) (c) struggle with either the semantics (the first two rows)\nor colors (the last two rows) of generated contents.\ninto various structures. Such a color-conditioned generation\nability would be a great aid to numerous downstream tasks\nin creative artwork and graphic design [10].\nDifferent attempts of color-conditioned image genera-\ntion are visualized in Fig. 1, where previous works often\nproduce suboptimal results that do not align with the afore-\nmentioned criteria. In this paper, we propose an effective yet\ncontrol-easy method facilitating color alignment in diffusion\nmodels for color-conditioned image synthesis. Specifically,\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n28446\n\nour method accepts a color condition via a color pattern,\ndetermining color values and their proportions in a synthe-\nsized image. Different from the regular diffusion approach,\nwe perform the color alignment on intermediate samples or\nlatent representations during the diffusion process prior to\ninputting them into a denoising model for image synthesis,\nthereby facilitating the perception of the conditional colors\nin diffusion models while preserving the overall attribution\nof the diffusion process. Furthermore, our method can sup-\nport various settings: re-training of a color-aligned diffusion\nmodel; fine-tuning of a color-aligned diffusion model from a\npre-trained regular diffusion model; and zero-shot approx-\nimation (training-free) of the color alignment process with\na pre-trained diffusion model. We validate our method by\ndemonstrating its capabilities across various color condi-\ntions and compare it with existing baselines on benchmark\ndatasets. In summary, we make the following contributions:\n• We address a challenging task: fine-grained color-\nconditioned image synthesis. We aim to generate images\nthat closely follow a specified color pattern that defines\ncolor values and proportions without requiring an explicit\nstructure. Our approach thus enhances the controllability\nand flexibility of image generation.\n• We propose a novel color alignment method that operates\non the diffusion process of diffusion models, allowing the\ndiffusion to effectively perceive color conditions while\nmaintaining the quality and diversity of generated con-\ntents. We derive various settings including re-training,\nfine-tuning, and a zero-shot approximation, to adapt our\ncolor alignment method into different down-stream needs.\n• We conduct extensive experiments to validate our proposed\nmethod in various scenarios and controllability settings.\nOur results demonstrate state-of-the-art performance com-\npared with existing baselines.",
+    "method": "3. Proposed method\nWe first in Sec. 3.1 review the regular diffusion process.\nIn Sec. 3.2, we introduce our color alignment technique un-\nder its simplest setting, i.e., re-training of a diffusion model\nwith color alignment. We then in Sec. 3.3 extend our tech-\nnique to latent diffusion models, where we address typical\nchallenges in latent space diffusion and demonstrate our\nmethod’s ability via fine-tuning of a pre-trained latent diffu-\nsion model to a color-aligned one. Finally, in Sec. 3.4, we\npresent a zero-shot variant of our method that achieves simi-\nlar generation quality without extra training. We provide an\noverview of our pipeline and the regular diffusion in Fig. 2.",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion and Discussion\nWe propose a color alignment method that operates on the\ndiffusion process of diffusion models. Diffused colors are\nmapped to conditional colors across diffusion steps, enabling\na continuous pathway for synthesizing target color patterns\nwhile maintaining the creativity of diffusion models.\nThere are issues that would be addressed in our future\nwork. First, while our method can condition on color values\nand proportions, it is worthwhile to understand the influence\nof the spatial information in the color conditions. Second, it\nis of great interest to extend our color alignment to video and\n3D data, potentially with integration of multi-view attributes."
+  }
+}

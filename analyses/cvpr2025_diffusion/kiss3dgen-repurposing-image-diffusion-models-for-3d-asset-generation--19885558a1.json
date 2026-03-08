@@ -1,0 +1,79 @@
+{
+  "paper_id": "kiss3dgen-repurposing-image-diffusion-models-for-3d-asset-generation--19885558a1",
+  "paper_title": "Kiss3DGen: Repurposing Image Diffusion Models for 3D Asset Generation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:55.025175+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Kiss3DGen： Repurposing Image Diffusion Models for 3D Asset Generation.pdf",
+    "filename": "Kiss3DGen： Repurposing Image Diffusion Models for 3D Asset Generation.pdf",
+    "sha1": "19885558a1d16c623fea9c58a91b2ceee3265025",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction In recent years, generative models have significantly advanced the field of 3D object generation, transform- ing computer vision and graphics.",
+    "limitation": "Introduction In recent years, generative models have significantly advanced the field of 3D object generation, transform- ing computer vision and graphics.",
+    "insight": "Abstract Diffusion models have achieved great success in gener- ating 2D images.",
+    "proposed_method": "In this work, we introduce Kiss3DGen (Keep It Simple and Straightforward in 3D Generation), an efficient frame- work for generating, editing, and enhancing 3D objects by repurposing a well-trained 2D image diffusion model for 3D generation.",
+    "experimental_evidence": "Furthermore, we demonstrate that our Kiss3DGen model is compatible with various diffusion model techniques, enabling advanced features such as 3D editing, mesh and texture enhancement, etc.",
+    "summary": "Introduction In recent years, generative models have significantly advanced the field of 3D object generation, transform- ing computer vision and graphics. Introduction In recent years, generative models have significantly advanced the field of 3D object generation, transform- ing computer vision and graphics. Abstract Diffusion models have achieved great success in gener- ating 2D images. In this work, we introduce Kiss3DGen (Keep It Simple and Straightforward in 3D Generation), an efficient frame- work for generating, editing, and enhancing 3D objects by repurposing a well-trained 2D image diffusion model for 3D generation. Furthermore, we demonstrate that our Kiss3DGen model is compatible with various diffusion model techniques, enabling advanced features such as 3D editing, mesh and texture enhancement, etc."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction In recent years, generative models have significantly advanced the field of 3D object generation, transform- ing computer vision and graphics.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction In recent years, generative models have significantly advanced the field of 3D object generation, transform- ing computer vision and graphics. The rapid progress of diffusion models led to remarkable improvements in synthesizing highly realistic 2D images. These develop- ments have opened new possibilities for creating com- plex 3D objects, essential for applications such as vir-"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Proposed Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, the quality and generaliz- ability of 3D content generation remain limited."
+    ],
+    "insight_expression": [],
+    "method_expression": [],
+    "experiment_expression": [
+      "Furthermore, we demonstrate that our Kiss3DGen model is compatible with various diffusion model techniques, enabling advanced features such as 3D editing, mesh and texture enhancement, etc.",
+      "Through extensive experiments, we demonstrate the effectiveness of our approach, showcasing its ability to produce high- quality 3D models efficiently."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, the quality and generaliz- ability of 3D content generation remain limited.",
+    "Through extensive experiments, we demonstrate the effectiveness of our approach, showcasing its ability to produce high- quality 3D models efficiently.",
+    "3.1, we explain how to train the base model to generate 3D Bundle Images, ultimately enabling text- to-3D generation, termed as Kiss3DGen-Base.",
+    "Abstract Diffusion models have achieved great success in gener- ating 2D images.",
+    "Furthermore, we demonstrate that our Kiss3DGen model is compatible with various diffusion model techniques, enabling advanced features such as 3D editing, mesh and texture enhancement, etc.",
+    "In this work, we introduce Kiss3DGen (Keep It Simple and Straightforward in 3D Generation), an efficient frame- work for generating, editing, and enhancing 3D objects by repurposing a well-trained 2D image diffusion model for 3D generation.",
+    "Introduction In recent years, generative models have significantly advanced the field of 3D object generation, transform- ing computer vision and graphics.",
+    "Project page: https://ltt- o.github.io/Kiss3dgen.github.io.",
+    "Proposed Method In this section, we present an in-depth explanation of Kiss3DGen, which repurposes a powerful diffusion transformer model (DiT) for 3D generation tasks.",
+    "Specifically, we fine-tune a diffusion model to generate ”3D Bundle Image”, a tiled repre- sentation composed of multi-view images and their cor- responding normal maps.",
+    "State- of-the-art methods often require large-scale 3D assets for training, which are challenging to collect.",
+    "The normal maps are then used to reconstruct a 3D mesh, and the multi-view im- ages provide texture mapping, resulting in a complete 3D model."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models have achieved great success in gener-\nating 2D images. However, the quality and generaliz-\nability of 3D content generation remain limited. State-\nof-the-art methods often require large-scale 3D assets\nfor training, which are challenging to collect. In this\nwork, we introduce Kiss3DGen (Keep It Simple and\nStraightforward in 3D Generation), an efficient frame-\nwork for generating, editing, and enhancing 3D objects\nby repurposing a well-trained 2D image diffusion model\nfor 3D generation. Specifically, we fine-tune a diffusion\nmodel to generate ”3D Bundle Image”, a tiled repre-\nsentation composed of multi-view images and their cor-\nresponding normal maps. The normal maps are then\nused to reconstruct a 3D mesh, and the multi-view im-\nages provide texture mapping, resulting in a complete\n3D model. This simple method effectively transforms the\n3D generation problem into a 2D image generation task,\nmaximizing the utilization of knowledge in pretrained\ndiffusion models. Furthermore, we demonstrate that our\nKiss3DGen model is compatible with various diffusion\nmodel techniques, enabling advanced features such as\n3D editing, mesh and texture enhancement, etc. Through\nextensive experiments, we demonstrate the effectiveness\nof our approach, showcasing its ability to produce high-\nquality 3D models efficiently. Project page: https://ltt-\no.github.io/Kiss3dgen.github.io.",
+    "introduction": "1. Introduction\nIn recent years, generative models have significantly\nadvanced the field of 3D object generation, transform-\ning computer vision and graphics. The rapid progress\nof diffusion models led to remarkable improvements in\nsynthesizing highly realistic 2D images. These develop-\nments have opened new possibilities for creating com-\nplex 3D objects, essential for applications such as vir-",
+    "method": "3. Proposed Method\nIn this section, we present an in-depth explanation\nof Kiss3DGen, which repurposes a powerful diffusion\ntransformer model (DiT) for 3D generation tasks. In\nSec. 3.1, we explain how to train the base model to\ngenerate 3D Bundle Images, ultimately enabling text-\nto-3D generation, termed as Kiss3DGen-Base. No-",
+    "experiments": "4. Experiments",
+    "conclusion": ""
+  }
+}

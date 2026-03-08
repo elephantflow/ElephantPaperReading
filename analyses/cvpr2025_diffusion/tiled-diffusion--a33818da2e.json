@@ -1,0 +1,117 @@
+{
+  "paper_id": "tiled-diffusion--a33818da2e",
+  "paper_title": "Tiled Diffusion",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:39.332191+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Tiled Diffusion.pdf",
+    "filename": "Tiled Diffusion.pdf",
+    "sha1": "a33818da2e6d0fd66a2c9b859c8f1fb0e9d5f479",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Tiling, the seamless connection of images to create coher- ent visual fields, is crucial in digital image processing and generation.",
+    "limitation": "Traditionally, manual tile creation has limited scalabil- ity and flexibility.",
+    "insight": "Abstract Image tiling—the seamless connection of disparate images to create a coherent visual field—is crucial for applications such as texture creation, video game asset development, and digital art.",
+    "proposed_method": "Our method supports a wide range of tiling scenarios, from self-tiling to complex many-to-many This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "experimental_evidence": "Our eval- uations demonstrate the effectiveness of our approach, with superior performance across various metrics and diverse scenarios.",
+    "summary": "Introduction Tiling, the seamless connection of images to create coher- ent visual fields, is crucial in digital image processing and generation. Traditionally, manual tile creation has limited scalabil- ity and flexibility. Abstract Image tiling—the seamless connection of disparate images to create a coherent visual field—is crucial for applications such as texture creation, video game asset development, and digital art. Our method supports a wide range of tiling scenarios, from self-tiling to complex many-to-many This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Our eval- uations demonstrate the effectiveness of our approach, with superior performance across various metrics and diverse scenarios."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Tiling, the seamless connection of images to create coher- ent visual fields, is crucial in digital image processing and generation.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Tiling, the seamless connection of images to create coher- ent visual fields, is crucial in digital image processing and generation. It is essential for applications ranging from tex- ture creation to video game asset development and digital art. Traditionally, manual tile creation has limited scalabil- ity and flexibility. Recent research [23, 32] has attempted to automate this process using generative models, but cur- rent approaches primarily focus on simple tiling scenarios, mainly single image generation in the field of texture syn- thesis."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "problem_statement",
+      "main_message": "We define the tiling problem using a list of con- straints.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "We define the tiling problem using a list of con- straints. We consider each image Ii as a rectangle with four sides (right (I i|), left (I |i), top (I i), and bottom (I i)) and each constraint Cj is defined by two sets of sides. All the sides from one set can connect to all of the sides of the other set. These sets can include sides from any of the im- ages being tiled."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "This flexible definition allows for various tiling scenarios.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This flexible definition allows for various tiling scenarios. Examples of these scenarios are illustrated in Figure 2: • Self-tiling: For single images that repeat seamlessly. As shown in Figure 2 (left), I1 connects only to itself. For- mally, we have two constraints: C1 = {{I1|}, {I|1}} and C2 = {{I 1}, {I1}}. • One-to-one tiling: Allows each side of an image to con- nect to a maximum of one side of another image."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "Fig- ure 2 (middle) demonstrates this for two images on the X-axis.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Fig- ure 2 (middle) demonstrates this for two images on the X-axis. Each constraint’s sets contain exactly one ele- ment. • Many-to-many tiling: Supports any number of connec- tions per side, including complex cross-axis connections (X-axis to Y-axis). Figure 2 (right) shows a many-to- many scenario where right sides of both images can con- nect to left sides of both images. There are no limitations on the number of sides in either set."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "method_overview",
+      "main_message": "Our method, Tiled Diffusion, extends the capabilities of diffusion models to accommodate these diverse tiling sce- narios.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Our method, Tiled Diffusion, extends the capabilities of diffusion models to accommodate these diverse tiling sce- narios. It addresses several challenges, including ensuring content coherence across diverse tile boundaries, maintain- ing stylistic consistency between connected images, and preserving both local details and global structure in com- plex arrangements. We introduce two key innovations: a tiling constraint for global structure consistency and local detail matching, and a similarity constraint to eliminate ar- tifacts in complex tiling scenarios. We demonstrate our method’s effectiveness in several applications which are Self-tiling One-to-one Many-to-many /gid00042/gid00018 /gid00042/gid00018/gid00042/gid00019 /gid00042/gid00018/gid00042/gid00019 {{I1| }, {I|1 }} {{I1| }, {I|2 }} {{I1| , I2| }, {I|1 , I|2 }} {{I1 }, {I1 }} {{I2| }, {I|1 }} Figure 2."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "background",
+      "main_message": "Left: Self-tiling, where the image connects only to itself vertically and horizontally.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Left: Self-tiling, where the image connects only to itself vertically and horizontally. Middle: One- to-one tiling on the X-axis, with each image connecting only to the other image. Right: Many-to-many tiling on the X-axis, where right sides of both images can connect to left sides of both images. Lower: constraints (Cj’s) for each tiling scenario. seamlessly tiling existing images, tileable texture genera- tion and 360° synthesis."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [],
+  "writing_templates": {
+    "problem_expression": [
+      "Abstract Image tiling—the seamless connection of disparate images to create a coherent visual field—is crucial for applications such as texture creation, video game asset development, and digital art.",
+      "Introduction Tiling, the seamless connection of images to create coher- ent visual fields, is crucial in digital image processing and generation."
+    ],
+    "limitation_expression": [
+      "However, cur- rent approaches primarily focus on tiling textures and ma- nipulating models for single-image generation, without in- herently supporting the creation of multiple interconnected tiles across diverse domains.",
+      "Traditionally, manual tile creation has limited scalabil- ity and flexibility."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Our method supports a wide range of tiling scenarios, from self-tiling to complex many-to-many This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "Our method, Tiled Diffusion, extends the capabilities of diffusion models to accommodate these diverse tiling sce- narios.",
+      "We demonstrate our method’s effectiveness in several applications which are Self-tiling One-to-one Many-to-many /gid00042/gid00018 /gid00042/gid00018/gid00042/gid00019 /gid00042/gid00018/gid00042/gid00019 {{I1| }, {I|1 }} {{I1| }, {I|2 }} {{I1| , I2| }, {I|1 , I|2 }} {{I1 }, {I1 }} {{I2| }, {I|1 }} Figure 2.",
+      "Method Our method generalizes the tiling problem to accommodate complex connections between multiple image sides."
+    ],
+    "experiment_expression": [
+      "As shown in Figure 2 (left), I1 connects only to itself.",
+      "We demonstrate our method’s effectiveness in several applications which are Self-tiling One-to-one Many-to-many /gid00042/gid00018 /gid00042/gid00018/gid00042/gid00019 /gid00042/gid00018/gid00042/gid00019 {{I1| }, {I|1 }} {{I1| }, {I|2 }} {{I1| , I2| }, {I|1 , I|2 }} {{I1 }, {I1 }} {{I2| }, {I|1 }} Figure 2.",
+      "Our eval- uations demonstrate the effectiveness of our approach, with superior performance across various metrics and diverse scenarios."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "As shown in Figure 2 (left), I1 connects only to itself.",
+    "However, cur- rent approaches primarily focus on tiling textures and ma- nipulating models for single-image generation, without in- herently supporting the creation of multiple interconnected tiles across diverse domains.",
+    "7795 connections, enabling seamless integration of multiple im- ages.",
+    "Abstract Image tiling—the seamless connection of disparate images to create a coherent visual field—is crucial for applications such as texture creation, video game asset development, and digital art.",
+    "All the sides from one set can connect to all of the sides of the other set.",
+    "Conclusion We introduced Tiled Diffusion, a novel approach that ex- tends diffusion models to accommodate complex tiling sce- narios - self-tiling, one-to-one, and many-to-many.",
+    "Each constraint’s sets contain exactly one ele- ment. • Many-to-many tiling: Supports any number of connec- tions per side, including complex cross-axis connections (X-axis to Y-axis).",
+    "Examples of these scenarios are illustrated in Figure 2: • Self-tiling: For single images that repeat seamlessly.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Fig- ure 2 (middle) demonstrates this for two images on the X-axis.",
+    "Figure 2 (right) shows a many-to- many scenario where right sides of both images can con- nect to left sides of both images.",
+    "For- mally, we have two constraints: C1 = {{I1|}, {I|1}} and C2 = {{I 1}, {I1}}. • One-to-one tiling: Allows each side of an image to con- nect to a maximum of one side of another image."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nImage tiling—the seamless connection of disparate images\nto create a coherent visual field—is crucial for applications\nsuch as texture creation, video game asset development, and\ndigital art. Traditionally, tiles have been constructed man-\nually, a method that poses significant limitations in scala-\nbility and flexibility. Recent research has attempted to au-\ntomate this process using generative models. However, cur-\nrent approaches primarily focus on tiling textures and ma-\nnipulating models for single-image generation, without in-\nherently supporting the creation of multiple interconnected\ntiles across diverse domains. This paper presents Tiled Dif-\nfusion, a novel approach that extends the capabilities of dif-\nfusion models to accommodate the generation of cohesive\ntiling patterns across various domains of image synthesis\nthat require tiling. Our method supports a wide range of\ntiling scenarios, from self-tiling to complex many-to-many\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n7795\n\nconnections, enabling seamless integration of multiple im-\nages. Tiled Diffusion automates the tiling process, eliminat-\ning the need for manual intervention and enhancing cre-\native possibilities in various applications, such as seam-\nlessly tiling of existing images, tiled texture creation, and\n360° synthesis.",
+    "introduction": "1. Introduction\nTiling, the seamless connection of images to create coher-\nent visual fields, is crucial in digital image processing and\ngeneration. It is essential for applications ranging from tex-\nture creation to video game asset development and digital\nart. Traditionally, manual tile creation has limited scalabil-\nity and flexibility. Recent research [23, 32] has attempted\nto automate this process using generative models, but cur-\nrent approaches primarily focus on simple tiling scenarios,\nmainly single image generation in the field of texture syn-\nthesis. We define the tiling problem using a list of con-\nstraints. We consider each image Ii as a rectangle with\nfour sides (right (I i|), left (I |i), top (I\ni), and bottom (I i))\nand each constraint Cj is defined by two sets of sides. All\nthe sides from one set can connect to all of the sides of the\nother set. These sets can include sides from any of the im-\nages being tiled. This flexible definition allows for various\ntiling scenarios. Examples of these scenarios are illustrated\nin Figure 2:\n• Self-tiling: For single images that repeat seamlessly. As\nshown in Figure 2 (left), I1 connects only to itself. For-\nmally, we have two constraints: C1 = {{I1|}, {I|1}} and\nC2 = {{I\n1}, {I1}}.\n• One-to-one tiling: Allows each side of an image to con-\nnect to a maximum of one side of another image. Fig-\nure 2 (middle) demonstrates this for two images on the\nX-axis. Each constraint’s sets contain exactly one ele-\nment.\n• Many-to-many tiling: Supports any number of connec-\ntions per side, including complex cross-axis connections\n(X-axis to Y-axis). Figure 2 (right) shows a many-to-\nmany scenario where right sides of both images can con-\nnect to left sides of both images. There are no limitations\non the number of sides in either set.\nOur method, Tiled Diffusion, extends the capabilities of\ndiffusion models to accommodate these diverse tiling sce-\nnarios. It addresses several challenges, including ensuring\ncontent coherence across diverse tile boundaries, maintain-\ning stylistic consistency between connected images, and\npreserving both local details and global structure in com-\nplex arrangements. We introduce two key innovations: a\ntiling constraint for global structure consistency and local\ndetail matching, and a similarity constraint to eliminate ar-\ntifacts in complex tiling scenarios. We demonstrate our\nmethod’s effectiveness in several applications which are\nSelf-tiling One-to-one Many-to-many\n/gid00042/gid00018\n/gid00042/gid00018/gid00042/gid00019\n/gid00042/gid00018/gid00042/gid00019\n{{I1| }, {I|1 }}\n{{I1| }, {I|2 }} {{I1| , I2| }, {I|1 , I|2 }}\n{{I1 }, {I1 }}\n{{I2| }, {I|1 }}\nFigure 2. Tiling scenarios. Left: Self-tiling, where the image\nconnects only to itself vertically and horizontally. Middle: One-\nto-one tiling on the X-axis, with each image connecting only to\nthe other image. Right: Many-to-many tiling on the X-axis, where\nright sides of both images can connect to left sides of both images.\nLower: constraints (Cj’s) for each tiling scenario.\nseamlessly tiling existing images, tileable texture genera-\ntion and 360° synthesis.",
+    "method": "3. Method\nOur method generalizes the tiling problem to accommodate\ncomplex connections between multiple image sides. In this\nsection, we first define the problem formally, then describe\nour approach to solving it using diffusion models.",
+    "experiments": "",
+    "conclusion": "7. Conclusion\nWe introduced Tiled Diffusion, a novel approach that ex-\ntends diffusion models to accommodate complex tiling sce-\nnarios - self-tiling, one-to-one, and many-to-many. Our key\ninnovations include a flexible tiling constraint and a sim-\nilarity constraint, that ensure global structure consistency\nand eliminate artifacts in complex tiling scenarios. We also\nintroduced a tiling score to measure tiling quality. Our eval-\nuations demonstrate the effectiveness of our approach, with\nsuperior performance across various metrics and diverse\nscenarios. We explored compelling applications in seam-\nlessly tiling existing images, tileable texture generation, and\n360° synthesis, showcasing the potential impact on texture\ncreation, digital art, and other fields."
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "paper_id": "scaling-properties-of-diffusion-models-for-perceptual-tasks--79e5d6d71b",
+  "paper_title": "Scaling Properties of Diffusion Models For Perceptual Tasks",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:28.331598+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Scaling Properties of Diffusion Models For Perceptual Tasks.pdf",
+    "filename": "Scaling Properties of Diffusion Models For Perceptual Tasks.pdf",
+    "sha1": "79e5d6d71b537efaf69fe076a7f64dcf6c5ca3e2",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Our results provide evidence on the benefits of scaling test-time compute for inverse vision problems un- der constrained compute budgets, bringing a new perspec- tive to the conventional paradigm of training-centric scaling for generative models.",
+    "limitation": "Our work shows that a limited compute budget can be efficiently allo- cated for strong downstream performance.",
+    "insight": "Abstract In this paper, we argue that iterative computation with dif- fusion models offers a powerful paradigm for not only gen- eration but also visual perception tasks.",
+    "proposed_method": "Abstract In this paper, we argue that iterative computation with dif- fusion models offers a powerful paradigm for not only gen- eration but also visual perception tasks.",
+    "experimental_evidence": "We unify tasks such as depth estimation, optical flow, and amodal segmen- tation under the framework of image-to-image translation, and show how diffusion models benefit from scaling training and test-time compute for these perceptual tasks.",
+    "summary": "Our results provide evidence on the benefits of scaling test-time compute for inverse vision problems un- der constrained compute budgets, bringing a new perspec- tive to the conventional paradigm of training-centric scaling for generative models. Our work shows that a limited compute budget can be efficiently allo- cated for strong downstream performance. Abstract In this paper, we argue that iterative computation with dif- fusion models offers a powerful paradigm for not only gen- eration but also visual perception tasks. Abstract In this paper, we argue that iterative computation with dif- fusion models offers a powerful paradigm for not only gen- eration but also visual perception tasks. We unify tasks such as depth estimation, optical flow, and amodal segmen- tation under the framework of image-to-image translation, and show how diffusion models benefit from scaling training and test-time compute for these perceptual tasks."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction Diffusion models have emerged as a powerful tool for gen- erating images and videos with excellent scaling behaviors.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "Introduction Diffusion models have emerged as a powerful tool for gen- erating images and videos with excellent scaling behaviors. In this paper, we present a unified framework to perform a variety of perceptual tasks — depth estimation, optical flow estimation, and amodal segmentation — with a single dif- fusion model, as illustrated in Fig. Previous works such as Marigold [20], FlowDif- fuser [28], and pix2gestalt [31] demonstrate the potential of repurposing image diffusion models for various inverse *Equal Contribution. vision tasks individually. Building on these prior works, we systematically explore the benefits of scaling across the axes of pre-training, fine-tuning, and test-time compute for im- age diffusion models."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "We establish scaling power laws for depth estimation and display their transferability to other perceptual tasks.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "We establish scaling power laws for depth estimation and display their transferability to other perceptual tasks. Using these scaling laws, we formulate compute-optimal recipes for diffusion training and infer- ence for multiple downstream perceptual tasks. Our work shows that a limited compute budget can be efficiently allo- cated for strong downstream performance. Recent works in other fields have also focused on scal- ing test-time compute to enhance the capabilities of modern LLMs [7, 30]."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "problem_statement",
+      "main_message": "We show thatincreasing test-time compute compensates for the 3-4 orders of magnitude reduced pre-training budgets we use.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "We show thatincreasing test-time compute compensates for the 3-4 orders of magnitude reduced pre-training budgets we use. This redistribution allows us to achieve competitive results while using significantly less data and overall training compute, highlighting the tradeoff between training and test-time compute. We scale test-time compute by exploiting the iterative and stochastic nature of diffusion. By increasing the num- ber of denoising steps, allocating more compute to early denoising steps, and ensembling multiple denoised predic- tions, we consistently achieve higher accuracy on these per- ceptual tasks."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "problem_statement",
+      "main_message": "Our results provide evidence on the benefits of scaling test-time compute for inverse vision problems un- der constrained compute budgets, bringing a new perspec- tive to the conventional paradigm of training-centric scaling for generative models.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Our results provide evidence on the benefits of scaling test-time compute for inverse vision problems un- der constrained compute budgets, bringing a new perspec- tive to the conventional paradigm of training-centric scaling for generative models. This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [],
+  "experiment_structure": [],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Our work shows that a limited compute budget can be efficiently allo- cated for strong downstream performance."
+    ],
+    "insight_expression": [],
+    "method_expression": [],
+    "experiment_expression": [
+      "Previous works such as Marigold [20], FlowDif- fuser [28], and pix2gestalt [31] demonstrate the potential of repurposing image diffusion models for various inverse *Equal Contribution. vision tasks individually."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Abstract In this paper, we argue that iterative computation with dif- fusion models offers a powerful paradigm for not only gen- eration but also visual perception tasks.",
+    "Building on these prior works, we systematically explore the benefits of scaling across the axes of pre-training, fine-tuning, and test-time compute for im- age diffusion models.",
+    "By increasing the num- ber of denoising steps, allocating more compute to early denoising steps, and ensembling multiple denoised predic- tions, we consistently achieve higher accuracy on these per- ceptual tasks.",
+    "Conclusion In our work, we examine the scaling properties of diffu- sion models for visual perception tasks.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Finally, using our scaling laws, we train a generalist model that performs several perceptual tasks under a unified framework.",
+    "In this paper, we present a unified framework to perform a variety of perceptual tasks — depth estimation, optical flow estimation, and amodal segmentation — with a single dif- fusion model, as illustrated in Fig.",
+    "Introduction Diffusion models have emerged as a powerful tool for gen- erating images and videos with excellent scaling behaviors.",
+    "Our experiments provide strong evidence of scal- ing, uncovering power laws across various training and in- ference scaling techniques.",
+    "Our models achieve competitive performance to state-of-the-art meth- ods using significantly less data and compute.",
+    "Our work shows that a limited compute budget can be efficiently allo- cated for strong downstream performance.",
+    "Previous works such as Marigold [20], FlowDif- fuser [28], and pix2gestalt [31] demonstrate the potential of repurposing image diffusion models for various inverse *Equal Contribution. vision tasks individually."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nIn this paper, we argue that iterative computation with dif-\nfusion models offers a powerful paradigm for not only gen-\neration but also visual perception tasks. We unify tasks\nsuch as depth estimation, optical flow, and amodal segmen-\ntation under the framework of image-to-image translation,\nand show how diffusion models benefit from scaling training\nand test-time compute for these perceptual tasks. Through\na careful analysis of these scaling properties, we formu-\nlate compute-optimal training and inference recipes to scale\ndiffusion models for visual perception tasks. Our models\nachieve competitive performance to state-of-the-art meth-\nods using significantly less data and compute. We release\ncode and models at scaling-diffusion-perception.github.io.",
+    "introduction": "1. Introduction\nDiffusion models have emerged as a powerful tool for gen-\nerating images and videos with excellent scaling behaviors.\nIn this paper, we present a unified framework to perform a\nvariety of perceptual tasks — depth estimation, optical flow\nestimation, and amodal segmentation — with a single dif-\nfusion model, as illustrated in Fig. 1.\nPrevious works such as Marigold [20], FlowDif-\nfuser [28], and pix2gestalt [31] demonstrate the potential\nof repurposing image diffusion models for various inverse\n*Equal Contribution.\nvision tasks individually. Building on these prior works, we\nsystematically explore the benefits of scaling across the axes\nof pre-training, fine-tuning, and test-time compute for im-\nage diffusion models. We establish scaling power laws for\ndepth estimation and display their transferability to other\nperceptual tasks. Using these scaling laws, we formulate\ncompute-optimal recipes for diffusion training and infer-\nence for multiple downstream perceptual tasks. Our work\nshows that a limited compute budget can be efficiently allo-\ncated for strong downstream performance.\nRecent works in other fields have also focused on scal-\ning test-time compute to enhance the capabilities of modern\nLLMs [7, 30]. We show thatincreasing test-time compute\ncompensates for the 3-4 orders of magnitude reduced\npre-training budgets we use. This redistribution allows us\nto achieve competitive results while using significantly less\ndata and overall training compute, highlighting the tradeoff\nbetween training and test-time compute.\nWe scale test-time compute by exploiting the iterative\nand stochastic nature of diffusion. By increasing the num-\nber of denoising steps, allocating more compute to early\ndenoising steps, and ensembling multiple denoised predic-\ntions, we consistently achieve higher accuracy on these per-\nceptual tasks. Our results provide evidence on the benefits\nof scaling test-time compute for inverse vision problems un-\nder constrained compute budgets, bringing a new perspec-\ntive to the conventional paradigm of training-centric scaling\nfor generative models.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n12945",
+    "method": "",
+    "experiments": "",
+    "conclusion": "7. Conclusion\nIn our work, we examine the scaling properties of diffu-\nsion models for visual perception tasks. We explore var-\nious approaches to scale diffusion training, including in-\ncreasing model size, mixture-of-experts models, increas-\ning image resolution, and upcycling. We also efficiently\nscale test-time compute by exploiting the iterative nature of\ndiffusion, which significantly improves downstream perfor-\nmance. Our experiments provide strong evidence of scal-\ning, uncovering power laws across various training and in-\nference scaling techniques. Finally, using our scaling laws,\nwe train a generalist model that performs several perceptual\ntasks under a unified framework. We hope to inspire future\nwork in scaling training and test-time compute for iterative\ngenerative paradigms such as diffusion for other tasks."
+  }
+}

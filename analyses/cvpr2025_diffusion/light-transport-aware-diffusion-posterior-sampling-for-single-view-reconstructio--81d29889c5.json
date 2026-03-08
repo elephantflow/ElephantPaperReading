@@ -1,0 +1,92 @@
+{
+  "paper_id": "light-transport-aware-diffusion-posterior-sampling-for-single-view-reconstructio--81d29889c5",
+  "paper_title": "Light Transport-aware Diffusion Posterior Sampling for Single-View Reconstruction of 3D Volumes",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:58.691334+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Light Transport-aware Diffusion Posterior Sampling for Single-View Reconstruction of 3D Volumes.pdf",
+    "filename": "Light Transport-aware Diffusion Posterior Sampling for Single-View Reconstruction of 3D Volumes.pdf",
+    "sha1": "81d29889c592c0ec19e579c50a0e68972133fe2a",
+    "page_count": 12
+  },
+  "core_story": {
+    "problem": "However, this problem is ill-posed and, in general, requires additional views to constrain the object pa- rameters and infer plausible reconstructions of unseen parts.",
+    "limitation": "However, this problem is ill-posed and, in general, requires additional views to constrain the object pa- rameters and infer plausible reconstructions of unseen parts.",
+    "insight": "This stands in contrast to classic NeRF approaches and makes the reconstructions better aligned with observed data.",
+    "proposed_method": "Abstract We introduce a single-view reconstruction technique of vol- umetric fields in which multiple light scattering effects are omnipresent, such as in clouds.",
+    "experimental_evidence": "Through various exper- iments, we demonstrate single-view reconstruction of volu- metric clouds at a previously unattainable quality.",
+    "summary": "However, this problem is ill-posed and, in general, requires additional views to constrain the object pa- rameters and infer plausible reconstructions of unseen parts. However, this problem is ill-posed and, in general, requires additional views to constrain the object pa- rameters and infer plausible reconstructions of unseen parts. This stands in contrast to classic NeRF approaches and makes the reconstructions better aligned with observed data. Abstract We introduce a single-view reconstruction technique of vol- umetric fields in which multiple light scattering effects are omnipresent, such as in clouds. Through various exper- iments, we demonstrate single-view reconstruction of volu- metric clouds at a previously unattainable quality."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction The reconstruction of a 3D model from a single image [3, 10, 22, 30, 35] is a fundamental task in 3D computer graphics and vision.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nThe reconstruction of a 3D model from a single image\n[3, 10, 22, 30, 35] is a fundamental task in 3D computer\ngraphics and vision. Once the model is reconstructed, oper-\nations such as novel view synthesis, relighting or inpainting\ncan be applied. However, this problem is ill-posed and, in\ngeneral, requires additional views to constrain the object pa-\nrameters and infer plausible reconstructions of unseen parts.\nDifferentiable rendering (DR) leverages a rendering pro-\ncess with gradients, making it suitable for recovering shape\nand optical material parameters from images [11, 25, 37,\n70]. DR enables backpropagation of gradients of a loss\nin image space to the scene parameters, including posi-\ntion, texture, lighting, shape, and other attributes. The\nchallenge increases significantly when these parameters de-\nscribe complex distributions of volumetric materials, such\nas clouds, smoke, or fire. In such scenarios, the problem be-\ncomes so ill-posed that it requires dozens, if not hundreds,\nof different views to adequately constrain the object param-\neters [27, 44, 45]. It is now widely accepted that recon-\nstructing the internal density distribution of highly dense\nvol"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "models that are trained on 3D datasets [1, 15, 17, 31, 34, 40, 42, 83, 88].",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "models that are trained on 3D datasets [1, 15, 17, 31, 34,\n40, 42, 83, 88]. Diffusion models have gained popularity\nfor their ability to produce high-quality, realistic 3D sam-\nples of specific object categories.\nUsing diffusion models for single-view volume recon-\nstruction, however, is challenging. Firstly, a publicly avail-\nable 3D dataset on which a diffusion model can be trained\nis not existing. Secondly, an image that is taken in the wild\ncontains intricate illumination effects due to background\nlight and multiple light scattering in the volume interior.\nWhile the scattering properties of the material can be as-\nsumed, the background radiance is typically unknown but\nneeds to be inferred to separate the object. In general, if\nthe optical parameters are not resolved, it is impossible to\nunderstand how the appearance is explained.\nOur proposed approach addresses these challenges by\nemploying a diffusion prior to guide a Physically-based Dif-\nferentiable V olume Renderer (PDVR) toward reconstruct-\ning a plausible volumetric field. In contrast to previous\napproaches, our approach includes controlled variations in\nthe diffusion step by considering the gradient of the image\nloss wi"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Results",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, this problem is ill-posed and, in general, requires additional views to constrain the object pa- rameters and infer plausible reconstructions of unseen parts.",
+      "Using diffusion models for single-view volume recon- struction, however, is challenging."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Figure 1 provides an overview of our method.",
+      "Results In this section, we demonstrate the effectiveness of our method for different use cases."
+    ],
+    "experiment_expression": [
+      "Through various exper- iments, we demonstrate single-view reconstruction of volu- metric clouds at a previously unattainable quality.",
+      "We demonstrate the potential of our approach across various tasks, including single- and multi-view re- construction, and volume super-resolution.",
+      "We introduce our novel monoplanar latent representa- tion to effectively compress the cloud database (see Sec- tion 4.2), and we demonstrate how to prevent overfitting by refining this latent representation through analog transfor- mations in both spatial and latent space (see Section 4.3).",
+      "Results In this section, we demonstrate the effectiveness of our method for different use cases."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, this problem is ill-posed and, in general, requires additional views to constrain the object pa- rameters and infer plausible reconstructions of unseen parts.",
+    "Using diffusion models for single-view volume recon- struction, however, is challenging.",
+    "16163 models that are trained on 3D datasets [1, 15, 17, 31, 34, 40, 42, 83, 88].",
+    "A physically-based differentiable vol- ume renderer is employed to provide gradients with respect to light transport in the latent space.",
+    "Abstract We introduce a single-view reconstruction technique of vol- umetric fields in which multiple light scattering effects are omnipresent, such as in clouds.",
+    "All modules are imple- mented in Pytorch [48] and Vulkan SDK.",
+    "Bottom images: Diffusion-based cloud syn- thesis – Clouds generated with our diffusion model, demonstrating a convincing appearance under realistic lighting conditions and physical parameters.",
+    "DR enables backpropagation of gradients of a loss in image space to the scene parameters, including posi- tion, texture, lighting, shape, and other attributes.",
+    "Differentiable rendering (DR) leverages a rendering pro- cess with gradients, making it suitable for recovering shape and optical material parameters from images [11, 25, 37, 70].",
+    "Diffusion models have gained popularity for their ability to produce high-quality, realistic 3D sam- ples of specific object categories.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Figure 1 provides an overview of our method."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWe introduce a single-view reconstruction technique of vol-\numetric fields in which multiple light scattering effects are\nomnipresent, such as in clouds. We model the unknown dis-\ntribution of volumetric fields using an unconditional diffu-\nsion model trained on a novel benchmark dataset compris-\ning 1,000 synthetically simulated volumetric density fields.\nThe neural diffusion model is trained on the latent codes of\na novel, diffusion-friendly, monoplanar representation. The\ngenerative model is used to incorporate a tailored paramet-\nric diffusion posterior sampling technique into different re-\nconstruction tasks. A physically-based differentiable vol-\nume renderer is employed to provide gradients with respect\nto light transport in the latent space. This stands in contrast\nto classic NeRF approaches and makes the reconstructions\nbetter aligned with observed data. Through various exper-\niments, we demonstrate single-view reconstruction of volu-\nmetric clouds at a previously unattainable quality.",
+    "introduction": "1. Introduction\nThe reconstruction of a 3D model from a single image\n[3, 10, 22, 30, 35] is a fundamental task in 3D computer\ngraphics and vision. Once the model is reconstructed, oper-\nations such as novel view synthesis, relighting or inpainting\ncan be applied. However, this problem is ill-posed and, in\ngeneral, requires additional views to constrain the object pa-\nrameters and infer plausible reconstructions of unseen parts.\nDifferentiable rendering (DR) leverages a rendering pro-\ncess with gradients, making it suitable for recovering shape\nand optical material parameters from images [11, 25, 37,\n70]. DR enables backpropagation of gradients of a loss\nin image space to the scene parameters, including posi-\ntion, texture, lighting, shape, and other attributes. The\nchallenge increases significantly when these parameters de-\nscribe complex distributions of volumetric materials, such\nas clouds, smoke, or fire. In such scenarios, the problem be-\ncomes so ill-posed that it requires dozens, if not hundreds,\nof different views to adequately constrain the object param-\neters [27, 44, 45]. It is now widely accepted that recon-\nstructing the internal density distribution of highly dense\nvolumes is nearly impossible due to the high uncertainty in\nthe light scattering process and the presence of vanishing\ngradients. This limitation can only be alleviated by incor-\nporating prior information during reconstruction.\nWhen sufficient 3D datasets representing different in-\nstances of an object type are available, network inference\ncan be used to tackle the task of inferring the 3D object.\nMany recent approaches build upon generative diffusion\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n16163\n\nmodels that are trained on 3D datasets [1, 15, 17, 31, 34,\n40, 42, 83, 88]. Diffusion models have gained popularity\nfor their ability to produce high-quality, realistic 3D sam-\nples of specific object categories.\nUsing diffusion models for single-view volume recon-\nstruction, however, is challenging. Firstly, a publicly avail-\nable 3D dataset on which a diffusion model can be trained\nis not existing. Secondly, an image that is taken in the wild\ncontains intricate illumination effects due to background\nlight and multiple light scattering in the volume interior.\nWhile the scattering properties of the material can be as-\nsumed, the background radiance is typically unknown but\nneeds to be inferred to separate the object. In general, if\nthe optical parameters are not resolved, it is impossible to\nunderstand how the appearance is explained.\nOur proposed approach addresses these challenges by\nemploying a diffusion prior to guide a Physically-based Dif-\nferentiable V olume Renderer (PDVR) toward reconstruct-\ning a plausible volumetric field. In contrast to previous\napproaches, our approach includes controlled variations in\nthe diffusion step by considering the gradient of the image\nloss with respect to the learned latent space representation.\nThis approach steers the reconstruction toward a realistic\n3D density distribution, ensuring that the generated struc-\nture aligns well with the observed data and maintains real-\nistic spatial consistency.\nThe diffusion model is trained on a dataset compris-\ning 1,000 synthetically simulated volumetric density fields\n(specifically, cumulus clouds in our case study), using a\nnovel, diffusion-friendly representation for decoding. The\nreconstruction is simultaneously constrained by the diffu-\nsion prior and the image containing light transport effects.\nThe renderer is coupled with the diffusion model to recon-\nstruct radiance parameters using the prior for the density\ndistribution but not for its appearance. Thus, the 3D density\nfield can also be trained solely on the prior, not requiring\nimages of all possible backgrounds and light scattering ef-\nfects.\nOur key contributions are as follows:\n• A large database of 3D cumulus cloud-like density fields,\ngenerated using numerical fluid simulation.\n• A 3D cloud decoder utilizing a novel, diffusion-friendly\nmonoplanar representation, trained jointly on a subset of\nthe database.\n• A novel Parametric Diffusion Posterior Sampling\n(PDPS) technique utilizing a shape-centric prior with a\nphysically-based differentiable volume renderer.\nTo the best of our knowledge, this is the first approach\nthat integrates an unconditional diffusion model, trained on\nvolumetric density distributions, with a differentiable vol-\nume renderer. We demonstrate the potential of our approach\nacross various tasks, including single- and multi-view re-\nconstruction, and volume super-resolution.",
+    "method": "4. Method\nTo address the problem formulated in Section 3, we pro-\npose a diffusion posterior sampling scheme in combina-\ntion with a differentiable volume renderer to simultaneously\nconsider physical light transport effects in a single view and\na cloud-aware prior. Figure 1 provides an overview of our\nmethod. Starting from a synthetically generated cumulus\ncloud database (see Section 4.1), our posterior sampling\nscheme employs a latent diffusion model to generate a 3D\ndensity field with characteristic cloud distribution (see Sec-\ntion 4.3).\n16165\n\nFigure 2. Top images: Cloudy Dataset – Photorealistic renderings\nof randomly selected clouds from our dataset, illustrating natural\nvariations and details. Bottom images: Diffusion-based cloud syn-\nthesis – Clouds generated with our diffusion model, demonstrating\na convincing appearance under realistic lighting conditions and\nphysical parameters.\nWe introduce our novel monoplanar latent representa-\ntion to effectively compress the cloud database (see Sec-\ntion 4.2), and we demonstrate how to prevent overfitting by\nrefining this latent representation through analog transfor-\nmations in both spatial and latent space (see Section 4.3).\nWith a standard volume diffuser reconstructing a cloud by\nsampling from the latent representation, we constrain the re-\nverse Gaussian process to a parameterized posterior sample\n(see Section 4.4).\nFinally, differentiable volumetric path-tracing [27] with\nMonte Carlo importance sampling is used to account for the\nrecursive dependency of the incoming radiance at scatter-\ning positions, iterating over all possible path lengths. The\ndiffuser serves as a prior for a subset of recovered scene\nparameters (see Section 4.5).",
+    "experiments": "5. Results\nIn this section, we demonstrate the effectiveness of our\nmethod for different use cases. All modules are imple-\nmented in Pytorch [48] and Vulkan SDK. Further details are\nprovided in the supplementary material. The code and the\nCloudy dataset are publicly available at https://www.\ngithub.com/rendervous/cloudy_project.",
+    "conclusion": ""
+  }
+}

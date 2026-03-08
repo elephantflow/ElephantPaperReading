@@ -1,0 +1,114 @@
+{
+  "paper_id": "zero-1-to-a-zero-shot-one-image-to-animatable-head-avatars-using-video-diffusion--1edf88d3b3",
+  "paper_title": "Zero-1-to-A: Zero-Shot One Image to Animatable Head Avatars Using Video Diffusion",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:12:53.810900+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_transformer_video_pdfs/Zero-1-to-A： Zero-Shot One Image to Animatable Head Avatars Using Video Diffusion.pdf",
+    "filename": "Zero-1-to-A： Zero-Shot One Image to Animatable Head Avatars Using Video Diffusion.pdf",
+    "sha1": "1edf88d3b300b7ebea9022d087ee58480128178d",
+    "page_count": 12
+  },
+  "core_story": {
+    "problem": "Introduction Head avatars are lifelike digital representations of humans created by computer graphics and deep learning.",
+    "limitation": "However, as shown in Fig.",
+    "insight": "Abstract Animatable head avatar generation typically requires extensive data for training.",
+    "proposed_method": "To address this issue, we propose Zero-1-to-A, a ro- bust method that synthesizes a spatial and temporal consis- tency dataset for 4D avatar reconstruction using the video diffusion model.",
+    "experimental_evidence": "Extensive experiments demonstrate that Zero-1-to-A improves ﬁdelity, animation quality, and rendering speed compared to existing diffusion-based methods, providing a solution for lifelike avatar creation.",
+    "summary": "Introduction Head avatars are lifelike digital representations of humans created by computer graphics and deep learning. However, as shown in Fig. Abstract Animatable head avatar generation typically requires extensive data for training. To address this issue, we propose Zero-1-to-A, a ro- bust method that synthesizes a spatial and temporal consis- tency dataset for 4D avatar reconstruction using the video diffusion model. Extensive experiments demonstrate that Zero-1-to-A improves ﬁdelity, animation quality, and rendering speed compared to existing diffusion-based methods, providing a solution for lifelike avatar creation."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Head avatars are lifelike digital representations of humans created by computer graphics and deep learning.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Head avatars are lifelike digital representations of humans created by computer graphics and deep learning. They can mimic human expressions, movements, and interactions, serving as speakers, assistants, characters, etc. in AR/VR, ﬁlms and games. †Corresponding author. Video Diffusion ❄Zero-1-to-A Avatar ! Video Diffusion ❄RenderSDSReconstructRenderUpdate(a) Score-based Generation(b) Symbiotic Generation Figure 1."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "4D A vatar generation with SDS loss [ 58] and our Zero-1-to-A.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "4D A vatar generation with SDS loss [ 58] and our Zero-1-to-A. Video diffusion often suffers from spatial and tem- poral inconsistencies. (a) The SDS loss, aligning avatar with out- put from video diffusion, produces over-smooth results. (b) Zero- 1-to-A addresses this issue by synthesizing spatially and tempo- rally consistent datasets for avatar reconstruction."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "It introduces an updatable dataset to cache video diffusion results and establishes a mutually beneﬁcial relationship between avatar generation and dataset construction to further enhance consistency.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "It introduces an updatable dataset to cache video diffusion results and establishes a mutually beneﬁcial relationship between avatar generation and dataset construction to further enhance consistency. Head avatar generation typically relies on large amounts of real or synthetic human data [ 39, 74, 78, 79, 87, 89, 92, 94], which are not easy to collect. Recently, score distillation-based methods [ 30, 35, 42, 45, 46, 49, 58, 70, 71, 77] have revolutionized this ﬁeld by enabling the 3D/4D head avatar generation using pre-trained image dif- fusion models ( e.g. Stable Diffusion [ 63]) without the need of human data."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "limitation",
+      "main_message": "Existing methods mostly focus on text- conditioned generation, which is expressive but lacks the precision and control of visual inputs [ 4, 23, 44, 69, 90].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Existing methods mostly focus on text- conditioned generation, which is expressive but lacks the precision and control of visual inputs [ 4, 23, 44, 69, 90]. Image inputs are critical for realistic 4D avatar generation but are still underexplored. Recent advances in video diffusion [ 6, 13, 53, 73] have made it feasible to generate dynamic head avatars by dis- tilling from video diffusion models. However, as shown in Fig."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "limitation",
+      "main_message": "7, video diffusion suffers from spatial and temporal in- consistencies.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "7, video diffusion suffers from spatial and temporal in- consistencies. Essentially, SDS aims to align the images rendered by the 3D model with pseudo ground-truth out- puts generated by the diffusion model [ 42]. Consequently, this instability in the distillation process often leads to over- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Image inputs are critical for realistic 4D avatar generation but are still underexplored."
+    ],
+    "limitation_expression": [
+      "However , directly distilling 4D avatars from video diffusion often leads to over-smooth results due to spatial and temporal inconsistencies in the generated video.",
+      "Image inputs are critical for realistic 4D avatar generation but are still underexplored.",
+      "However, as shown in Fig."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this issue, we propose Zero-1-to-A, a ro- bust method that synthesizes a spatial and temporal consis- tency dataset for 4D avatar reconstruction using the video diffusion model.",
+      "Experiment In this section, we ﬁrst evaluate our method on a range of head avatar generation tasks, then validate our design choices through comparisons with ablated variants, and lastly analyze the limitations of our approach."
+    ],
+    "experiment_expression": [
+      "Extensive experiments demonstrate that Zero-1-to-A improves ﬁdelity, animation quality, and rendering speed compared to existing diffusion-based methods, providing a solution for lifelike avatar creation.",
+      "However, as shown in Fig."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, as shown in Fig.",
+    "Conclusion In this paper, we proposed Zero-1-to-A, a novel method for generating high-ﬁdelity 4D avatars from a single image us- ing pre-trained video diffusion models.",
+    "Extensive experiments demonstrate that Zero-1-to-A improves ﬁdelity, animation quality, and rendering speed compared to existing diffusion-based methods, providing a solution for lifelike avatar creation.",
+    "However , directly distilling 4D avatars from video diffusion often leads to over-smooth results due to spatial and temporal inconsistencies in the generated video.",
+    "To address this issue, we propose Zero-1-to-A, a ro- bust method that synthesizes a spatial and temporal consis- tency dataset for 4D avatar reconstruction using the video diffusion model.",
+    "(a) The SDS loss, aligning avatar with out- put from video diffusion, produces over-smooth results.",
+    "(b) Zero- 1-to-A addresses this issue by synthesizing spatially and tempo- rally consistent datasets for avatar reconstruction.",
+    "4.1, and (2) the progres- sive learning strategy in Sec.",
+    "4D A vatar generation with SDS loss [ 58] and our Zero-1-to-A.",
+    "7, video diffusion suffers from spatial and temporal in- consistencies.",
+    "Abstract Animatable head avatar generation typically requires extensive data for training.",
+    "Additional experimental details and results are provided in the supple- mentary material."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nAnimatable head avatar generation typically requires\nextensive data for training. To reduce the data require-\nments, a natural solution is to leverage existing data-free\nstatic avatar generation methods, such as pre-trained diffu-\nsion models with score distillation sampling (SDS), which\nalign avatars with pseudo ground-truth outputs from the\ndiffusion model. However , directly distilling 4D avatars\nfrom video diffusion often leads to over-smooth results due\nto spatial and temporal inconsistencies in the generated\nvideo. To address this issue, we propose Zero-1-to-A, a ro-\nbust method that synthesizes a spatial and temporal consis-\ntency dataset for 4D avatar reconstruction using the video\ndiffusion model. Speciﬁcally, Zero-1-to-A iteratively con-\nstructs video datasets and optimizes animatable avatars in a\nprogressive manner , ensuring that avatar quality increases\nsmoothly and consistently throughout the learning process.\nThis progressive learning involves two stages: (1) Spa-\ntial Consistency Learning ﬁxes expressions and learns from\nfront-to-side views, and (2) Temporal Consistency Learning\nﬁxes views and learns from relaxed to exaggerated expres-\nsions, generating 4D avatars in a simple-to-complex man-\nner . Extensive experiments demonstrate that Zero-1-to-A\nimproves ﬁdelity, animation quality, and rendering speed\ncompared to existing diffusion-based methods, providing a\nsolution for lifelike avatar creation. Code is publicly avail-\nable at: https://github.com/ZhenglinZhou/Zero-1-to-A.",
+    "introduction": "1. Introduction\nHead avatars are lifelike digital representations of humans\ncreated by computer graphics and deep learning. They can\nmimic human expressions, movements, and interactions,\nserving as speakers, assistants, characters, etc. in AR/VR,\nﬁlms and games.\n†Corresponding author.\nDataset\n!\nAvatar\n!\nVideo Diffusion\n❄Zero-1-to-A\nAvatar\n!\nVideo Diffusion\n❄RenderSDSReconstructRenderUpdate(a) Score-based Generation(b) Symbiotic Generation\nFigure 1. 4D A vatar generation with SDS loss [ 58] and our\nZero-1-to-A. Video diffusion often suffers from spatial and tem-\nporal inconsistencies. (a) The SDS loss, aligning avatar with out-\nput from video diffusion, produces over-smooth results. (b) Zero-\n1-to-A addresses this issue by synthesizing spatially and tempo-\nrally consistent datasets for avatar reconstruction. It introduces an\nupdatable dataset to cache video diffusion results and establishes\na mutually beneﬁcial relationship between avatar generation and\ndataset construction to further enhance consistency.\nHead avatar generation typically relies on large amounts\nof real or synthetic human data [ 39, 74, 78, 79, 87, 89,\n92, 94], which are not easy to collect. Recently, score\ndistillation-based methods [ 30, 35, 42, 45, 46, 49, 58,\n70, 71, 77] have revolutionized this ﬁeld by enabling the\n3D/4D head avatar generation using pre-trained image dif-\nfusion models ( e.g. Stable Diffusion [ 63]) without the need\nof human data. Existing methods mostly focus on text-\nconditioned generation, which is expressive but lacks the\nprecision and control of visual inputs [ 4, 23, 44, 69, 90].\nImage inputs are critical for realistic 4D avatar generation\nbut are still underexplored.\nRecent advances in video diffusion [ 6, 13, 53, 73] have\nmade it feasible to generate dynamic head avatars by dis-\ntilling from video diffusion models. However, as shown in\nFig. 7, video diffusion suffers from spatial and temporal in-\nconsistencies. Essentially, SDS aims to align the images\nrendered by the 3D model with pseudo ground-truth out-\nputs generated by the diffusion model [ 42]. Consequently,\nthis instability in the distillation process often leads to over-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n15941",
+    "method": "4. Method\nZero-1-to-A is an image-to-4D avatar generation method.\nGiven a reference portrait, our goal is to generate an ani-\nmatable head avatar using a pre-trained video diffusion. The\ngeneration pipeline has two key components, including (1)\nthe symbiotic generation in Sec. 4.1, and (2) the progres-\nsive learning strategy in Sec. 4.2. Implementation details\nare discussed in Sec. 4.3.",
+    "experiments": "5. Experiment\nIn this section, we ﬁrst evaluate our method on a range\nof head avatar generation tasks, then validate our design\nchoices through comparisons with ablated variants, and\nlastly analyze the limitations of our approach. Additional\nexperimental details and results are provided in the supple-\nmentary material.",
+    "conclusion": "6. Conclusion\nIn this paper, we proposed Zero-1-to-A, a novel method for\ngenerating high-ﬁdelity 4D avatars from a single image us-\ning pre-trained video diffusion models. Zero-1-to-A tack-\nles spatial and temporal inconsistencies by iteratively syn-\nthesizing consistent datasets and employing a Progressive\nLearning strategy, which ensures stable initialization and\nsmooth quality improvement. Experiments show that Zero-\n1-to-A outperforms existing methods in ﬁdelity, animation\nquality, and rendering speed, providing a robust and data-\nefﬁcient solution for lifelike avatar creation."
+  }
+}

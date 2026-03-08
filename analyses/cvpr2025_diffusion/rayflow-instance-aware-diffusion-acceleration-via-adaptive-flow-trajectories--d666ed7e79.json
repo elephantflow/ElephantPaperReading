@@ -1,0 +1,118 @@
+{
+  "paper_id": "rayflow-instance-aware-diffusion-acceleration-via-adaptive-flow-trajectories--d666ed7e79",
+  "paper_title": "RayFlow: Instance-Aware Diffusion Acceleration via Adaptive Flow Trajectories",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:21.716686+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/RayFlow： Instance-Aware Diffusion Acceleration via Adaptive Flow Trajectories.pdf",
+    "filename": "RayFlow： Instance-Aware Diffusion Acceleration via Adaptive Flow Trajectories.pdf",
+    "sha1": "d666ed7e79903289cd915eba80cc36d30cc87d44",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Current distillation methods, de- spite their objectives, are hindered by challenges including substantial computational overhead, complex training regi- mens, and limitations in terms of generation speed, sample quality, and effective guidance [11, 27, 29, 30, 46, 53, 59].",
+    "limitation": "However, their slow generation speed, often re- quiring dozens of steps per sample, remains a significant limitation.",
+    "insight": "Abstract Diffusion models have achieved remarkable success across various domains.",
+    "proposed_method": "Therefore, we propose RayFlow , a novel diffusion framework that addresses these limitations.",
+    "experimental_evidence": "Extensive experiments demonstrate RayFlow’s superiority in generating high-quality images with improved speed, control, and training efficiency compared to existing accel- eration techniques.",
+    "summary": "Current distillation methods, de- spite their objectives, are hindered by challenges including substantial computational overhead, complex training regi- mens, and limitations in terms of generation speed, sample quality, and effective guidance [11, 27, 29, 30, 46, 53, 59]. However, their slow generation speed, often re- quiring dozens of steps per sample, remains a significant limitation. Abstract Diffusion models have achieved remarkable success across various domains. Therefore, we propose RayFlow , a novel diffusion framework that addresses these limitations. Extensive experiments demonstrate RayFlow’s superiority in generating high-quality images with improved speed, control, and training efficiency compared to existing accel- eration techniques."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Diffusion models have revolutionized generative AI [10, 38–40], achieving impressive results in various domains, from text [14, 44] and images [37, 45, 54, 55, 58] to 3D models [4, 21, 43], audio [9, 18], and restoration [1, 2].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Diffusion models have revolutionized generative AI [10, 38–40], achieving impressive results in various domains, from text [14, 44] and images [37, 45, 54, 55, 58] to 3D models [4, 21, 43], audio [9, 18], and restoration [1, 2]. However, their slow generation speed, often re- quiring dozens of steps per sample, remains a significant limitation. Various distillation techniques attempt to accel- erate this process, including normal [25, 56], adversarial [35, 42], progressive [33], and variational score distillation [28, 34, 43, 47, 51, 52]. Current distillation methods, de- spite their objectives, are hindered by challenges including substantial computational overhead, complex training regi- mens, and limitations in terms of generation speed, sample quality, and effective guidance [11, 27, 29, 30, 46, 53, 59]."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "This underscores the imperative for developing more gener- alized approaches to fully exploit the capabilities of diffu- sion models. ∗ Corresponding Author † Project Leader The traditional diffusion process, as shown in Fig.1a, forms the foundation for most acceleration and distillation methods.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "This underscores the imperative for developing more gener- alized approaches to fully exploit the capabilities of diffu- sion models. ∗ Corresponding Author † Project Leader The traditional diffusion process, as shown in Fig.1a, forms the foundation for most acceleration and distillation methods. However, it’s clear from the figure that this pro- cess suffers from several issues: • (1) Varying Expectations. The expectations in the back- ward process differ across timesteps. Achieving high- quality samples necessitates a greater number of sam- pling steps, making it impossible for accelerated sam- pling methods to avoid quality degradation. • (2) Overlapping Diffusion Paths."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "Since all sample eventu- ally converges to the same standard Gaussian distribution, the diffusion probability paths will overlap.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Since all sample eventu- ally converges to the same standard Gaussian distribution, the diffusion probability paths will overlap. E[¯ϵt|xt] may represent the intersection of multiple probability paths, leading to significant randomness in sampling outcomes and potentially substantial quality loss. • (3) Sampling Instability. Even with closely positioned sampling points, the final generated results can differ sig- nificantly, introducing substantial instability. Several studies try to address these limitations: [22] in- troduced rectified flow (RF) using linear ordinary differen- tial equation (ODE) for straight-path sampling (Fig.1b top- left), while [41] extended RF to first-order curved paths rectified diffusion (RD) for denoising diffusion probabilis- tic models (DDPM)-like models (Fig.1b top-right)."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "method_overview",
+      "main_message": "These sample-noise matching approaches have also been applied to diffusion distillation by [24, 49].",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "These sample-noise matching approaches have also been applied to diffusion distillation by [24, 49]. However, existing sample-noise matching algorithms brings new drawbacks while attempting to address above challenges: (1*) Path Inconsistency: the gap between sample-noise matching and actual ODE sampling paths is too large, potentially leading to training difficulties and poor generalization; (2*) Limited Diversity: sampling proba- bility paths are severely constrained, significantly reduc- ing model generation diversity; (3*) Theoretical Gap: the method is highly intuitive but lacks fundamental theoretical derivation to prove its optimality for sampling stability. To address all the three challenges in traditional diffu- sion and the drawbacks introduced by existing sample-noise matching methods, we propose RayFlow (shown in Fig.1b bottom). Consistent Expectations and Path: For chal- lenge (1) and (1*), we leverage pre-trained models to cal- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Proposed Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "However, their slow generation speed remains a critical challenge.",
+      "Furthermore, we introduce Time Sampler, an importance sampling technique to en- hance training efficiency by focusing on crucial timesteps.",
+      "Our Time Sampler, utilizing Stochastic Stein Discrepancies for importance sampling, further optimizes training efficiency by identifying crucial timesteps."
+    ],
+    "limitation_expression": [
+      "However, their slow generation speed remains a critical challenge.",
+      "However, their slow generation speed, often re- quiring dozens of steps per sample, remains a significant limitation.",
+      "However, it’s clear from the figure that this pro- cess suffers from several issues: • (1) Varying Expectations.",
+      "However, existing sample-noise matching algorithms brings new drawbacks while attempting to address above challenges: (1*) Path Inconsistency: the gap between sample-noise matching and actual ODE sampling paths is too large, potentially leading to training difficulties and poor generalization; (2*) Limited Diversity: sampling proba- bility paths are severely constrained, significantly reduc- ing model generation diversity; (3*) Theoretical Gap: the method is highly intuitive but lacks fundamental theoretical derivation to prove its optimality for sampling stability."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Therefore, we propose RayFlow , a novel diffusion framework that addresses these limitations.",
+      "To address all the three challenges in traditional diffu- sion and the drawbacks introduced by existing sample-noise matching methods, we propose RayFlow (shown in Fig.1b bottom)."
+    ],
+    "experiment_expression": [
+      "Extensive experiments demonstrate RayFlow’s superiority in generating high-quality images with improved speed, control, and training efficiency compared to existing accel- eration techniques.",
+      "This underscores the imperative for developing more gener- alized approaches to fully exploit the capabilities of diffu- sion models. ∗ Corresponding Author † Project Leader The traditional diffusion process, as shown in Fig.1a, forms the foundation for most acceleration and distillation methods.",
+      "Extensive experiments demonstrate RayFlow’s superior performance in terms of sample quality, gen- eration speed, and computational efficiency compared to existing acceleration methods."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Extensive experiments demonstrate RayFlow’s superior performance in terms of sample quality, gen- eration speed, and computational efficiency compared to existing acceleration methods.",
+    "Extensive experiments demonstrate RayFlow’s superiority in generating high-quality images with improved speed, control, and training efficiency compared to existing accel- eration techniques.",
+    "However, it’s clear from the figure that this pro- cess suffers from several issues: • (1) Varying Expectations.",
+    "However, their slow generation speed remains a critical challenge.",
+    "However, their slow generation speed, often re- quiring dozens of steps per sample, remains a significant limitation.",
+    "Therefore, we propose RayFlow , a novel diffusion framework that addresses these limitations.",
+    "To address all the three challenges in traditional diffu- sion and the drawbacks introduced by existing sample-noise matching methods, we propose RayFlow (shown in Fig.1b bottom).",
+    "Abstract Diffusion models have achieved remarkable success across various domains.",
+    "Achieving high- quality samples necessitates a greater number of sam- pling steps, making it impossible for accelerated sam- pling methods to avoid quality degradation. • (2) Overlapping Diffusion Paths.",
+    "By guiding samples along unique paths towards pre-computed target means, RayFlow ensures consistent expectations, minimizes path overlap, and im- proves sampling stability, all theoretically grounded in path probability maximization.",
+    "Conclusion In this work, we introduce RayFlow, a novel diffusion framework designed to address the inherent limitations of traditional diffusion models and existing acceleration techniques.",
+    "Consistent Expectations and Path: For chal- lenge (1) and (1*), we leverage pre-trained models to cal- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models have achieved remarkable success across\nvarious domains. However, their slow generation speed\nremains a critical challenge. Existing acceleration meth-\nods, while aiming to reduce steps, often compromise sam-\nple quality, controllability, or introduce training complex-\nities. Therefore, we propose RayFlow , a novel diffusion\nframework that addresses these limitations. Unlike previ-\nous methods, RayFlow guides each sample along a unique\npath towards an instance-specific target distribution. This\nmethod minimizes sampling steps while preserving gen-\neration diversity and stability. Furthermore, we introduce\nTime Sampler, an importance sampling technique to en-\nhance training efficiency by focusing on crucial timesteps.\nExtensive experiments demonstrate RayFlow’s superiority\nin generating high-quality images with improved speed,\ncontrol, and training efficiency compared to existing accel-\neration techniques.",
+    "introduction": "1. Introduction\nDiffusion models have revolutionized generative AI [10,\n38–40], achieving impressive results in various domains,\nfrom text [14, 44] and images [37, 45, 54, 55, 58] to\n3D models [4, 21, 43], audio [9, 18], and restoration\n[1, 2]. However, their slow generation speed, often re-\nquiring dozens of steps per sample, remains a significant\nlimitation. Various distillation techniques attempt to accel-\nerate this process, including normal [25, 56], adversarial\n[35, 42], progressive [33], and variational score distillation\n[28, 34, 43, 47, 51, 52]. Current distillation methods, de-\nspite their objectives, are hindered by challenges including\nsubstantial computational overhead, complex training regi-\nmens, and limitations in terms of generation speed, sample\nquality, and effective guidance [11, 27, 29, 30, 46, 53, 59].\nThis underscores the imperative for developing more gener-\nalized approaches to fully exploit the capabilities of diffu-\nsion models.\n∗ Corresponding Author\n† Project Leader\nThe traditional diffusion process, as shown in Fig.1a,\nforms the foundation for most acceleration and distillation\nmethods. However, it’s clear from the figure that this pro-\ncess suffers from several issues:\n• (1) Varying Expectations. The expectations in the back-\nward process differ across timesteps. Achieving high-\nquality samples necessitates a greater number of sam-\npling steps, making it impossible for accelerated sam-\npling methods to avoid quality degradation.\n• (2) Overlapping Diffusion Paths. Since all sample eventu-\nally converges to the same standard Gaussian distribution,\nthe diffusion probability paths will overlap. E[¯ϵt|xt] may\nrepresent the intersection of multiple probability paths,\nleading to significant randomness in sampling outcomes\nand potentially substantial quality loss.\n• (3) Sampling Instability. Even with closely positioned\nsampling points, the final generated results can differ sig-\nnificantly, introducing substantial instability.\nSeveral studies try to address these limitations: [22] in-\ntroduced rectified flow (RF) using linear ordinary differen-\ntial equation (ODE) for straight-path sampling (Fig.1b top-\nleft), while [41] extended RF to first-order curved paths\nrectified diffusion (RD) for denoising diffusion probabilis-\ntic models (DDPM)-like models (Fig.1b top-right). These\nsample-noise matching approaches have also been applied\nto diffusion distillation by [24, 49].\nHowever, existing sample-noise matching algorithms\nbrings new drawbacks while attempting to address above\nchallenges: (1*) Path Inconsistency: the gap between\nsample-noise matching and actual ODE sampling paths is\ntoo large, potentially leading to training difficulties and poor\ngeneralization; (2*) Limited Diversity: sampling proba-\nbility paths are severely constrained, significantly reduc-\ning model generation diversity; (3*) Theoretical Gap: the\nmethod is highly intuitive but lacks fundamental theoretical\nderivation to prove its optimality for sampling stability.\nTo address all the three challenges in traditional diffu-\nsion and the drawbacks introduced by existing sample-noise\nmatching methods, we propose RayFlow (shown in Fig.1b\nbottom). Consistent Expectations and Path: For chal-\nlenge (1) and (1*), we leverage pre-trained models to cal-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Proposed Method\nThis section introduces our proposed method for RayFlow,\nwhich involves a novel approach to diffusion processes in\ngenerative modeling. We present the theoretical founda-\ntions, the forward and backward processes, and the path\nprobability. We also provide the optimal parameters for\nmaximizing the path probability and outline the training and\nsampling algorithms.",
+    "experiments": "4. Experiment\nWe present a series of experiments evaluating quality, scal-\nability and robustness of RayFLow. Our training costs\naround 2.5 8 * A100 GPU days. We train LoRA instead\nof UNet for convenience. We employ AdamW optimizer\nwith learning rate 1e − 6, 16 batch size, and 200 epochs.\nWe adopt gaussian kernel K(x, xi) = exp\n\u0010\n−∥x−xi∥2\n2h2\n\u0011\nfor\nTime Sampler, where h is bandwidth, and set it 0.25. For\nall of competitors, we follow their paper’s setting.",
+    "conclusion": "5. Conclusion\nIn this work, we introduce RayFlow, a novel diffusion\nframework designed to address the inherent limitations\nof traditional diffusion models and existing acceleration\ntechniques. By guiding samples along unique paths\ntowards pre-computed target means, RayFlow ensures\nconsistent expectations, minimizes path overlap, and im-\nproves sampling stability, all theoretically grounded in path\nprobability maximization. Our Time Sampler, utilizing\nStochastic Stein Discrepancies for importance sampling,\nfurther optimizes training efficiency by identifying crucial\ntimesteps. Extensive experiments demonstrate RayFlow’s\nsuperior performance in terms of sample quality, gen-\neration speed, and computational efficiency compared\nto existing acceleration methods. Future work includes\nextending RayFlow to other data modalities and ex-\nploring advanced strategies for target mean determination."
+  }
+}

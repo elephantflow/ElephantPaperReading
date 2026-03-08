@@ -1,0 +1,89 @@
+{
+  "paper_id": "repurposing-stable-diffusion-attention-for-training-free-unsupervised-interactiv--9c8ee3d9f5",
+  "paper_title": "Repurposing Stable Diffusion Attention for Training-Free Unsupervised Interactive Segmentation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:24.173615+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Repurposing Stable Diffusion Attention for Training-Free Unsupervised Interactive Segmentation.pdf",
+    "filename": "Repurposing Stable Diffusion Attention for Training-Free Unsupervised Interactive Segmentation.pdf",
+    "sha1": "9c8ee3d9f53912a13d2d5f8f4f45f81966b42a5f",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Generally, for all self-supervised backbones, the main challenges are that attention maps don’t distinguish between instances, exhibit noise and are typically of low resolution.",
+    "limitation": "Introduction The goal of point prompt based interactive image segmen- tation is to obtain a high-quality segmentation from limited user interaction in the form of clicking.",
+    "insight": "Abstract Recent progress in interactive point prompt based Image Segmentation allows to significantly reduce the manual ef- fort to obtain high quality semantic labels.",
+    "proposed_method": "In this paper, we propose a novel unsupervised and training-free approach based solely on the self-attention of Stable Diffusion.",
+    "experimental_evidence": "Compared to the raw atten- tion maps, we show that our proposed Markov-map has less noise, sharper semantic boundaries and more uniform values within semantically similar regions.",
+    "summary": "Generally, for all self-supervised backbones, the main challenges are that attention maps don’t distinguish between instances, exhibit noise and are typically of low resolution. Introduction The goal of point prompt based interactive image segmen- tation is to obtain a high-quality segmentation from limited user interaction in the form of clicking. Abstract Recent progress in interactive point prompt based Image Segmentation allows to significantly reduce the manual ef- fort to obtain high quality semantic labels. In this paper, we propose a novel unsupervised and training-free approach based solely on the self-attention of Stable Diffusion. Compared to the raw atten- tion maps, we show that our proposed Markov-map has less noise, sharper semantic boundaries and more uniform values within semantically similar regions."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "method_overview",
+      "main_message": "Introduction The goal of point prompt based interactive image segmen- tation is to obtain a high-quality segmentation from limited user interaction in the form of clicking.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "1. Introduction\nThe goal of point prompt based interactive image segmen-\ntation is to obtain a high-quality segmentation from limited\nuser interaction in the form of clicking. Prompt-based im-\nage segmentation gained popularity lately due to large su-\npervised foundation models [18, 35]. In this paper, we focus\non unsupervised methods, where no segmentation labels are\nused at all in the design and/or training of the models. Most\nrecent approaches rely on self supervised backbones like\nViT [7], trained either by DINO [4] or MAE [13] based self-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n24518"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "supervised techniques.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "supervised techniques. On the other hand, Stable Diffusion\n(SD) [36] has been used for many different computer vi-\nsion applications such as monocular depth estimation [16],\nsemantic segmentation [45], object detection [5] and image\nclassification [20], often resulting in state-of-the-art solu-\ntions.\nInspired by DiffSeg [45], we investigate the potential of\nSD’s self-attention maps for training-free interactive seg-\nmentation. Generally, for all self-supervised backbones, the\nmain challenges are that attention maps don’t distinguish\nbetween instances, exhibit noise and are typically of low\nresolution. We choose SD, particularly version 2 (SD2),\nas the backbone of our approach, as it provides the high-\nest attention resolution (Sec. 14). To overcome the men-\ntioned challenges, we interpret the self-attention tensors as\na Markov transition operator, where the repeated applica-\ntion of the transition forms a Markov chain. We propose a\nnovel Markov-iteration-map or simply Markov-map, where\neach pixel counts the number of iterations required to ob-\ntain a specific probability value. We show that the proposed\nMarkov-map has less noise, the semantic boundaries are\nsharper and the semanti"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "2.1. Supervised Methods",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Introduction The goal of point prompt based interactive image segmen- tation is to obtain a high-quality segmentation from limited user interaction in the form of clicking."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "In this paper, we propose a novel unsupervised and training-free approach based solely on the self-attention of Stable Diffusion.",
+      "We propose a novel Markov-iteration-map or simply Markov-map, where each pixel counts the number of iterations required to ob- tain a specific probability value.",
+      "Our main contributions are: • We introduce Markov-Map Nearest Neighbor ( M2N2), the first attention-based unsupervised training-free multi- point prompt segmentation framework. • We propose a novel method to refine semantic informa- tion in attention maps, which we call Markov-maps. • We enable instance aware Markov-maps by utilizing a modified flood fill approach. • We introduce a truncated nearest neighbor approach to combine multiple point prompts. • We conduct extensive experiments with multiple back- bones and achieve state-of-the-art results, surpassing even unsupervised training-based methods."
+    ],
+    "experiment_expression": [
+      "Our main contributions are: • We introduce Markov-Map Nearest Neighbor ( M2N2), the first attention-based unsupervised training-free multi- point prompt segmentation framework. • We propose a novel method to refine semantic informa- tion in attention maps, which we call Markov-maps. • We enable instance aware Markov-maps by utilizing a modified flood fill approach. • We introduce a truncated nearest neighbor approach to combine multiple point prompts. • We conduct extensive experiments with multiple back- bones and achieve state-of-the-art results, surpassing even unsupervised training-based methods."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion We proposed M2N2, a novel method for unsupervised training-free point prompt based interactive segmentation.",
+    "In this paper, we propose a novel unsupervised and training-free approach based solely on the self-attention of Stable Diffusion.",
+    "Our main contributions are: • We introduce Markov-Map Nearest Neighbor ( M2N2), the first attention-based unsupervised training-free multi- point prompt segmentation framework. • We propose a novel method to refine semantic informa- tion in attention maps, which we call Markov-maps. • We enable instance aware Markov-maps by utilizing a modified flood fill approach. • We introduce a truncated nearest neighbor approach to combine multiple point prompts. • We conduct extensive experiments with multiple back- bones and achieve state-of-the-art results, surpassing even unsupervised training-based methods.",
+    "We propose a novel Markov-iteration-map or simply Markov-map, where each pixel counts the number of iterations required to ob- tain a specific probability value.",
+    "24518 supervised techniques.",
+    "3 compares our approach M2N2 with previous supervised and unsuper- vised approaches.",
+    "Abstract Recent progress in interactive point prompt based Image Segmentation allows to significantly reduce the manual ef- fort to obtain high quality semantic labels.",
+    "Although the supervised approaches achieve good per- formance and efficiency, they require large-scale pixel-level annotations to train, which are expensive and laborious to obtain.",
+    "By combining Markov-maps with truncated nearest neigh- bor, we developed M2N2, which even outperformed state- of-the-art unsupervised training-based methods in most of the datasets.",
+    "By interpreting an aggregated self-attention tensor of Sta- ble Diffusion 2 as a Markov transition operator, we gen- erated semantically rich Markov-maps.",
+    "Code is available at https: //github.com/mkarmann/m2n2.",
+    "Compared to the raw atten- tion maps, we show that our proposed Markov-map has less noise, sharper semantic boundaries and more uniform values within semantically similar regions."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRecent progress in interactive point prompt based Image\nSegmentation allows to significantly reduce the manual ef-\nfort to obtain high quality semantic labels. State-of-the-\nart unsupervised methods use self-supervised pre-trained\nmodels to obtain pseudo-labels which are used in train-\ning a prompt-based segmentation model. In this paper, we\npropose a novel unsupervised and training-free approach\nbased solely on the self-attention of Stable Diffusion. We in-\nterpret the self-attention tensor as a Markov transition op-\nerator, which enables us to iteratively construct a Markov\nchain. Pixel-wise counting of the required number of iter-\nations along the Markov chain to reach a relative proba-\nbility threshold yields a Markov-iteration-map, which we\nsimply call a Markov-map. Compared to the raw atten-\ntion maps, we show that our proposed Markov-map has\nless noise, sharper semantic boundaries and more uniform\nvalues within semantically similar regions. We integrate\nthe Markov-map in a simple yet effective truncated near-\nest neighbor framework to obtain interactive point prompt\nbased segmentation. Despite being training-free, we ex-\nperimentally show that our approach yields excellent re-\nsults in terms of Number of Clicks (NoC), even outper-\nforming state-of-the-art training based unsupervised meth-\nods in most of the datasets. Code is available at https:\n//github.com/mkarmann/m2n2.",
+    "introduction": "1. Introduction\nThe goal of point prompt based interactive image segmen-\ntation is to obtain a high-quality segmentation from limited\nuser interaction in the form of clicking. Prompt-based im-\nage segmentation gained popularity lately due to large su-\npervised foundation models [18, 35]. In this paper, we focus\non unsupervised methods, where no segmentation labels are\nused at all in the design and/or training of the models. Most\nrecent approaches rely on self supervised backbones like\nViT [7], trained either by DINO [4] or MAE [13] based self-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n24518\n\nsupervised techniques. On the other hand, Stable Diffusion\n(SD) [36] has been used for many different computer vi-\nsion applications such as monocular depth estimation [16],\nsemantic segmentation [45], object detection [5] and image\nclassification [20], often resulting in state-of-the-art solu-\ntions.\nInspired by DiffSeg [45], we investigate the potential of\nSD’s self-attention maps for training-free interactive seg-\nmentation. Generally, for all self-supervised backbones, the\nmain challenges are that attention maps don’t distinguish\nbetween instances, exhibit noise and are typically of low\nresolution. We choose SD, particularly version 2 (SD2),\nas the backbone of our approach, as it provides the high-\nest attention resolution (Sec. 14). To overcome the men-\ntioned challenges, we interpret the self-attention tensors as\na Markov transition operator, where the repeated applica-\ntion of the transition forms a Markov chain. We propose a\nnovel Markov-iteration-map or simply Markov-map, where\neach pixel counts the number of iterations required to ob-\ntain a specific probability value. We show that the proposed\nMarkov-map has less noise, the semantic boundaries are\nsharper and the semantic regions within Markov-maps are\nmore uniformly distributed. Native Markov-maps do not\ndistinguish between instances. Therefore, we further im-\nprove Markov-maps with a flood fill approach, which sup-\npresses local minima, to enable instance based segmenta-\ntion. Finally, we obtain Markov-maps of each prompt point\nand combine them with a truncated nearest neighbor ap-\nproach to enable multi-prompt point interactive segmenta-\ntion. Surprisingly, despite being training-free, we signifi-\ncantly improve the state-of-the-art in terms of Number of\nClicks (NoC) and even surpass training based unsupervised\napproaches in most of the datasets. Our main contributions\nare:\n• We introduce Markov-Map Nearest Neighbor ( M2N2),\nthe first attention-based unsupervised training-free multi-\npoint prompt segmentation framework.\n• We propose a novel method to refine semantic informa-\ntion in attention maps, which we call Markov-maps.\n• We enable instance aware Markov-maps by utilizing a\nmodified flood fill approach.\n• We introduce a truncated nearest neighbor approach to\ncombine multiple point prompts.\n• We conduct extensive experiments with multiple back-\nbones and achieve state-of-the-art results, surpassing even\nunsupervised training-based methods.",
+    "method": "2.1. Supervised Methods\nIn [52] a click map and click sampling strategies are used\nin combination with FCN [29], creating the foundation for\nmany follow-up methods. More recent approaches include\n[43], [24], [17, 18], [34], [15, 42], [27], [54], [6, 25],\n[26], [44], [28], [14], [46], either deploying dense fusion,\nwhere prompts are encoded as prompt maps, or sparse fu-\nsion, where prompts are transformed into embedding space\nto be fused with image and other related embeddings.\nAlthough the supervised approaches achieve good per-\nformance and efficiency, they require large-scale pixel-level\nannotations to train, which are expensive and laborious to\nobtain. While many supervised methods are tested on ad-\nditional domains like medical images, it is unclear if there\nare other domains where the trained models would have a\ndomain gap.",
+    "experiments": "4. Experiments\nDatasets. We evaluate M2N2 on 4 public datasets:\n• GrabCut [38]: 50 images; 50 instances.\n• Berkeley [30]: 96 images; 100 instances. Some of the\nimages are shared with the GrabCut dataset.\n• SBD [12]: 2857 images; 6671 instances (validation set).\n• DA VIS[33]: 345 images; 345 instances. The segmen-\ntation is of very high-quality and instances include many\nobjects with fine details and small structures. We use the\nsame 345 images as used in [21, 27].\nEvaluation Metrics . Following previous work [21, 27],\nwe evaluate our approach by simulating user interaction, in\nwhich we place the next click in the center of the largest\nerror region. The maximum number of clicks for each\ninstance is 20 and we provide two metrics, the average\nnumber of clicks required to reach an IoU of 85% as\nNoC85 and an IoU of 90% as NoC90.\nComparison with Previous Work . Tab. 3 compares\nour approach M2N2 with previous supervised and unsuper-\nvised approaches. To the best of our knowledge, M2N2 is",
+    "conclusion": "5. Conclusion\nWe proposed M2N2, a novel method for unsupervised\ntraining-free point prompt based interactive segmentation.\nBy interpreting an aggregated self-attention tensor of Sta-\nble Diffusion 2 as a Markov transition operator, we gen-\nerated semantically rich Markov-maps. We showed that\nMarkov-maps have less noise, clearer semantic boundaries,\nand more uniform values for semantically similar regions.\nBy combining Markov-maps with truncated nearest neigh-\nbor, we developed M2N2, which even outperformed state-\nof-the-art unsupervised training-based methods in most of\nthe datasets. Current limitations are the segmentation of fine\nstructures due to low attention resolution, as well as over-\nlapping or obstructed segments, where M2N2 may require\nmore prompt points."
+  }
+}

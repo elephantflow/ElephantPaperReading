@@ -1,0 +1,147 @@
+{
+  "paper_id": "ps-diffusion-photorealistic-subject-driven-image-editing-with-disentangled-contr--8784c5acd2",
+  "paper_title": "PS-Diffusion: Photorealistic Subject-Driven Image Editing with Disentangled Control and Attention",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:15.596224+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/PS-Diffusion： Photorealistic Subject-Driven Image Editing with Disentangled Control and Attention.pdf",
+    "filename": "PS-Diffusion： Photorealistic Subject-Driven Image Editing with Disentangled Control and Attention.pdf",
+    "sha1": "8784c5acd21b455982f91d11b8c02444de1e4cd4",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "This poses a significant challenge to acquiring photorealistic results.",
+    "limitation": "However, the current diffusion-based methods mainly focus on preserving semantic consistency.",
+    "insight": "Abstract Diffusion models pre-trained on large-scale paired image- text data achieve significant success in image editing.",
+    "proposed_method": "To address this issue, we propose PS-Diffusion, which en- sures realistic and consistent object-scene blending while maintaining the invariance of subject appearance during editing.",
+    "experimental_evidence": "Extensive quantitative and qualitative experiments on our dataset and two real-world datasets demonstrate that our method achieves state-of-the- art performance.",
+    "summary": "This poses a significant challenge to acquiring photorealistic results. However, the current diffusion-based methods mainly focus on preserving semantic consistency. Abstract Diffusion models pre-trained on large-scale paired image- text data achieve significant success in image editing. To address this issue, we propose PS-Diffusion, which en- sures realistic and consistent object-scene blending while maintaining the invariance of subject appearance during editing. Extensive quantitative and qualitative experiments on our dataset and two real-world datasets demonstrate that our method achieves state-of-the- art performance."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Image editing aims to modify images following user- specified editing targets, and unrelated content remains con- sistent with the source images.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction Image editing aims to modify images following user- specified editing targets, and unrelated content remains con- sistent with the source images. Benefiting from the re- cent success of diffusion models, image editing has re- ceived unprecedented progress. As a highly controllable task, image editing based on diffusion models [18, 37, 66] is widely applied in real-world scenarios such as personaliza- tion [35, 50], try-on [29, 43, 73], and E-commerce [5, 10]. To convey fine-grained visual concepts and precisely ar- ticulate the user’s desires, subject-driven image editing [35, 45, 62] (SDIE) integrates the subject in reference image into an existing scene."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Built on the diffusion model, Paint- by-Example [62] proposes a subject-driven editing frame- work for inpainting masked regions guided by the CLIP embeddings of reference images.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Built on the diffusion model, Paint- by-Example [62] proposes a subject-driven editing frame- work for inpainting masked regions guided by the CLIP embeddings of reference images. Anydoor [8] enhances identity consistency by injecting self-supervised represen- tation and detailed maps. To directly edit image pixels, Copy-Paste [14] is another simple method to integrate the entirely unchanging subject into the source image by copy and paste. However, the current diffusion-based methods mainly focus on preserving semantic consistency."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "Indis- criminately enhancing consistency via copy overlooks the contextual interaction of the object on the scene, such as re- flection, illumination, and shadow in Fig.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Indis- criminately enhancing consistency via copy overlooks the contextual interaction of the object on the scene, such as re- flection, illumination, and shadow in Fig. This poses a significant challenge to acquiring photorealistic results. To achieve photorealistic SDIE, there are pioneering works initially explored to simulate contextual interactions of objects on scenes, as well as maintain high consistency of subject identity. Graphics-based methods [36, 52–54, 61] render contextual interactions based on 3D assets and physi- cal parameters."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "limitation",
+      "main_message": "To relax the requirement for highly-cost pa- rameters, an alternative solution is utilizing two-stage gen- erative editing methods, removing the source object by in- painting [27, 47, 63] and then inserting [19, 59] the tar- gets.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "To relax the requirement for highly-cost pa- rameters, an alternative solution is utilizing two-stage gen- erative editing methods, removing the source object by in- painting [27, 47, 63] and then inserting [19, 59] the tar- gets. However, they still face the following challenges in achieving photorealism: 1) Removal stage: Most inpainting models [47, 74] struggle to eliminate the original contextual interactions of the source object outside the mask indicat- ing the editing area. 2) Insertion stage: Harmonization-like methods [19, 58] primarily affect the object area within the mask. 3) Consistency across stages: Although some ob- ject insertion or removing methods [41, 57, 59] account for physical laws, the individual process overlooks the consis- tency of contextual interactions before and after editing."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "method_overview",
+      "main_message": "Facing the above issues, we propose an end-to-end Photorealistic Subject-driven image editing approach, PS- Diffusion.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Facing the above issues, we propose an end-to-end Photorealistic Subject-driven image editing approach, PS- Diffusion. To cover most contextual interactions of the ob- ject on the scene, we divide them into two aspects based on affecting regions: 1) Effects on the foreground within the mask, such as lighting. 2) Effects on the background out- side the mask, such as shadow and reflection. Then, we use disentangled control signals to guide respective edit- ing processes in the diffusion model."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "background",
+      "main_message": "For the former, we condition the diffusion denoising process with illumination- dependent properties estimated by intrinsic image decom- position.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "For the former, we condition the diffusion denoising process with illumination- dependent properties estimated by intrinsic image decom- position. These properties derived from the source images improve the consistency of contextual interactions during editing. For the latter, we introduce an additional back- ground effect control branch to perceive effect regions out- side user-defined masks by learning an effect map. Unlike object editing, modifications to scene effects typically build upon existing images without significantly altering the orig- inal pixels."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "background",
+      "main_message": "Therefore, directly weighting the two branches causes confusion between the learning of interactions and subjects.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Therefore, directly weighting the two branches causes confusion between the learning of interactions and subjects. To separate them, we introduce the Effect Atten- tion Module (EAM) in denoising U-Net, which reorganizes the structural features of interaction regions and lighting conditions to improve the plausibility of effects. Finally, due to the scarcity of paired data, we curated a dataset com- prising 5,000 data pairs, i.e. Replace-5K, by Blender."
+    },
+    {
+      "paragraph_index": 8,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Our contributions are four-fold: 1) We propose PS- Diffusion for photorealistic SDIE, ensuring consistent con- textual interactions and object identity.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "Our contributions are four-fold: 1) We propose PS- Diffusion for photorealistic SDIE, ensuring consistent con- textual interactions and object identity. Disentangled con- trol allows the model to recognize interactions without be- ing restricted by masks. 2) EAM enhances visual plausi- bility by separating interaction and subject learning. 3) We introduce an exquisite synthetic dataset, Replace-5K, with 5,000 image pairs that simulate the interactions between scenes and objects."
+    },
+    {
+      "paragraph_index": 9,
+      "paragraph_role": "background",
+      "main_message": "4) Extensive experiments on synthetic and real-world datasets demonstrate the effectiveness.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "4) Extensive experiments on synthetic and real-world datasets demonstrate the effectiveness."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, it is challenging to obtain photorealistic results, which simulate contextual interac- tions, such as reflections, illumination, and shadows, in- duced by merging the target object into the source image.",
+      "However, the current diffusion-based methods mainly focus on preserving semantic consistency.",
+      "However, they still face the following challenges in achieving photorealism: 1) Removal stage: Most inpainting models [47, 74] struggle to eliminate the original contextual interactions of the source object outside the mask indicat- ing the editing area."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this issue, we propose PS-Diffusion, which en- sures realistic and consistent object-scene blending while maintaining the invariance of subject appearance during editing.",
+      "Moreover, we propose an effect attention module to disentangle the learning processes of interaction and sub- ject, alleviating confusion between them.",
+      "Extensive quantitative and qualitative experiments on our dataset and two real-world datasets demonstrate that our method achieves state-of-the- art performance.",
+      "Facing the above issues, we propose an end-to-end Photorealistic Subject-driven image editing approach, PS- Diffusion.",
+      "Our contributions are four-fold: 1) We propose PS- Diffusion for photorealistic SDIE, ensuring consistent con- textual interactions and object identity.",
+      "Conclusion In this paper, we propose PS-Diffusion for photorealistic subject-driven image editing."
+    ],
+    "experiment_expression": [
+      "Extensive quantitative and qualitative experiments on our dataset and two real-world datasets demonstrate that our method achieves state-of-the- art performance.",
+      "4) Extensive experiments on synthetic and real-world datasets demonstrate the effectiveness.",
+      "Extensive experiments demonstrate the effectiveness and scalability."
+    ],
+    "contribution_expression": [
+      "Our contributions are four-fold: 1) We propose PS- Diffusion for photorealistic SDIE, ensuring consistent con- textual interactions and object identity."
+    ]
+  },
+  "notable_sentences": [
+    "Our contributions are four-fold: 1) We propose PS- Diffusion for photorealistic SDIE, ensuring consistent con- textual interactions and object identity.",
+    "4) Extensive experiments on synthetic and real-world datasets demonstrate the effectiveness.",
+    "Conclusion In this paper, we propose PS-Diffusion for photorealistic subject-driven image editing.",
+    "Extensive experiments demonstrate the effectiveness and scalability.",
+    "Facing the above issues, we propose an end-to-end Photorealistic Subject-driven image editing approach, PS- Diffusion.",
+    "However, it is challenging to obtain photorealistic results, which simulate contextual interac- tions, such as reflections, illumination, and shadows, in- duced by merging the target object into the source image.",
+    "However, the current diffusion-based methods mainly focus on preserving semantic consistency.",
+    "Moreover, we propose an effect attention module to disentangle the learning processes of interaction and sub- ject, alleviating confusion between them.",
+    "To address this issue, we propose PS-Diffusion, which en- sures realistic and consistent object-scene blending while maintaining the invariance of subject appearance during editing.",
+    "2) EAM enhances visual plausi- bility by separating interaction and subject learning.",
+    "2) Effects on the background out- side the mask, such as shadow and reflection.",
+    "2) Insertion stage: Harmonization-like methods [19, 58] primarily affect the object area within the mask."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models pre-trained on large-scale paired image-\ntext data achieve significant success in image editing. To\nconvey more fine-grained visual details, subject-driven edit-\ning integrates subjects in user-provided reference images\ninto existing scenes. However, it is challenging to obtain\nphotorealistic results, which simulate contextual interac-\ntions, such as reflections, illumination, and shadows, in-\nduced by merging the target object into the source image.\nTo address this issue, we propose PS-Diffusion, which en-\nsures realistic and consistent object-scene blending while\nmaintaining the invariance of subject appearance during\nediting. To be specific, we first divide the contextual inter-\n* Corresponding author.\nactions into those occurring in the foreground and the back-\nground areas. The effect of the former is estimated through\nintrinsic image decomposition, and the region of the lat-\nter is predicted in an additional background effect control\nbranch. Moreover, we propose an effect attention module to\ndisentangle the learning processes of interaction and sub-\nject, alleviating confusion between them. Additionally, we\nintroduce a synthesized dataset, Replace-5K, consisting of\n5,000 image pairs with invariant subject and contextual in-\nteractions via 3D rendering. Extensive quantitative and\nqualitative experiments on our dataset and two real-world\ndatasets demonstrate that our method achieves state-of-the-\nart performance. The code is available in the https:\n//github.com/wei-cheng777/PS-Diffusion .\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n18302",
+    "introduction": "1. Introduction\nImage editing aims to modify images following user-\nspecified editing targets, and unrelated content remains con-\nsistent with the source images. Benefiting from the re-\ncent success of diffusion models, image editing has re-\nceived unprecedented progress. As a highly controllable\ntask, image editing based on diffusion models [18, 37, 66] is\nwidely applied in real-world scenarios such as personaliza-\ntion [35, 50], try-on [29, 43, 73], and E-commerce [5, 10].\nTo convey fine-grained visual concepts and precisely ar-\nticulate the user’s desires, subject-driven image editing [35,\n45, 62] (SDIE) integrates the subject in reference image\ninto an existing scene. Built on the diffusion model, Paint-\nby-Example [62] proposes a subject-driven editing frame-\nwork for inpainting masked regions guided by the CLIP\nembeddings of reference images. Anydoor [8] enhances\nidentity consistency by injecting self-supervised represen-\ntation and detailed maps. To directly edit image pixels,\nCopy-Paste [14] is another simple method to integrate the\nentirely unchanging subject into the source image by copy\nand paste. However, the current diffusion-based methods\nmainly focus on preserving semantic consistency. Indis-\ncriminately enhancing consistency via copy overlooks the\ncontextual interaction of the object on the scene, such as re-\nflection, illumination, and shadow in Fig. 1. This poses a\nsignificant challenge to acquiring photorealistic results.\nTo achieve photorealistic SDIE, there are pioneering\nworks initially explored to simulate contextual interactions\nof objects on scenes, as well as maintain high consistency\nof subject identity. Graphics-based methods [36, 52–54, 61]\nrender contextual interactions based on 3D assets and physi-\ncal parameters. To relax the requirement for highly-cost pa-\nrameters, an alternative solution is utilizing two-stage gen-\nerative editing methods, removing the source object by in-\npainting [27, 47, 63] and then inserting [19, 59] the tar-\ngets. However, they still face the following challenges in\nachieving photorealism: 1) Removal stage: Most inpainting\nmodels [47, 74] struggle to eliminate the original contextual\ninteractions of the source object outside the mask indicat-\ning the editing area. 2) Insertion stage: Harmonization-like\nmethods [19, 58] primarily affect the object area within the\nmask. 3) Consistency across stages: Although some ob-\nject insertion or removing methods [41, 57, 59] account for\nphysical laws, the individual process overlooks the consis-\ntency of contextual interactions before and after editing.\nFacing the above issues, we propose an end-to-end\nPhotorealistic Subject-driven image editing approach, PS-\nDiffusion. To cover most contextual interactions of the ob-\nject on the scene, we divide them into two aspects based on\naffecting regions: 1) Effects on the foreground within the\nmask, such as lighting. 2) Effects on the background out-\nside the mask, such as shadow and reflection. Then, we\nuse disentangled control signals to guide respective edit-\ning processes in the diffusion model. For the former, we\ncondition the diffusion denoising process with illumination-\ndependent properties estimated by intrinsic image decom-\nposition. These properties derived from the source images\nimprove the consistency of contextual interactions during\nediting. For the latter, we introduce an additional back-\nground effect control branch to perceive effect regions out-\nside user-defined masks by learning an effect map. Unlike\nobject editing, modifications to scene effects typically build\nupon existing images without significantly altering the orig-\ninal pixels. Therefore, directly weighting the two branches\ncauses confusion between the learning of interactions and\nsubjects. To separate them, we introduce the Effect Atten-\ntion Module (EAM) in denoising U-Net, which reorganizes\nthe structural features of interaction regions and lighting\nconditions to improve the plausibility of effects. Finally,\ndue to the scarcity of paired data, we curated a dataset com-\nprising 5,000 data pairs, i.e. Replace-5K, by Blender.\nOur contributions are four-fold: 1) We propose PS-\nDiffusion for photorealistic SDIE, ensuring consistent con-\ntextual interactions and object identity. Disentangled con-\ntrol allows the model to recognize interactions without be-\ning restricted by masks. 2) EAM enhances visual plausi-\nbility by separating interaction and subject learning. 3) We\nintroduce an exquisite synthetic dataset, Replace-5K, with\n5,000 image pairs that simulate the interactions between\nscenes and objects. 4) Extensive experiments on synthetic\nand real-world datasets demonstrate the effectiveness.",
+    "method": "3. Method",
+    "experiments": "5. Experiments",
+    "conclusion": "6. Conclusion\nIn this paper, we propose PS-Diffusion for photorealistic\nsubject-driven image editing. We first disentangle the con-\ntrol signals of contextual interactions based on their affect-\ning regions. To be specific, for those within the mask, we\ncondition the diffusion model with effects estimated by in-\ntrinsic image decomposition. An additional background ef-\nfect control branch identifies regions of effect outside the\nmask. Moreover, the effect attention module in the denois-\ning U-Net is introduced to separate the learning of effects\nof contextual interactions and subject features. Extensive\nexperiments demonstrate the effectiveness and scalability."
+  }
+}

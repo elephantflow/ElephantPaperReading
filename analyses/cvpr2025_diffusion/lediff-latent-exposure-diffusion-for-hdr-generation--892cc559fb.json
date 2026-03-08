@@ -1,0 +1,90 @@
+{
+  "paper_id": "lediff-latent-exposure-diffusion-for-hdr-generation--892cc559fb",
+  "paper_title": "LEDiff: Latent Exposure Diffusion for HDR Generation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:56.071009+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/LEDiff： Latent Exposure Diffusion for HDR Generation.pdf",
+    "filename": "LEDiff： Latent Exposure Diffusion for HDR Generation.pdf",
+    "sha1": "892cc559fb86ce2cc7870f8ba57d7cf12a25ffe0",
+    "page_count": 12
+  },
+  "core_story": {
+    "problem": "Introduction Generative models today can produce highly realistic and creative visual content, yet they remain largely confined This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "limitation": "However, its effec- tiveness is limited by the class-specific training and genera- tion constraints inherent to GANs.",
+    "insight": "Interestingly, we observe that the latent space of a dif- fusion model strongly correlates with the image space in terms of clipping and pixel intensity; pixels that are clipped in the image space are similarly clipped in the latent space.",
+    "proposed_method": "We introduce LEDiff, a method that enables a generative model with HDR content generation through latent space fusion inspired by image- space exposure fusion techniques.",
+    "experimental_evidence": "The mask used for inpainting is shown in the inset.",
+    "summary": "Introduction Generative models today can produce highly realistic and creative visual content, yet they remain largely confined This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. However, its effec- tiveness is limited by the class-specific training and genera- tion constraints inherent to GANs. Interestingly, we observe that the latent space of a dif- fusion model strongly correlates with the image space in terms of clipping and pixel intensity; pixels that are clipped in the image space are similarly clipped in the latent space. We introduce LEDiff, a method that enables a generative model with HDR content generation through latent space fusion inspired by image- space exposure fusion techniques. The mask used for inpainting is shown in the inset."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Generative models today can produce highly realistic and creative visual content, yet they remain largely confined This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\nGenerative models today can produce highly realistic and\ncreative visual content, yet they remain largely confined\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n453"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "to 8-bit, low dynamic range (LDR) representations.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "to 8-bit, low dynamic range (LDR) representations. This\nlimitation causes bright highlights and deep shadows to be\nclipped, preventing the full capture of light and color varia-\ntion present in real-world scenes. As a result, these mod-\nels restrict further photographic editing, as stronger tone\nmapping cannot reveal any additional details. Additionally,\nLDR limits downstream applications, such as image-based\nlighting and depth of field rendering, where realistic visual\nquality depends on HDR data. The need for HDR content\nhas also grown with the rise of consumer displays that sup-\nport HDR, often with over 10 stops of dynamic range, mak-\ning the screen feel like a window looking out at the real\nscene [8, 12]. The longstanding popularity of LDR content\n— optimized for traditional display purposes through clip-\nping, gamma correction, and quantization — may no longer\nhold as HDR displays become increasingly prevalent.\nHDR reconstruction has been widely studied in recent\nyears and generally falls into two main categories. The first\napproach focuses on multi-exposure fusion, which assumes\na set of exposure-bracketed photos as input and primarily\naddresses alignment issues among these "
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Abstract While consumer displays increasingly support more than 10 stops of dynamic range, most image assets — such as internet photographs and generative AI content — re- main limited to 8-bit low dynamic range (LDR), constrain- ing their utility across high dynamic range (HDR) applica- tions.",
+      "However, its effec- tiveness is limited by the class-specific training and genera- tion constraints inherent to GANs.",
+      "To maintain the generative capabilities of the pre-trained model without compromising it by training on limited HDR data, we aim to retain the powerful latent space of the original latent diffusion model.",
+      "However, our approach has limitations."
+    ],
+    "insight_expression": [
+      "Interestingly, we observe that the latent space of a dif- fusion model strongly correlates with the image space in terms of clipping and pixel intensity; pixels that are clipped in the image space are similarly clipped in the latent space.",
+      "This motivates our approach of aiming for a clipping-free latent space."
+    ],
+    "method_expression": [
+      "Leveraging the original pre-trained latent space allows our method to act as a plug-and-play solution, converting any latent code to HDR, whether for generated content or real images encoded into the latent space.",
+      "Our method equips a generative model with HDR gener- ation capabilities, greatly expanding its applicability across various domains.",
+      "We demonstrate our method using the sta- ble diffusion model [53].",
+      "Conclusion and Limitations We propose LEDiff, a method for HDR content generation that captures the full dynamic range of real-world scenes.",
+      "Additionally, our method does not yet handle degradations like compression artifacts (e.g., ring- ing and blocking) or noise in the input LDR, which could improve robustness to real-world images."
+    ],
+    "experiment_expression": [
+      "We demonstrate our method using the sta- ble diffusion model [53]."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion and Limitations We propose LEDiff, a method for HDR content generation that captures the full dynamic range of real-world scenes.",
+    "However, its effec- tiveness is limited by the class-specific training and genera- tion constraints inherent to GANs.",
+    "However, our approach has limitations.",
+    "Interestingly, we observe that the latent space of a dif- fusion model strongly correlates with the image space in terms of clipping and pixel intensity; pixels that are clipped in the image space are similarly clipped in the latent space.",
+    "453 to 8-bit, low dynamic range (LDR) representations.",
+    "Additionally, LDR limits downstream applications, such as image-based lighting and depth of field rendering, where realistic visual quality depends on HDR data.",
+    "Additionally, our method does not yet handle degradations like compression artifacts (e.g., ring- ing and blocking) or noise in the input LDR, which could improve robustness to real-world images.",
+    "Addressing these limitations could improve generalization and is a promising direction for future work.",
+    "As a result, these mod- els restrict further photographic editing, as stronger tone mapping cannot reveal any additional details.",
+    "Currently, no generative model can produce high-bit, high-dynamic range content in a generalizable way.",
+    "Enabling HDR capabilities in a pre- trained generative model requires 1) hallucinating clipped area in highlights and shadows, 2) linearizing the image and expanding its dynamic range.",
+    "Ex- isting LDR-to-HDR conversion methods often struggle to produce photorealistic details and physically-plausible dy- namic range in the clipped areas."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWhile consumer displays increasingly support more than\n10 stops of dynamic range, most image assets — such\nas internet photographs and generative AI content — re-\nmain limited to 8-bit low dynamic range (LDR), constrain-\ning their utility across high dynamic range (HDR) applica-\ntions. Currently, no generative model can produce high-bit,\nhigh-dynamic range content in a generalizable way. Ex-\nisting LDR-to-HDR conversion methods often struggle to\nproduce photorealistic details and physically-plausible dy-\nnamic range in the clipped areas. We introduce LEDiff, a\nmethod that enables a generative model with HDR content\ngeneration through latent space fusion inspired by image-\nspace exposure fusion techniques. It also functions as an\nLDR-to-HDR converter, expanding the dynamic range of\nexisting low-dynamic range images. Our approach uses a\nsmall HDR dataset to enable a pretrained diffusion model\nto recover detail and dynamic range in clipped highlights\nand shadows. LEDiff brings HDR capabilities to existing\ngenerative models and converts any LDR image to HDR,\ncreating photorealistic HDR outputs for image generation,\nimage-based lighting (HDR environment map generation),\nand photographic effects such as depth of field simulation,\nwhere linear HDR data is essential for realistic quality.",
+    "introduction": "1. Introduction\nGenerative models today can produce highly realistic and\ncreative visual content, yet they remain largely confined\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n453\n\nto 8-bit, low dynamic range (LDR) representations. This\nlimitation causes bright highlights and deep shadows to be\nclipped, preventing the full capture of light and color varia-\ntion present in real-world scenes. As a result, these mod-\nels restrict further photographic editing, as stronger tone\nmapping cannot reveal any additional details. Additionally,\nLDR limits downstream applications, such as image-based\nlighting and depth of field rendering, where realistic visual\nquality depends on HDR data. The need for HDR content\nhas also grown with the rise of consumer displays that sup-\nport HDR, often with over 10 stops of dynamic range, mak-\ning the screen feel like a window looking out at the real\nscene [8, 12]. The longstanding popularity of LDR content\n— optimized for traditional display purposes through clip-\nping, gamma correction, and quantization — may no longer\nhold as HDR displays become increasingly prevalent.\nHDR reconstruction has been widely studied in recent\nyears and generally falls into two main categories. The first\napproach focuses on multi-exposure fusion, which assumes\na set of exposure-bracketed photos as input and primarily\naddresses alignment issues among these images [13, 16, 28,\n33, 38, 47, 49, 56, 57, 60, 63, 65, 67–70]. The second\napproach centers on inverting the tone mapping applied to\nthe input LDR image, aiming to recover missing details in\nclipped regions [20, 21, 34, 37, 41, 55, 71, 75]. With the\ngrowth of generative models, approaches to HDR genera-\ntion also emerged. GlowGAN [62] is the first attempt to\ngenerate HDR content from scratch and can extend existing\nLDR images through GAN inversion. However, its effec-\ntiveness is limited by the class-specific training and genera-\ntion constraints inherent to GANs.\nOur goal is to repurpose a pre-trained latent diffusion\nmodel (e.g., Stable Diffusion [53]) to generate a closely\nrelated yet distinct distribution: linear HDR content. To\nmaintain the generative capabilities of the pre-trained model\nwithout compromising it by training on limited HDR data,\nwe aim to retain the powerful latent space of the original\nlatent diffusion model. Enabling HDR capabilities in a pre-\ntrained generative model requires 1) hallucinating clipped\narea in highlights and shadows, 2) linearizing the image and\nexpanding its dynamic range.\nInterestingly, we observe that the latent space of a dif-\nfusion model strongly correlates with the image space in\nterms of clipping and pixel intensity; pixels that are clipped\nin the image space are similarly clipped in the latent space.\nThis motivates our approach of aiming for a clipping-free\nlatent space. We then fine-tune the decoder to linearize and\nexpand the dynamic range, generating an HDR image in the\nimage space. To get a clipping-free latent code, we draw in-\nspiration from image-space exposure fusion, applying this\nconcept in latent space by merging latent code that repre-\nsents different exposure-level captures. To generate these\nbracketed codes, we train a highlight generator that takes as\ninput a latent code with highlight clipping (representing an\nover-exposed image) and produces a lower-exposed latent\ncode without clipping. Similarly, we train a shadow gen-\nerator that takes an under-exposed latent code as input and\ngenerates a higher-exposed latent code free from shadow\nclipping. We train the highlight and shadow generators us-\ning a relatively small HDR dataset, relying on the preserved\nlatent space to offload intensive generation tasks to the pre-\ntrained model. Once we have these exposure-bracketed la-\ntent codes, a learnable fusion module merges them into a\nsingle, clipping-free latent code.\nIn summary, our approach involves training highlight\nand shadow generators to hallucinate missing details in\nover- and under-exposed areas of the latent space and fine-\ntuning the decoder to linearize and expand dynamic range\nduring decoding.\nThis approach offers several advantages. Leveraging the\noriginal pre-trained latent space allows our method to act\nas a plug-and-play solution, converting any latent code to\nHDR, whether for generated content or real images encoded\ninto the latent space. Using a learnable latent space ex-\nposure fusion, combined with a learnable linearization de-\ncoder, eliminates the need for hand-crafted merging fea-\ntures [44] and avoids the necessity of estimating exposure\nparameters and camera response curves [7] required by tra-\nditional exposure fusion algorithms.\nOur method equips a generative model with HDR gener-\nation capabilities, greatly expanding its applicability across\nvarious domains. We demonstrate our method using the sta-\nble diffusion model [53]. The main contributions of this\nwork are as follows:\n• A fine-tuning approach that fully preserves a pre-trained\n(LDR) latent space and uses a small set of HDR data to\nexpand dynamic range and add details to both deep shad-\nows and bright highlights.\n• A method that enables HDR generation in existing im-\nage and video generative models and achieves state-of-\nthe-art performance in inverse tone mapping for real LDR\nimages, including linearization and photorealistic recon-\nstruction in clipped regions.",
+    "method": "3. Method",
+    "experiments": "",
+    "conclusion": "7. Conclusion and Limitations\nWe propose LEDiff, a method for HDR content generation\nthat captures the full dynamic range of real-world scenes.\nLEDiff operates within the latent space of a pre-trained dif-\nfusion model, leveraging its generative capabilities while\nenabling HDR by reconstructing details in over- and under-\nLDR w/o VAE Finetune w/o Denoiser Finetune Ours\nw/ Inpainting\nFigure 6. Ablation study. The first row displays the input LDR\nimage alongside the reconstructed outputs; the second row plots\nthe scanline. The mask used for inpainting is shown in the inset.\nFine-tuning both the decoder and denoiser is essential for achiev-\ning hallucination and dynamic range extension.\nexposed regions and performing dynamic range extension.\nThis is accomplished by fine-tuning the V AE decoder and\ndenoiser on a relatively small HDR dataset. LEDiff is ag-\nnostic to how the LDR latent code is generated, making it\nadaptable as an LDR-to-HDR converter for any LDR image\nencoded into latent space. LEDiff unlocks a range of HDR\napplications, including HDR panorama generation for real-\nistic image-based lighting and HDR video generation.\nHowever, our approach has limitations. Fine-tuning Sta-\nble Diffusion constrains LEDiff to SD’s strengths and weak-\nnesses, while using Stable-Video-Diffusion (SVD) for HDR\nvideo generation introduces more artifacts due to its weaker\ngenerative power. Additionally, our method does not yet\nhandle degradations like compression artifacts (e.g., ring-\ning and blocking) or noise in the input LDR, which could\nimprove robustness to real-world images. Addressing these\nlimitations could improve generalization and is a promising\ndirection for future work.\nAs HDR displays become more widely available on con-\nsumer devices, we anticipate that the demand for HDR con-\ntent will continue to grow, and believe that LEDiff’s po-\ntential to expand HDR content creation will help meet the\nincreasing demand for photorealistic HDR contents."
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "paper_id": "energymogen-compositional-human-motion-generation-with-energy-based-diffusion-mo--ff44074415",
+  "paper_title": "EnergyMoGen: Compositional Human Motion Generation with Energy-Based Diffusion Model in Latent Space",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:37.835941+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/EnergyMoGen： Compositional Human Motion Generation with Energy-Based Diffusion Model in Latent Space.pdf",
+    "filename": "EnergyMoGen： Compositional Human Motion Generation with Energy-Based Diffusion Model in Latent Space.pdf",
+    "sha1": "ff44074415817eced5be5632a2d8ac9f01b822a5",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Composition of complex ideas out of simple ones. – John Locke (1632 - 1704) [4] Generating human motions that are both visually appealing and physically plausible is a longstanding goal in computer animation.",
+    "limitation": "However, such models are not feasible for composing mo- tion through algorithms proposed in skeleton-based diffu- sion models.",
+    "insight": "Tackling these two issues can offer valuable insights into compositional motion generation algorithms and motivate us to reconsider this task from an energy view.",
+    "proposed_method": "To address this issue, we propose EnergyMoGen, which in- cludes two spectrums of Energy-Based Models: ❶ We in- terpret the diffusion model as a latent-aware energy-based model that generates motions by composing a set of diffu- sion models in latent space; ❷ We introduce a semantic- aware energy model based on cross-attention, which en- ables semantic composition and adaptive gradient descent for text embeddings.",
+    "experimental_evidence": "Abstract Diffusion models, particularly latent diffusion models, have demonstrated remarkable success in text-driven hu- man motion generation.",
+    "summary": "Introduction Composition of complex ideas out of simple ones. – John Locke (1632 - 1704) [4] Generating human motions that are both visually appealing and physically plausible is a longstanding goal in computer animation. However, such models are not feasible for composing mo- tion through algorithms proposed in skeleton-based diffu- sion models. Tackling these two issues can offer valuable insights into compositional motion generation algorithms and motivate us to reconsider this task from an energy view. To address this issue, we propose EnergyMoGen, which in- cludes two spectrums of Energy-Based Models: ❶ We in- terpret the diffusion model as a latent-aware energy-based model that generates motions by composing a set of diffu- sion models in latent space; ❷ We introduce a semantic- aware energy model based on cross-attention, which en- ables semantic composition and adaptive gradient descent for text embeddings. Abstract Diffusion models, particularly latent diffusion models, have demonstrated remarkable success in text-driven hu- man motion generation."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Composition of complex ideas out of simple ones. – John Locke (1632 - 1704) [4] Generating human motions that are both visually appealing and physically plausible is a longstanding goal in computer animation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Composition of complex ideas out of simple ones. – John Locke (1632 - 1704) [4] Generating human motions that are both visually appealing and physically plausible is a longstanding goal in computer animation. Recently, the remarkable success of diffusion models [24, 54, 57] stimulates the emergence of diffusion- based solutions for generating human motion [60, 62, 72, 73] from a single text prompt. Humans are masters of motion composition. For ex- ample, with the mind of “raising both arms” and “walk- ing forward”, we can blend these simple concepts to per- form complex motions simultaneously based on our experi- ences."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "To achieve this capability, past efforts, such as Pri- orMDM [55] and GMD [33], have made significant strides in temporal [2] and spatial [3] human motion compositions using pre-trained skeleton-based diffusion models.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "To achieve this capability, past efforts, such as Pri- orMDM [55] and GMD [33], have made significant strides in temporal [2] and spatial [3] human motion compositions using pre-trained skeleton-based diffusion models. These models operate directly on skeletons, thus enabling precise control over joint feature distributions to generate realistic motions from multiple textual descriptions. In this work, we are interested in the motion latent diffu- sion model [54, 66], which is another important formulation of diffusion models operating in continuous latent space. However, such models are not feasible for composing mo- tion through algorithms proposed in skeleton-based diffu- sion models."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "key_insight",
+      "main_message": "As latent diffusion models usually use one (or a fixed number of) latent vector(s) to represent variable- length motions ( e.g., ranging from 40 to 196 frames), the following issues naturally arise: i) Lack of explicit corre- spondence (e.g., one-to-one or one-to-many mapping) be- tween latent vectors and motions; ii) It is challenging for latent vectors to support per-frame composition.",
+      "writing_strategy": "Introduces an observation that motivates the proposed direction.",
+      "evidence_text": "As latent diffusion models usually use one (or a fixed number of) latent vector(s) to represent variable- length motions ( e.g., ranging from 40 to 196 frames), the following issues naturally arise: i) Lack of explicit corre- spondence (e.g., one-to-one or one-to-many mapping) be- tween latent vectors and motions; ii) It is challenging for latent vectors to support per-frame composition. Tackling these two issues can offer valuable insights into compositional motion generation algorithms and motivate us to reconsider this task from an energy view. The idea of “energy” is intrinsic to Energy-Based Models (EBMs) [36]. Research on EBMs has a long history, yet it gets overlooked nowadays in human motion generation."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "The energy func- tion defines a potential field to shape the energy surface by assigning low energies to desired configurations and high energies to other configurations [76].",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "The energy func- tion defines a potential field to shape the energy surface by assigning low energies to desired configurations and high energies to other configurations [76]. With this perspec- tive [7–9, 11, 45], we delve into two spectrums of EBMs for compositional motion generation: ❶ latent-aware and ❷ semantic-aware. By formulating the generative process of latent diffusion models as an energy combination prob- lem, we can compose complex motions from simple compo- nents through two compositional operations: conjunction and negation (Figure 1 (a), (b), (c), more visual results are provided in § 5.4 and on the project page). This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, it remains challenging for latent diffusion models to effectively compose multiple semantic concepts into a single, coherent motion sequence.",
+      "However, such models are not feasible for composing mo- tion through algorithms proposed in skeleton-based diffu- sion models."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this issue, we propose EnergyMoGen, which in- cludes two spectrums of Energy-Based Models: ❶ We in- terpret the diffusion model as a latent-aware energy-based model that generates motions by composing a set of diffu- sion models in latent space; ❷ We introduce a semantic- aware energy model based on cross-attention, which en- ables semantic composition and adaptive gradient descent for text embeddings.",
+      "Addi- tionally, we demonstrate that our method can be used to extend motion datasets and improve the text-to-motion task."
+    ],
+    "experiment_expression": [
+      "Addi- tionally, we demonstrate that our method can be used to extend motion datasets and improve the text-to-motion task.",
+      "Extensive investigations demonstrate that our approach is general, effective and interpretable."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, it remains challenging for latent diffusion models to effectively compose multiple semantic concepts into a single, coherent motion sequence.",
+    "However, such models are not feasible for composing mo- tion through algorithms proposed in skeleton-based diffu- sion models.",
+    "Abstract Diffusion models, particularly latent diffusion models, have demonstrated remarkable success in text-driven hu- man motion generation.",
+    "Addi- tionally, we demonstrate that our method can be used to extend motion datasets and improve the text-to-motion task.",
+    "Conclusion In this paper, we present a framework for compositional hu- man motion generation, aiming at composing complex mo- tions from a set of simple concepts.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experiments We evaluate our approach on three tasks following prior studies [19, 49]: text-to-motion generation ( § 5.3), compo- sitional motion generation ( § 5.4), and multi-concept mo- tion generation ( § 5.4).",
+    "Experiments show that our approach outperforms existing state-of-the-art models on various motion generation tasks, including text-to-motion generation, compositional motion generation, and multi-concept motion generation.",
+    "Extensive investigations demonstrate that our approach is general, effective and interpretable.",
+    "For ex- ample, with the mind of “raising both arms” and “walk- ing forward”, we can blend these simple concepts to per- form complex motions simultaneously based on our experi- ences.",
+    "Furthermore, we offer an in-depth dissection in § 5.5.",
+    "Humans are masters of motion composition."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models, particularly latent diffusion models,\nhave demonstrated remarkable success in text-driven hu-\nman motion generation. However, it remains challenging\nfor latent diffusion models to effectively compose multiple\nsemantic concepts into a single, coherent motion sequence.\nTo address this issue, we propose EnergyMoGen, which in-\ncludes two spectrums of Energy-Based Models: ❶ We in-\nterpret the diffusion model as a latent-aware energy-based\nmodel that generates motions by composing a set of diffu-\nsion models in latent space; ❷ We introduce a semantic-\naware energy model based on cross-attention, which en-\nables semantic composition and adaptive gradient descent\nfor text embeddings. To overcome the challenges of seman-\ntic inconsistency and motion distortion across these two\nspectrums, we introduce Synergistic Energy Fusion. This\ndesign allows the motion latent diffusion model to syn-\nthesize high-quality, complex motions by combining mul-\ntiple energy terms corresponding to textual descriptions.\nExperiments show that our approach outperforms existing\nstate-of-the-art models on various motion generation tasks,\nincluding text-to-motion generation, compositional motion\ngeneration, and multi-concept motion generation. Addi-\ntionally, we demonstrate that our method can be used to\nextend motion datasets and improve the text-to-motion task.",
+    "introduction": "1. Introduction\nComposition of complex ideas out of simple ones.\n– John Locke (1632 - 1704) [4]\nGenerating human motions that are both visually appealing\nand physically plausible is a longstanding goal in computer\nanimation. Recently, the remarkable success of diffusion\nmodels [24, 54, 57] stimulates the emergence of diffusion-\nbased solutions for generating human motion [60, 62, 72,\n73] from a single text prompt.\nHumans are masters of motion composition. For ex-\nample, with the mind of “raising both arms” and “walk-\ning forward”, we can blend these simple concepts to per-\nform complex motions simultaneously based on our experi-\nences. To achieve this capability, past efforts, such as Pri-\norMDM [55] and GMD [33], have made significant strides\nin temporal [2] and spatial [3] human motion compositions\nusing pre-trained skeleton-based diffusion models. These\nmodels operate directly on skeletons, thus enabling precise\ncontrol over joint feature distributions to generate realistic\nmotions from multiple textual descriptions.\nIn this work, we are interested in the motion latent diffu-\nsion model [54, 66], which is another important formulation\nof diffusion models operating in continuous latent space.\nHowever, such models are not feasible for composing mo-\ntion through algorithms proposed in skeleton-based diffu-\nsion models. As latent diffusion models usually use one\n(or a fixed number of) latent vector(s) to represent variable-\nlength motions ( e.g., ranging from 40 to 196 frames), the\nfollowing issues naturally arise: i) Lack of explicit corre-\nspondence (e.g., one-to-one or one-to-many mapping) be-\ntween latent vectors and motions; ii) It is challenging for\nlatent vectors to support per-frame composition.\nTackling these two issues can offer valuable insights into\ncompositional motion generation algorithms and motivate\nus to reconsider this task from an energy view. The idea of\n“energy” is intrinsic to Energy-Based Models (EBMs) [36].\nResearch on EBMs has a long history, yet it gets overlooked\nnowadays in human motion generation. The energy func-\ntion defines a potential field to shape the energy surface by\nassigning low energies to desired configurations and high\nenergies to other configurations [76]. With this perspec-\ntive [7–9, 11, 45], we delve into two spectrums of EBMs\nfor compositional motion generation: ❶ latent-aware and\n❷ semantic-aware. By formulating the generative process\nof latent diffusion models as an energy combination prob-\nlem, we can compose complex motions from simple compo-\nnents through two compositional operations: conjunction\nand negation (Figure 1 (a), (b), (c), more visual results are\nprovided in § 5.4 and on the project page).\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Method\nIn this section, we introduce our approach, E NERGY MO-\nGEN. We first present the architecture and formulations of\nthe diffusion model in § 3.1. Next, we discuss the connec-\ntion between diffusion models and energy-based models,\nas well as how to compose motions from several concepts\nthrough Synergistic Energy Fusion (SEF) in § 3.2. The\noverall framework is illustrated in Figure 2.",
+    "experiments": "5. Experiments\nWe evaluate our approach on three tasks following prior\nstudies [19, 49]: text-to-motion generation ( § 5.3), compo-\nsitional motion generation ( § 5.4), and multi-concept mo-\ntion generation ( § 5.4). Furthermore, we offer an in-depth\ndissection in § 5.5. Please kindly note that our approach can\nbe easily generalized to skeleton-based methods. More in-\nformation on datasets, evaluation metrics, training details,\nand the results of skeleton-based diffusion models, can be\nfound in the supplementary material.",
+    "conclusion": "6. Conclusion\nIn this paper, we present a framework for compositional hu-\nman motion generation, aiming at composing complex mo-\ntions from a set of simple concepts. We explore an energy-\nbased regime where the denoising autoencoder and cross-\nattention are interpreted as energy functions for latent-\naware and semantic-aware composition, and energy distri-\nbutions are combined in latent space through Synergistic\nEnergy Fusion. Our approach consistently shows superior\nperformance across various tasks on several commonly used\nbenchmarks. Extensive investigations demonstrate that our\napproach is general, effective and interpretable. Moreover,\nwe build a dataset and suggest motion composition as a\ndata augmentation technique, which can bring additional\nimprovement to text-to-motion generation."
+  }
+}

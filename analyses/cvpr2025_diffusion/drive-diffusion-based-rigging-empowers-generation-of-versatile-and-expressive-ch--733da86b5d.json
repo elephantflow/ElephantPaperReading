@@ -1,0 +1,86 @@
+{
+  "paper_id": "drive-diffusion-based-rigging-empowers-generation-of-versatile-and-expressive-ch--733da86b5d",
+  "paper_title": "DRiVE: Diffusion-based Rigging Empowers Generation of Versatile and Expressive Characters",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:15.812279+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/DRiVE： Diffusion-based Rigging Empowers Generation of Versatile and Expressive Characters.pdf",
+    "filename": "DRiVE： Diffusion-based Rigging Empowers Generation of Versatile and Expressive Characters.pdf",
+    "sha1": "733da86b5d7bc155250428f641c4d636fbe0b630",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Crafting and animating 3D human characters has long been a critical task in an array of applications, including film and video game making, AR/VR, and human-centric robotics, to name a few.",
+    "limitation": "Introduction Crafting and animating 3D human characters has long been a critical task in an array of applications, including film and video game making, AR/VR, and human-centric robotics, to name a few.",
+    "insight": "Abstract Recent advances in generative models have enabled high- quality 3D character reconstruction from multi-modal.",
+    "proposed_method": "Building upon this, we propose DRiVE, a novel framework for generating and rigging 3D human characters with intricate structures.",
+    "experimental_evidence": "Extensive experiments demonstrate that DRiVE achieves precise rigging results, enabling realistic dynam- ics for clothing and hair, and surpassing previous methods in both quality and versatility.",
+    "summary": "Introduction Crafting and animating 3D human characters has long been a critical task in an array of applications, including film and video game making, AR/VR, and human-centric robotics, to name a few. Introduction Crafting and animating 3D human characters has long been a critical task in an array of applications, including film and video game making, AR/VR, and human-centric robotics, to name a few. Abstract Recent advances in generative models have enabled high- quality 3D character reconstruction from multi-modal. Building upon this, we propose DRiVE, a novel framework for generating and rigging 3D human characters with intricate structures. Extensive experiments demonstrate that DRiVE achieves precise rigging results, enabling realistic dynam- ics for clothing and hair, and surpassing previous methods in both quality and versatility."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Crafting and animating 3D human characters has long been a critical task in an array of applications, including film and video game making, AR/VR, and human-centric robotics, to name a few.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Crafting and animating 3D human characters has long been a critical task in an array of applications, including film and video game making, AR/VR, and human-centric robotics, to name a few. Notably, the rapid development of genera- tive models opens numerous new opportunities for research on this classic task. In contrast to the traditional manual and This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experimental Results",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Introduction Crafting and animating 3D human characters has long been a critical task in an array of applications, including film and video game making, AR/VR, and human-centric robotics, to name a few."
+    ],
+    "limitation_expression": [
+      "However, animating these generated characters remains a challenging task, especially for complex elements like gar- ments and hair, due to the lack of large-scale datasets and effective rigging methods."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this gap, we curate AnimeRig, a large-scale dataset with detailed skeleton and skinning annotations.",
+      "Building upon this, we propose DRiVE, a novel framework for generating and rigging 3D human characters with intricate structures.",
+      "4.3 we propose a sim- ple yet effective module to boost the rendering quality of the rigged characters 5.",
+      "The flexibility of our framework allows it to be ex- tended beyond 3D Gaussian to mesh, further demonstrat- ing its versatility."
+    ],
+    "experiment_expression": [
+      "Extensive experiments demonstrate that DRiVE achieves precise rigging results, enabling realistic dynam- ics for clothing and hair, and surpassing previous methods in both quality and versatility.",
+      "Methodology In this section, we demonstrate the overall pipeline of our rigging system, which, trained on our AnimeRig dataset, can automatically and efficiently produce high-quality rig- ging results on 3D human characters with rich structures (e.g., clothing, hair ) originating from multi-modal inputs."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "4.3 we propose a sim- ple yet effective module to boost the rendering quality of the rigged characters 5.",
+    "Building upon this, we propose DRiVE, a novel framework for generating and rigging 3D human characters with intricate structures.",
+    "Extensive experiments demonstrate that DRiVE achieves precise rigging results, enabling realistic dynam- ics for clothing and hair, and surpassing previous methods in both quality and versatility.",
+    "However, animating these generated characters remains a challenging task, especially for complex elements like gar- ments and hair, due to the lack of large-scale datasets and effective rigging methods.",
+    "4.1, which are uniformly converted to a canonical input consisting of 3D Gaussian points and a set of images rendered from 4 views.",
+    "4.2, we sequentially go through our modules for predicting joints, connecting bones, and assigning skinning weights.",
+    "Abstract Recent advances in generative models have enabled high- quality 3D character reconstruction from multi-modal.",
+    "By curating a large-scale rigged char- acter dataset, AnimeRig, and proposing the novel diffu- sion module GSDiff, we effectively address the challenges of data insufficiency and skeleton prediction on 3D Gaus- sian.",
+    "Code, dataset and visualiza- tion results are available at https://DRiVEAvatar.github.io/.",
+    "Conclusion, Limitation, and Future Work In this work, we introduce DRiVE, the first framework for generating and rigging 3D characters with rich structures using 3D Gaussian representations.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experimental Results 6."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRecent advances in generative models have enabled high-\nquality 3D character reconstruction from multi-modal.\nHowever, animating these generated characters remains a\nchallenging task, especially for complex elements like gar-\nments and hair, due to the lack of large-scale datasets and\neffective rigging methods. To address this gap, we curate\nAnimeRig, a large-scale dataset with detailed skeleton\nand skinning annotations. Building upon this, we propose\nDRiVE, a novel framework for generating and rigging 3D\nhuman characters with intricate structures. Unlike exist-\ning methods, DRiVE utilizes a 3D Gaussian representation,\nfacilitating efficient animation and high-quality rendering.\nWe further introduce GSDiff, a 3D Gaussian-based diffu-\n* Equal Contribution. † Corresponding Author.\nsion module that predicts joint positions as spatial distri-\nbutions, overcoming the limitations of regression-based ap-\nproaches. Extensive experiments demonstrate that DRiVE\nachieves precise rigging results, enabling realistic dynam-\nics for clothing and hair, and surpassing previous methods\nin both quality and versatility. Code, dataset and visualiza-\ntion results are available at https://DRiVEAvatar.github.io/.",
+    "introduction": "1. Introduction\nCrafting and animating 3D human characters has long been\na critical task in an array of applications, including film and\nvideo game making, AR/VR, and human-centric robotics,\nto name a few. Notably, the rapid development of genera-\ntive models opens numerous new opportunities for research\non this classic task. In contrast to the traditional manual and\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "4. Methodology\nIn this section, we demonstrate the overall pipeline of our\nrigging system, which, trained on our AnimeRig dataset,\ncan automatically and efficiently produce high-quality rig-\nging results on 3D human characters with rich structures\n(e.g., clothing, hair ) originating from multi-modal inputs.\nIn the following, we describe how we preprocess differ-\nent inputs in Sec. 4.1, which are uniformly converted to a\ncanonical input consisting of 3D Gaussian points and a set\nof images rendered from 4 views. Then in Sec. 4.2, we\nsequentially go through our modules for predicting joints,\nconnecting bones, and assigning skinning weights. Finally,\ntailored for the image inputs, in Sec. 4.3 we propose a sim-\nple yet effective module to boost the rendering quality of\nthe rigged characters",
+    "experiments": "5. Experimental Results",
+    "conclusion": "6. Conclusion, Limitation, and Future Work\nIn this work, we introduce DRiVE, the first framework for\ngenerating and rigging 3D characters with rich structures\nusing 3D Gaussian representations. Our approach achieves\nstate-of-the-art accuracy in skeleton and skinning predic-\ntions, enabling detailed modeling of hair and garments for\nrealistic animations. By curating a large-scale rigged char-\nacter dataset, AnimeRig, and proposing the novel diffu-\nsion module GSDiff, we effectively address the challenges\nof data insufficiency and skeleton prediction on 3D Gaus-\nsian. The flexibility of our framework allows it to be ex-\ntended beyond 3D Gaussian to mesh, further demonstrat-\ning its versatility. We believe DRiVE offers valuable in-\nsights for rigging and animation, with promising potential\nfor practical applications.\nWe also identify the following limitations, which lead to\nfuture work directions: 1) The node density of our gener-\nated skeleton is deterministic, and cannot be tuned accord-\ning to user preferences. It would be interesting to learn\nfrom more versatile data; 2) Unlike meshes, there is no ma-\nture solution for 3D Gaussian collision detection. Thus our\nrigged 3D Gaussian can suffer from self-crossing among\nparts (e.g., leg and dress). While the high rendering frame\nrate allows for efficient human inspection, it would be inter-\nesting to explore more automatic solutions."
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "paper_id": "cdi-copyrighted-data-identification-in-diffusion-models--7ba8d53c96",
+  "paper_title": "CDI: Copyrighted Data Identification in Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:10.853289+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/CDI： Copyrighted Data Identification in Diffusion Models.pdf",
+    "filename": "CDI： Copyrighted Data Identification in Diffusion Models.pdf",
+    "sha1": "7ba8d53c96b03279ccc6ff41cb87ea5b436443bc",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Membership inference attacks [55] that aim at identifying whether a speciﬁc data point was used to train a given model, in theory, present themselves as a solution to the problem.",
+    "limitation": "Introduction In recent years, large diffusion models (DMs) [ 56] have rapidly gained popularity as a new class of generative models, surpassing the performance of prior approaches, such as Generative Adversarial Networks [ 23].",
+    "insight": "Abstract Diffusion Models (DMs) beneﬁt from large and diverse datasets for their training.",
+    "proposed_method": "To overcome this limitation, we propose Copyrighted Data Identification (CDI), a framework for data owners to identify whether their dataset was used to train a given DM.",
+    "experimental_evidence": "However , we demonstrate that existing MIAs are not strong enough to reliably determine the membership of individual images in large, state-of-the-art DMs.",
+    "summary": "Membership inference attacks [55] that aim at identifying whether a speciﬁc data point was used to train a given model, in theory, present themselves as a solution to the problem. Introduction In recent years, large diffusion models (DMs) [ 56] have rapidly gained popularity as a new class of generative models, surpassing the performance of prior approaches, such as Generative Adversarial Networks [ 23]. Abstract Diffusion Models (DMs) beneﬁt from large and diverse datasets for their training. To overcome this limitation, we propose Copyrighted Data Identification (CDI), a framework for data owners to identify whether their dataset was used to train a given DM. However , we demonstrate that existing MIAs are not strong enough to reliably determine the membership of individual images in large, state-of-the-art DMs."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction In recent years, large diffusion models (DMs) [ 56] have rapidly gained popularity as a new class of generative models, surpassing the performance of prior approaches, such as Generative Adversarial Networks [ 23].",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction In recent years, large diffusion models (DMs) [ 56] have rapidly gained popularity as a new class of generative models, surpassing the performance of prior approaches, such as Generative Adversarial Networks [ 23]. DMs now power several state-of-the-art image generators including Stable Diffusion [47], Midjourney [60], Runway [47], Imagen [50], and DALL-E 2 [ 41, 42]. To reach their powerful performance, DMs need to be trained on large amounts of high-quality and diverse data. This data is usually scraped from the Internet, often without respecting the copyrights of the data owners."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "problem_statement",
+      "main_message": "Especially since it has been shown that DMs are capable of generating verbatim copies of their training data at inference time [ 11], this represents a violation of intellectual property rights.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Especially since it has been shown that DMs are capable of generating verbatim copies of their training data at inference time [ 11], this represents a violation of intellectual property rights. Re- cently, Getty Images, a leading visual media company, ﬁled a lawsuit against Stability AI, the creators of Stable Diffu- sion, alleging the unauthorized use of copyright-protected images [ 5, 46]. This case has sparked a wave of addi- tional lawsuits, with many more now addressing intellectual property infringement by generative AI companies [ 44, 45]. Unfortunately, as it becomes obvious during the lawsuits— particularly for training data points that are not output in a verbatim form during inference time—verifying that these data points have been illegitimately used for training the DMs is a challenging task."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "Membership inference attacks [55] that aim at identifying whether a speciﬁc data point was used to train a given model, in theory, present themselves as a solution to the problem.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Membership inference attacks [55] that aim at identifying whether a speciﬁc data point was used to train a given model, in theory, present themselves as a solution to the problem. Unfortunately, prior work [17] indicates that performing a re- alistic MIA on large DMs is a very challenging task. One of the practical challenges lies in the prohibitive costs of train- ing state-of-the-art DMs (e.g., $600.000 for Stable Diffusion) which renders potent MIAs utilizing multiple shadow model copies [10, 55] infeasible. To further explore the practicality of MIAs for identifying copyrighted samples used to train large DMs, we perform an extensive study, evaluating the This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Our CDI Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "3.2. Experimental Setup",
+      "purpose": "Defines experimental settings and reproducibility details.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However , we demonstrate that existing MIAs are not strong enough to reliably determine the membership of individual images in large, state-of-the-art DMs."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Conceptually, mem- bership inference attacks (MIAs), which detect if a given data point was used during training, present themselves as a suitable tool to address this challenge.",
+      "To overcome this limitation, we propose Copyrighted Data Identification (CDI), a framework for data owners to identify whether their dataset was used to train a given DM.",
+      "Our rigorous feature engineering am- pliﬁes the signal in CDI, enabling individual artists even with smaller collections of art to beneﬁt from our method."
+    ],
+    "experiment_expression": [
+      "However , we demonstrate that existing MIAs are not strong enough to reliably determine the membership of individual images in large, state-of-the-art DMs."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However , we demonstrate that existing MIAs are not strong enough to reliably determine the membership of individual images in large, state-of-the-art DMs.",
+    "To overcome this limitation, we propose Copyrighted Data Identification (CDI), a framework for data owners to identify whether their dataset was used to train a given DM.",
+    "Abstract Diffusion Models (DMs) beneﬁt from large and diverse datasets for their training.",
+    "Additionally, we conduct experiments on text-conditioned models based on U-ViT architecture (U-ViT256-T2I, U-ViT256-T2I-Deep) and a newly trained unconditional U-ViT256-Uncond model (see App.",
+    "Building on this intuition, we design speciﬁc features based on the DM’s behavior for a set of data points that we want to test for potential (illegitimate) use in training the DM.",
+    "By selectively combining features extracted from MIAs with novel hand- crafted features and applying them across a larger data set, we achieve a reliable discriminator for identifying datasets used in DM training.",
+    "Conceptually, mem- bership inference attacks (MIAs), which detect if a given data point was used during training, present themselves as a suitable tool to address this challenge.",
+    "Conclusions We introduce CDI as a method for data owners to verify if their data has been (illegitimately) used to train a given DM.",
+    "DI was extended to self-supervised learning (SSL) [ 18] by ob- serving that training data representations exhibit a markedly different distribution from test data representations.",
+    "DI was initially introduced as a tool for detecting model stealing attacks [ 61].",
+    "DMs now power several state-of-the-art image generators including Stable Diffusion [47], Midjourney [60], Runway [47], Imagen [50], and DALL-E 2 [ 41, 42].",
+    "Especially since it has been shown that DMs are capable of generating verbatim copies of their training data at inference time [ 11], this represents a violation of intellectual property rights."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion Models (DMs) beneﬁt from large and diverse\ndatasets for their training. Since this data is often scraped\nfrom the Internet without permission from the data own-\ners, this raises concerns about copyright and intellectual\nproperty protections. While (illicit) use of data is easily de-\ntected for training samples perfectly re-created by a DM at\ninference time, it is much harder for data owners to verify\nif their data was used for training when the outputs from\nthe suspect DM are not close replicas. Conceptually, mem-\nbership inference attacks (MIAs), which detect if a given\ndata point was used during training, present themselves\nas a suitable tool to address this challenge. However , we\ndemonstrate that existing MIAs are not strong enough to\nreliably determine the membership of individual images in\nlarge, state-of-the-art DMs. To overcome this limitation,\nwe propose Copyrighted Data Identification\n(CDI), a framework for data owners to identify whether\ntheir dataset was used to train a given DM. CDI relies on\ndataset inference techniques, i.e., instead of using the mem-\nbership signal from a single data point, CDI leverages the\nfact that most data owners, such as providers of stock pho-\ntography, visual media companies, or even individual artists,\nown datasets with multiple publicly exposed data points\nwhich might all be included in the training of a given DM.\nBy selectively aggregating signals from existing MIAs and\nusing new handcrafted methods to extract features from these\ndatasets, feeding them to a scoring model, and applying rig-\norous statistical testing, CDI allows data owners with as\nlittle as 70 data points to identify with a conﬁdence of more\nthan 99% whether their data was used to train a given DM.\nThereby, CDI represents a valuable tool for data owners to\nclaim illegitimate use of their copyrighted data. We make our\ncode available at https://github.com/sprintml/\ncopyrighted_data_identification.\n*Equal contribution.\n†Work done while the author was at CISPA.",
+    "introduction": "1. Introduction\nIn recent years, large diffusion models (DMs) [ 56] have\nrapidly gained popularity as a new class of generative models,\nsurpassing the performance of prior approaches, such as\nGenerative Adversarial Networks [ 23]. DMs now power\nseveral state-of-the-art image generators including Stable\nDiffusion [47], Midjourney [60], Runway [47], Imagen [50],\nand DALL-E 2 [ 41, 42].\nTo reach their powerful performance, DMs need to be\ntrained on large amounts of high-quality and diverse data.\nThis data is usually scraped from the Internet, often without\nrespecting the copyrights of the data owners. Especially\nsince it has been shown that DMs are capable of generating\nverbatim copies of their training data at inference time [ 11],\nthis represents a violation of intellectual property rights. Re-\ncently, Getty Images, a leading visual media company, ﬁled\na lawsuit against Stability AI, the creators of Stable Diffu-\nsion, alleging the unauthorized use of copyright-protected\nimages [ 5, 46]. This case has sparked a wave of addi-\ntional lawsuits, with many more now addressing intellectual\nproperty infringement by generative AI companies [ 44, 45].\nUnfortunately, as it becomes obvious during the lawsuits—\nparticularly for training data points that are not output in a\nverbatim form during inference time—verifying that these\ndata points have been illegitimately used for training the\nDMs is a challenging task.\nMembership inference attacks [55] that aim at identifying\nwhether a speciﬁc data point was used to train a given model,\nin theory, present themselves as a solution to the problem.\nUnfortunately, prior work [17] indicates that performing a re-\nalistic MIA on large DMs is a very challenging task. One of\nthe practical challenges lies in the prohibitive costs of train-\ning state-of-the-art DMs (e.g., $600.000 for Stable Diffusion)\nwhich renders potent MIAs utilizing multiple shadow model\ncopies [10, 55] infeasible. To further explore the practicality\nof MIAs for identifying copyrighted samples used to train\nlarge DMs, we perform an extensive study, evaluating the\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "4. Our CDI Method\nRecognizing the limitations of MIAs on large, state-of-the-\nart DMs, we shift our focus to DI and introduce our CDI\nmethod. To achieve reliable and conﬁdent detection of data\ncollections used in model training, we go beyond simply\naggregating features from existing MIAs. Our CDI consists\nof four stages: (1) data and model preparation, (2) feature\nengineering and extraction, extended by our three newly pro-\nposed detection methods (3) a scoring function that maps\nthese features to scores, and (4) a rigorous statistical hypothe-\nsis testing, enabling high-conﬁdence decisions. We visualize\nand describe CDI in Figure 1.\nDataset Inference. DI was initially introduced as a tool for\ndetecting model stealing attacks [ 61]. In the context of su-\npervised models [ 38], DI involves crafting features for a set\nof training data points, inputting them into a binary classiﬁer,\nand applying statistical testing to establish model ownership.\nThe features of supervised learning are based on the fact that\nclassiﬁers are trained to maximize the distance of training\nexamples from the model’s decision boundaries while test\nexamples typically lie closer to these boundaries, as they\ndo not inﬂuence the model’s weights during training. DI\nwas extended to self-supervised learning (SSL) [ 18] by ob-\nserving that training data representations exhibit a markedly\ndifferent distribution from test data representations. Building\non this intuition, we design speciﬁc features based on the\nDM’s behavior for a set of data points that we want to test\nfor potential (illegitimate) use in training the DM. We then\nmap those features to scores on which we apply statistical\ntesting. Unlike traditional DI, which focuses on ownership\nresolution for the entire model, our approach is tailored for\ndata veriﬁcation, allowing owners of small subsets of the\nDM’s training data to verify their use in model training.",
+    "experiments": "3.2. Experimental Setup\nModels. We evaluate class-conditioned, as well as text-\nconditioned state-of-the-art DMs of various architectures,\nnamely LDM [ 47], U-ViT [ 6], and DiT [ 39]. We employ\nalready trained checkpoints provided by the respective pa-\npers [1, 2, 4]. For class-conditioned generative tasks, LDM\noffers one model checkpoint with the resolution of 256x256\n(LDM256). For U-ViT and DiT, we have access to mod-\nels operating on resolutions of 256x256 and 512x512 (U-\nViT256, U-ViT512, DiT256, DiT512). Additionally, we\nconduct experiments on text-conditioned models based on\nU-ViT architecture (U-ViT256-T2I, U-ViT256-T2I-Deep)\nand a newly trained unconditional U-ViT256-Uncond model\n(see App. I).\nDatasets. For the class-conditional evaluation, we use\nmodels trained on ImageNet-1k [ 14]. This dataset con-\ntains large-sized colored images with 1000 classes. There\nare 1,281,167 training images and 50,000 test images. For\ntext-conditional task evaluation, we use models trained on\nCOCO-Text dataset [64], a large-scale object detection, seg-\nmentation, and captioning dataset which contains 80,000\ntraining images and 40,000 test images, each with 5 cap-\ntions.",
+    "conclusion": "6. Conclusions\nWe introduce CDI as a method for data owners to verify\nif their data has been (illegitimately) used to train a given\nDM. While existing MIAs alone are insufﬁcient to conﬁ-\ndently determine whether a speciﬁc data point was used dur-\ning training, CDI overcomes this limitation. By selectively\ncombining features extracted from MIAs with novel hand-\ncrafted features and applying them across a larger data set,\nwe achieve a reliable discriminator for identifying datasets\nused in DM training. Our rigorous feature engineering am-\npliﬁes the signal in CDI, enabling individual artists even\nwith smaller collections of art to beneﬁt from our method."
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "paper_id": "fada-fast-diffusion-avatar-synthesis-with-mixed-supervised-multi-cfg-distillatio--6d0927e9ee",
+  "paper_title": "FADA: Fast Diffusion Avatar Synthesis with Mixed-Supervised Multi-CFG Distillation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:40.665003+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/FADA： Fast Diffusion Avatar Synthesis with Mixed-Supervised Multi-CFG Distillation.pdf",
+    "filename": "FADA： Fast Diffusion Avatar Synthesis with Mixed-Supervised Multi-CFG Distillation.pdf",
+    "sha1": "6d0927e9ee6f2fbec3fa856ae369aca06ce8636e",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Although most methods achieve 30-40 denoising steps with the help of DDIM[27], they still face speed challenges due to CFG calculations.",
+    "limitation": "However, the current diffusion model- based talking head generation methods suffer from slow inference speeds, which hinder their practical application.",
+    "insight": "Abstract Diffusion-based audio-driven talking avatar methods have recently gained attention for their high-fidelity, vivid, and expressive results.",
+    "proposed_method": "To address this, we propose FADA (Fast Diffusion Avatar Syn- thesis with Mixed-Supervised Multi-CFG Distillation).",
+    "experimental_evidence": "Extensive experiments across multiple datasets show that FADA generates vivid videos comparable to recent diffusion model-based methods while achieving an NFE speedup of 4.17-12.5 times.",
+    "summary": "Although most methods achieve 30-40 denoising steps with the help of DDIM[27], they still face speed challenges due to CFG calculations. However, the current diffusion model- based talking head generation methods suffer from slow inference speeds, which hinder their practical application. Abstract Diffusion-based audio-driven talking avatar methods have recently gained attention for their high-fidelity, vivid, and expressive results. To address this, we propose FADA (Fast Diffusion Avatar Syn- thesis with Mixed-Supervised Multi-CFG Distillation). Extensive experiments across multiple datasets show that FADA generates vivid videos comparable to recent diffusion model-based methods while achieving an NFE speedup of 4.17-12.5 times."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction Talking avatar synthesis aims to animate a given portrait image using driven video or audio.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "1. Introduction\nTalking avatar synthesis aims to animate a given portrait\nimage using driven video or audio. Due to the ease of\nobtaining audio inputs and their low usage barrier, there\nhas been a surge of recent work in this area. Based on\nthe technical route, talking avatar synthesis methods can\nbe categorized into GAN-based[4, 8, 19, 34, 44, 47, 48],\nNeRF-based[5, 30, 38–41], and the more recent diffusion\n*Equal Contribution\n†Done during an internship at ByteDance.\n‡Project Lead\nmodel-based approaches[1, 2, 10, 14, 31, 33, 36]. Diffu-\nsion model-based methods, in particular, have gained at-\ntention due to their strong generative capabilities. These\nmodels exhibit excellent robustness in input images and\nproduce vivid and highly expressive videos that naturally\nalign with the audio. However, the current diffusion model-\nbased talking head generation methods suffer from slow\ninference speeds, which hinder their practical application.\nMethods[1, 10, 36] based on Stable Diffusion (SD)[23], all\nrequire multiple denoising steps. Moreover, to ensure the\ncorrelation between the audio input and the image input in\nthe final video, multi-CFG (Classifier-Free Guidance) in-\nference is often "
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "lection [1, 10, 14], such as removing instances with ex- cessive movement or asynchronous audio, to ensure high audio-portrait movement correlation.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "lection [1, 10, 14], such as removing instances with ex-\ncessive movement or asynchronous audio, to ensure high\naudio-portrait movement correlation. This stringent se-\nlection process excludes a significant amount of data that\ncould enhance robustness. Considering that a well-trained\nteacher model already provides high audio-portrait correla-\ntion guidance, this discarded data can be utilized in training\nthe student model. We designed a mixed-supervised learn-\ning strategy that adaptively adjusts the weights between\nlearning from the teacher model’s guidance and the student\nmodel’s own learning from previously discarded data. Sec-\nondly, we address the speed issues of multimodal condi-\ntions in the distillation process. In audio-driven methods,\nthe final output is achieved through composite CFG infer-\nence [10, 14, 36]. To make this process transparent to the\nstudent model during training, we introduce a set of learn-\nable tokens. These tokens mimic the weighted calculations\nof multi-CFG with its coefficients and are injected into the\nnetwork as control signals, enabling the student model to\nbetter learn the relationships between multiple conditions,\nincluding those present during "
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "2. Quantitative and qualitative experiments demonstrate",
+      "purpose": "Adds visual or case-based evidence.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, their slow inference speed limits practical applications.",
+      "However, the current diffusion model- based talking head generation methods suffer from slow inference speeds, which hinder their practical application.",
+      "Although most methods achieve 30-40 denoising steps with the help of DDIM[27], they still face speed challenges due to CFG calculations."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this, we propose FADA (Fast Diffusion Avatar Syn- thesis with Mixed-Supervised Multi-CFG Distillation).",
+      "Additionally, we propose a multi-CFG distillation with learnable tokens to utilize the correlation between audio and reference image conditions, reducing the threefold inference runs caused by multi-CFG with ac- ceptable quality degradation.",
+      "In this paper, we propose FADA (FAst Diffusion Avatar Synthesis with Mixed-Supervised Multi-CFG Distillation) to address these issues from two perspectives, resulting in an audio-driven talking avatar diffusion model that bal- ances both speed and quality."
+    ],
+    "experiment_expression": [
+      "Extensive experiments across multiple datasets show that FADA generates vivid videos comparable to recent diffusion model-based methods while achieving an NFE speedup of 4.17-12.5 times.",
+      "Quantitative and qualitative experiments demonstrate that FADA matches state-of-the-art generation quality while achieving significantly higher efficiency."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion In summary, we proposed FADA, a fast diffusion avatar synthesis framework with mixed-supervised multi-CFG distillation.",
+    "Extensive experiments across multiple datasets show that FADA generates vivid videos comparable to recent diffusion model-based methods while achieving an NFE speedup of 4.17-12.5 times.",
+    "However, the current diffusion model- based talking head generation methods suffer from slow inference speeds, which hinder their practical application.",
+    "However, their slow inference speed limits practical applications.",
+    "To address this, we propose FADA (Fast Diffusion Avatar Syn- thesis with Mixed-Supervised Multi-CFG Distillation).",
+    "3101 lection [1, 10, 14], such as removing instances with ex- cessive movement or asynchronous audio, to ensure high audio-portrait movement correlation.",
+    "Ablation studies prove our proposed methods are ef- fective in FADA.",
+    "Abstract Diffusion-based audio-driven talking avatar methods have recently gained attention for their high-fidelity, vivid, and expressive results.",
+    "Additionally, we propose a multi-CFG distillation with learnable tokens to utilize the correlation between audio and reference image conditions, reducing the threefold inference runs caused by multi-CFG with ac- ceptable quality degradation.",
+    "Although most methods achieve 30-40 denoising steps with the help of DDIM[27], they still face speed challenges due to CFG calculations.",
+    "By designing a mixed-supervised loss, we leverage data of varying quality to enhance the robustness of generated results.",
+    "Considering that a well-trained teacher model already provides high audio-portrait correla- tion guidance, this discarded data can be utilized in training the student model."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion-based audio-driven talking avatar methods\nhave recently gained attention for their high-fidelity, vivid,\nand expressive results. However, their slow inference speed\nlimits practical applications. Despite the development of\nvarious distillation techniques for diffusion models, we\nfound that naive diffusion distillation methods do not yield\nsatisfactory results. Distilled models exhibit reduced ro-\nbustness with open-set input images and a decreased corre-\nlation between audio and video compared to teacher mod-\nels, undermining the advantages of diffusion models. To\naddress this, we propose FADA (Fast Diffusion Avatar Syn-\nthesis with Mixed-Supervised Multi-CFG Distillation). We\nfirst designed a mixed-supervised loss to leverage data of\nvarying quality and enhance the overall model capability as\nwell as robustness. Additionally, we propose a multi-CFG\ndistillation with learnable tokens to utilize the correlation\nbetween audio and reference image conditions, reducing\nthe threefold inference runs caused by multi-CFG with ac-\nceptable quality degradation. Extensive experiments across\nmultiple datasets show that FADA generates vivid videos\ncomparable to recent diffusion model-based methods while\nachieving an NFE speedup of 4.17-12.5 times. Demos are\navailable at our webpage https://fadavatar.github.io.",
+    "introduction": "1. Introduction\nTalking avatar synthesis aims to animate a given portrait\nimage using driven video or audio. Due to the ease of\nobtaining audio inputs and their low usage barrier, there\nhas been a surge of recent work in this area. Based on\nthe technical route, talking avatar synthesis methods can\nbe categorized into GAN-based[4, 8, 19, 34, 44, 47, 48],\nNeRF-based[5, 30, 38–41], and the more recent diffusion\n*Equal Contribution\n†Done during an internship at ByteDance.\n‡Project Lead\nmodel-based approaches[1, 2, 10, 14, 31, 33, 36]. Diffu-\nsion model-based methods, in particular, have gained at-\ntention due to their strong generative capabilities. These\nmodels exhibit excellent robustness in input images and\nproduce vivid and highly expressive videos that naturally\nalign with the audio. However, the current diffusion model-\nbased talking head generation methods suffer from slow\ninference speeds, which hinder their practical application.\nMethods[1, 10, 36] based on Stable Diffusion (SD)[23], all\nrequire multiple denoising steps. Moreover, to ensure the\ncorrelation between the audio input and the image input in\nthe final video, multi-CFG (Classifier-Free Guidance) in-\nference is often employed, further increasing the runtime.\nAlthough most methods achieve 30-40 denoising steps with\nthe help of DDIM[27], they still face speed challenges due\nto CFG calculations.\nRecently, several works have explored diffusion distilla-\ntion in text-to-image [3, 12, 15, 17, 21, 24, 28, 46] and text-\nto-video tasks [18] to accelerate inference. Nonetheless,\nthere has been no direct exploration of diffusion distillation\nfor talking avatar synthesis tasks. Our observations indicate\nthat simply applying text-to-image and text-to-video diffu-\nsion distillation methods results in a noticeable decline in\nperformance. Unlike text to image or video tasks, talking\navatar synthesis involves two key conditions: audio and a\nreference image. Since audio has a relatively weaker influ-\nence on video generation[10, 31], the final output is jointly\ninfluenced by both conditions, necessitating careful param-\neter tuning in multi-CFG settings. The sensitivity to condi-\ntion guidance often leads to severe artifacts when applying\ndiffusion distillation methods with few-step inference.\nIn this paper, we propose FADA (FAst Diffusion Avatar\nSynthesis with Mixed-Supervised Multi-CFG Distillation)\nto address these issues from two perspectives, resulting\nin an audio-driven talking avatar diffusion model that bal-\nances both speed and quality. First, we address the robust-\nness of the distilled model. In this task, the mapping be-\ntween audio and portrait movement must be learned from\ndata. Previous works have emphasized meticulous data se-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n3101\n\nlection [1, 10, 14], such as removing instances with ex-\ncessive movement or asynchronous audio, to ensure high\naudio-portrait movement correlation. This stringent se-\nlection process excludes a significant amount of data that\ncould enhance robustness. Considering that a well-trained\nteacher model already provides high audio-portrait correla-\ntion guidance, this discarded data can be utilized in training\nthe student model. We designed a mixed-supervised learn-\ning strategy that adaptively adjusts the weights between\nlearning from the teacher model’s guidance and the student\nmodel’s own learning from previously discarded data. Sec-\nondly, we address the speed issues of multimodal condi-\ntions in the distillation process. In audio-driven methods,\nthe final output is achieved through composite CFG infer-\nence [10, 14, 36]. To make this process transparent to the\nstudent model during training, we introduce a set of learn-\nable tokens. These tokens mimic the weighted calculations\nof multi-CFG with its coefficients and are injected into the\nnetwork as control signals, enabling the student model to\nbetter learn the relationships between multiple conditions,\nincluding those present during inference. Since the learn-\nable token conditions replicate the multi-CFG inference cal-\nculation process, we can reduce the number of multi-CFG\nmodel inferences during actual inference, further decreas-\ning inference time on top of the denoising step distillation.\nBased on the above considerations and designed meth-\nods, we implemented FADA, a diffusion distillation method\nfor audio-driven talking head generation, achieving up to a\n12.5× speed-up while generating vivid portrait videos com-\nparable to recent undistilled diffusion models. In summary,\nthe contributions of this paper include:",
+    "method": "3. Methodology\nIn this section, we introduce our proposed method, FADA,\na diffusion distillation framework for avatar synthesis, as il-\nlustrated in Figure 1. Section 3.1 provides an overview of\nthe diffusion distillation framework, based on recent PeR-\nFlow [37]. Section 3.2 delves into the specifics of the adap-\ntive mixed-supervised distillation process. In Section 3.3,\nwe present the multiple-CFG distillation technique with a\nlearnable token implementation.",
+    "experiments": "2. Quantitative and qualitative experiments demonstrate\nthat FADA matches state-of-the-art generation quality\nwhile achieving significantly higher efficiency.",
+    "conclusion": "5. Conclusion\nIn summary, we proposed FADA, a fast diffusion avatar\nsynthesis framework with mixed-supervised multi-CFG\ndistillation. By designing a mixed-supervised loss, we\nleverage data of varying quality to enhance the robustness\nof generated results. Furthermore, a learnable token-based\nmulti-CFG condition design is introduced to maintain the\ncorrelation between the audio and the generated video in\nthe distilled models. The quantitative and qualitative ex-\nperiments across multiple datasets show that our balanced\nsetting achieves fast inference and high-fidelity generation\nability. Ablation studies prove our proposed methods are ef-\nfective in FADA. The limitations, future works and ethical\nconcerns of this paper will be discussed in Appendix B, H\nand I respectively.\n3108"
+  }
+}

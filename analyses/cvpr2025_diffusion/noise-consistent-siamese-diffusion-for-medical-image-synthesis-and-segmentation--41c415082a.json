@@ -1,0 +1,100 @@
+{
+  "paper_id": "noise-consistent-siamese-diffusion-for-medical-image-synthesis-and-segmentation--41c415082a",
+  "paper_title": "Noise-Consistent Siamese-Diffusion for Medical Image Synthesis and Segmentation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:06.745661+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Noise-Consistent Siamese-Diffusion for Medical Image Synthesis and Segmentation.pdf",
+    "filename": "Noise-Consistent Siamese-Diffusion for Medical Image Synthesis and Segmentation.pdf",
+    "sha1": "41c415082a00afb8e0044ac9bcbbd45c8371a3f4",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Unfortunately, med- ical data annotation is often costly, and acquiring images can be difficult or impossible due to privacy and copyright concerns.",
+    "limitation": "How- ever, the full potential of segmentation remains untapped due to limited annotated datasets [53].",
+    "insight": "Abstract Deep learning has revolutionized medical image segmen- tation, yet its full potential remains constrained by the paucity of annotated datasets.",
+    "proposed_method": "To alleviate this limitation, we introduce Siamese-Diffusion, a novel dual-component model compris- ing Mask-Diffusion and Image-Diffusion.",
+    "experimental_evidence": "Comprehensive experiments demonstrate the superiority of our method.",
+    "summary": "Unfortunately, med- ical data annotation is often costly, and acquiring images can be difficult or impossible due to privacy and copyright concerns. How- ever, the full potential of segmentation remains untapped due to limited annotated datasets [53]. Abstract Deep learning has revolutionized medical image segmen- tation, yet its full potential remains constrained by the paucity of annotated datasets. To alleviate this limitation, we introduce Siamese-Diffusion, a novel dual-component model compris- ing Mask-Diffusion and Image-Diffusion. Comprehensive experiments demonstrate the superiority of our method."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction Recent advances in deep learning have led to unprecedented success in medical image analysis [1, 35, 52, 54].",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "1. Introduction\nRecent advances in deep learning have led to unprecedented\nsuccess in medical image analysis [1, 35, 52, 54]. How-\never, the full potential of segmentation remains untapped\ndue to limited annotated datasets [53]. Unfortunately, med-\nical data annotation is often costly, and acquiring images\ncan be difficult or impossible due to privacy and copyright\nconcerns. To overcome these challenges, diffusion models\n[21, 36, 45] have emerged as effective tools to generate im-\nage mask pairs, widely used to expand data sets for medical\nimage segmentation tasks [14, 33, 40].\n*Corresponding Authors. † Equal Contribution.\nFigure 1. (a) Workflow comparisons between our method and ex-\nisting ones during the training and sampling phases. (b) Differ-\nences in synthesized images across methods. Mask-only methods\n(yellow) lack morphological characteristics (e.g., surface texture),\nresulting in low fidelity. Mask-image methods (red) produce high-\nfidelity images; however, their reliance on extra image prior con-\ntrol results in low diversity and scalability. Our method (blue)\nenhances morphological fidelity while preserving diversity.\nTypically, generating medical images involves using\nm"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "ing datasets, creating a paradox: while generative models aim to alleviate data scarcity for segmentation models, they themselves face the same challenge.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "ing datasets, creating a paradox: while generative models\naim to alleviate data scarcity for segmentation models, they\nthemselves face the same challenge.\nAs shown in Fig. 1(a), mask-only models primarily fo-\ncus on aligning the lesion shape to the mask [14, 27], of-\nten getting trapped in local minima with low morphologi-\ncal fidelity. Consequently, the medical images synthesized,\nhighlighted by yellow boxes in Fig. 1(b), frequently neglect\nthe indispensable morphological characteristics ( e.g., sur-\nface texture) [48, 49]. This neglect obscures the discrim-\ninative features of the lesions learned by the segmentation\nmodels, rendering them unexplainable and elusive, which\nsignificantly undermines the reliability of the enhanced seg-\nmentation models.\nInspired by [9, 20], incorporating additional prior guid-\nance through the combination of images and masks signifi-\ncantly enhances the morphological fidelity of the synthetic\nimages. A picture is worth a thousand words: these im-\nages contain intricate morphological information that even\nexperienced clinicians often struggle to describe accurately.\nWhile the joint prior control substantially enhances the fi-\ndelity of synthesized mor"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experimental",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "How- ever, the full potential of segmentation remains untapped due to limited annotated datasets [53].",
+      "Mask-image methods (red) produce high- fidelity images; however, their reliance on extra image prior con- trol results in low diversity and scalability.",
+      "However, obtaining high- fidelity synthetic medical images relies on large-scale train- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Comprehensive experiments demonstrate the superiority of our method.",
+      "(a) Workflow comparisons between our method and ex- isting ones during the training and sampling phases.",
+      "Our method (blue) enhances morphological fidelity while preserving diversity.",
+      "To overcome the limitations of the aforementioned paradigms and capitalize on their strengths, we propose the resource-efficient Siamese-Diffusion model, which trains the same diffusion model under varying prior controls.",
+      "We argue that only synthesized medical images containing essential morphological characteristics can ensure the re- liability of enhanced segmentation models. • We propose the Siamese-Diffusion model, which lever- ages Noise Consistency Loss and Image-Diffusion to guide Mask-Diffusion towards a local minimum with high morphological fidelity.",
+      "During sampling, only Mask-Diffusion is used to synthesize medical images with realistic morphological characteristics. • Extensive experiments demonstrate that our method out- performs existing approaches in both image quality and segmentation performance.",
+      "SANet improves mDice and mIoU by 3.6% and 4.4% on the Polyps dataset, and UNet achieves gains of 1.52% and 1.64% on the ISIC2018 dataset, highlighting the superiority of our method.",
+      "Extensive experiments across five datasets demonstrate the effectiveness and supe- riority of our method."
+    ],
+    "experiment_expression": [
+      "Comprehensive experiments demonstrate the superiority of our method.",
+      "During sampling, only Mask-Diffusion is used to synthesize medical images with realistic morphological characteristics. • Extensive experiments demonstrate that our method out- performs existing approaches in both image quality and segmentation performance.",
+      "Extensive experiments across five datasets demonstrate the effectiveness and supe- riority of our method."
+    ],
+    "contribution_expression": [
+      "Our contributions are summarized as follows: • We identify that both current generative models and med- ical image segmentation models encounter the same data scarcity issue, leading to low morphological fidelity."
+    ]
+  },
+  "notable_sentences": [
+    "Extensive experiments across five datasets demonstrate the effectiveness and supe- riority of our method.",
+    "However, obtaining high- fidelity synthetic medical images relies on large-scale train- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "Mask-image methods (red) produce high- fidelity images; however, their reliance on extra image prior con- trol results in low diversity and scalability.",
+    "Our contributions are summarized as follows: • We identify that both current generative models and med- ical image segmentation models encounter the same data scarcity issue, leading to low morphological fidelity.",
+    "To overcome the limitations of the aforementioned paradigms and capitalize on their strengths, we propose the resource-efficient Siamese-Diffusion model, which trains the same diffusion model under varying prior controls.",
+    "(a) Workflow comparisons between our method and ex- isting ones during the training and sampling phases.",
+    "(b) Differ- ences in synthesized images across methods.",
+    "1(a), mask-only models primarily fo- cus on aligning the lesion shape to the mask [14, 27], of- ten getting trapped in local minima with low morphologi- cal fidelity.",
+    "1(b)) leads to a dis- astrous reduction in diversity.",
+    "1(b)), its close resemblance to real data (marked with the gray box in Fig.",
+    "1(b), frequently neglect the indispensable morphological characteristics ( e.g., sur- face texture) [48, 49].",
+    "15672 ing datasets, creating a paradox: while generative models aim to alleviate data scarcity for segmentation models, they themselves face the same challenge."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDeep learning has revolutionized medical image segmen-\ntation, yet its full potential remains constrained by the\npaucity of annotated datasets. While diffusion models have\nemerged as a promising approach for generating synthetic\nimage-mask pairs to augment these datasets, they para-\ndoxically suffer from the same data scarcity challenges\nthey aim to mitigate. Traditional mask-only models fre-\nquently yield low-fidelity images due to their inability to\nadequately capture morphological intricacies, which can\ncritically compromise the robustness and reliability of seg-\nmentation models. To alleviate this limitation, we introduce\nSiamese-Diffusion, a novel dual-component model compris-\ning Mask-Diffusion and Image-Diffusion. During train-\ning, a Noise Consistency Loss is introduced between these\ncomponents to enhance the morphological fidelity of Mask-\nDiffusion in the parameter space. During sampling, only\nMask-Diffusion is used, ensuring diversity and scalability.\nComprehensive experiments demonstrate the superiority of\nour method. Siamese-Diffusion boosts SANet’s mDice and\nmIoU by 3.6% and 4.4% on the Polyps, while UNet im-\nproves by 1.52% and 1.64% on the ISIC2018.",
+    "introduction": "1. Introduction\nRecent advances in deep learning have led to unprecedented\nsuccess in medical image analysis [1, 35, 52, 54]. How-\never, the full potential of segmentation remains untapped\ndue to limited annotated datasets [53]. Unfortunately, med-\nical data annotation is often costly, and acquiring images\ncan be difficult or impossible due to privacy and copyright\nconcerns. To overcome these challenges, diffusion models\n[21, 36, 45] have emerged as effective tools to generate im-\nage mask pairs, widely used to expand data sets for medical\nimage segmentation tasks [14, 33, 40].\n*Corresponding Authors. † Equal Contribution.\nFigure 1. (a) Workflow comparisons between our method and ex-\nisting ones during the training and sampling phases. (b) Differ-\nences in synthesized images across methods. Mask-only methods\n(yellow) lack morphological characteristics (e.g., surface texture),\nresulting in low fidelity. Mask-image methods (red) produce high-\nfidelity images; however, their reliance on extra image prior con-\ntrol results in low diversity and scalability. Our method (blue)\nenhances morphological fidelity while preserving diversity.\nTypically, generating medical images involves using\nmasks to indicate the lesion areas as prior controls injected\ninto the diffusion model [31, 59]. However, obtaining high-\nfidelity synthetic medical images relies on large-scale train-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n15672\n\ning datasets, creating a paradox: while generative models\naim to alleviate data scarcity for segmentation models, they\nthemselves face the same challenge.\nAs shown in Fig. 1(a), mask-only models primarily fo-\ncus on aligning the lesion shape to the mask [14, 27], of-\nten getting trapped in local minima with low morphologi-\ncal fidelity. Consequently, the medical images synthesized,\nhighlighted by yellow boxes in Fig. 1(b), frequently neglect\nthe indispensable morphological characteristics ( e.g., sur-\nface texture) [48, 49]. This neglect obscures the discrim-\ninative features of the lesions learned by the segmentation\nmodels, rendering them unexplainable and elusive, which\nsignificantly undermines the reliability of the enhanced seg-\nmentation models.\nInspired by [9, 20], incorporating additional prior guid-\nance through the combination of images and masks signifi-\ncantly enhances the morphological fidelity of the synthetic\nimages. A picture is worth a thousand words: these im-\nages contain intricate morphological information that even\nexperienced clinicians often struggle to describe accurately.\nWhile the joint prior control substantially enhances the fi-\ndelity of synthesized morphological characteristics (marked\nwith the red box in Fig. 1(b)), its close resemblance to real\ndata (marked with the gray box in Fig. 1(b)) leads to a dis-\nastrous reduction in diversity. Furthermore, the scalabil-\nity of the synthesized images is constrained by the scarcity\nof sample pairs, ultimately failing to genuinely address the\ndata scarcity issue for downstream segmentation models.\nTo overcome the limitations of the aforementioned\nparadigms and capitalize on their strengths, we propose the\nresource-efficient Siamese-Diffusion model, which trains\nthe same diffusion model under varying prior controls.\nWhen guided by a mask alone, this process is termedMask-\nDiffusion, and when guided by both the image and its cor-\nresponding mask, it is called Image-Diffusion. To allevi-\nate the inherent issues of Image-Diffusion, we introduce a\nNoise Consistency Loss , enabling the noise predicted by\nImage-Diffusion to act as an additional anchor, steering the\nconvergence trajectory of Mask-Diffusion toward a local\nminimum with higher morphological fidelity in the param-\neter space. Ultimately, only Mask-Diffusion is employed\nduring the sampling phase, where the diversity limitation is\nmitigated by the flexibility of using arbitrary masks. Our\ncontributions are summarized as follows:\n• We identify that both current generative models and med-\nical image segmentation models encounter the same data\nscarcity issue, leading to low morphological fidelity. We\nargue that only synthesized medical images containing\nessential morphological characteristics can ensure the re-\nliability of enhanced segmentation models.\n• We propose the Siamese-Diffusion model, which lever-\nages Noise Consistency Loss and Image-Diffusion to\nguide Mask-Diffusion towards a local minimum with\nhigh morphological fidelity. During sampling, only\nMask-Diffusion is used to synthesize medical images\nwith realistic morphological characteristics.\n• Extensive experiments demonstrate that our method out-\nperforms existing approaches in both image quality and\nsegmentation performance. SANet improves mDice and\nmIoU by 3.6% and 4.4% on the Polyps dataset, and UNet\nachieves gains of 1.52% and 1.64% on the ISIC2018\ndataset, highlighting the superiority of our method.",
+    "method": "3. Method",
+    "experiments": "4. Experimental",
+    "conclusion": "6. Conclusion\nIn this paper, we introduce a novel image synthesis method,\nSiamese-Diffusion, which enhances the morphological fi-\ndelity of medical images while preserving the diversity in-\nherent in the mask-only sampling paradigm. By employing\nNoise Consistency Loss , we generate high-fidelity medical\nimages rich in morphological characteristics using arbitrary\nmasks during the sampling phase. Extensive experiments\nacross five datasets demonstrate the effectiveness and supe-\nriority of our method."
+  }
+}

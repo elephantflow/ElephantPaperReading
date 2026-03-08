@@ -1,0 +1,95 @@
+{
+  "paper_id": "bridging-the-gap-between-gaussian-diffusion-models-and-universal-quantization-fo--92db6428d4",
+  "paper_title": "Bridging the Gap between Gaussian Diffusion Models and Universal Quantization for Image Compression",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:09.854574+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Bridging the Gap between Gaussian Diffusion Models and Universal Quantization for Image Compression.pdf",
+    "filename": "Bridging the Gap between Gaussian Diffusion Models and Universal Quantization for Image Compression.pdf",
+    "sha1": "92db6428d4efdae61a59f30bd80a57bbeceae7d7",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction In today’s data-driven world, the ﬁeld of neural image compression (NIC) [ 7, 8, 35] has experienced signiﬁcant growth, with increasing demand for more effective codecs.",
+    "limitation": "However, latent diffusion models [32] also support a different paradigm for lossy image compression.",
+    "insight": "Abstract Generative neural image compression supports data repre- sentation at extremely low bitrate, synthesizing details at the client and consistently producing highly realistic images.",
+    "proposed_method": "In this work, we propose a novel quantization- based forward diffusion process with theoretical founda- tions that tackles all three aforementioned gaps.",
+    "experimental_evidence": "In such a regime, we achieve the best rate-distortion-realism performance, outperform- ing previous related works.",
+    "summary": "Introduction In today’s data-driven world, the ﬁeld of neural image compression (NIC) [ 7, 8, 35] has experienced signiﬁcant growth, with increasing demand for more effective codecs. However, latent diffusion models [32] also support a different paradigm for lossy image compression. Abstract Generative neural image compression supports data repre- sentation at extremely low bitrate, synthesizing details at the client and consistently producing highly realistic images. In this work, we propose a novel quantization- based forward diffusion process with theoretical founda- tions that tackles all three aforementioned gaps. In such a regime, we achieve the best rate-distortion-realism performance, outperform- ing previous related works."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction In today’s data-driven world, the ﬁeld of neural image compression (NIC) [ 7, 8, 35] has experienced signiﬁcant growth, with increasing demand for more effective codecs.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nIn today’s data-driven world, the ﬁeld of neural image\ncompression (NIC) [ 7, 8, 35] has experienced signiﬁcant\ngrowth, with increasing demand for more effective codecs.\nAs NIC performance continues to improve, recent efforts\nhave focused on achieving compression at even lower bi-\ntrates [ 24, 31]. Here, generative models excel, leveraging\ntheir ability to synthesize textures effectively under strin-\ngent information constraints.\nRecently proposed methods [ 19, 31, 36] use diffusion\nmodels [18, 33] as an expressive decoder to produce highly\ndetailed, realistic reconstructions, especially at extremely\nlow bitrates. This is achieved by conditioning the diffu-\nsion model on information extracted from the source im-\nage and generating a new image that attempts to match\nthe source as closely as possible. We refer to this as the\nConditioning-based Diffusion Image Compression (CDIC)\nstrategy. However, latent diffusion models [32] also support\na different paradigm for lossy image compression. Quanti-\nzation error can be modeled as noise [ 7, 15], and given that\ndiffusion models are denoising models, one can directly ap-\nply them to the data to remove quantization artifacts "
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "generation process) and increased ﬂexibility to use founda- tion models as minimal architecture changes are needed.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "generation process) and increased ﬂexibility to use founda-\ntion models as minimal architecture changes are needed.\nAlthough DDIC is a promising approach, we identify\nthree gaps in previous works in this area (detailed in Sec-\ntion 3): the noise type, the noise level, and the discretization\ngaps. The noise type gap represents the difference in distri-\nbution between quantization error and Gaussian diffusion\nmodels. The noise level gap refers to the possible mismatch\nin the expected signal-to-noise ratio of the partially noisy\ndata versus the actual ratio. The discretization gap arises\nfrom passing discrete data to a continuous diffusion model.\nLeaving these gaps unsolved causes the data to fall out of\nthe distribution of the diffusion model, negatively impact-\ning the ﬁnal reconstruction quality (see Fig. 1).\nTo tackle the above gaps, we propose a new\ntheoretically-founded quantization-based diffusion forward\nprocess that places the quantized data perfectly along the\ndiffusion trajectory. Our proposed forward process uses\nuniversal quantization to close the discretization gap and\nintroduces a new quantization schedule that dictates the\nsignal-to-noise ratio of the quantized data – "
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Open problems in DDIC Methods",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "How- ever , we identify three critical gaps in previous approaches following this paradigm (namely, the noise level, noise type, and discretization gaps) that result in the quantized data falling out of the data distribution known by the diffusion model."
+    ],
+    "limitation_expression": [
+      "However, latent diffusion models [32] also support a different paradigm for lossy image compression."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "In this work, we propose a novel quantization- based forward diffusion process with theoretical founda- tions that tackles all three aforementioned gaps.",
+      "To tackle the above gaps, we propose a new theoretically-founded quantization-based diffusion forward process that places the quantized data perfectly along the diffusion trajectory.",
+      "In summary, our contributions are: • We identify three gaps that negatively affect the perfor- mance of DDIC codecs: i) the noise type gap, ii) the noise level gap, and iii) the discretization gap. • We propose a novel diffusion-based image codec which solves all the three gaps.",
+      "Qualitative comparison of our method to Relic et al. [ 31], HFD [ 19], and VTM [ 1] on the Kodak dataset.",
+      "Bitrates are also expressed as a percentage of our method."
+    ],
+    "experiment_expression": [
+      "In such a regime, we achieve the best rate-distortion-realism performance, outperform- ing previous related works."
+    ],
+    "contribution_expression": [
+      "In summary, our contributions are: • We identify three gaps that negatively affect the perfor- mance of DDIC codecs: i) the noise type gap, ii) the noise level gap, and iii) the discretization gap. • We propose a novel diffusion-based image codec which solves all the three gaps."
+    ]
+  },
+  "notable_sentences": [
+    "However, latent diffusion models [32] also support a different paradigm for lossy image compression.",
+    "In summary, our contributions are: • We identify three gaps that negatively affect the perfor- mance of DDIC codecs: i) the noise type gap, ii) the noise level gap, and iii) the discretization gap. • We propose a novel diffusion-based image codec which solves all the three gaps.",
+    "In this work, we propose a novel quantization- based forward diffusion process with theoretical founda- tions that tackles all three aforementioned gaps.",
+    "To tackle the above gaps, we propose a new theoretically-founded quantization-based diffusion forward process that places the quantized data perfectly along the diffusion trajectory.",
+    "2449 generation process) and increased ﬂexibility to use founda- tion models as minimal architecture changes are needed.",
+    "Abstract Generative neural image compression supports data repre- sentation at extremely low bitrate, synthesizing details at the client and consistently producing highly realistic images.",
+    "Although DDIC is a promising approach, we identify three gaps in previous works in this area (detailed in Sec- tion 3): the noise type, the noise level, and the discretization gaps.",
+    "As NIC performance continues to improve, recent efforts have focused on achieving compression at even lower bi- trates [ 24, 31].",
+    "Best viewed digitally. addressing these risks, minimizing unintended alterations and maintaining the integrity of compressed data.",
+    "Bitrates are also expressed as a percentage of our method.",
+    "By leveraging the similarities between quantization error and additive noise, diffusion-based generative image com- pression codecs can be built using a latent diffusion model to “denoise” the artifacts introduced by quantization.",
+    "Compared to previous work, our proposal produces consistently realistic and detailed reconstructions, even at very low bitrates."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nGenerative neural image compression supports data repre-\nsentation at extremely low bitrate, synthesizing details at the\nclient and consistently producing highly realistic images.\nBy leveraging the similarities between quantization error\nand additive noise, diffusion-based generative image com-\npression codecs can be built using a latent diffusion model\nto “denoise” the artifacts introduced by quantization. How-\never , we identify three critical gaps in previous approaches\nfollowing this paradigm (namely, the noise level, noise type,\nand discretization gaps) that result in the quantized data\nfalling out of the data distribution known by the diffusion\nmodel. In this work, we propose a novel quantization-\nbased forward diffusion process with theoretical founda-\ntions that tackles all three aforementioned gaps. We achieve\nthis through universal quantization with a carefully tailored\nquantization schedule and a diffusion model trained with\nuniform noise. Compared to previous work, our proposal\nproduces consistently realistic and detailed reconstructions,\neven at very low bitrates. In such a regime, we achieve\nthe best rate-distortion-realism performance, outperform-\ning previous related works.",
+    "introduction": "1. Introduction\nIn today’s data-driven world, the ﬁeld of neural image\ncompression (NIC) [ 7, 8, 35] has experienced signiﬁcant\ngrowth, with increasing demand for more effective codecs.\nAs NIC performance continues to improve, recent efforts\nhave focused on achieving compression at even lower bi-\ntrates [ 24, 31]. Here, generative models excel, leveraging\ntheir ability to synthesize textures effectively under strin-\ngent information constraints.\nRecently proposed methods [ 19, 31, 36] use diffusion\nmodels [18, 33] as an expressive decoder to produce highly\ndetailed, realistic reconstructions, especially at extremely\nlow bitrates. This is achieved by conditioning the diffu-\nsion model on information extracted from the source im-\nage and generating a new image that attempts to match\nthe source as closely as possible. We refer to this as the\nConditioning-based Diffusion Image Compression (CDIC)\nstrategy. However, latent diffusion models [32] also support\na different paradigm for lossy image compression. Quanti-\nzation error can be modeled as noise [ 7, 15], and given that\ndiffusion models are denoising models, one can directly ap-\nply them to the data to remove quantization artifacts [ 31].\nWe coin this strategy “Dequantization”-based Diffusion Im-\nage Compression (DDIC). Following this paradigm pro-\nvides several beneﬁts, such as reduced decoding time (due\nto the small number of diffusion steps compared to the full\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n2449\n\ngeneration process) and increased ﬂexibility to use founda-\ntion models as minimal architecture changes are needed.\nAlthough DDIC is a promising approach, we identify\nthree gaps in previous works in this area (detailed in Sec-\ntion 3): the noise type, the noise level, and the discretization\ngaps. The noise type gap represents the difference in distri-\nbution between quantization error and Gaussian diffusion\nmodels. The noise level gap refers to the possible mismatch\nin the expected signal-to-noise ratio of the partially noisy\ndata versus the actual ratio. The discretization gap arises\nfrom passing discrete data to a continuous diffusion model.\nLeaving these gaps unsolved causes the data to fall out of\nthe distribution of the diffusion model, negatively impact-\ning the ﬁnal reconstruction quality (see Fig. 1).\nTo tackle the above gaps, we propose a new\ntheoretically-founded quantization-based diffusion forward\nprocess that places the quantized data perfectly along the\ndiffusion trajectory. Our proposed forward process uses\nuniversal quantization to close the discretization gap and\nintroduces a new quantization schedule that dictates the\nsignal-to-noise ratio of the quantized data – which closes\nthe noise level gap. Finally, we solve the noise type gap\nusing a diffusion model trained with uniform noise, thus\nmatching the distribution of the quantization error. We addi-\ntionally show that such a uniform noise diffusion model can\nbe efﬁciently obtained by ﬁne-tuning existing Gaussian dif-\nfusion models. Following our proposal, we build an image\ncodec that produces more realistic and detailed reconstruc-\ntions than previous methods while being able to operate at\na wider range of target bitrates.\nIn summary, our contributions are:\n• We identify three gaps that negatively affect the perfor-\nmance of DDIC codecs: i) the noise type gap, ii) the noise\nlevel gap, and iii) the discretization gap.\n• We propose a novel diffusion-based image codec which\nsolves all the three gaps. We introduce a novel\nquantization-based forward diffusion process, to close the\ndiscretization and noise level gaps, and utilize a uniform\nnoise diffusion model to close the noise type gap.\n• We establish the validity of latent uniform noise diffusion\nmodels and show that one can be efﬁciently obtained by\nﬁnetuning a foundation Gaussian diffusion model.\n• We validate our proposed method on various datasets and\nevaluation criteria, showing improved quantitative and\nqualitative results, particularly at very low bitrates.",
+    "method": "3. Open problems in DDIC Methods",
+    "experiments": "5. Experiments",
+    "conclusion": "6. Conclusion\nWhile codecs following the DDIC paradigm beneﬁt from\nincreased computational efﬁciency and ﬂexibilty of pre-\ntrained models, we show that there are three main barriers\nblocking effective compression to extremely low bitrates:\nthe noise level gap, the noise type gap, and the discretiza-\ntion gap. Our proposed quantization-based diffusion pro-\ncess and uniform noise diffusion model close these gaps,\nshowing improved results at low bitrates while minimally\naffecting performance at higher rates. We additionally are\nthe ﬁrst to show that uniform diffusion models work in the\nlatent domain and on images of practical resolution, vali-\ndating previous theoretical results. Furthermore, we are the\nﬁrst to show that such models can be efﬁciently obtained by\nﬁnetuning a Gaussian diffusion model on the desired distri-\nbution. Potential future work includes addressing possible\nmisgeneration of content, particularly in structural details at\nlow birates.\nEthical Concerns. Generative compression, while pow-\nerful, raises ethical concerns due to the potential for mis-\npredictions or misgeneration, where the model reconstructs\ndetails inaccurately or in a misleading way, potentially al-\ntering important information. Future research must focus on\n2455\n\nFigure 6. Qualitative comparison of our method to Relic et al. [ 31], HFD [ 19], and VTM [ 1] on the Kodak dataset. Bitrates are also\nexpressed as a percentage of our method. Best viewed digitally.\naddressing these risks, minimizing unintended alterations\nand maintaining the integrity of compressed data."
+  }
+}

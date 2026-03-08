@@ -1,0 +1,78 @@
+{
+  "paper_id": "probability-density-geodesics-in-image-diffusion-latent-space--b7019d8abe",
+  "paper_title": "Probability Density Geodesics in Image Diffusion Latent Space",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:19.201616+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Probability Density Geodesics in Image Diffusion Latent Space.pdf",
+    "filename": "Probability Density Geodesics in Image Diffusion Latent Space.pdf",
+    "sha1": "b7019d8abe535e11f5acb37e090ea038c32875b5",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Here, we show the outputs of our boundary value problem (BVP) solver that computes a geodesic between endpoints A and B on a toy 2D example.",
+    "limitation": "Introduction When trained over a data space, a diffusion model [ 43–46] can tell us the direction in which a data point of that space should move in order to increase its likelihood.",
+    "insight": "Abstract Diffusion models indirectly estimate the probability den- sity over a data space, which can be used to study its struc- ture.",
+    "proposed_method": "Abstract Diffusion models indirectly estimate the probability den- sity over a data space, which can be used to study its struc- ture.",
+    "experimental_evidence": "In this work, we show that geodesics can be computed in diffusion latent space, where the norm induced by the spatially-varying inner product is inversely proportional to the probability density.",
+    "summary": "Here, we show the outputs of our boundary value problem (BVP) solver that computes a geodesic between endpoints A and B on a toy 2D example. Introduction When trained over a data space, a diffusion model [ 43–46] can tell us the direction in which a data point of that space should move in order to increase its likelihood. Abstract Diffusion models indirectly estimate the probability den- sity over a data space, which can be used to study its struc- ture. Abstract Diffusion models indirectly estimate the probability den- sity over a data space, which can be used to study its struc- ture. In this work, we show that geodesics can be computed in diffusion latent space, where the norm induced by the spatially-varying inner product is inversely proportional to the probability density."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction When trained over a data space, a diffusion model [ 43–46] can tell us the direction in which a data point of that space should move in order to increase its likelihood.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nWhen trained over a data space, a diffusion model [ 43–46]\ncan tell us the direction in which a data point of that space\nshould move in order to increase its likelihood. That is, it\nlearns a vector ﬁeld corresponding to the gradient of the log-\nprobability of the data (the Stein score function [ 47]). This\nis sufﬁcient information to deﬁne a Riemannian manifold in\nthis space, where the norm induced by a spatially-varying\ninner product is chosen to be inversely proportional to the\nprobability density. This has the effect that geodesics—\nloosely, shortest paths—on this manifold ‘prefer’ to traverse\nhigh-density regions, which can be thought of as shortcuts\nin the space. In the context of image latent diffusion mod-\nels [ 37], these regions correspond to the latent vectors of\nprobable images, while low-density regions correspond to\nunrealistic image latents. By computing geodesics in this\nspace, we can ﬁnd shortest paths between images and study\nthe structure of the learned space.\n(a)\n (b)\n(c)\nFigure 1. Given a probability density and initial or boundary con-\nditions (here, the position of two points A and B), geodesics can\nbe computed in this space. If the norm is cho"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "geodesics in this space: (i) accurately estimating the score function, especially in low-density regions; (ii) handling (potentially spatially-varying) conditional probability den- sities; and (iii) solving initial and boundary value problems efﬁciently in an extremely high-dimensional space.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "geodesics in this space: (i) accurately estimating the score\nfunction, especially in low-density regions; (ii) handling\n(potentially spatially-varying) conditional probability den-\nsities; and (iii) solving initial and boundary value problems\nefﬁciently in an extremely high-dimensional space.\nWe also describe how to compute several useful quan-\ntities for analysis: the relative probability density along\nthe path, the geodesic distance between two points, and\nthe geodesic gradient norm. Using these techniques, we\nanalyze how closely video clips approximate geodesics in\na pre-trained image diffusion space. This work is part\nexploratory (e.g., what image sequences correspond to\ngeodesics?) and part applied (e.g., how can these tech-\nniques be used to solve image sequence-based tasks?). For\nthe latter, we evaluate the performance of these techniques\non training-free image sequence interpolation and extrapo-\nlation tasks, given a pre-trained image diffusion model. Our\ncontributions are:\n1. characterizing probability density geodesics in diffusion\nlatent space;\n2. algorithms for solving initial and boundary value prob-\nlems that address challenges speciﬁc to conditional dif-\nfusion model"
+    }
+  ],
+  "method_structure": [],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [],
+    "insight_expression": [],
+    "method_expression": [],
+    "experiment_expression": [
+      "Finally, we demonstrate how these techniques can be applied to training-free image sequence interpolation and extrapola- tion, given a pre-trained image diffusion model."
+    ],
+    "contribution_expression": [
+      "Our contributions are: 1. characterizing probability density geodesics in diffusion latent space; 2. algorithms for solving initial and boundary value prob- lems that address challenges speciﬁc to conditional dif- fusion models; and 3. an application to image sequence interpolation and ex- trapolation tasks."
+    ]
+  },
+  "notable_sentences": [
+    "(a) (b) (c) Figure 1.",
+    "(a) The geodesic and straight-line trajecto- ries between A and B, given the underlying visualized probability density ﬁeld (contours) and its gradient (arrows).",
+    "(b) Probability density curves for both trajectories, showing that the straight-line path drops to zero probability very rapidly whereas the geodesic remains in higher probability regions.",
+    "(c) Images corresponding to points along a geodesic in Stable Diffusion [37] latent space, given the left and right endpoints, computed using our BVP solver.",
+    "1, alongside image outputs from the BVP solved in the 16384-D latent space of Stable Diffusion [ 37].",
+    "A 2D toy example of the boundary value problem (BVP) is pre- sented in Fig.",
+    "Abstract Diffusion models indirectly estimate the probability den- sity over a data space, which can be used to study its struc- ture.",
+    "By computing geodesics in this space, we can ﬁnd shortest paths between images and study the structure of the learned space.",
+    "Conclusion In this paper, we have presented the theory required for computing probability density geodesics in diffusion latent space and algorithms for solving the associated initial and boundary value problems.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experiments In this section, we ﬁrst analyze whether short video se- quences are geodesics in diffusion latent space.",
+    "Finally, we demonstrate how these techniques can be applied to training-free image sequence interpolation and extrapola- tion, given a pre-trained image diffusion model."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models indirectly estimate the probability den-\nsity over a data space, which can be used to study its struc-\nture. In this work, we show that geodesics can be computed\nin diffusion latent space, where the norm induced by the\nspatially-varying inner product is inversely proportional to\nthe probability density. In this formulation, a path that tra-\nverses a high density (that is, probable) region of image la-\ntent space is shorter than the equivalent path through a low\ndensity region. We present algorithms for solving the asso-\nciated initial and boundary value problems and show how\nto compute the probability density along the path and the\ngeodesic distance between two points. Using these tech-\nniques, we analyze how closely video clips approximate\ngeodesics in a pre-trained image diffusion space. Finally,\nwe demonstrate how these techniques can be applied to\ntraining-free image sequence interpolation and extrapola-\ntion, given a pre-trained image diffusion model.",
+    "introduction": "1. Introduction\nWhen trained over a data space, a diffusion model [ 43–46]\ncan tell us the direction in which a data point of that space\nshould move in order to increase its likelihood. That is, it\nlearns a vector ﬁeld corresponding to the gradient of the log-\nprobability of the data (the Stein score function [ 47]). This\nis sufﬁcient information to deﬁne a Riemannian manifold in\nthis space, where the norm induced by a spatially-varying\ninner product is chosen to be inversely proportional to the\nprobability density. This has the effect that geodesics—\nloosely, shortest paths—on this manifold ‘prefer’ to traverse\nhigh-density regions, which can be thought of as shortcuts\nin the space. In the context of image latent diffusion mod-\nels [ 37], these regions correspond to the latent vectors of\nprobable images, while low-density regions correspond to\nunrealistic image latents. By computing geodesics in this\nspace, we can ﬁnd shortest paths between images and study\nthe structure of the learned space.\n(a)\n (b)\n(c)\nFigure 1. Given a probability density and initial or boundary con-\nditions (here, the position of two points A and B), geodesics can\nbe computed in this space. If the norm is chosen to be inversely\nproportional to the probability density, these geodesics preferen-\ntially traverse high density regions of the space. For an image data\nspace, these correspond to plausible, realistic images according to\nthe probability density, such as that learned by an image diffusion\nmodel. Here, we show the outputs of our boundary value problem\n(BVP) solver that computes a geodesic between endpoints A and\nB on a toy 2D example. (a) The geodesic and straight-line trajecto-\nries between A and B, given the underlying visualized probability\ndensity ﬁeld (contours) and its gradient (arrows). (b) Probability\ndensity curves for both trajectories, showing that the straight-line\npath drops to zero probability very rapidly whereas the geodesic\nremains in higher probability regions. (c) Images corresponding to\npoints along a geodesic in Stable Diffusion [37] latent space, given\nthe left and right endpoints, computed using our BVP solver.\nIn this work, we outline the relevant theory needed for\ncomputing probability density geodesics in diffusion la-\ntent space and present algorithms for solving the asso-\nciated initial and boundary value problems. A 2D toy\nexample of the boundary value problem (BVP) is pre-\nsented in Fig. 1, alongside image outputs from the BVP\nsolved in the 16384-D latent space of Stable Diffusion [ 37].\nWe address several challenges associated with computing\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n27989\n\ngeodesics in this space: (i) accurately estimating the score\nfunction, especially in low-density regions; (ii) handling\n(potentially spatially-varying) conditional probability den-\nsities; and (iii) solving initial and boundary value problems\nefﬁciently in an extremely high-dimensional space.\nWe also describe how to compute several useful quan-\ntities for analysis: the relative probability density along\nthe path, the geodesic distance between two points, and\nthe geodesic gradient norm. Using these techniques, we\nanalyze how closely video clips approximate geodesics in\na pre-trained image diffusion space. This work is part\nexploratory (e.g., what image sequences correspond to\ngeodesics?) and part applied (e.g., how can these tech-\nniques be used to solve image sequence-based tasks?). For\nthe latter, we evaluate the performance of these techniques\non training-free image sequence interpolation and extrapo-\nlation tasks, given a pre-trained image diffusion model. Our\ncontributions are:\n1. characterizing probability density geodesics in diffusion\nlatent space;\n2. algorithms for solving initial and boundary value prob-\nlems that address challenges speciﬁc to conditional dif-\nfusion models; and\n3. an application to image sequence interpolation and ex-\ntrapolation tasks.\nWe evaluate our training-free approach on ﬁve datasets with\nrespect to other interpolation methods, including those that\nﬁne-tune the underlying diffusion model, achieving state-\nof-the-art results.",
+    "method": "",
+    "experiments": "5. Experiments\nIn this section, we ﬁrst analyze whether short video se-\nquences are geodesics in diffusion latent space. Second,\nwe evaluate applications of the theory, focusing on the im-\nage interpolation task framed as solving a boundary value\nproblem. For all experiments, we use a pre-trained Stable\nDiffusion v2.1-base model [ 37].",
+    "conclusion": "6. Conclusion\nIn this paper, we have presented the theory required for\ncomputing probability density geodesics in diffusion latent\nspace and algorithms for solving the associated initial and\nboundary value problems. We also described how to com-\npute several useful quantities for analysis: the relative prob-\nability density along the path, the geodesic distance be-\ntween two points, and the geodesic gradient norm. Finally,\nwe presented applications to image interpolation and ex-\ntrapolation and evaluated the performance of these training-\nfree approaches. We show that they perform comparably or\nbetter than existing state-of-the-art. We expect these tech-\nniques to be useful for tasks involving generative modeling,\nas well as for studying the distribution of image space."
+  }
+}

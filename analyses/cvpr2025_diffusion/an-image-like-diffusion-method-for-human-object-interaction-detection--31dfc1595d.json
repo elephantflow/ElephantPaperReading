@@ -1,0 +1,103 @@
+{
+  "paper_id": "an-image-like-diffusion-method-for-human-object-interaction-detection--31dfc1595d",
+  "paper_title": "An Image-like Diffusion Method for Human-Object Interaction Detection",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:05.069264+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/An Image-like Diffusion Method for Human-Object Interaction Detection.pdf",
+    "filename": "An Image-like Diffusion Method for Human-Object Interaction Detection.pdf",
+    "sha1": "31dfc1595d4f12f21c58d6c33da6da5db0f40e72",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Additionally, challenges also arise from other factors such as occlusions and cluttered backgrounds [28, 52, 67].",
+    "limitation": "Introduction Human-object interaction (HOI) detection aims to pre- dict all interactions between each human-object pair in an image, with each interaction represented as a <human- interaction-object> triplet.",
+    "insight": "Abstract Human-object interaction (HOI) detection often faces high levels of ambiguity and indeterminacy, as the same inter- action can appear vastly different across different human- object pairs.",
+    "proposed_method": "Thus, inspired by the strong image generation capa- bilities of image diffusion models, we propose a new frame- work, HOI-IDiff.",
+    "experimental_evidence": "Extensive ex- periments demonstrate the efficacy of our framework.",
+    "summary": "Additionally, challenges also arise from other factors such as occlusions and cluttered backgrounds [28, 52, 67]. Introduction Human-object interaction (HOI) detection aims to pre- dict all interactions between each human-object pair in an image, with each interaction represented as a <human- interaction-object> triplet. Abstract Human-object interaction (HOI) detection often faces high levels of ambiguity and indeterminacy, as the same inter- action can appear vastly different across different human- object pairs. Thus, inspired by the strong image generation capa- bilities of image diffusion models, we propose a new frame- work, HOI-IDiff. Extensive ex- periments demonstrate the efficacy of our framework."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Human-object interaction (HOI) detection aims to pre- dict all interactions between each human-object pair in an image, with each interaction represented as a <human- interaction-object> triplet.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Human-object interaction (HOI) detection aims to pre- dict all interactions between each human-object pair in an image, with each interaction represented as a <human- interaction-object> triplet. Its significance spans across di- verse applications, such as robotics [41], visual question an- swering [6], and image captioning [59]. Recently, it has gained a great deal of research attention [34, 39, 52, 54, 55, 58, 62, 63]. Despite growing efforts, HOI detection still remains a challenging task."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "One reason is that the same in- teraction can look very differently across different human- object pairs, while different interactions can sometimes ap- pear visually similar [2, 7].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "One reason is that the same in- teraction can look very differently across different human- object pairs, while different interactions can sometimes ap- pear visually similar [2, 7]. Additionally, challenges also arise from other factors such as occlusions and cluttered backgrounds [28, 52, 67]. These challenges can lead to high noise and indeterminacy (ambiguity) in the HOI detection † Corresponding Author Figure 1. Illustration of the HOI image (of shape H × W × 2) formed over a human-object pair in (a) in which the human is watching and pushing the box."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "In this figure, we illustrate the case in which H = 5 and W = 6 .",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "In this figure, we illustrate the case in which H = 5 and W = 6 . We use a black pixel to represent a pixel with value 0, and a white pixel to represent a pixel with value"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "14003 In two-stage methods, most approaches first use an off-",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Despite growing efforts, HOI detection still remains a challenging task."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Thus, inspired by the strong image generation capa- bilities of image diffusion models, we propose a new frame- work, HOI-IDiff.",
+      "Extensive ex- periments demonstrate the efficacy of our framework.",
+      "In this work, like existing two-stage methods, we also incorporate a pre-trained detector into our framework.",
+      "Our method falls into the latter category.",
+      "Experiments To evaluate the efficacy of our framework, we conduct ex- periments on the HICO-DET and V-COCO datasets.",
+      "Following [61–63], we evaluate our method under both the Default and Known object set- tings.",
+      "Following [61–63], we report the mAP metric and evaluate our method under the AP S1 role and AP S2 role settings.",
+      "We follow [61] to use DDETR [68] and detect objects in our framework.",
+      "Corre- spondingly, we propose an innovative image-diffusion- based HOI detection framework, which tackles the HOI detection task via generating high quality HOI images through a carefully-designed HOI image diffusion process.",
+      "Our framework consistently achieves state-of-the-art per- formance on two commonly-used evaluation benchmarks."
+    ],
+    "experiment_expression": [
+      "Extensive ex- periments demonstrate the efficacy of our framework."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Corre- spondingly, we propose an innovative image-diffusion- based HOI detection framework, which tackles the HOI detection task via generating high quality HOI images through a carefully-designed HOI image diffusion process.",
+    "Thus, inspired by the strong image generation capa- bilities of image diffusion models, we propose a new frame- work, HOI-IDiff.",
+    "Abstract Human-object interaction (HOI) detection often faces high levels of ambiguity and indeterminacy, as the same inter- action can appear vastly different across different human- object pairs.",
+    "Additionally, challenges also arise from other factors such as occlusions and cluttered backgrounds [28, 52, 67].",
+    "Additionally, the indeterminacy can be fur- ther exacerbated by issues such as occlusions and cluttered backgrounds.",
+    "Conclusion In this paper, from a novel perspective, we recast HOI detection as an HOI image generation problem.",
+    "Despite growing efforts, HOI detection still remains a challenging task.",
+    "Diffusion Models [19, 43, 47] are originally introduced for image generation, where they show impressive capa- bilities.",
+    "During training, we optimize the diffusion model using the AdamW optimizer [38] with an initial learning rate of 1e-4.",
+    "Experiments To evaluate the efficacy of our framework, we conduct ex- periments on the HICO-DET and V-COCO datasets.",
+    "Extensive ex- periments demonstrate the efficacy of our framework.",
+    "Fang et al. [8] leveraged correlations among different hu- man body parts to improve the identification of human- object interactions."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nHuman-object interaction (HOI) detection often faces high\nlevels of ambiguity and indeterminacy, as the same inter-\naction can appear vastly different across different human-\nobject pairs. Additionally, the indeterminacy can be fur-\nther exacerbated by issues such as occlusions and cluttered\nbackgrounds. To handle such a challenging task, in this\nwork, we begin with a key observation: the output of HOI\ndetection for each human-object pair can be recast as an\nimage. Thus, inspired by the strong image generation capa-\nbilities of image diffusion models, we propose a new frame-\nwork, HOI-IDiff. In HOI-IDiff, we tackle HOI detection\nfrom a novel perspective, using an Image-like Diffusion\nprocess to generate HOI detection outputs as images. Fur-\nthermore, recognizing that our recast images differ in cer-\ntain properties from natural images, we enhance our frame-\nwork with a customized HOI diffusion process and a slice\npatchification model architecture, which are specifically tai-\nlored to generate our recast “HOI images”. Extensive ex-\nperiments demonstrate the efficacy of our framework.",
+    "introduction": "1. Introduction\nHuman-object interaction (HOI) detection aims to pre-\ndict all interactions between each human-object pair in an\nimage, with each interaction represented as a <human-\ninteraction-object> triplet. Its significance spans across di-\nverse applications, such as robotics [41], visual question an-\nswering [6], and image captioning [59]. Recently, it has\ngained a great deal of research attention [34, 39, 52, 54, 55,\n58, 62, 63]. Despite growing efforts, HOI detection still\nremains a challenging task. One reason is that the same in-\nteraction can look very differently across different human-\nobject pairs, while different interactions can sometimes ap-\npear visually similar [2, 7]. Additionally, challenges also\narise from other factors such as occlusions and cluttered\nbackgrounds [28, 52, 67]. These challenges can lead to high\nnoise and indeterminacy (ambiguity) in the HOI detection\n†\nCorresponding Author\nFigure 1. Illustration of the HOI image (of shape H × W × 2)\nformed over a human-object pair in (a) in which the human is\nwatching and pushing the box. In this figure, we illustrate the case\nin which H = 5 and W = 6 . We use a black pixel to represent a\npixel with value 0, and a white pixel to represent a pixel with value",
+    "method": "14003\n\nIn two-stage methods, most approaches first use an off-\nthe-shelf detector to identify all humans and objects in the\ninput image, followed by the recognition of interactions be-\ntween every human-object pair. Qi et al. [45] introduced\na method that represents HOI structures as graphs, incor-\nporating graph neural networks to enhance HOI detection.\nFang et al. [8] leveraged correlations among different hu-\nman body parts to improve the identification of human-\nobject interactions. More recently, Zhang et al. [63] ex-\nplored how to better utilize visual contextual cues from the\ninput image to enhance the performance of HOI detection.\nIn this work, like existing two-stage methods, we also\nincorporate a pre-trained detector into our framework. Yet,\nunlike previous works, we introduce a novel perspective by\nreframing HOI detection as an HOI image generation task.\nThis allows us to leverage the strong image generation abil-\nities of image diffusion models to perform HOI detection.\nDiffusion Models [19, 43, 47] are originally introduced\nfor image generation, where they show impressive capa-\nbilities. Since then, diffusion models have also been ap-\nplied to various tasks, such as object counting [24], tra-\njectory prediction [15], and human mesh recovery [10].\nBroadly, most existing methods using diffusion models\ncan be clustered into two main categories: those that use\npre-trained diffusion models as implicit knowledge bases\n[5, 24, 26, 30, 31, 44, 54, 58, 64], and those that train the\ndiffusion model to use its powerful step-by-step denoising\nability [1, 10, 11, 14, 15, 18, 20, 57]. Our method falls into\nthe latter category. Specifically, given that HOI images dif-\nfer in certain properties from natural images, we customize\nthe diffusion process of image diffusion models to better\nutilize their powerful denoising abilities for HOI detection.",
+    "experiments": "5. Experiments\nTo evaluate the efficacy of our framework, we conduct ex-\nperiments on the HICO-DET and V-COCO datasets.\nHICO-DET [4] is a large-scale HOI detection dataset. It\ncontains 47,776 images, 80 object categories, and 117 in-\nteraction categories. Moreover, it consists of three subsets:\n(1) the full subset, including all 600 HOI triplets, (2) the rare\nsubset, containing 138 HOI triplets with fewer than 10 train-\ning samples, and (3) the non-rare subset, comprising the re-\nmaining 462 HOI triplets. Following [61–63], we evaluate\nour method under both the Default and Known object set-\ntings. We report the mAP metric across all subsets.\nV-COCO [16], as a sub-set of MS-COCO [37], is another\npopularly used HOI detection dataset. It contains 10,346\nimages, 80 object categories, and 24 interaction categories.\nFollowing [61–63], we report the mAP metric and evaluate\nour method under the AP S1\nrole and AP S2\nrole settings.\nImplementation details. We conduct our experiments on\nan RTX 6000 Ada GPU. We follow [61] to use DDETR [68]\nand detect objects in our framework. During training, we\noptimize the diffusion model using the AdamW optimizer\n[38] with an initial learning rate of 1e-4. We set the batch\nsize to be 8. Moreover, we set the hyperparametersK to 50,\nT to 2000, and M to 10. More details are in supplementary.",
+    "conclusion": "6. Conclusion\nIn this paper, from a novel perspective, we recast HOI\ndetection as an HOI image generation problem. Corre-\nspondingly, we propose an innovative image-diffusion-\nbased HOI detection framework, which tackles the HOI\ndetection task via generating high quality HOI images\nthrough a carefully-designed HOI image diffusion process.\nOur framework consistently achieves state-of-the-art per-\nformance on two commonly-used evaluation benchmarks."
+  }
+}

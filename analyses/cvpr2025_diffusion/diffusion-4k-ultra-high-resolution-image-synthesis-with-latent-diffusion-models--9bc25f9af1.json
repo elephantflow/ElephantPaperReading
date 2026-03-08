@@ -1,0 +1,117 @@
+{
+  "paper_id": "diffusion-4k-ultra-high-resolution-image-synthesis-with-latent-diffusion-models--9bc25f9af1",
+  "paper_title": "Diffusion-4K: Ultra-High-Resolution Image Synthesis with Latent Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:27.571463+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Diffusion-4K： Ultra-High-Resolution Image Synthesis with Latent Diffusion Models.pdf",
+    "filename": "Diffusion-4K： Ultra-High-Resolution Image Synthesis with Latent Diffusion Models.pdf",
+    "sha1": "9bc25f9af13fdde2cd0e93de5df1db18e70f67fb",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Diffusion models have proven to be highly effective for modeling high-dimensional, perceptual data such as im- ages [18, 21, 29, 31, 46].",
+    "limitation": "Both PixArt- Σ at 0.6B and Sana at 0.6/1.6B primarily focus on the efficiency of ultra- high-resolution image generation, however, the intrinsic ad- vantages of 4K images, such as high-frequency details and rich textures, are neglected.",
+    "insight": "Abstract In this paper, we present Diffusion-4K, a novel frame- work for direct ultra-high-resolution image synthesis us- ing text-to-image diffusion models.",
+    "proposed_method": "Addi- tionally, we introduce GLCM Score and Compression Ra- tio metrics to evaluate fine details, combined with holis- *Corresponding author. tic measures such as FID, Aesthetics and CLIPScore for a comprehensive assessment of ultra-high-resolution images.",
+    "experimental_evidence": "Extensive experimental results from our benchmark demonstrate the superiority of Diffusion-4K in ultra-high-resolution image synthesis.",
+    "summary": "Introduction Diffusion models have proven to be highly effective for modeling high-dimensional, perceptual data such as im- ages [18, 21, 29, 31, 46]. Both PixArt- Σ at 0.6B and Sana at 0.6/1.6B primarily focus on the efficiency of ultra- high-resolution image generation, however, the intrinsic ad- vantages of 4K images, such as high-frequency details and rich textures, are neglected. Abstract In this paper, we present Diffusion-4K, a novel frame- work for direct ultra-high-resolution image synthesis us- ing text-to-image diffusion models. Addi- tionally, we introduce GLCM Score and Compression Ra- tio metrics to evaluate fine details, combined with holis- *Corresponding author. tic measures such as FID, Aesthetics and CLIPScore for a comprehensive assessment of ultra-high-resolution images. Extensive experimental results from our benchmark demonstrate the superiority of Diffusion-4K in ultra-high-resolution image synthesis."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Diffusion models have proven to be highly effective for modeling high-dimensional, perceptual data such as im- ages [18, 21, 29, 31, 46].",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction Diffusion models have proven to be highly effective for modeling high-dimensional, perceptual data such as im- ages [18, 21, 29, 31, 46]. In recent years, latent diffu- sion models have made significant advancements in text- to-image synthesis, demonstrating impressive generaliza- tion capabilities at high resolutions [9, 12, 23, 25, 34, 41]. Replacing convolutional U-Net with a transformer architec- ture shows promising improvements as model scalability increases, e.g., Stable Diffusion 3 (SD3) at 8B [12], Flux at 12B [5], and Playground v3 at 24B [25]. Alternatively, flow-based formulations, using data or velocity prediction, have emerged as an viable choice due to their faster conver- gence and enhanced performance [1, 21, 24, 26, 28]."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Despite substantial progress, most latent diffusion mod- els focus on training and generating images at1024 ×1024, leaving direct ultra-high-resolution image synthesis largely unexplored.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Despite substantial progress, most latent diffusion mod- els focus on training and generating images at1024 ×1024, leaving direct ultra-high-resolution image synthesis largely unexplored. Direct training and generating 4K images is valuable in realistic applications, but require considerable computational resources, especially as model parameters increase. Concurrent approaches such as PixArt- Σ [9] and Sana [49] address direct ultra-high-resolution image synthe- sis at 4K, showcasing the potentials of scalable latent diffu- sion transformer architectures. Both PixArt- Σ at 0.6B and Sana at 0.6/1.6B primarily focus on the efficiency of ultra- high-resolution image generation, however, the intrinsic ad- vantages of 4K images, such as high-frequency details and rich textures, are neglected."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "method_overview",
+      "main_message": "Furthermore, due to the scarcity of photorealistic 4K images, there is currently no publicly available benchmark for 4K image synthesis, hindering fur- ther research on this valuable topic.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Furthermore, due to the scarcity of photorealistic 4K images, there is currently no publicly available benchmark for 4K image synthesis, hindering fur- ther research on this valuable topic. In this paper, we propose Diffusion-4K, a novel frame- work designed for direct ultra-high-resolution image syn- thesis using latent diffusion models. Specifically, we intro- duce Aesthetic-4K, including a high-quality dataset of cu- rated ultra-high-resolution images, with corresponding cap- tions generated by GPT-4o [19]. Additionally, most auto- mated evaluation metrics, such as Fr ´echet Inception Dis- tance (FID) [17], Aesthetics [45] and CLIPScore [16], of- fer only holistic measures at low resolutions, which are insufficient for the comprehensive benchmarking in high- resolution image synthesis, particularly for 4K images."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "method_overview",
+      "main_message": "To address the limitations, we introduce Gray Level Co- occurrence Matrix (GLCM) Score and Compression Ratio metrics, focusing on assessment of fine details in ultra-high- resolution images which has not yet been explored, with the goal of establishing a comprehensive benchmark for 4K image synthesis.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "To address the limitations, we introduce Gray Level Co- occurrence Matrix (GLCM) Score and Compression Ratio metrics, focusing on assessment of fine details in ultra-high- resolution images which has not yet been explored, with the goal of establishing a comprehensive benchmark for 4K image synthesis. Additionally, we propose a wavelet-based fine-tuning method that emphasizes high-frequency compo- nents while preserving low-frequent approximation in ultra- high-resolution image synthesis. Notably, our method is compatible with various latent diffusion models. We con- duct experiments with open-sourced latent diffusion models including SD3-2B [12] and Flux-12B [5], capable of train- ing and generating photorealistic images at 4096 × 4096 resolution."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Consequently, our method demonstrates supe- rior performance in 4K image synthesis, underscoring the effectiveness of the Diffusion-4K framework.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "Consequently, our method demonstrates supe- rior performance in 4K image synthesis, underscoring the effectiveness of the Diffusion-4K framework. The main contributions are summarized as follows: • We establish Aesthetic-4k, a comprehensive benchmark for 4K image synthesis, including a high-quality dataset of ultra-high-resolution images with corresponding pre- cise captions, and elaborated evaluation metrics for ultra- high-resolution images generation. • We propose a wavelet-based fine-tuning approach for la- tent diffusion model, focusing on generating ultra-high- resolution images with fine details. • Extensive experiment results demonstrate the effective- ness and generalization of our proposed method in 4K im- age synthesis, particularly when powered by large-scale diffusion transformers, e.g."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methods",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Both PixArt- Σ at 0.6B and Sana at 0.6/1.6B primarily focus on the efficiency of ultra- high-resolution image generation, however, the intrinsic ad- vantages of 4K images, such as high-frequency details and rich textures, are neglected."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "(2) Wavelet-based Fine-tuning: we propose a wavelet- based fine-tuning approach for direct training with pho- torealistic 4K images, applicable to various latent diffu- sion models, demonstrating its effectiveness in synthesiz- ing highly detailed 4K images.",
+      "In this paper, we propose Diffusion-4K, a novel frame- work designed for direct ultra-high-resolution image syn- thesis using latent diffusion models.",
+      "Additionally, we propose a wavelet-based fine-tuning method that emphasizes high-frequency compo- nents while preserving low-frequent approximation in ultra- high-resolution image synthesis.",
+      "Notably, our method is compatible with various latent diffusion models.",
+      "Consequently, our method demonstrates supe- rior performance in 4K image synthesis, underscoring the effectiveness of the Diffusion-4K framework.",
+      "The main contributions are summarized as follows: • We establish Aesthetic-4k, a comprehensive benchmark for 4K image synthesis, including a high-quality dataset of ultra-high-resolution images with corresponding pre- cise captions, and elaborated evaluation metrics for ultra- high-resolution images generation. • We propose a wavelet-based fine-tuning approach for la- tent diffusion model, focusing on generating ultra-high- resolution images with fine details. • Extensive experiment results demonstrate the effective- ness and generalization of our proposed method in 4K im- age synthesis, particularly when powered by large-scale diffusion transformers, e.g.",
+      "Experiments To demonstrate the effectiveness of our method, we conduct experiments with the state-of-the-art latent diffusion models at various scales, including open-source SD3-2B [12] and Flux-12B [5]."
+    ],
+    "experiment_expression": [
+      "Extensive experimental results from our benchmark demonstrate the superiority of Diffusion-4K in ultra-high-resolution image synthesis.",
+      "The main contributions are summarized as follows: • We establish Aesthetic-4k, a comprehensive benchmark for 4K image synthesis, including a high-quality dataset of ultra-high-resolution images with corresponding pre- cise captions, and elaborated evaluation metrics for ultra- high-resolution images generation. • We propose a wavelet-based fine-tuning approach for la- tent diffusion model, focusing on generating ultra-high- resolution images with fine details. • Extensive experiment results demonstrate the effective- ness and generalization of our proposed method in 4K im- age synthesis, particularly when powered by large-scale diffusion transformers, e.g.",
+      "Experiments To demonstrate the effectiveness of our method, we conduct experiments with the state-of-the-art latent diffusion models at various scales, including open-source SD3-2B [12] and Flux-12B [5].",
+      "Qualitative and quantitative results demonstrate the effectiveness of our ap- proach in training and generating photorealistic 4K images."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Additionally, we propose a wavelet-based fine-tuning method that emphasizes high-frequency compo- nents while preserving low-frequent approximation in ultra- high-resolution image synthesis.",
+    "Both PixArt- Σ at 0.6B and Sana at 0.6/1.6B primarily focus on the efficiency of ultra- high-resolution image generation, however, the intrinsic ad- vantages of 4K images, such as high-frequency details and rich textures, are neglected.",
+    "In this paper, we propose Diffusion-4K, a novel frame- work designed for direct ultra-high-resolution image syn- thesis using latent diffusion models.",
+    "(2) Wavelet-based Fine-tuning: we propose a wavelet- based fine-tuning approach for direct training with pho- torealistic 4K images, applicable to various latent diffu- sion models, demonstrating its effectiveness in synthesiz- ing highly detailed 4K images.",
+    "23464 https://github.com/zhang0jhon/diffusion-4k.",
+    "3.1, we introduce Aesthetic-4K, outlining the design principles and the process of constructing our human-centric benchmark with ultra-high-resolution im- ages.",
+    "Abstract In this paper, we present Diffusion-4K, a novel frame- work for direct ultra-high-resolution image synthesis us- ing text-to-image diffusion models.",
+    "Addi- tionally, we present quantitative and qualitative results that showcase the high-resolution image reconstruction and gen- eration capabilities of partitioned V AE and WLF, respec- tively.",
+    "Alternatively, flow-based formulations, using data or velocity prediction, have emerged as an viable choice due to their faster conver- gence and enhanced performance [1, 21, 24, 26, 28].",
+    "Code is available at This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "Conclusion In this paper, we present Diffusion-4K, a novel framework for ultra-high-resolution text-to-image generation.",
+    "Concurrent approaches such as PixArt- Σ [9] and Sana [49] address direct ultra-high-resolution image synthe- sis at 4K, showcasing the potentials of scalable latent diffu- sion transformer architectures."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nIn this paper, we present Diffusion-4K, a novel frame-\nwork for direct ultra-high-resolution image synthesis us-\ning text-to-image diffusion models. The core advance-\nments include: (1) Aesthetic-4K Benchmark: address-\ning the absence of a publicly available 4K image syn-\nthesis dataset, we construct Aesthetic-4K, a comprehen-\nsive benchmark for ultra-high-resolution image generation.\nWe curated a high-quality 4K dataset with carefully se-\nlected images and captions generated by GPT-4o. Addi-\ntionally, we introduce GLCM Score and Compression Ra-\ntio metrics to evaluate fine details, combined with holis-\n*Corresponding author.\ntic measures such as FID, Aesthetics and CLIPScore for a\ncomprehensive assessment of ultra-high-resolution images.\n(2) Wavelet-based Fine-tuning: we propose a wavelet-\nbased fine-tuning approach for direct training with pho-\ntorealistic 4K images, applicable to various latent diffu-\nsion models, demonstrating its effectiveness in synthesiz-\ning highly detailed 4K images. Consequently, Diffusion-\n4K achieves impressive performance in high-quality image\nsynthesis and text prompt adherence, especially when pow-\nered by modern large-scale diffusion models (e.g., SD3-\n2B and Flux-12B). Extensive experimental results from our\nbenchmark demonstrate the superiority of Diffusion-4K in\nultra-high-resolution image synthesis. Code is available at\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n23464\n\nhttps://github.com/zhang0jhon/diffusion-4k.",
+    "introduction": "1. Introduction\nDiffusion models have proven to be highly effective for\nmodeling high-dimensional, perceptual data such as im-\nages [18, 21, 29, 31, 46]. In recent years, latent diffu-\nsion models have made significant advancements in text-\nto-image synthesis, demonstrating impressive generaliza-\ntion capabilities at high resolutions [9, 12, 23, 25, 34, 41].\nReplacing convolutional U-Net with a transformer architec-\nture shows promising improvements as model scalability\nincreases, e.g., Stable Diffusion 3 (SD3) at 8B [12], Flux\nat 12B [5], and Playground v3 at 24B [25]. Alternatively,\nflow-based formulations, using data or velocity prediction,\nhave emerged as an viable choice due to their faster conver-\ngence and enhanced performance [1, 21, 24, 26, 28].\nDespite substantial progress, most latent diffusion mod-\nels focus on training and generating images at1024 ×1024,\nleaving direct ultra-high-resolution image synthesis largely\nunexplored. Direct training and generating 4K images is\nvaluable in realistic applications, but require considerable\ncomputational resources, especially as model parameters\nincrease. Concurrent approaches such as PixArt- Σ [9] and\nSana [49] address direct ultra-high-resolution image synthe-\nsis at 4K, showcasing the potentials of scalable latent diffu-\nsion transformer architectures. Both PixArt- Σ at 0.6B and\nSana at 0.6/1.6B primarily focus on the efficiency of ultra-\nhigh-resolution image generation, however, the intrinsic ad-\nvantages of 4K images, such as high-frequency details and\nrich textures, are neglected. Furthermore, due to the scarcity\nof photorealistic 4K images, there is currently no publicly\navailable benchmark for 4K image synthesis, hindering fur-\nther research on this valuable topic.\nIn this paper, we propose Diffusion-4K, a novel frame-\nwork designed for direct ultra-high-resolution image syn-\nthesis using latent diffusion models. Specifically, we intro-\nduce Aesthetic-4K, including a high-quality dataset of cu-\nrated ultra-high-resolution images, with corresponding cap-\ntions generated by GPT-4o [19]. Additionally, most auto-\nmated evaluation metrics, such as Fr ´echet Inception Dis-\ntance (FID) [17], Aesthetics [45] and CLIPScore [16], of-\nfer only holistic measures at low resolutions, which are\ninsufficient for the comprehensive benchmarking in high-\nresolution image synthesis, particularly for 4K images.\nTo address the limitations, we introduce Gray Level Co-\noccurrence Matrix (GLCM) Score and Compression Ratio\nmetrics, focusing on assessment of fine details in ultra-high-\nresolution images which has not yet been explored, with\nthe goal of establishing a comprehensive benchmark for 4K\nimage synthesis. Additionally, we propose a wavelet-based\nfine-tuning method that emphasizes high-frequency compo-\nnents while preserving low-frequent approximation in ultra-\nhigh-resolution image synthesis. Notably, our method is\ncompatible with various latent diffusion models. We con-\nduct experiments with open-sourced latent diffusion models\nincluding SD3-2B [12] and Flux-12B [5], capable of train-\ning and generating photorealistic images at 4096 × 4096\nresolution. Consequently, our method demonstrates supe-\nrior performance in 4K image synthesis, underscoring the\neffectiveness of the Diffusion-4K framework.\nThe main contributions are summarized as follows:\n• We establish Aesthetic-4k, a comprehensive benchmark\nfor 4K image synthesis, including a high-quality dataset\nof ultra-high-resolution images with corresponding pre-\ncise captions, and elaborated evaluation metrics for ultra-\nhigh-resolution images generation.\n• We propose a wavelet-based fine-tuning approach for la-\ntent diffusion model, focusing on generating ultra-high-\nresolution images with fine details.\n• Extensive experiment results demonstrate the effective-\nness and generalization of our proposed method in 4K im-\nage synthesis, particularly when powered by large-scale\ndiffusion transformers, e.g. SD3 and Flux.",
+    "method": "3. Methods\nIn this section, we elaborate on the details of Diffusion-4K,\nillustrating how it facilitates photorealistic 4K image syn-\nthesis. In Sec. 3.1, we introduce Aesthetic-4K, outlining\nthe design principles and the process of constructing our\nhuman-centric benchmark with ultra-high-resolution im-\nages. Subsequently, we present a wavelet-based fine-tuning\napproach for direct training with photorealistic 4K images,\napplicable to various latent diffusion models, in Sec. 3.2.",
+    "experiments": "4. Experiments\nTo demonstrate the effectiveness of our method, we conduct\nexperiments with the state-of-the-art latent diffusion models\nat various scales, including open-source SD3-2B [12] and\nFlux-12B [5]. Specifically, mainstream evaluation metrics,\nsuch as FID [17], Aesthetics [45] and CLIPScore [16], as\nwell as the proposed GLCM Score and Compression Ratio\nmetrics, are reported for comprehensive assessments. Addi-\ntionally, we present quantitative and qualitative results that\nshowcase the high-resolution image reconstruction and gen-\neration capabilities of partitioned V AE and WLF, respec-\ntively.",
+    "conclusion": "5. Conclusion\nIn this paper, we present Diffusion-4K, a novel framework\nfor ultra-high-resolution text-to-image generation. We in-\ntroduce Aesthetic-4K benchmark and wavelet-based fine-\ntuning, capable of training with the state-of-the-art latent\ndiffusion models, such as SD3 and Flux. Qualitative and\nquantitative results demonstrate the effectiveness of our ap-\nproach in training and generating photorealistic 4K images.\n23471"
+  }
+}

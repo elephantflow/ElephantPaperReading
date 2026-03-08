@@ -1,0 +1,119 @@
+{
+  "paper_id": "topocellgen-generating-histopathology-cell-topology-with-a-diffusion-model--15e778aa63",
+  "paper_title": "TopoCellGen: Generating Histopathology Cell Topology with a Diffusion Model",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:40.746740+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/TopoCellGen： Generating Histopathology Cell Topology with a Diffusion Model.pdf",
+    "filename": "TopoCellGen： Generating Histopathology Cell Topology with a Diffusion Model.pdf",
+    "sha1": "15e778aa63ddfdf821ed69f0e27da92b4b3a58b8",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "These tasks provide the basis for downstream analyses, enabling detailed characterization of tissue archi- tecture and cellular interactions, which are crucial for di- agnostic and prognostic applications in pathology [12, 46].",
+    "limitation": "However, accurately annotating multi-class cell arrange- ments in pathology images is challenging, as distinct cell types display unique spatial patterns, requiring significant domain expertise.",
+    "insight": "Abstract Accurately modeling multi-class cell topology is crucial in digital pathology, as it provides critical insights into tis- sue structure and pathology.",
+    "proposed_method": "In this paper, we propose a novel approach that integrates topolog- ical constraints into a diffusion model to improve the gener- ation of realistic, contextually accurate cell topologies.",
+    "experimental_evidence": "Experimental results demonstrate the effectiveness of our approach in generating multi-class cell layouts that cap- ture intricate topological relationships.",
+    "summary": "These tasks provide the basis for downstream analyses, enabling detailed characterization of tissue archi- tecture and cellular interactions, which are crucial for di- agnostic and prognostic applications in pathology [12, 46]. However, accurately annotating multi-class cell arrange- ments in pathology images is challenging, as distinct cell types display unique spatial patterns, requiring significant domain expertise. Abstract Accurately modeling multi-class cell topology is crucial in digital pathology, as it provides critical insights into tis- sue structure and pathology. In this paper, we propose a novel approach that integrates topolog- ical constraints into a diffusion model to improve the gener- ation of realistic, contextually accurate cell topologies. Experimental results demonstrate the effectiveness of our approach in generating multi-class cell layouts that cap- ture intricate topological relationships."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Deep-learning methods have made substantial advances in foundational tasks for nuclei analysis, including instance segmentation [21, 29, 32, 40, 73], classification, and detec- tion [1, 52].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Deep-learning methods have made substantial advances in foundational tasks for nuclei analysis, including instance segmentation [21, 29, 32, 40, 73], classification, and detec- tion [1, 52]. These tasks provide the basis for downstream analyses, enabling detailed characterization of tissue archi- tecture and cellular interactions, which are crucial for di- agnostic and prognostic applications in pathology [12, 46]. However, accurately annotating multi-class cell arrange- ments in pathology images is challenging, as distinct cell types display unique spatial patterns, requiring significant domain expertise. Although annotated datasets for multi- ple cell types exist, they often lack the diversity needed for generalization across various tissues and organs."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "To alleviate the burden of manual annotation and en- hance the efficiency of analysis, there has been growing interest in utilizing generative models.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "To alleviate the burden of manual annotation and en- hance the efficiency of analysis, there has been growing interest in utilizing generative models. Early works use Generative Adversarial Networks (GANs) [20] for auto- matic generation of pathology images [2, 10, 34]. In re- cent years, diffusion models [11, 31, 45, 50, 61, 69, 75, 76] have emerged as much more reliable alternatives, generat- ing accurate, high-resolution histopathology images [4, 23, 48, 51, 72]. However, all these diffusion models are only trained to directly generate the histopathology images."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "key_insight",
+      "main_message": "De- spite the impressive visual results, these powerful models deliver limited insight into the underlying biology.",
+      "writing_strategy": "Introduces an observation that motivates the proposed direction.",
+      "evidence_text": "De- spite the impressive visual results, these powerful models deliver limited insight into the underlying biology. It is very hard to connect the learned distributions with human knowledge about tumor microenvionment. This makes it challenging to validate, generalize, or control these models. We argue that a key issue is the lack of explicit gener- ation of cells and their spatial arrangement."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "The spatial organization of cells and the interactions across different cell types are critical for understanding tumor microenvi- ronments, disease progression, and tissue regeneration [59].",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "The spatial organization of cells and the interactions across different cell types are critical for understanding tumor microenvi- ronments, disease progression, and tissue regeneration [59]. The density and spatial distribution of various cell types -such as lymphocytes, epithelial cells, and stromal cells- are essential for pathologists in making accurate diagnoses and prognoses. For instance, the detection and quantifi- cation of tumor-infiltrating lymphocytes (TILs), which are lymphocytes located within the boundaries of invasive tu- mors [56], have been strongly linked to improved clinical outcomes [57, 63]. The presence of isolated or small clus- ters of tumor cells at the invasive front, known as tumor budding, serves as a prognostic biomarker associated with a higher risk of lymph node metastasis in colorectal carci- noma and other solid malignancies [47]."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Abstract Accurately modeling multi-class cell topology is crucial in digital pathology, as it provides critical insights into tis- sue structure and pathology.",
+      "These tasks provide the basis for downstream analyses, enabling detailed characterization of tissue archi- tecture and cellular interactions, which are crucial for di- agnostic and prognostic applications in pathology [12, 46].",
+      "The spatial organization of cells and the interactions across different cell types are critical for understanding tumor microenvi- ronments, disease progression, and tissue regeneration [59]."
+    ],
+    "limitation_expression": [
+      "However, accurately annotating multi-class cell arrange- ments in pathology images is challenging, as distinct cell types display unique spatial patterns, requiring significant domain expertise.",
+      "However, all these diffusion models are only trained to directly generate the histopathology images.",
+      "De- spite the impressive visual results, these powerful models deliver limited insight into the underlying biology.",
+      "However, the condition vector c alone is insufficient to precisely control cell counts [26]."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "In this paper, we propose a novel approach that integrates topolog- ical constraints into a diffusion model to improve the gener- ation of realistic, contextually accurate cell topologies.",
+      "Our method refines the simulation of cell distributions and inter- actions, increasing the precision and interpretability of re- sults in downstream tasks such as cell detection and classi- fication.",
+      "To address this, we formulate a cell counting loss to strengthen the control on accurate cell counts and introduce two topology-aware objective functions based on persistent homology [13, 49] to guide the generation process, ensuring realistic and contextually accurate cell layouts that respect both spatial and topological constraints.",
+      "We compare our method against SoTA layout generation methods in terms of sample quality and performance on downstream tasks."
+    ],
+    "experiment_expression": [
+      "Experimental results demonstrate the effectiveness of our approach in generating multi-class cell layouts that cap- ture intricate topological relationships.",
+      "Experiments We conduct extensive experiments on two public and widely used nuclei analysis datasets."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Experiments We conduct extensive experiments on two public and widely used nuclei analysis datasets.",
+    "However, accurately annotating multi-class cell arrange- ments in pathology images is challenging, as distinct cell types display unique spatial patterns, requiring significant domain expertise.",
+    "However, all these diffusion models are only trained to directly generate the histopathology images.",
+    "However, the condition vector c alone is insufficient to precisely control cell counts [26].",
+    "In this paper, we propose a novel approach that integrates topolog- ical constraints into a diffusion model to improve the gener- ation of realistic, contextually accurate cell topologies.",
+    "3.1, we present a brief introduction to diffusion models.",
+    "3.2, we provide a quick back- ground on persistent homology.",
+    "3.5, we present the overall inference pipeline and how the generated cell layouts are transformed into H&E images for training augmentation for downstream tasks.",
+    "Abstract Accurately modeling multi-class cell topology is crucial in digital pathology, as it provides critical insights into tis- sue structure and pathology.",
+    "Additionally, it can- not preserve the intra-class spatial distributions as well as inter-class topological relationships in the generated lay- outs.",
+    "Although annotated datasets for multi- ple cell types exist, they often lack the diversity needed for generalization across various tissues and organs.",
+    "Backpropagation from Distance Transform Map to Bi- nary Mask."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nAccurately modeling multi-class cell topology is crucial in\ndigital pathology, as it provides critical insights into tis-\nsue structure and pathology. The synthetic generation of\ncell topology enables realistic simulations of complex tis-\nsue environments, enhances downstream tasks by augment-\ning training data, aligns more closely with pathologists’ do-\nmain knowledge, and offers new opportunities for control-\nling and generalizing the tumor microenvironment. In this\npaper, we propose a novel approach that integrates topolog-\nical constraints into a diffusion model to improve the gener-\nation of realistic, contextually accurate cell topologies. Our\nmethod refines the simulation of cell distributions and inter-\nactions, increasing the precision and interpretability of re-\nsults in downstream tasks such as cell detection and classi-\nfication. To assess the topological fidelity of generated lay-\nouts, we introduce a new metric, Topological Fr ´echet Dis-\ntance (TopoFD), which overcomes the limitations of tradi-\ntional metrics like FID in evaluating topological structure.\nExperimental results demonstrate the effectiveness of our\napproach in generating multi-class cell layouts that cap-\nture intricate topological relationships. Code is available\nat https://github.com/Melon-Xu/TopoCellGen.",
+    "introduction": "1. Introduction\nDeep-learning methods have made substantial advances in\nfoundational tasks for nuclei analysis, including instance\nsegmentation [21, 29, 32, 40, 73], classification, and detec-\ntion [1, 52]. These tasks provide the basis for downstream\nanalyses, enabling detailed characterization of tissue archi-\ntecture and cellular interactions, which are crucial for di-\nagnostic and prognostic applications in pathology [12, 46].\nHowever, accurately annotating multi-class cell arrange-\nments in pathology images is challenging, as distinct cell\ntypes display unique spatial patterns, requiring significant\ndomain expertise. Although annotated datasets for multi-\nple cell types exist, they often lack the diversity needed for\ngeneralization across various tissues and organs.\nTo alleviate the burden of manual annotation and en-\nhance the efficiency of analysis, there has been growing\ninterest in utilizing generative models. Early works use\nGenerative Adversarial Networks (GANs) [20] for auto-\nmatic generation of pathology images [2, 10, 34]. In re-\ncent years, diffusion models [11, 31, 45, 50, 61, 69, 75, 76]\nhave emerged as much more reliable alternatives, generat-\ning accurate, high-resolution histopathology images [4, 23,\n48, 51, 72]. However, all these diffusion models are only\ntrained to directly generate the histopathology images. De-\nspite the impressive visual results, these powerful models\ndeliver limited insight into the underlying biology. It is\nvery hard to connect the learned distributions with human\nknowledge about tumor microenvionment. This makes it\nchallenging to validate, generalize, or control these models.\nWe argue that a key issue is the lack of explicit gener-\nation of cells and their spatial arrangement. The spatial\norganization of cells and the interactions across different\ncell types are critical for understanding tumor microenvi-\nronments, disease progression, and tissue regeneration [59].\nThe density and spatial distribution of various cell types\n-such as lymphocytes, epithelial cells, and stromal cells-\nare essential for pathologists in making accurate diagnoses\nand prognoses. For instance, the detection and quantifi-\ncation of tumor-infiltrating lymphocytes (TILs), which are\nlymphocytes located within the boundaries of invasive tu-\nmors [56], have been strongly linked to improved clinical\noutcomes [57, 63]. The presence of isolated or small clus-\nters of tumor cells at the invasive front, known as tumor\nbudding, serves as a prognostic biomarker associated with\na higher risk of lymph node metastasis in colorectal carci-\nnoma and other solid malignancies [47].\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Method\nIn this section, we introduce our methodology for generat-\ning realistic multi-class cell layouts with precise topological\ncontrol. To accurately control the cell density in the gener-\nated layout, we employ a conditioning mechanism based on\nthe cell count for each type. In the multi-class setting, as-\nsuming we have n classes of cells, we define the condition\nvector c = [c1, c2, ..., cn], where each element ci represents\nthe count of cells in the respective channel.\nHowever, the condition vector c alone is insufficient to\nprecisely control cell counts [26]. Additionally, it can-\nnot preserve the intra-class spatial distributions as well as\ninter-class topological relationships in the generated lay-\nouts. To address this, we formulate a cell counting loss to\nstrengthen the control on accurate cell counts and introduce\ntwo topology-aware objective functions based on persistent\nhomology [13, 49] to guide the generation process, ensuring\nrealistic and contextually accurate cell layouts that respect\nboth spatial and topological constraints.\nThe remainder of this section is structured as follows:\nIn Sec. 3.1, we present a brief introduction to diffusion\nmodels. Next, in Sec. 3.2, we provide a quick back-\nground on persistent homology. Following this, we in-\ntroduce TopoCellGen, our topology-preserving cell layout\ngeneration method, in Sec. 3.3. We introduce our proposed\nTopological Fr´echet Distance (TopoFD) in Sec. 3.4. Finally,\nin Sec. 3.5, we present the overall inference pipeline and\nhow the generated cell layouts are transformed into H&E\nimages for training augmentation for downstream tasks.\nPreliminaries. In a multi-class cell layout containing n\nchannels, each channel corresponds to a specific cell type\n(e.g., lymphocyte), with each cell represented as a square\nwhere the pixel value is set to 1, while the pixel value of the\nbackground is set to 0.",
+    "experiments": "4. Experiments\nWe conduct extensive experiments on two public and\nwidely used nuclei analysis datasets. We compare our\nmethod against SoTA layout generation methods in terms\nof sample quality and performance on downstream tasks.\nDatasets. We evaluate our proposed method on TCGA\nBreast Cancer Cell Classification Dataset (BRCA-M2C)[1]\nand Lizard dataset [22]. More details about the datasets, the\ntest set split, and the cell count distribution analysis are pro-\nvided in the Supplementary.\nEvaluation Metrics. We evaluate our proposed method on\nboth sample quality and the performance of downstream\ntasks. We use Fr´echet Inception Distance (FID) [30],\nthe cell count error for each cell type, the total count er-\nror (TCE) , our proposed TopoFD and maximum mean\ndiscrepancy (MMD) [66] to evaluate how well the gen-\nerated cell layouts align with the reference layouts. Note\nthat for FID, feature extraction is tailored to each dataset\nwith custom-trained models. On the other hand, we gener-\nate 2, 000 image-layout pairs as augmented training data for\ncell detection and classification tasks, evaluating their per-\nformance with the F1-score. More details are provided in\nthe Supplementary.\nImplementation Details are in the Supplementary.\nBiological Plausibility. To further validate the quality of\nour generated cell layouts, we conducted an evaluation in-\nvolving a board-certified pathologist with 7+ years of expe-\nrience. From a pathologist’s perspective, the synthetic cell\nlayouts are nearly indistinguishable from real ones and ac-\ncurately capture the defining benign or malignant features\nof their real counterparts. More details are in the Supple-\nmentary.\nBackpropagation from Distance Transform Map to Bi-\nnary Mask. To backpropagate the gradient from the dis-\ntance transform map to a binary mask, we leverage an ef-\nficient implementation of the geodesic distance transform\nprovided by the FastGeodis library [3]. This method en-\nables the computation of a differentiable distance map,\nwhich allows us to propagate gradients through the distance\ntransform during training. The library implements a par-\nallelized raster scan method that efficiently computes the\nEuclidean distance transforms on GPU hardware.",
+    "conclusion": "5. Conclusion\nIn summary, TopoCellGen presents a robust framework for\ngenerating realistic cell topologies in digital pathology. It\naccurately preserves both intra- and inter-class spatial pat-\nterns, ensures cell count control, and achieves high struc-\ntural fidelity. Experimental results confirm its close ap-\nproximation of real tissue layouts, thereby enhancing down-\nstream tasks such as cell detection and classification."
+  }
+}

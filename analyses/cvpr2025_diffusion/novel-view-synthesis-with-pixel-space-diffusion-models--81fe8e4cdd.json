@@ -1,0 +1,120 @@
+{
+  "paper_id": "novel-view-synthesis-with-pixel-space-diffusion-models--81fe8e4cdd",
+  "paper_title": "Novel View Synthesis with Pixel-Space Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:12.404993+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Novel View Synthesis with Pixel-Space Diffusion Models.pdf",
+    "filename": "Novel View Synthesis with Pixel-Space Diffusion Models.pdf",
+    "sha1": "81fe8e4cddacfe888d49a0fd46c6ceb337523ac3",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction In novel view synthesis (NVS), we aim to recreate a snap- shot of a given scene from an unseen perspective.",
+    "limitation": "However, modern ad- vances in generative modeling offer a simpler and more ro- bust end-to-end approach [29, 37, 44, 54].",
+    "insight": "Abstract Synthesizing a novel view from a single input image is a challenging task.",
+    "proposed_method": "Moreover , we introduce a novel NVS training scheme that utilizes single-view datasets, cap- italizing on their relative abundance compared to their multi-view counterparts.",
+    "experimental_evidence": "In this work, we adapt a modern diffusion model architecture for end-to-end NVS in the pixel space, substantially outperforming previous state- of-the-art (SOTA) techniques.",
+    "summary": "Introduction In novel view synthesis (NVS), we aim to recreate a snap- shot of a given scene from an unseen perspective. However, modern ad- vances in generative modeling offer a simpler and more ro- bust end-to-end approach [29, 37, 44, 54]. Abstract Synthesizing a novel view from a single input image is a challenging task. Moreover , we introduce a novel NVS training scheme that utilizes single-view datasets, cap- italizing on their relative abundance compared to their multi-view counterparts. In this work, we adapt a modern diffusion model architecture for end-to-end NVS in the pixel space, substantially outperforming previous state- of-the-art (SOTA) techniques."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction In novel view synthesis (NVS), we aim to recreate a snap- shot of a given scene from an unseen perspective.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction In novel view synthesis (NVS), we aim to recreate a snap- shot of a given scene from an unseen perspective. A suc- cessful algorithm must consider both the 3D geometry of the given scene and the underlying distribution of real- world images. NVS algorithms have been researched for many years, covering several tasks which differ in the ex- pected number of input and output views and the relative distance between inputs and outputs, among other things. In this work, we focus on the simplest form of NVS: single- image to single-image, hoping that it will serve as a founda- ∗Work done as part of an internship at Apple."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "1Code available at https://github.com/apple/ml-vivid. tion for more general NVS settings.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1Code available at https://github.com/apple/ml-vivid. tion for more general NVS settings. In previous works, this task has been decomposed into a pipeline of several com- puter vision components, namely depth estimation, warp- ing, and inpainting [3, 21, 38, 50]. However, modern ad- vances in generative modeling offer a simpler and more ro- bust end-to-end approach [29, 37, 44, 54]. Generative diffusion models [12, 39, 40] have emerged as a top class of image generators, excelling at many condi- tional generation tasks [18, 32], including NVS [37, 44, 54]."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "problem_statement",
+      "main_message": "In diffusion modeling, we train a neural network for re- moving Gaussian noise, and iteratively apply it in several steps to generate an image.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "In diffusion modeling, we train a neural network for re- moving Gaussian noise, and iteratively apply it in several steps to generate an image. These models are relatively sim- ple to train, owing their stability to a simple denoising re- gression loss. Modern diffusion architectures notably rely on transformer layers [46] with self- and cross- attention blocks. These attention mechanisms are highly effective for the conditional generation task."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "problem_statement",
+      "main_message": "For instance, in the widely used text-to-image generators [30, 32], cross-attention is used to condition the denoising network’s features on the textual tokens.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "For instance, in the widely used text-to-image generators [30, 32], cross-attention is used to condition the denoising network’s features on the textual tokens. In our work, we effectively harness cross- attention in diffusion models for the NVS task. Some existing diffusion-based NVS works [7, 37] oper- ate in the latent space of an auto-encoder, following [30]. This can result in an unnecessary loss of high-frequency details due to the auto-encoder’s reconstruction error, lead- ing to texture mismatches between source and target views."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "method_overview",
+      "main_message": "Therefore, we opt to apply our method directly in the pixel space using a cascaded diffusion model design [13], avoid- ing this issue altogether.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Therefore, we opt to apply our method directly in the pixel space using a cascaded diffusion model design [13], avoid- ing this issue altogether. We demonstrate the improved tex- ture transfer capabilities of our model compared to latent space NVS models. Furthermore, many recent generative model-based NVS works involve conditional diffusion training with some form of intricate 3D geometry encoding [37, 44, 54]. How- ever, in many cases, the benefit of such complex encoding methods is unclear, with some researchers claiming they may not be needed at all [29]."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "background",
+      "main_message": "Inspired by previous work, This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Inspired by previous work, This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3.3. Comparison to Previous Methods",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4.2. Experimental Results",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, modern ad- vances in generative modeling offer a simpler and more ro- bust end-to-end approach [29, 37, 44, 54].",
+      "Comparison to Previous Methods In our ablations, we train the EDM2 [17] architecture with a limited batch size and number of iterations, and without us- ing exponential moving average (EMA).",
+      "However, increasing the percentage to 25% leads to degraded perfor- mance, possibly due to an over-representation of rotation transforms in the data."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Therefore, we opt to apply our method directly in the pixel space using a cascaded diffusion model design [13], avoid- ing this issue altogether.",
+      "We also hope that our method’s limitations, which are also common in NVS literature, can be addressed.",
+      "In addi- tion, our method is inherently dependent on the scene scales provided in its training set, which could be problematic if they are obtained using Structure-from-Motion (SFM) tech- niques without some form of normalization [33, 59]."
+    ],
+    "experiment_expression": [
+      "We demonstrate the improved tex- ture transfer capabilities of our model compared to latent space NVS models.",
+      "We demonstrate that our proposed scheme can significantly en- hance NVS performance on out-of-domain data."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, increasing the percentage to 25% leads to degraded perfor- mance, possibly due to an over-representation of rotation transforms in the data.",
+    "However, modern ad- vances in generative modeling offer a simpler and more ro- bust end-to-end approach [29, 37, 44, 54].",
+    "1Code available at https://github.com/apple/ml-vivid. tion for more general NVS settings.",
+    "A suc- cessful algorithm must consider both the 3D geometry of the given scene and the underlying distribution of real- world images.",
+    "Abstract Synthesizing a novel view from a single input image is a challenging task.",
+    "As evident Table 3, the 10% model exhibits a significant improvement over the 0% one in both FID and PSNR.",
+    "Comparison to Previous Methods In our ablations, we train the EDM2 [17] architecture with a limited batch size and number of iterations, and without us- ing exponential moving average (EMA).",
+    "Conclusion In this work, we explored and analyzed the many options proposed in the literature for designing an end-to-end novel view synthesis approach based on a generative model.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experimental Results We enrich our original model training scheme presented in section 3 with the use of single-view data with our proposed augmentation.",
+    "Fi- nally, we hope that the foundations laid in this work will be extended to consistent multi-view generation, for example in the form of video NVS.",
+    "For a thorough evaluation, we generate 10K novel views from each tested method based on randomly sam- 4.2."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nSynthesizing a novel view from a single input image is a\nchallenging task. Traditionally, this task was approached\nby estimating scene depth, warping, and inpainting, with\nmachine learning models enabling parts of the pipeline.\nMore recently, generative models are being increasingly\nemployed in novel view synthesis (NVS), often encompass-\ning the entire end-to-end system. In this work, we adapt a\nmodern diffusion model architecture for end-to-end NVS in\nthe pixel space, substantially outperforming previous state-\nof-the-art (SOTA) techniques. We explore different ways to\nencode geometric information into the network. Our ex-\nperiments show that while these methods may enhance per-\nformance, their impact is minor compared to utilizing im-\nproved generative models. Moreover , we introduce a novel\nNVS training scheme that utilizes single-view datasets, cap-\nitalizing on their relative abundance compared to their\nmulti-view counterparts. This leads to improved general-\nization capabilities to scenes with out-of-domain content. 1",
+    "introduction": "1. Introduction\nIn novel view synthesis (NVS), we aim to recreate a snap-\nshot of a given scene from an unseen perspective. A suc-\ncessful algorithm must consider both the 3D geometry of\nthe given scene and the underlying distribution of real-\nworld images. NVS algorithms have been researched for\nmany years, covering several tasks which differ in the ex-\npected number of input and output views and the relative\ndistance between inputs and outputs, among other things.\nIn this work, we focus on the simplest form of NVS: single-\nimage to single-image, hoping that it will serve as a founda-\n∗Work done as part of an internship at Apple.\n1Code available at https://github.com/apple/ml-vivid.\ntion for more general NVS settings. In previous works, this\ntask has been decomposed into a pipeline of several com-\nputer vision components, namely depth estimation, warp-\ning, and inpainting [3, 21, 38, 50]. However, modern ad-\nvances in generative modeling offer a simpler and more ro-\nbust end-to-end approach [29, 37, 44, 54].\nGenerative diffusion models [12, 39, 40] have emerged\nas a top class of image generators, excelling at many condi-\ntional generation tasks [18, 32], including NVS [37, 44, 54].\nIn diffusion modeling, we train a neural network for re-\nmoving Gaussian noise, and iteratively apply it in several\nsteps to generate an image. These models are relatively sim-\nple to train, owing their stability to a simple denoising re-\ngression loss. Modern diffusion architectures notably rely\non transformer layers [46] with self- and cross- attention\nblocks. These attention mechanisms are highly effective for\nthe conditional generation task. For instance, in the widely\nused text-to-image generators [30, 32], cross-attention is\nused to condition the denoising network’s features on the\ntextual tokens. In our work, we effectively harness cross-\nattention in diffusion models for the NVS task.\nSome existing diffusion-based NVS works [7, 37] oper-\nate in the latent space of an auto-encoder, following [30].\nThis can result in an unnecessary loss of high-frequency\ndetails due to the auto-encoder’s reconstruction error, lead-\ning to texture mismatches between source and target views.\nTherefore, we opt to apply our method directly in the pixel\nspace using a cascaded diffusion model design [13], avoid-\ning this issue altogether. We demonstrate the improved tex-\nture transfer capabilities of our model compared to latent\nspace NVS models.\nFurthermore, many recent generative model-based NVS\nworks involve conditional diffusion training with some\nform of intricate 3D geometry encoding [37, 44, 54]. How-\never, in many cases, the benefit of such complex encoding\nmethods is unclear, with some researchers claiming they\nmay not be needed at all [29]. Inspired by previous work,\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3.3. Comparison to Previous Methods\nIn our ablations, we train the EDM2 [17] architecture with a\nlimited batch size and number of iterations, and without us-\ning exponential moving average (EMA). In this section, we\nscale up our model (with the pose embedding technique):\nwe double the batch size and quadruple the number of\ntraining iterations, use EDM2’s Power function EMA [17],\nand apply classifier-free guidance (CFG) [11] for the base\nmodel using a separate unconditional denoiser. We provide\nmore comprehensive details in Appendix A.\nWe compare our results in terms of image quality us-\ning FID [10] and distortion from the ground truth using\nPSNR. For a thorough evaluation, we generate 10K novel\nviews from each tested method based on randomly sam-",
+    "experiments": "4.2. Experimental Results\nWe enrich our original model training scheme presented in\nsection 3 with the use of single-view data with our proposed\naugmentation. We choose the OpenImages v5 dataset [20]\nas our source of single-view images, owing to its diversity\nand large size (more than 9 million images), and continue\nwith RealEstate10K [59] as the source of multi-view im-\nages. To avoid our model collapsing to only learning rota-\ntions, we need to strike a balance between the two datasets.\nTo that end, we retrain our base model with a percentage\nof the training data coming from single-view OpenImages\nscenes: 0% (original, RealEstate10K only), 10%, and 25%.\nWe provide more training details in Appendix A.\nThen, to evaluate the generalization capabilities of our\nNVS model, we test it with input images and camera\ntransformations that are out-of-domain with respect to\nRealEstate10K. We perform qualitative evaluation with in-\nput source views from the OpenImages test set and camera\ntransformations that include both rotation and translation,\nand show results in Figure 8 (using the 10% model).\nMoreover, to obtain quantitative NVS performance met-\nrics on out-of-domain data, we draw source-target view\npairs from 20 scenes coming from 3 multi-view datasets\n(LLFF [22], MipNeRF-360 [1], and Ref-NeRF [47]), and\nevaluate FID and PSNR for each of our models. As evident\nTable 3, the 10% model exhibits a significant improvement\nover the 0% one in both FID and PSNR. This improvement\nshows that the model manages to benefit from the diverse\nsingle-view training data, while remaining true to the NVS\nframework due to our proposed augmentation. However,\nincreasing the percentage to 25% leads to degraded perfor-\nmance, possibly due to an over-representation of rotation\ntransforms in the data.",
+    "conclusion": "5. Conclusion\nIn this work, we explored and analyzed the many options\nproposed in the literature for designing an end-to-end novel\nview synthesis approach based on a generative model. We\nutilized a leading diffusion model architecture [17] as our\nbackbone network, adapted it for the NVS task, and ablated\non options for encoding the geometric information input.\nOur experiments show that while some sophisticated op-\ntions can slightly enhance performance, the simple scalar\nembedding option works very well and the differences are\nmostly negligible. In fact, we show that our generative mod-\neling choices such as utilizing a powerful architecture, pass-\ning information across views through attention, and operat-\ning in the pixel space, substantially upgrade the quality of\nNVS results compared to previous state-of-the-art methods.\nOur approach achieves SOTA results in the widely ac-\ncepted RealEstate10K [59] benchmark. Nevertheless, we\nhighlight the shortcomings and potential pitfalls of this\nbenchmark towards a comprehensive general-content NVS\napproach. We address some of these shortcomings with a\nnovel training scheme enabling NVS model training on the\nabundantly available single-view image datasets, benefiting\nfrom their content diversity while maintaining the geomet-\nric capabilities learned from the multi-view datasets. We\ndemonstrate that our proposed scheme can significantly en-\nhance NVS performance on out-of-domain data.\nIn future work, we anticipate the continued improve-\nment of NVS capabilities through the utilization of more\nmodern and advanced generative models. We also hope\nthat our method’s limitations, which are also common in\nNVS literature, can be addressed. These limitations include\ngeneralization to camera trajectories that are uncommon or\nnonexistent in the training set, as our proposed augmenta-\ntion does not introduce any camera translation. In addi-\ntion, our method is inherently dependent on the scene scales\nprovided in its training set, which could be problematic if\nthey are obtained using Structure-from-Motion (SFM) tech-\nniques without some form of normalization [33, 59]. Fi-\nnally, we hope that the foundations laid in this work will be\nextended to consistent multi-view generation, for example\nin the form of video NVS."
+  }
+}

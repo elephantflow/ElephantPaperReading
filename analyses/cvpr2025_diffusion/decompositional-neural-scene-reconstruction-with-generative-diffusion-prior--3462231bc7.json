@@ -1,0 +1,105 @@
+{
+  "paper_id": "decompositional-neural-scene-reconstruction-with-generative-diffusion-prior--3462231bc7",
+  "paper_title": "Decompositional Neural Scene Reconstruction with Generative Diffusion Prior",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:16.877403+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Decompositional Neural Scene Reconstruction with Generative Diffusion Prior.pdf",
+    "filename": "Decompositional Neural Scene Reconstruction with Generative Diffusion Prior.pdf",
+    "sha1": "3462231bc7fff0778d158e1315413c5b46384d37",
+    "page_count": 12
+  },
+  "core_story": {
+    "problem": "To address the challenge of sparse-view reconstruc- tion, many approaches propose to incorporate semantic or geometric regularizations [18, 24, 52, 81].",
+    "limitation": "Despite these ad- vances, existing approaches are limited by representing an entire scene as a whole.",
+    "insight": "However, directly integrating the diffusion prior into the reconstruction pipeline may compromise the overall consis- tency, particularly in observed regions, due to their potential conflicts.",
+    "proposed_method": "To this end, we propose DP-R ECON , which employs diffusion priors in the form of Score Distillation Sampling (SDS) to optimize the neural representation of each individual ob- ject under novel views.",
+    "experimental_evidence": "Extensive experi- ments across Replica and ScanNet++ demonstrate that our method significantly outperforms state-of-the-art methods.",
+    "summary": "To address the challenge of sparse-view reconstruc- tion, many approaches propose to incorporate semantic or geometric regularizations [18, 24, 52, 81]. Despite these ad- vances, existing approaches are limited by representing an entire scene as a whole. However, directly integrating the diffusion prior into the reconstruction pipeline may compromise the overall consis- tency, particularly in observed regions, due to their potential conflicts. To this end, we propose DP-R ECON , which employs diffusion priors in the form of Score Distillation Sampling (SDS) to optimize the neural representation of each individual ob- ject under novel views. Extensive experi- ments across Replica and ScanNet++ demonstrate that our method significantly outperforms state-of-the-art methods."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction 3D scene reconstruction from multi-view images is a long- standing topic in computer vision.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\n3D scene reconstruction from multi-view images is a long-\nstanding topic in computer vision. Recent advances in neu-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n6022"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "ral implicit representations [23, 48] have enabled signifi- cant progress in novel-view rendering [2, 12, 80, 81] and 3D geometry reconstruction [53, 72, 83].",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "ral implicit representations [23, 48] have enabled signifi-\ncant progress in novel-view rendering [2, 12, 80, 81] and\n3D geometry reconstruction [53, 72, 83]. Despite these ad-\nvances, existing approaches are limited by representing an\nentire scene as a whole. On the other hand, decompitional\nreconstruction [25, 78] aims to break down the implicit 3D\nrepresentation into individual objects in the scene and facili-\ntate broader applications in embodied AI [1, 14, 16, 17, 26],\nrobotics [13, 21, 40, 64, 92], and more [6, 9].\nExisting methods [33, 38, 49, 79] in decompositional\nneural reconstruction still fall short of expectations in down-\nstream applications to reconstruct complete 3D geometry\nand accurate appearance (see Fig. 1), especially in less\ndensely captured or heavily occluded areas with sparse in-\nputs. To address the challenge of sparse-view reconstruc-\ntion, many approaches propose to incorporate semantic or\ngeometric regularizations [18, 24, 52, 81]. Still, they of-\nten demonstrate significant degradation in non-observable\nregions since they fail to provide additional information for\nthe underconstrained areas. Thus, we believe the key is to\nintroduce supplementary inform"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Despite these ad- vances, existing approaches are limited by representing an entire scene as a whole.",
+      "Existing methods [33, 38, 49, 79] in decompositional neural reconstruction still fall short of expectations in down- stream applications to reconstruct complete 3D geometry and accurate appearance (see Fig.",
+      "Still, they of- ten demonstrate significant degradation in non-observable regions since they fail to provide additional information for the underconstrained areas.",
+      "However, directly integrating the diffusion prior into the reconstruction pipeline may compromise the overall consis- tency, particularly in observed regions, due to their potential conflicts."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Recent ap- proaches incorporate semantic or geometric regularization to address this issue, but they suffer significant degradation in underconstrained areas and fail to recover occluded re- gions.",
+      "To this end, we propose DP-R ECON , which employs diffusion priors in the form of Score Distillation Sampling (SDS) to optimize the neural representation of each individual ob- ject under novel views.",
+      "Extensive experi- ments across Replica and ScanNet++ demonstrate that our method significantly outperforms state-of-the-art methods.",
+      "Our method en- ables seamless text-based editing for geometry and appear- ance through SDS optimization and produces decomposed object meshes with detailed UV maps that support photo- realistic Visual effects (VFX) editing.",
+      "In this paper, we propose DP-R ECON to facilitate the decompositional neural reconstruction with generative dif- fusion prior.",
+      "To alleviate this problem, we propose a novel visibility ap- proach that models the visibility of 3D points across the in- put views using a learnable grid.",
+      "Extensive experiment results on Replica [67] and Scan- Net++ [85] demonstrate that our method significantly sur- passes all state-of-the-art methods in both geometry and ap- pearance reconstruction, particularly in heavily occluded re- gions.",
+      "Remarkably, with only 10 input views, our method achieves object reconstruction quality superior to baseline methods that rely on 100 input views for heavily occluded scenes in Fig.",
+      "Our method enables seamless scene-level and object-level editing,e.g., geometry and appearance styl- ization, using SDS optimization.",
+      "In summary, our main contributions are three-fold: • We introduce a novel method DP-R ECON that incorpo- rates generative prior into decompositional scene recon- struction, significantly improving geometry and appear- ance recovery, particularly in heavily occluded regions. • We propose a visibility-guided approach to dynamically adjust the SDS loss, alleviating the conflict between the reconstruction objective and generative prior guidance. • Extensive experiments demonstrate that our model sig- nificantly enhances both geometry and appearance.",
+      "Our method enables seamless geometry and appearance edit- ing, yielding decomposed object meshes with detailed UV maps for broad downstream applications.",
+      "Extensive experiments demonstrate that our method outperforms state-of-the-art methods in both geom- etry and appearance reconstruction, effectively enhancing quality in unobserved regions while preserving fidelity in observed areas."
+    ],
+    "experiment_expression": [
+      "Extensive experi- ments across Replica and ScanNet++ demonstrate that our method significantly outperforms state-of-the-art methods.",
+      "Still, they of- ten demonstrate significant degradation in non-observable regions since they fail to provide additional information for the underconstrained areas.",
+      "Extensive experiment results on Replica [67] and Scan- Net++ [85] demonstrate that our method significantly sur- passes all state-of-the-art methods in both geometry and ap- pearance reconstruction, particularly in heavily occluded re- gions.",
+      "In summary, our main contributions are three-fold: • We introduce a novel method DP-R ECON that incorpo- rates generative prior into decompositional scene recon- struction, significantly improving geometry and appear- ance recovery, particularly in heavily occluded regions. • We propose a visibility-guided approach to dynamically adjust the SDS loss, alleviating the conflict between the reconstruction objective and generative prior guidance. • Extensive experiments demonstrate that our model sig- nificantly enhances both geometry and appearance.",
+      "Extensive experiments demonstrate that our method outperforms state-of-the-art methods in both geom- etry and appearance reconstruction, effectively enhancing quality in unobserved regions while preserving fidelity in observed areas."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Extensive experiments demonstrate that our method outperforms state-of-the-art methods in both geom- etry and appearance reconstruction, effectively enhancing quality in unobserved regions while preserving fidelity in observed areas.",
+    "However, directly integrating the diffusion prior into the reconstruction pipeline may compromise the overall consis- tency, particularly in observed regions, due to their potential conflicts.",
+    "In summary, our main contributions are three-fold: • We introduce a novel method DP-R ECON that incorpo- rates generative prior into decompositional scene recon- struction, significantly improving geometry and appear- ance recovery, particularly in heavily occluded regions. • We propose a visibility-guided approach to dynamically adjust the SDS loss, alleviating the conflict between the reconstruction objective and generative prior guidance. • Extensive experiments demonstrate that our model sig- nificantly enhances both geometry and appearance.",
+    "In this paper, we propose DP-R ECON to facilitate the decompositional neural reconstruction with generative dif- fusion prior.",
+    "To alleviate this problem, we propose a novel visibility ap- proach that models the visibility of 3D points across the in- put views using a learnable grid.",
+    "To this end, we propose DP-R ECON , which employs diffusion priors in the form of Score Distillation Sampling (SDS) to optimize the neural representation of each individual ob- ject under novel views.",
+    "1), especially in less densely captured or heavily occluded areas with sparse in- puts.",
+    "2 presents an overview of our proposed DP-R ECON .",
+    "6022 ral implicit representations [23, 48] have enabled signifi- cant progress in novel-view rendering [2, 12, 80, 81] and 3D geometry reconstruction [53, 72, 83].",
+    "Abstract Decompositional reconstruction of 3D scenes, with com- plete shapes and detailed texture of all objects within, is intriguing for downstream applications but remains chal- lenging, particularly with sparse views as input.",
+    "Additionally, we provide generalization results on YouTube videos, fail- ure cases, and discuss limitations in supplementary.",
+    "Conclusion We present DP-R ECON , a novel pipeline that utilizes gen- erative priors in the form of SDS to optimize the neural rep- resentation of each object."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDecompositional reconstruction of 3D scenes, with com-\nplete shapes and detailed texture of all objects within, is\nintriguing for downstream applications but remains chal-\nlenging, particularly with sparse views as input. Recent ap-\nproaches incorporate semantic or geometric regularization\nto address this issue, but they suffer significant degradation\nin underconstrained areas and fail to recover occluded re-\ngions. We argue that the key to solving this problem lies\nin supplementing missing information for these areas. To\nthis end, we propose DP-R ECON , which employs diffusion\npriors in the form of Score Distillation Sampling (SDS) to\noptimize the neural representation of each individual ob-\nject under novel views. This provides additional informa-\ntion for the underconstrained areas, but directly incorpo-\nrating diffusion prior raises potential conflicts between the\nreconstruction and generative guidance. Therefore, we fur-\nther introduce a visibility-guided approach to dynamically\nadjust the per-pixel SDS loss weights. Together these com-\nponents enhance both geometry and appearance recovery\nwhile remaining faithful to input images. Extensive experi-\nments across Replica and ScanNet++ demonstrate that our\nmethod significantly outperforms state-of-the-art methods.\nNotably, it achieves better object reconstruction under 10\nviews than the baselines under 100 views. Our method en-\nables seamless text-based editing for geometry and appear-\nance through SDS optimization and produces decomposed\nobject meshes with detailed UV maps that support photo-\nrealistic Visual effects (VFX) editing. The project page is\navailable at https://dp-recon.github.io/.",
+    "introduction": "1. Introduction\n3D scene reconstruction from multi-view images is a long-\nstanding topic in computer vision. Recent advances in neu-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n6022\n\nral implicit representations [23, 48] have enabled signifi-\ncant progress in novel-view rendering [2, 12, 80, 81] and\n3D geometry reconstruction [53, 72, 83]. Despite these ad-\nvances, existing approaches are limited by representing an\nentire scene as a whole. On the other hand, decompitional\nreconstruction [25, 78] aims to break down the implicit 3D\nrepresentation into individual objects in the scene and facili-\ntate broader applications in embodied AI [1, 14, 16, 17, 26],\nrobotics [13, 21, 40, 64, 92], and more [6, 9].\nExisting methods [33, 38, 49, 79] in decompositional\nneural reconstruction still fall short of expectations in down-\nstream applications to reconstruct complete 3D geometry\nand accurate appearance (see Fig. 1), especially in less\ndensely captured or heavily occluded areas with sparse in-\nputs. To address the challenge of sparse-view reconstruc-\ntion, many approaches propose to incorporate semantic or\ngeometric regularizations [18, 24, 52, 81]. Still, they of-\nten demonstrate significant degradation in non-observable\nregions since they fail to provide additional information for\nthe underconstrained areas. Thus, we believe the key is to\nintroduce supplementary information for these areas based\non the observation from known views.\nIn this paper, we propose DP-R ECON to facilitate the\ndecompositional neural reconstruction with generative dif-\nfusion prior. Given multiple posed images, the neural im-\nplicit representation is optimized to represent both individ-\nual objects and the background within the scene. Besides\nthe reconstruction loss, we employ a 2D diffusion model as\na critic to supervise the optimization of each object through\nSDS [55], which iteratively refines the 3D representation\nby evaluating the quality of novel views from differentiable\nrendering. We use the pretrained Stable Diffusion [58], a\nmore general diffusion model without fine-tuning on spe-\ncific datasets. We meticulously design the optimization\npipeline so that the generative prior optimizes both the ge-\nometry and appearance of each object alongside the recon-\nstruction loss, filling in the missing information in unob-\nserved and occluded regions.\nHowever, directly integrating the diffusion prior into the\nreconstruction pipeline may compromise the overall consis-\ntency, particularly in observed regions, due to their potential\nconflicts. Ideally, we want to preserve the visible area in the\ninput images while the diffusion prior completes the rest.\nTo alleviate this problem, we propose a novel visibility ap-\nproach that models the visibility of 3D points across the in-\nput views using a learnable grid. The visibility information\nis derived from the accumulated transmittance in volume\nrendering, enabling us to optimize the visibility grid with-\nout introducing computationally intensive external visibility\npriors [65]. For each novel view, the visibility map can be\nrendered from this grid, which can dynamically adjust the\nper-pixel SDS and rendering loss weights, benefiting both\ngeometry and appearance optimization stages.\nExtensive experiment results on Replica [67] and Scan-\nNet++ [85] demonstrate that our method significantly sur-\npasses all state-of-the-art methods in both geometry and ap-\npearance reconstruction, particularly in heavily occluded re-\ngions. Remarkably, with only 10 input views, our method\nachieves object reconstruction quality superior to baseline\nmethods that rely on 100 input views for heavily occluded\nscenes in Fig. 1. The ablative studies highlight the effec-\ntiveness of incorporating generative diffusion prior with vis-\nibility guidance. Our method enables seamless scene-level\nand object-level editing,e.g., geometry and appearance styl-\nization, using SDS optimization. It produces decomposed\nobject meshes with detailed UV maps, enabling photoreal-\nistic rendering and VFX editing in common 3D software,\nthereby supporting various downstream applications.\nIn summary, our main contributions are three-fold:\n• We introduce a novel method DP-R ECON that incorpo-\nrates generative prior into decompositional scene recon-\nstruction, significantly improving geometry and appear-\nance recovery, particularly in heavily occluded regions.\n• We propose a visibility-guided approach to dynamically\nadjust the SDS loss, alleviating the conflict between the\nreconstruction objective and generative prior guidance.\n• Extensive experiments demonstrate that our model sig-\nnificantly enhances both geometry and appearance. Our\nmethod enables seamless geometry and appearance edit-\ning, yielding decomposed object meshes with detailed\nUV maps for broad downstream applications.",
+    "method": "3. Method\nGiven a set of posed RGB images and corresponding in-\nstance masks, we aim to reconstruct the geometry and ap-\npearance of objects and the background in the scene. Fig. 2\npresents an overview of our proposed DP-R ECON .",
+    "experiments": "4. Experiments\nWe evaluateDP-R ECON on both geometry and appearance\nrecovery for sparse-view 3D reconstruction. Additionally,\nwe provide generalization results on YouTube videos, fail-\nure cases, and discuss limitations in supplementary.",
+    "conclusion": "5. Conclusion\nWe present DP-R ECON , a novel pipeline that utilizes gen-\nerative priors in the form of SDS to optimize the neural rep-\nresentation of each object. It employs a visibility-guided\nmechanism that dynamically adjusts the SDS loss, ensur-\ning improved results while maintaining consistency with the\ninput images. Extensive experiments demonstrate that our\nmethod outperforms state-of-the-art methods in both geom-\netry and appearance reconstruction, effectively enhancing\nquality in unobserved regions while preserving fidelity in\nobserved areas. Our method enables seamless text-based\nediting for geometry and stylization, and generates decom-\nposed object meshes with detailed UV maps, supporting a\nwide range of downstream applications."
+  }
+}

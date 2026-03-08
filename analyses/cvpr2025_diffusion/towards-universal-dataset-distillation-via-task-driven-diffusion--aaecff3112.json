@@ -1,0 +1,92 @@
+{
+  "paper_id": "towards-universal-dataset-distillation-via-task-driven-diffusion--aaecff3112",
+  "paper_title": "Towards Universal Dataset Distillation via Task-Driven Diffusion",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:44.041576+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Towards Universal Dataset Distillation via Task-Driven Diffusion.pdf",
+    "filename": "Towards Universal Dataset Distillation via Task-Driven Diffusion.pdf",
+    "sha1": "aaecff3112c6d839fbacbfe09b9777fbe0c11bb6",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Dataset distillation (DD) [44], as an innovative data opti- mization technique in machine learning [13, 14, 20, 22, 45], condenses essential information from large datasets into smaller proxy sets.",
+    "limitation": "Introduction Dataset distillation (DD) [44], as an innovative data opti- mization technique in machine learning [13, 14, 20, 22, 45], condenses essential information from large datasets into smaller proxy sets.",
+    "insight": "Abstract Dataset distillation (DD) condenses key information from large-scale datasets into smaller synthetic datasets, reduc- ing storage and computational costs for training networks.",
+    "proposed_method": "To address these challenges, we propose UniDD, a universal dataset dis- tillation framework built on a task-driven diffusion model for diverse DD tasks, as shown in Fig.",
+    "experimental_evidence": "To address these challenges, we propose UniDD, a universal dataset dis- tillation framework built on a task-driven diffusion model for diverse DD tasks, as shown in Fig.",
+    "summary": "Introduction Dataset distillation (DD) [44], as an innovative data opti- mization technique in machine learning [13, 14, 20, 22, 45], condenses essential information from large datasets into smaller proxy sets. Introduction Dataset distillation (DD) [44], as an innovative data opti- mization technique in machine learning [13, 14, 20, 22, 45], condenses essential information from large datasets into smaller proxy sets. Abstract Dataset distillation (DD) condenses key information from large-scale datasets into smaller synthetic datasets, reduc- ing storage and computational costs for training networks. To address these challenges, we propose UniDD, a universal dataset dis- tillation framework built on a task-driven diffusion model for diverse DD tasks, as shown in Fig. To address these challenges, we propose UniDD, a universal dataset dis- tillation framework built on a task-driven diffusion model for diverse DD tasks, as shown in Fig."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Dataset distillation (DD) [44], as an innovative data opti- mization technique in machine learning [13, 14, 20, 22, 45], condenses essential information from large datasets into smaller proxy sets.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Dataset distillation (DD) [44], as an innovative data opti- mization technique in machine learning [13, 14, 20, 22, 45], condenses essential information from large datasets into smaller proxy sets. Training on these highly ensemble proxy sets enables the model to use much fewer resources while providing comparable performance. Prior DD meth- ods excelled in image classification using various tech- niques like Gradient Matching [26, 48, 50], Distribution Matching [49, 51], Training Trajectory Matching [3, 7], and Decoupled Methods [42, 46]. This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Universal Dataset Distillation Framework",
+      "purpose": "Gives the high-level system view before module details.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "UniDD follows a two-stage process: in the first stage, Task-Specific Proxy Training and Task- Aligned Contextual Prompting extract critical information from real datasets."
+    ],
+    "limitation_expression": [
+      "However, most recent research has primarily focused on im- age classification tasks, with limited exploration in detec- tion and segmentation."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address these challenges, we propose UniDD, a universal dataset dis- tillation framework built on a task-driven diffusion model for diverse DD tasks, as shown in Fig."
+    ],
+    "experiment_expression": [
+      "To address these challenges, we propose UniDD, a universal dataset dis- tillation framework built on a task-driven diffusion model for diverse DD tasks, as shown in Fig.",
+      "Extensive exper- iments across ImageNet-1K, Pascal VOC, and MS COCO demonstrate that UniDD consistently outperforms state-of- the-art methods.",
+      "We conduct extensive experiments to validate UniDD’s effectiveness across all three tasks.",
+      "Encouraging results demonstrate that our UniDD consistently outperforms these methods, especially under extremely low compression ratios."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "To address these challenges, we propose UniDD, a universal dataset dis- tillation framework built on a task-driven diffusion model for diverse DD tasks, as shown in Fig.",
+    "However, most recent research has primarily focused on im- age classification tasks, with limited exploration in detec- tion and segmentation.",
+    "We conduct extensive experiments to validate UniDD’s effectiveness across all three tasks.",
+    "Abstract Dataset distillation (DD) condenses key information from large-scale datasets into smaller synthetic datasets, reduc- ing storage and computational costs for training networks.",
+    "Conclusion In this study, we introduce the first Universal Dataset Dis- tillation (UniDD) framework, capable of handling classi- fication, detection, and segmentation tasks within a uni- fied approach.",
+    "Encouraging results demonstrate that our UniDD consistently outperforms these methods, especially under extremely low compression ratios.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Extensive exper- iments across ImageNet-1K, Pascal VOC, and MS COCO demonstrate that UniDD consistently outperforms state-of- the-art methods.",
+    "For classifica- tion, UniDD achieves state-of-the-art results on ImageNet- 1k and ImageNet-Subset.",
+    "In detection and segmentation, we establish the first dataset distillation benchmark on Pas- cal VOC and MS COCO, comparing UniDD to coreset se- lection methods.",
+    "In particular, on ImageNet-1K with IPC- 10, UniDD surpasses previous diffusion-based methods by 6.1%, while also reducing deployment costs.",
+    "In the second stage, Universal Task- driven Diffusion synthesizes images with specific cate- gories, bounding boxes, and segmentation masks tailored to each task."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDataset distillation (DD) condenses key information from\nlarge-scale datasets into smaller synthetic datasets, reduc-\ning storage and computational costs for training networks.\nHowever, most recent research has primarily focused on im-\nage classification tasks, with limited exploration in detec-\ntion and segmentation. Two key challenges remain: (i) Task\nOptimization Heterogeneity, where existing methods focus\non class-level information but fail to address the diverse\nneeds of detection and segmentation, and (ii) Inflexible Im-\nage Generation, where current generation methods rely on\nglobal updates for single-class targets and lack localized\noptimization for specific object regions. To address these\nchallenges, we propose UniDD, a universal dataset dis-\ntillation framework built on a task-driven diffusion model\nfor diverse DD tasks, as shown in Fig. 1. Our approach\noperates in two stages: Universal Task Knowledge Min-\ning, which captures task-relevant information through task-\n*Work done when Ding Qi is an intern in Tencent YouTu Lab, and the\nadvisor is Jian Li.\n† Corresponding author\nspecific proxy model training, and Universal Task-Driven\nDiffusion, where these proxies guide the diffusion process\nto generate task-specific synthetic images. Extensive exper-\niments across ImageNet-1K, Pascal VOC, and MS COCO\ndemonstrate that UniDD consistently outperforms state-of-\nthe-art methods. In particular, on ImageNet-1K with IPC-\n10, UniDD surpasses previous diffusion-based methods by\n6.1%, while also reducing deployment costs.",
+    "introduction": "1. Introduction\nDataset distillation (DD) [44], as an innovative data opti-\nmization technique in machine learning [13, 14, 20, 22, 45],\ncondenses essential information from large datasets into\nsmaller proxy sets. Training on these highly ensemble\nproxy sets enables the model to use much fewer resources\nwhile providing comparable performance. Prior DD meth-\nods excelled in image classification using various tech-\nniques like Gradient Matching [26, 48, 50], Distribution\nMatching [49, 51], Training Trajectory Matching [3, 7], and\nDecoupled Methods [42, 46].\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Universal Dataset Distillation Framework",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nIn this study, we introduce the first Universal Dataset Dis-\ntillation (UniDD) framework, capable of handling classi-\nfication, detection, and segmentation tasks within a uni-\nfied approach. UniDD follows a two-stage process: in\nthe first stage, Task-Specific Proxy Training and Task-\nAligned Contextual Prompting extract critical information\nfrom real datasets. In the second stage, Universal Task-\ndriven Diffusion synthesizes images with specific cate-\ngories, bounding boxes, and segmentation masks tailored\nto each task. We conduct extensive experiments to validate\nUniDD’s effectiveness across all three tasks. For classifica-\ntion, UniDD achieves state-of-the-art results on ImageNet-\n1k and ImageNet-Subset. In detection and segmentation,\nwe establish the first dataset distillation benchmark on Pas-\ncal VOC and MS COCO, comparing UniDD to coreset se-\nlection methods. Encouraging results demonstrate that our\nUniDD consistently outperforms these methods, especially\nunder extremely low compression ratios.\nAcknowledgments. This work was supported by Na-\ntional Natural Science Fund of China (62473286)."
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "paper_id": "dig-scalable-and-efficient-diffusion-models-with-gated-linear-attention--818c9f99b3",
+  "paper_title": "DiG: Scalable and Efficient Diffusion Models with Gated Linear Attention",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:21.520677+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/DiG： Scalable and Efficient Diffusion Models with Gated Linear Attention.pdf",
+    "filename": "DiG： Scalable and Efficient Diffusion Models with Gated Linear Attention.pdf",
+    "sha1": "818c9f99b3bfbf9d9d2dfda58b522a67347119be",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Since a data-dependent gating mechanism is crucial for 1D modeling [45], GLA shows outstanding performance among the above methods.",
+    "limitation": "However, the self-attention mechanism in ViT-based ar- chitectures scales quadratically with the input sequence length, making them resource-intensive when dealing with long sequence generation tasks, e.g., high-resolution im- age generation and video generation.",
+    "insight": "Motivated by the success of GLA in the natural language processing domain, it is appealing that we can transfer this success from language generation to visual content gener- ation by designing a scalable and efficient diffusion back- bone with the advanced linear attention [10, 25, 26] method.",
+    "proposed_method": "Specifi- cally, we introduce Diffusion Gated Linear Attention Trans- formers (DiG), a simple, adoptable solution with minimal parameter overhead.",
+    "experimental_evidence": "We offer two variants, i,e, a plain and U-shape architecture, showing superior efficiency and This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "summary": "Since a data-dependent gating mechanism is crucial for 1D modeling [45], GLA shows outstanding performance among the above methods. However, the self-attention mechanism in ViT-based ar- chitectures scales quadratically with the input sequence length, making them resource-intensive when dealing with long sequence generation tasks, e.g., high-resolution im- age generation and video generation. Motivated by the success of GLA in the natural language processing domain, it is appealing that we can transfer this success from language generation to visual content gener- ation by designing a scalable and efficient diffusion back- bone with the advanced linear attention [10, 25, 26] method. Specifi- cally, we introduce Diffusion Gated Linear Attention Trans- formers (DiG), a simple, adoptable solution with minimal parameter overhead. We offer two variants, i,e, a plain and U-shape architecture, showing superior efficiency and This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction In recent years, diffusion models [4, 20, 32, 53, 56, 61, 65, 66] have emerged as potent deep generative models [13, 49] renowned for their ability to generate high-quality im- ages.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "1. Introduction\nIn recent years, diffusion models [4, 20, 32, 53, 56, 61, 65,\n66] have emerged as potent deep generative models [13, 49]\nrenowned for their ability to generate high-quality im-\nages. Their rapid evolution has spurred extensive applica-\ntions across various fields, including image-to-image gener-\nation [8, 67], text-to-image generation [19, 47, 51], speech\nsynthesis [7, 29], video generation [21, 34, 36], and 3D gen-\neration [43, 68]. Concurrent with the rapid development of\nsampling algorithms [33, 38, 54], the principal techniques\nhave evolved into two main categories based on their ar-\nchitectural backbones: U-Net-based methods [20, 55] and\nViT-based methods [14]. U-Net-based approaches continue\nto leverage the convolutional neural network (CNN) archi-\ntecture [31, 50], whose hierarchical feature modeling ability\nbenefits visual generation tasks. On the other hand, ViT-\nbased methods [1, 39, 64] innovate by incorporating self-\nattention mechanisms [59] instead of traditional sampling\nblocks, resulting in streamlined yet effective performance.\nDue to their excellent scalability in terms of perfor-\nmance, ViT-based methods [39] have been adopted as\nbackbones in the "
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "0\n2\n4\n6",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "0\n2\n4\n6"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "256. The results demonstrate that DiG presents scal-",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Since a data-dependent gating mechanism is crucial for 1D modeling [45], GLA shows outstanding performance among the above methods."
+    ],
+    "limitation_expression": [
+      "However, DiT models have faced challenges with quadratic complexity efficiency, especially when han- dling long sequences.",
+      "However, the self-attention mechanism in ViT-based ar- chitectures scales quadratically with the input sequence length, making them resource-intensive when dealing with long sequence generation tasks, e.g., high-resolution im- age generation and video generation.",
+      "However, visual generation with linear models, such as Mamba, RWKV , and GLA, often faces two challenges,i.e., unidirectional scanning modeling and lack of local aware- ness.",
+      "Although DiG shows superior efficiency in diffusion image generation, building a large foundation model like Sora [3] upon DiG is still an area that needs to be explored further."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address these challenges, we propose Diffusion GLA (DiG), which incorporates a lightweight spatial reorient & enhancement module (SREM) for block-wise scanning di- rection controlling and local awareness.",
+      "Our main contributions can be summarized as follows: • We propose Diffusion GLA (DiG), which incorporates an efficient DiG block for both global visual context model- ing through block-wise scanning, and local visual aware- ness."
+    ],
+    "experiment_expression": [
+      "Specifically, DiG demon- strates significant efficiency improvements over compara- ble models: DiG-S/2 achieves a 2.5× faster training speed and saves 75.7% GPU memory compared to DiT-S/2 at a 1792 × 1792 resolution as shown in Fig.",
+      "Furthermore, with the same model size, DiG-XL/2 is4.2× faster than the recent Mamba-based diffusion model at1024 resolution and 1.8× faster than DiT with well-designed CUDA-optimized FlashAttention-2 [11] at 2048 resolution as shown in Fig.",
+      "The results demonstrate that DiG presents scal- able ability and achieves comparable performance when compared with DiT."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Furthermore, with the same model size, DiG-XL/2 is4.2× faster than the recent Mamba-based diffusion model at1024 resolution and 1.8× faster than DiT with well-designed CUDA-optimized FlashAttention-2 [11] at 2048 resolution as shown in Fig.",
+    "However, DiT models have faced challenges with quadratic complexity efficiency, especially when han- dling long sequences.",
+    "However, visual generation with linear models, such as Mamba, RWKV , and GLA, often faces two challenges,i.e., unidirectional scanning modeling and lack of local aware- ness.",
+    "Our main contributions can be summarized as follows: • We propose Diffusion GLA (DiG), which incorporates an efficient DiG block for both global visual context model- ing through block-wise scanning, and local visual aware- ness.",
+    "Specifically, DiG demon- strates significant efficiency improvements over compara- ble models: DiG-S/2 achieves a 2.5× faster training speed and saves 75.7% GPU memory compared to DiT-S/2 at a 1792 × 1792 resolution as shown in Fig.",
+    "To address these challenges, we propose Diffusion GLA (DiG), which incorporates a lightweight spatial reorient & enhancement module (SREM) for block-wise scanning di- rection controlling and local awareness.",
+    "7664 competitive effectiveness.",
+    "Addi- tionally, DiG-XL/2 is 4.2× faster than the Mamba-based model at a 1024 resolution and 1.8× faster than DiT with FlashAttention-2 at a 2048 resolution.",
+    "Although DiG shows superior efficiency in diffusion image generation, building a large foundation model like Sora [3] upon DiG is still an area that needs to be explored further.",
+    "Besides, higher efficiency makes DiG promising to serve as the next-generation backbone for diffusion models in the context of large-scale long- sequence generation.",
+    "Compared with the ViT-based method, i.e., DiT [39], DiG presents competitive performance on ImageNet [12] 256 × 256 generation when using the same hyper- parameters.",
+    "Conclusion In this work, we present DiG, a cost-effective alternative to the vanilla Transformer for diffusion models in image generation tasks."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models with large-scale pre-training have\nachieved significant success in the field of visual content\ngeneration, particularly exemplified by Diffusion Trans-\n⋄ This work was done when Lianghui Zhu was interning at\nByteDance. \u0000 Corresponding authors: Xinggang Wang ( xgwang @\nhust.edu.cn ) and Zilong Huang ( zilong.huang2020@gmail.\ncom)\nformers (DiT). However, DiT models have faced challenges\nwith quadratic complexity efficiency, especially when han-\ndling long sequences. In this paper, we aim to incorpo-\nrate the sub-quadratic modeling capability of Gated Linear\nAttention (GLA) into the 2D diffusion backbone. Specifi-\ncally, we introduce Diffusion Gated Linear Attention Trans-\nformers (DiG), a simple, adoptable solution with minimal\nparameter overhead. We offer two variants, i,e, a plain\nand U-shape architecture, showing superior efficiency and\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n7664\n\ncompetitive effectiveness. In addition to superior perfor-\nmance to DiT and other sub-quadratic-time diffusion mod-\nels at 256 × 256 resolution, DiG demonstrates greater ef-\nficiency than these methods starting from a 512 resolution.\nSpecifically, DiG-S/2 is 2.5× faster and saves 75.7% GPU\nmemory compared to DiT-S/2 at a 1792 resolution. Addi-\ntionally, DiG-XL/2 is 4.2× faster than the Mamba-based\nmodel at a 1024 resolution and 1.8× faster than DiT with\nFlashAttention-2 at a 2048 resolution.",
+    "introduction": "1. Introduction\nIn recent years, diffusion models [4, 20, 32, 53, 56, 61, 65,\n66] have emerged as potent deep generative models [13, 49]\nrenowned for their ability to generate high-quality im-\nages. Their rapid evolution has spurred extensive applica-\ntions across various fields, including image-to-image gener-\nation [8, 67], text-to-image generation [19, 47, 51], speech\nsynthesis [7, 29], video generation [21, 34, 36], and 3D gen-\neration [43, 68]. Concurrent with the rapid development of\nsampling algorithms [33, 38, 54], the principal techniques\nhave evolved into two main categories based on their ar-\nchitectural backbones: U-Net-based methods [20, 55] and\nViT-based methods [14]. U-Net-based approaches continue\nto leverage the convolutional neural network (CNN) archi-\ntecture [31, 50], whose hierarchical feature modeling ability\nbenefits visual generation tasks. On the other hand, ViT-\nbased methods [1, 39, 64] innovate by incorporating self-\nattention mechanisms [59] instead of traditional sampling\nblocks, resulting in streamlined yet effective performance.\nDue to their excellent scalability in terms of perfor-\nmance, ViT-based methods [39] have been adopted as\nbackbones in the most advanced diffusion works, includ-\ning PixArt [5, 6], Sora [3], Stable Diffusion 3 [15], etc.\nHowever, the self-attention mechanism in ViT-based ar-\nchitectures scales quadratically with the input sequence\nlength, making them resource-intensive when dealing with\nlong sequence generation tasks, e.g., high-resolution im-\nage generation and video generation. Recent works such as\nMamba [18, 69], RWKV [40] and Gated Linear Attention\nTransformer (GLA) [63], try to improve the long-sequence\nprocessing efficiency by integrating Recurrent Neural Net-\nwork (RNN) like architecture and hardware-aware algo-\nrithms. Since a data-dependent gating mechanism is crucial\nfor 1D modeling [45], GLA shows outstanding performance\namong the above methods.\nMotivated by the success of GLA in the natural language\nprocessing domain, it is appealing that we can transfer this\nsuccess from language generation to visual content gener-\nation by designing a scalable and efficient diffusion back-\nbone with the advanced linear attention [10, 25, 26] method.\nHowever, visual generation with linear models, such as\nMamba, RWKV , and GLA, often faces two challenges,i.e.,\nunidirectional scanning modeling and lack of local aware-\nness. Previous approaches [16, 23] have often addressed the\nfirst issue by performing bidirectional scanning within the\nsame block. Nevertheless, such methods result in a signifi-\ncant increase in time consumption and numerical instability\n. To address these challenges, we propose Diffusion GLA\n(DiG), which incorporates a lightweight spatial reorient &\nenhancement module (SREM) for block-wise scanning di-\nrection controlling and local awareness. For the first issue,\nSREM changes the sequence direction with minimal num-\nber of matrix operations and assigns different scanning in\na block-by-block manner. The scanning directions contain\nfour basic patterns and enable each patch in sequences to\nbe aware of other patches following 4 directions. For the\nsecond issue, we also incorporate a depth-wise convolution\n(DWConv) [9] in the SREM to provide local awareness with\nextremely small amounts of parameters. Inspired by U-\nNet [50], we further propose a U-shape variant of DiG and\nanalyze the improvements. Crucially, this paper presents\na systematic ablation study and a comprehensive evaluation\nof the proposed modules and architectures. It is important to\nhighlight that DiG adheres to the first practices of linear at-\ntention transformers in diffusion generation, demonstrating\nsuperior efficiency in quadratic and sub-quadratic diffusion\nmodels.\nCompared with the ViT-based method, i.e., DiT [39],\nDiG presents competitive performance on ImageNet [12]\n256 × 256 generation when using the same hyper-\nparameters. Furthermore, DiG is more efficient in terms of\ntraining speed and GPU memory starting from a 512 resolu-\ntion. The efficiency in terms of memory and speed empow-\ners DiG to alleviate the resource constraint problem of long-\nsequence visual generation tasks. Specifically, DiG demon-\nstrates significant efficiency improvements over compara-\nble models: DiG-S/2 achieves a 2.5× faster training speed\nand saves 75.7% GPU memory compared to DiT-S/2 at a\n1792 × 1792 resolution as shown in Fig. 2. Furthermore,\nwith the same model size, DiG-XL/2 is4.2× faster than the\nrecent Mamba-based diffusion model at1024 resolution and\n1.8× faster than DiT with well-designed CUDA-optimized\nFlashAttention-2 [11] at 2048 resolution as shown in Fig. 3.\nOur main contributions can be summarized as follows:\n• We propose Diffusion GLA (DiG), which incorporates an\nefficient DiG block for both global visual context model-\ning through block-wise scanning, and local visual aware-\nness. To the best of our knowledge, DiG is the first explo-\nration for diffusion backbone with linear attention.\n• Without the burden of quadratic attention, the proposed\nDiG exhibits higher efficiency in both training speed and\nGPU memory cost while maintaining a similar model-\ning ability as DiT. Notably, DiG is 4.2× faster than\nMulti-path scanning and summation can easily lead to numerical NaN\nduring training [16].\n7665\n\n0\n2\n4\n6",
+    "method": "3. Method",
+    "experiments": "256. The results demonstrate that DiG presents scal-\nable ability and achieves comparable performance when\ncompared with DiT. Besides, higher efficiency makes\nDiG promising to serve as the next-generation backbone\nfor diffusion models in the context of large-scale long-\nsequence generation.",
+    "conclusion": "5. Conclusion\nIn this work, we present DiG, a cost-effective alternative\nto the vanilla Transformer for diffusion models in image\ngeneration tasks. In particular, DiG explores Gated Linear\nAttention Transformers (GLA), attaining comparable ef-\nfectiveness and superior efficiency in long-sequence image\ngeneration tasks. Experimentally, DiG shows comparable\nperformance to prior diffusion models on class-conditional\nImageNet 256 × 256 benchmark while significantly reduc-\ning the computational burden starting from a 512 resolu-\ntion. We hope this work can open up the possibility for\nother long-sequence generation tasks, such as video and au-\ndio modeling.\nLimitations. Although DiG shows superior efficiency in\ndiffusion image generation, building a large foundation\nmodel like Sora [3] upon DiG is still an area that needs to\nbe explored further."
+  }
+}

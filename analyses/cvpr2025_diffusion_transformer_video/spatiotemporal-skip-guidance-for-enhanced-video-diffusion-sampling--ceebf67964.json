@@ -1,0 +1,126 @@
+{
+  "paper_id": "spatiotemporal-skip-guidance-for-enhanced-video-diffusion-sampling--ceebf67964",
+  "paper_title": "Spatiotemporal Skip Guidance for Enhanced Video Diffusion Sampling",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:12:46.180497+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_transformer_video_pdfs/Spatiotemporal Skip Guidance for Enhanced Video Diffusion Sampling.pdf",
+    "filename": "Spatiotemporal Skip Guidance for Enhanced Video Diffusion Sampling.pdf",
+    "sha1": "ceebf67964aa67c45b57e46dce81afb335e2f5de",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "This is especially crucial for video diffusion models, where training costs are high.",
+    "limitation": "However, CFG often reduces diversity, leading to saturated or overly simplified results [6, 19].",
+    "insight": "Abstract Diffusion models have emerged as a powerful tool for generating high-quality images, videos, and 3D content.",
+    "proposed_method": "In this * indicates equal contribution. work, we introduce Spatiotemporal Skip Guidance (STG), a simple training-free sampling guidance method for enhanc- ing transformer-based video diffusion models.",
+    "experimental_evidence": "Abstract Diffusion models have emerged as a powerful tool for generating high-quality images, videos, and 3D content.",
+    "summary": "This is especially crucial for video diffusion models, where training costs are high. However, CFG often reduces diversity, leading to saturated or overly simplified results [6, 19]. Abstract Diffusion models have emerged as a powerful tool for generating high-quality images, videos, and 3D content. In this * indicates equal contribution. work, we introduce Spatiotemporal Skip Guidance (STG), a simple training-free sampling guidance method for enhanc- ing transformer-based video diffusion models. Abstract Diffusion models have emerged as a powerful tool for generating high-quality images, videos, and 3D content."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Diffusion models [11, 30–32] are a successful class of gen- erative models known for their flexibility in modeling com- plex data distributions, achieving impressive results in im- age, video, and 3D generation.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction Diffusion models [11, 30–32] are a successful class of gen- erative models known for their flexibility in modeling com- plex data distributions, achieving impressive results in im- age, video, and 3D generation. By progressively denoising random noise, they enable robust generalization, making them a leading choice for realistic content generation and often surpassing GAN-based methods [5, 9, 18, 29]. Build- ing on this success, video diffusion models [4, 12, 27, 33, 38] generate high-quality videos by using temporal or 3D attention layers to handle sequential frames. Meanwhile, to enhance sample quality, sampling guidance techniques such as Classifier-Free Guidance (CFG) [10] and Autoguidance [19] have been introduced to guide the denoising process."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "These techniques employ weak models to predict poor trajectories, steering the main model away from them and pushing samples toward high- quality regions on the data manifold.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "These techniques employ weak models to predict poor trajectories, steering the main model away from them and pushing samples toward high- quality regions on the data manifold. However, CFG often reduces diversity, leading to saturated or overly simplified results [6, 19]. Autoguidance [19] addresses this issue by using a weak model trained on the same task, conditioning, and data dis- tribution as the main model. The main drawback of this approach, however, is the need to train an additional weak model, which is impractical for large-scale models."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "method_overview",
+      "main_message": "Alter- native methods such as PAG [1] and SEG [13] use self- perturbation to implicitly mimic a weak model, avoiding the need for extra training.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Alter- native methods such as PAG [1] and SEG [13] use self- perturbation to implicitly mimic a weak model, avoiding the need for extra training. Yet, these methods are designed specifically for image generation diffusion models, apply- ing self-perturbation to 2D spatial attention maps. In this work, we propose Spatiotemporal Skip Guid- ance (STG), a simple and effective sampling guidance method for video diffusion models that significantly en- hances the performance of any transformer-based video diffusion model without additional training. Specifically, we use an implicit weak model for guidance through self- perturbation, eliminating the need for explicit weak models and their associated training costs."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "problem_statement",
+      "main_message": "This is especially crucial for video diffusion models, where training costs are high.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This is especially crucial for video diffusion models, where training costs are high. Our implicit weak model, a key component of our frame- work, is deliberately designed as a degraded but “aligned” version of the original video generation model. As demon- strated in Autoguidance [19], having the weak model share the same task, conditioning, and data distribution as the 1 High Quality Low Quality 1  1 1 g CFG Ours Figure 2. Comparison between CFG and STG, with the band con- ceptually representing the noisy data manifold."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "In STG, the weak model and the main model are aligned along the direction of in- creasing quality.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "In STG, the weak model and the main model are aligned along the direction of in- creasing quality. In contrast, the two models in CFG differ not only in quality but also in aspects such as diversity and prompt alignment capabilities. main model is essential for quality improvement, as we ex- pect both models to exhibit similar, aligned errors in the same parts of samples. We conceptually illustrate this align- ment in Fig. 2, where our weak model and main model are arranged in a direction of increasing quality."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "background",
+      "main_message": "To achieve this, we apply spatiotemporal perturbation to both spatial and temporal attention layers—or, in the case of 3D atten- tion, to the entire layer—by selectively skipping certain lay- ers.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "To achieve this, we apply spatiotemporal perturbation to both spatial and temporal attention layers—or, in the case of 3D atten- tion, to the entire layer—by selectively skipping certain lay- ers. This straightforward approach effectively nullifies spe- cific residual or attention layers, generating a lower-quality version of the model that simulates an aligned weak model. To ensure samples remain on the data manifold, even when using large guidance scales, we employ optional tech- niques such as the rescaling [21] and restart [36] methods. Rescaling the latent code constrains its variance, address- ing the issue of larger variance causing saturation in the re- sults [21]."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Meanwhile, the restart sampling technique lever- ages the error contraction property of forward SDEs [36] to keep the sampling trajectory on the manifold.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "Meanwhile, the restart sampling technique lever- ages the error contraction property of forward SDEs [36] to keep the sampling trajectory on the manifold. These tech- niques help prevent overshooting in the sampling trajectory, which could otherwise push samples off the manifold and result in saturated or distorted outputs. Our key contributions are as follows: • We propose STG—a surprisingly simple sampling guid- ance framework that significantly boosts the performance of video diffusion models. • Our method introduces an implicit weak model by skip- ping spatiotemporal layers in video diffusion models, eliminating the need for additional training or external models. • Our method enhances sample quality during guidance without reducing diversity or limiting the dynamics of generated videos."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "This is especially crucial for video diffusion models, where training costs are high."
+    ],
+    "limitation_expression": [
+      "However, CFG often reduces diversity, leading to saturated or overly simplified results [6, 19].",
+      "The main drawback of this approach, however, is the need to train an additional weak model, which is impractical for large-scale models."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "In this work, we propose Spatiotemporal Skip Guid- ance (STG), a simple and effective sampling guidance method for video diffusion models that significantly en- hances the performance of any transformer-based video diffusion model without additional training.",
+      "Our key contributions are as follows: • We propose STG—a surprisingly simple sampling guid- ance framework that significantly boosts the performance of video diffusion models. • Our method introduces an implicit weak model by skip- ping spatiotemporal layers in video diffusion models, eliminating the need for additional training or external models. • Our method enhances sample quality during guidance without reducing diversity or limiting the dynamics of generated videos."
+    ],
+    "experiment_expression": [],
+    "contribution_expression": [
+      "Our contributions include: (1) introducing STG as This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    ]
+  },
+  "notable_sentences": [
+    "Conclusion We proposed Spatiotemporal Skip Guidance (STG), a sim- ple, training-free method for video diffusion models.",
+    "However, CFG often reduces diversity, leading to saturated or overly simplified results [6, 19].",
+    "Our contributions include: (1) introducing STG as This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "The main drawback of this approach, however, is the need to train an additional weak model, which is impractical for large-scale models.",
+    "2, where our weak model and main model are arranged in a direction of increasing quality.",
+    "Abstract Diffusion models have emerged as a powerful tool for generating high-quality images, videos, and 3D content.",
+    "Alter- native methods such as PAG [1] and SEG [13] use self- perturbation to implicitly mimic a weak model, avoiding the need for extra training.",
+    "As demon- strated in Autoguidance [19], having the weak model share the same task, conditioning, and data distribution as the 1 High Quality Low Quality 1  1 1 g CFG Ours Figure 2.",
+    "Autoguidance [19] addresses this issue by using a weak model trained on the same task, conditioning, and data dis- tribution as the main model.",
+    "Autoguidance mitigates these issues but demands extra weak model train- ing, limiting its practicality for large-scale models.",
+    "Build- ing on this success, video diffusion models [4, 12, 27, 33, 38] generate high-quality videos by using temporal or 3D attention layers to handle sequential frames.",
+    "By progressively denoising random noise, they enable robust generalization, making them a leading choice for realistic content generation and often surpassing GAN-based methods [5, 9, 18, 29]."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models have emerged as a powerful tool for\ngenerating high-quality images, videos, and 3D content.\nWhile sampling guidance techniques like CFG improve\nquality, they reduce diversity and motion. Autoguidance\nmitigates these issues but demands extra weak model train-\ning, limiting its practicality for large-scale models. In this\n* indicates equal contribution.\nwork, we introduce Spatiotemporal Skip Guidance (STG), a\nsimple training-free sampling guidance method for enhanc-\ning transformer-based video diffusion models. STG em-\nploys an implicit weak model via self-perturbation, avoid-\ning the need for external models or additional training. By\nselectively skipping spatiotemporal layers, STG produces\nan aligned, degraded version of the original model to boost\nsample quality without compromising diversity or dynamic\ndegree. Our contributions include: (1) introducing STG as\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n11006\n\nan efficient, high-performing guidance technique for video\ndiffusion models, (2) eliminating the need for auxiliary\nmodels by simulating a weak model through layer skip-\nping, and (3) ensuring quality-enhanced guidance without\ncompromising sample diversity or dynamics unlike CFG.\nFor additional results, visit https://junhahyung.\ngithub.io/STGuidance/.",
+    "introduction": "1. Introduction\nDiffusion models [11, 30–32] are a successful class of gen-\nerative models known for their flexibility in modeling com-\nplex data distributions, achieving impressive results in im-\nage, video, and 3D generation. By progressively denoising\nrandom noise, they enable robust generalization, making\nthem a leading choice for realistic content generation and\noften surpassing GAN-based methods [5, 9, 18, 29]. Build-\ning on this success, video diffusion models [4, 12, 27, 33,\n38] generate high-quality videos by using temporal or 3D\nattention layers to handle sequential frames.\nMeanwhile, to enhance sample quality, sampling\nguidance techniques such as Classifier-Free Guidance\n(CFG) [10] and Autoguidance [19] have been introduced\nto guide the denoising process. These techniques employ\nweak models to predict poor trajectories, steering the main\nmodel away from them and pushing samples toward high-\nquality regions on the data manifold. However, CFG often\nreduces diversity, leading to saturated or overly simplified\nresults [6, 19].\nAutoguidance [19] addresses this issue by using a weak\nmodel trained on the same task, conditioning, and data dis-\ntribution as the main model. The main drawback of this\napproach, however, is the need to train an additional weak\nmodel, which is impractical for large-scale models. Alter-\nnative methods such as PAG [1] and SEG [13] use self-\nperturbation to implicitly mimic a weak model, avoiding\nthe need for extra training. Yet, these methods are designed\nspecifically for image generation diffusion models, apply-\ning self-perturbation to 2D spatial attention maps.\nIn this work, we propose Spatiotemporal Skip Guid-\nance (STG), a simple and effective sampling guidance\nmethod for video diffusion models that significantly en-\nhances the performance of any transformer-based video\ndiffusion model without additional training. Specifically,\nwe use an implicit weak model for guidance through self-\nperturbation, eliminating the need for explicit weak models\nand their associated training costs. This is especially crucial\nfor video diffusion models, where training costs are high.\nOur implicit weak model, a key component of our frame-\nwork, is deliberately designed as a degraded but “aligned”\nversion of the original video generation model. As demon-\nstrated in Autoguidance [19], having the weak model share\nthe same task, conditioning, and data distribution as the\n1\nHigh\nQuality\nLow\nQuality\n1\n\n1\n1\ng\nCFG Ours\nFigure 2. Comparison between CFG and STG, with the band con-\nceptually representing the noisy data manifold. In STG, the weak\nmodel and the main model are aligned along the direction of in-\ncreasing quality. In contrast, the two models in CFG differ not\nonly in quality but also in aspects such as diversity and prompt\nalignment capabilities.\nmain model is essential for quality improvement, as we ex-\npect both models to exhibit similar, aligned errors in the\nsame parts of samples. We conceptually illustrate this align-\nment in Fig. 2, where our weak model and main model are\narranged in a direction of increasing quality. To achieve\nthis, we apply spatiotemporal perturbation to both spatial\nand temporal attention layers—or, in the case of 3D atten-\ntion, to the entire layer—by selectively skipping certain lay-\ners. This straightforward approach effectively nullifies spe-\ncific residual or attention layers, generating a lower-quality\nversion of the model that simulates an aligned weak model.\nTo ensure samples remain on the data manifold, even\nwhen using large guidance scales, we employ optional tech-\nniques such as the rescaling [21] and restart [36] methods.\nRescaling the latent code constrains its variance, address-\ning the issue of larger variance causing saturation in the re-\nsults [21]. Meanwhile, the restart sampling technique lever-\nages the error contraction property of forward SDEs [36] to\nkeep the sampling trajectory on the manifold. These tech-\nniques help prevent overshooting in the sampling trajectory,\nwhich could otherwise push samples off the manifold and\nresult in saturated or distorted outputs.\nOur key contributions are as follows:\n• We propose STG—a surprisingly simple sampling guid-\nance framework that significantly boosts the performance\nof video diffusion models.\n• Our method introduces an implicit weak model by skip-\nping spatiotemporal layers in video diffusion models,\neliminating the need for additional training or external\nmodels.\n• Our method enhances sample quality during guidance\nwithout reducing diversity or limiting the dynamics of\ngenerated videos.\n11007",
+    "method": "4. Method",
+    "experiments": "5. Experiments",
+    "conclusion": "6. Conclusion\nWe proposed Spatiotemporal Skip Guidance (STG), a sim-\nple, training-free method for video diffusion models. By\nsimulating an aligned weak model via spatiotemporal skip-\nping, STG offers strong guidance for high-fidelity video\ngeneration, achieving notable qualitative and quantitative\nimprovements. We hope this work advances video diffusion\nmodels and inspires further research in the field.\nLimitation and Ethical Considerations STG’s perfor-\nmance depends on scale and layer selection, with the op-\ntimal configuration varying across models, requiring users\nto set these through heuristic tuning. While video qual-\nity improvements are notable, they also raise ethical con-\ncerns about misuse, underscoring the importance of using\nthis technology responsibly and constructively."
+  }
+}

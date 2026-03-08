@@ -1,0 +1,100 @@
+{
+  "paper_id": "fds-frequency-aware-denoising-score-for-text-guided-latent-diffusion-image-editi--a442a0e32c",
+  "paper_title": "FDS: Frequency-Aware Denoising Score for Text-Guided Latent Diffusion Image Editing",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:41.362054+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/FDS： Frequency-Aware Denoising Score for Text-Guided Latent Diffusion Image Editing.pdf",
+    "filename": "FDS： Frequency-Aware Denoising Score for Text-Guided Latent Diffusion Image Editing.pdf",
+    "sha1": "a442a0e32ca6d3a39abd0781065a239e95d452c3",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "We identify that these limitations arise from two primary challenges.",
+    "limitation": "However, they still struggle with ﬁne-grained control over edits.",
+    "insight": "Abstract Text-guided image editing using Text-to-Image (T2I) models often fails to yield satisfactory results, frequently introduc- ing unintended modiﬁcations, such as the loss of local detail and color changes.",
+    "proposed_method": "Our method leverages wavelets to decompose images into different spatial reso- lutions across multiple frequency bands, enabling precise †: Corresponding author. modiﬁcations at various levels of detail.",
+    "experimental_evidence": "Quan- titative evaluations and user studies demonstrate the effec- tiveness of our method in producing high-quality and pre- cise edits.",
+    "summary": "We identify that these limitations arise from two primary challenges. However, they still struggle with ﬁne-grained control over edits. Abstract Text-guided image editing using Text-to-Image (T2I) models often fails to yield satisfactory results, frequently introduc- ing unintended modiﬁcations, such as the loss of local detail and color changes. Our method leverages wavelets to decompose images into different spatial reso- lutions across multiple frequency bands, enabling precise †: Corresponding author. modiﬁcations at various levels of detail. Quan- titative evaluations and user studies demonstrate the effec- tiveness of our method in producing high-quality and pre- cise edits."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Recent advances in Text-to-Image (T2I) models, such as DALL-E 2 [39] and Latent Diffusion Models (LDMs) [ 40], have signiﬁcantly advanced the ﬁeld of text-based im- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "1. Introduction\nRecent advances in Text-to-Image (T2I) models, such as\nDALL-E 2 [39] and Latent Diffusion Models (LDMs) [ 40],\nhave signiﬁcantly advanced the ﬁeld of text-based im-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n2651"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Despite these advances, achieving precise text-guided image editing with T2I models remains chal- lenging.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "age generation. Despite these advances, achieving precise\ntext-guided image editing with T2I models remains chal-\nlenging. Existing methods, including DreamFusion [ 37]\nwith its Score Distillation Sampling (SDS) technique and\nsubsequent enhancements such as Delta Denoising Score\n(DDS) [17] and Contrastive Distillation Score (CDS) [ 34],\nhave made notable progress. However, they still struggle\nwith ﬁne-grained control over edits. In particular, they of-\nten fail to preserve high-frequency details or alter the color,\nleading to unsatisfactory results in tasks that require pre-\ncise modiﬁcations. For example, as shown in Fig. 1, when\nDDS is used to transform “a cup of coffee” into “a cup of\nmatcha”, intricate latte art details are often unintentionally\nremoved; converting a drawing of “a gray cat” into “a gray\nfox” changes the cat’s color to reddish-brown, likely due to\ndata bias, despite specifying the color “gray” in the prompt.\nWe identify that these limitations arise from two primary\nchallenges. First, language-vision models struggle to dis-\nentangle complex attributes [ 1, 29, 38], which hinders the\nfaithful preservation of source image attributes that should\nremain unchanged (e."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "5.3. Comparing Other Frequency Methods",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, they still struggle with ﬁne-grained control over edits.",
+      "However, fundamentally improving this aspect is resource-intensive and may require retraining a more robust text-image model with better annotated paired data."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this, we intro- duce a simple yet effective approach that enables the selec- tive optimization of speciﬁc frequency bands within local- ized spatial regions for precise edits.",
+      "Our method leverages wavelets to decompose images into different spatial reso- lutions across multiple frequency bands, enabling precise †: Corresponding author. modiﬁcations at various levels of detail.",
+      "Additionally, we extend our method to 3D texture editing by performing frequency decomposition on the triplane representation, en- abling frequency-aware adjustments for 3D textures.",
+      "Quan- titative evaluations and user studies demonstrate the effec- tiveness of our method in producing high-quality and pre- cise edits.",
+      "In this work, we propose a simple yet effective approach that enhances text-guided image editing by revisiting clas- sical frequency domain techniques.",
+      "Addi- tionally, we extend our method to 3D texture editing and propose a frequency-aware texture editing method that uses a frequency-decomposed triplane representation [ 5].",
+      "Our contributions are as follows: • We identify issues with local detail preservation and color ﬁdelity in score distillation-based image editing methods, and attribute these issues to indiscriminate optimization across all frequency subbands. • We propose a novel text-guided image editing method that leverages frequency domain techniques to provide precise control within the frequency domain. • We demonstrate that selectively optimizing speciﬁc fre- quency subbands leads to better preservation of image de- tails and color ﬁdelity compared to baseline methods. • We introduce a frequency-decomposed triplane represen- tation tailored for 3D texture editing. • We provide an analysis of different frequency domain techniques and offer a guideline on their application to the text-guided image editing task.",
+      "Experiments In this section, we evaluate the effectiveness of our method in both 2D image editing and 3D texture editing.",
+      "To address this, we propose a frequency-aware denoising score that utilizes the discrete wavelet transform to selectively optimize speciﬁc frequency subbands."
+    ],
+    "experiment_expression": [
+      "Quan- titative evaluations and user studies demonstrate the effec- tiveness of our method in producing high-quality and pre- cise edits.",
+      "For example, as shown in Fig.",
+      "Our contributions are as follows: • We identify issues with local detail preservation and color ﬁdelity in score distillation-based image editing methods, and attribute these issues to indiscriminate optimization across all frequency subbands. • We propose a novel text-guided image editing method that leverages frequency domain techniques to provide precise control within the frequency domain. • We demonstrate that selectively optimizing speciﬁc fre- quency subbands leads to better preservation of image de- tails and color ﬁdelity compared to baseline methods. • We introduce a frequency-decomposed triplane represen- tation tailored for 3D texture editing. • We provide an analysis of different frequency domain techniques and offer a guideline on their application to the text-guided image editing task."
+    ],
+    "contribution_expression": [
+      "Our contributions are as follows: • We identify issues with local detail preservation and color ﬁdelity in score distillation-based image editing methods, and attribute these issues to indiscriminate optimization across all frequency subbands. • We propose a novel text-guided image editing method that leverages frequency domain techniques to provide precise control within the frequency domain. • We demonstrate that selectively optimizing speciﬁc fre- quency subbands leads to better preservation of image de- tails and color ﬁdelity compared to baseline methods. • We introduce a frequency-decomposed triplane represen- tation tailored for 3D texture editing. • We provide an analysis of different frequency domain techniques and offer a guideline on their application to the text-guided image editing task."
+    ]
+  },
+  "notable_sentences": [
+    "For example, as shown in Fig.",
+    "However, fundamentally improving this aspect is resource-intensive and may require retraining a more robust text-image model with better annotated paired data.",
+    "However, they still struggle with ﬁne-grained control over edits.",
+    "In this work, we propose a simple yet effective approach that enhances text-guided image editing by revisiting clas- sical frequency domain techniques.",
+    "Our contributions are as follows: • We identify issues with local detail preservation and color ﬁdelity in score distillation-based image editing methods, and attribute these issues to indiscriminate optimization across all frequency subbands. • We propose a novel text-guided image editing method that leverages frequency domain techniques to provide precise control within the frequency domain. • We demonstrate that selectively optimizing speciﬁc fre- quency subbands leads to better preservation of image de- tails and color ﬁdelity compared to baseline methods. • We introduce a frequency-decomposed triplane represen- tation tailored for 3D texture editing. • We provide an analysis of different frequency domain techniques and offer a guideline on their application to the text-guided image editing task.",
+    "To address this, we propose a frequency-aware denoising score that utilizes the discrete wavelet transform to selectively optimize speciﬁc frequency subbands.",
+    "Abstract Text-guided image editing using Text-to-Image (T2I) models often fails to yield satisfactory results, frequently introduc- ing unintended modiﬁcations, such as the loss of local detail and color changes.",
+    "Addi- tionally, we extend our method to 3D texture editing and propose a frequency-aware texture editing method that uses a frequency-decomposed triplane representation [ 5].",
+    "Additionally, we extend our method to 3D texture editing by performing frequency decomposition on the triplane representation, en- abling frequency-aware adjustments for 3D textures.",
+    "Although all three decomposi- tion methods enable frequency separation, already improv- ing upon DDS, we ﬁnd that the superior localization ca- pability of wavelets makes them a better choice in certain cases.",
+    "Comparing Other Frequency Methods Wavelets provide distinct advantages over other frequency decomposition methods, such as superior spatial localiza- tion and multiresolution decomposition capabilities.",
+    "Conclusion In this paper, we identify the issue of indiscriminate opti- mization across all frequency subbands in score distillation text-guided image editing."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nText-guided image editing using Text-to-Image (T2I) models\noften fails to yield satisfactory results, frequently introduc-\ning unintended modiﬁcations, such as the loss of local detail\nand color changes. In this paper , we analyze these failure\ncases and attribute them to the indiscriminate optimization\nacross all frequency bands, even though only speciﬁc fre-\nquencies may require adjustment. To address this, we intro-\nduce a simple yet effective approach that enables the selec-\ntive optimization of speciﬁc frequency bands within local-\nized spatial regions for precise edits. Our method leverages\nwavelets to decompose images into different spatial reso-\nlutions across multiple frequency bands, enabling precise\n†: Corresponding author.\nmodiﬁcations at various levels of detail. To extend the ap-\nplicability of our approach, we provide a comparative anal-\nysis of different frequency-domain techniques. Additionally,\nwe extend our method to 3D texture editing by performing\nfrequency decomposition on the triplane representation, en-\nabling frequency-aware adjustments for 3D textures. Quan-\ntitative evaluations and user studies demonstrate the effec-\ntiveness of our method in producing high-quality and pre-\ncise edits. Further details are available on our project web-\nsite: https://ivrl.github.io/fds-webpage/",
+    "introduction": "1. Introduction\nRecent advances in Text-to-Image (T2I) models, such as\nDALL-E 2 [39] and Latent Diffusion Models (LDMs) [ 40],\nhave signiﬁcantly advanced the ﬁeld of text-based im-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n2651\n\nage generation. Despite these advances, achieving precise\ntext-guided image editing with T2I models remains chal-\nlenging. Existing methods, including DreamFusion [ 37]\nwith its Score Distillation Sampling (SDS) technique and\nsubsequent enhancements such as Delta Denoising Score\n(DDS) [17] and Contrastive Distillation Score (CDS) [ 34],\nhave made notable progress. However, they still struggle\nwith ﬁne-grained control over edits. In particular, they of-\nten fail to preserve high-frequency details or alter the color,\nleading to unsatisfactory results in tasks that require pre-\ncise modiﬁcations. For example, as shown in Fig. 1, when\nDDS is used to transform “a cup of coffee” into “a cup of\nmatcha”, intricate latte art details are often unintentionally\nremoved; converting a drawing of “a gray cat” into “a gray\nfox” changes the cat’s color to reddish-brown, likely due to\ndata bias, despite specifying the color “gray” in the prompt.\nWe identify that these limitations arise from two primary\nchallenges. First, language-vision models struggle to dis-\nentangle complex attributes [ 1, 29, 38], which hinders the\nfaithful preservation of source image attributes that should\nremain unchanged (e.g., the fox’s color in Fig. 1). However,\nfundamentally improving this aspect is resource-intensive\nand may require retraining a more robust text-image model\nwith better annotated paired data. Second, and more di-\nrectly, T2I editing models are hindered by indiscriminate\noptimization across all frequency subbands during editing,\noften causing unintended alterations (both cases in Fig. 1).\nTherefore, providing additional levels of controllability in\nthe frequency domain for text-guided editing is needed.\nIn this work, we propose a simple yet effective approach\nthat enhances text-guided image editing by revisiting clas-\nsical frequency domain techniques. We introduce a method\nthat decomposes images into frequency subbands [ 11], en-\nabling selective optimization of each. We showcase the ben-\neﬁt of frequency-awareness for editing in two cases: local\ndetail preservation and color ﬁdelity preservation. This se-\nlective optimization provides more precise control over the\nediting process and leads to more satisfying results. Addi-\ntionally, we extend our method to 3D texture editing and\npropose a frequency-aware texture editing method that uses\na frequency-decomposed triplane representation [ 5]. This\nextension enhances frequency awareness, improving both\ncolor ﬁdelity and the preservation of high-frequency details\nin textures. Our contributions are as follows:\n• We identify issues with local detail preservation and color\nﬁdelity in score distillation-based image editing methods,\nand attribute these issues to indiscriminate optimization\nacross all frequency subbands.\n• We propose a novel text-guided image editing method\nthat leverages frequency domain techniques to provide\nprecise control within the frequency domain.\n• We demonstrate that selectively optimizing speciﬁc fre-\nquency subbands leads to better preservation of image de-\ntails and color ﬁdelity compared to baseline methods.\n• We introduce a frequency-decomposed triplane represen-\ntation tailored for 3D texture editing.\n• We provide an analysis of different frequency domain\ntechniques and offer a guideline on their application to\nthe text-guided image editing task.",
+    "method": "5.3. Comparing Other Frequency Methods\nWavelets provide distinct advantages over other frequency\ndecomposition methods, such as superior spatial localiza-\ntion and multiresolution decomposition capabilities. We\ncompare wavelets with DFT and DCT in Fig. 8. Regard-\ning the DFT and DCT parameters, we select a frequency\nthreshold that achieves high-low frequency separation sim-\nilar to ours (original row). Although all three decomposi-\ntion methods enable frequency separation, already improv-\ning upon DDS, we ﬁnd that the superior localization ca-\npability of wavelets makes them a better choice in certain\ncases.",
+    "experiments": "4. Experiments\nIn this section, we evaluate the effectiveness of our method\nin both 2D image editing and 3D texture editing. We be-\ngin by introducing our baseline methods and experimental\nprotocols. Next, we report qualitative and quantitative com-\nparisons. Finally, we present the results from a user study.",
+    "conclusion": "6. Conclusion\nIn this paper, we identify the issue of indiscriminate opti-\nmization across all frequency subbands in score distillation\ntext-guided image editing. To address this, we propose a\nfrequency-aware denoising score that utilizes the discrete\nwavelet transform to selectively optimize speciﬁc frequency\nsubbands. This approach achieves improved preservation\nof high-frequency details and enhances color consistency.\nWe hope our proposed method will pave the way for ﬁne-\ngrained, controllable image and texture editing.\n2658"
+  }
+}

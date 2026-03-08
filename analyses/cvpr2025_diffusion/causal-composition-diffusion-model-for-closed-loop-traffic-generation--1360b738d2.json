@@ -1,0 +1,94 @@
+{
+  "paper_id": "causal-composition-diffusion-model-for-closed-loop-traffic-generation--1360b738d2",
+  "paper_title": "Causal Composition Diffusion Model for Closed-loop Traffic Generation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:12.087420+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Causal Composition Diffusion Model for Closed-loop Traffic Generation.pdf",
+    "filename": "Causal Composition Diffusion Model for Closed-loop Traffic Generation.pdf",
+    "sha1": "1360b738d2442980025dfee4f7cc678831f257ed",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "How- ever, balancing realism with controllability remains a signiﬁ- cant challenge.",
+    "limitation": "Introduction Reliable closed-loop trafﬁc simulation is essential for assess- ing autonomous vehicle (A V) safety in diverse and complex scenarios [1–5].",
+    "insight": "Abstract Simulation is critical for safety evaluation in autonomous driving, particularly in capturing complex interactive behav- iors.",
+    "proposed_method": "In this work, we introduce the Causal Compositional Diffusion Model (CCDiff), a structure-guided diffusion framework to address these challenges.",
+    "experimental_evidence": "Through rigorous evalua- tions on benchmark datasets and in a closed-loop simulator , CCDiff demonstrates substantial gains over state-of-the-art approaches in generating realistic and user-preferred trajec- tories.",
+    "summary": "How- ever, balancing realism with controllability remains a signiﬁ- cant challenge. Introduction Reliable closed-loop trafﬁc simulation is essential for assess- ing autonomous vehicle (A V) safety in diverse and complex scenarios [1–5]. Abstract Simulation is critical for safety evaluation in autonomous driving, particularly in capturing complex interactive behav- iors. In this work, we introduce the Causal Compositional Diffusion Model (CCDiff), a structure-guided diffusion framework to address these challenges. Through rigorous evalua- tions on benchmark datasets and in a closed-loop simulator , CCDiff demonstrates substantial gains over state-of-the-art approaches in generating realistic and user-preferred trajec- tories."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Reliable closed-loop trafﬁc simulation is essential for assess- ing autonomous vehicle (A V) safety in diverse and complex scenarios [1–5].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Reliable closed-loop trafﬁc simulation is essential for assess- ing autonomous vehicle (A V) safety in diverse and complex scenarios [1–5]. Simulations must be both realistic, captur- ing the intricacies of real-world driving, and controllable, allowing customization aligned with user preferences. How- ever, balancing realism with controllability remains a signiﬁ- cant challenge. Previous works often prioritize one aspect, optimizing either realism or user-speciﬁed objectives [ 3, 5]."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "How to jointly achieve both objectives under safety-critical conditions remains fruitful yet unresolved. *This work was done when Haohong was an intern at Cruise LLC.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "How to jointly achieve both objectives under safety-critical conditions remains fruitful yet unresolved. *This work was done when Haohong was an intern at Cruise LLC. Safety-critical ✅Safety-critical ❌Realistic ✅Realistic ❌ Model: STRIVEModel: CTG Model: TrafficSimModel: CCDiff1371371371375555"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Abstract Simulation is critical for safety evaluation in autonomous driving, particularly in capturing complex interactive behav- iors.",
+      "Existing generative models suffer from the conﬂicting objective between user-deﬁned controllability and realism constraints, which is ampliﬁed in safety-critical contexts.",
+      "How to jointly achieve both objectives under safety-critical conditions remains fruitful yet unresolved. *This work was done when Haohong was an intern at Cruise LLC.",
+      "Safety-critical ✅Safety-critical ❌Realistic ✅Realistic ❌ Model: STRIVEModel: CTG Model: TrafficSimModel: CCDiff1371371371375555 4.",
+      "Experiment In the following parts of the experiments, we aim to answer the following three research questions ( RQs): RQ1: Un- der different sizes of total controllable agents, how are the realism and controllability of the safety-critical scenarios generated by CCDiff compared to the baselines?",
+      "RQ2: With a longer generation horizon and lower frequency, how are the realism and controllability of the safety-critical scenarios generated by CCDiff compared to the baselines?",
+      "Conclusion In this paper, we propose CCDiff, a causal composition diffu- sion model that aims to improve the controllability and real- ism in closed-loop safety-critical scenario generation for au- tonomous driving.",
+      "CCDiff uses both interventional classiﬁer-free guidance and masked classiﬁer guidance to improve controllability in safety-critical scenario generation."
+    ],
+    "limitation_expression": [
+      "However , generatingrealistic and controllable trafﬁc scenarios in long-tail situations remains a signiﬁcant chal- lenge."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Conclusion In this paper, we propose CCDiff, a causal composition diffu- sion model that aims to improve the controllability and real- ism in closed-loop safety-critical scenario generation for au- tonomous driving."
+    ],
+    "experiment_expression": [],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion In this paper, we propose CCDiff, a causal composition diffu- sion model that aims to improve the controllability and real- ism in closed-loop safety-critical scenario generation for au- tonomous driving.",
+    "However , generatingrealistic and controllable trafﬁc scenarios in long-tail situations remains a signiﬁcant chal- lenge.",
+    "Abstract Simulation is critical for safety evaluation in autonomous driving, particularly in capturing complex interactive behav- iors.",
+    "CCDiff uses both interventional classiﬁer-free guidance and masked classiﬁer guidance to improve controllability in safety-critical scenario generation.",
+    "Existing generative models suffer from the conﬂicting objective between user-deﬁned controllability and realism constraints, which is ampliﬁed in safety-critical contexts.",
+    "F or more details, welcome to check our project website.",
+    "Finally, we conduct ablation studies to show the effect of individual modules in CCDiff.",
+    "How to jointly achieve both objectives under safety-critical conditions remains fruitful yet unresolved. *This work was done when Haohong was an intern at Cruise LLC.",
+    "How- ever, balancing realism with controllability remains a signiﬁ- cant challenge.",
+    "In multi-agent generation and long-horizon gen- eration settings, CCDiff outperforms SOTA methods over nuScenes data in closed-loop evaluation.",
+    "In this work, we introduce the Causal Compositional Diffusion Model (CCDiff), a structure-guided diffusion framework to address these challenges.",
+    "Introduction Reliable closed-loop trafﬁc simulation is essential for assess- ing autonomous vehicle (A V) safety in diverse and complex scenarios [1–5]."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nSimulation is critical for safety evaluation in autonomous\ndriving, particularly in capturing complex interactive behav-\niors. However , generatingrealistic and controllable trafﬁc\nscenarios in long-tail situations remains a signiﬁcant chal-\nlenge. Existing generative models suffer from the conﬂicting\nobjective between user-deﬁned controllability and realism\nconstraints, which is ampliﬁed in safety-critical contexts. In\nthis work, we introduce the Causal Compositional Diffusion\nModel (CCDiff), a structure-guided diffusion framework to\naddress these challenges. We ﬁrst formulate the learning\nof controllable and realistic closed-loop simulation as a\nconstrained optimization problem. Then, CCDiff maximizes\ncontrollability while adhering to realism by automatically\nidentifying and injecting causal structures directly into the\ndiffusion process, providing structured guidance to enhance\nboth realism and controllability. Through rigorous evalua-\ntions on benchmark datasets and in a closed-loop simulator ,\nCCDiff demonstrates substantial gains over state-of-the-art\napproaches in generating realistic and user-preferred trajec-\ntories. Our results show CCDiff’s effectiveness in extracting\nand leveraging causal structures, showing improved closed-\nloop performance based on key metrics such as collision rate,\noff-road rate, FDE, and comfort. F or more details, welcome\nto check our project website.",
+    "introduction": "1. Introduction\nReliable closed-loop trafﬁc simulation is essential for assess-\ning autonomous vehicle (A V) safety in diverse and complex\nscenarios [1–5]. Simulations must be both realistic, captur-\ning the intricacies of real-world driving, and controllable,\nallowing customization aligned with user preferences. How-\never, balancing realism with controllability remains a signiﬁ-\ncant challenge. Previous works often prioritize one aspect,\noptimizing either realism or user-speciﬁed objectives [ 3, 5].\nHow to jointly achieve both objectives under safety-critical\nconditions remains fruitful yet unresolved.\n*This work was done when Haohong was an intern at Cruise LLC.\nSafety-critical\n✅Safety-critical\n❌Realistic\n✅Realistic\n❌\nModel: STRIVEModel: CTG\nModel: TrafficSimModel: CCDiff1371371371375555",
+    "method": "4. Methodology",
+    "experiments": "5. Experiment\nIn the following parts of the experiments, we aim to answer\nthe following three research questions ( RQs): RQ1: Un-\nder different sizes of total controllable agents, how are the\nrealism and controllability of the safety-critical scenarios\ngenerated by CCDiff compared to the baselines? RQ2: With\na longer generation horizon and lower frequency, how are\nthe realism and controllability of the safety-critical scenarios\ngenerated by CCDiff compared to the baselines? RQ3: How\nmuch does the causal reasoning module in CCDiff contribute\nto the overall performance?\nThe remaining parts of the experiment section ﬁrst in-\ntroduce our experiment settings, then compare our methods\nwith baselines in the controllability and realism to answer\nthe research questions. Finally, we conduct ablation studies\nto show the effect of individual modules in CCDiff.",
+    "conclusion": "6. Conclusion\nIn this paper, we propose CCDiff, a causal composition diffu-\nsion model that aims to improve the controllability and real-\nism in closed-loop safety-critical scenario generation for au-\ntonomous driving. Based on the formulation of constrained\nfactored MDP ,CCDiff promotes realism by ﬁrst identifying\nthe underlying causal structure between agents, then incor-\nporating it in the scene encoder and ranking the importance\nof agents based on causal knowledge. CCDiff uses both\ninterventional classiﬁer-free guidance and masked classiﬁer\nguidance to improve controllability in safety-critical scenario\ngeneration. In multi-agent generation and long-horizon gen-\neration settings, CCDiff outperforms SOTA methods over\nnuScenes data in closed-loop evaluation. One limitation of\nthe current work is that the design of the causal reasoning\npipeline relies on hyperparameter tuning and it is hard to\ndirectly evaluate. It would be interesting to construct a trafﬁc\nreasoning benchmark and incorporate a foundation model to\nfurther scale up the trafﬁc reasoning and generation process."
+  }
+}

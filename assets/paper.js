@@ -1,5 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 const paperId = params.get("id");
+const collectionKey = params.get("collection");
 
 function byId(id) {
   return document.querySelector(id);
@@ -73,7 +74,13 @@ async function init() {
   if (!meta) {
     throw new Error(`Unknown paper id: ${paperId}`);
   }
-  const recordResponse = await fetch(`analyses/cvpr2025_first10/${paperId}.json`);
+  const sourcePath =
+    (collectionKey && meta.source_paths && meta.source_paths[collectionKey]) ||
+    (meta.source_paths && meta.source_paths[meta.primary_collection_key]);
+  if (!sourcePath) {
+    throw new Error(`No source path found for ${paperId}`);
+  }
+  const recordResponse = await fetch(sourcePath);
   const record = await recordResponse.json();
 
   document.title = `${record.paper_title} | Elephant Paper Reading`;
@@ -87,7 +94,7 @@ async function init() {
   byId("#count-exp").textContent = `Experiment headings: ${record.experiment_structure.length}`;
 
   const tags = byId("#paper-tags");
-  [meta.theme, meta.dataset, `${record.source.page_count} pages`].forEach((label) => {
+  [meta.theme, ...(meta.collections || []), `${record.source.page_count} pages`].forEach((label) => {
     const chip = document.createElement("span");
     chip.className = "chip";
     chip.textContent = label;

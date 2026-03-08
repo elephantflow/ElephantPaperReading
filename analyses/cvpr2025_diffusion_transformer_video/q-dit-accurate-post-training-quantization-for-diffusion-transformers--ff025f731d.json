@@ -1,0 +1,115 @@
+{
+  "paper_id": "q-dit-accurate-post-training-quantization-for-diffusion-transformers--ff025f731d",
+  "paper_title": "Q-DiT: Accurate Post-Training Quantization for Diffusion Transformers",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:12:45.247167+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_transformer_video_pdfs/Q-DiT： Accurate Post-Training Quantization for Diffusion Transformers.pdf",
+    "filename": "Q-DiT： Accurate Post-Training Quantization for Diffusion Transformers.pdf",
+    "sha1": "ff025f731d7c3cfbc650d8ee2294c8658f6b0e5a",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "These two designs address the aforementioned challenges individually and collaboratively contribute to the proposed quantization framework (see Fig.",
+    "limitation": "However, recent ad- vances have shifted the focus towards diffusion transform- ers (DiTs) [27], and notable examples, including Stable Dif- fusion 3 [8] and Sora [4], have demonstrated its superior performance and scalability for complex generative tasks.",
+    "insight": "However, we observe the non-monotonicity in group sizes, e.g., reducing group size (increasing group number) does not always lead to bet- ter performance.",
+    "proposed_method": "To address these issues, we propose Q-DiT, a novel approach that seamlessly integrates two key techniques: automatic quantization granularity allocation to handle the significant variance of weights and activations across input channels, and sample-wise dynamic activa- tion quantization to adaptively capture activation changes across both timesteps and samples.",
+    "experimental_evidence": "Extensive experiments conducted on ImageNet and VBench demonstrate the effec- tiveness of the proposed Q-DiT.",
+    "summary": "These two designs address the aforementioned challenges individually and collaboratively contribute to the proposed quantization framework (see Fig. However, recent ad- vances have shifted the focus towards diffusion transform- ers (DiTs) [27], and notable examples, including Stable Dif- fusion 3 [8] and Sora [4], have demonstrated its superior performance and scalability for complex generative tasks. However, we observe the non-monotonicity in group sizes, e.g., reducing group size (increasing group number) does not always lead to bet- ter performance. To address these issues, we propose Q-DiT, a novel approach that seamlessly integrates two key techniques: automatic quantization granularity allocation to handle the significant variance of weights and activations across input channels, and sample-wise dynamic activa- tion quantization to adaptively capture activation changes across both timesteps and samples. Extensive experiments conducted on ImageNet and VBench demonstrate the effec- tiveness of the proposed Q-DiT."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Diffusion models [6, 16, 26, 32] have emerged as a power- ful base model for various tasks, ranging from computer *Corresponding author. vision, natural language processing, multi-modal model- ing, etc.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Diffusion models [6, 16, 26, 32] have emerged as a power- ful base model for various tasks, ranging from computer *Corresponding author. vision, natural language processing, multi-modal model- ing, etc. The architectural design of diffusion models has evolved significantly. Traditionally, these models employed UNet [28] architecture due to their efficiency in managing hierarchical feature representations. However, recent ad- vances have shifted the focus towards diffusion transform- ers (DiTs) [27], and notable examples, including Stable Dif- fusion 3 [8] and Sora [4], have demonstrated its superior performance and scalability for complex generative tasks."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Despite their success, a significant limitation of DiTs lies in their inherently high latency in the inference.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Despite their success, a significant limitation of DiTs lies in their inherently high latency in the inference. The itera- tive denoising process, although effective, requires numer- ous sampling steps, making real-time or large-scale applica- tions computationally intensive. Model quantization offers a particularly promising avenue to reduce inference latency, and Post Training Quantization (PTQ) is particularly ap- pealing for large models as it eliminates the need for retrain- ing. However, the application of quantization techniques to transformer-based diffusion models remains limited."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "method_overview",
+      "main_message": "Exist- ing quantization methods for diffusion models [12, 13, 30] primarily focus on UNet architecture and heavily rely on reconstruction-based methods, challenging to scale to large models [21, 25].",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Exist- ing quantization methods for diffusion models [12, 13, 30] primarily focus on UNet architecture and heavily rely on reconstruction-based methods, challenging to scale to large models [21, 25]. In this work, we propose a customized quantization method for DiTs. To achieve this, we first explore the dis- tinct characteristics of DiT models and identify two key is- sues in DiT quantization: significant variance of weights and activations across input channels and varying activa- tions across different timesteps. Therefore, we propose Q- DiT, consisting of a fine-grained group quantization strategy and a dynamic activation quantization strategy."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "key_insight",
+      "main_message": "These two designs address the aforementioned challenges individually and collaboratively contribute to the proposed quantization framework (see Fig.",
+      "writing_strategy": "Introduces an observation that motivates the proposed direction.",
+      "evidence_text": "These two designs address the aforementioned challenges individually and collaboratively contribute to the proposed quantization framework (see Fig. In particular, for the first challenge, a promising solu- tion is group quantization [23, 40] which can manage high- magnitude values at the group level. However, we observe the non-monotonicity in group sizes, e.g., reducing group size (increasing group number) does not always lead to bet- ter performance. Consequently, we employ an evolution- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "5. Method: Q-DiT",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "6. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, research on DiT quantization remains sparse, and existing PTQ frameworks, primarily designed for traditional diffu- sion models, tend to suffer from biased quantization, lead- ing to notable performance degradation.",
+      "However, recent ad- vances have shifted the focus towards diffusion transform- ers (DiTs) [27], and notable examples, including Stable Dif- fusion 3 [8] and Sora [4], have demonstrated its superior performance and scalability for complex generative tasks.",
+      "However, the application of quantization techniques to transformer-based diffusion models remains limited.",
+      "However, we observe the non-monotonicity in group sizes, e.g., reducing group size (increasing group number) does not always lead to bet- ter performance."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address these issues, we propose Q-DiT, a novel approach that seamlessly integrates two key techniques: automatic quantization granularity allocation to handle the significant variance of weights and activations across input channels, and sample-wise dynamic activa- tion quantization to adaptively capture activation changes across both timesteps and samples.",
+      "In this work, we propose a customized quantization method for DiTs.",
+      "Therefore, we propose Q- DiT, consisting of a fine-grained group quantization strategy and a dynamic activation quantization strategy."
+    ],
+    "experiment_expression": [
+      "Extensive experiments conducted on ImageNet and VBench demonstrate the effec- tiveness of the proposed Q-DiT.",
+      "Method: Q-DiT As shown in Fig.",
+      "Extensive experiments have underscored the effectiveness of our ap- proach, showcasing its superiority over existing baselines."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, we observe the non-monotonicity in group sizes, e.g., reducing group size (increasing group number) does not always lead to bet- ter performance.",
+    "Extensive experiments conducted on ImageNet and VBench demonstrate the effec- tiveness of the proposed Q-DiT.",
+    "Extensive experiments have underscored the effectiveness of our ap- proach, showcasing its superiority over existing baselines.",
+    "However, research on DiT quantization remains sparse, and existing PTQ frameworks, primarily designed for traditional diffu- sion models, tend to suffer from biased quantization, lead- ing to notable performance degradation.",
+    "However, the application of quantization techniques to transformer-based diffusion models remains limited.",
+    "In this work, we propose a customized quantization method for DiTs.",
+    "Method: Q-DiT As shown in Fig.",
+    "Therefore, we propose Q- DiT, consisting of a fine-grained group quantization strategy and a dynamic activation quantization strategy.",
+    "1, the proposed Q-DiT involves two novel designs, including automatic quantization granularity allo- cation and dynamic activation quantization.",
+    "2023YFF0905502), National Natural Science Founda- tion of China (Grant No.",
+    "92467204, 62472249, and 62402264), and Shenzhen Science and Technology Program (Grant No.",
+    "Abstract Recent advancements in diffusion models, particularly the architectural transformation from UNet-based models to Diffusion Transformers (DiTs), significantly improve the quality and scalability of image and video generation."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRecent advancements in diffusion models, particularly the\narchitectural transformation from UNet-based models to\nDiffusion Transformers (DiTs), significantly improve the\nquality and scalability of image and video generation. How-\never, despite their impressive capabilities, the substantial\ncomputational costs of these large-scale models pose signif-\nicant challenges for real-world deployment. Post-Training\nQuantization (PTQ) emerges as a promising solution, en-\nabling model compression and accelerated inference for\npretrained models, without the costly retraining. However,\nresearch on DiT quantization remains sparse, and existing\nPTQ frameworks, primarily designed for traditional diffu-\nsion models, tend to suffer from biased quantization, lead-\ning to notable performance degradation. In this work, we\nidentify that DiTs typically exhibit significant spatial vari-\nance in both weights and activations, along with temporal\nvariance in activations. To address these issues, we propose\nQ-DiT, a novel approach that seamlessly integrates two key\ntechniques: automatic quantization granularity allocation\nto handle the significant variance of weights and activations\nacross input channels, and sample-wise dynamic activa-\ntion quantization to adaptively capture activation changes\nacross both timesteps and samples. Extensive experiments\nconducted on ImageNet and VBench demonstrate the effec-\ntiveness of the proposed Q-DiT. Specifically, when quantiz-\ning DiT-XL/2 to W6A8 on ImageNet ( 256 × 256), Q-DiT\nachieves a remarkable reduction in FID by 1.09 compared\nto the baseline. Under the more challenging W4A8 setting,\nit maintains high fidelity in image and video generation, es-\ntablishing a new benchmark for efficient, high-quality quan-\ntization in DiTs.",
+    "introduction": "1. Introduction\nDiffusion models [6, 16, 26, 32] have emerged as a power-\nful base model for various tasks, ranging from computer\n*Corresponding author.\nvision, natural language processing, multi-modal model-\ning, etc. The architectural design of diffusion models has\nevolved significantly. Traditionally, these models employed\nUNet [28] architecture due to their efficiency in managing\nhierarchical feature representations. However, recent ad-\nvances have shifted the focus towards diffusion transform-\ners (DiTs) [27], and notable examples, including Stable Dif-\nfusion 3 [8] and Sora [4], have demonstrated its superior\nperformance and scalability for complex generative tasks.\nDespite their success, a significant limitation of DiTs lies\nin their inherently high latency in the inference. The itera-\ntive denoising process, although effective, requires numer-\nous sampling steps, making real-time or large-scale applica-\ntions computationally intensive. Model quantization offers\na particularly promising avenue to reduce inference latency,\nand Post Training Quantization (PTQ) is particularly ap-\npealing for large models as it eliminates the need for retrain-\ning. However, the application of quantization techniques to\ntransformer-based diffusion models remains limited. Exist-\ning quantization methods for diffusion models [12, 13, 30]\nprimarily focus on UNet architecture and heavily rely on\nreconstruction-based methods, challenging to scale to large\nmodels [21, 25].\nIn this work, we propose a customized quantization\nmethod for DiTs. To achieve this, we first explore the dis-\ntinct characteristics of DiT models and identify two key is-\nsues in DiT quantization: significant variance of weights\nand activations across input channels and varying activa-\ntions across different timesteps. Therefore, we propose Q-\nDiT, consisting of a fine-grained group quantization strategy\nand a dynamic activation quantization strategy. These two\ndesigns address the aforementioned challenges individually\nand collaboratively contribute to the proposed quantization\nframework (see Fig. 1).\nIn particular, for the first challenge, a promising solu-\ntion is group quantization [23, 40] which can manage high-\nmagnitude values at the group level. However, we observe\nthe non-monotonicity in group sizes, e.g., reducing group\nsize (increasing group number) does not always lead to bet-\nter performance. Consequently, we employ an evolution-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "5. Method: Q-DiT\nAs shown in Fig. 1, the proposed Q-DiT involves two novel\ndesigns, including automatic quantization granularity allo-\ncation and dynamic activation quantization. Here we intro-\nduce them in the following parts.",
+    "experiments": "6. Experiments",
+    "conclusion": "7. Conclusion\nOur study presents Q-DiT, a novel post-training quantiza-\ntion framework designed for DiTs. To address the signif-\nTable 6. Comparisons of the proposed search method and potential\ncounterparts.\nSearch method FID ↓ sFID ↓ IS ↑ Precision↑\nGroup size = 128 6.64 19.29 211.27 0.7548\nILP 6.71 19.20 205.54 0.7538\nHessian-based 7.38 19.41 197.48 0.7385\nOurs 6.40 18.60 211.72 0.7609\nicant spatial variance of weights and activations in input\nchannels, we introduced an automatic quantization gran-\nularity allocation method. Furthermore, to manage varia-\ntions in activation ranges across different timesteps, we im-\nplemented dynamic activation quantization that adaptively\nadjusts quantization parameters during runtime. Extensive\nexperiments have underscored the effectiveness of our ap-\nproach, showcasing its superiority over existing baselines.\nNotably, even when quantizing the model to W4A8 on the\nImageNet 256×256 dataset, the FID increased by only 1.09.\nLimitations and future work. One of the primary limita-\ntions of the current Q-DiT approach is its reliance on evolu-\ntionary algorithms to determine the optimal group size con-\nfiguration for quantization. This process is computationally\nexpensive and time-consuming, increasing the overall cost\nand duration of optimization. We plan to optimize this part\nin the future work.\nAcknowledgements\nThis work is supported by National Key Research\nand Development Project of China (Grant No.\n2023YFF0905502), National Natural Science Founda-\ntion of China (Grant No. 92467204, 62472249, and\n62402264), and Shenzhen Science and Technology\nProgram (Grant No. JCYJ20220818101014030 and\nKJZD20240903102300001)."
+  }
+}

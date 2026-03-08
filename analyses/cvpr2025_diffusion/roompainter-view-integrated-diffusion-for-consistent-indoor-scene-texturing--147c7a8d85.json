@@ -1,0 +1,95 @@
+{
+  "paper_id": "roompainter-view-integrated-diffusion-for-consistent-indoor-scene-texturing--147c7a8d85",
+  "paper_title": "RoomPainter: View-Integrated Diffusion for Consistent Indoor Scene Texturing",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:25.608169+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/RoomPainter： View-Integrated Diffusion for Consistent Indoor Scene Texturing.pdf",
+    "filename": "RoomPainter： View-Integrated Diffusion for Consistent Indoor Scene Texturing.pdf",
+    "sha1": "147c7a8d85cb6975f4bfa8697b6ebc879665c38d",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Although existing indoor texture syn- thesis methods produce high-quality results, they face sev- eral significant challenges.",
+    "limitation": "Introduction High-quality 3D content synthesis is in great demand, ow- ing to its diverse applications across the entertainment in- dustry, robotic simulation and mixed-reality environments.",
+    "insight": "Abstract Indoor scene texture synthesis has garnered significant in- terest due to its important potential applications in virtual reality, digital media and creative arts.",
+    "proposed_method": "Specifically, we introduce Attention-Guided Multi-View Integrated Sam- pling (MVIS) combined with a neighbor-integrated atten- tion mechanism for zero-shot texture map generation.",
+    "experimental_evidence": "Experiments demonstrate that RoomPainter achieves superior perfor- mance for indoor scene texture synthesis in visual quality, global consistency and generation efficiency.",
+    "summary": "Although existing indoor texture syn- thesis methods produce high-quality results, they face sev- eral significant challenges. Introduction High-quality 3D content synthesis is in great demand, ow- ing to its diverse applications across the entertainment in- dustry, robotic simulation and mixed-reality environments. Abstract Indoor scene texture synthesis has garnered significant in- terest due to its important potential applications in virtual reality, digital media and creative arts. Specifically, we introduce Attention-Guided Multi-View Integrated Sam- pling (MVIS) combined with a neighbor-integrated atten- tion mechanism for zero-shot texture map generation. Experiments demonstrate that RoomPainter achieves superior perfor- mance for indoor scene texture synthesis in visual quality, global consistency and generation efficiency."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction High-quality 3D content synthesis is in great demand, ow- ing to its diverse applications across the entertainment in- dustry, robotic simulation and mixed-reality environments.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction High-quality 3D content synthesis is in great demand, ow- ing to its diverse applications across the entertainment in- dustry, robotic simulation and mixed-reality environments. The design of indoor scene typically requires professionals to spend dozens of hours to complete. Generating texture for indoor scene through automated methods can signifi- cantly reduce labor costs and save time. With the advance- ment of text-to-image diffusion models [28, 30, 33, 34], large-scale indoor scene texture synthesis has made sig- nificant progress."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Although existing indoor texture syn- thesis methods produce high-quality results, they face sev- eral significant challenges.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Although existing indoor texture syn- thesis methods produce high-quality results, they face sev- eral significant challenges. Specifically, these methods can be categorized into two groups: inpainting-based meth- ods [6, 32] and optimization-based methods [7, 24, 48]. This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "574 Inpainting-based methods utilize depth-to-image diffusion",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, due to their per- view inpainting strategy, these approaches often result in inconsistencies in texture style across instances within the room and fail to effectively address the loop-closure prob- lem.",
+      "However, the optimiza- tion process incurs significant time costs for indoor scene texture synthesis, due to the introduction of a large number of learnable parameters and also prone to issue of training instability."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address these challenges, we propose an ef- ficient and high-fidelity indoor scene texturing framework, dubbed RoomPainter.",
+      "The main contributions of our work are summarized be- low: • We propose RoomPainter, an effective framework for indoor scene texture synthesis that excels in producing consistent, high-quality texture with remarkable time ef- ficiency. • We introduce Multi-View Integrated Sampling (MVIS), a zero-shot technique that leverages view-weighted texture rectification and related view-based attention to generate global consistent texture map using 2D diffusion model. • We further present Multi-View Integrated Repaint Sam- pling (MVRS), which simultaneously refines the textured areas and inpaints the occlusion areas based on their context, thereby facilitates fine-detailed texture synthesis with local consistency. • We conduct extensive experiments and compare our method with strong baselines.",
+      "The results demonstrate that our method not only achieves superior performance in visual quality for indoor scene texture synthesis but also excels in generation efficiency.",
+      "In contrast, our method generates high-quality texture while preserving overall style consistency across instances in the scene.",
+      "Conclusion We propose an indoor scene texturing framework named RoomPainter that generates high-quality texture with multi- view consistency and time efficiency."
+    ],
+    "experiment_expression": [
+      "Experiments demonstrate that RoomPainter achieves superior perfor- mance for indoor scene texture synthesis in visual quality, global consistency and generation efficiency.",
+      "The main contributions of our work are summarized be- low: • We propose RoomPainter, an effective framework for indoor scene texture synthesis that excels in producing consistent, high-quality texture with remarkable time ef- ficiency. • We introduce Multi-View Integrated Sampling (MVIS), a zero-shot technique that leverages view-weighted texture rectification and related view-based attention to generate global consistent texture map using 2D diffusion model. • We further present Multi-View Integrated Repaint Sam- pling (MVRS), which simultaneously refines the textured areas and inpaints the occlusion areas based on their context, thereby facilitates fine-detailed texture synthesis with local consistency. • We conduct extensive experiments and compare our method with strong baselines.",
+      "The results demonstrate that our method not only achieves superior performance in visual quality for indoor scene texture synthesis but also excels in generation efficiency.",
+      "Qualitative and quanti- tative results demonstrate the effectiveness of RoomPainter in indoor scene texturing, especially in global consistency and generation efficiency."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion We propose an indoor scene texturing framework named RoomPainter that generates high-quality texture with multi- view consistency and time efficiency.",
+    "However, due to their per- view inpainting strategy, these approaches often result in inconsistencies in texture style across instances within the room and fail to effectively address the loop-closure prob- lem.",
+    "However, the optimiza- tion process incurs significant time costs for indoor scene texture synthesis, due to the introduction of a large number of learnable parameters and also prone to issue of training instability.",
+    "The main contributions of our work are summarized be- low: • We propose RoomPainter, an effective framework for indoor scene texture synthesis that excels in producing consistent, high-quality texture with remarkable time ef- ficiency. • We introduce Multi-View Integrated Sampling (MVIS), a zero-shot technique that leverages view-weighted texture rectification and related view-based attention to generate global consistent texture map using 2D diffusion model. • We further present Multi-View Integrated Repaint Sam- pling (MVRS), which simultaneously refines the textured areas and inpaints the occlusion areas based on their context, thereby facilitates fine-detailed texture synthesis with local consistency. • We conduct extensive experiments and compare our method with strong baselines.",
+    "To address these challenges, we propose an ef- ficient and high-fidelity indoor scene texturing framework, dubbed RoomPainter.",
+    "574 Inpainting-based methods utilize depth-to-image diffusion models [33, 55] to progressively generate texture for neigh- boring views, with the guidance of reference geometry and previously generated views.",
+    "578 “A Chinese style master bedroom” “A sunset glown style master bedroom” Text2Tex-H Text2Tex-C SceneTex Ours Figure 4.",
+    "Abstract Indoor scene texture synthesis has garnered significant in- terest due to its important potential applications in virtual reality, digital media and creative arts.",
+    "Although existing indoor texture syn- thesis methods produce high-quality results, they face sev- eral significant challenges.",
+    "By leveraging the carefully designed modules including view-weighted tex- ture rectification and related view-based attention, proposed view-integrated diffusion preserves the cross-view consis- tency during the diffusion process.",
+    "Ceilings and back-facing walls are excluded for improved visualizations.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nIndoor scene texture synthesis has garnered significant in-\nterest due to its important potential applications in virtual\nreality, digital media and creative arts. Existing diffusion-\nmodel-based researches either rely on per-view inpainting\ntechniques, which are plagued by severe cross-view incon-\nsistencies and conspicuous seams, or adopt optimization-\nbased approaches that involve substantial computational\noverhead. In this work, we present RoomPainter, a frame-\nwork that seamlessly integrates efficiency and consistency\nto achieve high-fidelity texturing of indoor scenes. The core\nof RoomPainter features a zero-shot technique that effec-\ntively adapts a 2D diffusion model for 3D-consistent tex-\nture synthesis, along with a two-stage generation strategy\nthat ensures both global and local consistency. Specifically,\nwe introduce Attention-Guided Multi-View Integrated Sam-\npling (MVIS) combined with a neighbor-integrated atten-\ntion mechanism for zero-shot texture map generation. Us-\ning the MVIS, we firstly generate texture map for the en-\ntire room to ensure global consistency, then adopt its vari-\nant, namely Attention-Guided Multi-View Integrated Re-\npaint Sampling ( MVRS) to repaint individual instances\nwithin the room, thereby further enhancing local consis-\ntency and addressing the occlusion problem. Experiments\ndemonstrate that RoomPainter achieves superior perfor-\nmance for indoor scene texture synthesis in visual quality,\nglobal consistency and generation efficiency.",
+    "introduction": "1. Introduction\nHigh-quality 3D content synthesis is in great demand, ow-\ning to its diverse applications across the entertainment in-\ndustry, robotic simulation and mixed-reality environments.\nThe design of indoor scene typically requires professionals\nto spend dozens of hours to complete. Generating texture\nfor indoor scene through automated methods can signifi-\ncantly reduce labor costs and save time. With the advance-\nment of text-to-image diffusion models [28, 30, 33, 34],\nlarge-scale indoor scene texture synthesis has made sig-\nnificant progress. Although existing indoor texture syn-\nthesis methods produce high-quality results, they face sev-\neral significant challenges. Specifically, these methods can\nbe categorized into two groups: inpainting-based meth-\nods [6, 32] and optimization-based methods [7, 24, 48].\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "574\n\nInpainting-based methods utilize depth-to-image diffusion\nmodels [33, 55] to progressively generate texture for neigh-\nboring views, with the guidance of reference geometry and\npreviously generated views. However, due to their per-\nview inpainting strategy, these approaches often result in\ninconsistencies in texture style across instances within the\nroom and fail to effectively address the loop-closure prob-\nlem. Optimization-based methods mitigate these inconsis-\ntencies by employing score distillation loss [29] or its vari-\nations [43] in global texture maps. However, the optimiza-\ntion process incurs significant time costs for indoor scene\ntexture synthesis, due to the introduction of a large number\nof learnable parameters and also prone to issue of training\ninstability. To address these challenges, we propose an ef-\nficient and high-fidelity indoor scene texturing framework,\ndubbed RoomPainter. The core of RoomPainter lies in a\nzero-shot technique that effectively adapts a 2D diffusion\nmodel for 3D-consistent texture synthesis, along with a two-\nstage generation strategy that ensures both global and local\nconsistency. Specifically, we introduce Attention-Guided\nMulti-View Integrated Sampling (MVIS) combined with a\nrelated view-based attention mechanism for zero-shot tex-\nture map generation. Using the MVIS, we generate a holis-\ntic texture map for the entire room, achieving better global\nconsistency than per-view inpainting-based methods. Sub-\nsequently, to paint the untextured areas raised by occlusions\nbetween objects while preserving the global consistency es-\ntablished in the first stage, we adopt a refine stage to re-\npaint each instance in the room. In this stage, we apply an\nAttention-Guided Multi-View Integrated Repaint Sampling\n(MVRS) technique at the instance scale to perform texture\ninpainting and refinement for each individual instance.\nThe main contributions of our work are summarized be-\nlow:\n• We propose RoomPainter, an effective framework for\nindoor scene texture synthesis that excels in producing\nconsistent, high-quality texture with remarkable time ef-\nficiency.\n• We introduce Multi-View Integrated Sampling (MVIS), a\nzero-shot technique that leverages view-weighted texture\nrectification and related view-based attention to generate\nglobal consistent texture map using 2D diffusion model.\n• We further present Multi-View Integrated Repaint Sam-\npling (MVRS), which simultaneously refines the textured\nareas and inpaints the occlusion areas based on their\ncontext, thereby facilitates fine-detailed texture synthesis\nwith local consistency.\n• We conduct extensive experiments and compare our\nmethod with strong baselines. The results demonstrate\nthat our method not only achieves superior performance\nin visual quality for indoor scene texture synthesis but\nalso excels in generation efficiency.",
+    "experiments": "4. Experiments\nIn this section, we first describe the general implementa-\ntion of the baseline methods used for comparison. Next, we\nprovide an overview of the implementation details of our\nproposed method. Finally, we present our quantitative ex-\nperiments, qualitative results, and ablation studies.\n578\n\n“A Chinese style master bedroom”\n“A sunset glown style master bedroom”\nText2Tex-H Text2Tex-C SceneTex Ours\nFigure 4. Qualitative comparisons. Text2Tex-H [6] suffers from occlusion and visible seams. Text2Tex-C [6] struggles to maintain style\nconsistency across all instances. SceneTex [7] produces unrealistic texture and results in blurry regions. In contrast, our method generates\nhigh-quality texture while preserving overall style consistency across instances in the scene. Ceilings and back-facing walls are excluded\nfor improved visualizations.",
+    "conclusion": "5. Conclusion\nWe propose an indoor scene texturing framework named\nRoomPainter that generates high-quality texture with multi-\nview consistency and time efficiency. By leveraging the\ncarefully designed modules including view-weighted tex-\nture rectification and related view-based attention, proposed\nview-integrated diffusion preserves the cross-view consis-\ntency during the diffusion process. Qualitative and quanti-\ntative results demonstrate the effectiveness of RoomPainter\nin indoor scene texturing, especially in global consistency\nand generation efficiency."
+  }
+}

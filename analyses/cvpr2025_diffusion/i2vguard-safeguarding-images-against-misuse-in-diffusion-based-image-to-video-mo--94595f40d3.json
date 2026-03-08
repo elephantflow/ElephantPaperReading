@@ -1,0 +1,130 @@
+{
+  "paper_id": "i2vguard-safeguarding-images-against-misuse-in-diffusion-based-image-to-video-mo--94595f40d3",
+  "paper_title": "I2VGuard: Safeguarding Images against Misuse in Diffusion-based Image-to-Video Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:51.176616+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/I2VGuard： Safeguarding Images against Misuse in Diffusion-based Image-to-Video Models.pdf",
+    "filename": "I2VGuard： Safeguarding Images against Misuse in Diffusion-based Image-to-Video Models.pdf",
+    "sha1": "94595f40d360f81cb4a4a64fae936d2b6f89e8b6",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "The main challenges in attacking I2V models come from two aspects: first, disrupting temporal consistency with per- turbations applied only to individual images; and second, achieving robustness across diverse diffusion models, includ- ing UNet and DiT architectures, even under strong condi- tioning such as poses and text prompts.",
+    "limitation": "However, the rapid advancement of generative models has also heightened risks related to privacy, security, and copy- right [2].",
+    "insight": "Abstract Recent advances in image-to-video generation have en- abled animation of still images and offered pixel-level con- trollability.",
+    "proposed_method": "Extensive experiments on SVD, CogVideoX, and ControlNeXt demonstrate that our method significantly impairs generation quality in terms of visual clarity and motion consistency, while introducing only mini- mal artifacts to the images.",
+    "experimental_evidence": "Extensive experiments on SVD, CogVideoX, and ControlNeXt demonstrate that our method significantly impairs generation quality in terms of visual clarity and motion consistency, while introducing only mini- mal artifacts to the images.",
+    "summary": "The main challenges in attacking I2V models come from two aspects: first, disrupting temporal consistency with per- turbations applied only to individual images; and second, achieving robustness across diverse diffusion models, includ- ing UNet and DiT architectures, even under strong condi- tioning such as poses and text prompts. However, the rapid advancement of generative models has also heightened risks related to privacy, security, and copy- right [2]. Abstract Recent advances in image-to-video generation have en- abled animation of still images and offered pixel-level con- trollability. Extensive experiments on SVD, CogVideoX, and ControlNeXt demonstrate that our method significantly impairs generation quality in terms of visual clarity and motion consistency, while introducing only mini- mal artifacts to the images. Extensive experiments on SVD, CogVideoX, and ControlNeXt demonstrate that our method significantly impairs generation quality in terms of visual clarity and motion consistency, while introducing only mini- mal artifacts to the images."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Diffusion models [15, 19, 35] have gained significant atten- tion recently, particularly in video generation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Diffusion models [15, 19, 35] have gained significant atten- tion recently, particularly in video generation. Advances in models like Sora [5] and its DiT [33] framework have accel- erated the development of video diffusion models, leading to numerous academic [4, 22, 27, 53, 55] and commercial [43– 45] applications. The primary types of video generation are text-to-video(T2V) and image-to-video(I2V), with the for- mer supporting greater diversity and the latter offering pixel- level control. Leveraging powerful generative models and techniques from text-to-image generation [ 35], image-to- video models can now produce visually impressive videos."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Other conditional I2V models include CogVideoX [ 53], which generates videos using both text and image inputs, en- abling more versatile content creation, and ControlNeXt [34], which focuses on generating videos conditioned on pose in- formation, offering precise control over motion and structure.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Other conditional I2V models include CogVideoX [ 53], which generates videos using both text and image inputs, en- abling more versatile content creation, and ControlNeXt [34], which focuses on generating videos conditioned on pose in- formation, offering precise control over motion and structure. However, the rapid advancement of generative models has also heightened risks related to privacy, security, and copy- right [2]. For instance, an adversary with access to a person’s image could use image-to-video models to generate mis- leading or harmful videos, depicting actions the individual never performed, thus compromising individual’s privacy and security. Additionally, the unauthorized use of copy- righted images to create animations poses significant risks to intellectual property rights."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "To address these risks, this work introduces an adversarial attack method designed to prevent the misuse of images in diffusion-based I2V models.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "To address these risks, this work introduces an adversarial attack method designed to prevent the misuse of images in diffusion-based I2V models. Prior research has primarily focused on protecting images from malicious edits [37, 54], which are often viewed as ad- versarial attacks on image-editing models. Few efforts have focused on safeguarding images from misuse in I2V tasks. The main challenges in attacking I2V models come from two aspects: first, disrupting temporal consistency with per- turbations applied only to individual images; and second, achieving robustness across diverse diffusion models, includ- ing UNet and DiT architectures, even under strong condi- tioning such as poses and text prompts."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "method_overview",
+      "main_message": "To address these challenges, our method targets different modules within I2V models and affects various attributes of the generated video.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "To address these challenges, our method targets different modules within I2V models and affects various attributes of the generated video. Specifically, we divide our approach into spatial, temporal, and diffusion attacks. The spatial attack focuses on altering the spatial features of the I2V models by targeting the V AE encoder in latent diffusion models. Here, we manipulate image latents, shifting them toward suboptimal values."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "problem_statement",
+      "main_message": "The temporal attack aims to perturb the temporal features, which are crucial for video motion and consistency.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "The temporal attack aims to perturb the temporal features, which are crucial for video motion and consistency. By extracting the temporal attention map, we intentionally disrupt it by pushing it away from its original attention map. This creates a chaotic attention map, leading to temporal inconsistencies in the generated video. The diffusion attack focuses on the diffusion process and targets the output of the denoising module, which includes the UNet in SVD and the trans- former in CogVideoX."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "method_overview",
+      "main_message": "Unlike a standard denoising process, our approach aims to push the predicted outputs away from the original frames, guiding them closer to target frames.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Unlike a standard denoising process, our approach aims to push the predicted outputs away from the original frames, guiding them closer to target frames. To achieve this, we design a contrastive loss that degrades the quality of the predicted frames by treating the target frames as positive samples and the original predicted frames as negative samples. We conduct a comprehensive qualitative and quantitative analysis of the attack results. Qualitative analysis demon- strates that our method effectively disrupts the original im- age, leading to low temporal consistency and reduced aes- thetic quality in both simple and conditioned I2V models."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "background",
+      "main_message": "Quantitative analysis confirms a significant degradation in both spatial quality and temporal consistency of the gener- ated videos.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Quantitative analysis confirms a significant degradation in both spatial quality and temporal consistency of the gener- ated videos. To our knowledge, this is the first adversarial attack method aimed at securing images against misuse in I2V generation."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "The temporal attack aims to perturb the temporal features, which are crucial for video motion and consistency."
+    ],
+    "limitation_expression": [
+      "Abstract Recent advances in image-to-video generation have en- abled animation of still images and offered pixel-level con- trollability.",
+      "However, the rapid advancement of generative models has also heightened risks related to privacy, security, and copy- right [2]."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Extensive experiments on SVD, CogVideoX, and ControlNeXt demonstrate that our method significantly impairs generation quality in terms of visual clarity and motion consistency, while introducing only mini- mal artifacts to the images.",
+      "To address these challenges, our method targets different modules within I2V models and affects various attributes of the generated video.",
+      "Qualitative analysis demon- strates that our method effectively disrupts the original im- age, leading to low temporal consistency and reduced aes- thetic quality in both simple and conditioned I2V models.",
+      "An overview of our method is presented in in Fig.",
+      "CogVideoX and SVD, demonstrated the effectiveness of our method."
+    ],
+    "experiment_expression": [
+      "Extensive experiments on SVD, CogVideoX, and ControlNeXt demonstrate that our method significantly impairs generation quality in terms of visual clarity and motion consistency, while introducing only mini- mal artifacts to the images.",
+      "Extensive experiments on state-of-the-art generative models, i.e."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Extensive experiments on SVD, CogVideoX, and ControlNeXt demonstrate that our method significantly impairs generation quality in terms of visual clarity and motion consistency, while introducing only mini- mal artifacts to the images.",
+    "Extensive experiments on state-of-the-art generative models, i.e.",
+    "However, the rapid advancement of generative models has also heightened risks related to privacy, security, and copy- right [2].",
+    "2, which shows our protection procedure involves spatial, temporal, and diffusion attacks.",
+    "3.2, the temporal attack in Sec.",
+    "3.3, and the diffusion attack in Sec.",
+    "Abstract Recent advances in image-to-video generation have en- abled animation of still images and offered pixel-level con- trollability.",
+    "Additionally, the unauthorized use of copy- righted images to create animations poses significant risks to intellectual property rights.",
+    "Advances in models like Sora [5] and its DiT [33] framework have accel- erated the development of video diffusion models, leading to numerous academic [4, 22, 27, 53, 55] and commercial [43– 45] applications.",
+    "An overview of our method is presented in in Fig.",
+    "By extracting the temporal attention map, we intentionally disrupt it by pushing it away from its original attention map.",
+    "CogVideoX and SVD, demonstrated the effectiveness of our method."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRecent advances in image-to-video generation have en-\nabled animation of still images and offered pixel-level con-\ntrollability. While these models hold great potential to trans-\nform single images into vivid and dynamic videos, they also\ncarry risks of misuse that could impact privacy, security, and\ncopyright protection. This paper proposes a novel approach\nthat applies imperceptible perturbations on images to de-\ngrade the quality of the generated videos, thereby protecting\nimages from misuse in white-box image-to-video diffusion\nmodels. Specifically, we function our approach as an adver-\nsarial attack, incorporating spatial, temporal, and diffusion\nattack modules. The spatial attack shifts image features from\n*Work done during internship at Microsoft Research Asia.\ntheir original distribution to a lower-quality target distribu-\ntion, reducing visual fidelity. The temporal attack disrupts\ncoherent motion by interfering with temporal attention maps\nthat guide motion generation. To enhance the robustness\nof our approach across different models, we further pro-\npose a diffusion attack module leveraging contrastive loss.\nOur approach can be easily integrated with mainstream\ndiffusion-based I2V models. Extensive experiments on SVD,\nCogVideoX, and ControlNeXt demonstrate that our method\nsignificantly impairs generation quality in terms of visual\nclarity and motion consistency, while introducing only mini-\nmal artifacts to the images. To the best of our knowledge, we\nare the first to explore adversarial attacks on image-to-video\ngeneration for security purposes.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n12595",
+    "introduction": "1. Introduction\nDiffusion models [15, 19, 35] have gained significant atten-\ntion recently, particularly in video generation. Advances in\nmodels like Sora [5] and its DiT [33] framework have accel-\nerated the development of video diffusion models, leading to\nnumerous academic [4, 22, 27, 53, 55] and commercial [43–\n45] applications. The primary types of video generation are\ntext-to-video(T2V) and image-to-video(I2V), with the for-\nmer supporting greater diversity and the latter offering pixel-\nlevel control. Leveraging powerful generative models and\ntechniques from text-to-image generation [ 35], image-to-\nvideo models can now produce visually impressive videos.\nOther conditional I2V models include CogVideoX [ 53],\nwhich generates videos using both text and image inputs, en-\nabling more versatile content creation, and ControlNeXt [34],\nwhich focuses on generating videos conditioned on pose in-\nformation, offering precise control over motion and structure.\nHowever, the rapid advancement of generative models has\nalso heightened risks related to privacy, security, and copy-\nright [2]. For instance, an adversary with access to a person’s\nimage could use image-to-video models to generate mis-\nleading or harmful videos, depicting actions the individual\nnever performed, thus compromising individual’s privacy\nand security. Additionally, the unauthorized use of copy-\nrighted images to create animations poses significant risks\nto intellectual property rights. To address these risks, this\nwork introduces an adversarial attack method designed to\nprevent the misuse of images in diffusion-based I2V models.\nPrior research has primarily focused on protecting images\nfrom malicious edits [37, 54], which are often viewed as ad-\nversarial attacks on image-editing models. Few efforts have\nfocused on safeguarding images from misuse in I2V tasks.\nThe main challenges in attacking I2V models come from\ntwo aspects: first, disrupting temporal consistency with per-\nturbations applied only to individual images; and second,\nachieving robustness across diverse diffusion models, includ-\ning UNet and DiT architectures, even under strong condi-\ntioning such as poses and text prompts. To address these\nchallenges, our method targets different modules within I2V\nmodels and affects various attributes of the generated video.\nSpecifically, we divide our approach into spatial, temporal,\nand diffusion attacks. The spatial attack focuses on altering\nthe spatial features of the I2V models by targeting the V AE\nencoder in latent diffusion models. Here, we manipulate\nimage latents, shifting them toward suboptimal values. The\ntemporal attack aims to perturb the temporal features, which\nare crucial for video motion and consistency. By extracting\nthe temporal attention map, we intentionally disrupt it by\npushing it away from its original attention map. This creates\na chaotic attention map, leading to temporal inconsistencies\nin the generated video. The diffusion attack focuses on the\ndiffusion process and targets the output of the denoising\nmodule, which includes the UNet in SVD and the trans-\nformer in CogVideoX. Unlike a standard denoising process,\nour approach aims to push the predicted outputs away from\nthe original frames, guiding them closer to target frames.\nTo achieve this, we design a contrastive loss that degrades\nthe quality of the predicted frames by treating the target\nframes as positive samples and the original predicted frames\nas negative samples.\nWe conduct a comprehensive qualitative and quantitative\nanalysis of the attack results. Qualitative analysis demon-\nstrates that our method effectively disrupts the original im-\nage, leading to low temporal consistency and reduced aes-\nthetic quality in both simple and conditioned I2V models.\nQuantitative analysis confirms a significant degradation in\nboth spatial quality and temporal consistency of the gener-\nated videos. To our knowledge, this is the first adversarial\nattack method aimed at securing images against misuse in\nI2V generation.",
+    "method": "3. Method\nIn this section, we first provide preliminaries on latent dif-\nfusion models and problem settings in Sec. 3.1. We then\npresent our attack method, detailing the spatial attack in\nSec. 3.2, the temporal attack in Sec. 3.3, and the diffusion\nattack in Sec. 3.4. An overview of our method is presented\nin in Fig. 2, which shows our protection procedure involves\nspatial, temporal, and diffusion attacks.",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nIn this paper, we presented I2VGuard, a novel adversarial\nmethod that applies imperceptible perturbations on images\nto degrade the quality of videos generated by diffusion-based\nimage-to-video models, thereby protecting images from mis-\nuse. Concretely, we designed three attack modules, i.e. spa-\ntial attack, temporal attack and diffusion attack, to disrupt\nvisual fidelity, temporal consistency, and cross-model robust-\nness, respectively. Extensive experiments on state-of-the-art\ngenerative models, i.e. CogVideoX and SVD, demonstrated\nthe effectiveness of our method."
+  }
+}

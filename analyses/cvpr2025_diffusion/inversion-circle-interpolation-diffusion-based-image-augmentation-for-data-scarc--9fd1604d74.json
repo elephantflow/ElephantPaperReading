@@ -1,0 +1,118 @@
+{
+  "paper_id": "inversion-circle-interpolation-diffusion-based-image-augmentation-for-data-scarc--9fd1604d74",
+  "paper_title": "Inversion Circle Interpolation: Diffusion-based Image Augmentation for Data-scarce Classification",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:54.700854+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Inversion Circle Interpolation： Diffusion-based Image Augmentation for Data-scarce Classification.pdf",
+    "filename": "Inversion Circle Interpolation： Diffusion-based Image Augmentation for Data-scarce Classification.pdf",
+    "sha1": "9fd1604d7491c2791db43f84ac4a6faa79713ece",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Today’s visual recognition models can even outperform us humans with sufficient training samples.",
+    "limitation": "However, in many different real-world scenarios, it is not easy to collect ad- equate training data for some categories ( i.e., data-scarce scenarios).",
+    "insight": "Abstract Data Augmentation (DA), i.e., synthesizing faithful and di- verse samples to expand the original training set, is an ef- fective strategy to improve the performance of various data- scarce tasks.",
+    "proposed_method": "To this end, we propose a novel Diffusion-based DA method: Diff- II.",
+    "experimental_evidence": "With the powerful image generation ability, diffusion-based DA has shown strong performance gains on different image classification benchmarks.",
+    "summary": "Introduction Today’s visual recognition models can even outperform us humans with sufficient training samples. However, in many different real-world scenarios, it is not easy to collect ad- equate training data for some categories ( i.e., data-scarce scenarios). Abstract Data Augmentation (DA), i.e., synthesizing faithful and di- verse samples to expand the original training set, is an ef- fective strategy to improve the performance of various data- scarce tasks. To this end, we propose a novel Diffusion-based DA method: Diff- II. With the powerful image generation ability, diffusion-based DA has shown strong performance gains on different image classification benchmarks."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Today’s visual recognition models can even outperform us humans with sufficient training samples.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Today’s visual recognition models can even outperform us humans with sufficient training samples. However, in many different real-world scenarios, it is not easy to collect ad- equate training data for some categories ( i.e., data-scarce scenarios). For example, since the occurrence frequency of various categories in nature follows a long-tailed distribu- tion, there are many rare categories with only limited sam- ples [30, 40]. To mitigate this data scarcity issue, a prevalent and effective solution is Data Augmentation (DA)."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Based on an original training set with limited samples, DA aims to generate more synthetic samples to expand the training set.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Based on an original training set with limited samples, DA aims to generate more synthetic samples to expand the training set. For DA methods, there are two critical indexes: faithful- ness and diversity [34]. They can not only show the quality of synthesized samples, but also influence the final classi- fication performance. More specifically, faithfulness indi- cates that the synthetic samples need to retain the charac- teristics of the corresponding category ( cf ., Figure 1 (a)), i.e., the faithfulness confirms that the model learns from correct category knowledge ."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "problem_statement",
+      "main_message": "Diversity indicates that the synthetic samples should have different contexts from the original training set and each other ( cf ., Figure 1 (b)), i.e., the diversity ensures that the model learns the invariable characteristics of the category by seeing diverse samples.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Diversity indicates that the synthetic samples should have different contexts from the original training set and each other ( cf ., Figure 1 (b)), i.e., the diversity ensures that the model learns the invariable characteristics of the category by seeing diverse samples. With the photo-realistic image generation ability of to- day’s diffusion models [15, 28], a surge of diffusion-based DA methods has dominated the image classification task 1. Typically, diffusion-based DA methods reformulate image augmentation as an image editing task, which consists of two steps: 1) Noising Step: They first randomly sample an image from the original training set as a reference image and then add some noise to the reference image. 2) Denois- ∗ywangtg@connect.ust.hk, †longchen@ust.hk (corresponding au- thor)."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "Codes: https://github.com/HKUST-LongGroup/Diff-II.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Codes: https://github.com/HKUST-LongGroup/Diff-II. 1DA has been used in various image classification settings. In this pa- per, we focus on data-scarce scenarios (more discussions are in the Sec. This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "In this paper, we analyze today’s diffusion-based DA methods, and argue that they cannot take account of bothfaithfulness and diver- sity, which are two critical keys for generating high-quality samples and boosting classification performance.",
+      "For DA methods, there are two critical indexes: faithful- ness and diversity [34]."
+    ],
+    "limitation_expression": [
+      "However, in many different real-world scenarios, it is not easy to collect ad- equate training data for some categories ( i.e., data-scarce scenarios).",
+      "For example, since the occurrence frequency of various categories in nature follows a long-tailed distribu- tion, there are many rare categories with only limited sam- ples [30, 40].",
+      "Based on an original training set with limited samples, DA aims to generate more synthetic samples to expand the training set."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To this end, we propose a novel Diffusion-based DA method: Diff- II.",
+      "To take both faithfulness and di- versity into account, we propose Diff-II, a simple yet ef- fective diffusion-based DA method.",
+      "Our method is less effective when some cate- gories only have one training image.",
+      "We can see that for the long-tail classification task on CUB-LT ( cf ., Table 2): as the imbalance factor gets larger (from 10 to 100), the gain of our method (compared with the second best one Diff- Mix) is getting smaller and smaller (from 5.8% to 0.86%)."
+    ],
+    "experiment_expression": [
+      "Extensive experiments on various data-scarce image classification tasks (e.g., few-shot, long-tailed, and out-of- distribution classification) have demonstrated their effec- tiveness over state-of-the-art diffusion-based DA methods.",
+      "Introduction Today’s visual recognition models can even outperform us humans with sufficient training samples.",
+      "As shown in Figure 3, our pro- posed Diff-II consists of three main steps: 1) Category Concepts Learning: We first set n learnable to- ken embeddings for each category, and insert some learn- able low-rank matrixes into the pretrained diffusion U-Net."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Extensive experiments on various data-scarce image classification tasks (e.g., few-shot, long-tailed, and out-of- distribution classification) have demonstrated their effec- tiveness over state-of-the-art diffusion-based DA methods.",
+    "However, in many different real-world scenarios, it is not easy to collect ad- equate training data for some categories ( i.e., data-scarce scenarios).",
+    "To take both faithfulness and di- versity into account, we propose Diff-II, a simple yet ef- fective diffusion-based DA method.",
+    "To this end, we propose a novel Diffusion-based DA method: Diff- II.",
+    "(1) Concept Learning: Learning accurate concepts for each category.",
+    "(2) Inversion Interpolation: Calculating DDIM inversion for each image conditioned on the learned concept.",
+    "(3) Two-stage Denoising: Denosing the interpolation results in a two-stage manner with different prompts. example, we form a prompt: “a photo of a [V i 1 ] [ V i 2 ] ... [V i n] [metaclass]3”.",
+    "1DA has been used in various image classification settings.",
+    "2) Denois- ∗ywangtg@connect.ust.hk, †longchen@ust.hk (corresponding au- thor).",
+    "2) Explore how to remove the dependency of captioner and only leverage LLMs to diversify the prompts used in two-stage denoising, making the augmentation more robust and can better handle out-of-distribution test sets.",
+    "2) Inversion interpolation: Calculating the inver- sion for each image, and conducting circle interpolation for two randomly sampled inversions from the same cat- egory.",
+    "3) Two-stage Denoising: Given an interpolation Z ∈ Z i, we denoise it as the initial noise in two stages."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nData Augmentation (DA), i.e., synthesizing faithful and di-\nverse samples to expand the original training set, is an ef-\nfective strategy to improve the performance of various data-\nscarce tasks. With the powerful image generation ability,\ndiffusion-based DA has shown strong performance gains\non different image classification benchmarks. In this paper,\nwe analyze today’s diffusion-based DA methods, and argue\nthat they cannot take account of bothfaithfulness and diver-\nsity, which are two critical keys for generating high-quality\nsamples and boosting classification performance. To this\nend, we propose a novel Diffusion-based DA method: Diff-\nII. Specifically, it consists of three steps: 1) Category con-\ncepts learning: Learning concept embeddings for each cat-\negory. 2) Inversion interpolation: Calculating the inver-\nsion for each image, and conducting circle interpolation\nfor two randomly sampled inversions from the same cat-\negory. 3) Two-stage denoising: Using different prompts\nto generate synthesized images in a coarse-to-fine man-\nner. Extensive experiments on various data-scarce image\nclassification tasks (e.g., few-shot, long-tailed, and out-of-\ndistribution classification) have demonstrated their effec-\ntiveness over state-of-the-art diffusion-based DA methods.",
+    "introduction": "1. Introduction\nToday’s visual recognition models can even outperform us\nhumans with sufficient training samples. However, in many\ndifferent real-world scenarios, it is not easy to collect ad-\nequate training data for some categories ( i.e., data-scarce\nscenarios). For example, since the occurrence frequency of\nvarious categories in nature follows a long-tailed distribu-\ntion, there are many rare categories with only limited sam-\nples [30, 40]. To mitigate this data scarcity issue, a prevalent\nand effective solution is Data Augmentation (DA). Based\non an original training set with limited samples, DA aims to\ngenerate more synthetic samples to expand the training set.\nFor DA methods, there are two critical indexes: faithful-\nness and diversity [34]. They can not only show the quality\nof synthesized samples, but also influence the final classi-\nfication performance. More specifically, faithfulness indi-\ncates that the synthetic samples need to retain the charac-\nteristics of the corresponding category ( cf ., Figure 1 (a)),\ni.e., the faithfulness confirms that the model learns from\ncorrect category knowledge . Diversity indicates that the\nsynthetic samples should have different contexts from the\noriginal training set and each other ( cf ., Figure 1 (b)), i.e.,\nthe diversity ensures that the model learns the invariable\ncharacteristics of the category by seeing diverse samples.\nWith the photo-realistic image generation ability of to-\nday’s diffusion models [15, 28], a surge of diffusion-based\nDA methods has dominated the image classification task 1.\nTypically, diffusion-based DA methods reformulate image\naugmentation as an image editing task, which consists of\ntwo steps: 1) Noising Step: They first randomly sample an\nimage from the original training set as a reference image\nand then add some noise to the reference image. 2) Denois-\n∗ywangtg@connect.ust.hk, †longchen@ust.hk (corresponding au-\nthor). Codes: https://github.com/HKUST-LongGroup/Diff-II.\n1DA has been used in various image classification settings. In this pa-\nper, we focus on data-scarce scenarios (more discussions are in the Sec. 2).\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Method\nProblem Formulation. For a general image classification\ntask, typically there is a original training set with K cate-\ngories: O = {O1, O2, ..., OK}, where Oi is the subset of\nall training samples belong toith category. For Oi, there are\nNi labeled training samples {X i\nj}Ni\nj=1. The classification\ntask aims to train a classifier with O and evaluate it on the\ntest set. On this basis, diffusion-based DA method first gen-\nerates extra synthetic images for each category. The Syn-\nthetic set: S = {S 1, S 2, ..., S K}, S i is the set of synthetic\nimages of ith category. Then it trains an improved classifier\nwith both original and synthetic images (i.e., O ∪ S ).\nGeneral Framework. As shown in Figure 3, our pro-\nposed Diff-II consists of three main steps:\n1) Category Concepts Learning: We first set n learnable to-\nken embeddings for each category, and insert some learn-\nable low-rank matrixes into the pretrained diffusion U-Net.\nBy reconstructing the noised image of the original training\nset O, we learn the accurate concept for each category. We\ndenote the tokens of the ith category concept as {[V i\nj ]}n\nj=1.\n2) Inversion Interpolation : Take the ith category as an\n25562\n\n🔥\nphotoa of a bird𝑉!\" 𝑉#\"…\n❄\n ❄\n ❄\n ❄\n ❄\n🔥\n 🔥\n 🔥\n🔥\n❄\nText Embedding\nAdd noise\nSample\nDDIM\nInversion\nSample\n𝐼!\n\"\n𝐼#\n\"\nRandom\nSpherical\nInterpolation\n𝑍\n𝑠𝑇→0𝑇→𝑠𝑇\nSu=ixed prompt\nPlain prompt\n+su=ix\nLoRADi=usionU-Net\n🔥Trainable\n❄Frozen\n(1) Concept Learning\n(2) Inversion Interpolation (3) Two-stage Denoising\n❄\nCondition\nphoto\na\nof\na\nbird\n𝑉!\"\n𝑉#\"\n…\nsu.ix\nphoto\na\nof\na\nbird\n𝑉!\"\n𝑉#\"\n…\nFigure 3. Pipeline of Diff-II. (1) Concept Learning: Learning accurate concepts for each category. (2) Inversion Interpolation: Calculating\nDDIM inversion for each image conditioned on the learned concept. Then, randomly sampling a pair and conducting random circle\ninterpolation. (3) Two-stage Denoising: Denosing the interpolation results in a two-stage manner with different prompts.\nexample, we form a prompt: “a photo of a [V i\n1 ] [ V i\n2 ]\n... [V i\nn] [metaclass]3”. The “ [metaclass]” is\nthe theme of the corresponding dataset, e.g. “bird” is the\n“[metaclass]” for dataset CUB [41]. Then, we cal-\nculate the DDIM inversion I i\nj for each training sample\nX i\nj ∈ O i conditioned on this prompt. All these inversions\n(from Oi) made up the inversion pool I i = {I i\nj}Ni\nj=1 (cf .,\nSec. 3.2.1). After that, we randomly sample two inversions\n(I i\na, I i\nb) from I i and conduct random circle interpolation\non this pair (cf ., Sec. 3.2.2). The interpolation result is de-\nnoted as Z. We repeat the sampling and interpolation then\ncollect all interpolation results into Z i.\n3) Two-stage Denoising: Given an interpolation Z ∈ Z i,\nwe denoise it as the initial noise in two stages. The main\ndifference between the two stages is the prompt used. In\nthe first stage, we use a suffixed prompt: “a photo of a\n[V i\n1 ] [V i\n2 ] ... [V i\nn] [metaclass] [suffix]”. In the sec-\nond stage, we use a plain prompt: “a photo of a [V i\n1 ] [V i\n2 ]\n... [V i\nn] [metaclass]”. Repeat two-stage denoising for\neach Z ∈ Z i, then we can get all the synthetic images and\ncollect them into S i.",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nIn this work, we analyze current diffusion-based DA meth-\nods from a unified perspective, finding that they can either\nonly improve the faithfulness of synthetic samples or only\nimprove their diversity. To take both faithfulness and di-\nversity into account, we propose Diff-II, a simple yet ef-\nfective diffusion-based DA method. Our Diff-II shows that\nit significantly improves both the faithfulness and diversity\nof the synthetic samples, further improving classification\nmodels in data-scarce sceneries. In the future, we are go-\ning to: 1) Extend this work into more general perception\ntasks, such as object detection, segmentation, or even video-\ndomain tasks. 2) Explore how to remove the dependency of\ncaptioner and only leverage LLMs to diversify the prompts\nused in two-stage denoising, making the augmentation more\nrobust and can better handle out-of-distribution test sets.\nLimitations. Our method is less effective when some cate-\ngories only have one training image. In that case, the inter-\npolation can not be implemented because the interpolation\noperation is between two samples. We can see that for the\nlong-tail classification task on CUB-LT ( cf ., Table 2): as\nthe imbalance factor gets larger (from 10 to 100), the gain\nof our method (compared with the second best one Diff-\nMix) is getting smaller and smaller (from 5.8% to 0.86%).\nThis is because a higher imbalance factor means there are\nmore categories that only have one training image."
+  }
+}

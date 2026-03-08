@@ -1,0 +1,90 @@
+{
+  "paper_id": "mvgenmaster-scaling-multi-view-generation-from-any-image-via-3d-priors-enhanced---73a629e1f2",
+  "paper_title": "MVGenMaster: Scaling Multi-View Generation from Any Image via 3D Priors Enhanced Diffusion Model",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:02.180852+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/MVGenMaster： Scaling Multi-View Generation from Any Image via 3D Priors Enhanced Diffusion Model.pdf",
+    "filename": "MVGenMaster： Scaling Multi-View Generation from Any Image via 3D Priors Enhanced Diffusion Model.pdf",
+    "sha1": "73a629e1f27f4068fa4de30bc6f3cd288ebaa651",
+    "page_count": 12
+  },
+  "core_story": {
+    "problem": "Despite these advancements, intractable challenges remain in achieving high-quality NVS that is consistent, flex- ible, and generalizable: 1) Data limitations.",
+    "limitation": "Consequently, scenarios involving limited viewpoints, such as single-view NVS and two-view interpolation, remain challenging, as illustrated in Figure 1.",
+    "insight": "Abstract We introduce MVGenMaster, a multi- view diffusion model enhanced with 3D priors to address versatile Novel View Synthesis (NVS) tasks.",
+    "proposed_method": "Abstract We introduce MVGenMaster, a multi- view diffusion model enhanced with 3D priors to address versatile Novel View Synthesis (NVS) tasks.",
+    "experimental_evidence": "Extensive evaluations across in- and out- of- domain benchmarks demonstrate the effective- ness of our proposed method and data formulation.",
+    "summary": "Despite these advancements, intractable challenges remain in achieving high-quality NVS that is consistent, flex- ible, and generalizable: 1) Data limitations. Consequently, scenarios involving limited viewpoints, such as single-view NVS and two-view interpolation, remain challenging, as illustrated in Figure 1. Abstract We introduce MVGenMaster, a multi- view diffusion model enhanced with 3D priors to address versatile Novel View Synthesis (NVS) tasks. Abstract We introduce MVGenMaster, a multi- view diffusion model enhanced with 3D priors to address versatile Novel View Synthesis (NVS) tasks. Extensive evaluations across in- and out- of- domain benchmarks demonstrate the effective- ness of our proposed method and data formulation."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction The increasing demand for high-quality 3D content is reshap- ing the landscape of video games, visual effects, and mixed reality devices, making it essential for real-time interactivity.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nThe increasing demand for high-quality 3D content is reshap-\ning the landscape of video games, visual effects, and mixed\nreality devices, making it essential for real-time interactivity.\nCentral to this evolution is Novel View Synthesis (NVS), a\ncritical technology that enables the creation of 3D content\nby synthesizing consistent images from multiple viewpoints.\nWhile 3D reconstruction manners like NeRFs [46] and 3D\nGaussian Splatting (3DGS) [30] have achieved remarkable\nadvancements, their reliance on dense multi-view observa-\ntions limits their usability. Consequently, scenarios involving\nlimited viewpoints, such as single-view NVS and two-view\ninterpolation, remain challenging, as illustrated in Figure 1.\nBenefited from the developments in diffusion-based text-\nto-image models [ 5, 17, 47, 50], NVS methods achieved\nsignificant advancements which largely alleviate the restric-\ntion of dense multi-view captures by generating novel views\nfrom reference images or textual descriptions [20, 29, 35, 42,\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final pu"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Despite these advancements, intractable challenges remain in achieving high-quality NVS that is consistent, flex- ible, and generalizable: 1) Data limitations.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "56, 82]. Despite these advancements, intractable challenges\nremain in achieving high-quality NVS that is consistent, flex-\nible, and generalizable: 1) Data limitations. Most works\nrely on large-scale synthetic datasets [15, 16], primarily tar-\ngeting object-centric 3D generation [ 29, 42, 57, 67]. This\nfocus limits their applicability to complex scene-level NVS\ntasks. 2) Missing 3D priors. Currently, many diffusion-based\nNVS methods [20, 51] are heavily reliant on 2D generations\nwithout integrating 3D priors. This restricts their ability to\nbe scaled up while ensuring 3D consistency, particularly\nin out-of-domain (OOD) scenarios. 3) Lacking of flexibil-\nity. Existing NVS techniques often lack the flexibility to\naccommodate arbitrary reference and target views from any\nviewpoint. So they suffer from cumbersome anchor-based\niterative generation [20, 54, 80], dataset updates [36, 58, 78],\nand test-time optimization [33, 51]. Furthermore, these meth-\nods fail to provide a straightforward solution to handle all\ndownstream NVS requirements (Figure 1) simultaneously.\nTo address this, we propose MVGenMaster, a founda-\ntional diffusion-based framework for scaling up Multi-View\nGeneration wi"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Central to this evolution is Novel View Synthesis (NVS), a critical technology that enables the creation of 3D content by synthesizing consistent images from multiple viewpoints."
+    ],
+    "limitation_expression": [
+      "Consequently, scenarios involving limited viewpoints, such as single-view NVS and two-view interpolation, remain challenging, as illustrated in Figure 1."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this, we propose MVGenMaster, a founda- tional diffusion-based framework for scaling up Multi-View Generation with any reference and target image."
+    ],
+    "experiment_expression": [
+      "Extensive evaluations across in- and out- of- domain benchmarks demonstrate the effective- ness of our proposed method and data formulation.",
+      "As shown in Figure 1, MVGenMaster generates extensive target views from a flexible range of reference images with the same model, providing both versatility and generalization."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "As shown in Figure 1, MVGenMaster generates extensive target views from a flexible range of reference images with the same model, providing both versatility and generalization.",
+    "To address this, we propose MVGenMaster, a founda- tional diffusion-based framework for scaling up Multi-View Generation with any reference and target image.",
+    "2) Missing 3D priors.",
+    "3) Lacking of flexibil- ity.",
+    "Abstract We introduce MVGenMaster, a multi- view diffusion model enhanced with 3D priors to address versatile Novel View Synthesis (NVS) tasks.",
+    "Additionally, to enable MVGenMaster to synthesize mul- tiple novel views in a single forwarding without iterative generation, we introduce an innovative, training-free key- rescaling technique.",
+    "Additionally, we have developed a comprehensive large- scale multi- view image dataset calledMvD- 1M, com- prising up to 1.6 million scenes, equipped with well- aligned metric depth to train MVGenMaster.",
+    "Central to this evolution is Novel View Synthesis (NVS), a critical technology that enables the creation of 3D content by synthesizing consistent images from multiple viewpoints.",
+    "Conclusion In this paper, we present MVGenMaster as a general frame- work to handle various NVS downstream tasks.",
+    "Consequently, scenarios involving limited viewpoints, such as single-view NVS and two-view interpolation, remain challenging, as illustrated in Figure 1.",
+    "Criti- cally, a key feature of MVGenMaster is the incorporation of 3D priors, allowing our model to integrate both generation and reconstruction with metric depth warping.",
+    "Currently, many diffusion-based NVS methods [20, 51] are heavily reliant on 2D generations without integrating 3D priors."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWe introduce MVGenMaster, a multi- view diffusion model\nenhanced with 3D priors to address versatile Novel View\nSynthesis (NVS) tasks. MVGenMaster leverages 3D priors\nthat are warped using metric depth and camera poses, sig-\nnificantly enhancing both generalization and 3D consistency\nin NVS. Our model features a simple yet effective pipeline\nthat can generate up to 100 novel views conditioned on vari-\nable reference views and camera poses with a single forward\nprocess. Additionally, we have developed a comprehensive\nlarge- scale multi- view image dataset calledMvD- 1M, com-\nprising up to 1.6 million scenes, equipped with well- aligned\nmetric depth to train MVGenMaster. Moreover, we present\nseveral training and model modifications to strengthen the\nmodel with scaled- up datasets. Extensive evaluations across\nin- and out- of- domain benchmarks demonstrate the effective-\nness of our proposed method and data formulation.",
+    "introduction": "1. Introduction\nThe increasing demand for high-quality 3D content is reshap-\ning the landscape of video games, visual effects, and mixed\nreality devices, making it essential for real-time interactivity.\nCentral to this evolution is Novel View Synthesis (NVS), a\ncritical technology that enables the creation of 3D content\nby synthesizing consistent images from multiple viewpoints.\nWhile 3D reconstruction manners like NeRFs [46] and 3D\nGaussian Splatting (3DGS) [30] have achieved remarkable\nadvancements, their reliance on dense multi-view observa-\ntions limits their usability. Consequently, scenarios involving\nlimited viewpoints, such as single-view NVS and two-view\ninterpolation, remain challenging, as illustrated in Figure 1.\nBenefited from the developments in diffusion-based text-\nto-image models [ 5, 17, 47, 50], NVS methods achieved\nsignificant advancements which largely alleviate the restric-\ntion of dense multi-view captures by generating novel views\nfrom reference images or textual descriptions [20, 29, 35, 42,\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n6045\n\n56, 82]. Despite these advancements, intractable challenges\nremain in achieving high-quality NVS that is consistent, flex-\nible, and generalizable: 1) Data limitations. Most works\nrely on large-scale synthetic datasets [15, 16], primarily tar-\ngeting object-centric 3D generation [ 29, 42, 57, 67]. This\nfocus limits their applicability to complex scene-level NVS\ntasks. 2) Missing 3D priors. Currently, many diffusion-based\nNVS methods [20, 51] are heavily reliant on 2D generations\nwithout integrating 3D priors. This restricts their ability to\nbe scaled up while ensuring 3D consistency, particularly\nin out-of-domain (OOD) scenarios. 3) Lacking of flexibil-\nity. Existing NVS techniques often lack the flexibility to\naccommodate arbitrary reference and target views from any\nviewpoint. So they suffer from cumbersome anchor-based\niterative generation [20, 54, 80], dataset updates [36, 58, 78],\nand test-time optimization [33, 51]. Furthermore, these meth-\nods fail to provide a straightforward solution to handle all\ndownstream NVS requirements (Figure 1) simultaneously.\nTo address this, we propose MVGenMaster, a founda-\ntional diffusion-based framework for scaling up Multi-View\nGeneration with any reference and target image. As shown\nin Figure 1, MVGenMaster generates extensive target views\nfrom a flexible range of reference images with the same\nmodel, providing both versatility and generalization. Criti-\ncally, a key feature of MVGenMaster is the incorporation of\n3D priors, allowing our model to integrate both generation\nand reconstruction with metric depth warping. This ensures\nconsistent 3D structure within a 2D diffusion model.\nFormally, our MVGenMaster builds on the foundational\nstructure of StableDiffusion2 (SD2) [50] and extends it for\nmulti-view generation with cross-view attention and pose\nrepresentation. Like CAT3D [20], MVGenMaster integrates\nfull attention across all reference and target views, but with\ndistinct input formulations. To capture dense pose presenta-\ntions, we employ the Plücker ray [73] to denote camera poses.\nMoreover, geometric 3D priors used in MVGenMaster in-\nclude the warped Canonical Coordinate Map (CCM) [\n34]\nand RGB pixels, which rely on well-aligned metric depth\nand precise camera poses to maintain coherence in 3D space.\nFurthermore, we collect MvD-1M to scale up MVGen-\nMaster’s training, which is a comprehensive large-scale\nmulti-view dataset repurposed with approximately 1.6 mil-\nlion scenes from 12 diverse data domains. This dataset\nincludes both object-centric and scene-level images from\nreal-world scenarios, with dense metric depth obtained\nthrough the alignment of monocular depth estimation [\n74]\nand Structure-from-Motion (SfM) [52].\nAdditionally, to enable MVGenMaster to synthesize mul-\ntiple novel views in a single forwarding without iterative\ngeneration, we introduce an innovative, training-free key-\nrescaling technique. This approach addresses the challenge\nof attention dilution, allowing MVGenMaster to handle ex-\ntremely long sequences. Moreover, we also implement sev-\neral model enhancements that significantly improve MVGen-\nMaster’s scalability trained with large-scale datasets, includ-\ning noise schedule adjustment, domain switcher, multi-scale\ntraining, and exponential moving average. Through these\nimprovements, MVGenMaster consistently outperforms ex-\nisting methods on both in-domain and OOD benchmarks and\nestablishes state-of-the-art NVS results.\nWe highlight the key contributions of MVGenMaster as:\n• Generalization. MVGenMaster is strengthened by metric\ndepth priors that ensure superior multi-view consistency\nand robust generalization across diverse scenarios.\n• Flexibility. MVGenMaster is a flexible multi-view dif-\nfusion model to handle versatile downstream NVS tasks\nwith variable target and reference views.\n• Scalability. We collect a large-scale multi-view dataset\ncomprising 1.6 million scenes, specifically designed to\nscale up the training of MVGenMaster. Notably, all images\nin this dataset include metric depth for geometric warping.",
+    "method": "3. Method\nOverview. The overall pipeline of MVGenMaster is summa-\nrized in Figure 2. We first introduce the training datasets and\nmetric depth formulation for 3D priors in Section 3.1. Then\nthe model design is illustrated in Section 3.2. Subsequently,\nthe key-rescaling technique which extends MVGenMaster’s\nsynthesized view numbers is discussed in Section 3.3.",
+    "experiments": "4. Experiments\nImplementation Details. MVGenMaster is trained on 12\ndatasets as summarized in Table 1. To verify the generaliza-\ntion of MVGenMaster, we further adopt the validation set\nfrom DTU [2], MipNeRF-360 [4], Tanks-and-Temples [32],\nand ETH3D [53] as the zero-shot benchmark. We train MV-\nGenMaster with view number 8 and batch size 512 on 16\nA800 GPUs for 600k steps. For the first 350k steps, MVGen-\nMaster is trained with N =3 reference views; the learning\nrate is 5e-5. Then, we reduced the learning rate to 2.5e-5,\nand further fine-tuned MVGenMaster with N =1 ∼ 3 ref-\nerence views. We set the EMA decay to 0.9995, and set the\ndropout rates of 15% and 10% for 3D priors and Plücker ray\nrespectively as the classifier-free guidance (CFG) training.\nFor the inference, we set the CFG scale to 2. Moreover, we\nemploy the multi-scale training to MVGenMaster, while the\ntraining images are resized and cropped from 320×768 to\n768×320. More details are discussed in the supplementary.",
+    "conclusion": "5. Conclusion\nIn this paper, we present MVGenMaster as a general frame-\nwork to handle various NVS downstream tasks. Specifically,\nwe employ the 3D priors achieved by metric depth and geo-\nmetric warping to substantially strengthen NVS performance.\nMoreover, MVGenMaster enjoys a flexible pipeline to ad-\ndress the synthesis of variable reference and target views\nenhanced by the key-rescaling technique. To support the\nscalability of our model, we have developed a large multi-\nview dataset called MvD-1M, complemented by effective\ntraining strategies aimed at improving NVS outcomes."
+  }
+}

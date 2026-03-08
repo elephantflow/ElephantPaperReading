@@ -1,0 +1,113 @@
+{
+  "paper_id": "advancing-generalizable-tumor-segmentation-with-anomaly-aware-open-vocabulary-at--a448430f37",
+  "paper_title": "Advancing Generalizable Tumor Segmentation with Anomaly-Aware Open-Vocabulary Attention Maps and Frozen Foundation Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:02.695264+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Advancing Generalizable Tumor Segmentation with Anomaly-Aware Open-Vocabulary Attention Maps and Frozen Foundation Diffusion Models.pdf",
+    "filename": "Advancing Generalizable Tumor Segmentation with Anomaly-Aware Open-Vocabulary Attention Maps and Frozen Foundation Diffusion Models.pdf",
+    "sha1": "a448430f37069385c176e16b36440b0620e0c83b",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Generalizable tumor segmentation (GTS) represents a fun- damental challenge within medical image analysis [3, 7, 22, 28, 45], stemming from both the diversity of tumor types and the variability across imaging modalities.",
+    "limitation": "However, in medical imaging, the visual cues of tumors are often subtle and am- biguous.",
+    "insight": "Motivated by the above challenges, we take an innova- tive approach towards GTS.",
+    "proposed_method": "Compre- hensive experiments on four datasets and seven tumor categories demonstrate the superior performance of our method, surpassing current state-of-the-art models across multiple zero-shot settings.",
+    "experimental_evidence": "Compre- hensive experiments on four datasets and seven tumor categories demonstrate the superior performance of our method, surpassing current state-of-the-art models across multiple zero-shot settings.",
+    "summary": "Introduction Generalizable tumor segmentation (GTS) represents a fun- damental challenge within medical image analysis [3, 7, 22, 28, 45], stemming from both the diversity of tumor types and the variability across imaging modalities. However, in medical imaging, the visual cues of tumors are often subtle and am- biguous. Motivated by the above challenges, we take an innova- tive approach towards GTS. Compre- hensive experiments on four datasets and seven tumor categories demonstrate the superior performance of our method, surpassing current state-of-the-art models across multiple zero-shot settings. Compre- hensive experiments on four datasets and seven tumor categories demonstrate the superior performance of our method, surpassing current state-of-the-art models across multiple zero-shot settings."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Generalizable tumor segmentation (GTS) represents a fun- damental challenge within medical image analysis [3, 7, 22, 28, 45], stemming from both the diversity of tumor types and the variability across imaging modalities.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Generalizable tumor segmentation (GTS) represents a fun- damental challenge within medical image analysis [3, 7, 22, 28, 45], stemming from both the diversity of tumor types and the variability across imaging modalities. Current AI models for multi-tumor segmentation [6, 14, 28, 49, 51] rely heavily on comprehensively annotated training data, limit- ing their ability to generalize beyond a restricted set of cate- gories. This makes it challenging to address unseen diseases in clinical scenarios where the available training data may not adequately represent the diversity of real-world cases. With development of vision-language models ( e.g., CLIP [34]), some methods [20, 22, 23] have paved the way for unseen tumor segmentation through the zero-shot gener- alization ability of vision-language alignment between seg- mentation regions and text prompts."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "However, in medical imaging, the visual cues of tumors are often subtle and am- biguous.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "However, in medical imaging, the visual cues of tumors are often subtle and am- biguous. Without a large amount of high-quality image-text pairs for training, segmenting unseen tumor categories us- ing text prompts alone is highly challenging. Furthermore, the vision-language alignment process based on contrastive learning is not necessarily optimal for pixel-level segmen- tation, as the training objective is not directly optimized for spatial and relational understanding. As a result, these methods are often limited in segmentation quality."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "Another promising direction towards GTS is tumor syn- thesis [7, 19, 45], which enables label-free tumor segmen- tation by creating artificial yet realistic medical images.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Another promising direction towards GTS is tumor syn- thesis [7, 19, 45], which enables label-free tumor segmen- tation by creating artificial yet realistic medical images. However, current tumor synthesis methods are unable to encompass all tumor types, as simulating tumors with ir- regular shapes or those not encountered during diffusion model training poses significant challenges [16, 45]. Conse- quently, achieving GTS relying solely on synthetic medical data remains an intricate problem. Motivated by the above challenges, we take an innova- tive approach towards GTS."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "method_overview",
+      "main_message": "Our key insight is that, despite the challenges in simulating tumors, a medical foundation diffusion model (MFDM) trained on large-scale data is ca- pable of learning and understanding rich, diverse anatom- ical structures and organ-specific knowledge [16].",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Our key insight is that, despite the challenges in simulating tumors, a medical foundation diffusion model (MFDM) trained on large-scale data is ca- pable of learning and understanding rich, diverse anatom- ical structures and organ-specific knowledge [16]. More- over, this valuable knowledge is already embedded within its internal representations. Therefore, instead of synthesiz- ing data for model training, we uncover the potential of pre- trained MFDMs as highly efficient semantic feature extrac- tors and demonstrate that their internal image representa- tions can be repurposed, through carefully designed strate- gies, as effective zero-shot learners for the GTS task. To this end, we propose DiffuGTS, a novel framework with strong zero-shot capabilities that leverages frozen This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, in medical imaging, the visual cues of tumors are often subtle and am- biguous.",
+      "As a result, these methods are often limited in segmentation quality.",
+      "However, current tumor synthesis methods are unable to encompass all tumor types, as simulating tumors with ir- regular shapes or those not encountered during diffusion model training poses significant challenges [16, 45]."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Compre- hensive experiments on four datasets and seven tumor categories demonstrate the superior performance of our method, surpassing current state-of-the-art models across multiple zero-shot settings.",
+      "To this end, we propose DiffuGTS, a novel framework with strong zero-shot capabilities that leverages frozen This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "We hope our method provides in- sights into efficiently leveraging foundation diffusion mod- els for zero-shot tumor segmentation tasks."
+    ],
+    "experiment_expression": [
+      "Compre- hensive experiments on four datasets and seven tumor categories demonstrate the superior performance of our method, surpassing current state-of-the-art models across multiple zero-shot settings.",
+      "Therefore, instead of synthesiz- ing data for model training, we uncover the potential of pre- trained MFDMs as highly efficient semantic feature extrac- tors and demonstrate that their internal image representa- tions can be repurposed, through carefully designed strate- gies, as effective zero-shot learners for the GTS task."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, current tumor synthesis methods are unable to encompass all tumor types, as simulating tumors with ir- regular shapes or those not encountered during diffusion model training poses significant challenges [16, 45].",
+    "However, in medical imaging, the visual cues of tumors are often subtle and am- biguous.",
+    "To this end, we propose DiffuGTS, a novel framework with strong zero-shot capabilities that leverages frozen This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "2 illustrates the pipeline of DiffuGTS.",
+    "Abstract We explore Generalizable Tumor Segmentation, aiming to train a single model for zero-shot tumor segmentation across diverse anatomical regions.",
+    "Another promising direction towards GTS is tumor syn- thesis [7, 19, 45], which enables label-free tumor segmen- tation by creating artificial yet realistic medical images.",
+    "As a result, these methods are often limited in segmentation quality.",
+    "Codes are available athttps: //github.com/Yankai96/DiffuGTS.",
+    "Compre- hensive experiments on four datasets and seven tumor categories demonstrate the superior performance of our method, surpassing current state-of-the-art models across multiple zero-shot settings.",
+    "Conclusions In this work, we unlock advanced generalizable tumor seg- mentation from frozen medical foundation diffusion mod- els by introducing a novel framework named DiffuGTS.",
+    "Conse- quently, achieving GTS relying solely on synthetic medical data remains an intricate problem.",
+    "Current AI models for multi-tumor segmentation [6, 14, 28, 49, 51] rely heavily on comprehensively annotated training data, limit- ing their ability to generalize beyond a restricted set of cate- gories."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWe explore Generalizable Tumor Segmentation, aiming to\ntrain a single model for zero-shot tumor segmentation\nacross diverse anatomical regions. Existing methods face\nlimitations related to segmentation quality, scalability, and\nthe range of applicable imaging modalities. In this pa-\nper, we uncover the potential of the internal representations\nwithin frozen medical foundation diffusion models as highly\nefficient zero-shot learners for tumor segmentation by intro-\nducing a novel framework namedDiffuGTS. DiffuGTS cre-\nates anomaly-aware open-vocabulary attention maps based\non text prompts to enable generalizable anomaly segmenta-\ntion without being restricted by a predefined training cate-\ngory list. To further improve and refine anomaly segmenta-\ntion masks, DiffuGTS leverages the diffusion model, trans-\nforming pathological regions into high-quality pseudo-\nhealthy counterparts through latent space inpainting, and\napplies a novel pixel-level and feature-level residual learn-\ning approach, resulting in segmentation masks with sig-\nnificantly enhanced quality and generalization. Compre-\nhensive experiments on four datasets and seven tumor\ncategories demonstrate the superior performance of our\nmethod, surpassing current state-of-the-art models across\nmultiple zero-shot settings. Codes are available athttps:\n//github.com/Yankai96/DiffuGTS.",
+    "introduction": "1. Introduction\nGeneralizable tumor segmentation (GTS) represents a fun-\ndamental challenge within medical image analysis [3, 7, 22,\n28, 45], stemming from both the diversity of tumor types\nand the variability across imaging modalities. Current AI\nmodels for multi-tumor segmentation [6, 14, 28, 49, 51] rely\nheavily on comprehensively annotated training data, limit-\ning their ability to generalize beyond a restricted set of cate-\ngories. This makes it challenging to address unseen diseases\nin clinical scenarios where the available training data may\nnot adequately represent the diversity of real-world cases.\nWith development of vision-language models ( e.g.,\nCLIP [34]), some methods [20, 22, 23] have paved the way\nfor unseen tumor segmentation through the zero-shot gener-\nalization ability of vision-language alignment between seg-\nmentation regions and text prompts. However, in medical\nimaging, the visual cues of tumors are often subtle and am-\nbiguous. Without a large amount of high-quality image-text\npairs for training, segmenting unseen tumor categories us-\ning text prompts alone is highly challenging. Furthermore,\nthe vision-language alignment process based on contrastive\nlearning is not necessarily optimal for pixel-level segmen-\ntation, as the training objective is not directly optimized\nfor spatial and relational understanding. As a result, these\nmethods are often limited in segmentation quality.\nAnother promising direction towards GTS is tumor syn-\nthesis [7, 19, 45], which enables label-free tumor segmen-\ntation by creating artificial yet realistic medical images.\nHowever, current tumor synthesis methods are unable to\nencompass all tumor types, as simulating tumors with ir-\nregular shapes or those not encountered during diffusion\nmodel training poses significant challenges [16, 45]. Conse-\nquently, achieving GTS relying solely on synthetic medical\ndata remains an intricate problem.\nMotivated by the above challenges, we take an innova-\ntive approach towards GTS. Our key insight is that, despite\nthe challenges in simulating tumors, a medical foundation\ndiffusion model (MFDM) trained on large-scale data is ca-\npable of learning and understanding rich, diverse anatom-\nical structures and organ-specific knowledge [16]. More-\nover, this valuable knowledge is already embedded within\nits internal representations. Therefore, instead of synthesiz-\ning data for model training, we uncover the potential of pre-\ntrained MFDMs as highly efficient semantic feature extrac-\ntors and demonstrate that their internal image representa-\ntions can be repurposed, through carefully designed strate-\ngies, as effective zero-shot learners for the GTS task.\nTo this end, we propose DiffuGTS, a novel framework\nwith strong zero-shot capabilities that leverages frozen\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Method\nDiffuGTS first explores internal representations from a\nfrozen foundational diffusion model, MAISI [16], to effi-\nciently leverage anatomical features and create anomaly-\naware open-vocabulary attention (AOV A) maps for tumor\ndetection (Sec.3.1). Subsequently, it employs the frozen\nfoundational diffusion model to synthesize pseudo-healthy\nimages conditioned on the AOV A maps, allowing for the\nextraction of tumor segmentation masks by analyzing the\npixel-level and feature-level discrepancies between the orig-\ninal diseased images and their pseudo-healthy counterparts\n(Sec.3.2). Fig. 2 illustrates the pipeline of DiffuGTS. We\nelaborate on the details of our design in the following.",
+    "experiments": "4. Experiments\nDataset Construction. We consider both public and pri-\nvate datasets encompassing 6 organs and 7 tumor cate-\ngories, sourced from multiple centers. These datasets in-\nclude MSD [3], KiTS23 [18], BraTS23 [1], and an in-house\nMRI liver tumor segmentation dataset. We also utilized\ndata from 404 patients who showed no signs of pathology\nfrom the TotalSegmentator [40] dataset as normal samples\nfor anomaly detection training. The total number of CT\nand MRI scans used for training and testing in our study\nis 3, 933. We adopted various zero-shot testing settings for\nevaluation. Detailed descriptions of these datasets and the\npre-processing are provided in the supplementary material.\nEvaluation Metrics. The Dice Similarity Coefficient\n(DSC) and Normalized Surface Distance (NSD) are utilized",
+    "conclusion": "5. Conclusions\nIn this work, we unlock advanced generalizable tumor seg-\nmentation from frozen medical foundation diffusion mod-\nels by introducing a novel framework named DiffuGTS.\nDiffuGTS employs a series of carefully designed strate-\ngies to initially construct anomaly-aware open-vocabulary\nattention maps for tumor detection. It then utilizes a frozen\nmedical foundational diffusion model for further anomaly\nmask refinement, demonstrating superior zero-shot tumor\nsegmentation capabilities across various anatomical regions\nand imaging modalities. We hope our method provides in-\nsights into efficiently leveraging foundation diffusion mod-\nels for zero-shot tumor segmentation tasks."
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "paper_id": "latent-space-super-resolution-for-higher-resolution-image-generation-with-diffus--981324b677",
+  "paper_title": "Latent Space Super-Resolution for Higher-Resolution Image Generation with Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:57.187006+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Latent Space Super-Resolution for Higher-Resolution Image Generation with Diffusion Models.pdf",
+    "filename": "Latent Space Super-Resolution for Higher-Resolution Image Generation with Diffusion Models.pdf",
+    "sha1": "981324b677d0afd4c98cd0e375d44bba066a12f7",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Scaling diffusion models to larger resolutions presents several challenges.",
+    "limitation": "However, existing diffusion models are limited to learning the distribution of ﬁxed reso- lutions (e.g., 5122 for SD1.5), preventing them from gener- ating images at unseen larger resolutions.",
+    "insight": "This approach has the po- tential advantage of avoiding the artifacts observed in latent space upsampling, as RGB-based methods work directly in pixel space, where artifacts may be less pronounced.",
+    "proposed_method": "Abstract In this paper , we propose LSRNA, a novel framework for higher-resolution (exceeding 1K) image generation using diffusion models by leveraging super-resolution directly in the latent space.",
+    "experimental_evidence": "Our extensive experiments demon- strate that integrating LSRNA outperforms state-of-the-art reference-based methods across various resolutions and metrics, while showing the critical role of latent space up- sampling in preserving detail and sharpness.",
+    "summary": "Scaling diffusion models to larger resolutions presents several challenges. However, existing diffusion models are limited to learning the distribution of ﬁxed reso- lutions (e.g., 5122 for SD1.5), preventing them from gener- ating images at unseen larger resolutions. This approach has the po- tential advantage of avoiding the artifacts observed in latent space upsampling, as RGB-based methods work directly in pixel space, where artifacts may be less pronounced. Abstract In this paper , we propose LSRNA, a novel framework for higher-resolution (exceeding 1K) image generation using diffusion models by leveraging super-resolution directly in the latent space. Our extensive experiments demon- strate that integrating LSRNA outperforms state-of-the-art reference-based methods across various resolutions and metrics, while showing the critical role of latent space up- sampling in preserving detail and sharpness."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Diffusion models have rapidly become powerful tools in generative modeling, starting from foundational models This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\nDiffusion models have rapidly become powerful tools in\ngenerative modeling, starting from foundational models\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n2355"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "method_overview",
+      "main_message": "(a) Latent-Bicubic Upsampled ReferenceFinal output (c) Latent-SR (Ours) (b) RGB-Bicubic Figure 2.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "(a) Latent-Bicubic\nUpsampled ReferenceFinal output\n(c) Latent-SR (Ours)\n(b) RGB-Bicubic\nFigure 2. Comparison of DemoFusion with different upsam-\npling strategies. All methods are directly upsampled to 16 × res-\nolution. (a) Latent space bicubic upsampling causes manifold de-\nviation, degrading output quality. (b) RGB space bicubic upsam-\npling produces outputs with reduced detail and sharpness. (c) Our\nlearned latent-space upsampling aligns the manifold, resulting in\nsharp and detailed outputs. Best viewed ZOOMED-IN.\nlike DDPM [\n22] and DDIM [ 47]. Latent Diffusion Mod-\nels (LDMs) [ 40] further revolutionized the ﬁeld by re-\nducing computational costs through operating in a lower-\ndimensional latent space. These advancements have been\napplied to various tasks for image processing such as gen-\neration [\n35, 38, 43], editing [ 3, 20, 27, 33], and super-\nresolution [23, 44].\nIn parallel, with the rise of megapixel displays, demands\nfor higher-resolution image generation (ranging from 2K to\n8K) have grown drastically. However, existing diffusion\nmodels are limited to learning the distribution of ﬁxed reso-\nlutions (e.g., 5122 for SD1.5), preventing them from gener-\nating images at unse"
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "method_overview",
+      "main_message": "U Non - parametric U psamp l er (b) RGB Upsampling (c) LSRNA (Ours) … U U U LSR DM DM DM DM DM DM DM 𝐳 0 ௅ோ 𝐳 ் ೌ ெோ 𝐳 0 ெோ 𝐳 ் ೌ ுோ 𝐳 0 ுோ 𝐳 0 ௅ோ 𝐳 ் ್ ுோ 𝐳 0 ுோ 𝐳 0 ௅ோ 𝐳 ் ೎ ுோ 𝐳 0 ுோ ܠ ௅ோ ( a ) Latent Upsampling 𝐳 ் ௅ோ 𝐳 ் ௅ோ 𝐳 ் ௅ோ Decode Figure 3.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "U\nNon - parametric U psamp l er\n(b) RGB Upsampling (c) LSRNA (Ours)\n…\nU\nU\nU LSR\nDM\nDM\nDM\nDM\nDM\nDM\nDM\n𝐳\n0\n௅ோ\n𝐳\n்\nೌ\nெோ\n𝐳\n0\nெோ\n𝐳\n்\nೌ\nுோ\n𝐳\n0\nுோ\n𝐳\n0\n௅ோ\n𝐳\n்\n್\nுோ\n𝐳\n0\nுோ\n𝐳\n0\n௅ோ\n𝐳\n்\n೎\nுோ\n𝐳\n0\nுோ\nܠ\n௅ோ\n( a ) Latent Upsampling\n𝐳\n்\n௅ோ\n𝐳\n்\n௅ோ\n𝐳\n்\n௅ோ\nDecode\nFigure 3. Framework Comparison. (a) Existing latent upsam-\npling framework rely on progressive upsampling to address man-\nifold deviation. (b) Existing RGB upsampling framework can di-\nrectly upsample (optionally progressively), but produce smooth\noutput. (c) Our framework enables latent upsampling without pro-\ngressive upscaling with much fewer denoising steps ( Tc < T )\nwhile producing detailed outputs (RNA omitted for simplicity).\nLR, MR, HR: low/mid/high resolution; DM: Diffusion Model.\nLSRNA, is the ﬁrst latent upsampling framework to elim-\ninate the need for progressive upscaling as illustrated in\nFigure"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Our extensive experiments demon- strate that integrating LSRNA outperforms state-of-the-art reference-based methods across various resolutions and metrics, while showing the critical role of latent space up- sampling in preserving detail and sharpness.",
+      "Based on these observations, we hypothesize that upsam- pling within the latent space plays a crucial role in pre- serving sharpness and detail essential for high-resolution image generation."
+    ],
+    "limitation_expression": [
+      "However , they face signiﬁcant challenges: upsampling in latent space often causes manifold deviation, which de- grades output quality.",
+      "However, existing diffusion models are limited to learning the distribution of ﬁxed reso- lutions (e.g., 5122 for SD1.5), preventing them from gener- ating images at unseen larger resolutions.",
+      "However, this approach tends to lack texture details and pro- duce smoothed results [ 13, 19].",
+      "However, it leads to slower inference times and the potential accumulation of errors in the content.",
+      "However, Figure 2(b) shows that the RGB space upsampling produces smooth and less detailed out- puts compared to the original latent upsampling.",
+      "However, the issue of manifold de- viation caused by upsampling remains insufﬁciently ad- dressed."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Abstract In this paper , we propose LSRNA, a novel framework for higher-resolution (exceeding 1K) image generation using diffusion models by leveraging super-resolution directly in the latent space.",
+      "To tackle this, we propose a novel approach: learn- ing to map low-resolution latent representations onto the higher-resolution manifold.",
+      "Additionally, to facilitate the generation of high-frequency details in the subsequent gen- eration process, we propose the Region-wise Noise Addi- tion (RNA) module.",
+      "Combining the manifold alignment capability of LSR with the detail generation ability of RNA, our framework, 2356 U Non - parametric U psamp l er (b) RGB Upsampling (c) LSRNA (Ours) … U U U LSR DM DM DM DM DM DM DM 𝐳 0 ௅ோ 𝐳 ் ೌ ெோ 𝐳 0 ெோ 𝐳 ் ೌ ுோ 𝐳 0 ுோ 𝐳 0 ௅ோ 𝐳 ் ್ ுோ 𝐳 0 ுோ 𝐳 0 ௅ோ 𝐳 ் ೎ ுோ 𝐳 0 ுோ ܠ ௅ோ ( a ) Latent Upsampling 𝐳 ் ௅ோ 𝐳 ் ௅ோ 𝐳 ் ௅ோ Decode Figure 3.",
+      "(c) Our framework enables latent upsampling without pro- gressive upscaling with much fewer denoising steps ( Tc < T ) while producing detailed outputs (RNA omitted for simplicity)."
+    ],
+    "experiment_expression": [
+      "Our extensive experiments demon- strate that integrating LSRNA outperforms state-of-the-art reference-based methods across various resolutions and metrics, while showing the critical role of latent space up- sampling in preserving detail and sharpness.",
+      "Our ﬁrst observation is that, as shown in Figure 2(a), the bicubic- upsampled reference latent appears visually unappealing, exhibiting artifacts that suggest a deviation from the tar- get resolution’s manifold.",
+      "By incorporating LSRNA into both latent and RGB upsampling-based methods, we demonstrate its ability to outperform state-of-the-art methods across var- ious resolutions and metrics."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Abstract In this paper , we propose LSRNA, a novel framework for higher-resolution (exceeding 1K) image generation using diffusion models by leveraging super-resolution directly in the latent space.",
+    "Additionally, to facilitate the generation of high-frequency details in the subsequent gen- eration process, we propose the Region-wise Noise Addi- tion (RNA) module.",
+    "However , they face signiﬁcant challenges: upsampling in latent space often causes manifold deviation, which de- grades output quality.",
+    "However, Figure 2(b) shows that the RGB space upsampling produces smooth and less detailed out- puts compared to the original latent upsampling.",
+    "However, existing diffusion models are limited to learning the distribution of ﬁxed reso- lutions (e.g., 5122 for SD1.5), preventing them from gener- ating images at unseen larger resolutions.",
+    "However, it leads to slower inference times and the potential accumulation of errors in the content.",
+    "However, the issue of manifold de- viation caused by upsampling remains insufﬁciently ad- dressed.",
+    "However, this approach tends to lack texture details and pro- duce smoothed results [ 13, 19].",
+    "Our ﬁrst observation is that, as shown in Figure 2(a), the bicubic- upsampled reference latent appears visually unappealing, exhibiting artifacts that suggest a deviation from the tar- get resolution’s manifold.",
+    "To tackle this, we propose a novel approach: learn- ing to map low-resolution latent representations onto the higher-resolution manifold.",
+    "(a) Existing latent upsam- pling framework rely on progressive upsampling to address man- ifold deviation.",
+    "(a) Latent space bicubic upsampling causes manifold de- viation, degrading output quality."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nIn this paper , we propose LSRNA, a novel framework for\nhigher-resolution (exceeding 1K) image generation using\ndiffusion models by leveraging super-resolution directly in\nthe latent space. Existing diffusion models struggle with\nscaling beyond their training resolutions, often leading\nto structural distortions or content repetition. Reference-\nbased methods address the issues by upsampling a low-\nresolution reference to guide higher-resolution generation.\nHowever , they face signiﬁcant challenges: upsampling in\nlatent space often causes manifold deviation, which de-\ngrades output quality. On the other hand, upsampling\nin RGB space tends to produce overly smoothed out-\nputs. To overcome these limitations, LSRNA combines\nLatent space Super-Resolution (LSR) for manifold align-\nment and Region-wise Noise Addition (RNA) to enhance\nhigh-frequency details. Our extensive experiments demon-\nstrate that integrating LSRNA outperforms state-of-the-art\nreference-based methods across various resolutions and\nmetrics, while showing the critical role of latent space up-\nsampling in preserving detail and sharpness. The code will\nbe available at\nhttps://github.com/3587jjh/LSRNA.",
+    "introduction": "1. Introduction\nDiffusion models have rapidly become powerful tools in\ngenerative modeling, starting from foundational models\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n2355\n\n(a) Latent-Bicubic\nUpsampled ReferenceFinal output\n(c) Latent-SR (Ours)\n(b) RGB-Bicubic\nFigure 2. Comparison of DemoFusion with different upsam-\npling strategies. All methods are directly upsampled to 16 × res-\nolution. (a) Latent space bicubic upsampling causes manifold de-\nviation, degrading output quality. (b) RGB space bicubic upsam-\npling produces outputs with reduced detail and sharpness. (c) Our\nlearned latent-space upsampling aligns the manifold, resulting in\nsharp and detailed outputs. Best viewed ZOOMED-IN.\nlike DDPM [\n22] and DDIM [ 47]. Latent Diffusion Mod-\nels (LDMs) [ 40] further revolutionized the ﬁeld by re-\nducing computational costs through operating in a lower-\ndimensional latent space. These advancements have been\napplied to various tasks for image processing such as gen-\neration [\n35, 38, 43], editing [ 3, 20, 27, 33], and super-\nresolution [23, 44].\nIn parallel, with the rise of megapixel displays, demands\nfor higher-resolution image generation (ranging from 2K to\n8K) have grown drastically. However, existing diffusion\nmodels are limited to learning the distribution of ﬁxed reso-\nlutions (e.g., 5122 for SD1.5), preventing them from gener-\nating images at unseen larger resolutions. Scaling diffusion\nmodels to larger resolutions presents several challenges.\nTraining diffusion models from scratch [\n10, 15, 24, 50]\nor ﬁne-tuning [ 7, 39, 55] for higher resolutions demands\nextensive data and computational resources. Meanwhile,\ndirectly generating larger images using pretrained models\nleads to content repetition and structural distortions [\n1, 19].\nAlternatively, one can generate images at a pretrained reso-\nlution followed by super-resolution methods on RGB space.\nHowever, this approach tends to lack texture details and pro-\nduce smoothed results [\n13, 19].\nIn response, recent studies have increasingly focused on\ntraining-free approaches that leverage pretrained diffusion\nmodels. Among these, DemoFusion [ 13] stands out as\na prominent method, laying the foundation for reference-\nbased approaches [\n31, 46, 49]. By generating a reference\nlatent (or image) at the original size and upsampling it to\nguide the higher-resolution generation process, these ap-\nproaches have demonstrated robust performance in produc-\ning high-quality images. Nonetheless, what remains under-\nexplored is the reference upsampling process, which makes\nit a key area for further investigation.\nIn this paper, we explore the signiﬁcance of upsampled\nreference in reference-based image generation. Our ﬁrst\nobservation is that, as shown in Figure\n2(a), the bicubic-\nupsampled reference latent appears visually unappealing,\nexhibiting artifacts that suggest a deviation from the tar-\nget resolution’s manifold. This deviation poses a consid-\nerable problem as it interferes with the subsequent genera-\ntion process by providing suboptimal guidance, preventing\nthe output from properly aligning with the desired mani-\nfold. Existing reference-based methods with latent space\nupsampling [\n13, 31] mitigate the issue by gradually increas-\ning image resolution in stages ( i.e., progressive upscaling).\nHowever, it leads to slower inference times and the potential\naccumulation of errors in the content.\nGiven these limitations, we explored RGB space upsam-\npling as an alternative, inspired by reference-based RGB\nupsampling methods [\n46, 49]. This approach has the po-\ntential advantage of avoiding the artifacts observed in latent\nspace upsampling, as RGB-based methods work directly\nin pixel space, where artifacts may be less pronounced.\nSpeciﬁcally, we replace latent upsampling with RGB up-\nsampling, where a reference latent is decoded into an RGB\nimage, bicubic-upsampled, and then re-encoded back into\nthe latent space. However, Figure\n2(b) shows that the RGB\nspace upsampling produces smooth and less detailed out-\nputs compared to the original latent upsampling.\nBased on these observations, we hypothesize that upsam-\npling within the latent space plays a crucial role in pre-\nserving sharpness and detail essential for high-resolution\nimage generation. However, the issue of manifold de-\nviation caused by upsampling remains insufﬁciently ad-\ndressed. To tackle this, we propose a novel approach: learn-\ning to map low-resolution latent representations onto the\nhigher-resolution manifold. We introduce a lightweight La-\ntent space Super-Resolution (LSR) module that operates di-\nrectly within the latent space. Additionally, to facilitate the\ngeneration of high-frequency details in the subsequent gen-\neration process, we propose the Region-wise Noise Addi-\ntion (RNA) module. Inspired by SDEdit [\n33], which im-\nproves image quality through uniform noise injection fol-\nlowed by denoising, RNA adaptively injects Gaussian noise\ninto speciﬁc regions of the upsampled reference latent.\nCombining the manifold alignment capability of LSR\nwith the detail generation ability of RNA, our framework,\n2356\n\nU\nNon - parametric U psamp l er\n(b) RGB Upsampling (c) LSRNA (Ours)\n…\nU\nU\nU LSR\nDM\nDM\nDM\nDM\nDM\nDM\nDM\n𝐳\n0\n௅ோ\n𝐳\n்\nೌ\nெோ\n𝐳\n0\nெோ\n𝐳\n்\nೌ\nுோ\n𝐳\n0\nுோ\n𝐳\n0\n௅ோ\n𝐳\n்\n್\nுோ\n𝐳\n0\nுோ\n𝐳\n0\n௅ோ\n𝐳\n்\n೎\nுோ\n𝐳\n0\nுோ\nܠ\n௅ோ\n( a ) Latent Upsampling\n𝐳\n்\n௅ோ\n𝐳\n்\n௅ோ\n𝐳\n்\n௅ோ\nDecode\nFigure 3. Framework Comparison. (a) Existing latent upsam-\npling framework rely on progressive upsampling to address man-\nifold deviation. (b) Existing RGB upsampling framework can di-\nrectly upsample (optionally progressively), but produce smooth\noutput. (c) Our framework enables latent upsampling without pro-\ngressive upscaling with much fewer denoising steps ( Tc < T )\nwhile producing detailed outputs (RNA omitted for simplicity).\nLR, MR, HR: low/mid/high resolution; DM: Diffusion Model.\nLSRNA, is the ﬁrst latent upsampling framework to elim-\ninate the need for progressive upscaling as illustrated in\nFigure",
+    "method": "4. Methodology\nAn overview of LSRNA framework is illustrated in Fig-\nure",
+    "experiments": "5. Experiments\nIn this section, we present both quantitative and qualitative\nresults, followed by ablation studies. Additional experi-\nments and results, including the importance of latent space\nupsampling and the training details of the LSR module can\nbe found in the appendix.",
+    "conclusion": "7. Conclusion\nIn this paper, we address the challenges in higher-resolution\nimage generation with diffusion models by identifying man-\nifold deviation in latent upsampling and insufﬁcient texture\ndetail in RGB upsampling. To tackle these issues, we in-\ntroduce LSR, which aligns low-resolution latent representa-\ntions with the higher-resolution manifold, and RNA, which\nadaptively enhances ﬁner details in high-frequency regions.\nWe then propose LSRNA, a novel framework that combines\nLSR and RNA. By incorporating LSRNA into both latent\nand RGB upsampling-based methods, we demonstrate its\nability to outperform state-of-the-art methods across var-\nious resolutions and metrics. Our experimental results\nhighlight the ability of LSRNA, pushing the boundaries of\nhigher-resolution image generation.\nAcknowledgement\nThis research was supported and funded by the Artiﬁcial\nIntelligence Graduate School Program under Grant 2020-\n0-01361 and by the Institute of Information & Commu-\nnications Technology Planning & Evaluation (IITP) grant\nfunded by the Korea government (MSIT) under Grant 2022-\n0-00124."
+  }
+}

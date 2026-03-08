@@ -1,0 +1,95 @@
+{
+  "paper_id": "attend-to-not-attended-structure-then-detail-token-merging-for-post-training-dit--aae953844e",
+  "paper_title": "Attend to Not Attended: Structure-then-Detail Token Merging for Post-training DiT Acceleration",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:12:34.639108+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_transformer_video_pdfs/Attend to Not Attended： Structure-then-Detail Token Merging for Post-training DiT Acceleration.pdf",
+    "filename": "Attend to Not Attended： Structure-then-Detail Token Merging for Post-training DiT Acceleration.pdf",
+    "sha1": "aae953844e0e7a674918362ffa0614c076bc12d2",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Diffusion transformers (DiTs) [33] are ﬂourishing in im- age [6, 9, 11] and video [18, 30, 51] generation, and have been adopted as the fundamental model of Sora [ 3].",
+    "limitation": "However, these feature- based approaches often require additional ﬁne-tuning or overlook the denoising priors, resulting in suboptimal accel- eration, diminished image quality, and limited applicability.",
+    "insight": "Initially, we observe the evolution of low and high frequencies within DiT and conﬁrm that diffusion trans- formers still adhere to the structure-then-detail denoising priors: they allocate less attention to less-structure tokens in This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "proposed_method": "Subsequently, we introduce SDTM, a structure-then-detail token merging approach that dynamically compresses fea- ture redundancies.",
+    "experimental_evidence": "Abstract Diffusion transformers have shown exceptional perfor- mance in visual generation but incur high computational costs.",
+    "summary": "Introduction Diffusion transformers (DiTs) [33] are ﬂourishing in im- age [6, 9, 11] and video [18, 30, 51] generation, and have been adopted as the fundamental model of Sora [ 3]. However, these feature- based approaches often require additional ﬁne-tuning or overlook the denoising priors, resulting in suboptimal accel- eration, diminished image quality, and limited applicability. Initially, we observe the evolution of low and high frequencies within DiT and conﬁrm that diffusion trans- formers still adhere to the structure-then-detail denoising priors: they allocate less attention to less-structure tokens in This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Subsequently, we introduce SDTM, a structure-then-detail token merging approach that dynamically compresses fea- ture redundancies. Abstract Diffusion transformers have shown exceptional perfor- mance in visual generation but incur high computational costs."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "method_overview",
+      "main_message": "Introduction Diffusion transformers (DiTs) [33] are ﬂourishing in im- age [6, 9, 11] and video [18, 30, 51] generation, and have been adopted as the fundamental model of Sora [ 3].",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "1.\nIntroduction\nDiffusion transformers (DiTs) [33] are ﬂourishing in im-\nage\n[6, 9, 11] and video [18, 30, 51] generation, and have\nbeen\nadopted as the fundamental model of Sora [ 3]. How-\ne\nver, heavy computational redundancies slow down infer-\nence and drive the need for acceleration techniques.\nSeveral sampler-based methods aim to optimize denois-\ning steps through sampler optimization [ 27, 42] or distil-\nlation\n[31, 39], and model-based studies focus on prun-\ning\n[4, 10], quantizing [12, 20], or caching [29, 45] architec-\n/LetterCorresponding author: Fan Tang.\n(a) Denoising Process of DiT\n(\nb) Denoising Process of DiT + SDTM\nMMDiT : F ID-29.02\nSpeed-10.67s SDTM : FID-28.97\nSpeed-6.90s\n－0.05\n×1.55\n(c) Comparison of Generated Images\nFigure 1. Illustration. Upper: Our SDTM represents a dynamic\nmulti-resolution generation process by reducing feature redundan-\ncies in areas not unattended by the denoising process. Lower:\nCompared to the baseline method, our approach achieves 1.55×\nacceleration with negligible impact on generation quality.\ntural redundancy. Due to the inﬂexibility of these methods\nfor diverse data and evolving requirements, various studies\nintroduced token reduction"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "the early steps and to weak-detail tokens in the later steps.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "the early steps and to weak-detail tokens in the later steps.\nSubsequently, we hypothesize that these unattended tokens\nmay be redundant, and we validate this hypothesis by track-\ning the location of feature redundancies. Furthermore, we\nﬁnd that the degree of feature redundancy in the early diffu-\nsion process is signiﬁcantly greater than in the later stages.\nBased on the above priors, we introduce SDTM, a novel\nstructural-then-detail token merging approach that dynam-\nically reduces token redundancies stepwise without requir-\ning additional ﬁne-tuning. For visual token merging, we\ndevelop a similarity-prioritized structural merging method,\nan inattentive-prioritized detail merging method, supple-\nmented by time-wise ratio adjusting to alter the compres-\nsion degree at different stages. From the perspective of\nprompt guidance, we design a time-wise prompt reweight-\ning to optimize the guidance direction at different steps. In\nsummary, the contributions of this paper are as follows:\n• We analyze the location and degree of feature redundan-\ncies and introduce SDTM, a dynamic token compression\napproach that employs a structure-then-detail token merg-\ning strategy. It is ﬁnetuning-fre"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However , existing approaches neglect the denoising priors of the diffusion models, leading to sub- optimal acceleration and diminished image quality.",
+      "However, these feature- based approaches often require additional ﬁne-tuning or overlook the denoising priors, resulting in suboptimal accel- eration, diminished image quality, and limited applicability.",
+      "Initially, we observe the evolution of low and high frequencies within DiT and conﬁrm that diffusion trans- formers still adhere to the structure-then-detail denoising priors: they allocate less attention to less-structure tokens in This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Extensive experiments across various backbones, schedulers, and datasets showcase the superior- ity of our method, for example, it achieves 1.55× accelera- tion with negligible impact on image quality.",
+      "In this paper, we propose a novel view: attend to prune feature redundancies in areas not attended by the diffusion process.",
+      "It is ﬁnetuning-free and can be seamlessly integrated into any text-to-image DiT architecture. • We design similarity-prioritized structural merging and inattentive-prioritized detail merging methods for differ- ent stages, supplemented by time-wise ratio adjusting and prompt reweighting to compress feature redundancies. • Quantitative and qualitative experiments across multi- ple backbones, schedulers, and datasets demonstrate our method’s superiority.",
+      "We conducted extensive quantitative and qualitative experi- ments to demonstrate the effectiveness of our method across various architectures and schedulers."
+    ],
+    "experiment_expression": [
+      "Extensive experiments across various backbones, schedulers, and datasets showcase the superior- ity of our method, for example, it achieves 1.55× accelera- tion with negligible impact on image quality.",
+      "It is ﬁnetuning-free and can be seamlessly integrated into any text-to-image DiT architecture. • We design similarity-prioritized structural merging and inattentive-prioritized detail merging methods for differ- ent stages, supplemented by time-wise ratio adjusting and prompt reweighting to compress feature redundancies. • Quantitative and qualitative experiments across multi- ple backbones, schedulers, and datasets demonstrate our method’s superiority.",
+      "Methodology As shown in Fig.",
+      "We conducted extensive quantitative and qualitative experi- ments to demonstrate the effectiveness of our method across various architectures and schedulers."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Extensive experiments across various backbones, schedulers, and datasets showcase the superior- ity of our method, for example, it achieves 1.55× accelera- tion with negligible impact on image quality.",
+    "However , existing approaches neglect the denoising priors of the diffusion models, leading to sub- optimal acceleration and diminished image quality.",
+    "However, these feature- based approaches often require additional ﬁne-tuning or overlook the denoising priors, resulting in suboptimal accel- eration, diminished image quality, and limited applicability.",
+    "In this paper, we propose a novel view: attend to prune feature redundancies in areas not attended by the diffusion process.",
+    "Methodology As shown in Fig.",
+    "(a) Denoising Process of DiT ( b) Denoising Process of DiT + SDTM MMDiT : F ID-29.02 Speed-10.67s SDTM : FID-28.97 Speed-6.90s －0.05 ×1.55 (c) Comparison of Generated Images Figure 1.",
+    "18083 the early steps and to weak-detail tokens in the later steps.",
+    "3, we introduce the SDTM framework, a structure-then-detail token merging approach that facilitates dynamic token compression to reduce feature redundancy.",
+    "3, we perform DiT accelera- tion across two stages.",
+    "4) and prompt token reweighting methods, detailed in Sec.",
+    "Abstract Diffusion transformers have shown exceptional perfor- mance in visual generation but incur high computational costs.",
+    "At different stages, we adopt various visual token merging (shown in Fig."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion transformers have shown exceptional perfor-\nmance in visual generation but incur high computational\ncosts. Token reduction techniques that compress models by\nsharing the denoising process among similar tokens have\nbeen introduced. However , existing approaches neglect the\ndenoising priors of the diffusion models, leading to sub-\noptimal acceleration and diminished image quality. This\nstudy proposes a novel concept: attend to prune feature\nredundancies in areas not attended by the diffusion pro-\ncess. We analyze the location and degree of feature redun-\ndancies based on the structure-then-detail denoising priors.\nSubsequently, we introduce SDTM, a structure-then-detail\ntoken merging approach that dynamically compresses fea-\nture redundancies. Speciﬁcally, we design dynamic visual\ntoken merging, compression ratio adjusting, and prompt\nreweighting for different stages. Served in a post-training\nway, the proposed method can be integrated seamlessly into\nany DiT architecture. Extensive experiments across various\nbackbones, schedulers, and datasets showcase the superior-\nity of our method, for example, it achieves 1.55× accelera-\ntion with negligible impact on image quality. Project page:\nhttps://github.com/ICTMCG/SDTM .",
+    "introduction": "1.\nIntroduction\nDiffusion transformers (DiTs) [33] are ﬂourishing in im-\nage\n[6, 9, 11] and video [18, 30, 51] generation, and have\nbeen\nadopted as the fundamental model of Sora [ 3]. How-\ne\nver, heavy computational redundancies slow down infer-\nence and drive the need for acceleration techniques.\nSeveral sampler-based methods aim to optimize denois-\ning steps through sampler optimization [ 27, 42] or distil-\nlation\n[31, 39], and model-based studies focus on prun-\ning\n[4, 10], quantizing [12, 20], or caching [29, 45] architec-\n/LetterCorresponding author: Fan Tang.\n(a) Denoising Process of DiT\n(\nb) Denoising Process of DiT + SDTM\nMMDiT : F ID-29.02\nSpeed-10.67s SDTM : FID-28.97\nSpeed-6.90s\n－0.05\n×1.55\n(c) Comparison of Generated Images\nFigure 1. Illustration. Upper: Our SDTM represents a dynamic\nmulti-resolution generation process by reducing feature redundan-\ncies in areas not unattended by the denoising process. Lower:\nCompared to the baseline method, our approach achieves 1.55×\nacceleration with negligible impact on generation quality.\ntural redundancy. Due to the inﬂexibility of these methods\nfor diverse data and evolving requirements, various studies\nintroduced token reduction [ 2, 22, 32, 37] to reduce feature\nredundanc\ny. For instance, ToMeSD [ 1] and A T-EDM [44]\ncompress\nsimilar or unimportant tokens, where DyDiT [ 50]\nand\nTokenCache [26] train a dynamic module to prune or\ncache\nunnecessary computation. However, these feature-\nbased approaches often require additional ﬁne-tuning or\noverlook the denoising priors, resulting in suboptimal accel-\neration, diminished image quality, and limited applicability.\nIn this paper, we propose a novel view: attend to prune\nfeature redundancies in areas not attended by the diffusion\nprocess. Initially, we observe the evolution of low and high\nfrequencies within DiT and conﬁrm that diffusion trans-\nformers still adhere to the structure-then-detail denoising\npriors: they allocate less attention to less-structure tokens in\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n18083\n\nthe early steps and to weak-detail tokens in the later steps.\nSubsequently, we hypothesize that these unattended tokens\nmay be redundant, and we validate this hypothesis by track-\ning the location of feature redundancies. Furthermore, we\nﬁnd that the degree of feature redundancy in the early diffu-\nsion process is signiﬁcantly greater than in the later stages.\nBased on the above priors, we introduce SDTM, a novel\nstructural-then-detail token merging approach that dynam-\nically reduces token redundancies stepwise without requir-\ning additional ﬁne-tuning. For visual token merging, we\ndevelop a similarity-prioritized structural merging method,\nan inattentive-prioritized detail merging method, supple-\nmented by time-wise ratio adjusting to alter the compres-\nsion degree at different stages. From the perspective of\nprompt guidance, we design a time-wise prompt reweight-\ning to optimize the guidance direction at different steps. In\nsummary, the contributions of this paper are as follows:\n• We analyze the location and degree of feature redundan-\ncies and introduce SDTM, a dynamic token compression\napproach that employs a structure-then-detail token merg-\ning strategy. It is ﬁnetuning-free and can be seamlessly\nintegrated into any text-to-image DiT architecture.\n• We design similarity-prioritized structural merging and\ninattentive-prioritized detail merging methods for differ-\nent stages, supplemented by time-wise ratio adjusting and\nprompt reweighting to compress feature redundancies.\n• Quantitative and qualitative experiments across multi-\nple backbones, schedulers, and datasets demonstrate our\nmethod’s superiority. For example, SDTM achieves 1.55×\nacceleration with negligible impact on generation quality.",
+    "method": "4. Methodology\nAs shown in Fig.\n3, we introduce the SDTM framework, a\nstructure-then-detail token merging approach that facilitates\ndynamic token compression to reduce feature redundancy.\nBased on the analysis in Sec.\n3, we perform DiT accelera-\ntion across two stages. At different stages, we adopt various\nvisual token merging (shown in Fig.\n4) and prompt token\nreweighting methods, detailed in Sec. 4.1 and Sec. 4.2.",
+    "experiments": "5. Experiment",
+    "conclusion": "6. Conclusion\nIn this paper, we conduct a detailed analysis of the loca-\ntion and degree of feature redundancies and design a novel\napproach to accelerate DiTs by targeting redundancies in\nareas overlooked by the denoising process. Our innova-\ntive SDTM method dynamically addresses less-structure and\nless-detail redundancy throughout the generation process. It\ncan be integrated seamlessly into any existing DiT architec-\nture, accelerating generation without additional ﬁne-tuning.\nWe conducted extensive quantitative and qualitative experi-\nments to demonstrate the effectiveness of our method across\nvarious architectures and schedulers. Limitation: Due to\nthe inherent trade-offs of compression ratios in token merg-\ning, greater compression demands necessitate the integra-\ntion of other acceleration techniques, such as distillation.\nAcknowledgements. This work was partly supported by\nthe Beijing Science and Technology Plan Project under No.\nZ231100005923033, Beijing Natural Science Foundation\nunder No. L221013, and National Science and Technology\nCouncil under Grant 113-2221-E-006-161-MY3, Taiwan."
+  }
+}

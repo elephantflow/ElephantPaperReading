@@ -1,0 +1,93 @@
+{
+  "paper_id": "lux-post-facto-learning-portrait-performance-relighting-with-conditional-video-d--094d25233d",
+  "paper_title": "Lux Post Facto: Learning Portrait Performance Relighting with Conditional Video Diffusion and a Hybrid Dataset",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:00.184965+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Lux Post Facto： Learning Portrait Performance Relighting with Conditional Video Diffusion and a Hybrid Dataset.pdf",
+    "filename": "Lux Post Facto： Learning Portrait Performance Relighting with Conditional Video Diffusion and a Hybrid Dataset.pdf",
+    "sha1": "094d25233d31814a32b3ee702cb528d0f3874767",
+    "page_count": 13
+  },
+  "core_story": {
+    "problem": "Introduction Lighting is a crucial element in visual storytelling, shaping the scene, adding depth, and creating emotional impact.",
+    "limitation": "However, the technique relies on complex equip- ment and cannot be generalized to new subjects.",
+    "insight": "Abstract Video portrait relighting remains challenging because the results need to be both photorealistic and temporally stable.",
+    "proposed_method": "In this work, we propose Lux Post F acto, a new video relighting model for relighting arbitrary portrait videos re- alistically and with temporal consistency.",
+    "experimental_evidence": "Our extensive experiments show that our model produces state-of-the-art results both in terms of photorealism and temporal consis- tency.",
+    "summary": "Introduction Lighting is a crucial element in visual storytelling, shaping the scene, adding depth, and creating emotional impact. However, the technique relies on complex equip- ment and cannot be generalized to new subjects. Abstract Video portrait relighting remains challenging because the results need to be both photorealistic and temporally stable. In this work, we propose Lux Post F acto, a new video relighting model for relighting arbitrary portrait videos re- alistically and with temporal consistency. Our extensive experiments show that our model produces state-of-the-art results both in terms of photorealism and temporal consis- tency."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Lighting is a crucial element in visual storytelling, shaping the scene, adding depth, and creating emotional impact.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\nLighting is a crucial element in visual storytelling, shaping\nthe scene, adding depth, and creating emotional impact. Be-\ncause of this, lighting receives considerable attention in the\nfilming process, marked by professional expertise, expen-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n5510"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "sive equipment, and coordinated teamwork – resources be- yond the reach of novice users.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "sive equipment, and coordinated teamwork – resources be-\nyond the reach of novice users. In this work, we endeavor\nto design a video relighting method to empower everyday\ncontent creators to create creative and compelling lighting\nin portrait videos as a simple post-production process.\nVideo relighting requires an accurate simulation of light\ntransport through complex materials across both time and\nspace. Image-based relighting [11] allows a portrait to be\nrelit when the subject has been recorded from a dense array\nof lighting directions, such as a one-light-at-a-time (OLAT)\nreflectance field. Using a high-speed camera and a synchro-\nnized LED stage, Wenger et al. [71] record OLATs at movie\nframe rates, allowing for cinematic relighting of a facial per-\nformance. However, the technique relies on complex equip-\nment and cannot be generalized to new subjects.\nMore recent works have attempted to transfer facial re-\nflectance information from one or more subjects to an-\nother, for example by tracking an OLAT quotient image\n[41] onto a new flat-lit performance. This has been gener-\nalized to a deep learning context, where OLAT data from\na set of training subjects is used to relight a no"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. A new hybrid dataset and associated training approach",
+      "purpose": "Defines optimization targets or learning objectives.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Introduction Lighting is a crucial element in visual storytelling, shaping the scene, adding depth, and creating emotional impact."
+    ],
+    "limitation_expression": [
+      "However, the technique relies on complex equip- ment and cannot be generalized to new subjects.",
+      "However, these models can have issues with temporal consistency, a lack of photorealism, or require difficult-to-obtain OLAT video data, or some com- bination of the three.",
+      "Our model is practical to train since it requires only a limited number of static OLAT image datasets and a larger set of in-the-wild portrait videos."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "In this work, we propose Lux Post F acto, a new video relighting model for relighting arbitrary portrait videos re- alistically and with temporal consistency.",
+      "We show that our method outperforms cur- rent single-image and video relighting models."
+    ],
+    "experiment_expression": [
+      "Our extensive experiments show that our model produces state-of-the-art results both in terms of photorealism and temporal consis- tency.",
+      "Experiments We demonstrate the high-quality video relighting capabil- ity of Lux Post Facto through extensive evaluations."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, the technique relies on complex equip- ment and cannot be generalized to new subjects.",
+    "However, these models can have issues with temporal consistency, a lack of photorealism, or require difficult-to-obtain OLAT video data, or some com- bination of the three.",
+    "In this work, we propose Lux Post F acto, a new video relighting model for relighting arbitrary portrait videos re- alistically and with temporal consistency.",
+    "Our extensive experiments show that our model produces state-of-the-art results both in terms of photorealism and temporal consis- tency.",
+    "5510 sive equipment, and coordinated teamwork – resources be- yond the reach of novice users.",
+    "A new hybrid dataset and associated training approach which allows training our video relighting models using static OLAT images and in-the-wild video data in a uni- fied framework.",
+    "Abstract Video portrait relighting remains challenging because the results need to be both photorealistic and temporally stable.",
+    "All metrics are computed on the foreground subject, using pre-computed masks from [26].",
+    "And methods based on pixel-aligned control maps [27, 80] require explicit proxy geometry, prone to estimation errors.",
+    "Be- cause of this, lighting receives considerable attention in the filming process, marked by professional expertise, expen- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "By treating video relighting as an HDR map conditioned generation process, and fine-tuning a state-of-the-art video diffusion model,Lux Post Facto achieves generalized fine-grained lighting con- trol of portrait videos.",
+    "Collec- tively, the embeddings produce a complete lighting envi- ronment representation."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nVideo portrait relighting remains challenging because\nthe results need to be both photorealistic and temporally\nstable. This typically requires a strong model design that\ncan capture complex facial reflections as well as intensive\ntraining on a high-quality paired video dataset, such as\ndynamic one-light-at-a-time (OLAT). In this work, we in-\ntroduce Lux Post F acto, a novel portrait video relighting\nmethod that produces both photorealistic and temporally\nconsistent lighting effects. From the model side, we design\na new conditional video diffusion model built upon state-of-\nthe-art pre-trained video diffusion model, alongside a new\nlighting injection mechanism to enable precise control. This\nway we leverage strong spatial and temporal generative\ncapability to generate plausible solutions to the ill-posed\nrelighting problem. Our technique uses a hybrid dataset\nconsisting of static expression OLAT data and in-the-wild\nportrait performance videos to jointly learn relighting and\ntemporal modeling. This avoids the need to acquire paired\nvideo data in different lighting conditions. Our extensive\nexperiments show that our model produces state-of-the-art\nresults both in terms of photorealism and temporal consis-\ntency. Video results can be found on our project page.",
+    "introduction": "1. Introduction\nLighting is a crucial element in visual storytelling, shaping\nthe scene, adding depth, and creating emotional impact. Be-\ncause of this, lighting receives considerable attention in the\nfilming process, marked by professional expertise, expen-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n5510\n\nsive equipment, and coordinated teamwork – resources be-\nyond the reach of novice users. In this work, we endeavor\nto design a video relighting method to empower everyday\ncontent creators to create creative and compelling lighting\nin portrait videos as a simple post-production process.\nVideo relighting requires an accurate simulation of light\ntransport through complex materials across both time and\nspace. Image-based relighting [11] allows a portrait to be\nrelit when the subject has been recorded from a dense array\nof lighting directions, such as a one-light-at-a-time (OLAT)\nreflectance field. Using a high-speed camera and a synchro-\nnized LED stage, Wenger et al. [71] record OLATs at movie\nframe rates, allowing for cinematic relighting of a facial per-\nformance. However, the technique relies on complex equip-\nment and cannot be generalized to new subjects.\nMore recent works have attempted to transfer facial re-\nflectance information from one or more subjects to an-\nother, for example by tracking an OLAT quotient image\n[41] onto a new flat-lit performance. This has been gener-\nalized to a deep learning context, where OLAT data from\na set of training subjects is used to relight a novel sub-\nject [25, 30, 40, 61, 79]. However, these models can have\nissues with temporal consistency, a lack of photorealism, or\nrequire difficult-to-obtain OLAT video data, or some com-\nbination of the three.\nIn this work, we propose Lux Post F acto, a new video\nrelighting model for relighting arbitrary portrait videos re-\nalistically and with temporal consistency. We formulate\nvideo relighting as a conditional generation process leverag-\ning a state-of-the-art video diffusion model [3], fine-tuned\non a hybrid dataset with new lighting injection and training\nstrategies.\nWhile video diffusion models [3, 74] have the power\nto generate temporally consistent videos with high-quality\nlighting from text guidance, they lack the ability to achieve\nfine-grain lighting control. While we would like to specify\nthe lighting as a high dynamic range (HDR) lighting envi-\nronment, conventional image conditioning methods [75, 85]\nlike CLIP [47], struggle to represent the HDR pixel values\nand spatial details in HDR maps. And methods based on\npixel-aligned control maps [27, 80] require explicit proxy\ngeometry, prone to estimation errors.\nWe solve this problem by encoding the original HDR\nmap as a set of “lighting embeddings”, where each embed-\nding represents a single directional light source. Collec-\ntively, the embeddings produce a complete lighting envi-\nronment representation. We pass this representation to the\ndiffusion model through cross-attention to achieve precise\nlighting control.\nOur model is practical to train since it requires only a\nlimited number of static OLAT image datasets and a larger\nset of in-the-wild portrait videos. The static OLATs provide\nrelighting supervision for individual frames, and the in-the-\nwild videos train the model to produce temporally stable\nperformances under a wild variety of unknown lighting con-\nditions. Our novel training strategy learns from this combi-\nnation of datasets to achieve temporally consistent portrait\nvideo relighting. We show that our method outperforms cur-\nrent single-image and video relighting models. To summa-\nrize, our technical contributions include:",
+    "method": "3. A new hybrid dataset and associated training approach\nwhich allows training our video relighting models using\nstatic OLAT images and in-the-wild video data in a uni-\nfied framework.",
+    "experiments": "5. Experiments\nWe demonstrate the high-quality video relighting capabil-\nity of Lux Post Facto through extensive evaluations. More\nvideo comparison results can be found in the supplement\nand on our project page.\nEvaluation Metrics. We follow previous work [34, 35]\nand use PSNR and SSIM [69] to evaluate fidelity and report\nLPIPS [82] and NIQE [38] scores for perceptual quality.\nAll metrics are computed on the foreground subject, using\npre-computed masks from [26].",
+    "conclusion": "6. Conclusion\nWe presentedLux Post Facto, a video relighting method that\nbrings realistic and temporally consistent relighting to stan-\ndard portrait videos in post-production. By treating video\nrelighting as an HDR map conditioned generation process,\nand fine-tuning a state-of-the-art video diffusion model,Lux\nPost Facto achieves generalized fine-grained lighting con-\ntrol of portrait videos. Lux Post Factoonly requires a set of\nstatic OLAT images and a larger pool of in-the-wild videos\nfor training. This hybrid dataset effectively provides relight-\ning supervision for individual frames while fostering tem-\nporal stability across frames. Discussion of limitations and\nfuture work can be found in the supplement."
+  }
+}

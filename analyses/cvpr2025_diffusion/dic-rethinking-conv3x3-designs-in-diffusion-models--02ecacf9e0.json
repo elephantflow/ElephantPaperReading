@@ -1,0 +1,87 @@
+{
+  "paper_id": "dic-rethinking-conv3x3-designs-in-diffusion-models--02ecacf9e0",
+  "paper_title": "DiC: Rethinking Conv3x3 Designs in Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:21.006452+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/DiC： Rethinking Conv3x3 Designs in Diffusion Models.pdf",
+    "filename": "DiC： Rethinking Conv3x3 Designs in Diffusion Models.pdf",
+    "sha1": "02ecacf9e0a999e4468d78ac54af852f1298411b",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Diffusion-based image generative models have recently gained significant attention, with notable works like Stable Diffusion [32] demonstrating impressive results.",
+    "limitation": "Introduction Diffusion-based image generative models have recently gained significant attention, with notable works like Stable Diffusion [32] demonstrating impressive results.",
+    "insight": "Abstract Diffusion models have shown exceptional performance in visual generation tasks.",
+    "proposed_method": "Further improving the architec- ture, we introduce sparse skip connections to reduce redun- dancy and improve scalability.",
+    "experimental_evidence": "Abstract Diffusion models have shown exceptional performance in visual generation tasks.",
+    "summary": "Introduction Diffusion-based image generative models have recently gained significant attention, with notable works like Stable Diffusion [32] demonstrating impressive results. Introduction Diffusion-based image generative models have recently gained significant attention, with notable works like Stable Diffusion [32] demonstrating impressive results. Abstract Diffusion models have shown exceptional performance in visual generation tasks. Further improving the architec- ture, we introduce sparse skip connections to reduce redun- dancy and improve scalability. Abstract Diffusion models have shown exceptional performance in visual generation tasks."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction Diffusion-based image generative models have recently gained significant attention, with notable works like Stable Diffusion [32] demonstrating impressive results.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "Introduction Diffusion-based image generative models have recently gained significant attention, with notable works like Stable Diffusion [32] demonstrating impressive results. As these models continue to evolve, they are now capable of gener- ating increasingly realistic images. Recent advancements, including Sora-related works, have extended this capabil- ity to video generation, producing high-quality, temporally consistent videos that rival real-world footage. *Equal Contribution. Conv 3x3 U-Net U-Net + Sparse Skip + Stage-Spec."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "Block Injection + GELU (DiC) DiT-XL/2 29.31 11.49 10.07 8.80 6.54 6.26",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Block Injection + GELU (DiC) DiT-XL/2 29.31 11.49 10.07 8.80 6.54 6.26"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "We first discover that an Encoder- Decoder Hourglass design outperforms scalable isotropic architectures for Conv3x3, but still under- performing our expectation."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Build- ing on this, we propose the sparse skip connection to reduce redundant block-wise connections and enhance efficiency of U-Net."
+    ],
+    "experiment_expression": [
+      "Experiments In this section, we provide experiments on various settings to demonstrate the outstanding performance of DiC model."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Build- ing on this, we propose the sparse skip connection to reduce redundant block-wise connections and enhance efficiency of U-Net.",
+    "Above all, as an aspect that is always neglected in dif- fusion, we investigate the use of convolutions in diffusion models, and we hope this work could inspire further explo- ration into the use of convolutions in diffusion models.",
+    "Abstract Diffusion models have shown exceptional performance in visual generation tasks.",
+    "As these models continue to evolve, they are now capable of gener- ating increasingly realistic images.",
+    "Based on the architecture, we introduce conditioning improvements including stage- specific embeddings, mid- block condition injection, and con- ditional gating.",
+    "Based on these improvements, our proposed Conv3x3 diffusion model not only achieves superior generative performance compared to Diffusion Transformers but also does so with significantly higher throughput.",
+    "Block Injection + GELU (DiC) DiT-XL/2 29.31 11.49 10.07 8.80 6.54 6.26 3.",
+    "Conclusion In this work, we rethink the design of Conv3x3 in the con- text of diffusion models and introduced DiC, a purely 3x3- convolutional diffusion model.",
+    "Contrary to these works, we rethink one of the simplest yet fastest module in deep learning, 3x3 Convolution, to construct a scaled- up purely convolutional diffusion model.",
+    "Conv 3x3 U-Net U-Net + Sparse Skip + Stage-Spec.",
+    "Experiments In this section, we provide experiments on various settings to demonstrate the outstanding performance of DiC model.",
+    "Experiments on various scales and settings show that DiC surpasses existing dif- fusion transformers by considerable margins in terms of performance while keeping a good speed advantage."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models have shown exceptional performance in\nvisual generation tasks. Recently, these models have shifted\nfrom traditional U- Shaped CNN- Attention hybrid structures\nto fully transformer- based isotropic architectures. While\nthese transformers exhibit strong scalability and perfor-\nmance, their reliance on complicated self-a ttention oper-\nation results in slow inference speeds. Contrary to these\nworks, we rethink one of the simplest yet fastest module\nin deep learning, 3x3 Convolution, to construct a scaled-\nup purely convolutional diffusion model. We first discover\nthat an Encoder- Decoder Hourglass design outperforms\nscalable isotropic architectures for Conv3x3, but still under-\nperforming our expectation. Further improving the architec-\nture, we introduce sparse skip connections to reduce redun-\ndancy and improve scalability. Based on the architecture,\nwe introduce conditioning improvements including stage-\nspecific embeddings, mid- block condition injection, and con-\nditional gating. These improvements lead to our proposed\nDiffusion CNN (DiC), which serves as a swift yet competi-\ntive diffusion architecture baseline. Experiments on various\nscales and settings show that DiC surpasses existing dif-\nfusion transformers by considerable margins in terms of\nperformance while keeping a good speed advantage. Project\npage: https://github.com/YuchuanTian/DiC",
+    "introduction": "1. Introduction\nDiffusion-based image generative models have recently\ngained significant attention, with notable works like Stable\nDiffusion [32] demonstrating impressive results. As these\nmodels continue to evolve, they are now capable of gener-\nating increasingly realistic images. Recent advancements,\nincluding Sora-related works, have extended this capabil-\nity to video generation, producing high-quality, temporally\nconsistent videos that rival real-world footage.\n*Equal Contribution.\nConv 3x3 U-Net\nU-Net + Sparse Skip\n+ Stage-Spec. Emb.\n+ Mid. Block Injection\n+ GELU (DiC)\nDiT-XL/2\n29.31\n11.49\n10.07\n8.80\n6.54\n6.26",
+    "method": "3. Method",
+    "experiments": "4. Experiments\nIn this section, we provide experiments on various settings\nto demonstrate the outstanding performance of DiC model.",
+    "conclusion": "5. Conclusion\nIn this work, we rethink the design of Conv3x3 in the con-\ntext of diffusion models and introduced DiC, a purely 3x3-\nconvolutional diffusion model. We initially explore vari-\nous state-of-the-art diffusion architectures and find that the\nEncoder-Decoder U-Net structure perform the best. Build-\ning on this, we propose the sparse skip connection to reduce\nredundant block-wise connections and enhance efficiency of\nU-Net. In addition to architecture, we redesign the condition-\ning mechanism. We introduce stage-specific independent\nembeddings where each embedding is responsible for ad-\ndressing conditioning within its assigned stage. We also pro-\npose mid-block condition injection and conditional gating,\nwhich are beneficial from empirical obvervations. Based on\nthese improvements, our proposed Conv3x3 diffusion model\nnot only achieves superior generative performance compared\nto Diffusion Transformers but also does so with significantly\nhigher throughput.\nAbove all, as an aspect that is always neglected in dif-\nfusion, we investigate the use of convolutions in diffusion\nmodels, and we hope this work could inspire further explo-\nration into the use of convolutions in diffusion models."
+  }
+}

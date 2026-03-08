@@ -1,0 +1,101 @@
+{
+  "paper_id": "consistent-and-controllable-image-animation-with-motion-diffusion-models--6cc602dfdd",
+  "paper_title": "Consistent and Controllable Image Animation with Motion Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:13.714842+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Consistent and Controllable Image Animation with Motion Diffusion Models.pdf",
+    "filename": "Consistent and Controllable Image Animation with Motion Diffusion Models.pdf",
+    "sha1": "6cc602dfdd8a20217b11032406ab894ffff10159",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "2, existing methods still encounter two major challenges: appearance consis- tency and motion smoothness.",
+    "limitation": "Previous I2V approaches are usually limited in their gen- eralization and effective primarily in specific domains, such as human hair [ 66], talking heads [ 13, 57, 58], and hu- man bodies [ 2, 3, 47, 58, 60, 61], etc.",
+    "insight": "Abstract Diffusion models have achieved significant progress in the task of image animation due to their powerful generative capabilities.",
+    "proposed_method": "In this paper, we introduce Cinemo, a novel image animation approach that aims at achieving better appearance consistency and motion smoothness.",
+    "experimental_evidence": "Extensive experiments compared with several state-of-the-art methods demonstrate the effectiveness and superiority of our pro- posed approach.",
+    "summary": "2, existing methods still encounter two major challenges: appearance consis- tency and motion smoothness. Previous I2V approaches are usually limited in their gen- eralization and effective primarily in specific domains, such as human hair [ 66], talking heads [ 13, 57, 58], and hu- man bodies [ 2, 3, 47, 58, 60, 61], etc. Abstract Diffusion models have achieved significant progress in the task of image animation due to their powerful generative capabilities. In this paper, we introduce Cinemo, a novel image animation approach that aims at achieving better appearance consistency and motion smoothness. Extensive experiments compared with several state-of-the-art methods demonstrate the effectiveness and superiority of our pro- posed approach."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Image animation, also known as Image-to-Video generation (I2V), “animates” a given static image to transform it into a video sequence, with the goal of preserving the original content but injecting realistic and temporally coherent dy- namics.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\nImage animation, also known as Image-to-Video generation\n(I2V), “animates” a given static image to transform it into\na video sequence, with the goal of preserving the original\ncontent but injecting realistic and temporally coherent dy-\nnamics. Fig. 1 demonstrates some examples (please visit\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n7288"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "(a) Appearance Inconsistency (Prompt: windmill turning) (b) Motion Roughness (Prompt: car moving) Input Image Input Image Figure 2.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "(a) Appearance Inconsistency (Prompt: windmill turning)\n(b) Motion Roughness (Prompt: car moving)\nInput Image\nInput Image\nFigure 2. Appearance consistency and motion smoothness. (a) Upper row: appearance changes over time (result from PIA [74]). (b)\nLower row: the car takes a sudden turnaround (result from SEINE [8]).\nthe project page to visualize the motion). It is an engaging\nand convenient way of creating video content, which can be\ndirectly used in real-world video production.\nPrevious I2V approaches are usually limited in their gen-\neralization and effective primarily in specific domains, such\nas human hair [ 66], talking heads [ 13, 57, 58], and hu-\nman bodies [ 2, 3, 47, 58, 60, 61], etc. Recent advance-\nments in large-scale diffusion models have enabled gener-\nalization to open domains, demonstrating success in image\n[7, 36, 43], 3D geometry [ 27, 28, 37], and video genera-\ntion [ 5, 15, 31, 32, 48, 59]. In particular, extending the\nvideo diffusion models to image animation has received\nmuch attention [8, 10, 42, 67, 73, 74], aiming to utilize the\npowerful spatio-temporal generation priors. Despite these\nadvancements, as demonstrated in Fig. 2, existing methods\nstill encoun"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4.2. Comparisons with State-of-the-art Methods",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, preserving appearance consistency to the static input image, and avoiding abrupt motion change in the generated animation, remains challenging.",
+      "Previous I2V approaches are usually limited in their gen- eralization and effective primarily in specific domains, such as human hair [ 66], talking heads [ 13, 57, 58], and hu- man bodies [ 2, 3, 47, 58, 60, 61], etc.",
+      "2, existing methods still encounter two major challenges: appearance consis- tency and motion smoothness.",
+      "However, this balance remains a persistent dilemma."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Firstly, to better preserve the appearance consis- tency across frames, we propose to learn the distribution of the differences (motion residual) between frames, instead of direct learning on the multiple frames themselves.",
+      "Secondly, we propose to utilize the low-frequency Discrete Cosine Transform (DCT) components of the input image, as the layout guidance to suppress the abrupt or undesired motion during the inference phase.",
+      "To avoid over-suppression of motion dynamics, we propose a new design of dynamics degree con- trol inspired by [10] that enables users to explicitly control the degree of motion.",
+      "We summarize our contributions as follows: • We propose Cinemo, a diffusion-based image animation model that learns the distribution of motion residuals across frames rather than directly predicting the multiple frames themselves, in turn better preserves the appearance consistency. • To mitigate the abrupt or undesired motion changes, we utilize the low-frequency DCT component of the input image, to initialize the inference noise during the inference phase.",
+      "During the inference, we propose DCTInit, which utilizes the low-frequency components of DCT coef- ficients of the static input image to refine the initial noise and stabilize the generation process."
+    ],
+    "experiment_expression": [
+      "Extensive experiments compared with several state-of-the-art methods demonstrate the effectiveness and superiority of our pro- posed approach.",
+      "In the end, we also demonstrate how our model can be applied for motion transfer or video editing of any given video.",
+      "Secondly, abrupt motion or deformation of objects may hap- pen as shown in Fig.",
+      "We also demonstrate our model can be easily extended to other applications such as video editing and motion transfer.",
+      "We conduct comprehensive quantita- tive and qualitative experiments and demonstrate that our model achieves the best appearance consistency and motion smoothness, without over-suppressing the motion dynamics.",
+      "Our experimental re- sults demonstrate the effectiveness and the superiority of our approach compared to existing methods."
+    ],
+    "contribution_expression": [
+      "We summarize our contributions as follows: • We propose Cinemo, a diffusion-based image animation model that learns the distribution of motion residuals across frames rather than directly predicting the multiple frames themselves, in turn better preserves the appearance consistency. • To mitigate the abrupt or undesired motion changes, we utilize the low-frequency DCT component of the input image, to initialize the inference noise during the inference phase."
+    ]
+  },
+  "notable_sentences": [
+    "During the inference, we propose DCTInit, which utilizes the low-frequency components of DCT coef- ficients of the static input image to refine the initial noise and stabilize the generation process.",
+    "Extensive experiments compared with several state-of-the-art methods demonstrate the effectiveness and superiority of our pro- posed approach.",
+    "Firstly, to better preserve the appearance consis- tency across frames, we propose to learn the distribution of the differences (motion residual) between frames, instead of direct learning on the multiple frames themselves.",
+    "However, preserving appearance consistency to the static input image, and avoiding abrupt motion change in the generated animation, remains challenging.",
+    "However, this balance remains a persistent dilemma.",
+    "Secondly, abrupt motion or deformation of objects may hap- pen as shown in Fig.",
+    "Secondly, we propose to utilize the low-frequency Discrete Cosine Transform (DCT) components of the input image, as the layout guidance to suppress the abrupt or undesired motion during the inference phase.",
+    "To avoid over-suppression of motion dynamics, we propose a new design of dynamics degree con- trol inspired by [10] that enables users to explicitly control the degree of motion.",
+    "We summarize our contributions as follows: • We propose Cinemo, a diffusion-based image animation model that learns the distribution of motion residuals across frames rather than directly predicting the multiple frames themselves, in turn better preserves the appearance consistency. • To mitigate the abrupt or undesired motion changes, we utilize the low-frequency DCT component of the input image, to initialize the inference noise during the inference phase.",
+    "(a) Upper row: appearance changes over time (result from PIA [74]).",
+    "(b) Lower row: the car takes a sudden turnaround (result from SEINE [8]). the project page to visualize the motion).",
+    "1 demonstrates some examples (please visit This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models have achieved significant progress in the\ntask of image animation due to their powerful generative\ncapabilities. However, preserving appearance consistency to\nthe static input image, and avoiding abrupt motion change in\nthe generated animation, remains challenging. In this paper,\nwe introduce Cinemo, a novel image animation approach\nthat aims at achieving better appearance consistency and\nmotion smoothness. The core of Cinemo is to focus on learn-\ning the distribution of motion residuals, rather than directly\npredicting frames as in existing diffusion models. During the\ninference, we further mitigate the sudden motion changes\nin the generated video by introducing a novel DCT-based\nnoise refinement strategy. To counteract the over-smoothing\n‡ Corresponding authors. † Intern at Shanghai AI Lab. § Project lead.\nof motion, we introduce a dynamics degree control design\nfor better control of the magnitude of motion. Altogether,\nthese strategies enable Cinemo to produce highly consis-\ntent, smooth, and motion-controllable results. Extensive\nexperiments compared with several state-of-the-art methods\ndemonstrate the effectiveness and superiority of our pro-\nposed approach. In the end, we also demonstrate how our\nmodel can be applied for motion transfer or video editing of\nany given video. The project page is available at https:\n//maxin-cn.github.io/cinemo_project/.",
+    "introduction": "1. Introduction\nImage animation, also known as Image-to-Video generation\n(I2V), “animates” a given static image to transform it into\na video sequence, with the goal of preserving the original\ncontent but injecting realistic and temporally coherent dy-\nnamics. Fig. 1 demonstrates some examples (please visit\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n7288\n\n(a) Appearance Inconsistency (Prompt: windmill turning)\n(b) Motion Roughness (Prompt: car moving)\nInput Image\nInput Image\nFigure 2. Appearance consistency and motion smoothness. (a) Upper row: appearance changes over time (result from PIA [74]). (b)\nLower row: the car takes a sudden turnaround (result from SEINE [8]).\nthe project page to visualize the motion). It is an engaging\nand convenient way of creating video content, which can be\ndirectly used in real-world video production.\nPrevious I2V approaches are usually limited in their gen-\neralization and effective primarily in specific domains, such\nas human hair [ 66], talking heads [ 13, 57, 58], and hu-\nman bodies [ 2, 3, 47, 58, 60, 61], etc. Recent advance-\nments in large-scale diffusion models have enabled gener-\nalization to open domains, demonstrating success in image\n[7, 36, 43], 3D geometry [ 27, 28, 37], and video genera-\ntion [ 5, 15, 31, 32, 48, 59]. In particular, extending the\nvideo diffusion models to image animation has received\nmuch attention [8, 10, 42, 67, 73, 74], aiming to utilize the\npowerful spatio-temporal generation priors. Despite these\nadvancements, as demonstrated in Fig. 2, existing methods\nstill encounter two major challenges: appearance consis-\ntency and motion smoothness. Firstly, the generated videos\nmay fail to maintain the visual appearance over time (the\noverall color tone and the shape of the windmill in Fig. 2(a)).\nSecondly, abrupt motion or deformation of objects may hap-\npen as shown in Fig. 2(b). One common way to maintain the\nabove consistencies is to reduce the motion dynamics.\nClearly, it is more desirable to maintain the appearance\nconsistency and motion smoothness, without sacrificing\nlarge dynamic motion. However, this balance remains a\npersistent dilemma. In this paper, we aim to strike such a\nbalance, by proposing two novel designs in our model, Cin-\nemo, which is based on a foundational text-to-video (T2V)\nmodel [59]. Firstly, to better preserve the appearance consis-\ntency across frames, we propose to learn the distribution of\nthe differences (motion residual) between frames, instead of\ndirect learning on the multiple frames themselves. Secondly,\nwe propose to utilize the low-frequency Discrete Cosine\nTransform (DCT) components of the input image, as the\nlayout guidance to suppress the abrupt or undesired motion\nduring the inference phase. Such process (DCTInit) is able\nto address the noise discrepancy issue between training and\ninference phases as mentioned in other works [ 34, 46, 64]\nand effective in suppressing the abrupt motion as demon-\nstrated in Fig. 6(c&d). To avoid over-suppression of motion\ndynamics, we propose a new design of dynamics degree con-\ntrol inspired by [10] that enables users to explicitly control\nthe degree of motion.\nWith the above novel strategies, our model can produce\nhighly appearance- and motion-consistent videos that align\nwith the prompts. We also demonstrate our model can be\neasily extended to other applications such as video editing\nand motion transfer. We conduct comprehensive quantita-\ntive and qualitative experiments and demonstrate that our\nmodel achieves the best appearance consistency and motion\nsmoothness, without over-suppressing the motion dynamics.\nWe summarize our contributions as follows:\n• We propose Cinemo, a diffusion-based image animation\nmodel that learns the distribution of motion residuals\nacross frames rather than directly predicting the multiple\nframes themselves, in turn better preserves the appearance\nconsistency.\n• To mitigate the abrupt or undesired motion changes, we\nutilize the low-frequency DCT component of the input\nimage, to initialize the inference noise during the inference\nphase.",
+    "method": "4.2. Comparisons with State-of-the-art Methods\nQuantitative comparison. We conduct a comparative analy-\nsis on the evaluation metrics FVD, IS, FID, and CLIPSIM be-\ntween our model and the state-of-the-art methods including,\nGen-2, I2VGen-XL, DynamiCrafter, SEINE, ConsistI2V ,\nand Follow-Your-Click on the UCF-101 and MSR-VTT\ndatasets. All quantitative experiments are conducted in a\nzero-shot manner. From Tab. 1, our model achieves the high-\nest scores across all five metrics, demonstrating its superior",
+    "experiments": "4. Experiments\nWe first outline the experimental setup, covering datasets,\nbaselines, evaluation metrics, and implementation details.\nFollowing that, we compare the experimental results with\nstate-of-the-art methods. Finally, we present the analysis of\nour model.",
+    "conclusion": "5. Conclusion\nIn this paper, we introduce Cinemo, a novel image animation\nmodel that achieves better image consistency and motion\nsmoothness. Our core idea is to focus on learning the dis-\ntribution of motion residuals rather than directly predicting\nthe next frames. During the inference, we propose DCTInit,\nwhich utilizes the low-frequency components of DCT coef-\nficients of the static input image to refine the initial noise\nand stabilize the generation process. Our experimental re-\nsults demonstrate the effectiveness and the superiority of our\napproach compared to existing methods."
+  }
+}

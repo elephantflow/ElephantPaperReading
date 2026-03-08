@@ -1,0 +1,80 @@
+{
+  "paper_id": "wf-vae-enhancing-video-vae-by-wavelet-driven-energy-flow-for-latent-video-diffus--410b2ae217",
+  "paper_title": "WF-VAE: Enhancing Video VAE by Wavelet-Driven Energy Flow for Latent Video Diffusion Model",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:51.340803+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/WF-VAE： Enhancing Video VAE by Wavelet-Driven Energy Flow for Latent Video Diffusion Model.pdf",
+    "filename": "WF-VAE： Enhancing Video VAE by Wavelet-Driven Energy Flow for Latent Video Diffusion Model.pdf",
+    "sha1": "410b2ae2176a4b089c49eb1b735bc4ab0f2fd066",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction The release of Sora [5], a video generation model devel- oped by OpenAI, has pushed the boundaries of synthesiz- ing photorealistic videos, drawing unprecedented attention to the field of video generation.",
+    "limitation": "Introduction The release of Sora [5], a video generation model devel- oped by OpenAI, has pushed the boundaries of synthesiz- ing photorealistic videos, drawing unprecedented attention to the field of video generation.",
+    "insight": "Abstract Video Variational Autoencoder (VAE) encodes videos into a low-dimensional latent space, becoming a key compo- nent of most Latent Video Diffusion Models (LVDMs) to reduce model training costs.",
+    "proposed_method": "Further- more, we introduce a method called Causal Cache, which maintains the integrity of latent space during block-wise inference.",
+    "experimental_evidence": "Compared to state-of-the-art video VAEs, WF- VAE demonstrates superior performance in bothPSNR and LPIPS metrics, achieving 2× higher throughput and 4× lower memory consumption while maintaining competitive reconstruction quality.",
+    "summary": "Introduction The release of Sora [5], a video generation model devel- oped by OpenAI, has pushed the boundaries of synthesiz- ing photorealistic videos, drawing unprecedented attention to the field of video generation. Introduction The release of Sora [5], a video generation model devel- oped by OpenAI, has pushed the boundaries of synthesiz- ing photorealistic videos, drawing unprecedented attention to the field of video generation. Abstract Video Variational Autoencoder (VAE) encodes videos into a low-dimensional latent space, becoming a key compo- nent of most Latent Video Diffusion Models (LVDMs) to reduce model training costs. Further- more, we introduce a method called Causal Cache, which maintains the integrity of latent space during block-wise inference. Compared to state-of-the-art video VAEs, WF- VAE demonstrates superior performance in bothPSNR and LPIPS metrics, achieving 2× higher throughput and 4× lower memory consumption while maintaining competitive reconstruction quality."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction The release of Sora [5], a video generation model devel- oped by OpenAI, has pushed the boundaries of synthesiz- ing photorealistic videos, drawing unprecedented attention to the field of video generation.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "Introduction The release of Sora [5], a video generation model devel- oped by OpenAI, has pushed the boundaries of synthesiz- ing photorealistic videos, drawing unprecedented attention to the field of video generation. Recent advancements in Latent Video Diffusion Models (LVDMs), such as Open- Sora Plan [19], Open-Sora [49], CogVideoX [40], EasyAn- imate [39], Movie Gen [25], and ConsisID [44], have led to substantial improvements in video generation quality. *Equal contribution †Corresponding author."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "The key to addressing the computational bottleneck lies in decom- posing videos into distinct components and efficiently en- coding the critical information."
+    ],
+    "limitation_expression": [
+      "However, as the resolution and duration of generated videos increase, the encoding cost of Video VAEs becomes a limiting bottleneck in train- ing LVDMs."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Conclusion In this paper, we propose WF-V AE, an innovative au- toencoder that utilizes multi-level wavelet transform to ex- tract pyramidal features, thus creating a primary energy flow pathway for encoding low-frequency video informa- tion into a latent representation."
+    ],
+    "experiment_expression": [],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, as the resolution and duration of generated videos increase, the encoding cost of Video VAEs becomes a limiting bottleneck in train- ing LVDMs.",
+    "62202014, 62332002, 62425101, 62088102).",
+    "Abstract Video Variational Autoencoder (VAE) encodes videos into a low-dimensional latent space, becoming a key compo- nent of most Latent Video Diffusion Models (LVDMs) to reduce model training costs.",
+    "Acknowledgments We thank all the anonymous reviewers for their constructive comments.",
+    "Additionally, we introduce a lossless block-wise inference mechanism called Causal Cache, which completely resolves video flickering associ- ated with prior tiling strategies.",
+    "Although the computational cost remains manageable, we consider these parameters redundant.",
+    "Compared to state-of-the-art video VAEs, WF- VAE demonstrates superior performance in bothPSNR and LPIPS metrics, achieving 2× higher throughput and 4× lower memory consumption while maintaining competitive reconstruction quality.",
+    "Conclusion In this paper, we propose WF-V AE, an innovative au- toencoder that utilizes multi-level wavelet transform to ex- tract pyramidal features, thus creating a primary energy flow pathway for encoding low-frequency video informa- tion into a latent representation.",
+    "Consequently, we aim to streamline the model in future work to fully leverage the advantages of our architecture.",
+    "Further- more, we introduce a method called Causal Cache, which maintains the integrity of latent space during block-wise inference.",
+    "Introduction The release of Sora [5], a video generation model devel- oped by OpenAI, has pushed the boundaries of synthesiz- ing photorealistic videos, drawing unprecedented attention to the field of video generation.",
+    "Limitations and Future Work."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nVideo Variational Autoencoder (VAE) encodes videos into\na low-dimensional latent space, becoming a key compo-\nnent of most Latent Video Diffusion Models (LVDMs) to\nreduce model training costs. However, as the resolution\nand duration of generated videos increase, the encoding\ncost of Video VAEs becomes a limiting bottleneck in train-\ning LVDMs. Moreover, the block-wise inference method\nadopted by most LVDMs can lead to discontinuities of la-\ntent space when processing long-duration videos. The key\nto addressing the computational bottleneck lies in decom-\nposing videos into distinct components and efficiently en-\ncoding the critical information. Wavelet transform can\ndecompose videos into multiple frequency-domain compo-\nnents and improve the efficiency significantly, we thus pro-\npose Wavelet Flow VAE (WF-VAE) , an autoencoder that\nleverages multi-level wavelet transform to facilitate low-\nfrequency energy flow into latent representation. Further-\nmore, we introduce a method called Causal Cache, which\nmaintains the integrity of latent space during block-wise\ninference. Compared to state-of-the-art video VAEs, WF-\nVAE demonstrates superior performance in bothPSNR and\nLPIPS metrics, achieving 2× higher throughput and 4×\nlower memory consumption while maintaining competitive\nreconstruction quality. Our code and models are available\nat https://github.com/PKU-YuanGroup/WF-VAE.",
+    "introduction": "1. Introduction\nThe release of Sora [5], a video generation model devel-\noped by OpenAI, has pushed the boundaries of synthesiz-\ning photorealistic videos, drawing unprecedented attention\nto the field of video generation. Recent advancements in\nLatent Video Diffusion Models (LVDMs), such as Open-\nSora Plan [19], Open-Sora [49], CogVideoX [40], EasyAn-\nimate [39], Movie Gen [25], and ConsisID [44], have led\nto substantial improvements in video generation quality.\n*Equal contribution\n†Corresponding author.\n35.7",
+    "method": "3. Method",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nIn this paper, we propose WF-V AE, an innovative au-\ntoencoder that utilizes multi-level wavelet transform to ex-\ntract pyramidal features, thus creating a primary energy\nflow pathway for encoding low-frequency video informa-\ntion into a latent representation. Additionally, we introduce\na lossless block-wise inference mechanism called Causal\nCache, which completely resolves video flickering associ-\nated with prior tiling strategies. Our experiments demon-\nstrate that WF-V AE achieves state-of-the-art reconstruction\nperformance while maintaining low computational costs.\nWF-V AE significantly reduces the expenses associated with\nlarge-scale video pre-training, potentially inspiring future\ndesigns of video V AEs.\nLimitations and Future Work. The initial design of\nthe decoder incorporated insights from [27], employing a\nhighly complex structure that resulted in more parameters\nin the backbone of the decoder compared to the encoder.\nAlthough the computational cost remains manageable, we\nconsider these parameters redundant. Consequently, we aim\nto streamline the model in future work to fully leverage the\nadvantages of our architecture.\nAcknowledgments\nWe thank all the anonymous reviewers for their constructive\ncomments. This work was supported in part by the Natural\nScience Foundation of China (No. 62202014, 62332002,\n62425101, 62088102)."
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "paper_id": "towards-better-alignment-training-diffusion-models-with-reinforcement-learning-a--db5cf106f7",
+  "paper_title": "Towards Better Alignment: Training Diffusion Models with Reinforcement Learning Against Sparse Rewards",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:41.639044+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Towards Better Alignment： Training Diffusion Models with Reinforcement Learning Against Sparse Rewards.pdf",
+    "filename": "Towards Better Alignment： Training Diffusion Models with Reinforcement Learning Against Sparse Rewards.pdf",
+    "sha1": "db5cf106f72f79e845f3d618f61fc52d2713e0bf",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "To solve this problem, recent studies have explored in- corporating reinforcement learning (RL) techniques to fine- tune pre-trained text-to-image diffusion models [8, 17, 32, 46, 63, 65].",
+    "limitation": "Existing re- inforcement learning-based diffusion model fine-tuning methods (e.g., DDPO [8]) have limited effect and loss of image diversity.",
+    "insight": "Abstract Diffusion models have achieved remarkable success in text-to-image generation.",
+    "proposed_method": "Abstract Diffusion models have achieved remarkable success in text-to-image generation.",
+    "experimental_evidence": "Extensive exper- iments demonstrate the effectiveness of B 2-DiffuRL in im- proving prompt-image alignment and maintaining diversity in generated images.",
+    "summary": "To solve this problem, recent studies have explored in- corporating reinforcement learning (RL) techniques to fine- tune pre-trained text-to-image diffusion models [8, 17, 32, 46, 63, 65]. Existing re- inforcement learning-based diffusion model fine-tuning methods (e.g., DDPO [8]) have limited effect and loss of image diversity. Abstract Diffusion models have achieved remarkable success in text-to-image generation. Abstract Diffusion models have achieved remarkable success in text-to-image generation. Extensive exper- iments demonstrate the effectiveness of B 2-DiffuRL in im- proving prompt-image alignment and maintaining diversity in generated images."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction The text-to-image generation task aims to produce images from textual descriptions, holding significant potential for *Equal contribution. †Corresponding author.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "Introduction The text-to-image generation task aims to produce images from textual descriptions, holding significant potential for *Equal contribution. †Corresponding author. 1https://github.com/hu-zijing/B2-DiffuRL . “a fox riding a bike” “a pig playing chess” “a bear washing dishes” SDDDPOB2-DiffuRL SDDDPOB2-DiffuRL Figure 1. (Prompt-image Misalignment) Text-to-image diffusion models (e.g., Stable Diffusion (SD) [52]) may not generate high- quality images that accurately align with prompts. Existing re- inforcement learning-based diffusion model fine-tuning methods (e.g., DDPO [8]) have limited effect and loss of image diversity."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "For each set of images above, we use the same seed for sampling. various applications [49, 56].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "For each set of images above, we use the same seed for sampling. various applications [49, 56]. Recently, diffusion models have garnered widespread attention due to their success in this domain [15, 23, 59]. These models employ a sequen- tial denoising process that transforms random noise into detailed images. However, even the most advanced text- to-image diffusion models, such as DALLE3 [6] and Sta- ble Diffusion [52], often encounter issues with misalign- ment between the generated images and the textual descrip- tions [28]."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "problem_statement",
+      "main_message": "This misalignment limits the practicality and ef- fectiveness of these models in real-world applications.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This misalignment limits the practicality and ef- fectiveness of these models in real-world applications. To solve this problem, recent studies have explored in- corporating reinforcement learning (RL) techniques to fine- tune pre-trained text-to-image diffusion models [8, 17, 32, 46, 63, 65]. By formulating the step-by-step denoising pro- cess as a sequential decision-making problem, RL enables diffusion models to optimize for specific long-term objec- tives, beyond merely fitting to static data as done in standard supervised learning [29, 52, 64]. In this formulation, noisy images at different timesteps are viewed as states in RL, while denoising at each timestep corresponds to an action."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "23605 Our framework has the following three capabilities: (1)",
+      "purpose": "Gives the high-level system view before module details.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, their practical applica- tions are hindered by the misalignment between generated images and corresponding text prompts.",
+      "Existing re- inforcement learning-based diffusion model fine-tuning methods (e.g., DDPO [8]) have limited effect and loss of image diversity.",
+      "However, even the most advanced text- to-image diffusion models, such as DALLE3 [6] and Sta- ble Diffusion [52], often encounter issues with misalign- ment between the generated images and the textual descrip- tions [28]."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Our framework, named B2-DiffuRL, employs two strategies: Backward progres- sive training and Branch-based sampling.",
+      "23605 Our framework has the following three capabilities: (1) Better prompt-image alignment.",
+      "Although we mainly compare with the cur- rent state-of-the-art RL-based fine-tuning algorithm called DDPO [8] in this paper, our framework is compatible with any previous optimization algorithm such as policy gradi- ent [57], DPO [48, 63] and DPOK [17].",
+      "We first compare our method with exist- ing state-of-the-art method DDPO [8]."
+    ],
+    "experiment_expression": [
+      "Extensive exper- iments demonstrate the effectiveness of B 2-DiffuRL in im- proving prompt-image alignment and maintaining diversity in generated images.",
+      "Both qualita- tive and quantitative experimental results demonstrate that, compared with naive RL-based diffusion model training method, the proposed framework achieves better prompt- image alignment while sacrificing less image diversity."
+    ],
+    "contribution_expression": [
+      "Our contributions can be summarized as: (1) We investi- gate the problem of RL-based diffusion models fine-tuning for improving prompt-image alignment, and for the first time highlight the challenge of sparse reward."
+    ]
+  },
+  "notable_sentences": [
+    "However, even the most advanced text- to-image diffusion models, such as DALLE3 [6] and Sta- ble Diffusion [52], often encounter issues with misalign- ment between the generated images and the textual descrip- tions [28].",
+    "However, their practical applica- tions are hindered by the misalignment between generated images and corresponding text prompts.",
+    "Our contributions can be summarized as: (1) We investi- gate the problem of RL-based diffusion models fine-tuning for improving prompt-image alignment, and for the first time highlight the challenge of sparse reward.",
+    "(2) We pro- pose a compatible RL-based fine-tuning framework named B2-DiffuRL, employing backward progressive training and branch-based sampling strategies, to address the above chal- lenge.",
+    "(2)Maintaining diversity when improving alignment.",
+    "(3) Extensive experimental results on Stable Diffu- sion [52] show the effectiveness of B2-DiffuRL in terms of both alignment and diversity when compatible with differ- ent RL algorithms, without increasing computational cost.",
+    "(Prompt-image Misalignment) Text-to-image diffusion models (e.g., Stable Diffusion (SD) [52]) may not generate high- quality images that accurately align with prompts.",
+    "1https://github.com/hu-zijing/B2-DiffuRL . “a fox riding a bike” “a pig playing chess” “a bear washing dishes” SDDDPOB2-DiffuRL SDDDPOB2-DiffuRL Figure 1.",
+    "23605 Our framework has the following three capabilities: (1) Better prompt-image alignment.",
+    "Abstract Diffusion models have achieved remarkable success in text-to-image generation.",
+    "As the model becomes proficient in these later timesteps, it pro- gressively learns to manage the earlier timesteps of the de- noising process.",
+    "B 2-DiffuRL is compati- ble with existing optimization algorithms."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models have achieved remarkable success in\ntext-to-image generation. However, their practical applica-\ntions are hindered by the misalignment between generated\nimages and corresponding text prompts. To tackle this is-\nsue, reinforcement learning (RL) has been considered for\ndiffusion model fine-tuning. Yet, RL’s effectiveness is lim-\nited by the challenge of sparse reward, where feedback is\nonly available at the end of the generation process. This\nmakes it difficult to identify which actions during the de-\nnoising process contribute positively to the final generated\nimage, potentially leading to ineffective or unnecessary de-\nnoising policies. To this end, this paper presents a novel RL-\nbased framework that addresses the sparse reward problem\nwhen training diffusion models. Our framework, named\nB2-DiffuRL, employs two strategies: Backward progres-\nsive training and Branch-based sampling. For one thing,\nbackward progressive training focuses initially on the fi-\nnal timesteps of denoising process and gradually extends\nthe training interval to earlier timesteps, easing the learn-\ning difficulty from sparse rewards. For another, we perform\nbranch-based sampling for each training interval. By com-\nparing the samples within the same branch, we can identify\nhow much the policies of the current training interval con-\ntribute to the final image, which helps to learn effective poli-\ncies instead of unnecessary ones. B 2-DiffuRL is compati-\nble with existing optimization algorithms. Extensive exper-\niments demonstrate the effectiveness of B 2-DiffuRL in im-\nproving prompt-image alignment and maintaining diversity\nin generated images. The code for this work is available1.",
+    "introduction": "1. Introduction\nThe text-to-image generation task aims to produce images\nfrom textual descriptions, holding significant potential for\n*Equal contribution. †Corresponding author.\n1https://github.com/hu-zijing/B2-DiffuRL .\n“a fox riding a bike”\n“a pig playing chess”\n“a bear washing dishes”\nSDDDPOB2-DiffuRL\nSDDDPOB2-DiffuRL\nFigure 1. (Prompt-image Misalignment) Text-to-image diffusion\nmodels (e.g., Stable Diffusion (SD) [52]) may not generate high-\nquality images that accurately align with prompts. Existing re-\ninforcement learning-based diffusion model fine-tuning methods\n(e.g., DDPO [8]) have limited effect and loss of image diversity.\nFor each set of images above, we use the same seed for sampling.\nvarious applications [49, 56]. Recently, diffusion models\nhave garnered widespread attention due to their success in\nthis domain [15, 23, 59]. These models employ a sequen-\ntial denoising process that transforms random noise into\ndetailed images. However, even the most advanced text-\nto-image diffusion models, such as DALLE3 [6] and Sta-\nble Diffusion [52], often encounter issues with misalign-\nment between the generated images and the textual descrip-\ntions [28]. This misalignment limits the practicality and ef-\nfectiveness of these models in real-world applications.\nTo solve this problem, recent studies have explored in-\ncorporating reinforcement learning (RL) techniques to fine-\ntune pre-trained text-to-image diffusion models [8, 17, 32,\n46, 63, 65]. By formulating the step-by-step denoising pro-\ncess as a sequential decision-making problem, RL enables\ndiffusion models to optimize for specific long-term objec-\ntives, beyond merely fitting to static data as done in standard\nsupervised learning [29, 52, 64]. In this formulation, noisy\nimages at different timesteps are viewed as states in RL,\nwhile denoising at each timestep corresponds to an action.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "23605\n\nOur framework has the following three capabilities: (1)\nBetter prompt-image alignment. With small training inter-\nval, BPT strategy enables the models to easily and quickly\nlearn the policies for the later timesteps of generation. As\nthe model becomes proficient in these later timesteps, it pro-\ngressively learns to manage the earlier timesteps of the de-\nnoising process. By mitigating the complexity of dealing\nwith the entire process from the outset, BPT reduces the\nlearning difficulty associated with sparse rewards. More-\nover, with BS strategy, the contrastive samples within the\nsame branch share identical states and actions up to the\nstart of the training interval. By comparing the contrastive\nsamples, the models can accurately identify how much the\ndenosing policies of the current training interval contribute\nto the final image during training. (2)Maintaining diversity\nwhen improving alignment. Denoised from the same inter-\nmediate state, the contrastive samples share similar coarse-\ngrained visual information ( e.g., image styles) but receive\ndifferent rewards. It prevents the models from learning un-\nnecessary policies (e.g., about image styles) as shortcuts to\nachieve high rewards, thus helping maintain diversity. (3)\nCompatibility. Although we mainly compare with the cur-\nrent state-of-the-art RL-based fine-tuning algorithm called\nDDPO [8] in this paper, our framework is compatible with\nany previous optimization algorithm such as policy gradi-\nent [57], DPO [48, 63] and DPOK [17]. Experiments show\nthat applying B2-DiffuRL can improve effectiveness of dif-\nferent algorithms in terms of both alignment and diversity.\nOur contributions can be summarized as: (1) We investi-\ngate the problem of RL-based diffusion models fine-tuning\nfor improving prompt-image alignment, and for the first\ntime highlight the challenge of sparse reward. (2) We pro-\npose a compatible RL-based fine-tuning framework named\nB2-DiffuRL, employing backward progressive training and\nbranch-based sampling strategies, to address the above chal-\nlenge. (3) Extensive experimental results on Stable Diffu-\nsion [52] show the effectiveness of B2-DiffuRL in terms of\nboth alignment and diversity when compatible with differ-\nent RL algorithms, without increasing computational cost.",
+    "experiments": "4. Experiments\nIn this section, we evaluate the effectiveness of B2-DiffuRL\nin terms of improving prompt-image alignment and main-\ntaining diversity. We first compare our method with exist-\ning state-of-the-art method DDPO [8]. Then, we focus on\nablation studies on the proposed two strategies, as well as\nthe compatibility and generalization ability. For simplicity,\nwe refer to B2-DiffuRL as ours in this section.",
+    "conclusion": "5. Conclusions\nIn this work, we mitigated the issues of prompt-image mis-\nalignment in text-to-image diffusion models by reinforce-\nment learning (RL). We highlight the challenge of sparse\nreward when training diffusion models with RL. By in-\ntroducing a compatible RL-based fine-tuning framework\nB2-DiffuRL that leverages backward progressive training\nand branch-based sampling strategies, we effectively mit-\nigated the negative effects of sparse reward. Using Sta-\nble Diffusion as backbone, we performed extensive exper-\niments with various kinds of text prompts. Both qualita-\ntive and quantitative experimental results demonstrate that,\ncompared with naive RL-based diffusion model training\nmethod, the proposed framework achieves better prompt-\nimage alignment while sacrificing less image diversity."
+  }
+}

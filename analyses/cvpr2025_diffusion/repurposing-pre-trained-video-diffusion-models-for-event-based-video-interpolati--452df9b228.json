@@ -1,0 +1,137 @@
+{
+  "paper_id": "repurposing-pre-trained-video-diffusion-models-for-event-based-video-interpolati--452df9b228",
+  "paper_title": "Repurposing Pre-trained Video Diffusion Models for Event-based Video Interpolation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:23.754882+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Repurposing Pre-trained Video Diffusion Models for Event-based Video Interpolation.pdf",
+    "filename": "Repurposing Pre-trained Video Diffusion Models for Event-based Video Interpolation.pdf",
+    "sha1": "452df9b22858681b29b8711f107b46e694063624",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "This approach avoids the ill-posed problem of frame-only interpolation, where large motion between frames introduces excessive degrees of freedom, making the interpolation of frames infeasible.",
+    "limitation": "However, when the test set differs from the train- ing set with changes in data and motion distribution, these methods experience significant performance degradation, as we can see in Fig.",
+    "insight": "Abstract Video Frame Interpolation aims to recover realistic miss- ing frames between observed frames, generating a high- frame-rate video from a low-frame-rate video.",
+    "proposed_method": "We experimentally validate our approach on real-world EVFI datasets, including a new one that we introduce.",
+    "experimental_evidence": "This guidance allows EVFI methods to sig- nificantly outperform frame-only methods.",
+    "summary": "This approach avoids the ill-posed problem of frame-only interpolation, where large motion between frames introduces excessive degrees of freedom, making the interpolation of frames infeasible. However, when the test set differs from the train- ing set with changes in data and motion distribution, these methods experience significant performance degradation, as we can see in Fig. Abstract Video Frame Interpolation aims to recover realistic miss- ing frames between observed frames, generating a high- frame-rate video from a low-frame-rate video. We experimentally validate our approach on real-world EVFI datasets, including a new one that we introduce. This guidance allows EVFI methods to sig- nificantly outperform frame-only methods."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Event cameras are a novel class of neuromorphic sensors of- fering unique advantages, including high dynamic range and high temporal resolution [12].",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Event cameras are a novel class of neuromorphic sensors of- fering unique advantages, including high dynamic range and high temporal resolution [12]. One significant application of event cameras is Event-based Video Frame Interpolation (EVFI) [21, 27, 39–41, 50]. By capturing traditional frames alongside high temporal resolution events, event data can fill in missing motion information between frames, aiding in interpolation. This approach avoids the ill-posed problem of frame-only interpolation, where large motion between frames introduces excessive degrees of freedom, making the interpolation of frames infeasible."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Current state-of-the-art (SOTA) EVFI methods achieve impressive performance when trained and tested on the same dataset.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Current state-of-the-art (SOTA) EVFI methods achieve impressive performance when trained and tested on the same dataset. However, when the test set differs from the train- ing set with changes in data and motion distribution, these methods experience significant performance degradation, as we can see in Fig. This issue arises from two main fac- tors. First, compared to broader fields like video generation, the EVFI field is much smaller, with limited data quantity and quality."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "Second, the models used in EVFI are highly specialized, with constrained representational power.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Second, the models used in EVFI are highly specialized, with constrained representational power. Recent advances in generative AI, particularly in video generation, have spurred significant progress in the field. Leading companies have invested substantial resources into building massive, high-quality datasets [8] and developing foundation models for video generation [ 8, 17]. Most of these foundation models are video diffusion models."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "By leveraging millions of high-quality commercial video clips and billions of parameters, these diffusion models achieve impressive generalization performance compared to previous approaches.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "By leveraging millions of high-quality commercial video clips and billions of parameters, these diffusion models achieve impressive generalization performance compared to previous approaches. A comparison between video generation and EVFI fields is presented in Table 1. The primary differences between these fields lie in dataset quality/size and model pa- rameter scale, the EVFI field lacks the extensive commercial datasets and large model sizes found in video generation, impacting its models’ generalization and representational power. This raises a natural question: Can we adapt pre-trained video diffusion foundation models for EVFI to leverage their learned data priors and model design advantages?"
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "limitation",
+      "main_message": "In this work, we introduce the first approach, RE-VDM, for adapting pre-trained video diffusion foundation models to the EVFI task, aiming to bridge EVFI with generative AI by leveraging robust data priors and foundation models.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "In this work, we introduce the first approach, RE-VDM, for adapting pre-trained video diffusion foundation models to the EVFI task, aiming to bridge EVFI with generative AI by leveraging robust data priors and foundation models. To achieve this, we address key technical challenges. First, for data-efficient adaptation, we train an additional subset of the model with event-based control on small EVFI datasets inspired by [48], while keeping the original weights frozen to avoid catastrophic forgetting of learned data priors as explained in Section 3.2. Second, while video generation aims to produce diverse videos without strict realism con- straints, EVFI requires ground-truth fidelity to accurately Feature VideoGeneration EVFI Dataset Size [7, 23, 31] 107 102 Dataset Quality [7, 21, 23, 31, 38, 41] Commercial CustomModel Type [7, 21, 27, 39, 41] Video Diffusion (Foundation) Models Custom ModelsModel Size [7, 21, 27, 31, 39, 41]1010 108 Video Generation Type [7, 21, 27, 39, 41] Extrapolation Interpolation Table 1."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "problem_statement",
+      "main_message": "Comparison between video generation and event-based video frame interpolation (EVFI) fields reveals major differences in dataset size, quality, and model design.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Comparison between video generation and event-based video frame interpolation (EVFI) fields reveals major differences in dataset size, quality, and model design. Video generation datasets are orders of magnitude larger than EVFI datasets and are of commercial-level quality. Models for video generation are typically foundation models with billions of parameters. With abundant training data and large-scale foundation models, video diffusion models are well-suited for generalized video generation tasks. recover missing frames."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "problem_statement",
+      "main_message": "To preserve motion and appearance fidelity, we employ upsampling and Per-tile Denoising and Fusion as explained in Section 3.4 as the test-time optimiza- tion for video generation with high-fidelity appearance and event-based motion control.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "To preserve motion and appearance fidelity, we employ upsampling and Per-tile Denoising and Fusion as explained in Section 3.4 as the test-time optimiza- tion for video generation with high-fidelity appearance and event-based motion control. Finally, unlike video generation, which is an extrapolation task based on an image or text prompt, EVFI requires interpolation between the start and end frames. To address this, we develop a test-time optimiza- tion approach that generates event-based video latents from both the start and end frames at each denoising step, fusing them for a consistent, interpolated result that incorporates information from both frames, as explained in Section 3.5 For a robust evaluation, we compare the generalization performance of our approach against representative frame- only, event-based, and pre-trained video diffusion models for frame interpolation across multiple datasets, including self- collected Clear-Motion test sequences. The results demon- strate the potential and advantages of this adaptation."
+    },
+    {
+      "paragraph_index": 8,
+      "paragraph_role": "problem_statement",
+      "main_message": "We also discuss the limitations observed, highlighting the ex- ploratory nature of our work.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "We also discuss the limitations observed, highlighting the ex- ploratory nature of our work. To summarize, our contribu- tions are • We present the first approach for adapting pre-trained video diffusion foundation models to the Event-based Video Frame Interpolation task, leveraging the strong data priors learned from large video generation datasets and the inherent advantages of video diffusion models. • Experimental results demonstrate the strong potential of the adapted video diffusion model for the EVFI task, show- ing excellent generalization on unseen real-world data and consistency in reconstructed frames."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Proposed Approach",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experimental Results",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, without additional guidance, the large motion between frames makes this problem ill-posed.",
+      "However, to date, EVFI methods have relied on a limited set of paired event- frame training data, severely limiting their performance and generalization capabilities.",
+      "In this work, we overcome the limited data challenge by adapting pre-trained video diffu- sion models trained on internet-scale datasets to EVFI.",
+      "However, when the test set differs from the train- ing set with changes in data and motion distribution, these methods experience significant performance degradation, as we can see in Fig.",
+      "First, compared to broader fields like video generation, the EVFI field is much smaller, with limited data quantity and quality."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Our method outperforms existing methods and generalizes across cam- eras far better than existing approaches.",
+      "To address this, we develop a test-time optimiza- tion approach that generates event-based video latents from both the start and end frames at each denoising step, fusing them for a consistent, interpolated result that incorporates information from both frames, as explained in Section 3.5 For a robust evaluation, we compare the generalization performance of our approach against representative frame- only, event-based, and pre-trained video diffusion models for frame interpolation across multiple datasets, including self- collected Clear-Motion test sequences.",
+      "Our method also includes test-time optimization techniques: Per-tile Denoising and Fusion to reduce encoding/decoding losses between pixel and latent spaces, preserving high-fidelity appearance and accurate event-based motion control, and Two-side Fusion, which incorporates both start and end frame information at each denoising step for improved interpolation consistency."
+    ],
+    "experiment_expression": [
+      "This guidance allows EVFI methods to sig- nificantly outperform frame-only methods.",
+      "To summarize, our contribu- tions are • We present the first approach for adapting pre-trained video diffusion foundation models to the Event-based Video Frame Interpolation task, leveraging the strong data priors learned from large video generation datasets and the inherent advantages of video diffusion models. • Experimental results demonstrate the strong potential of the adapted video diffusion model for the EVFI task, show- ing excellent generalization on unseen real-world data and consistency in reconstructed frames.",
+      "Lastly, we demonstrate our model’s superior generalization and frame consistency on unseen real-world data, highlighting the motivation and potential of our approach."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, to date, EVFI methods have relied on a limited set of paired event- frame training data, severely limiting their performance and generalization capabilities.",
+    "However, when the test set differs from the train- ing set with changes in data and motion distribution, these methods experience significant performance degradation, as we can see in Fig.",
+    "However, without additional guidance, the large motion between frames makes this problem ill-posed.",
+    "A comparison between video generation and EVFI fields is presented in Table 1.",
+    "Abstract Video Frame Interpolation aims to recover realistic miss- ing frames between observed frames, generating a high- frame-rate video from a low-frame-rate video.",
+    "By capturing traditional frames alongside high temporal resolution events, event data can fill in missing motion information between frames, aiding in interpolation.",
+    "By leveraging millions of high-quality commercial video clips and billions of parameters, these diffusion models achieve impressive generalization performance compared to previous approaches.",
+    "Comparison between video generation and event-based video frame interpolation (EVFI) fields reveals major differences in dataset size, quality, and model design.",
+    "Current state-of-the-art (SOTA) EVFI methods achieve impressive performance when trained and tested on the same dataset.",
+    "Event-based Video Frame Interpolation (EVFI) addresses this challenge by us- ing sparse, high-temporal-resolution event measurements as motion guidance.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experimental Results 6."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nVideo Frame Interpolation aims to recover realistic miss-\ning frames between observed frames, generating a high-\nframe-rate video from a low-frame-rate video. However,\nwithout additional guidance, the large motion between\nframes makes this problem ill-posed. Event-based Video\nFrame Interpolation (EVFI) addresses this challenge by us-\ning sparse, high-temporal-resolution event measurements as\nmotion guidance. This guidance allows EVFI methods to sig-\nnificantly outperform frame-only methods. However, to date,\nEVFI methods have relied on a limited set of paired event-\nframe training data, severely limiting their performance and\ngeneralization capabilities. In this work, we overcome the\nlimited data challenge by adapting pre-trained video diffu-\nsion models trained on internet-scale datasets to EVFI. We\nexperimentally validate our approach on real-world EVFI\ndatasets, including a new one that we introduce. Our method\noutperforms existing methods and generalizes across cam-\neras far better than existing approaches.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n12456",
+    "introduction": "1. Introduction\nEvent cameras are a novel class of neuromorphic sensors of-\nfering unique advantages, including high dynamic range and\nhigh temporal resolution [12]. One significant application\nof event cameras is Event-based Video Frame Interpolation\n(EVFI) [21, 27, 39–41, 50]. By capturing traditional frames\nalongside high temporal resolution events, event data can\nfill in missing motion information between frames, aiding\nin interpolation. This approach avoids the ill-posed problem\nof frame-only interpolation, where large motion between\nframes introduces excessive degrees of freedom, making the\ninterpolation of frames infeasible.\nCurrent state-of-the-art (SOTA) EVFI methods achieve\nimpressive performance when trained and tested on the same\ndataset. However, when the test set differs from the train-\ning set with changes in data and motion distribution, these\nmethods experience significant performance degradation, as\nwe can see in Fig. 1. This issue arises from two main fac-\ntors. First, compared to broader fields like video generation,\nthe EVFI field is much smaller, with limited data quantity\nand quality. Second, the models used in EVFI are highly\nspecialized, with constrained representational power.\nRecent advances in generative AI, particularly in video\ngeneration, have spurred significant progress in the field.\nLeading companies have invested substantial resources into\nbuilding massive, high-quality datasets [8] and developing\nfoundation models for video generation [ 8, 17]. Most of\nthese foundation models are video diffusion models. By\nleveraging millions of high-quality commercial video clips\nand billions of parameters, these diffusion models achieve\nimpressive generalization performance compared to previous\napproaches. A comparison between video generation and\nEVFI fields is presented in Table 1. The primary differences\nbetween these fields lie in dataset quality/size and model pa-\nrameter scale, the EVFI field lacks the extensive commercial\ndatasets and large model sizes found in video generation,\nimpacting its models’ generalization and representational\npower.\nThis raises a natural question: Can we adapt pre-trained\nvideo diffusion foundation models for EVFI to leverage their\nlearned data priors and model design advantages?\nIn this work, we introduce the first approach, RE-VDM,\nfor adapting pre-trained video diffusion foundation models\nto the EVFI task, aiming to bridge EVFI with generative\nAI by leveraging robust data priors and foundation models.\nTo achieve this, we address key technical challenges. First,\nfor data-efficient adaptation, we train an additional subset of\nthe model with event-based control on small EVFI datasets\ninspired by [48], while keeping the original weights frozen\nto avoid catastrophic forgetting of learned data priors as\nexplained in Section 3.2. Second, while video generation\naims to produce diverse videos without strict realism con-\nstraints, EVFI requires ground-truth fidelity to accurately\nFeature VideoGeneration EVFI\nDataset Size [7, 23, 31] 107 102\nDataset Quality [7, 21, 23, 31, 38, 41] Commercial CustomModel Type [7, 21, 27, 39, 41] Video Diffusion (Foundation) Models Custom ModelsModel Size [7, 21, 27, 31, 39, 41]1010 108\nVideo Generation Type [7, 21, 27, 39, 41] Extrapolation Interpolation\nTable 1. Comparison between video generation and event-based\nvideo frame interpolation (EVFI) fields reveals major differences in\ndataset size, quality, and model design. Video generation datasets\nare orders of magnitude larger than EVFI datasets and are of\ncommercial-level quality. Models for video generation are typically\nfoundation models with billions of parameters. With abundant\ntraining data and large-scale foundation models, video diffusion\nmodels are well-suited for generalized video generation tasks.\nrecover missing frames. To preserve motion and appearance\nfidelity, we employ upsampling and Per-tile Denoising and\nFusion as explained in Section 3.4 as the test-time optimiza-\ntion for video generation with high-fidelity appearance and\nevent-based motion control. Finally, unlike video generation,\nwhich is an extrapolation task based on an image or text\nprompt, EVFI requires interpolation between the start and\nend frames. To address this, we develop a test-time optimiza-\ntion approach that generates event-based video latents from\nboth the start and end frames at each denoising step, fusing\nthem for a consistent, interpolated result that incorporates\ninformation from both frames, as explained in Section 3.5\nFor a robust evaluation, we compare the generalization\nperformance of our approach against representative frame-\nonly, event-based, and pre-trained video diffusion models for\nframe interpolation across multiple datasets, including self-\ncollected Clear-Motion test sequences. The results demon-\nstrate the potential and advantages of this adaptation. We\nalso discuss the limitations observed, highlighting the ex-\nploratory nature of our work. To summarize, our contribu-\ntions are\n• We present the first approach for adapting pre-trained\nvideo diffusion foundation models to the Event-based\nVideo Frame Interpolation task, leveraging the strong data\npriors learned from large video generation datasets and the\ninherent advantages of video diffusion models.\n• Experimental results demonstrate the strong potential of\nthe adapted video diffusion model for the EVFI task, show-\ning excellent generalization on unseen real-world data and\nconsistency in reconstructed frames.",
+    "method": "3. Proposed Approach",
+    "experiments": "4. Experimental Results",
+    "conclusion": "6. Conclusion\nIn this work, we explore, for the first time, the adaptation of\npre-trained video diffusion foundation models for the event-\nbased video frame interpolation (EVFI) task, as a founda-\ntional step toward integrating event camera technology with\nthe era of Generative AI. We present an approach to address\nthe key challenges in adapting video diffusion models to\nEVFI. We use data-efficient adaptation to bridge the gap\nin data quality and size between large-scale video gener-\nation datasets and smaller EVFI datasets, minimizing the\nrisk of catastrophic forgetting. Our method also includes\ntest-time optimization techniques: Per-tile Denoising and\nFusion to reduce encoding/decoding losses between pixel\nand latent spaces, preserving high-fidelity appearance and\naccurate event-based motion control, and Two-side Fusion,\nwhich incorporates both start and end frame information at\neach denoising step for improved interpolation consistency.\nWe also discuss current limitations in pre-trained video dif-\nfusion models for EVFI. Lastly, we demonstrate our model’s\nsuperior generalization and frame consistency on unseen\nreal-world data, highlighting the motivation and potential of\nour approach."
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "paper_id": "high-fidelity-relightable-monocular-portrait-animation-with-lighting-controllabl--22711b6e96",
+  "paper_title": "High-Fidelity Relightable Monocular Portrait Animation with Lighting-Controllable Video Diffusion Model",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:50.426140+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/High-Fidelity Relightable Monocular Portrait Animation with Lighting-Controllable Video Diffusion Model.pdf",
+    "filename": "High-Fidelity Relightable Monocular Portrait Animation with Lighting-Controllable Video Diffusion Model.pdf",
+    "sha1": "22711b6e96ed2af6e0317f618bb3d79f60d24c0c",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Obviously, the exact separation between intrinsic features and extrinsic features is crucial to reach our goal.",
+    "limitation": "However, the ability of manipulating lighting during portrait anima- tion remains under-explored, which is highly important for seamlessly blending the generated foreground portrait with backgrounds under varying lighting conditions.",
+    "insight": "Abstract Relightable portrait animation aims to animate a static ref- erence portrait to match the head movements of a driving video while adapting to user-specified or reference light- ing conditions.",
+    "proposed_method": "With the I2V diffusion model, we propose a novel Lighting Controllable Video Diffusion model ( LCVD) to achieve high-fidelity, relightable portrait animation.",
+    "experimental_evidence": "Extensive evaluations show that LCVD outperforms state-of-the-art methods in lighting re- alism, image quality, and video consistency, setting a new benchmark in relightable portrait animation.",
+    "summary": "Obviously, the exact separation between intrinsic features and extrinsic features is crucial to reach our goal. However, the ability of manipulating lighting during portrait anima- tion remains under-explored, which is highly important for seamlessly blending the generated foreground portrait with backgrounds under varying lighting conditions. Abstract Relightable portrait animation aims to animate a static ref- erence portrait to match the head movements of a driving video while adapting to user-specified or reference light- ing conditions. With the I2V diffusion model, we propose a novel Lighting Controllable Video Diffusion model ( LCVD) to achieve high-fidelity, relightable portrait animation. Extensive evaluations show that LCVD outperforms state-of-the-art methods in lighting re- alism, image quality, and video consistency, setting a new benchmark in relightable portrait animation."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Portrait animation has wide applications in video confer- encing, virtual reality, and the film industry.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Portrait animation has wide applications in video confer- encing, virtual reality, and the film industry. With the rapid advancement of GANs [15, 24, 25] and Diffusion Models [18, 40, 46], existing portrait animation methods [11, 16, 50, 57, 59] have demonstrated remarkable capa- bilities in generating talking faces. For instance, the state- of-the-art LivePortrait [16] achieves real-time, high-fidelity portrait animation by designing better motion transforma- tion and scaling up the talking head datasets. However, the ability of manipulating lighting during portrait anima- tion remains under-explored, which is highly important for seamlessly blending the generated foreground portrait with backgrounds under varying lighting conditions."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "method_overview",
+      "main_message": "In this paper, we focus on relightable portrait anima- tion.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "In this paper, we focus on relightable portrait anima- tion. We aim to animate a portrait in a still reference im- age, ensuring that the animated portrait’s movements match those in the driving video and its lighting aligns with the user-specified conditions. From the perspective of face attributes, we reduce the task to preserving the intrinsic features (identity and appearance) of the reference portrait while effectively transferring the extrinsic ones (given pose and lighting) to the reference portrait. Obviously, the exact separation between intrinsic features and extrinsic features is crucial to reach our goal."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "A key reason existing portrait animation methods cannot independently manipulate light- ing is their inability to decompose these two types of fea- tures.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "A key reason existing portrait animation methods cannot independently manipulate light- ing is their inability to decompose these two types of fea- tures. In order to achieve high-fidelity relightable portrait an- imation, our key idea is to distinguish these two types of features by learning their feature subspaces, then maintain the intrinsic facial features and transfer external features. Observing that the image-to-video (I2V) diffusion model [5], trained on a large-scale dataset encompassing a variety of portraits with different lighting, poses, identities and ap- pearances provides a foundation for learning the two feature subspaces, we design two adapters to separately model the extrinsic and intrinsic feature subspaces within the feature space of I2V . Specifically, we represent the portrait’s extrin- sic attributes using shading hints rendered with the refer- ence image’s 3D mesh, target lighting, and driving frame’s pose, while the intrinsic attributes are represented by the reference image."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "method_overview",
+      "main_message": "During the self-supervised training pro- cess, we design a shading adapter to map the shading hints into an extrinsic feature subspace and a reference adapter to map the reference image into an intrinsic feature sub- space.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "During the self-supervised training pro- cess, we design a shading adapter to map the shading hints into an extrinsic feature subspace and a reference adapter to map the reference image into an intrinsic feature sub- space. By merging the features from these two subspaces, the model generates portraits with specified lighting, pose, identity, and appearance. With the I2V diffusion model, we propose a novel Lighting Controllable Video Diffusion model ( LCVD) to achieve high-fidelity, relightable portrait animation. First, we use an off-the-shelf model [14] to extract the 3D mesh, pose, and spherical harmonics lighting coefficients for each frame of the target video."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "Then an image is rendered as a guidance image, referred to as a shading hint, which en- codes lighting and pose information.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Then an image is rendered as a guidance image, referred to as a shading hint, which en- codes lighting and pose information. In the training stage, to enable pose alignment and lighting control, we use a shad- ing adapter to map the shading hints to the extrinsic feature subspace, representing external portrait attributes by estab- lishing a mapping between the shading hints and the target portrait. For identity and appearance preservation, we use a reference adapter to map the reference image to the intrinsic feature subspace, representing internal portrait attributes by creating a mapping between an initial frame and subsequent frames. Finally, during the inference stage, we merge the features from the two subspaces and input them into the I2V diffusion model to generate portraits with specified lighting, pose, identity, and appearance."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "contribution_summary",
+      "main_message": "To further control the light- ing magnitude, we employ multi-condition classifier-free guidance to emphasize the influence of the shading adapter and reduce the reference’s impact on relighting.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "To further control the light- ing magnitude, we employ multi-condition classifier-free guidance to emphasize the influence of the shading adapter and reduce the reference’s impact on relighting. Our main contributions are listed as follows: • We introduce a Lighting Controllable Video Diffusion model, which overcomes the limitations of current por- trait animation methods that fail to manipulate lighting while animating the portrait. • We propose a shading adapter and a reference adapter to construct the feature subspaces for extrinsic and intrin- sic facial features, respectively. By merging these two subspaces, the I2V model is guided to achieve relightable portrait animation. • Extensive experiments demonstrate that LCVD surpasses state-of-the-art methods, showing significant improve- ments in metrics measuring lighting effects, image qual- ity, and video consistency."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Obviously, the exact separation between intrinsic features and extrinsic features is crucial to reach our goal."
+    ],
+    "limitation_expression": [
+      "However, the ability of manipulating lighting during portrait anima- tion remains under-explored, which is highly important for seamlessly blending the generated foreground portrait with backgrounds under varying lighting conditions.",
+      "We aim to animate a portrait in a still reference im- age, ensuring that the animated portrait’s movements match those in the driving video and its lighting aligns with the user-specified conditions."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "With the I2V diffusion model, we propose a novel Lighting Controllable Video Diffusion model ( LCVD) to achieve high-fidelity, relightable portrait animation.",
+      "Our main contributions are listed as follows: • We introduce a Lighting Controllable Video Diffusion model, which overcomes the limitations of current por- trait animation methods that fail to manipulate lighting while animating the portrait. • We propose a shading adapter and a reference adapter to construct the feature subspaces for extrinsic and intrin- sic facial features, respectively."
+    ],
+    "experiment_expression": [
+      "By merging these two subspaces, the I2V model is guided to achieve relightable portrait animation. • Extensive experiments demonstrate that LCVD surpasses state-of-the-art methods, showing significant improve- ments in metrics measuring lighting effects, image qual- ity, and video consistency.",
+      "Our extensive experimental results demonstrate that LCVD significantly outperforms existing methods in light- ing realism, image quality, and video consistency."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, the ability of manipulating lighting during portrait anima- tion remains under-explored, which is highly important for seamlessly blending the generated foreground portrait with backgrounds under varying lighting conditions.",
+    "With the I2V diffusion model, we propose a novel Lighting Controllable Video Diffusion model ( LCVD) to achieve high-fidelity, relightable portrait animation.",
+    "228 the reference image represents the intrinsic attributes, the shading hint encodes the extrinsic attributes.",
+    "A key reason existing portrait animation methods cannot independently manipulate light- ing is their inability to decompose these two types of fea- tures.",
+    "Abstract Relightable portrait animation aims to animate a static ref- erence portrait to match the head movements of a driving video while adapting to user-specified or reference light- ing conditions.",
+    "By distinguishing between intrinsic and ex- trinsic facial features, the model effectively preserves iden- tity and appearance while enabling precise control over lighting and pose.",
+    "By merging features from these subspaces, the model achieves nuanced control over lighting and pose in generated animations.",
+    "By merging the features from these two subspaces, the model generates portraits with specified lighting, pose, identity, and appearance.",
+    "By merging these two subspaces, the I2V model is guided to achieve relightable portrait animation. • Extensive experiments demonstrate that LCVD surpasses state-of-the-art methods, showing significant improve- ments in metrics measuring lighting effects, image qual- ity, and video consistency.",
+    "Conclusion In this paper, we introduce a Lighting Controllable Video Diffusion model (LCVD) for high-fidelity, relightable por- trait animation.",
+    "During the self-supervised training pro- cess, we design a shading adapter to map the shading hints into an extrinsic feature subspace and a reference adapter to map the reference image into an intrinsic feature sub- space.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRelightable portrait animation aims to animate a static ref-\nerence portrait to match the head movements of a driving\nvideo while adapting to user-specified or reference light-\ning conditions. Existing portrait animation methods fail\nto achieve relightable portraits because they do not sep-\narate and manipulate intrinsic (identity and appearance)\n†Corresponding author: Yanli Liu.\nand extrinsic (pose and lighting) features. In this paper,\nwe present a Lighting Controllable Video Diffusion model\n(LCVD) for high-fidelity, relightable portrait animation. We\naddress this limitation by distinguishing these feature types\nthrough dedicated subspaces within the feature space of a\npre-trained image-to-video diffusion model. Specifically,\nfor each frame, we use the 3D mesh of the reference por-\ntrait, the pose of the driving frame as well as the speci-\nfied lighting to render an image called shading hint. While\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n228\n\nthe reference image represents the intrinsic attributes, the\nshading hint encodes the extrinsic attributes. In the train-\ning phase, we employ a reference adapter to map the ref-\nerence into an intrinsic feature subspace and a shading\nadapter to map the shading hints into an extrinsic fea-\nture subspace. By merging features from these subspaces,\nthe model achieves nuanced control over lighting and pose\nin generated animations. Extensive evaluations show that\nLCVD outperforms state-of-the-art methods in lighting re-\nalism, image quality, and video consistency, setting a new\nbenchmark in relightable portrait animation. Our project\nis available at https://github.com/MingtaoGuo/Relightable-\nPortrait-Animation",
+    "introduction": "1. Introduction\nPortrait animation has wide applications in video confer-\nencing, virtual reality, and the film industry. With the\nrapid advancement of GANs [15, 24, 25] and Diffusion\nModels [18, 40, 46], existing portrait animation methods\n[11, 16, 50, 57, 59] have demonstrated remarkable capa-\nbilities in generating talking faces. For instance, the state-\nof-the-art LivePortrait [16] achieves real-time, high-fidelity\nportrait animation by designing better motion transforma-\ntion and scaling up the talking head datasets. However,\nthe ability of manipulating lighting during portrait anima-\ntion remains under-explored, which is highly important for\nseamlessly blending the generated foreground portrait with\nbackgrounds under varying lighting conditions.\nIn this paper, we focus on relightable portrait anima-\ntion. We aim to animate a portrait in a still reference im-\nage, ensuring that the animated portrait’s movements match\nthose in the driving video and its lighting aligns with the\nuser-specified conditions. From the perspective of face\nattributes, we reduce the task to preserving the intrinsic\nfeatures (identity and appearance) of the reference portrait\nwhile effectively transferring the extrinsic ones (given pose\nand lighting) to the reference portrait. Obviously, the exact\nseparation between intrinsic features and extrinsic features\nis crucial to reach our goal. A key reason existing portrait\nanimation methods cannot independently manipulate light-\ning is their inability to decompose these two types of fea-\ntures.\nIn order to achieve high-fidelity relightable portrait an-\nimation, our key idea is to distinguish these two types of\nfeatures by learning their feature subspaces, then maintain\nthe intrinsic facial features and transfer external features.\nObserving that the image-to-video (I2V) diffusion model\n[5], trained on a large-scale dataset encompassing a variety\nof portraits with different lighting, poses, identities and ap-\npearances provides a foundation for learning the two feature\nsubspaces, we design two adapters to separately model the\nextrinsic and intrinsic feature subspaces within the feature\nspace of I2V . Specifically, we represent the portrait’s extrin-\nsic attributes using shading hints rendered with the refer-\nence image’s 3D mesh, target lighting, and driving frame’s\npose, while the intrinsic attributes are represented by the\nreference image. During the self-supervised training pro-\ncess, we design a shading adapter to map the shading hints\ninto an extrinsic feature subspace and a reference adapter\nto map the reference image into an intrinsic feature sub-\nspace. By merging the features from these two subspaces,\nthe model generates portraits with specified lighting, pose,\nidentity, and appearance.\nWith the I2V diffusion model, we propose a novel\nLighting Controllable Video Diffusion model ( LCVD) to\nachieve high-fidelity, relightable portrait animation. First,\nwe use an off-the-shelf model [14] to extract the 3D mesh,\npose, and spherical harmonics lighting coefficients for each\nframe of the target video. Then an image is rendered as\na guidance image, referred to as a shading hint, which en-\ncodes lighting and pose information. In the training stage, to\nenable pose alignment and lighting control, we use a shad-\ning adapter to map the shading hints to the extrinsic feature\nsubspace, representing external portrait attributes by estab-\nlishing a mapping between the shading hints and the target\nportrait. For identity and appearance preservation, we use a\nreference adapter to map the reference image to the intrinsic\nfeature subspace, representing internal portrait attributes by\ncreating a mapping between an initial frame and subsequent\nframes. Finally, during the inference stage, we merge the\nfeatures from the two subspaces and input them into the I2V\ndiffusion model to generate portraits with specified lighting,\npose, identity, and appearance. To further control the light-\ning magnitude, we employ multi-condition classifier-free\nguidance to emphasize the influence of the shading adapter\nand reduce the reference’s impact on relighting.\nOur main contributions are listed as follows:\n• We introduce a Lighting Controllable Video Diffusion\nmodel, which overcomes the limitations of current por-\ntrait animation methods that fail to manipulate lighting\nwhile animating the portrait.\n• We propose a shading adapter and a reference adapter to\nconstruct the feature subspaces for extrinsic and intrin-\nsic facial features, respectively. By merging these two\nsubspaces, the I2V model is guided to achieve relightable\nportrait animation.\n• Extensive experiments demonstrate that LCVD surpasses\nstate-of-the-art methods, showing significant improve-\nments in metrics measuring lighting effects, image qual-\nity, and video consistency.",
+    "method": "4. Methodology",
+    "experiments": "5. Experiments",
+    "conclusion": "6. Conclusion\nIn this paper, we introduce a Lighting Controllable Video\nDiffusion model (LCVD) for high-fidelity, relightable por-\ntrait animation. By distinguishing between intrinsic and ex-\ntrinsic facial features, the model effectively preserves iden-\ntity and appearance while enabling precise control over\nlighting and pose. The model also incorporates multi-\ncondition classifier-free guidance to fine-tune the lighting\neffects. Our extensive experimental results demonstrate that\nLCVD significantly outperforms existing methods in light-\ning realism, image quality, and video consistency."
+  }
+}

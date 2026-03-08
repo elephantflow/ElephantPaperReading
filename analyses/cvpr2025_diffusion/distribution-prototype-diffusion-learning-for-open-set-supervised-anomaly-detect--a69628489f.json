@@ -1,0 +1,103 @@
+{
+  "paper_id": "distribution-prototype-diffusion-learning-for-open-set-supervised-anomaly-detect--a69628489f",
+  "paper_title": "Distribution Prototype Diffusion Learning for Open-set Supervised Anomaly Detection",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:29.275712+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Distribution Prototype Diffusion Learning for Open-set Supervised Anomaly Detection.pdf",
+    "filename": "Distribution Prototype Diffusion Learning for Open-set Supervised Anomaly Detection.pdf",
+    "sha1": "a69628489f2a991aca2077b071ee50c74bca1414",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "To mitigate the challenge of limited generalization in- herent in closed-set training, we focus on open-set super- vised anomaly detection (OSAD) [1, 27, 51, 52], which utilizes a small set of known anomaly classes during train- ing to identify unseen anomalies from open-set classes.",
+    "limitation": "Yet, these methods often neglect prior knowledge from limited anomaly samples, resulting in imprecise delineation of nor- mal sample boundaries and reduced efficacy in differenti- *Corresponding authors: Tong Zhang, Zhen Cui ating normal from anomaly instances.",
+    "insight": "Abstract In Open-set Supervised Anomaly Detection (OSAD), the existing methods typically generate pseudo anomalies to compensate for the scarcity of observed anomaly samples, while overlooking critical priors of normal samples, lead- ing to less effective discriminative boundaries.",
+    "proposed_method": "To address this issue, we propose a Distribution Prototype Diffusion Learning (DPDL) method aimed at enclosing normal sam- ples within a compact and discriminative distribution space.",
+    "experimental_evidence": "Experimental results demonstrate the effectiveness and superiority of our proposed DPDL, achieving state-of-the-art performance on 9 public datasets.",
+    "summary": "To mitigate the challenge of limited generalization in- herent in closed-set training, we focus on open-set super- vised anomaly detection (OSAD) [1, 27, 51, 52], which utilizes a small set of known anomaly classes during train- ing to identify unseen anomalies from open-set classes. Yet, these methods often neglect prior knowledge from limited anomaly samples, resulting in imprecise delineation of nor- mal sample boundaries and reduced efficacy in differenti- *Corresponding authors: Tong Zhang, Zhen Cui ating normal from anomaly instances. Abstract In Open-set Supervised Anomaly Detection (OSAD), the existing methods typically generate pseudo anomalies to compensate for the scarcity of observed anomaly samples, while overlooking critical priors of normal samples, lead- ing to less effective discriminative boundaries. To address this issue, we propose a Distribution Prototype Diffusion Learning (DPDL) method aimed at enclosing normal sam- ples within a compact and discriminative distribution space. Experimental results demonstrate the effectiveness and superiority of our proposed DPDL, achieving state-of-the-art performance on 9 public datasets."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Anomaly detection (AD) [15, 21, 48, 50] aims to iden- tify outliers significantly diverging from the prevailing sam- ples in a dataset, and has a wide range of applications like industrial inspection, medical image analysis, and scien- tific discovery, etc.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nAnomaly detection (AD) [15, 21, 48, 50] aims to iden-\ntify outliers significantly diverging from the prevailing sam-\nples in a dataset, and has a wide range of applications like\nindustrial inspection, medical image analysis, and scien-\ntific discovery, etc. Recently, unsupervised anomaly de-\ntection (UAD) [6, 11, 26, 28] and few-shot anomaly de-\ntection (FSAD) [12, 21, 22] have emerged as prominent\nresearch paradigms, emphasizing the modeling of normal\nsample distributions to discern anomalies effectively. Yet,\nthese methods often neglect prior knowledge from limited\nanomaly samples, resulting in imprecise delineation of nor-\nmal sample boundaries and reduced efficacy in differenti-\n*Corresponding authors: Tong Zhang, Zhen Cui\nating normal from anomaly instances. On the contrary, su-\npervised anomaly detection (SAD) [2, 20, 47] leverages a\nlimited subset of anomaly samples as prior knowledge, im-\nproving detection performance. However, this reliance on\nseen anomalies poses a risk of overfitting and hampers gen-\neralization to unseen anomalies in real-world settings.\nTo mitigate the challenge of limited generalization in-\nherent in closed-set training, we focus on op"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "lies inherit in-distribution data biases, leading to subopti- mal performance on out-of-distribution anomalies; iii) the diversity of normal samples presents dilemmas for existing methods, complicating the differentiation between normal and anomaly boundaries.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "lies inherit in-distribution data biases, leading to subopti-\nmal performance on out-of-distribution anomalies; iii) the\ndiversity of normal samples presents dilemmas for existing\nmethods, complicating the differentiation between normal\nand anomaly boundaries. These issues prompt a fundamen-\ntal question: Instead of generating pseudo and uncertain\nanomaly samples, how can we accurately characterize com-\npact distribution boundaries amidst a range of diverse nor-\nmal samples and achieve robust generalization for unknown\nout-of-distribution anomalies?\nTo address the aforementioned issue, in this work,\nwe propose a Distribution Prototype Diffusion Learning\n(DPDL) method for open-set supervised anomaly detection.\nConsidering abundant and diverse normal samples but very\nlimited anomaly data, our method involves learning latent\ndistribution prototypes, specifically multiple Gaussian dis-\ntributions, onto which all observed normal samples can be\neffectively projected. To facilitate the mapping of normal\nsamples into the prototype space, we leverage Schr ¨odinger\nbridge (SB) framework, which enables a diffusive transi-\ntion by aligning the distributions of these samples with the\nprototypes"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Abstract In Open-set Supervised Anomaly Detection (OSAD), the existing methods typically generate pseudo anomalies to compensate for the scarcity of observed anomaly samples, while overlooking critical priors of normal samples, lead- ing to less effective discriminative boundaries.",
+      "Yet, three critical issues persist: i) the simulation mechanism cannot cover all anomaly distribution patterns due to the varied scales and structures of anomaly distributions; ii) simulated anoma- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    ],
+    "limitation_expression": [
+      "Yet, these methods often neglect prior knowledge from limited anomaly samples, resulting in imprecise delineation of nor- mal sample boundaries and reduced efficacy in differenti- *Corresponding authors: Tong Zhang, Zhen Cui ating normal from anomaly instances.",
+      "On the contrary, su- pervised anomaly detection (SAD) [2, 20, 47] leverages a limited subset of anomaly samples as prior knowledge, im- proving detection performance.",
+      "However, this reliance on seen anomalies poses a risk of overfitting and hampers gen- eralization to unseen anomalies in real-world settings.",
+      "To mitigate the challenge of limited generalization in- herent in closed-set training, we focus on open-set super- vised anomaly detection (OSAD) [1, 27, 51, 52], which utilizes a small set of known anomaly classes during train- ing to identify unseen anomalies from open-set classes.",
+      "Although AHL [51] has made strides in addressing this issue by simulating hetero- geneous anomaly distributions, it still relies on approximat- ing unknown out-of-distribution anomalies using known in- distribution anomalies for generalization.",
+      "Considering abundant and diverse normal samples but very limited anomaly data, our method involves learning latent distribution prototypes, specifically multiple Gaussian dis- tributions, onto which all observed normal samples can be effectively projected."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this issue, we propose a Distribution Prototype Diffusion Learning (DPDL) method aimed at enclosing normal sam- ples within a compact and discriminative distribution space.",
+      "To address the aforementioned issue, in this work, we propose a Distribution Prototype Diffusion Learning (DPDL) method for open-set supervised anomaly detection.",
+      "Considering abundant and diverse normal samples but very limited anomaly data, our method involves learning latent distribution prototypes, specifically multiple Gaussian dis- tributions, onto which all observed normal samples can be effectively projected.",
+      "Experi- ments demonstrate that our method greatly improves detec- tion capabilities for unseen anomalies.",
+      "Conclusion We propose Distribution Prototype Diffusion Learning (DPDL) for OSAD.",
+      "We propose a dispersion feature learning way in hyperspherical space, which benefits the detection of out- of-distribution anomalies."
+    ],
+    "experiment_expression": [
+      "Experimental results demonstrate the effectiveness and superiority of our proposed DPDL, achieving state-of-the-art performance on 9 public datasets.",
+      "Experi- ments demonstrate that our method greatly improves detec- tion capabilities for unseen anomalies."
+    ],
+    "contribution_expression": [
+      "In summary, our contributions are three-fold: i) we pro- pose a distribution prototype diffusion learning framework that jointly learns multiple Gaussian prototypes and the as- sociated diffusion bridge, creating a compact and discrim- inative embedding space; ii) we develop dispersion feature learning in hyperspherical space to enhance inter-sample separation and improve generalization; iii) we achieve state- of-the-art performance in 9 public datasets, demonstrating the efficacy of our approach."
+    ]
+  },
+  "notable_sentences": [
+    "Conclusion We propose Distribution Prototype Diffusion Learning (DPDL) for OSAD.",
+    "However, this reliance on seen anomalies poses a risk of overfitting and hampers gen- eralization to unseen anomalies in real-world settings.",
+    "To address the aforementioned issue, in this work, we propose a Distribution Prototype Diffusion Learning (DPDL) method for open-set supervised anomaly detection.",
+    "To address this issue, we propose a Distribution Prototype Diffusion Learning (DPDL) method aimed at enclosing normal sam- ples within a compact and discriminative distribution space.",
+    "We propose a dispersion feature learning way in hyperspherical space, which benefits the detection of out- of-distribution anomalies.",
+    "BGAD [47] leverages decision boundaries derived from normalized flow models to capture and model anomaly in- formation.",
+    "By leveraging prior knowledge from observed samples, OSAD methods could reduce false positive errors.",
+    "DPDL leverages schr ¨odinger bridge to map the normal distribution to a prototype space, simultane- ously repelling anomalies to facilitate precise anomaly de- tection.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experi- ments demonstrate that our method greatly improves detec- tion capabilities for unseen anomalies.",
+    "Experimental results demonstrate the effectiveness and superiority of our proposed DPDL, achieving state-of-the-art performance on 9 public datasets.",
+    "Experimental results illustrate DPDL’s robustness in diverse anomaly detection scenarios."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nIn Open-set Supervised Anomaly Detection (OSAD), the\nexisting methods typically generate pseudo anomalies to\ncompensate for the scarcity of observed anomaly samples,\nwhile overlooking critical priors of normal samples, lead-\ning to less effective discriminative boundaries. To address\nthis issue, we propose a Distribution Prototype Diffusion\nLearning (DPDL) method aimed at enclosing normal sam-\nples within a compact and discriminative distribution space.\nSpecifically, we construct multiple learnable Gaussian pro-\ntotypes to create a latent representation space for abun-\ndant and diverse normal samples and learn a Schr ¨odinger\nbridge to facilitate a diffusive transition toward these pro-\ntotypes for normal samples while steering anomaly sam-\nples away. Moreover, to enhance inter-sample separa-\ntion, we design a dispersion feature learning way in hyper-\nspherical space, which benefits the identification of out-of-\ndistribution anomalies. Experimental results demonstrate\nthe effectiveness and superiority of our proposed DPDL,\nachieving state-of-the-art performance on 9 public datasets.",
+    "introduction": "1. Introduction\nAnomaly detection (AD) [15, 21, 48, 50] aims to iden-\ntify outliers significantly diverging from the prevailing sam-\nples in a dataset, and has a wide range of applications like\nindustrial inspection, medical image analysis, and scien-\ntific discovery, etc. Recently, unsupervised anomaly de-\ntection (UAD) [6, 11, 26, 28] and few-shot anomaly de-\ntection (FSAD) [12, 21, 22] have emerged as prominent\nresearch paradigms, emphasizing the modeling of normal\nsample distributions to discern anomalies effectively. Yet,\nthese methods often neglect prior knowledge from limited\nanomaly samples, resulting in imprecise delineation of nor-\nmal sample boundaries and reduced efficacy in differenti-\n*Corresponding authors: Tong Zhang, Zhen Cui\nating normal from anomaly instances. On the contrary, su-\npervised anomaly detection (SAD) [2, 20, 47] leverages a\nlimited subset of anomaly samples as prior knowledge, im-\nproving detection performance. However, this reliance on\nseen anomalies poses a risk of overfitting and hampers gen-\neralization to unseen anomalies in real-world settings.\nTo mitigate the challenge of limited generalization in-\nherent in closed-set training, we focus on open-set super-\nvised anomaly detection (OSAD) [1, 27, 51, 52], which\nutilizes a small set of known anomaly classes during train-\ning to identify unseen anomalies from open-set classes. By\nleveraging prior knowledge from observed samples, OSAD\nmethods could reduce false positive errors. To improve the\ngeneralized detection of unseen anomalies, DRA [9] lever-\nages data augmentation and outlier exposure to learn a de-\ncomposed anomaly representation comprising seen anoma-\nlies, pseudo-anomalies, and potential residual anomalies.\nBGAD [47] leverages decision boundaries derived from\nnormalized flow models to capture and model anomaly in-\nformation. Recently, AHL [51] simulates heterogeneous\nanomaly distributions and performs collaborative differen-\ntiable learning to further enhance the model’s generality.\nWhile data augmentation and outlier exposure tech-\nniques [9, 19, 34] have demonstrated considerable success\nin anomaly detection, they fall short in generating com-\nprehensive pseudo anomalies, capturing only a fraction of\npotential unseen anomalies. This limitation arises from\noverlooking the intricate nature of real-world anomaly dis-\ntributions, thereby hindering the model’s ability to gener-\nalize to novel anomaly types. Although AHL [51] has\nmade strides in addressing this issue by simulating hetero-\ngeneous anomaly distributions, it still relies on approximat-\ning unknown out-of-distribution anomalies using known in-\ndistribution anomalies for generalization. Yet, three critical\nissues persist: i) the simulation mechanism cannot cover all\nanomaly distribution patterns due to the varied scales and\nstructures of anomaly distributions; ii) simulated anoma-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n20416\n\nlies inherit in-distribution data biases, leading to subopti-\nmal performance on out-of-distribution anomalies; iii) the\ndiversity of normal samples presents dilemmas for existing\nmethods, complicating the differentiation between normal\nand anomaly boundaries. These issues prompt a fundamen-\ntal question: Instead of generating pseudo and uncertain\nanomaly samples, how can we accurately characterize com-\npact distribution boundaries amidst a range of diverse nor-\nmal samples and achieve robust generalization for unknown\nout-of-distribution anomalies?\nTo address the aforementioned issue, in this work,\nwe propose a Distribution Prototype Diffusion Learning\n(DPDL) method for open-set supervised anomaly detection.\nConsidering abundant and diverse normal samples but very\nlimited anomaly data, our method involves learning latent\ndistribution prototypes, specifically multiple Gaussian dis-\ntributions, onto which all observed normal samples can be\neffectively projected. To facilitate the mapping of normal\nsamples into the prototype space, we leverage Schr ¨odinger\nbridge (SB) framework, which enables a diffusive transi-\ntion by aligning the distributions of these samples with the\nprototypes. The SB-based diffusion way could mitigate\nthe out-of-distribution issue for normal samples to some\nextent. Within the distribution prototype space, we push\nobserved anomaly samples away from normal samples to\nenhance discriminative capacity. Notably, both the proto-\ntypes and the diffusive bridge are learned jointly, resulting\nin a robust embedding space for normal samples. Moreover,\nto enhance generalization across unseen anomaly domains,\nwe introduce a dispersion feature learning mechanism that\nmaps intermediate features to a hyperspherical space, lever-\naging a mixture of von Mises-Fisher (vMF) distributions.\nThis approach bolsters directional feature extraction and\npromotes robust inter-sample separation, facilitating effec-\ntive identification of out-of-distribution samples. Experi-\nments demonstrate that our method greatly improves detec-\ntion capabilities for unseen anomalies.\nIn summary, our contributions are three-fold: i) we pro-\npose a distribution prototype diffusion learning framework\nthat jointly learns multiple Gaussian prototypes and the as-\nsociated diffusion bridge, creating a compact and discrim-\ninative embedding space; ii) we develop dispersion feature\nlearning in hyperspherical space to enhance inter-sample\nseparation and improve generalization; iii) we achieve state-\nof-the-art performance in 9 public datasets, demonstrating\nthe efficacy of our approach.",
+    "method": "4. Method",
+    "experiments": "5. Experiment",
+    "conclusion": "6. Conclusion\nWe propose Distribution Prototype Diffusion Learning\n(DPDL) for OSAD. DPDL leverages schr ¨odinger bridge to\nmap the normal distribution to a prototype space, simultane-\nously repelling anomalies to facilitate precise anomaly de-\ntection. We propose a dispersion feature learning way in\nhyperspherical space, which benefits the detection of out-\nof-distribution anomalies. Experimental results illustrate\nDPDL’s robustness in diverse anomaly detection scenarios.\n20423"
+  }
+}

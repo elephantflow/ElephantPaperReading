@@ -1,0 +1,130 @@
+{
+  "paper_id": "dual-prompting-image-restoration-with-diffusion-transformers--3a50fd25a8",
+  "paper_title": "Dual Prompting Image Restoration with Diffusion Transformers",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:34.000474+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Dual Prompting Image Restoration with Diffusion Transformers.pdf",
+    "filename": "Dual Prompting Image Restoration with Diffusion Transformers.pdf",
+    "sha1": "3a50fd25a8f6eb0bb806852cb6403088781ac36f",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "These existing IR methods rely on latent diffusion models [35] with the U-Net [36] architecture, which, while effective, still encounter challenges in restoration quality.",
+    "limitation": "However, these conditional control methods are not optimized for DiTs composed of ViT [6] blocks.",
+    "insight": "Abstract Recent state-of-the-art image restoration methods mostly adopt latent diffusion models with U-Net backbones, yet still facing challenges in achieving high-quality restoration due to their limited capabilities.",
+    "proposed_method": "In this pa- per, we introduce DPIR (Dual Prompting Image Restora- tion), a novel image restoration method that effectivly ex- tracts conditional information of low-quality images from multiple perspectives.",
+    "experimental_evidence": "Extensive experimental results demonstrate that DPIR delivers superior image restoration performance.",
+    "summary": "These existing IR methods rely on latent diffusion models [35] with the U-Net [36] architecture, which, while effective, still encounter challenges in restoration quality. However, these conditional control methods are not optimized for DiTs composed of ViT [6] blocks. Abstract Recent state-of-the-art image restoration methods mostly adopt latent diffusion models with U-Net backbones, yet still facing challenges in achieving high-quality restoration due to their limited capabilities. In this pa- per, we introduce DPIR (Dual Prompting Image Restora- tion), a novel image restoration method that effectivly ex- tracts conditional information of low-quality images from multiple perspectives. Extensive experimental results demonstrate that DPIR delivers superior image restoration performance."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction The persistent demand for high-quality images across di- verse fields, such as digital art and medical imaging, drives research in image restoration and super-resolution.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction The persistent demand for high-quality images across di- verse fields, such as digital art and medical imaging, drives research in image restoration and super-resolution. Image restoration (IR) aims to reconstruct high-quality (HQ) im- ages from low-quality (LQ) inputs, addressing real-world degradations of varying complexity, such as noise, blur, and compression artifacts. Recently, diffusion models-based methods [10, 42, 45, 47–49] have shown the advantages of leveraging the powerful pre-trained text-to-image (T2I) models to enhance the performance of real-world IR. These existing IR methods rely on latent diffusion models [35] with the U-Net [36] architecture, which, while effective, still encounter challenges in restoration quality."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "problem_statement",
+      "main_message": "As an al- ternative, diffusion transformers [30] (DiTs) recently show promising generative capabilities due to their ability to cap- ture long-range dependencies and their scalability potential, which are crucial for the quality and fidelty of restoration across a wide range of real-world situations.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "As an al- ternative, diffusion transformers [30] (DiTs) recently show promising generative capabilities due to their ability to cap- ture long-range dependencies and their scalability potential, which are crucial for the quality and fidelty of restoration across a wide range of real-world situations. Despite these advantages, effectively incorporating LQ information into DiTs remains underexplored. Existing IR methods [21, 52] based on the U-Net backbone typically utilize ControlNet [58], which incorporates the LQ image by employing a trainable copy of the U-Net’s encoding lay- ers. In parallel, StableSR [42] adopts a lightweight trainable control network, akin to the T2I Adaptor [29], but suffers from moderate performance."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "method_overview",
+      "main_message": "However, these conditional control methods are not optimized for DiTs composed of ViT [6] blocks.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "However, these conditional control methods are not optimized for DiTs composed of ViT [6] blocks. This discrepancy necessitates a careful de- sign of conditioning mechanisms for DiTs in the IR task. In this work, we present a dual prompting image restora- tion model (DPIR), combined with a DiT-based diffusion model Stable Diffusion 3 (SD3) [8]. We propose several key techniques in DPIR to effectively integrate control sig- nals from LQ images into the DiT, enabling natural and faithful image restoration."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "DPIR includes a low-quality image conditioning branch and a dual prompting control branch, which balances model efficiency and effectiveness.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "DPIR includes a low-quality image conditioning branch and a dual prompting control branch, which balances model efficiency and effectiveness. Specifically, the first branch is a lightweight module de- signed to efficiently inject the LQ image prior into the DiT. Inspired by ControlNeXt [31], this branch extracts condi- tional features of LQ images by a few of convolution layers rather than heavy backbone copies like ControlNet. No- tably, the lightweight module and the DiT backbone are jointly trained to handle diverse real-world scenarios."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "problem_statement",
+      "main_message": "In IR tasks, visual cues of LQ images, including the global context information and the local texture infomation, are crucial for desirable image restoration.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "In IR tasks, visual cues of LQ images, including the global context information and the local texture infomation, are crucial for desirable image restoration. These visual sig- nals cannot be fully captured by text descriptions alone, es- pecially considering that the DiT backbone, without a skip- connection mechanism like U-Net, hardly keeps the infor- mation of input LQ images, which are the conditioning in text-to-image models across all DiT blocks. Hence, we design a dual prompting restoration branch to incorporate LQ information into DiT from a more comprehensive vi- sual perspective, leveraging the knowledge of pre-trained T2I models and complementing our lightweight condition- ing branch. In detail, given a cropped patch of the LQ im- age, we first feed it into CLIP [33] to extract local visual features."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "background",
+      "main_message": "Additionally, global visual features from the sur- rounding regions, rich in contextual information, are also extracted.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Additionally, global visual features from the sur- rounding regions, rich in contextual information, are also extracted. These global-local features function as visual to- kens, replacing the original CLIP text features in SD3 and serving as conditioning, alongside T5 [34] text prompts as visual-text dual prompts, for each block of DiT. As shown in Figure 1, DPIR with the dual prompt- ing strategy demonstrates excellent restoration performance and shows a clear advantage over the simple text prompts as DiT conditioning. Additionally, to further exploit the scal- ability of DiTs, we use over 20 million high-quality images as training data."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "problem_statement",
+      "main_message": "Experimental results validate the effec- tiveness of the proposed DPIR, showing compelling image restoration performance compared to recent state-of-the-art methods and achieving impressive results across a broad range of image restoration tasks.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Experimental results validate the effec- tiveness of the proposed DPIR, showing compelling image restoration performance compared to recent state-of-the-art methods and achieving impressive results across a broad range of image restoration tasks."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "As an al- ternative, diffusion transformers [30] (DiTs) recently show promising generative capabilities due to their ability to cap- ture long-range dependencies and their scalability potential, which are crucial for the quality and fidelty of restoration across a wide range of real-world situations.",
+      "In IR tasks, visual cues of LQ images, including the global context information and the local texture infomation, are crucial for desirable image restoration."
+    ],
+    "limitation_expression": [
+      "Abstract Recent state-of-the-art image restoration methods mostly adopt latent diffusion models with U-Net backbones, yet still facing challenges in achieving high-quality restoration due to their limited capabilities.",
+      "These existing IR methods rely on latent diffusion models [35] with the U-Net [36] architecture, which, while effective, still encounter challenges in restoration quality.",
+      "However, these conditional control methods are not optimized for DiTs composed of ViT [6] blocks."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "We propose several key techniques in DPIR to effectively integrate control sig- nals from LQ images into the DiT, enabling natural and faithful image restoration.",
+      "Method In this work, we propose DPIR, a novel image restoration model based on SD3, which consists of a low-quality im- age conditioning branch and a dual prompting restoration branch."
+    ],
+    "experiment_expression": [
+      "Extensive experimental results demonstrate that DPIR delivers superior image restoration performance.",
+      "As shown in Figure 1, DPIR with the dual prompt- ing strategy demonstrates excellent restoration performance and shows a clear advantage over the simple text prompts as DiT conditioning.",
+      "Experimental results demonstrate DPIR’s superior performance."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "As shown in Figure 1, DPIR with the dual prompt- ing strategy demonstrates excellent restoration performance and shows a clear advantage over the simple text prompts as DiT conditioning.",
+    "However, these conditional control methods are not optimized for DiTs composed of ViT [6] blocks.",
+    "Method In this work, we propose DPIR, a novel image restoration model based on SD3, which consists of a low-quality im- age conditioning branch and a dual prompting restoration branch.",
+    "We propose several key techniques in DPIR to effectively integrate control sig- nals from LQ images into the DiT, enabling natural and faithful image restoration.",
+    "62322216, 62172409, 62311530686,U24B20175), research on the Optimization of Government Affairs Services (No.",
+    "Abstract Recent state-of-the-art image restoration methods mostly adopt latent diffusion models with U-Net backbones, yet still facing challenges in achieving high-quality restoration due to their limited capabilities.",
+    "Additionally, global visual features from the sur- rounding regions, rich in contextual information, are also extracted.",
+    "Additionally, to further exploit the scal- ability of DiTs, we use over 20 million high-quality images as training data.",
+    "DPIR includes a low-quality image conditioning branch and a dual prompting control branch, which balances model efficiency and effectiveness.",
+    "Despite these advantages, effectively incorporating LQ information into DiTs remains underexplored.",
+    "Diffusion transformers (DiTs), like SD3, are emerging as a promising alternative because of their better quality with scalability.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRecent state-of-the-art image restoration methods mostly\nadopt latent diffusion models with U-Net backbones, yet\nstill facing challenges in achieving high-quality restoration\ndue to their limited capabilities. Diffusion transformers\n(DiTs), like SD3, are emerging as a promising alternative\nbecause of their better quality with scalability. In this pa-\nper, we introduce DPIR (Dual Prompting Image Restora-\ntion), a novel image restoration method that effectivly ex-\ntracts conditional information of low-quality images from\nmultiple perspectives. Specifically, DPIR consits of two\nbranches: a low-quality image conditioning branch and a\n∗ Contribute Equally. † Corresponding Author.\ndual prompting control branch. The first branch utilizes\na lightweight module to incorporate image priors into the\nDiT with high efficiency. More importantly, we believe that\nin image restoration, textual description alone cannot fully\ncapture its rich visual characteristics. Therefore, a dual\nprompting module is designed to provide DiT with addi-\ntional visual cues, capturing both global context and local\nappearance. The extracted global-local visual prompts as\nextra conditional control, alongside textual prompts to form\ndual prompts, greatly enhance the quality of the restora-\ntion. Extensive experimental results demonstrate that DPIR\ndelivers superior image restoration performance.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n12809",
+    "introduction": "1. Introduction\nThe persistent demand for high-quality images across di-\nverse fields, such as digital art and medical imaging, drives\nresearch in image restoration and super-resolution. Image\nrestoration (IR) aims to reconstruct high-quality (HQ) im-\nages from low-quality (LQ) inputs, addressing real-world\ndegradations of varying complexity, such as noise, blur, and\ncompression artifacts. Recently, diffusion models-based\nmethods [10, 42, 45, 47–49] have shown the advantages\nof leveraging the powerful pre-trained text-to-image (T2I)\nmodels to enhance the performance of real-world IR. These\nexisting IR methods rely on latent diffusion models [35]\nwith the U-Net [36] architecture, which, while effective,\nstill encounter challenges in restoration quality. As an al-\nternative, diffusion transformers [30] (DiTs) recently show\npromising generative capabilities due to their ability to cap-\nture long-range dependencies and their scalability potential,\nwhich are crucial for the quality and fidelty of restoration\nacross a wide range of real-world situations.\nDespite these advantages, effectively incorporating LQ\ninformation into DiTs remains underexplored. Existing IR\nmethods [21, 52] based on the U-Net backbone typically\nutilize ControlNet [58], which incorporates the LQ image\nby employing a trainable copy of the U-Net’s encoding lay-\ners. In parallel, StableSR [42] adopts a lightweight trainable\ncontrol network, akin to the T2I Adaptor [29], but suffers\nfrom moderate performance. However, these conditional\ncontrol methods are not optimized for DiTs composed of\nViT [6] blocks. This discrepancy necessitates a careful de-\nsign of conditioning mechanisms for DiTs in the IR task.\nIn this work, we present a dual prompting image restora-\ntion model (DPIR), combined with a DiT-based diffusion\nmodel Stable Diffusion 3 (SD3) [8]. We propose several\nkey techniques in DPIR to effectively integrate control sig-\nnals from LQ images into the DiT, enabling natural and\nfaithful image restoration. DPIR includes a low-quality\nimage conditioning branch and a dual prompting control\nbranch, which balances model efficiency and effectiveness.\nSpecifically, the first branch is a lightweight module de-\nsigned to efficiently inject the LQ image prior into the DiT.\nInspired by ControlNeXt [31], this branch extracts condi-\ntional features of LQ images by a few of convolution layers\nrather than heavy backbone copies like ControlNet. No-\ntably, the lightweight module and the DiT backbone are\njointly trained to handle diverse real-world scenarios.\nIn IR tasks, visual cues of LQ images, including the\nglobal context information and the local texture infomation,\nare crucial for desirable image restoration. These visual sig-\nnals cannot be fully captured by text descriptions alone, es-\npecially considering that the DiT backbone, without a skip-\nconnection mechanism like U-Net, hardly keeps the infor-\nmation of input LQ images, which are the conditioning in\ntext-to-image models across all DiT blocks. Hence, we\ndesign a dual prompting restoration branch to incorporate\nLQ information into DiT from a more comprehensive vi-\nsual perspective, leveraging the knowledge of pre-trained\nT2I models and complementing our lightweight condition-\ning branch. In detail, given a cropped patch of the LQ im-\nage, we first feed it into CLIP [33] to extract local visual\nfeatures. Additionally, global visual features from the sur-\nrounding regions, rich in contextual information, are also\nextracted. These global-local features function as visual to-\nkens, replacing the original CLIP text features in SD3 and\nserving as conditioning, alongside T5 [34] text prompts as\nvisual-text dual prompts, for each block of DiT.\nAs shown in Figure 1, DPIR with the dual prompt-\ning strategy demonstrates excellent restoration performance\nand shows a clear advantage over the simple text prompts as\nDiT conditioning. Additionally, to further exploit the scal-\nability of DiTs, we use over 20 million high-quality images\nas training data. Experimental results validate the effec-\ntiveness of the proposed DPIR, showing compelling image\nrestoration performance compared to recent state-of-the-art\nmethods and achieving impressive results across a broad\nrange of image restoration tasks.",
+    "method": "4. Method\nIn this work, we propose DPIR, a novel image restoration\nmodel based on SD3, which consists of a low-quality im-\nage conditioning branch and a dual prompting restoration\nbranch. Figure 2 shows the pipeline of DPIR.",
+    "experiments": "5. Experiments",
+    "conclusion": "6. Conclusion\nThis paper presents DPIR, a novel DiT-based image restora-\ntion method and a new dual prompting strategy that ex-\ntracts valuable visual conditioning from both global and\nlocal perspectives, significantly enhancing restoration out-\ncomes. Experimental results demonstrate DPIR’s superior\nperformance.\nAcknowledgment. This work has been supported in part\nby National Natural Science Foundation of China (Nos.\n62322216, 62172409, 62311530686,U24B20175), research\non the Optimization of Government Affairs Services (No.\nPBD2024-0521), research on the Detection and Analysis of\nFake Threat Intelligence (No. C22600-15)"
+  }
+}

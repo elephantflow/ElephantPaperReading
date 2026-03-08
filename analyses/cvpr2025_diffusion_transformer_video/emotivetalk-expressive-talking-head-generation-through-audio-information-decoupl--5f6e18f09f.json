@@ -1,0 +1,97 @@
+{
+  "paper_id": "emotivetalk-expressive-talking-head-generation-through-audio-information-decoupl--5f6e18f09f",
+  "paper_title": "EmotiveTalk: Expressive Talking Head Generation through Audio Information Decoupling and Emotional Video Diffusion",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:12:37.118133+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_transformer_video_pdfs/EmotiveTalk： Expressive Talking Head Generation through Audio Information Decoupling and Emotional Video Diffusion.pdf",
+    "filename": "EmotiveTalk： Expressive Talking Head Generation through Audio Information Decoupling and Emotional Video Diffusion.pdf",
+    "sha1": "5f6e18f09fdee217b4c0937ffe6139fdb41094ea",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "26212 image and video generation tasks, their application in talk- ing head generation [15, 23, 31, 38, 45] still faces several challenges.",
+    "limitation": "However, the coupling of multiple informa- tion embedded in audio limits the effective learning of the mapping between speech and expressions and the control- lability of generated emotion.",
+    "insight": "Abstract Diffusion models have revolutionized the field of talking head generation, yet still face challenges in expressive- ness, controllability, and stability in long-time generation.",
+    "proposed_method": "In this research, we propose an EmotiveTalk framework to address these issues.",
+    "experimental_evidence": "Experimen- tal results show that EmotiveTalk can generate expressive talking head videos, ensuring the promised controllability of emotions and metric stability during long-time genera- tion, yielding state-of-the-art performance compared to ex- isting methods.",
+    "summary": "26212 image and video generation tasks, their application in talk- ing head generation [15, 23, 31, 38, 45] still faces several challenges. However, the coupling of multiple informa- tion embedded in audio limits the effective learning of the mapping between speech and expressions and the control- lability of generated emotion. Abstract Diffusion models have revolutionized the field of talking head generation, yet still face challenges in expressive- ness, controllability, and stability in long-time generation. In this research, we propose an EmotiveTalk framework to address these issues. Experimen- tal results show that EmotiveTalk can generate expressive talking head videos, ensuring the promised controllability of emotions and metric stability during long-time genera- tion, yielding state-of-the-art performance compared to ex- isting methods."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Talking head generation, also known as portrait image ani- mation [52], demonstrates significant value across multiple domains, including television and film production, online education as well as human-machine interaction.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\nTalking head generation, also known as portrait image ani-\nmation [52], demonstrates significant value across multiple\ndomains, including television and film production, online\neducation as well as human-machine interaction. The gen-\neration of realistic talking head videos involves two aspects\nof requirements. On the one hand, for the verbal aspect, it is\nessential to ensure the synchronization between speech and\nlip motions in the generated video [27]. On the other hand,\nfor the non-verbal aspect, the generated video must convey\nnon-verbal information, including facial expressions [26].\nDespite the success of diffusion models [16, 24, 35] in\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n26212"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "image and video generation tasks, their application in talk- ing head generation [15, 23, 31, 38, 45] still faces several challenges.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "image and video generation tasks, their application in talk-\ning head generation [15, 23, 31, 38, 45] still faces several\nchallenges. For example, current methodologies [23, 38,\n45] exhibit shortcomings in control of the generated emo-\ntional facial expressions, although they have made notable\nadvancements in achieving synchronization between speech\nand lip movements. These audio-driven methods mainly\ndirectly synthesize expressions under weak audio condi-\ntions [38, 45]. However, the coupling of multiple informa-\ntion embedded in audio limits the effective learning of the\nmapping between speech and expressions and the control-\nlability of generated emotion. Moreover, current diffusion-\nbased methods often struggle to generate high-resolution\nvideo due to their large scale of parameters and the asso-\nciated training costs [38, 45]. They also face challenges\nin stability during long-time generation due to their auto-\nregressive inference strategies [23, 38, 45], which can lead\nto error accumulation across multiple inference clips.\nTo address these challenges, in this paper, we introduce\nEmotiveTalk, a highly expressive talking head generation\nframework with emotion control based on "
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Abstract Diffusion models have revolutionized the field of talking head generation, yet still face challenges in expressive- ness, controllability, and stability in long-time generation.",
+      "26212 image and video generation tasks, their application in talk- ing head generation [15, 23, 31, 38, 45] still faces several challenges.",
+      "However, the coupling of multiple informa- tion embedded in audio limits the effective learning of the mapping between speech and expressions and the control- lability of generated emotion."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "In this research, we propose an EmotiveTalk framework to address these issues.",
+      "Then we propose a well-designed Emotional Talk- ing Head Diffusion (ETHD) backbone to efficiently gener- ate highly expressive talking head videos, which contains an Expression Decoupling Injection (EDI) module to auto- matically decouple the expressions from reference portraits while integrating the target expression information, achiev- ing more expressive generation performance.",
+      "We propose a Vision-guided Audio Information Decouple (V-AID) approach to facilitate the decoupling of lip and expression related information contained in audio signals and also the alignment of audio representations with video representations under the guidance of vision facial mo- tion information.",
+      "Then, to effectively drive the decoupled representations, we propose an efficient video diffusion framework for expres- sive talking head generation that demonstrates effective- ness and enhanced stability in talking head video genera- tion performance.",
+      "In summary, our contri- butions are as follows: (1) We propose a Vision-Guided Audio Information Decouple (V-AID) approach that gen- erates efficient decoupled lip-related and expression-related representations from audio for talking head generation.",
+      "(2) We propose an Emotional Talking Head Diffusion (ETHD) framework that is capable of generating dynamic-length videos, which achieves highly expressive talking head video generation performance while ensuring metric stability over extended durations.",
+      "Conclusion In this work, we propose EmotiveTalk, a novel method that aims at enhancing the emotional expressiveness and con- trollability of talking head video generation.",
+      "We propose a novel approach to decouple audio embedding by lever- aging facial motion information, enabling the generation of decoupled representations that correspond directly to lip motions and facial expressions."
+    ],
+    "experiment_expression": [
+      "Method As shown in Fig.",
+      "Extensive ex- periments demonstrate the superiority of EmotiveTalk."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion In this work, we propose EmotiveTalk, a novel method that aims at enhancing the emotional expressiveness and con- trollability of talking head video generation.",
+    "However, the coupling of multiple informa- tion embedded in audio limits the effective learning of the mapping between speech and expressions and the control- lability of generated emotion.",
+    "In this research, we propose an EmotiveTalk framework to address these issues.",
+    "Method As shown in Fig.",
+    "We propose a novel approach to decouple audio embedding by lever- aging facial motion information, enabling the generation of decoupled representations that correspond directly to lip motions and facial expressions.",
+    "(2) We propose an Emotional Talking Head Diffusion (ETHD) framework that is capable of generating dynamic-length videos, which achieves highly expressive talking head video generation performance while ensuring metric stability over extended durations.",
+    "(3) We further enhance emotion con- trollability by integrating conditions from emotion-driven sources and realizing the customization of generated emo- tions by multi-source emotion control.",
+    "26212 image and video generation tasks, their application in talk- ing head generation [15, 23, 31, 38, 45] still faces several challenges.",
+    "Abstract Diffusion models have revolutionized the field of talking head generation, yet still face challenges in expressive- ness, controllability, and stability in long-time generation.",
+    "Additionally, we intro- duce a well-designed video diffusion framework that drives these representations to generate expressive talking head videos.",
+    "Despite the success of diffusion models [16, 24, 35] in This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models have revolutionized the field of talking\nhead generation, yet still face challenges in expressive-\nness, controllability, and stability in long-time generation.\nIn this research, we propose an EmotiveTalk framework\nto address these issues. Firstly, to realize better control\nover the generation of lip movement and facial expres-\nsion, a Vision-guided Audio Information Decoupling (V-\nAID) approach is designed to generate audio-based decou-\npled representations aligned with lip movements and ex-\npression. Specifically, to achieve alignment between audio\nand facial expression representation spaces, we present a\nDiffusion-based Co-speech Temporal Expansion (Di-CTE)\nmodule within V-AID to generate expression-related rep-\nresentations under multi-source emotion condition con-\nstraints. Then we propose a well-designed Emotional Talk-\ning Head Diffusion (ETHD) backbone to efficiently gener-\nate highly expressive talking head videos, which contains\nan Expression Decoupling Injection (EDI) module to auto-\nmatically decouple the expressions from reference portraits\nwhile integrating the target expression information, achiev-\ning more expressive generation performance. Experimen-\ntal results show that EmotiveTalk can generate expressive\ntalking head videos, ensuring the promised controllability\nof emotions and metric stability during long-time genera-\ntion, yielding state-of-the-art performance compared to ex-\nisting methods. The main page of our paper can be found\nin https://emotivetalk.github.io/.",
+    "introduction": "1. Introduction\nTalking head generation, also known as portrait image ani-\nmation [52], demonstrates significant value across multiple\ndomains, including television and film production, online\neducation as well as human-machine interaction. The gen-\neration of realistic talking head videos involves two aspects\nof requirements. On the one hand, for the verbal aspect, it is\nessential to ensure the synchronization between speech and\nlip motions in the generated video [27]. On the other hand,\nfor the non-verbal aspect, the generated video must convey\nnon-verbal information, including facial expressions [26].\nDespite the success of diffusion models [16, 24, 35] in\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n26212\n\nimage and video generation tasks, their application in talk-\ning head generation [15, 23, 31, 38, 45] still faces several\nchallenges. For example, current methodologies [23, 38,\n45] exhibit shortcomings in control of the generated emo-\ntional facial expressions, although they have made notable\nadvancements in achieving synchronization between speech\nand lip movements. These audio-driven methods mainly\ndirectly synthesize expressions under weak audio condi-\ntions [38, 45]. However, the coupling of multiple informa-\ntion embedded in audio limits the effective learning of the\nmapping between speech and expressions and the control-\nlability of generated emotion. Moreover, current diffusion-\nbased methods often struggle to generate high-resolution\nvideo due to their large scale of parameters and the asso-\nciated training costs [38, 45]. They also face challenges\nin stability during long-time generation due to their auto-\nregressive inference strategies [23, 38, 45], which can lead\nto error accumulation across multiple inference clips.\nTo address these challenges, in this paper, we introduce\nEmotiveTalk, a highly expressive talking head generation\nframework with emotion control based on video diffusion.\nWe propose a Vision-guided Audio Information Decouple\n(V-AID) approach to facilitate the decoupling of lip and\nexpression related information contained in audio signals\nand also the alignment of audio representations with video\nrepresentations under the guidance of vision facial mo-\ntion information. Specifically, to achieve better alignment\nbetween speech and expression representation spaces, we\npresent a Diffusion-based Co-speech Temporal Expansion\n(Di-CTE) module, which generates temporal expression-\nrelated representations from audio under utterance emo-\ntional conditions from multiple optional driven sources.\nThen, to effectively drive the decoupled representations, we\npropose an efficient video diffusion framework for expres-\nsive talking head generation that demonstrates effective-\nness and enhanced stability in talking head video genera-\ntion performance. The backbone incorporates an Expres-\nsion Decoupling Injector (EDI) module in our backbone to\nachieve the automatic decoupling of expression information\nfrom the reference portrait while facilitating the injection\nof expression-driven information. In summary, our contri-\nbutions are as follows: (1) We propose a Vision-Guided\nAudio Information Decouple (V-AID) approach that gen-\nerates efficient decoupled lip-related and expression-related\nrepresentations from audio for talking head generation. (2)\nWe propose an Emotional Talking Head Diffusion (ETHD)\nframework that is capable of generating dynamic-length\nvideos, which achieves highly expressive talking head video\ngeneration performance while ensuring metric stability over\nextended durations. (3) We further enhance emotion con-\ntrollability by integrating conditions from emotion-driven\nsources and realizing the customization of generated emo-\ntions by multi-source emotion control.",
+    "method": "3. Method\nAs shown in Fig. 2, the structure of the EmotiveTalk is\ndivided into two main parts: (1) the Vision-guided Au-\ndio Information Decouple (V-AID) with Diffusion-based\nCo-speech Temporal Expansion (Di-CTE) module; (2) the\nEmotional Talking Head Diffusion (ETHD) framework\nwith Expression Decoupling Injector (EDI) module.",
+    "experiments": "4. Experiment",
+    "conclusion": "5. Conclusion\nIn this work, we propose EmotiveTalk, a novel method that\naims at enhancing the emotional expressiveness and con-\ntrollability of talking head video generation. We propose\na novel approach to decouple audio embedding by lever-\naging facial motion information, enabling the generation\nof decoupled representations that correspond directly to lip\nmotions and facial expressions. Additionally, we intro-\nduce a well-designed video diffusion framework that drives\nthese representations to generate expressive talking head\nvideos. We further enhance the emotion control ability by\nincorporating additional emotion information from multiple\nsources to customize the generated emotions. Extensive ex-\nperiments demonstrate the superiority of EmotiveTalk.\nAcknowledgments. This work was supported by\nthe National Natural Science Foundation of China\nunder Grant 62171427 and the National Key R&D\nProgram of China under Grant 2022YFB4500600."
+  }
+}

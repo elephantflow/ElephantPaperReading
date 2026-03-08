@@ -1,0 +1,104 @@
+{
+  "paper_id": "flovd-optical-flow-meets-video-diffusion-model-for-enhanced-camera-controlled-vi--9439c44c82",
+  "paper_title": "FloVD: Optical Flow Meets Video Diffusion Model for Enhanced Camera-Controlled Video Synthesis",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:12:40.134107+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_transformer_video_pdfs/FloVD： Optical Flow Meets Video Diffusion Model for Enhanced Camera-Controlled Video Synthesis.pdf",
+    "filename": "FloVD： Optical Flow Meets Video Diffusion Model for Enhanced Camera-Controlled Video Synthesis.pdf",
+    "sha1": "9439c44c828bfa422e8e80fbc42fd6db7d40957d",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "This limitation restricts the practical applications of video diffu- sion models, where precise control over camera parameters is crucial for various tasks such as film production, virtual reality, and interactive simulations.",
+    "limitation": "However, they often lack the ability to incorporate user-defined controls, partic- ularly in terms of camera movement and perspective.",
+    "insight": "Abstract We present FloVD, a novel video diffusion model for camera-controllable video generation.",
+    "proposed_method": "Moreover, as background opti- cal flow encodes 3D correlation across different viewpoints, our method enables detailed camera control by leveraging the background motion.",
+    "experimental_evidence": "Extensive experiments demonstrate the superiority of our method over previous approaches in terms of accurate camera control and natural object motion synthesis.",
+    "summary": "This limitation restricts the practical applications of video diffu- sion models, where precise control over camera parameters is crucial for various tasks such as film production, virtual reality, and interactive simulations. However, they often lack the ability to incorporate user-defined controls, partic- ularly in terms of camera movement and perspective. Abstract We present FloVD, a novel video diffusion model for camera-controllable video generation. Moreover, as background opti- cal flow encodes 3D correlation across different viewpoints, our method enables detailed camera control by leveraging the background motion. Extensive experiments demonstrate the superiority of our method over previous approaches in terms of accurate camera control and natural object motion synthesis."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Video diffusion models have made significant strides in generating high-quality videos by leveraging large-scale †Work done during an internship at Microsoft Research Asia. datasets [3–5, 10, 12, 23, 27, 31, 38].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nVideo diffusion models have made significant strides in\ngenerating high-quality videos by leveraging large-scale\n†Work done during an internship at Microsoft Research Asia.\ndatasets [3–5, 10, 12, 23, 27, 31, 38]. However, they often\nlack the ability to incorporate user-defined controls, partic-\nularly in terms of camera movement and perspective. This\nlimitation restricts the practical applications of video diffu-\nsion models, where precise control over camera parameters\nis crucial for various tasks such as film production, virtual\nreality, and interactive simulations.\nRecently, several approaches have introduced camera\ncontrollability to video diffusion models. One line of meth-\nods uses either text descriptions or user-drawn strokes that\ndescribe background motion as conditional inputs to rep-\nresent camera motion [6, 23, 26, 33, 39]. However, these\nmethods support only limited camera controllability, such\nas zoom and pan, during video generation.\nMore sophisticated camera control has been achieved by\ndirectly using camera parameters as inputs [2, 9, 16, 32–35,\n37, 40, 42]. In particular, recent methods embed input cam-\nera parameters using the Pl ¨ucker embedding "
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "marily consist of static scenes, such as RealEstate10K [43].",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "marily consist of static scenes, such as RealEstate10K [43].\nConsequently, they suffer from limited generalization capa-\nbility, producing videos with unnatural object motions and\ninaccurate camera control (Fig. 1).\nTo enable natural object motion synthesis and accurate\ncamera control, our key idea is to use optical flow as con-\nditional input to a video diffusion model. This approach\nprovides two key benefits. First, since optical flow can be\ndirectly estimated from videos, our method eliminates the\nneed for using datasets with ground-truth camera parame-\nters. This flexibility enables the utilization of arbitrary train-\ning videos. Second, since background optical flow encodes\n3D correlations across different viewpoints, our method en-\nables detailed camera control by leveraging the background\nmotion. As a result, our approach facilitates natural object\nmotion synthesis and precise camera control (Fig. 1).\nBased on the key idea, this paper presentsFloVD, a novel\ncamera-controllable video generation framework that lever-\nages optical flow. Given a single image and camera parame-\nters, FloVD synthesizes future frames with a desired camera\ntrajectory. To this end, our framework empl"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. FloVD Framework",
+      "purpose": "Gives the high-level system view before module details.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "This limitation restricts the practical applications of video diffu- sion models, where precise control over camera parameters is crucial for various tasks such as film production, virtual reality, and interactive simulations."
+    ],
+    "limitation_expression": [
+      "However, they often lack the ability to incorporate user-defined controls, partic- ularly in terms of camera movement and perspective.",
+      "However, these methods support only limited camera controllability, such as zoom and pan, during video generation.",
+      "Consequently, they suffer from limited generalization capa- bility, producing videos with unnatural object motions and inaccurate camera control (Fig."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Moreover, as background opti- cal flow encodes 3D correlation across different viewpoints, our method enables detailed camera control by leveraging the background motion.",
+      "Extensive experiments demonstrate the superiority of our method over previous approaches in terms of accurate camera control and natural object motion synthesis.",
+      "First, since optical flow can be directly estimated from videos, our method eliminates the need for using datasets with ground-truth camera parame- ters.",
+      "Second, since background optical flow encodes 3D correlations across different viewpoints, our method en- ables detailed camera control by leveraging the background motion.",
+      "To this end, our framework employs a two-stage video synthesis pipeline: optical flow generation and flow- conditioned video synthesis.",
+      "Our contributions are summarized as follows: • We present a novel camera-controllable video gener- ation framework that leverages optical flow, allowing our method to utilize arbitrary training videos without ground-truth camera parameters. • To achieve detailed camera control and high-quality video synthesis, we adopt a two-stage video synthesis pipeline, flow generation and flow-conditioned video synthesis. • Extensive evaluation demonstrates the effectiveness of our method, showcasing its ability to produce high- quality videos with accurate camera control and natural object motion.",
+      "Our framework takes an image Is and camera parameters C = {Ct}T t=1 as input where t is a video frame index, andT is the number of video frames.",
+      "Given the input conditions, our framework 5.",
+      "Unlike previous methods, our method leverages optical flow maps to represent both camera and object motions, enabling the use of arbitrary training videos without ground-truth camera parameters.",
+      "Moreover, our method facilitates de- tailed camera control by leveraging background motions of optical flow, which encodes 3D correlation across differ- ent viewpoints.",
+      "Our method is not free from limitations."
+    ],
+    "experiment_expression": [
+      "Extensive experiments demonstrate the superiority of our method over previous approaches in terms of accurate camera control and natural object motion synthesis.",
+      "Our extensive experiments demonstrate that FloVD provides realistic video synthesis with natural object motion and accurate camera control."
+    ],
+    "contribution_expression": [
+      "Our contributions are summarized as follows: • We present a novel camera-controllable video gener- ation framework that leverages optical flow, allowing our method to utilize arbitrary training videos without ground-truth camera parameters. • To achieve detailed camera control and high-quality video synthesis, we adopt a two-stage video synthesis pipeline, flow generation and flow-conditioned video synthesis. • Extensive evaluation demonstrates the effectiveness of our method, showcasing its ability to produce high- quality videos with accurate camera control and natural object motion."
+    ]
+  },
+  "notable_sentences": [
+    "Extensive experiments demonstrate the superiority of our method over previous approaches in terms of accurate camera control and natural object motion synthesis.",
+    "However, these methods support only limited camera controllability, such as zoom and pan, during video generation.",
+    "However, they often lack the ability to incorporate user-defined controls, partic- ularly in terms of camera movement and perspective.",
+    "Our extensive experiments demonstrate that FloVD provides realistic video synthesis with natural object motion and accurate camera control.",
+    "2 presents an overview of FloVD.",
+    "2040 marily consist of static scenes, such as RealEstate10K [43].",
+    "Abstract We present FloVD, a novel video diffusion model for camera-controllable video generation.",
+    "Acquiring such datasets is chal- lenging, leading to the use of restricted datasets that pri- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "As a result, our approach facilitates natural object motion synthesis and precise camera control (Fig.",
+    "Based on the key idea, this paper presentsFloVD, a novel camera-controllable video generation framework that lever- ages optical flow.",
+    "Conclusion This paper proposed FloVD, a novel optical-flow-based video diffusion model for camera-controllable video gener- ation.",
+    "Consequently, they suffer from limited generalization capa- bility, producing videos with unnatural object motions and inaccurate camera control (Fig."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWe present FloVD, a novel video diffusion model for\ncamera-controllable video generation. FloVD leverages op-\ntical flow to represent the motions of the camera and moving\nobjects. This approach offers two key benefits. Since optical\nflow can be directly estimated from videos, our approach al-\nlows for the use of arbitrary training videos without ground-\ntruth camera parameters. Moreover, as background opti-\ncal flow encodes 3D correlation across different viewpoints,\nour method enables detailed camera control by leveraging\nthe background motion. To synthesize natural object mo-\ntion while supporting detailed camera control, our frame-\nwork adopts a two-stage video synthesis pipeline consisting\nof optical flow generation and flow-conditioned video syn-\nthesis. Extensive experiments demonstrate the superiority of\nour method over previous approaches in terms of accurate\ncamera control and natural object motion synthesis.",
+    "introduction": "1. Introduction\nVideo diffusion models have made significant strides in\ngenerating high-quality videos by leveraging large-scale\n†Work done during an internship at Microsoft Research Asia.\ndatasets [3–5, 10, 12, 23, 27, 31, 38]. However, they often\nlack the ability to incorporate user-defined controls, partic-\nularly in terms of camera movement and perspective. This\nlimitation restricts the practical applications of video diffu-\nsion models, where precise control over camera parameters\nis crucial for various tasks such as film production, virtual\nreality, and interactive simulations.\nRecently, several approaches have introduced camera\ncontrollability to video diffusion models. One line of meth-\nods uses either text descriptions or user-drawn strokes that\ndescribe background motion as conditional inputs to rep-\nresent camera motion [6, 23, 26, 33, 39]. However, these\nmethods support only limited camera controllability, such\nas zoom and pan, during video generation.\nMore sophisticated camera control has been achieved by\ndirectly using camera parameters as inputs [2, 9, 16, 32–35,\n37, 40, 42]. In particular, recent methods embed input cam-\nera parameters using the Pl ¨ucker embedding scheme [28],\nwhich involves embedding ray origins and directions, and\nfeed them into video diffusion models [2, 9, 35, 42]. While\nthese approaches offer more detailed control, they require a\ntraining dataset that includes ground-truth camera parame-\nters for every video frame. Acquiring such datasets is chal-\nlenging, leading to the use of restricted datasets that pri-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n2040\n\nmarily consist of static scenes, such as RealEstate10K [43].\nConsequently, they suffer from limited generalization capa-\nbility, producing videos with unnatural object motions and\ninaccurate camera control (Fig. 1).\nTo enable natural object motion synthesis and accurate\ncamera control, our key idea is to use optical flow as con-\nditional input to a video diffusion model. This approach\nprovides two key benefits. First, since optical flow can be\ndirectly estimated from videos, our method eliminates the\nneed for using datasets with ground-truth camera parame-\nters. This flexibility enables the utilization of arbitrary train-\ning videos. Second, since background optical flow encodes\n3D correlations across different viewpoints, our method en-\nables detailed camera control by leveraging the background\nmotion. As a result, our approach facilitates natural object\nmotion synthesis and precise camera control (Fig. 1).\nBased on the key idea, this paper presentsFloVD, a novel\ncamera-controllable video generation framework that lever-\nages optical flow. Given a single image and camera parame-\nters, FloVD synthesizes future frames with a desired camera\ntrajectory. To this end, our framework employs a two-stage\nvideo synthesis pipeline: optical flow generation and flow-\nconditioned video synthesis. We generate optical flow maps\nrepresenting the motions of the camera and moving objects\nfrom the input image and camera parameters. These flow\nmaps are then fed into a flow-conditioned video synthesis\nmodel to generate the final output video.\nTo synthesize natural object motion while supporting de-\ntailed camera control, FloVD divides the optical flow gener-\nation stage into two sub-problems: camera flow generation\nand object flow generation. First, we convert input camera\nparameters into optical flow of the background motion by\nusing 3D structure estimated from the input image. Next,\nan object motion synthesis model is introduced to generate\nthe optical flow for object motions based on the input im-\nage. We obtain the final optical flow maps by combining the\nbackground and object motion flows.\nOur contributions are summarized as follows:\n• We present a novel camera-controllable video gener-\nation framework that leverages optical flow, allowing\nour method to utilize arbitrary training videos without\nground-truth camera parameters.\n• To achieve detailed camera control and high-quality video\nsynthesis, we adopt a two-stage video synthesis pipeline,\nflow generation and flow-conditioned video synthesis.\n• Extensive evaluation demonstrates the effectiveness of\nour method, showcasing its ability to produce high-\nquality videos with accurate camera control and natural\nobject motion.",
+    "method": "3. FloVD Framework\nFig. 2 presents an overview of FloVD. Our framework takes\nan image Is and camera parameters C = {Ct}T\nt=1 as input\nwhere t is a video frame index, andT is the number of video\nframes. Ct is defined as a set of extrinsic and intrinsic cam-\nera parameters. Given the input conditions, our framework",
+    "experiments": "5. Experiments",
+    "conclusion": "6. Conclusion\nThis paper proposed FloVD, a novel optical-flow-based\nvideo diffusion model for camera-controllable video gener-\nation. Since existing methods require a training dataset with\nground-truth camera parameters, they are mainly trained on\nrestricted datasets that primarily consist of static scenes,\nleading to video synthesis with unnatural object motion.\nUnlike previous methods, our method leverages optical flow\nmaps to represent both camera and object motions, enabling\nthe use of arbitrary training videos without ground-truth\ncamera parameters. Moreover, our method facilitates de-\ntailed camera control by leveraging background motions of\noptical flow, which encodes 3D correlation across differ-\nent viewpoints. Our extensive experiments demonstrate that\nFloVD provides realistic video synthesis with natural object\nmotion and accurate camera control.\nLimitations. Our method is not free from limitations. Er-\nrors from both the object motion synthesis model and the\nsemantic segmentation model may result in unnatural ob-\nject motion in the synthesized videos. The estimation error\nof the segmentation model can be alleviated through user\ninteraction by providing point prompts for object regions.\nOur future work will involve a seamless integration of cam-\nera and object motions to synthesize more natural videos.\nAcknowledgment. This work was supported by the Ko-\nrea government (MSIT), through the IITP grant (Global\nResearch Support Program in the Digital Field pro-\ngram, RS-2024-00436680; Development of VFX cre-\nation and combination using generative AI, RS-2024-\n00395401; Artificial Intelligence Graduate School Program\n(POSTECH), RS-2019-II191906) and NRF grant (RS-\n2023-00211658; RS-2024-00438532), and Microsoft Re-\nsearch Asia."
+  }
+}

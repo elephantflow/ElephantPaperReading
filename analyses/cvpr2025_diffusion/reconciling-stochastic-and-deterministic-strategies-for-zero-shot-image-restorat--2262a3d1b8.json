@@ -1,0 +1,88 @@
+{
+  "paper_id": "reconciling-stochastic-and-deterministic-strategies-for-zero-shot-image-restorat--2262a3d1b8",
+  "paper_title": "Reconciling Stochastic and Deterministic Strategies for Zero-shot Image Restoration using Diffusion Model in Dual",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:23.004890+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Reconciling Stochastic and Deterministic Strategies for Zero-shot Image Restoration using Diffusion Model in Dual.pdf",
+    "filename": "Reconciling Stochastic and Deterministic Strategies for Zero-shot Image Restoration using Diffusion Model in Dual.pdf",
+    "sha1": "2262a3d1b8b61885f6cad680304d874c367442ed",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Image restoration (IR) aims to recover the latent clean im- age x from its degraded measurements y.",
+    "limitation": "Introduction Image restoration (IR) aims to recover the latent clean im- age x from its degraded measurements y.",
+    "insight": "Abstract Plug-and-play (PnP) methods offer an iterative strategy for solving image restoration (IR) problems in a zero-shot man- ner, using a learned discriminative denoiser as the implicit prior.",
+    "proposed_method": "In this work, we propose a novel zero-shot IR scheme, dubbed Reconciling Diffusion Model in Dual (RDMD), which lever- ages only a single pre-trained diffusion model to construct two complementary regularizers.",
+    "experimental_evidence": "The IR results using PnP with a pre-trained diffusion model demonstrate dis- tinct advantages compared to those using discriminative de- noisers, i.e.,improved perceptual quality while sacrificing the data fidelity.",
+    "summary": "Introduction Image restoration (IR) aims to recover the latent clean im- age x from its degraded measurements y. Introduction Image restoration (IR) aims to recover the latent clean im- age x from its degraded measurements y. Abstract Plug-and-play (PnP) methods offer an iterative strategy for solving image restoration (IR) problems in a zero-shot man- ner, using a learned discriminative denoiser as the implicit prior. In this work, we propose a novel zero-shot IR scheme, dubbed Reconciling Diffusion Model in Dual (RDMD), which lever- ages only a single pre-trained diffusion model to construct two complementary regularizers. The IR results using PnP with a pre-trained diffusion model demonstrate dis- tinct advantages compared to those using discriminative de- noisers, i.e.,improved perceptual quality while sacrificing the data fidelity."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Image restoration (IR) aims to recover the latent clean im- age x from its degraded measurements y.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction Image restoration (IR) aims to recover the latent clean im- age x from its degraded measurements y. This degradation process is typically modeled as y = Ax + n, where A rep- resents the forward model and n denotes the additive noise. Different IR tasks correspond to specific observation mod- els A. For example, in image inpainting, A functions as *Bihan Wen is the corresponding author."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "(c) Deterministic (d) Stochastic (e) Reconciled (b) Ground truth(a) Low-resolution Figure 1.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "(c) Deterministic (d) Stochastic (e) Reconciled (b) Ground truth(a) Low-resolution Figure 1. An example of super-resolution (4 ×) with noise level"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "23207 One of the most popular approaches for zero-shot IR is",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [],
+    "insight_expression": [],
+    "method_expression": [
+      "In this work, we propose a novel zero-shot IR scheme, dubbed Reconciling Diffusion Model in Dual (RDMD), which lever- ages only a single pre-trained diffusion model to construct two complementary regularizers.",
+      "Building on this frame- work, our method can provide flexible customization on the distortion-perception tradeoff, enhancing its suitability for various distinct IR tasks."
+    ],
+    "experiment_expression": [
+      "The IR results using PnP with a pre-trained diffusion model demonstrate dis- tinct advantages compared to those using discriminative de- noisers, i.e.,improved perceptual quality while sacrificing the data fidelity.",
+      "Extensive experiments on several IR tasks demonstrate that our proposed method could achieve superior results compared to existing approaches on both the FFHQ and ImageNet datasets.",
+      "The main contributions of this work are as follows: • We first demonstrate that a single pre-trained diffusion model can be used to construct two complementary regu- larizers, i.e.,stochastic and deterministic strategies. • Building on this, we conduct the first attempt to inte- grate the deterministic and stochastic strategies in a uni- fied framework that solves zero-shot IR problems itera- tively. • Comprehensive experimental results on several IR tasks demonstrate our methods outperform existing competing approaches on both the FFHQ and ImageNet datasets."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Extensive experiments on several IR tasks demonstrate that our proposed method could achieve superior results compared to existing approaches on both the FFHQ and ImageNet datasets.",
+    "In this work, we propose a novel zero-shot IR scheme, dubbed Reconciling Diffusion Model in Dual (RDMD), which lever- ages only a single pre-trained diffusion model to construct two complementary regularizers.",
+    "(c) Deterministic (d) Stochastic (e) Reconciled (b) Ground truth(a) Low-resolution Figure 1.",
+    "Abstract Plug-and-play (PnP) methods offer an iterative strategy for solving image restoration (IR) problems in a zero-shot man- ner, using a learned discriminative denoiser as the implicit prior.",
+    "An important question that arises here is: can we extend such an idea to zero-shot image restoration without inher- iting its drawbacks?",
+    "Building on this frame- work, our method can provide flexible customization on the distortion-perception tradeoff, enhancing its suitability for various distinct IR tasks.",
+    "Code is available at https://github.com/ChongWang1024/RDMD.",
+    "Different IR tasks correspond to specific observation mod- els A.",
+    "Experimental results show that the proposed method consistently achieves superior perfor- mance in various restoration tasks on the FFHQ and Ima- geNet datasets.",
+    "For example, in image inpainting, A functions as *Bihan Wen is the corresponding author.",
+    "In practice, the deterministic and stochastic approaches possess distinct strengths for solving image restoration problems.",
+    "Introduction Image restoration (IR) aims to recover the latent clean im- age x from its degraded measurements y."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nPlug-and-play (PnP) methods offer an iterative strategy for\nsolving image restoration (IR) problems in a zero-shot man-\nner, using a learned discriminative denoiser as the implicit\nprior. More recently, a sampling-based variant of this ap-\nproach, which utilizes a pre-trained generative diffusion\nmodel, has gained great popularity for solving IR prob-\nlems through stochastic sampling. The IR results using\nPnP with a pre-trained diffusion model demonstrate dis-\ntinct advantages compared to those using discriminative de-\nnoisers, i.e.,improved perceptual quality while sacrificing\nthe data fidelity. The unsatisfactory results are due to the\nlack of integration of these strategies in the IR tasks. In\nthis work, we propose a novel zero-shot IR scheme, dubbed\nReconciling Diffusion Model in Dual (RDMD), which lever-\nages only a single pre-trained diffusion model to construct\ntwo complementary regularizers. Specifically, the diffusion\nmodel in RDMD will iteratively perform deterministic de-\nnoising and stochastic sampling, aiming to achieve high-\nfidelity image restoration with appealing perceptual qual-\nity. RDMD also allows users to customize the distortion-\nperception tradeoff with a single hyperparameter, enhanc-\ning the adaptability of the restoration process in different\npractical scenarios. Extensive experiments on several IR\ntasks demonstrate that our proposed method could achieve\nsuperior results compared to existing approaches on both\nthe FFHQ and ImageNet datasets. Code is available at\nhttps://github.com/ChongWang1024/RDMD.",
+    "introduction": "1. Introduction\nImage restoration (IR) aims to recover the latent clean im-\nage x from its degraded measurements y. This degradation\nprocess is typically modeled as y = Ax + n, where A rep-\nresents the forward model and n denotes the additive noise.\nDifferent IR tasks correspond to specific observation mod-\nels A. For example, in image inpainting, A functions as\n*Bihan Wen is the corresponding author.\n(c) Deterministic (d) Stochastic (e) Reconciled\n(b) Ground truth(a) Low-resolution\nFigure 1. An example of super-resolution (4 ×) with noise level",
+    "method": "23207\n\nOne of the most popular approaches for zero-shot IR is\nthe Plug-and-Play (PnP) scheme [32], which has demon-\nstrated great flexibility in solving a wide range of IR prob-\nlems without the need of re-tuning for each specific task.\nWith the aid of variable splitting algorithms, the PnP ap-\nproach is able to incorporate a pre-trained image denoiser\nas a replacement of the proximal mapping of the proximal\noperator corresponding to the regularizer in alternating iter-\nations. The PnP method can restore clean images by utiliz-\ning the implicit prior in a discriminatively learned denoiser,\neffectively removing the degradation through determinis-\ntic regression. More recently, with the rise of generative\nmodeling, the denoising diffusion model (DDM) [16] has\nachieved great success in synthesizing images with high\nperceptual quality. Therefore, leveraging such generative\ndiffusion priors to conduct stochastic sampling for IR has\nfurther surged the popularity of PnP-based strategies.\nIn practice, the deterministic and stochastic approaches\npossess distinct strengths for solving image restoration\nproblems. Figure 1 shows one example of image super-\nresolution using our scheme: the result by applying de-\nterministic regression (c) achieves high data fidelity while\nmany unrealistic smearing artifacts are presented; Con-\nversely, stochastic sampling (d) can enhance perceptual\nquality but often at the expense of fidelity to the original\nimage. It demonstrates the complementariness of these two\napproaches in solving the ill-posed IR problems [38, 39],\nthus, the unsatisfactory results are due to the lack of inte-\ngration of these strategies. Several attempts [20, 27, 37]\nhave sought to combine these approaches to capitalize on\ntheir collective merits. Most of these methods simply cas-\ncade diffusion models with denoising networks for super-\nvised learning, usually resulting in inconsistencies or mis-\nmatches in details after fusion, owing to the differing char-\nacteristics emphasized by each model. Moreover, employ-\ning a series of cascaded networks for IR tasks will lead to\nincreased computational complexity and overfitting issues.\nAn important question that arises here is: can we extend\nsuch an idea to zero-shot image restoration without inher-\niting its drawbacks? To circumvent these issues, we devise\na unified iterative zero-shot framework, dubbed Reconcil-\ning Diffusion Model in Dual (RDMD), which integrates the\nmerits of both stochastic and deterministic strategy, while\nonly necessitating a single pre-trained diffusion model. To\nthe best of our knowledge, this is the first attempt to ap-\nply such a method to zero-shot IR. Specifically, the restora-\ntion process is performed via jointly deterministic regres-\nsion and stochastic sampling along each iteration, without\nthe need for additional networks. The proposed iterative\nstrategy rests on the observation that the training process of\nthe diffusion model can be interpreted as discriminatively\ntraining a non-blind Gaussian denoiser. Thus, we can lever-\nage a single pre-trained diffusion model while constructing\ntwo complementary regularizers. We further derive a rig-\norous formulation of the proposed framework, where the\ncontribution of these two regularizers can be controlled eas-\nily through a weighting parameter. Building on this frame-\nwork, our method can provide flexible customization on the\ndistortion-perception tradeoff, enhancing its suitability for\nvarious distinct IR tasks. Experimental results show that\nthe proposed method consistently achieves superior perfor-\nmance in various restoration tasks on the FFHQ and Ima-\ngeNet datasets.\nThe main contributions of this work are as follows:\n• We first demonstrate that a single pre-trained diffusion\nmodel can be used to construct two complementary regu-\nlarizers, i.e.,stochastic and deterministic strategies.\n• Building on this, we conduct the first attempt to inte-\ngrate the deterministic and stochastic strategies in a uni-\nfied framework that solves zero-shot IR problems itera-\ntively.\n• Comprehensive experimental results on several IR tasks\ndemonstrate our methods outperform existing competing\napproaches on both the FFHQ and ImageNet datasets.",
+    "experiments": "4. Experiments",
+    "conclusion": ""
+  }
+}

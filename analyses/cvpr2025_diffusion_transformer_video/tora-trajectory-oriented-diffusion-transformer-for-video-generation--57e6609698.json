@@ -1,0 +1,86 @@
+{
+  "paper_id": "tora-trajectory-oriented-diffusion-transformer-for-video-generation--57e6609698",
+  "paper_title": "Tora: Trajectory-oriented Diffusion Transformer for Video Generation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:12:48.795735+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_transformer_video_pdfs/Tora： Trajectory-oriented Diffusion Transformer for Video Generation.pdf",
+    "filename": "Tora： Trajectory-oriented Diffusion Transformer for Video Generation.pdf",
+    "sha1": "57e66096983fff58daaeb1f88d8aa7a87fa9e09f",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Diffusion models [9, 29] have demonstrated their capabil- ity to generate diverse and high-quality images or videos.",
+    "limitation": "Previously, video diffusion models [3, 13, 47] predom- inantly employed UNet-based architectures [31], focus- ing primarily on synthesizing videos of limited duration, typically around two seconds, and were constrained to fixed resolutions and aspect ratios.",
+    "insight": "Abstract Recent advancements in Diffusion Transformer (DiT) have demonstrated remarkable proficiency in producing high- quality video content.",
+    "proposed_method": "Abstract Recent advancements in Diffusion Transformer (DiT) have demonstrated remarkable proficiency in producing high- quality video content.",
+    "experimental_evidence": "Abstract Recent advancements in Diffusion Transformer (DiT) have demonstrated remarkable proficiency in producing high- quality video content.",
+    "summary": "Introduction Diffusion models [9, 29] have demonstrated their capabil- ity to generate diverse and high-quality images or videos. Previously, video diffusion models [3, 13, 47] predom- inantly employed UNet-based architectures [31], focus- ing primarily on synthesizing videos of limited duration, typically around two seconds, and were constrained to fixed resolutions and aspect ratios. Abstract Recent advancements in Diffusion Transformer (DiT) have demonstrated remarkable proficiency in producing high- quality video content. Abstract Recent advancements in Diffusion Transformer (DiT) have demonstrated remarkable proficiency in producing high- quality video content. Abstract Recent advancements in Diffusion Transformer (DiT) have demonstrated remarkable proficiency in producing high- quality video content."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Diffusion models [9, 29] have demonstrated their capabil- ity to generate diverse and high-quality images or videos.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Diffusion models [9, 29] have demonstrated their capabil- ity to generate diverse and high-quality images or videos. Previously, video diffusion models [3, 13, 47] predom- inantly employed UNet-based architectures [31], focus- ing primarily on synthesizing videos of limited duration, typically around two seconds, and were constrained to fixed resolutions and aspect ratios. Recently, Sora [4], a text-to-video generation model leveraging Diffusion Trans- former (DiT) [25], has showcased video generation capabil- ities that significantly outstrip current state-of-the-art meth- ods. Sora excels not only in the production of high-quality videos ranging from 10 to 60 seconds, but also distinguishes This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Nonetheless, the potential of transformer-based diffusion models for effectively gener- ating videos with controllable motion remains an area of limited exploration.",
+      "Previously, video diffusion models [3, 13, 47] predom- inantly employed UNet-based architectures [31], focus- ing primarily on synthesizing videos of limited duration, typically around two seconds, and were constrained to fixed resolutions and aspect ratios."
+    ],
+    "insight_expression": [],
+    "method_expression": [],
+    "experiment_expression": [
+      "Exten- sive experiments demonstrate that Tora excels in achiev- ing high motion fidelity compared to the foundational DiT model, while also accurately simulating the complex move- ments of the physical world."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Abstract Recent advancements in Diffusion Transformer (DiT) have demonstrated remarkable proficiency in producing high- quality video content.",
+    "By employing a two-stage training pro- cess, Tora achieves motion-controllable video generation across a wide range of durations, aspect ratios, and resolu- tions.",
+    "Code is made available at https://github.com/alibaba/Tora .",
+    "Conclusion This paper introduces Tora, the first trajectory-oriented Dif- fusion Transformer framework for video generation.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Exten- sive experiments demonstrate that Tora excels in achiev- ing high motion fidelity compared to the foundational DiT model, while also accurately simulating the complex move- ments of the physical world.",
+    "Introduction Diffusion models [9, 29] have demonstrated their capabil- ity to generate diverse and high-quality images or videos.",
+    "Nonetheless, the potential of transformer-based diffusion models for effectively gener- ating videos with controllable motion remains an area of limited exploration.",
+    "Our design aligns seamlessly with DiT’s scalability, allow- ing precise control of video content’s dynamics with di- *Equal contribution verse durations, aspect ratios, and resolutions.",
+    "Recently, Sora [4], a text-to-video generation model leveraging Diffusion Trans- former (DiT) [25], has showcased video generation capabil- ities that significantly outstrip current state-of-the-art meth- ods.",
+    "Remarkably, it can generate high-quality videos that adhere to specified trajectories, producing up to 204 frames at 720p resolution.",
+    "Sora excels not only in the production of high-quality videos ranging from 10 to 60 seconds, but also distinguishes This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRecent advancements in Diffusion Transformer (DiT) have\ndemonstrated remarkable proficiency in producing high-\nquality video content. Nonetheless, the potential of\ntransformer-based diffusion models for effectively gener-\nating videos with controllable motion remains an area of\nlimited exploration. This paper introduces Tora, the first\ntrajectory-oriented DiT framework that concurrently inte-\ngrates textual, visual, and trajectory conditions, thereby en-\nabling scalable video generation with effective motion guid-\nance. Specifically, Tora consists of a Trajectory Extrac-\ntor (TE), a Spatial-Temporal DiT, and a Motion-guidance\nFuser (MGF). The TE encodes arbitrary trajectories into\nhierarchical spacetime motion patches with a 3D mo-\ntion compression network. The MGF integrates the mo-\ntion patches into the DiT blocks to generate consistent\nvideos that accurately follow designated trajectories. Our\ndesign aligns seamlessly with DiT’s scalability, allow-\ning precise control of video content’s dynamics with di-\n*Equal contribution\nverse durations, aspect ratios, and resolutions. Exten-\nsive experiments demonstrate that Tora excels in achiev-\ning high motion fidelity compared to the foundational DiT\nmodel, while also accurately simulating the complex move-\nments of the physical world. Code is made available at\nhttps://github.com/alibaba/Tora .",
+    "introduction": "1. Introduction\nDiffusion models [9, 29] have demonstrated their capabil-\nity to generate diverse and high-quality images or videos.\nPreviously, video diffusion models [3, 13, 47] predom-\ninantly employed UNet-based architectures [31], focus-\ning primarily on synthesizing videos of limited duration,\ntypically around two seconds, and were constrained to\nfixed resolutions and aspect ratios. Recently, Sora [4], a\ntext-to-video generation model leveraging Diffusion Trans-\nformer (DiT) [25], has showcased video generation capabil-\nities that significantly outstrip current state-of-the-art meth-\nods. Sora excels not only in the production of high-quality\nvideos ranging from 10 to 60 seconds, but also distinguishes\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Methodology",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nThis paper introduces Tora, the first trajectory-oriented Dif-\nfusion Transformer framework for video generation. Tora\neffectively encodes arbitrary trajectories into spacetime mo-\ntion patches, which align well with the scaling properties of\nDiT, thereby enabling more realistic simulations of physical\nworld movements. By employing a two-stage training pro-\ncess, Tora achieves motion-controllable video generation\nacross a wide range of durations, aspect ratios, and resolu-\ntions. Remarkably, it can generate high-quality videos that\nadhere to specified trajectories, producing up to 204 frames\nat 720p resolution. This capability underscores Tora’s ver-\nsatility and robustness in handling diverse motion patterns\nwhile maintaining high visual fidelity. We hope our work\nprovides a strong baseline for future research in motion-\nguided Diffusion Transformer methods."
+  }
+}

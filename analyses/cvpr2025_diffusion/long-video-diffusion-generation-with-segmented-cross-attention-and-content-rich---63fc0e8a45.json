@@ -1,0 +1,95 @@
+{
+  "paper_id": "long-video-diffusion-generation-with-segmented-cross-attention-and-content-rich---63fc0e8a45",
+  "paper_title": "Long Video Diffusion Generation with Segmented Cross-Attention and Content-Rich Video Data Curation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:59.680320+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Long Video Diffusion Generation with Segmented Cross-Attention and Content-Rich Video Data Curation.pdf",
+    "filename": "Long Video Diffusion Generation with Segmented Cross-Attention and Content-Rich Video Data Curation.pdf",
+    "sha1": "63fc0e8a457af3ce359acba9d3eb53391effaac7",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "However, this introduces the challenge of error propagation.",
+    "limitation": "However, most current ap- proaches primarily focus on generating short video clips ranging from 3 to 8 seconds, limiting the expressiveness and richness of the resulting content.",
+    "insight": "Abstract We introducePresto, a novel video diffusion model designed to generate 15-second videos with long-range coherence and rich content.",
+    "proposed_method": "Abstract We introducePresto, a novel video diffusion model designed to generate 15-second videos with long-range coherence and rich content.",
+    "experimental_evidence": "Experiments show that our Presto achieves 78.5% on the VBench Semantic Score and 100% on the Dy- namic Degree, outperforming existing state-of-the-art video generation methods.",
+    "summary": "However, this introduces the challenge of error propagation. However, most current ap- proaches primarily focus on generating short video clips ranging from 3 to 8 seconds, limiting the expressiveness and richness of the resulting content. Abstract We introducePresto, a novel video diffusion model designed to generate 15-second videos with long-range coherence and rich content. Abstract We introducePresto, a novel video diffusion model designed to generate 15-second videos with long-range coherence and rich content. Experiments show that our Presto achieves 78.5% on the VBench Semantic Score and 100% on the Dy- namic Degree, outperforming existing state-of-the-art video generation methods."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Video diffusion models [ 10, 30, 34, 39, 42] have shown an impressive ability to generate high-quality videos based on a single text prompt [ 21, 32].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nVideo diffusion models [ 10, 30, 34, 39, 42] have shown an\nimpressive ability to generate high-quality videos based on\na single text prompt [ 21, 32]. However, most current ap-\nproaches primarily focus on generating short video clips\nranging from 3 to 8 seconds, limiting the expressiveness and\nrichness of the resulting content.\nTo generate longer videos, early approaches incorpo-\nrate an additional interpolation or extrapolation phase to\nextend short clips, using techniques like noise schedul-\ning [ 13, 25, 40] or attention manipulation [ 19, 37]. While\nthese methods work well for generating minute-long videos,\nthey struggle to extend beyond the scene content, as they\nare constrained by the limited capacity of the original short\nclips. An alternative approach adopts a more direct strat-\negy, typically by adding new modules to extend the video\nlength in an auto-regressive manner [ 9, 43, 50]. However,\nthis introduces the challenge of error propagation.\nUnlike short clips, long videos require a balance between\ncontent diversity and long-range coherence, posing signif-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for th"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "method_overview",
+      "main_message": "icant challenges for current video generation methods.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "icant challenges for current video generation methods. To\ngenerate long videos with rich content, we recognize the im-\nportance of expanding the text input by incorporating mul-\ntiple texts, as demonstrated in previous approaches [ 4, 22].\nWhile combining videos generated from each text can en-\nhance content diversity, it often leads to abrupt transitions\nbetween different scenarios. One alternative is to incorpo-\nrate multiple texts into the video generation model simulta-\nneously. This method provides the model with a broader\nrange of textual inputs, enabling the generation of more\ncontent-rich videos, in contrast to the traditional approach\nof using a single text input, which limits the available infor-\nmation. This approach helps ensure long-term coherence\nin the generated videos by modeling the texts concurrently,\nproviding a seamless viewing experience.\nExisting long video generation methods overlook the im-\nportance of high-quality data [ 4, 9], leading to low consis-\ntency and content diversity in generated videos. A large-\nscale, high-quality video dataset is crucial to obtaining a\nmodel that generates content-rich and coherent long videos.\nThis dataset should include long"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "A large- scale, high-quality video dataset is crucial to obtaining a model that generates content-rich and coherent long videos."
+    ],
+    "limitation_expression": [
+      "However, most current ap- proaches primarily focus on generating short video clips ranging from 3 to 8 seconds, limiting the expressiveness and richness of the resulting content.",
+      "While these methods work well for generating minute-long videos, they struggle to extend beyond the scene content, as they are constrained by the limited capacity of the original short clips.",
+      "However, this introduces the challenge of error propagation."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this, we propose a Seg- mented Cross-Attention (SCA) strategy, which splits hid- den states into segments along the temporal dimension, al- lowing each segment to cross-attend to a corresponding sub-caption.",
+      "This reﬁned dataset ensures that our method can generate high-quality, extended-duration, and content-rich videos.",
+      "To tackle the challenge of long videos, we propose Presto, a novel method capable of generating 15-second videos with rich content and long-range coherence , as shown in Fig."
+    ],
+    "experiment_expression": [
+      "To tackle the challenge of long videos, we propose Presto, a novel method capable of generating 15-second videos with rich content and long-range coherence , as shown in Fig.",
+      "Experimental results demonstrate the effectiveness of our methods.",
+      "Experiment In this section, we demonstrate the long video generation capability of Presto via both quantitative and qualitative evaluation in Sec."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "To tackle the challenge of long videos, we propose Presto, a novel method capable of generating 15-second videos with rich content and long-range coherence , as shown in Fig.",
+    "However, most current ap- proaches primarily focus on generating short video clips ranging from 3 to 8 seconds, limiting the expressiveness and richness of the resulting content.",
+    "However, this introduces the challenge of error propagation.",
+    "To address this, we propose a Seg- mented Cross-Attention (SCA) strategy, which splits hid- den states into segments along the temporal dimension, al- lowing each segment to cross-attend to a corresponding sub-caption.",
+    "3184 icant challenges for current video generation methods.",
+    "5.4 on key com- ponents of our model, including training data, progressive sub-caption strategy, and Segmented Cross-Attention.",
+    "A large- scale, high-quality video dataset is crucial to obtaining a model that generates content-rich and coherent long videos.",
+    "Abstract We introducePresto, a novel video diffusion model designed to generate 15-second videos with long-range coherence and rich content.",
+    "An alternative approach adopts a more direct strat- egy, typically by adding new modules to extend the video length in an auto-regressive manner [ 9, 43, 50].",
+    "Conclusion We introduced Presto, a simple yet effective method for generating long-range coherent, content-rich, long videos.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Existing long video generation methods overlook the im- portance of high-quality data [ 4, 9], leading to low consis- tency and content diversity in generated videos."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWe introducePresto, a novel video diffusion model designed\nto generate 15-second videos with long-range coherence\nand rich content. Extending video generation methods to\nmaintain scenario diversity over long durations presents\nsigniﬁcant challenges. To address this, we propose a Seg-\nmented Cross-Attention (SCA) strategy, which splits hid-\nden states into segments along the temporal dimension, al-\nlowing each segment to cross-attend to a corresponding\nsub-caption. SCA requires no additional parameters, en-\nabling seamless incorporation into current DiT-based ar-\nchitectures. To facilitate high-quality long video gener-\nation, we build the LongTake-HD dataset, consisting of\n261k content-rich videos with scenario coherence, anno-\ntated with an overall video caption and ﬁve progressive\nsub-captions. Experiments show that our Presto achieves\n78.5% on the VBench Semantic Score and 100% on the Dy-\nnamic Degree, outperforming existing state-of-the-art video\ngeneration methods. This demonstrates that our proposed\nPresto signiﬁcantly enhances content richness, maintains\nlong-range coherence, and captures intricate textual de-\n*Work done while interning at 01.AI.\n†Correspondence to: hyang@fastmail.com.\ntails. More details are displayed on our project page:\npresto-video.github.io.",
+    "introduction": "1. Introduction\nVideo diffusion models [ 10, 30, 34, 39, 42] have shown an\nimpressive ability to generate high-quality videos based on\na single text prompt [ 21, 32]. However, most current ap-\nproaches primarily focus on generating short video clips\nranging from 3 to 8 seconds, limiting the expressiveness and\nrichness of the resulting content.\nTo generate longer videos, early approaches incorpo-\nrate an additional interpolation or extrapolation phase to\nextend short clips, using techniques like noise schedul-\ning [ 13, 25, 40] or attention manipulation [ 19, 37]. While\nthese methods work well for generating minute-long videos,\nthey struggle to extend beyond the scene content, as they\nare constrained by the limited capacity of the original short\nclips. An alternative approach adopts a more direct strat-\negy, typically by adding new modules to extend the video\nlength in an auto-regressive manner [ 9, 43, 50]. However,\nthis introduces the challenge of error propagation.\nUnlike short clips, long videos require a balance between\ncontent diversity and long-range coherence, posing signif-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n3184\n\nicant challenges for current video generation methods. To\ngenerate long videos with rich content, we recognize the im-\nportance of expanding the text input by incorporating mul-\ntiple texts, as demonstrated in previous approaches [ 4, 22].\nWhile combining videos generated from each text can en-\nhance content diversity, it often leads to abrupt transitions\nbetween different scenarios. One alternative is to incorpo-\nrate multiple texts into the video generation model simulta-\nneously. This method provides the model with a broader\nrange of textual inputs, enabling the generation of more\ncontent-rich videos, in contrast to the traditional approach\nof using a single text input, which limits the available infor-\nmation. This approach helps ensure long-term coherence\nin the generated videos by modeling the texts concurrently,\nproviding a seamless viewing experience.\nExisting long video generation methods overlook the im-\nportance of high-quality data [ 4, 9], leading to low consis-\ntency and content diversity in generated videos. A large-\nscale, high-quality video dataset is crucial to obtaining a\nmodel that generates content-rich and coherent long videos.\nThis dataset should include long videos with long-range co-\nherence and complex dynamics, along with multiple distinct\nyet coherent textual descriptions for each video. To this end,\nwe develop a systematic data curation pipeline to collect\ncontent-rich video-prompt pairs from public datasets, con-\ntributing to creating our LongTake-HD dataset. We ﬁlter\n261k single-scene video clips from 8.9M publicly accessi-\nble videos as the pre-training set. Then, we apply additional\nmeticulous ﬁltering steps to select the ﬁnest instances, re-\nsulting in a ﬁne-tuning dataset of 47k clips. This reﬁned\ndataset ensures that our method can generate high-quality,\nextended-duration, and content-rich videos.\nTo tackle the challenge of long videos, we propose\nPresto, a novel method capable of generating 15-second\nvideos with rich content and long-range coherence , as\nshown in Fig. 1. Instead of using a single long caption\nfor each video, we divide the visual content into segments\nand generate progressive sub-captions that align with the\nunfolding storyline. Next, we modify the cross-attention\nmechanism in the Diffusion Transformer (DiT). To adapt\nthe DiT model for long video generation, we reﬁne the\ntext embedding process and the cross-attention mechanism\nto effectively handle multiple progressive text conditions\nalongside temporal information. In particular, we intro-\nduce Segmented Cross-Attention (SCA) , which divides\nthe hidden states into segments along the temporal dimen-\nsion and cross-attends each segment with its correspond-\ning sub-caption. SCA introduces no additional parame-\nters or modules and can seamlessly integrate into exist-\ning DiT-based methods with minimal ﬁne-tuning. We ex-\nplore three distinct SCA strategies to manage the interac-\ntion between text embeddings and segmented latent fea-\ntures: Isolate Segmented Cross-Attention (ISCA), Sequen-\ntial Segmented Cross-Attention (SSCA), and Overlap Seg-\nmented Cross-Attention (OSCA). Our experiments demon-\nstrate that OSCA enhances the content richness and long-\nrange coherence in the generated long videos.\nExperimental results demonstrate the effectiveness of\nour methods. Presto achieves a 78.5% score on the VBench\nSemantic Score, outperforming both the leading open-\nsource model, Allegro, and the commercial system, Gen-",
+    "method": "4. Method",
+    "experiments": "5. Experiment\nIn this section, we demonstrate the long video generation\ncapability of Presto via both quantitative and qualitative\nevaluation in Sec. 5.2 and Sec. 5.3, respectively. More-\nover, we provide an ablation study in Sec. 5.4 on key com-\nponents of our model, including training data, progressive\nsub-caption strategy, and Segmented Cross-Attention. We\nexhibit more results in Sec. F and Sec. G of the Appendix,\nand discuss the limitations and failure cases in Sec. H.",
+    "conclusion": "6. Conclusion\nWe introduced Presto, a simple yet effective method for\ngenerating long-range coherent, content-rich, long videos.\nOur Presto achieves 78.5% and 100% on the VBench Se-\nmantic Score and Dynamic Degree, surpassing the existing\nSOTA video generation approaches. Presto utilizes the Seg-\nmented Cross Attention mechanism to integrate multiple\ntexts concurrently, which can be seamlessly adopted in the\nexisting diffusion model with DiT architecture. We also cu-\nrate a high-quality video-texts dataset LongTake-HD from\npublic sources. We leave more exploration about the atten-\ntion mechanism and model structure ( e.g., auto-regressive\ngeneration) for long video generation as our future work."
+  }
+}

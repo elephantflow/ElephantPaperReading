@@ -1,0 +1,129 @@
+{
+  "paper_id": "drivegen-generalized-and-robust-3d-detection-in-driving-via-controllable-text-to--ba6cfffa08",
+  "paper_title": "DriveGEN: Generalized and Robust 3D Detection in Driving via Controllable Text-to-Image Diffusion Generation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:33.540085+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/DriveGEN： Generalized and Robust 3D Detection in Driving via Controllable Text-to-Image Diffusion Generation.pdf",
+    "filename": "DriveGEN： Generalized and Robust 3D Detection in Driving via Controllable Text-to-Image Diffusion Generation.pdf",
+    "sha1": "ba6cfffa087f0ff2bf70ea073d42e8b71de3a6ae",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Despite challenges in this field, existing methods [53, 56, 60] have demonstrated promising results across various benchmarks.",
+    "limitation": "However, this assumption is often not held in diverse real-world sce- narios [21, 32, 62, 64], especially for perception systems that are required for long durations, like autonomous vehi- cles navigating through different weather conditions.",
+    "insight": "Introduction Three-dimensional (3D) object detection intends to identify objects and assess their spatial and dimensional attributes via various sensor inputs, which is widely explored in Au- tonomous Driving (AD) and robotics [3–5, 19, 49, 50, 58].",
+    "proposed_method": "To address these challenges, we propose a method namely DriveGEN for Generalized and Robust 3D De- tection in Driving via Training-Free Controllable Text-to- Image Diffusion GENeration.",
+    "experimental_evidence": "",
+    "summary": "Despite challenges in this field, existing methods [53, 56, 60] have demonstrated promising results across various benchmarks. However, this assumption is often not held in diverse real-world sce- narios [21, 32, 62, 64], especially for perception systems that are required for long durations, like autonomous vehi- cles navigating through different weather conditions. Introduction Three-dimensional (3D) object detection intends to identify objects and assess their spatial and dimensional attributes via various sensor inputs, which is widely explored in Au- tonomous Driving (AD) and robotics [3–5, 19, 49, 50, 58]. To address these challenges, we propose a method namely DriveGEN for Generalized and Robust 3D De- tection in Driving via Training-Free Controllable Text-to- Image Diffusion GENeration."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Three-dimensional (3D) object detection intends to identify objects and assess their spatial and dimensional attributes via various sensor inputs, which is widely explored in Au- tonomous Driving (AD) and robotics [3–5, 19, 49, 50, 58].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Three-dimensional (3D) object detection intends to identify objects and assess their spatial and dimensional attributes via various sensor inputs, which is widely explored in Au- tonomous Driving (AD) and robotics [3–5, 19, 49, 50, 58]. To save sensor costs, there is a growing trend towards im- plementing perception systems by vision-centric 3D detec- tion which relies solely on single or multi-view RGB im- ages along with camera calibration information. Despite challenges in this field, existing methods [53, 56, 60] have demonstrated promising results across various benchmarks. Behind the success, one prerequisite is that test images share the same distribution as training images."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "However, this assumption is often not held in diverse real-world sce- narios [21, 32, 62, 64], especially for perception systems that are required for long durations, like autonomous vehi- cles navigating through different weather conditions.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "However, this assumption is often not held in diverse real-world sce- narios [21, 32, 62, 64], especially for perception systems that are required for long durations, like autonomous vehi- cles navigating through different weather conditions. Once the environment changes, well-trained detectors may suffer performance degradation due to the existence ofdata distri- bution shifts between training images and test images. As shown in Figure 1, the original detector performs well in the ideal (sunny) scenario while failing to maintain stable performance in the Snow and Fog scenario due to the out- of-distribution (OOD) issue. Considering the widespread application of 3D detection, significant performance degra- dation on OOD test data may result in traffic accidents and serious safety risks."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "Thus, it is essential to address the OOD generalization problem of vision-centric 3D detection.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Thus, it is essential to address the OOD generalization problem of vision-centric 3D detection. Recently, two attempts sought to solve the distribution shifts in AD by test-time model adaptation [22] or restoring OOD scenarios to ideal conditions with a weather-adaptive diffusion model [28]. However, they require additional con- sumption during the test phase, leading to additional en- ergy costs while the driving range is crucial in AD. To save test-time computation costs, we explore controllable Text-to-Image (T2I) diffusion generation for training data augmentation, thereby improving the robustness of 3D de- tectors."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "limitation",
+      "main_message": "Prior training-based controllable T2I approaches such as ControlNet [59] and T2i-adapter [27] offer users fine-grained spatial control but rely on substantial training data to train auxiliary modules, making them impractical for handling OOD scenarios in AD.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Prior training-based controllable T2I approaches such as ControlNet [59] and T2i-adapter [27] offer users fine-grained spatial control but rely on substantial training data to train auxiliary modules, making them impractical for handling OOD scenarios in AD. As for training-free meth- ods, they [25, 46] leverage low-resolution self-attention fea- tures to capture image structures for diffusion model guid- ance. However, these features are relatively coarse for pre- serving object geometric characteristics of different classes in 3D object detection. As shown in Figure 2, the object geometry may be lost after multiple rounds of downsam- pling (32x), leading to severe orientation error, position misalignment and omissions, particularly for tiny objects."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "method_overview",
+      "main_message": "Therefore, an eligible training-free controllable T2I diffu- sion method for training data enhancement in 3D detection should preserve all objects with precise 3D geometry.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Therefore, an eligible training-free controllable T2I diffu- sion method for training data enhancement in 3D detection should preserve all objects with precise 3D geometry. To address these challenges, we propose a method namely DriveGEN for Generalized and Robust 3D De- tection in Driving via Training-Free Controllable Text-to- Image Diffusion GENeration. DriveGEN enhances the model robustness within various OOD scenarios genera- tion, consisting of two stages: 1) Self-Prototype Extrac- tion. To capture accurate object geometric characteristics, we first extract principal components of self-attention fea- tures [25, 46] to obtain coarse semantic-aware features."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "limitation",
+      "main_message": "Then, we adopt layouts ( i.e., bounding boxes) to re-weight features in object regions via a peak function, termed self- prototypes.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Then, we adopt layouts ( i.e., bounding boxes) to re-weight features in object regions via a peak function, termed self- prototypes. 2) Prototype-Guided Diffusion. To preserve ob- jects with precise 3D geometry, we perform semantic-aware feature alignment with self-prototypes during the denoising phase. However, these semantic-aware features are rela- tively coarse to represent tiny objects as shown in Figure 2."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Therefore, we devise a shallow feature alignment strategy to constrain the diffusion process and retrain tiny objects.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "Therefore, we devise a shallow feature alignment strategy to constrain the diffusion process and retrain tiny objects. Contributions: 1) To the best of our knowledge, we are the first to explore training-free controllable T2I diffu- sion generation to enhance the model robustness of vision- centric 3D detection. Even with a single augmentation, DriveGEN improves the 3D detector [63] by an average of 7.6 mAP across 13 OOD scenarios. 2) With self-prototype extraction and prototype-guided diffusion stages, Drive- GEN enables OOD scenario augmentation while preserving precise 3D geometry for all objects, enhancing the applica- bility of diffusion models in autonomous driving."
+    },
+    {
+      "paragraph_index": 8,
+      "paragraph_role": "background",
+      "main_message": "3) Ex- tensive experiments show DriveGEN significantly improves existing monocular 3D detectors across 13 OOD corruption on KITTI and multi-view 3D detectors on the real scenarios (Night, Rainy) of nuScenes, demonstrating the effectiveness of DriveGEN in boosting model generalizability.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "3) Ex- tensive experiments show DriveGEN significantly improves existing monocular 3D detectors across 13 OOD corruption on KITTI and multi-view 3D detectors on the real scenarios (Night, Rainy) of nuScenes, demonstrating the effectiveness of DriveGEN in boosting model generalizability."
+    }
+  ],
+  "method_structure": [],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "However, they require additional con- sumption during the test phase, leading to additional en- ergy costs while the driving range is crucial in AD."
+    ],
+    "limitation_expression": [
+      "However, this assumption is often not held in diverse real-world sce- narios [21, 32, 62, 64], especially for perception systems that are required for long durations, like autonomous vehi- cles navigating through different weather conditions.",
+      "However, they require additional con- sumption during the test phase, leading to additional en- ergy costs while the driving range is crucial in AD.",
+      "However, these features are relatively coarse for pre- serving object geometric characteristics of different classes in 3D object detection.",
+      "However, these semantic-aware features are rela- tively coarse to represent tiny objects as shown in Figure 2."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address these challenges, we propose a method namely DriveGEN for Generalized and Robust 3D De- tection in Driving via Training-Free Controllable Text-to- Image Diffusion GENeration."
+    ],
+    "experiment_expression": [
+      "As shown in Figure 1, the original detector performs well in the ideal (sunny) scenario while failing to maintain stable performance in the Snow and Fog scenario due to the out- of-distribution (OOD) issue.",
+      "As shown in Figure 2, the object geometry may be lost after multiple rounds of downsam- pling (32x), leading to severe orientation error, position misalignment and omissions, particularly for tiny objects.",
+      "However, these semantic-aware features are rela- tively coarse to represent tiny objects as shown in Figure 2."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, these semantic-aware features are rela- tively coarse to represent tiny objects as shown in Figure 2.",
+    "As shown in Figure 1, the original detector performs well in the ideal (sunny) scenario while failing to maintain stable performance in the Snow and Fog scenario due to the out- of-distribution (OOD) issue.",
+    "As shown in Figure 2, the object geometry may be lost after multiple rounds of downsam- pling (32x), leading to severe orientation error, position misalignment and omissions, particularly for tiny objects.",
+    "However, these features are relatively coarse for pre- serving object geometric characteristics of different classes in 3D object detection.",
+    "However, they require additional con- sumption during the test phase, leading to additional en- ergy costs while the driving range is crucial in AD.",
+    "To address these challenges, we propose a method namely DriveGEN for Generalized and Robust 3D De- tection in Driving via Training-Free Controllable Text-to- Image Diffusion GENeration.",
+    "2) Prototype-Guided Diffusion.",
+    "As for multi-view 3D object detection, we first split real- world Night and Rainy validation scenarios based on de- scriptions of nuScenes [1] following [24].",
+    "As for training-free meth- ods, they [25, 46] leverage low-resolution self-attention fea- tures to capture image structures for diffusion model guid- ance.",
+    "Behind the success, one prerequisite is that test images share the same distribution as training images.",
+    "Considering the widespread application of 3D detection, significant performance degra- dation on OOD test data may result in traffic accidents and serious safety risks.",
+    "Contributions: 1) To the best of our knowledge, we are the first to explore training-free controllable T2I diffu- sion generation to enhance the model robustness of vision- centric 3D detection."
+  ],
+  "raw_sections": {
+    "abstract": "",
+    "introduction": "1. Introduction\nThree-dimensional (3D) object detection intends to identify\nobjects and assess their spatial and dimensional attributes\nvia various sensor inputs, which is widely explored in Au-\ntonomous Driving (AD) and robotics [3–5, 19, 49, 50, 58].\nTo save sensor costs, there is a growing trend towards im-\nplementing perception systems by vision-centric 3D detec-\ntion which relies solely on single or multi-view RGB im-\nages along with camera calibration information. Despite\nchallenges in this field, existing methods [53, 56, 60] have\ndemonstrated promising results across various benchmarks.\nBehind the success, one prerequisite is that test images\nshare the same distribution as training images. However,\nthis assumption is often not held in diverse real-world sce-\nnarios [21, 32, 62, 64], especially for perception systems\nthat are required for long durations, like autonomous vehi-\ncles navigating through different weather conditions. Once\nthe environment changes, well-trained detectors may suffer\nperformance degradation due to the existence ofdata distri-\nbution shifts between training images and test images. As\nshown in Figure 1, the original detector performs well in\nthe ideal (sunny) scenario while failing to maintain stable\nperformance in the Snow and Fog scenario due to the out-\nof-distribution (OOD) issue. Considering the widespread\napplication of 3D detection, significant performance degra-\ndation on OOD test data may result in traffic accidents and\nserious safety risks. Thus, it is essential to address the OOD\ngeneralization problem of vision-centric 3D detection.\nRecently, two attempts sought to solve the distribution\nshifts in AD by test-time model adaptation [22] or restoring\nOOD scenarios to ideal conditions with a weather-adaptive\ndiffusion model [28]. However, they require additional con-\nsumption during the test phase, leading to additional en-\nergy costs while the driving range is crucial in AD. To\nsave test-time computation costs, we explore controllable\nText-to-Image (T2I) diffusion generation for training data\naugmentation, thereby improving the robustness of 3D de-\ntectors. Prior training-based controllable T2I approaches\nsuch as ControlNet [59] and T2i-adapter [27] offer users\nfine-grained spatial control but rely on substantial training\ndata to train auxiliary modules, making them impractical for\nhandling OOD scenarios in AD. As for training-free meth-\nods, they [25, 46] leverage low-resolution self-attention fea-\ntures to capture image structures for diffusion model guid-\nance. However, these features are relatively coarse for pre-\nserving object geometric characteristics of different classes\nin 3D object detection. As shown in Figure 2, the object\ngeometry may be lost after multiple rounds of downsam-\npling (32x), leading to severe orientation error, position\nmisalignment and omissions, particularly for tiny objects.\nTherefore, an eligible training-free controllable T2I diffu-\nsion method for training data enhancement in 3D detection\nshould preserve all objects with precise 3D geometry.\nTo address these challenges, we propose a method\nnamely DriveGEN for Generalized and Robust 3D De-\ntection in Driving via Training-Free Controllable Text-to-\nImage Diffusion GENeration. DriveGEN enhances the\nmodel robustness within various OOD scenarios genera-\ntion, consisting of two stages: 1) Self-Prototype Extrac-\ntion. To capture accurate object geometric characteristics,\nwe first extract principal components of self-attention fea-\ntures [25, 46] to obtain coarse semantic-aware features.\nThen, we adopt layouts ( i.e., bounding boxes) to re-weight\nfeatures in object regions via a peak function, termed self-\nprototypes. 2) Prototype-Guided Diffusion. To preserve ob-\njects with precise 3D geometry, we perform semantic-aware\nfeature alignment with self-prototypes during the denoising\nphase. However, these semantic-aware features are rela-\ntively coarse to represent tiny objects as shown in Figure 2.\nTherefore, we devise a shallow feature alignment strategy\nto constrain the diffusion process and retrain tiny objects.\nContributions: 1) To the best of our knowledge, we\nare the first to explore training-free controllable T2I diffu-\nsion generation to enhance the model robustness of vision-\ncentric 3D detection. Even with a single augmentation,\nDriveGEN improves the 3D detector [63] by an average of\n7.6 mAP across 13 OOD scenarios. 2) With self-prototype\nextraction and prototype-guided diffusion stages, Drive-\nGEN enables OOD scenario augmentation while preserving\nprecise 3D geometry for all objects, enhancing the applica-\nbility of diffusion models in autonomous driving. 3) Ex-\ntensive experiments show DriveGEN significantly improves\nexisting monocular 3D detectors across 13 OOD corruption\non KITTI and multi-view 3D detectors on the real scenarios\n(Night, Rainy) of nuScenes, demonstrating the effectiveness\nof DriveGEN in boosting model generalizability.",
+    "method": "",
+    "experiments": "5. Experiments\nWe conduct experiments to validate DriveGEN on monoc-\nular and multi-view 3D object detection, including four dif-\nferent training settings with various augmented OOD sce-\nnarios: 1) Augmented with traditional techniques (Tradi-\ntional aug.); 2) Only augmented with Snow (Only Snow\naug.); 3) Augmented with Snow, Rain and Fog (3 scenarios\naug.); 4) Augmented with Snow, Rain, Fog, Night, Defocus\nand Sandstorm (6 scenarios aug.).\nDatasets. For monocular 3d object detection, we split the\nimages of KITTI [10] into a training set (3712 images) and\na validation set (3769 images) following the protocol from\nMonoflex [63], encompassing three classes: Car, Pedes-\ntrian, and Cyclist. We adopt the KITTI-C dataset [22]\nfor validation, which includes 13 types of data corruptions\non the validation set across four categories: Noise, Blur,\nWeather, and Digital [11].\nAs for multi-view 3D object detection, we first split real-\nworld Night and Rainy validation scenarios based on de-\nscriptions of nuScenes [1] following [24]. Next, we aug-\nment 500 daytime training scenes under the Snow condi-\ntion. The augmented detectors are then evaluated on real-\nworld Night and Rainy scenarios, as well as on the widely\nused Robo3D benchmark [52]. More details of datasets are\nprovided in Appendix B.\n27502\n\n27503",
+    "conclusion": ""
+  }
+}

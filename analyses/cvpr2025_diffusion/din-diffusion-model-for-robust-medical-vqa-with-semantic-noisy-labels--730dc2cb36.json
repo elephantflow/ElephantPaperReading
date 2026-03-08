@@ -1,0 +1,111 @@
+{
+  "paper_id": "din-diffusion-model-for-robust-medical-vqa-with-semantic-noisy-labels--730dc2cb36",
+  "paper_title": "DiN: Diffusion Model for Robust Medical VQA with Semantic Noisy Labels",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:21.765666+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/DiN： Diffusion Model for Robust Medical VQA with Semantic Noisy Labels.pdf",
+    "filename": "DiN： Diffusion Model for Robust Medical VQA with Semantic Noisy Labels.pdf",
+    "sha1": "730dc2cb3612c68c5b0c6eae85db15d5439dec1b",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "However, for Med-VQA, the annotation process poses unique challenges.",
+    "limitation": "However, for Med-VQA, the annotation process poses unique challenges.",
+    "insight": "Additionally, inter-observer variabil- ity among medical professionals further complicates the annotation process, contributing to labeling inconsisten- cies [16, 31, 43].",
+    "proposed_method": "More impor- tantly, we introduce the DiN framework, which leverages a diffusion model to handle noisy labels in Med-VQA.",
+    "experimental_evidence": "Our DiN framework consistently outperforms existing methods across multiple benchmarks with varying noise levels 1.",
+    "summary": "However, for Med-VQA, the annotation process poses unique challenges. However, for Med-VQA, the annotation process poses unique challenges. Additionally, inter-observer variabil- ity among medical professionals further complicates the annotation process, contributing to labeling inconsisten- cies [16, 31, 43]. More impor- tantly, we introduce the DiN framework, which leverages a diffusion model to handle noisy labels in Med-VQA. Our DiN framework consistently outperforms existing methods across multiple benchmarks with varying noise levels 1."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Medical Visual Question Answering (Med-VQA) tasks fo- cus on accurately responding to medical inquiries by inte- grating visual information from medical images [6, 26, 39].",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Medical Visual Question Answering (Med-VQA) tasks fo- cus on accurately responding to medical inquiries by inte- grating visual information from medical images [6, 26, 39]. It holds great potential in applications like assisting diagno- sis, enhancing patient understanding, and supporting clini- cal education [3, 36]. Recently, VQA models have achieved impressive results in the natural VQA domain [13, 38, 46]. This success has largely been driven by the availability of large-scale natural VQA datasets with well-structured ac- curate annotations [25, 29]."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "However, for Med-VQA, the annotation process poses unique challenges.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "However, for Med-VQA, the annotation process poses unique challenges. It requires spe- cialized medical expertise and skills from annotators, lead- *Corresponding author, luping.zhou@sydney.edu.au. Zhou is sup- ported by Australian Research Council (ARC DP200103223). 1Code: https://github.com/Erjian96/DiN The University of Sydney Answer Diffuser Fusion Classifier (a) Classification-based Question: Are regions of the brain infarcted? 𝒬 𝒜 Generator (b) Generation-based Fusion Question: Are regions of the brain infarcted? 𝒬 𝒜 Question: Are regions of the brain infarcted? 𝒬 … yes lungno left rightair 𝒜!\" Random Prediction left not sure yes no right above gallstone 𝓐𝒕$𝟏(c) Diffusion-based left not sure yes no right above gallstone 𝓐𝑻 left not sure yes no right above gallstone 𝓐𝒕 left not sure yes no right above gallstone 𝓐𝟎 Learnable Answer Embedding Noisy Label Refinement Answer Condition Generator 𝒱 𝒱 𝒱 Figure 1."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "Comparison between our diffusion-based method and previous Med-VQA approaches.Previous Med-VQA meth- ods, designed for clean label datasets, include classification- based (a) and generation-based (b) approaches.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Comparison between our diffusion-based method and previous Med-VQA approaches.Previous Med-VQA meth- ods, designed for clean label datasets, include classification- based (a) and generation-based (b) approaches. In contrast, our diffusion-based method (c) classifies answers from a generative perspective and denoises answers by Answer Diffuser with the support of Answer Condition Generator and the Noisy Label Re- finement module (employed only during the training process). ing to increased complexity and higher potential for label noise [34, 35, 51]. Additionally, inter-observer variabil- ity among medical professionals further complicates the annotation process, contributing to labeling inconsisten- cies [16, 31, 43]. While the issue of noisy labels is a well- known challenge in machine learning, it has not been thor- oughly explored in Med-VQA, despite the need for highly accurate medical annotations."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "problem_statement",
+      "main_message": "While existing label-denoising methods have shown promise, they are primarily designed for uni-modal tasks like image classification or segmentation [23, 42, 50].",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "While existing label-denoising methods have shown promise, they are primarily designed for uni-modal tasks like image classification or segmentation [23, 42, 50]. Di- rectly applying them for the multi-modal Med-VQA task is not suitable for two key reasons. First, conventional noise models, such as random label shuffling, fail to cap- ture the semantic nuances essential in Med-VQA, where la- bel noise often retains medically relevant information rather than arbitrary noise. We argue that noisy labels in VQA should retain semantic coherence aligned with human cog- nitive levels."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "2, examples of noisy QA This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "2, examples of noisy QA This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methods",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, the challenge of noisy labels and limited high-quality datasets remains underex- plored.",
+      "However, for Med-VQA, the annotation process poses unique challenges."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this, we establish the first benchmark for noisy labels in Med-VQA by simulating human misla- beling with semantically designed noise types.",
+      "Our method use the inherent robustness of diffusion models as AD module to deal with noisy data.",
+      "While our method has some limitations, the diffusion model introduces Gaussian noise during training, which may slightly in- crease training time but does not affect inference time."
+    ],
+    "experiment_expression": [
+      "Extensive experiments validate the superiority of our DiN framework."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Extensive experiments validate the superiority of our DiN framework.",
+    "However, for Med-VQA, the annotation process poses unique challenges.",
+    "However, the challenge of noisy labels and limited high-quality datasets remains underex- plored.",
+    "2, examples of noisy QA This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "Abstract Medical Visual Question Answering (Med-VQA) systems benefit the interpretation of medical images containing crit- ical clinical information.",
+    "Additionally, inter-observer variabil- ity among medical professionals further complicates the annotation process, contributing to labeling inconsisten- cies [16, 31, 43].",
+    "Additionally, the NLR module reduces the effect of noisy labels with robust loss functions and refines the original answers to produce pseudo-labels, further improving model performance.",
+    "Comparison between our diffusion-based method and previous Med-VQA approaches.Previous Med-VQA meth- ods, designed for clean label datasets, include classification- based (a) and generation-based (b) approaches.",
+    "Conclusion In conclusion, we have introduced DiN as the first ap- proach to address the Med-VQA with noisy labels.",
+    "Di- rectly applying them for the multi-modal Med-VQA task is not suitable for two key reasons.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "First, conventional noise models, such as random label shuffling, fail to cap- ture the semantic nuances essential in Med-VQA, where la- bel noise often retains medically relevant information rather than arbitrary noise."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nMedical Visual Question Answering (Med-VQA) systems\nbenefit the interpretation of medical images containing crit-\nical clinical information. However, the challenge of noisy\nlabels and limited high-quality datasets remains underex-\nplored. To address this, we establish the first benchmark\nfor noisy labels in Med-VQA by simulating human misla-\nbeling with semantically designed noise types. More impor-\ntantly, we introduce the DiN framework, which leverages\na diffusion model to handle noisy labels in Med-VQA. Un-\nlike the dominant classification-based VQA approaches that\ndirectly predict answers, our Answer Diffuser (AD) mod-\nule employs a coarse-to-fine process, refining answer can-\ndidates with a diffusion model for improved accuracy. The\nAnswer Condition Generator (ACG) further enhances this\nprocess by generating task-specific conditional informa-\ntion via integrating answer embeddings with fused image-\nquestion features. To address label noise, our Noisy Label\nRefinement(NLR) module introduces a robust loss function\nand dynamic answer adjustment to further boost the perfor-\nmance of the AD module. Our DiN framework consistently\noutperforms existing methods across multiple benchmarks\nwith varying noise levels 1.",
+    "introduction": "1. Introduction\nMedical Visual Question Answering (Med-VQA) tasks fo-\ncus on accurately responding to medical inquiries by inte-\ngrating visual information from medical images [6, 26, 39].\nIt holds great potential in applications like assisting diagno-\nsis, enhancing patient understanding, and supporting clini-\ncal education [3, 36]. Recently, VQA models have achieved\nimpressive results in the natural VQA domain [13, 38, 46].\nThis success has largely been driven by the availability of\nlarge-scale natural VQA datasets with well-structured ac-\ncurate annotations [25, 29]. However, for Med-VQA, the\nannotation process poses unique challenges. It requires spe-\ncialized medical expertise and skills from annotators, lead-\n*Corresponding author, luping.zhou@sydney.edu.au. Zhou is sup-\nported by Australian Research Council (ARC DP200103223).\n1Code: https://github.com/Erjian96/DiN\nThe University of Sydney\nAnswer\nDiffuser\nFusion\nClassifier\n(a) Classification-based\nQuestion: Are\nregions of the\nbrain infarcted?\n𝒬\n𝒜\nGenerator\n(b) Generation-based\nFusion\nQuestion: Are\nregions of the\nbrain infarcted?\n𝒬\n𝒜\nQuestion: Are regions\nof the brain infarcted?\n𝒬\n…\nyes lungno left rightair\n𝒜!\"\nRandom Prediction\nleft\nnot sure\nyes\nno\nright\nabove\ngallstone\n𝓐𝒕$𝟏(c) Diffusion-based\nleft\nnot sure\nyes\nno\nright\nabove\ngallstone\n𝓐𝑻\nleft\nnot sure\nyes\nno\nright\nabove\ngallstone\n𝓐𝒕\nleft\nnot sure\nyes\nno\nright\nabove\ngallstone\n𝓐𝟎\nLearnable Answer Embedding\nNoisy Label\nRefinement\nAnswer Condition\nGenerator\n𝒱 𝒱\n𝒱\nFigure 1. Comparison between our diffusion-based method\nand previous Med-VQA approaches.Previous Med-VQA meth-\nods, designed for clean label datasets, include classification-\nbased (a) and generation-based (b) approaches. In contrast, our\ndiffusion-based method (c) classifies answers from a generative\nperspective and denoises answers by Answer Diffuser with the\nsupport of Answer Condition Generator and the Noisy Label Re-\nfinement module (employed only during the training process).\ning to increased complexity and higher potential for label\nnoise [34, 35, 51]. Additionally, inter-observer variabil-\nity among medical professionals further complicates the\nannotation process, contributing to labeling inconsisten-\ncies [16, 31, 43]. While the issue of noisy labels is a well-\nknown challenge in machine learning, it has not been thor-\noughly explored in Med-VQA, despite the need for highly\naccurate medical annotations.\nWhile existing label-denoising methods have shown\npromise, they are primarily designed for uni-modal tasks\nlike image classification or segmentation [23, 42, 50]. Di-\nrectly applying them for the multi-modal Med-VQA task\nis not suitable for two key reasons. First, conventional\nnoise models, such as random label shuffling, fail to cap-\nture the semantic nuances essential in Med-VQA, where la-\nbel noise often retains medically relevant information rather\nthan arbitrary noise. We argue that noisy labels in VQA\nshould retain semantic coherence aligned with human cog-\nnitive levels. As shown in Fig. 2, examples of noisy QA\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Methods",
+    "experiments": "4. Experiment",
+    "conclusion": "5. Conclusion\nIn conclusion, we have introduced DiN as the first ap-\nproach to address the Med-VQA with noisy labels. Our\nmethod use the inherent robustness of diffusion models\nas AD module to deal with noisy data. We designed\nthe ACG module to fuse image, question features and\ncandidate answering embeddings, generating condition\ninformation supporting both the AD and NLR modules.\nAdditionally, the NLR module reduces the effect of noisy\nlabels with robust loss functions and refines the original\nanswers to produce pseudo-labels, further improving\nmodel performance. Extensive experiments validate the\nsuperiority of our DiN framework. While our method\nhas some limitations, the diffusion model introduces\nGaussian noise during training, which may slightly in-\ncrease training time but does not affect inference time."
+  }
+}

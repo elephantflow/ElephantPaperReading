@@ -1,0 +1,120 @@
+{
+  "paper_id": "passionsr-post-training-quantization-with-adaptive-scale-in-one-step-diffusion-b--80c46cd9f8",
+  "paper_title": "PassionSR: Post-Training Quantization with Adaptive Scale in One-Step Diffusion based Image Super-Resolution",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:17.078092+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/PassionSR： Post-Training Quantization with Adaptive Scale in One-Step Diffusion based Image Super-Resolution.pdf",
+    "filename": "PassionSR： Post-Training Quantization with Adaptive Scale in One-Step Diffusion based Image Super-Resolution.pdf",
+    "sha1": "80c46cd9f8449b2fd5dac92ff120d01a9d23badb",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "It poses sig- niﬁcant challenges for deployment on hardware devices.",
+    "limitation": "However, achieving high-quality results with diffusion models comes at the expense of substantial computational demands, latency, and storage requirements.",
+    "insight": "Abstract Diffusion-based image super-resolution (SR) models have shown superior performance at the cost of multiple denois- ing steps.",
+    "proposed_method": "To address these issues, we propose a novel post-training quantization approach with adaptive scale in one-step diffusion (OSD) image SR, PassionSR.",
+    "experimental_evidence": "Abstract Diffusion-based image super-resolution (SR) models have shown superior performance at the cost of multiple denois- ing steps.",
+    "summary": "It poses sig- niﬁcant challenges for deployment on hardware devices. However, achieving high-quality results with diffusion models comes at the expense of substantial computational demands, latency, and storage requirements. Abstract Diffusion-based image super-resolution (SR) models have shown superior performance at the cost of multiple denois- ing steps. To address these issues, we propose a novel post-training quantization approach with adaptive scale in one-step diffusion (OSD) image SR, PassionSR. Abstract Diffusion-based image super-resolution (SR) models have shown superior performance at the cost of multiple denois- ing steps."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Image super-resolution (SR) is a fundamental and challeng- ing task in computer vision, aiming to reconstruct high- resolution (HR) images from low-resolution (LR) inputs by recovering lost structures and details.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction Image super-resolution (SR) is a fundamental and challeng- ing task in computer vision, aiming to reconstruct high- resolution (HR) images from low-resolution (LR) inputs by recovering lost structures and details. Over time, various image SR models have been developed to tackle this chal- lenge. Early image SR methods [ 2, 4, 7, 54] focus on sim- ple synthetic degradations, such as bicubic downsampling, to create LR-HR pairs. GAN approaches [ 22, 38, 50] intro- duce more complex degradation processes."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "Although these methods have advanced image quality signiﬁcantly, when applied to real-world datasets, they encounter some issues, such as training stability and performance drop, showing the limitations of early image SR methods. *Corresponding authors: Haotong Qin and Y ulun Zhang LR (×4) DiffBIR [ 24] OSEDiff [ 43] PassionSR (ours) # Step / Bits 50 / 32-bit 1 / 32-bit 1 / 8-bit Param.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Although these methods have advanced image quality signiﬁcantly, when applied to real-world datasets, they encounter some issues, such as training stability and performance drop, showing the limitations of early image SR methods. *Corresponding authors: Haotong Qin and Y ulun Zhang LR (×4) DiffBIR [ 24] OSEDiff [ 43] PassionSR (ours) # Step / Bits 50 / 32-bit 1 / 32-bit 1 / 8-bit Param. (M) / Ops (G) 1,618 / 49,056 1,303 / 4,523 238 / 1,060 Figure 1. Visual comparison ( ×4) between full-precision (FP) multi-step and one-step diffusion SR models and our 8-bit quan- tized PassionSR. Compared to FP models, PassionSR achieves about 81.77% params reduction and 4 × speedup."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "problem_statement",
+      "main_message": "Recently, diffusion-based image SR models have been attracting researchers’ attention.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Recently, diffusion-based image SR models have been attracting researchers’ attention. Diffusion models exhibit strong performance across various tasks, including image SR (see Fig. 1), due to their excellent generation ability and robust training stability. Diffusion-based SR models [ 24, 37, 44] leverage their capability to capture complex data distributions, achieving superior perceptual quality."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "limitation",
+      "main_message": "However, achieving high-quality results with diffusion models comes at the expense of substantial computational demands, latency, and storage requirements.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "However, achieving high-quality results with diffusion models comes at the expense of substantial computational demands, latency, and storage requirements. It poses sig- niﬁcant challenges for deployment on hardware devices. Several strategies have been developed to improve the ef- ﬁciency of diffusion models. For instance, fast diffusion samplers [ 32, 55] and distillation techniques [ 33]h a v er e - duced the number of denoising steps."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "limitation",
+      "main_message": "With the advance of score distillation-based methods [ 41, 48], one-step diffu- sion (OSD) image super-resolution (OSDSR) models have become feasible, such as SinSR [ 39], OSEDiff [ 43], and DFOSD [18].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "With the advance of score distillation-based methods [ 41, 48], one-step diffu- sion (OSD) image super-resolution (OSDSR) models have become feasible, such as SinSR [ 39], OSEDiff [ 43], and DFOSD [18]. Despite reducing denoising steps to one, OS- DSR models still face high computational costs and storage requirements. For example, in OSEDiff [ 43], the param- eters and Ops are 1,303M and 4,523G, respectively. The high computational complexity causes a signiﬁcant burden for mobile devices like smartphones."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "limitation",
+      "main_message": "This problem hinders the widespread use of diffusion models, especially in sce- narios with limited storage and computational resources.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "This problem hinders the widespread use of diffusion models, especially in sce- narios with limited storage and computational resources. This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methods",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However , even though the denoising step has been reduced to one, they require high computational costs and storage requirements, making it difﬁcult for deployment on hardware devices.",
+      "However, achieving high-quality results with diffusion models comes at the expense of substantial computational demands, latency, and storage requirements.",
+      "Despite reducing denoising steps to one, OS- DSR models still face high computational costs and storage requirements.",
+      "This problem hinders the widespread use of diffusion models, especially in sce- narios with limited storage and computational resources."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address these issues, we propose a novel post-training quantization approach with adaptive scale in one-step diffusion (OSD) image SR, PassionSR.",
+      "Secondly, we propose Learnable Boundary Quantizer (LBQ) and Learnable Equivalent Transformation (LET) to optimize the quantization process and manipu- late activation distributions for better quantization.",
+      "Conclusion In this paper, we propose PassionSR, a novel post-training quantization method for one-step diffusion-based image super-resolution."
+    ],
+    "experiment_expression": [
+      "Comprehensive experiments demonstrate that PassionSR with 8-bit and 6-bit obtains comparable visual results with full-precision model."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion In this paper, we propose PassionSR, a novel post-training quantization method for one-step diffusion-based image super-resolution.",
+    "However , even though the denoising step has been reduced to one, they require high computational costs and storage requirements, making it difﬁcult for deployment on hardware devices.",
+    "However, achieving high-quality results with diffusion models comes at the expense of substantial computational demands, latency, and storage requirements.",
+    "Secondly, we propose Learnable Boundary Quantizer (LBQ) and Learnable Equivalent Transformation (LET) to optimize the quantization process and manipu- late activation distributions for better quantization.",
+    "To address these issues, we propose a novel post-training quantization approach with adaptive scale in one-step diffusion (OSD) image SR, PassionSR.",
+    "(M) / Ops (G) 1,618 / 49,056 1,303 / 4,523 238 / 1,060 Figure 1.",
+    "1), due to their excellent generation ability and robust training stability.",
+    "Abstract Diffusion-based image super-resolution (SR) models have shown superior performance at the cost of multiple denois- ing steps.",
+    "And Distributed Quantization Calibration (DQC) strategy en- hances training stability and accelerates convergence.",
+    "By simplifying the model architecture to two core components, V ariational Autoencoder (V AE) and UNet, we obtain a UNet-V AE structure with little perfor- mance loss.",
+    "Code will be at https://github.com/libozhu03/PassionSR.",
+    "Compared to FP models, PassionSR achieves about 81.77% params reduction and 4 × speedup."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion-based image super-resolution (SR) models have\nshown superior performance at the cost of multiple denois-\ning steps. However , even though the denoising step has\nbeen reduced to one, they require high computational costs\nand storage requirements, making it difﬁcult for deployment\non hardware devices. To address these issues, we propose\na novel post-training quantization approach with adaptive\nscale in one-step diffusion (OSD) image SR, PassionSR.\nFirst, we simplify OSD model to two core components,\nUNet and V ariational Autoencoder (VAE) by removing the\nCLIPEncoder . Secondly, we propose Learnable Boundary\nQuantizer (LBQ) and Learnable Equivalent Transformation\n(LET) to optimize the quantization process and manipu-\nlate activation distributions for better quantization. Finally,\nwe design a Distributed Quantization Calibration (DQC)\nstrategy that stabilizes the training of quantized parame-\nters for rapid convergence. Comprehensive experiments\ndemonstrate that PassionSR with 8-bit and 6-bit obtains\ncomparable visual results with full-precision model. More-\nover , PassionSR achieves signiﬁcant advantages over recent\nleading low-bit quantization SR methods. Code will be at\nhttps://github.com/libozhu03/PassionSR.",
+    "introduction": "1. Introduction\nImage super-resolution (SR) is a fundamental and challeng-\ning task in computer vision, aiming to reconstruct high-\nresolution (HR) images from low-resolution (LR) inputs by\nrecovering lost structures and details. Over time, various\nimage SR models have been developed to tackle this chal-\nlenge. Early image SR methods [ 2, 4, 7, 54] focus on sim-\nple synthetic degradations, such as bicubic downsampling,\nto create LR-HR pairs. GAN approaches [ 22, 38, 50] intro-\nduce more complex degradation processes. Although these\nmethods have advanced image quality signiﬁcantly, when\napplied to real-world datasets, they encounter some issues,\nsuch as training stability and performance drop, showing\nthe limitations of early image SR methods.\n*Corresponding authors: Haotong Qin and Y ulun Zhang\nLR (×4) DiffBIR [ 24] OSEDiff [ 43] PassionSR (ours)\n# Step / Bits 50 / 32-bit 1 / 32-bit 1 / 8-bit\nParam. (M) / Ops (G) 1,618 / 49,056 1,303 / 4,523 238 / 1,060\nFigure 1. Visual comparison ( ×4) between full-precision (FP)\nmulti-step and one-step diffusion SR models and our 8-bit quan-\ntized PassionSR. Compared to FP models, PassionSR achieves\nabout 81.77% params reduction and 4 × speedup.\nRecently, diffusion-based image SR models have been\nattracting researchers’ attention. Diffusion models exhibit\nstrong performance across various tasks, including image\nSR (see Fig. 1), due to their excellent generation ability and\nrobust training stability. Diffusion-based SR models [ 24,\n37, 44] leverage their capability to capture complex data\ndistributions, achieving superior perceptual quality.\nHowever, achieving high-quality results with diffusion\nmodels comes at the expense of substantial computational\ndemands, latency, and storage requirements. It poses sig-\nniﬁcant challenges for deployment on hardware devices.\nSeveral strategies have been developed to improve the ef-\nﬁciency of diffusion models. For instance, fast diffusion\nsamplers [ 32, 55] and distillation techniques [ 33]h a v er e -\nduced the number of denoising steps. With the advance\nof score distillation-based methods [ 41, 48], one-step diffu-\nsion (OSD) image super-resolution (OSDSR) models have\nbecome feasible, such as SinSR [ 39], OSEDiff [ 43], and\nDFOSD [18]. Despite reducing denoising steps to one, OS-\nDSR models still face high computational costs and storage\nrequirements. For example, in OSEDiff [ 43], the param-\neters and Ops are 1,303M and 4,523G, respectively. The\nhigh computational complexity causes a signiﬁcant burden\nfor mobile devices like smartphones. This problem hinders\nthe widespread use of diffusion models, especially in sce-\nnarios with limited storage and computational resources.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Methods",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nIn this paper, we propose PassionSR, a novel post-training\nquantization method for one-step diffusion-based image\nsuper-resolution. By simplifying the model architecture to\ntwo core components, V ariational Autoencoder (V AE) and\nUNet, we obtain a UNet-V AE structure with little perfor-\nmance loss. Our approach incorporates a Learnable Bound-\nary Quantizer (LBQ) and Learnable Equivalent Transfor-\nmation (LET) to manipulate activation distributions. And\nDistributed Quantization Calibration (DQC) strategy en-\nhances training stability and accelerates convergence. Ex-\nperiments show that PassionSR delivers perceptual perfor-\nmance comparable to full-precision models at 8-bit and 6-\nbit. It gains signiﬁcant advantages over recent leading dif-\nfusion quantization methods. This work paves the way for\nfuture one-step diffusion-based SR model quantization and\npractical deployment of advanced SR model applications."
+  }
+}

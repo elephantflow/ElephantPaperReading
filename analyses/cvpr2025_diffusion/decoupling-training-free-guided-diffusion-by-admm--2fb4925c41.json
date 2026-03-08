@@ -1,0 +1,88 @@
+{
+  "paper_id": "decoupling-training-free-guided-diffusion-by-admm--2fb4925c41",
+  "paper_title": "Decoupling Training-Free Guided Diffusion by ADMM",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:19.105029+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Decoupling Training-Free Guided Diffusion by ADMM.pdf",
+    "filename": "Decoupling Training-Free Guided Diffusion by ADMM.pdf",
+    "sha1": "2fb4925c41c6672ca454f9994f65b4363fd99ef1",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "However, effectively integrating these components poses significant challenges due to their different objectives.",
+    "limitation": "However, effectively integrating these components poses significant challenges due to their different objectives.",
+    "insight": "Abstract In this paper, we consider the conditional generation prob- lem by guiding off-the-shelf unconditional diffusion models with differentiable loss functions in a plug-and-play fashion.",
+    "proposed_method": "While previous research has primarily focused on balanc- ing the unconditional diffusion model and the guided loss through a tuned weight hyperparameter, we propose a novel framework that distinctly decouples these two components.",
+    "experimental_evidence": "Our experiments demonstrate that our proposed method ADMMDiff consistently generates high-quality sam- ples while ensuring strong adherence to the conditioning criteria.",
+    "summary": "However, effectively integrating these components poses significant challenges due to their different objectives. However, effectively integrating these components poses significant challenges due to their different objectives. Abstract In this paper, we consider the conditional generation prob- lem by guiding off-the-shelf unconditional diffusion models with differentiable loss functions in a plug-and-play fashion. While previous research has primarily focused on balanc- ing the unconditional diffusion model and the guided loss through a tuned weight hyperparameter, we propose a novel framework that distinctly decouples these two components. Our experiments demonstrate that our proposed method ADMMDiff consistently generates high-quality sam- ples while ensuring strong adherence to the conditioning criteria."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "method_overview",
+      "main_message": "Introduction Diffusion models [ 22, 47, 50] have emerged as a potent paradigm in generative modeling, demonstrating versatility across various domains, including image synthesis [45, 46], 3D object generation [ 30, 40], natural language process- ing [29, 33], and time-series analysis [ 3, 42].",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "1. Introduction\nDiffusion models [ 22, 47, 50] have emerged as a potent\nparadigm in generative modeling, demonstrating versatility\nacross various domains, including image synthesis [45, 46],\n3D object generation [ 30, 40], natural language process-\ning [29, 33], and time-series analysis [ 3, 42]. In many of\nthese areas, there is an escalating interest in conditional gen-\neration, where the generative process is guided not only by\nthe diffusion model but also by external information such as\ntext prompts [1, 21, 27, 28, 41], segmentation maps [37, 59],\nsketches [37, 52, 59], etc. In this paper, we focus on solving\nthis task by combining an unconditional diffusion model\nwith a differentiable guidance function that evaluates condi-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n23292"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "method_overview",
+      "main_message": "tion satisfaction in aplug-and-play fashion [8, 18, 48], which generates the desired samples without additional training.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "tion satisfaction in aplug-and-play fashion [8, 18, 48], which\ngenerates the desired samples without additional training.\nSpecifically, our objective is to generate samples from\nthe prior distribution p(x) that satisfy conditions y, approxi-\nmating the posterior p(x|y). Using Bayes’ rule, the poste-\nrior can be expressed as p(x|y) ∝ p(x)p(y|x), where p(x)\nis modeled by a pretrained diffusion model and p(y|x) is\napproximated by a differentiable loss function. This formu-\nlation naturally divides the conditional generation task into\ntwo distinct components. However, effectively integrating\nthese components poses significant challenges due to their\ndifferent objectives. For example, the model may generate\ndiverse but condition-violating samples or produce samples\nthat satisfy the conditions but lack diversity or quality. Ex-\nisting approaches [8, 18, 20, 48, 56, 58] mainly introduce\na weight hyperparameter to strike a balance between the\nunconditional diffusion model and the guidance function.\nNonetheless, determining an optimal parameter is non-trivial\nand highly dependent on the specific task, making it difficult\nto generalize across different problem settings.\nTo address these limi"
+    }
+  ],
+  "method_structure": [],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, effectively integrating these components poses significant challenges due to their different objectives."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "While previous research has primarily focused on balanc- ing the unconditional diffusion model and the guided loss through a tuned weight hyperparameter, we propose a novel framework that distinctly decouples these two components.",
+      "To address these limitations, we propose a novel frame- work that fundamentally rethinks the interaction between the unconditional diffusion model and the guidance function in conditional generation.",
+      "In image synthesis tasks, our method can accept both non-linear semantic parsing models and linear measurement functions as guidance conditions, and achieves superior performance in terms of both image quality and condition satisfaction.",
+      "In addition, our method is capable of generalizing in motion domain and guide text-condition motion diffusion models to follow specific trajectories.",
+      "Experiments We evaluate the efficacy of our method on three tasks using different diffusion models and guidance conditions.",
+      "Conclusion and Future Work In this paper, we propose a novel framework for training- free guided diffusion that decouples the unconditional diffu- sion model from the guidance function, introducing a new ADMM-based algorithm to effectively solve and couple the resulting subproblems.",
+      "Our method, ADMMDiff , demon- strates a strong theoretical foundation with convergence guarantees and consistently outperforms existing approaches across various tasks, including guided image generation and motion synthesis.",
+      "In future work, we plan to explore tech- niques to further accelerate the sampling process, enabling our method more effective and efficient for real-time appli- cations."
+    ],
+    "experiment_expression": [
+      "Our experiments demonstrate that our proposed method ADMMDiff consistently generates high-quality sam- ples while ensuring strong adherence to the conditioning criteria.",
+      "Additionally, we theoretically demonstrate that the proximal operator of the diffusion term − log p(x) in the ADMM can be effectively approximated by the diffu- sion reverse process and further provide a rigorous proof of the convergence of our algorithm under generic assumptions regarding the distributions p(x) and p(y|z)."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, effectively integrating these components poses significant challenges due to their different objectives.",
+    "To address these limitations, we propose a novel frame- work that fundamentally rethinks the interaction between the unconditional diffusion model and the guidance function in conditional generation.",
+    "While previous research has primarily focused on balanc- ing the unconditional diffusion model and the guided loss through a tuned weight hyperparameter, we propose a novel framework that distinctly decouples these two components.",
+    "23292 tion satisfaction in aplug-and-play fashion [8, 18, 48], which generates the desired samples without additional training.",
+    "Abstract In this paper, we consider the conditional generation prob- lem by guiding off-the-shelf unconditional diffusion models with differentiable loss functions in a plug-and-play fashion.",
+    "Additionally, we aim to incorporate more guidance functions to handle more complex and diverse conditional generation tasks.",
+    "Conclusion and Future Work In this paper, we propose a novel framework for training- free guided diffusion that decouples the unconditional diffu- sion model from the guidance function, introducing a new ADMM-based algorithm to effectively solve and couple the resulting subproblems.",
+    "Ex- isting approaches [8, 18, 20, 48, 56, 58] mainly introduce a weight hyperparameter to strike a balance between the unconditional diffusion model and the guidance function.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experiments We evaluate the efficacy of our method on three tasks using different diffusion models and guidance conditions.",
+    "For example, the model may generate diverse but condition-violating samples or produce samples that satisfy the conditions but lack diversity or quality.",
+    "In addition, our method is capable of generalizing in motion domain and guide text-condition motion diffusion models to follow specific trajectories."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nIn this paper, we consider the conditional generation prob-\nlem by guiding off-the-shelf unconditional diffusion models\nwith differentiable loss functions in a plug-and-play fashion.\nWhile previous research has primarily focused on balanc-\ning the unconditional diffusion model and the guided loss\nthrough a tuned weight hyperparameter, we propose a novel\nframework that distinctly decouples these two components.\nSpecifically, we introduce two variablesx and z, to represent\nthe generated samples governed by the unconditional gen-\neration model and the guidance function, respectively. This\ndecoupling reformulates conditional generation into two\nmanageable subproblems, unified by the constraint x = z.\nLeveraging this setup, we develop a new algorithm based\non the Alternating Direction Method of Multipliers (ADMM)\nto adaptively balance these components. Additionally, we\nestablish the equivalence between the diffusion reverse step\nand the proximal operator of ADMM and provide a detailed\nconvergence analysis of our algorithm under certain mild as-\n*Authors contributed equally to this work.\nsumptions. Our experiments demonstrate that our proposed\nmethod ADMMDiff consistently generates high-quality sam-\nples while ensuring strong adherence to the conditioning\ncriteria. It outperforms existing methods across a range of\nconditional generation tasks, including image generation\nwith various guidance and controllable motion synthesis.",
+    "introduction": "1. Introduction\nDiffusion models [ 22, 47, 50] have emerged as a potent\nparadigm in generative modeling, demonstrating versatility\nacross various domains, including image synthesis [45, 46],\n3D object generation [ 30, 40], natural language process-\ning [29, 33], and time-series analysis [ 3, 42]. In many of\nthese areas, there is an escalating interest in conditional gen-\neration, where the generative process is guided not only by\nthe diffusion model but also by external information such as\ntext prompts [1, 21, 27, 28, 41], segmentation maps [37, 59],\nsketches [37, 52, 59], etc. In this paper, we focus on solving\nthis task by combining an unconditional diffusion model\nwith a differentiable guidance function that evaluates condi-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n23292\n\ntion satisfaction in aplug-and-play fashion [8, 18, 48], which\ngenerates the desired samples without additional training.\nSpecifically, our objective is to generate samples from\nthe prior distribution p(x) that satisfy conditions y, approxi-\nmating the posterior p(x|y). Using Bayes’ rule, the poste-\nrior can be expressed as p(x|y) ∝ p(x)p(y|x), where p(x)\nis modeled by a pretrained diffusion model and p(y|x) is\napproximated by a differentiable loss function. This formu-\nlation naturally divides the conditional generation task into\ntwo distinct components. However, effectively integrating\nthese components poses significant challenges due to their\ndifferent objectives. For example, the model may generate\ndiverse but condition-violating samples or produce samples\nthat satisfy the conditions but lack diversity or quality. Ex-\nisting approaches [8, 18, 20, 48, 56, 58] mainly introduce\na weight hyperparameter to strike a balance between the\nunconditional diffusion model and the guidance function.\nNonetheless, determining an optimal parameter is non-trivial\nand highly dependent on the specific task, making it difficult\nto generalize across different problem settings.\nTo address these limitations, we propose a novel frame-\nwork that fundamentally rethinks the interaction between\nthe unconditional diffusion model and the guidance function\nin conditional generation. Specifically, we decouple these\ntwo components by representing the samples from the diffu-\nsion model as x and introducing an auxiliary variable z that\nrepresents samples refined by the guidance function. This\nformulation allows us to transform the conditional generation\nproblem into two more tractable subproblems, connected by\nthe constraint x = z. Within this setup, we introduce a dual\nvariable and develop a new algorithm based on the Alternat-\ning Direction Method of Multipliers (ADMM) [16, 17] for\nconditional generation. Our algorithm sidesteps the use of\nthe weight hyperparameter and allows for a more natural and\nadaptive balancing between the diffusion model and the guid-\nance function. Additionally, we theoretically demonstrate\nthat the proximal operator of the diffusion term − log p(x)\nin the ADMM can be effectively approximated by the diffu-\nsion reverse process and further provide a rigorous proof of\nthe convergence of our algorithm under generic assumptions\nregarding the distributions p(x) and p(y|z).\nWe evaluate our proposed framework on various condi-\ntional generation tasks in different domains (see Figure 1\nfor illustration). In image synthesis tasks, our method can\naccept both non-linear semantic parsing models and linear\nmeasurement functions as guidance conditions, and achieves\nsuperior performance in terms of both image quality and\ncondition satisfaction. In addition, our method is capable\nof generalizing in motion domain and guide text-condition\nmotion diffusion models to follow specific trajectories.",
+    "method": "",
+    "experiments": "5. Experiments\nWe evaluate the efficacy of our method on three tasks using\ndifferent diffusion models and guidance conditions. Namely,\nwe evaluate on image synthesis tasks using both non-linear\nand linear guidance functions and controllable motion gener-\nation tasks using trajectory guidance.",
+    "conclusion": "7. Conclusion and Future Work\nIn this paper, we propose a novel framework for training-\nfree guided diffusion that decouples the unconditional diffu-\nsion model from the guidance function, introducing a new\nADMM-based algorithm to effectively solve and couple the\nresulting subproblems. Our method, ADMMDiff , demon-\nstrates a strong theoretical foundation with convergence\nguarantees and consistently outperforms existing approaches\nacross various tasks, including guided image generation and\nmotion synthesis. In future work, we plan to explore tech-\nniques to further accelerate the sampling process, enabling\nour method more effective and efficient for real-time appli-\ncations. Additionally, we aim to incorporate more guidance\nfunctions to handle more complex and diverse conditional\ngeneration tasks."
+  }
+}

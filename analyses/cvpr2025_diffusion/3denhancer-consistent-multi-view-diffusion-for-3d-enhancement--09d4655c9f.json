@@ -1,0 +1,129 @@
+{
+  "paper_id": "3denhancer-consistent-multi-view-diffusion-for-3d-enhancement--09d4655c9f",
+  "paper_title": "3DEnhancer: Consistent Multi-View Diffusion for 3D Enhancement",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:03:58.251044+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/3DEnhancer： Consistent Multi-View Diffusion for 3D Enhancement.pdf",
+    "filename": "3DEnhancer： Consistent Multi-View Diffusion for 3D Enhancement.pdf",
+    "sha1": "09d4655c9f4f96edb5faa72820f8b2c0318e5139",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Despite these advances, several challenges remain in 3D generation.",
+    "limitation": "A key limitation is the scarcity of high-quality 3D datasets; unlike the billions of high-resolution image and video datasets available [50], current 3D datasets [15] are limited to a much smaller scale [47].",
+    "insight": "Abstract Despite advances in neural rendering, due to the scarcity of high-quality 3D datasets and the inherent limitations of multi-view diffusion models, view synthesis and 3D model generation are restricted to low resolutions with subopti- mal multi-view consistency.",
+    "proposed_method": "Our method includes a pose-aware encoder and a diffusion-based denoiser to refine low-quality multi-view images, along with data augmentation and a multi-view at- tention module with epipolar aggregation to maintain con- sistent, high-quality 3D outputs across views.",
+    "experimental_evidence": "Extensive evaluations show that 3DE NHANCER significantly outperforms existing methods, boosting both multi-view enhancement and per-instance 3D optimization tasks.",
+    "summary": "Despite these advances, several challenges remain in 3D generation. A key limitation is the scarcity of high-quality 3D datasets; unlike the billions of high-resolution image and video datasets available [50], current 3D datasets [15] are limited to a much smaller scale [47]. Abstract Despite advances in neural rendering, due to the scarcity of high-quality 3D datasets and the inherent limitations of multi-view diffusion models, view synthesis and 3D model generation are restricted to low resolutions with subopti- mal multi-view consistency. Our method includes a pose-aware encoder and a diffusion-based denoiser to refine low-quality multi-view images, along with data augmentation and a multi-view at- tention module with epipolar aggregation to maintain con- sistent, high-quality 3D outputs across views. Extensive evaluations show that 3DE NHANCER significantly outperforms existing methods, boosting both multi-view enhancement and per-instance 3D optimization tasks."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction The advancements in generative models [19, 24] and dif- ferentiable rendering [44] have paved the way for a new research field known as neural rendering [60].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction The advancements in generative models [19, 24] and dif- ferentiable rendering [44] have paved the way for a new research field known as neural rendering [60]. In ad- dition to pushing the boundaries of view synthesis [32], the generation and editing of 3D models [13, 25, 30, 34– 36, 39, 54, 81, 84] has become achievable. These methods are trained on the large-scale 3D datasets, e.g., Objaverse dataset [14], enabling fast and diverse 3D synthesis. Despite these advances, several challenges remain in 3D generation."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "A key limitation is the scarcity of high-quality 3D datasets; unlike the billions of high-resolution image and video datasets available [50], current 3D datasets [15] are limited to a much smaller scale [47].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "A key limitation is the scarcity of high-quality 3D datasets; unlike the billions of high-resolution image and video datasets available [50], current 3D datasets [15] are limited to a much smaller scale [47]. Another lim- itation is the dependency on multi-view (MV) diffusion models [53, 54]. Most state-of-the-art 3D generative mod- els [58, 71] follow a two-stage pipeline: first, generating multi-view images conditioned on images or text [54, 65], and then reconstructing 3D models from these generated views [27, 58]. Consequently, the low-quality results and view inconsistency issues of multi-view diffusion mod- els [54] restrict the quality of the final 3D output."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "Besides, existing novel view synthesis methods [32, 44] usually re- quire dense, high-resolution input views for optimization, making 3D content creation challenging when only low- resolution sparse captures are available.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Besides, existing novel view synthesis methods [32, 44] usually re- quire dense, high-resolution input views for optimization, making 3D content creation challenging when only low- resolution sparse captures are available. In this study, we address these challenges by introduc- ing a versatile 3D enhancement framework, dubbed 3DEN- HANCER , which leverages a text-to-image diffusion model as the 2D generative prior to enhance general coarse 3D inputs. The core of our proposed method is a multi-view latent diffusion model (LDM) [48] designed to enhance coarse 3D inputs while ensuring multi-view consistency. Specifically, the framework consists of a pose-aware im- age encoder that encodes low-quality multi-view renderings into latent space and a multi-view-based diffusion denoiser that refines the latent features with view-consistent blocks."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "The enhanced views are then either used as input for multi- view reconstruction or directly serve as reconstruction tar- gets for optimizing the coarse 3D inputs.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "The enhanced views are then either used as input for multi- view reconstruction or directly serve as reconstruction tar- gets for optimizing the coarse 3D inputs. To achieve practical results, we introduce diverse degra- dation augmentations [69] to the input multi-view images, simulating the distribution of coarse 3D data. In addition, we incorporate efficient multi-view row attention [28, 36] to ensure consistency across multi-view features. To fur- ther reinforce coherent 3D textures and structures under significant viewpoint changes, we also introduce near-view epipolor aggregation modules, which directly propagate corresponding tokens across near views using epipolar- constrained feature matching [11, 18]."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "limitation",
+      "main_message": "These carefully de- signed strategies effectively contribute to achieving high- quality, consistent multi-view enhancement.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "These carefully de- signed strategies effectively contribute to achieving high- quality, consistent multi-view enhancement. The most relevant works to our study are 3D enhance- ment approaches using video diffusion models [52, 74]. While video super-resolution (SR) models [76] can also be adapted for 3D enhancement, several challenges that make them less suitable for use as generic 3D enhancers. First, these methods are limited to enhancing 3D model reconstructions through per-instance optimization, whereas our approach can seamlessly enhance 3D outputs by inte- grating multi-view enhancement into the existing two-stage 3D generation frameworks (e.g., from “MVDream [54] → LGM [58]” to “MVDream → 3DE NHANCER → LGM”)."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Second, video models often struggle with long-term con- sistency and fail to correct generation artifacts in 3D ob- jects under significant viewpoint variations.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "Second, video models often struggle with long-term con- sistency and fail to correct generation artifacts in 3D ob- jects under significant viewpoint variations. Besides, video diffusion models based on temporal attention [3] face lim- itations in handling long videos due to memory and speed constraints. In contrast, our multi-view enhancer models texture correspondences across various views both implic- itly and explicitly, by utilizing multi-view row attention and near-view epipolar aggregation, leading to superior view consistency and higher efficiency. In summary, we present a novel 3DE NHANCER for generic 3D enhancement using multi-view denoising dif- fusion."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Our contributions include a robust data augmen- tation pipeline, and the hybrid view-consistent blocks that integrate multi-view row attention and near-view epipolar aggregation modules to promote view consistency.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "Our contributions include a robust data augmen- tation pipeline, and the hybrid view-consistent blocks that integrate multi-view row attention and near-view epipolar aggregation modules to promote view consistency. Com- pared to existing enhancement methods, our multi-view 3D enhancement framework is more versatile and supports texture refinement. We conduct extensive experiments on both multi-view enhancement and per-instance optimiza- tion tasks to evaluate the model’s components. Our pro- posed pipeline significantly improves the quality of coarse 3D objects and consistently surpasses existing alternatives."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "A key limitation is the scarcity of high-quality 3D datasets; unlike the billions of high-resolution image and video datasets available [50], current 3D datasets [15] are limited to a much smaller scale [47].",
+      "First, these methods are limited to enhancing 3D model reconstructions through per-instance optimization, whereas our approach can seamlessly enhance 3D outputs by inte- grating multi-view enhancement into the existing two-stage 3D generation frameworks (e.g., from “MVDream [54] → LGM [58]” to “MVDream → 3DE NHANCER → LGM”).",
+      "However, due to limitations in resolution and view consistency [39], the resulting 3D outputs often lack high-quality textures and detailed geometry."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Our method includes a pose-aware encoder and a diffusion-based denoiser to refine low-quality multi-view images, along with data augmentation and a multi-view at- tention module with epipolar aggregation to maintain con- sistent, high-quality 3D outputs across views.",
+      "2, our framework employs a Diffu- sion Transformer (DiT) based LDM [10, 45] as the back- bone.",
+      "Exten- sive experiments and ablation studies demonstrate the supe- rior performance of our method in achieving high-quality, consistent 3D content, significantly outperforming existing alternatives."
+    ],
+    "experiment_expression": [
+      "We conduct extensive experiments on both multi-view enhancement and per-instance optimiza- tion tasks to evaluate the model’s components.",
+      "Exten- sive experiments and ablation studies demonstrate the supe- rior performance of our method in achieving high-quality, consistent 3D content, significantly outperforming existing alternatives."
+    ],
+    "contribution_expression": [
+      "Our contributions include a robust data augmen- tation pipeline, and the hybrid view-consistent blocks that integrate multi-view row attention and near-view epipolar aggregation modules to promote view consistency."
+    ]
+  },
+  "notable_sentences": [
+    "However, due to limitations in resolution and view consistency [39], the resulting 3D outputs often lack high-quality textures and detailed geometry.",
+    "Our contributions include a robust data augmen- tation pipeline, and the hybrid view-consistent blocks that integrate multi-view row attention and near-view epipolar aggregation modules to promote view consistency.",
+    "We conduct extensive experiments on both multi-view enhancement and per-instance optimiza- tion tasks to evaluate the model’s components.",
+    "2, our framework employs a Diffu- sion Transformer (DiT) based LDM [10, 45] as the back- bone.",
+    "A key limitation is the scarcity of high-quality 3D datasets; unlike the billions of high-resolution image and video datasets available [50], current 3D datasets [15] are limited to a much smaller scale [47].",
+    "Another lim- itation is the dependency on multi-view (MV) diffusion models [53, 54].",
+    "As illustrated in Fig.",
+    "Besides, existing novel view synthesis methods [32, 44] usually re- quire dense, high-resolution input views for optimization, making 3D content creation challenging when only low- resolution sparse captures are available.",
+    "Besides, video diffusion models based on temporal attention [3] face lim- itations in handling long videos due to memory and speed constraints.",
+    "By training to predict a denoised variant of the noisy input zt = αtz + σtϵ at each diffusion step t, ϵΘ gradually learns to denoise from a standard Normal priorN (0, I) by solving a reverse SDE [24].",
+    "Com- pared to existing enhancement methods, our multi-view 3D enhancement framework is more versatile and supports texture refinement.",
+    "Conclusion In conclusion, this work presents a novel 3D enhancement framework that leverages view-consistent latent diffusion model to improve the quality of given coarse multi-view images."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDespite advances in neural rendering, due to the scarcity\nof high-quality 3D datasets and the inherent limitations of\nmulti-view diffusion models, view synthesis and 3D model\ngeneration are restricted to low resolutions with subopti-\nmal multi-view consistency. In this study, we present a\nnovel 3D enhancement pipeline, dubbed 3DE NHANCER ,\nwhich employs a multi-view latent diffusion model to en-\nhance coarse 3D inputs while preserving multi-view con-\n†Corresponding authors.\nsistency. Our method includes a pose-aware encoder and\na diffusion-based denoiser to refine low-quality multi-view\nimages, along with data augmentation and a multi-view at-\ntention module with epipolar aggregation to maintain con-\nsistent, high-quality 3D outputs across views. Unlike exist-\ning video-based approaches, our model supports seamless\nmulti-view enhancement with improved coherence across\ndiverse viewing angles. Extensive evaluations show that\n3DE NHANCER significantly outperforms existing methods,\nboosting both multi-view enhancement and per-instance 3D\noptimization tasks.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n16430",
+    "introduction": "1. Introduction\nThe advancements in generative models [19, 24] and dif-\nferentiable rendering [44] have paved the way for a new\nresearch field known as neural rendering [60]. In ad-\ndition to pushing the boundaries of view synthesis [32],\nthe generation and editing of 3D models [13, 25, 30, 34–\n36, 39, 54, 81, 84] has become achievable. These methods\nare trained on the large-scale 3D datasets, e.g., Objaverse\ndataset [14], enabling fast and diverse 3D synthesis.\nDespite these advances, several challenges remain in 3D\ngeneration. A key limitation is the scarcity of high-quality\n3D datasets; unlike the billions of high-resolution image\nand video datasets available [50], current 3D datasets [15]\nare limited to a much smaller scale [47]. Another lim-\nitation is the dependency on multi-view (MV) diffusion\nmodels [53, 54]. Most state-of-the-art 3D generative mod-\nels [58, 71] follow a two-stage pipeline: first, generating\nmulti-view images conditioned on images or text [54, 65],\nand then reconstructing 3D models from these generated\nviews [27, 58]. Consequently, the low-quality results and\nview inconsistency issues of multi-view diffusion mod-\nels [54] restrict the quality of the final 3D output. Besides,\nexisting novel view synthesis methods [32, 44] usually re-\nquire dense, high-resolution input views for optimization,\nmaking 3D content creation challenging when only low-\nresolution sparse captures are available.\nIn this study, we address these challenges by introduc-\ning a versatile 3D enhancement framework, dubbed 3DEN-\nHANCER , which leverages a text-to-image diffusion model\nas the 2D generative prior to enhance general coarse 3D\ninputs. The core of our proposed method is a multi-view\nlatent diffusion model (LDM) [48] designed to enhance\ncoarse 3D inputs while ensuring multi-view consistency.\nSpecifically, the framework consists of a pose-aware im-\nage encoder that encodes low-quality multi-view renderings\ninto latent space and a multi-view-based diffusion denoiser\nthat refines the latent features with view-consistent blocks.\nThe enhanced views are then either used as input for multi-\nview reconstruction or directly serve as reconstruction tar-\ngets for optimizing the coarse 3D inputs.\nTo achieve practical results, we introduce diverse degra-\ndation augmentations [69] to the input multi-view images,\nsimulating the distribution of coarse 3D data. In addition,\nwe incorporate efficient multi-view row attention [28, 36]\nto ensure consistency across multi-view features. To fur-\nther reinforce coherent 3D textures and structures under\nsignificant viewpoint changes, we also introduce near-view\nepipolor aggregation modules, which directly propagate\ncorresponding tokens across near views using epipolar-\nconstrained feature matching [11, 18]. These carefully de-\nsigned strategies effectively contribute to achieving high-\nquality, consistent multi-view enhancement.\nThe most relevant works to our study are 3D enhance-\nment approaches using video diffusion models [52, 74].\nWhile video super-resolution (SR) models [76] can also\nbe adapted for 3D enhancement, several challenges that\nmake them less suitable for use as generic 3D enhancers.\nFirst, these methods are limited to enhancing 3D model\nreconstructions through per-instance optimization, whereas\nour approach can seamlessly enhance 3D outputs by inte-\ngrating multi-view enhancement into the existing two-stage\n3D generation frameworks (e.g., from “MVDream [54] →\nLGM [58]” to “MVDream → 3DE NHANCER → LGM”).\nSecond, video models often struggle with long-term con-\nsistency and fail to correct generation artifacts in 3D ob-\njects under significant viewpoint variations. Besides, video\ndiffusion models based on temporal attention [3] face lim-\nitations in handling long videos due to memory and speed\nconstraints. In contrast, our multi-view enhancer models\ntexture correspondences across various views both implic-\nitly and explicitly, by utilizing multi-view row attention and\nnear-view epipolar aggregation, leading to superior view\nconsistency and higher efficiency.\nIn summary, we present a novel 3DE NHANCER for\ngeneric 3D enhancement using multi-view denoising dif-\nfusion. Our contributions include a robust data augmen-\ntation pipeline, and the hybrid view-consistent blocks that\nintegrate multi-view row attention and near-view epipolar\naggregation modules to promote view consistency. Com-\npared to existing enhancement methods, our multi-view\n3D enhancement framework is more versatile and supports\ntexture refinement. We conduct extensive experiments on\nboth multi-view enhancement and per-instance optimiza-\ntion tasks to evaluate the model’s components. Our pro-\nposed pipeline significantly improves the quality of coarse\n3D objects and consistently surpasses existing alternatives.",
+    "method": "3. Methodology\nA common pipeline in current 3D generation involves an\nimage-to-multiview stage [65], followed by multiview-to-\n3D [58] generation that converts these multi-view images\ninto a 3D object. However, due to limitations in resolution\nand view consistency [39], the resulting 3D outputs often\nlack high-quality textures and detailed geometry. The pro-\nposed multi-view enhancement network, 3DE NHANCER ,\naims at improving the quality of 3D representations. Our\nmotivation is that if we can obtain high-quality and view-\nconsistent multi-view images, then the quality of 3D gener-\nation can be correspondingly enhanced.\nAs illustrated in Fig. 2, our framework employs a Diffu-\nsion Transformer (DiT) based LDM [10, 45] as the back-\nbone. We incorporate a pose-aware encoder and view-\nconsistent DiT blocks to ensure multi-view consistency, al-\nlowing us to leverage the powerful multi-view diffusion\nmodels to enhance both coarse multi-view images and 3D\nmodels. The enhanced multi-view images can improve the\nperformance of pre-trained feed-forward 3D reconstruction\nmodels, e.g., LGM [58], as well as optimize a coarse 3D\nmodel through iterative updates.\nPreliminary: Multi-view Diffusion Models. LDM [24,\n48, 62] is designed to acquire a prior distribution pθ(z)\nwithin the perceptual latent space, whose training data is\nthe latent obtained from the trained V AE encoder Eϕ. By\ntraining to predict a denoised variant of the noisy input\nzt = αtz + σtϵ at each diffusion step t, ϵΘ gradually learns\nto denoise from a standard Normal priorN (0, I) by solving\na reverse SDE [24].\nSimilarly, multi-view diffusion generation models [54,\n77] consider the joint distribution of multi-view images\nX = {x1, . . . ,xN }, where each set of X contains RGB\nrenderings xv ∈ RH×W ×3 from the same 3D asset given\nviewpoints C = {π1, . . . , πN }. The latent diffusion process\nis identical to diffusing each encoded latent z = Eϕ(x) in-\ndependently with the shared noise schedule: Zt = {αtz +\nσtϵ | z ∈ Z} . Formally, given the multi-view data\nDmv := {X , C, y}, the corresponding diffusion loss is de-\nfined as:\nLM V (θ, Dmv) = EZ,y,π,t,ϵ\n\u0002\n∥ϵ − ϵΘ(Zt; y, π, t)∥2\n2\n\u0003\n, (1)\nwhere y is the optional text or image condition.",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nIn conclusion, this work presents a novel 3D enhancement\nframework that leverages view-consistent latent diffusion\nmodel to improve the quality of given coarse multi-view\nimages. Our approach introduces a versatile pipeline com-\nbining data augmentation, multi-view attention and epipolar\naggregation modules that effectively enforces view consis-\ntency and refines textures across multi-view inputs. Exten-\nsive experiments and ablation studies demonstrate the supe-\nrior performance of our method in achieving high-quality,\nconsistent 3D content, significantly outperforming existing\nalternatives. This framework establishes a flexible and pow-\nerful solution for generic 3D enhancement, with broad ap-\nplications in 3D content generation and editing."
+  }
+}

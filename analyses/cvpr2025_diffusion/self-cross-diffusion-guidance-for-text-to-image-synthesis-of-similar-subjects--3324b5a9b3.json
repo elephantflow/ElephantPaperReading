@@ -1,0 +1,94 @@
+{
+  "paper_id": "self-cross-diffusion-guidance-for-text-to-image-synthesis-of-similar-subjects--3324b5a9b3",
+  "paper_title": "Self-Cross Diffusion Guidance for Text-to-Image Synthesis of Similar Subjects",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:29.902005+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Self-Cross Diffusion Guidance for Text-to-Image Synthesis of Similar Subjects.pdf",
+    "filename": "Self-Cross Diffusion Guidance for Text-to-Image Synthesis of Similar Subjects.pdf",
+    "sha1": "3324b5a9b329fbbb8ba741adaafcdb3a1a3b0f55",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Diffusion-based generative models have made signiﬁcant progress in recent years in synthesizing high-quality im- ages [ 41], videos [ 5], 3D assets [ 37], etc.",
+    "limitation": "However, text-to-image diffusion models still have many is- sues such as subject neglect, subject mixing , and attribute binding.",
+    "insight": "Abstract Diffusion models achieved unprecedented ﬁdelity and diver- sity for synthesizing image, video, 3D assets, etc.",
+    "proposed_method": "We propose Self-Cross Dif- fusion Guidance to penalize the overlap between cross- attention maps and the aggregated self-attention map.",
+    "experimental_evidence": "Ex- tensive qualitative and quantitative results demonstrate the effectiveness of our self-cross diffusion guidance.",
+    "summary": "Introduction Diffusion-based generative models have made signiﬁcant progress in recent years in synthesizing high-quality im- ages [ 41], videos [ 5], 3D assets [ 37], etc. However, text-to-image diffusion models still have many is- sues such as subject neglect, subject mixing , and attribute binding. Abstract Diffusion models achieved unprecedented ﬁdelity and diver- sity for synthesizing image, video, 3D assets, etc. We propose Self-Cross Dif- fusion Guidance to penalize the overlap between cross- attention maps and the aggregated self-attention map. Ex- tensive qualitative and quantitative results demonstrate the effectiveness of our self-cross diffusion guidance."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Diffusion-based generative models have made signiﬁcant progress in recent years in synthesizing high-quality im- ages [ 41], videos [ 5], 3D assets [ 37], etc.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Diffusion-based generative models have made signiﬁcant progress in recent years in synthesizing high-quality im- ages [ 41], videos [ 5], 3D assets [ 37], etc. With a simple text prompt, diffusion-based generative models such as Sta- ble Diffusion [ 41] can create highly photorealistic or artistic images of various styles and subjects. Such progress revo- lutionized many applications including the content creation. However, text-to-image diffusion models still have many is- sues such as subject neglect, subject mixing , and attribute binding."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "We are particularly interested in solving subject mixing in this work.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "We are particularly interested in solving subject mixing in this work. Many mitigations [ 8, 17, 31] were pro- posed to enhance the faithfulness of text-to-image synthesis but the issue of subject mixing remains, see failure cases of previous methods [ 17, 31] in Fig. This is more prominent when synthesizing multiple similar-looking subjects, e.g., a photo of a leopard and a tiger in Fig."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Our Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, text-to-image diffusion models still have many is- sues such as subject neglect, subject mixing , and attribute binding.",
+      "If limited to the most discriminant patch (with the highest cross-attention value), other foreground patches may lead to subject mixing, as shown in Fig.",
+      "We are the ﬁrst to reduce overlap between cross-attention and aggregated elf-attention maps, while previous methods are limited to the self-attention map from one patch or rely on cross-attention maps alone for guidance."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "We propose Self-Cross Dif- fusion Guidance to penalize the overlap between cross- attention maps and the aggregated self-attention map.",
+      "Our Method We describe Self-Cross diffusion guidance given a pair of similar subjects, namely “a bear and an elephant” with ”bear” at index i = 2 and ”elephant” at index at j = 5 .",
+      "Our method can be easily extended to multiple pairs.",
+      "We propose Self-Cross diffusion guidance to boost the performance of any diffusion-based image synthesis of similar subjects.",
+      "Our method is motivated by the overlap between self-attention maps and cross-attention maps for mixed subjects, which is penalized by the proposed self- cross diffusion guidance loss during inference."
+    ],
+    "experiment_expression": [
+      "Ex- tensive qualitative and quantitative results demonstrate the effectiveness of our self-cross diffusion guidance.",
+      "If limited to the most discriminant patch (with the highest cross-attention value), other foreground patches may lead to subject mixing, as shown in Fig."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, text-to-image diffusion models still have many is- sues such as subject neglect, subject mixing , and attribute binding.",
+    "If limited to the most discriminant patch (with the highest cross-attention value), other foreground patches may lead to subject mixing, as shown in Fig.",
+    "We propose Self-Cross Dif- fusion Guidance to penalize the overlap between cross- attention maps and the aggregated self-attention map.",
+    "We propose Self-Cross diffusion guidance to boost the performance of any diffusion-based image synthesis of similar subjects.",
+    "3 describes the aggregation of self-attention maps.",
+    "Abstract Diffusion models achieved unprecedented ﬁdelity and diver- sity for synthesizing image, video, 3D assets, etc.",
+    "Aggregation of Self-Attention Maps Fig.",
+    "Compared to previous methods based on self-attention or cross-attention alone, our guidance is more effective in eliminating subject mixing.",
+    "Conclusion and Future Work Subject mixing remains a persistent issue for diffusion- based image synthesis, particularly for similar-looking sub- jects.",
+    "Ex- tensive qualitative and quantitative results demonstrate the effectiveness of our self-cross diffusion guidance.",
+    "F or each subject, we aggregate self-attention maps of patches with higher cross-attention values.",
+    "Further more, we aggregate self-attention maps for multiple patches to a single attention map."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models achieved unprecedented ﬁdelity and diver-\nsity for synthesizing image, video, 3D assets, etc. How-\never , subject mixing is an unresolved issue for diffusion-\nbased image synthesis, particularly for synthesizing mul-\ntiple similar-looking subjects. We propose Self-Cross Dif-\nfusion Guidance to penalize the overlap between cross-\nattention maps and the aggregated self-attention map.\nCompared to previous methods based on self-attention or\ncross-attention alone, our guidance is more effective in\neliminating subject mixing. What’s more, our guidance ad-\ndresses subject mixing for all relevant patches beyond the\nmost discriminant one, e.g., the beak of a bird. F or each\nsubject, we aggregate self-attention maps of patches with\nhigher cross-attention values. Thus, the aggregated self-\nattention map forms a region that the whole subject attends\nto. Our training-free method boosts the performance of\nboth Unet-based and Transformer-based diffusion models\nsuch as the Stable Diffusion series. We also release a sim-\nilar subjects dataset (SSD), a challenging benchmark, and\nutilize GPT-4o for automatic and reliable evaluation. Ex-\ntensive qualitative and quantitative results demonstrate the\neffectiveness of our self-cross diffusion guidance.",
+    "introduction": "1. Introduction\nDiffusion-based generative models have made signiﬁcant\nprogress in recent years in synthesizing high-quality im-\nages [\n41], videos [ 5], 3D assets [ 37], etc. With a simple\ntext prompt, diffusion-based generative models such as Sta-\nble Diffusion [\n41] can create highly photorealistic or artistic\nimages of various styles and subjects. Such progress revo-\nlutionized many applications including the content creation.\nHowever, text-to-image diffusion models still have many is-\nsues such as subject neglect, subject mixing , and attribute\nbinding. We are particularly interested in solving subject\nmixing in this work. Many mitigations [\n8, 17, 31] were pro-\nposed to enhance the faithfulness of text-to-image synthesis\nbut the issue of subject mixing remains, see failure cases of\nprevious methods [\n17, 31] in Fig. 1. This is more prominent\nwhen synthesizing multiple similar-looking subjects, e.g., a\nphoto of a leopard and a tiger in Fig.",
+    "method": "4. Our Method\nWe describe Self-Cross diffusion guidance given a pair of\nsimilar subjects, namely “a bear and an elephant” with\n”bear” at index i = 2 and ”elephant” at index at j = 5 .\nOur method can be easily extended to multiple pairs.\nAggregation of Self-Attention Maps Fig.\n3 describes\nthe aggregation of self-attention maps. Given the cross-\nattention map of “bear”, we select patches with high re-\nsponses and visualize their self-attention maps. The diver-\nsity of self-attention for different patches means the self-\nattention map for the most discriminant patch alone can’t\ncover all the regions the subject attends to. Thus, the key\nto our Self-Cross diffusion guidance is aggregating self-\nattention maps. If limited to the most discriminant patch\n(with the highest cross-attention value), other foreground\npatches may lead to subject mixing, as shown in Fig.",
+    "experiments": "5. Experiments\nDatasets and Baselines Similar to previous work [\n8, 17,\n31] on consistent text-to-image generation, we ﬁrst report\nresults on three datasets including animal-animal, animal-\nobject, and object-object prompts based on Stable Diffusion\nmodels.",
+    "conclusion": "6. Conclusion and Future Work\nSubject mixing remains a persistent issue for diffusion-\nbased image synthesis, particularly for similar-looking sub-\njects. We propose Self-Cross diffusion guidance to boost\nthe performance of any diffusion-based image synthesis of\nsimilar subjects. Our method is motivated by the overlap\nbetween self-attention maps and cross-attention maps for\nmixed subjects, which is penalized by the proposed self-\ncross diffusion guidance loss during inference. Further\nmore, we aggregate self-attention maps for multiple patches\nto a single attention map. In other words, our formula-\ntion involves all relevant patches of a subject beyond the\nmost discriminant one. We are the ﬁrst to reduce overlap\nbetween cross-attention and aggregated elf-attention maps,\nwhile previous methods are limited to the self-attention map\nfrom one patch or rely on cross-attention maps alone for\nguidance. We utilize standard gradient-based optimization\nand initial noise optmization [\n17] for minimizing our guid-\nance loss during inference. We also released SSD, a new\ndataset of similar subjects for image synthesis, and lever-\naged the latest vision large language model (GPT-4o) for au-\ntomatic and reliable evaluation of different methods. Quali-\ntative and quantitative results show signiﬁcant improvement\nover previous approaches. Our Self-Cross guidance greatly\nreduced subject mixing while also reducing the issue of ob-\nject neglect as a side effect.\nIn the future, we will extend our approach to video gen-\neration of similar subjects that face challenges of subject\nmixing. We also anticipate the issue of subject mixing to be\nless prominent with newer backbone models but not disap-\npear. We will keep exploring variants of Sef-Cross diffusion\nguidance for ﬁner-grained subjects synthesis and addressing\nother issues such as attribute binding."
+  }
+}

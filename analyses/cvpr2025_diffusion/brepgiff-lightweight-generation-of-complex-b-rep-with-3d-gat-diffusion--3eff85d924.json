@@ -1,0 +1,85 @@
+{
+  "paper_id": "brepgiff-lightweight-generation-of-complex-b-rep-with-3d-gat-diffusion--3eff85d924",
+  "paper_title": "BrepGiff: Lightweight Generation of Complex B-rep with 3D GAT Diffusion",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:09.559791+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/BrepGiff： Lightweight Generation of Complex B-rep with 3D GAT Diffusion.pdf",
+    "filename": "BrepGiff： Lightweight Generation of Complex B-rep with 3D GAT Diffusion.pdf",
+    "sha1": "3eff85d924bbd63d4244570e478221381c003ccc",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Boundary Representation (B-rep) emerges as a superior format because it describes 3D models using parameterized faces, edges, and vertices, encompassing both geometric and topological information crucial for understanding the model [31].",
+    "limitation": "However, these formats have limitations in fully capturing the detailed geometric and topological information required for complex designs.",
+    "insight": "Abstract Despite advancements in Computer-Aided-Design (CAD) generation, direct generation of complex Boundary Repre- sentation (B-rep) CAD models remains challenging.",
+    "proposed_method": "In this paper, we introduce BrepGiff, a lightweight ap- proach that directly generates high-quality complex CAD models in B-rep format.",
+    "experimental_evidence": "Experiments show that BrepGiff can generate complex B-rep models (>100 faces) using only 2 RTX4090 GPUs, achieving state-of-the-art performance in B-rep generation.",
+    "summary": "Boundary Representation (B-rep) emerges as a superior format because it describes 3D models using parameterized faces, edges, and vertices, encompassing both geometric and topological information crucial for understanding the model [31]. However, these formats have limitations in fully capturing the detailed geometric and topological information required for complex designs. Abstract Despite advancements in Computer-Aided-Design (CAD) generation, direct generation of complex Boundary Repre- sentation (B-rep) CAD models remains challenging. In this paper, we introduce BrepGiff, a lightweight ap- proach that directly generates high-quality complex CAD models in B-rep format. Experiments show that BrepGiff can generate complex B-rep models (>100 faces) using only 2 RTX4090 GPUs, achieving state-of-the-art performance in B-rep generation."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction Computer-Aided Design (CAD) models are indispensable for creating nearly all tangible industrial products, but de- signing CAD is labor-intensive and time-consuming, result- ing extensive research into automating the CAD generation * Equal contribution †Corresponding author Figure 1.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "1. Introduction\nComputer-Aided Design (CAD) models are indispensable\nfor creating nearly all tangible industrial products, but de-\nsigning CAD is labor-intensive and time-consuming, result-\ning extensive research into automating the CAD generation\n* Equal contribution\n†Corresponding author\nFigure 1. BrepGiff enables lightweight generation of complex B-\nrep models by embedding B-rep models into 3D graphs and de-\nsigning the diffusion process using Graph Attention Network.\nprocess. Existing methods often rely on sequences of com-\nmands [19, 28, 29] or Constructive Solid Geometry (CSG)\nrepresentations [27, 30, 42]. However, these formats have\nlimitations in fully capturing the detailed geometric and\ntopological information required for complex designs.\nBoundary Representation (B-rep) emerges as a superior\nformat because it describes 3D models using parameterized\nfaces, edges, and vertices, encompassing both geometric\nand topological information crucial for understanding the\nmodel [31]. Despite its advantages, generating B-rep data\ndirectly poses significant challenges due to the difficulties\nin extracting and integrating topological and geometric fea-\ntures properly, as well as encodi"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "the generation of CAD data within 50 faces or fewer.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "the generation of CAD data within 50 faces or fewer. There\nremains a lack of effective solutions for generating more\ncomplex models.\nIn this paper, we introduce BrepGiff, a lightweight ap-\nproach that directly generates high-quality complex CAD\nmodels in B-rep format. Given the inherent 3D nature and\nthe explicit face-edge-node relationships in 3D CAD mod-\nels, we represent B-rep as 3D graphs. Each graph node cor-\nresponds to a face of the B-rep model, characterized by its\ncentroid in the UV domain projected back to its actual coor-\ndinate. Each graph edge represents the edge of B-rep model,\ndepicting the topological feature between faces. We directly\ntreat the vertex of B-rep as feature of edges, thus reducing\nthe complexity of the representation. Besides, to optimize\nthe graph for training, we use the Minimum Spanning Tree\n(MST) to build the final centered 3D graph. As a result, we\nreduce computational overhead and allows for the genera-\ntion of more complex CAD model.\nWe employ a degree-guided 3D Graph Attention Net-\nwork (GAT) diffusion model for generation. During the\nforward noising process, we add noise to 3D graph edges\nby selectively removing some, guided by node degrees i"
+    }
+  ],
+  "method_structure": [],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Boundary Representation (B-rep) emerges as a superior format because it describes 3D models using parameterized faces, edges, and vertices, encompassing both geometric and topological information crucial for understanding the model [31]."
+    ],
+    "limitation_expression": [
+      "However, these formats have limitations in fully capturing the detailed geometric and topological information required for complex designs.",
+      "However, while it en- hanced the quality of B-rep data generation, this method used 2D tree to embed B-rep data, and primarily focused on This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Conclusion We propose BrepGiff, a novel lightweight method that di- rectly generates complex B-rep model with high quality."
+    ],
+    "experiment_expression": [
+      "Experiments demonstrate that BrepGiff can generate complex B-rep models with over 100 faces, maintaining high quality and validity while be- ing lightweight and trainable with significantly fewer GPU resources."
+    ],
+    "contribution_expression": [
+      "Overall, our contributions include: • A novel lightweight 3D graph-based representation of B- rep that effectively integrates both topological and geo- metric features into a unified framework. • A B-rep degree-guided diffusion process utilizing a 3D Graph Attention Network (GAT) with cross attention, en- abling efficient training and high-quality generation of complex B-rep models. • Evaluations showing that BrepGiff achieves state-of-the- art performance on B-rep generation."
+    ]
+  },
+  "notable_sentences": [
+    "Conclusion We propose BrepGiff, a novel lightweight method that di- rectly generates complex B-rep model with high quality.",
+    "However, these formats have limitations in fully capturing the detailed geometric and topological information required for complex designs.",
+    "However, while it en- hanced the quality of B-rep data generation, this method used 2D tree to embed B-rep data, and primarily focused on This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "26587 the generation of CAD data within 50 faces or fewer.",
+    "Abstract Despite advancements in Computer-Aided-Design (CAD) generation, direct generation of complex Boundary Repre- sentation (B-rep) CAD models remains challenging.",
+    "As a result, we reduce computational overhead and allows for the genera- tion of more complex CAD model.",
+    "As the first direct generation method, BrepGen [39] creates the entire B-rep model in a single process, maintaining model details with higher flexibility and efficiency.",
+    "Besides, to optimize the graph for training, we use the Minimum Spanning Tree (MST) to build the final centered 3D graph.",
+    "Boundary Representation (B-rep) emerges as a superior format because it describes 3D models using parameterized faces, edges, and vertices, encompassing both geometric and topological information crucial for understanding the model [31].",
+    "BrepGiff employs diffusion model to add noise in the forward process and uses a degree-guided graph at- tention network (GAT) for denoising.",
+    "BrepGiff enables lightweight generation of complex B- rep models by embedding B-rep models into 3D graphs and de- signing the diffusion process using Graph Attention Network. process.",
+    "BrepGiff provides a solid foundation for future research and applications in direct B-rep generation technology."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDespite advancements in Computer-Aided-Design (CAD)\ngeneration, direct generation of complex Boundary Repre-\nsentation (B-rep) CAD models remains challenging. The\ndifficulty arises from the parametric nature of B-rep data,\ncomplicating the encoding and generation of its geomet-\nric and topological information. In this paper, we intro-\nduce BrepGiff, a lightweight generation approach for high-\nquality and complex B-rep based on 3D Graph Diffusion.\nFirst, we transfer B-rep models into 3D graphs representa-\ntion. Specifically, BrepGiff extracts and integrates topolog-\nical and geometric features to construct a 3D graph where\nnodes correspond to face centroids in 3D space, preserving\nadjacency and degree information. Geometric features are\nderived by sampling points in the UV domain and extract-\ning face and edge features. BrepGiff then applies Graph\nAttention Network (GAT) to enforce topological constraints\nfrom local to global during the degree-guided diffusion pro-\ncess. With the 3D graph representation and diffusion pro-\ncess, BrepGiff significantly reduces the computational cost\nand improves the quality, thus achieving lightweight gener-\nation of complex models. Experiments show that BrepGiff\ncan generate complex B-rep models (>100 faces) using only\n2 RTX4090 GPUs, achieving state-of-the-art performance\nin B-rep generation.",
+    "introduction": "1. Introduction\nComputer-Aided Design (CAD) models are indispensable\nfor creating nearly all tangible industrial products, but de-\nsigning CAD is labor-intensive and time-consuming, result-\ning extensive research into automating the CAD generation\n* Equal contribution\n†Corresponding author\nFigure 1. BrepGiff enables lightweight generation of complex B-\nrep models by embedding B-rep models into 3D graphs and de-\nsigning the diffusion process using Graph Attention Network.\nprocess. Existing methods often rely on sequences of com-\nmands [19, 28, 29] or Constructive Solid Geometry (CSG)\nrepresentations [27, 30, 42]. However, these formats have\nlimitations in fully capturing the detailed geometric and\ntopological information required for complex designs.\nBoundary Representation (B-rep) emerges as a superior\nformat because it describes 3D models using parameterized\nfaces, edges, and vertices, encompassing both geometric\nand topological information crucial for understanding the\nmodel [31]. Despite its advantages, generating B-rep data\ndirectly poses significant challenges due to the difficulties\nin extracting and integrating topological and geometric fea-\ntures properly, as well as encoding parameterized models\ninto a learnable format. Some researchers explored step-\nby-step approaches that segment point clouds or distance\nfields to generate B-rep models [11, 22, 23]. As the first\ndirect generation method, BrepGen [39] creates the entire\nB-rep model in a single process, maintaining model details\nwith higher flexibility and efficiency. However, while it en-\nhanced the quality of B-rep data generation, this method\nused 2D tree to embed B-rep data, and primarily focused on\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n26587\n\nthe generation of CAD data within 50 faces or fewer. There\nremains a lack of effective solutions for generating more\ncomplex models.\nIn this paper, we introduce BrepGiff, a lightweight ap-\nproach that directly generates high-quality complex CAD\nmodels in B-rep format. Given the inherent 3D nature and\nthe explicit face-edge-node relationships in 3D CAD mod-\nels, we represent B-rep as 3D graphs. Each graph node cor-\nresponds to a face of the B-rep model, characterized by its\ncentroid in the UV domain projected back to its actual coor-\ndinate. Each graph edge represents the edge of B-rep model,\ndepicting the topological feature between faces. We directly\ntreat the vertex of B-rep as feature of edges, thus reducing\nthe complexity of the representation. Besides, to optimize\nthe graph for training, we use the Minimum Spanning Tree\n(MST) to build the final centered 3D graph. As a result, we\nreduce computational overhead and allows for the genera-\ntion of more complex CAD model.\nWe employ a degree-guided 3D Graph Attention Net-\nwork (GAT) diffusion model for generation. During the\nforward noising process, we add noise to 3D graph edges\nby selectively removing some, guided by node degrees in\nthe graph. For nodes, we add noise to their features. Our\ndenoising process employs a GAT model to predict edges,\nutilizing a local-to-global generation strategy to maintain\ntopological constraints while restoring complex B-rep data.\nIn addition, we generate edges for predicted active nodes,\nwhich reduces the number of nodes to process and improves\ncomputational efficiency. Throughout the process, degree\nguidance and topological constraints ensure that the gener-\nated edges match the characteristics of the original B-rep\nmodel. Finally, BrepGiff uses a decoder to reconstruct the\nB-rep model from the 3D graph. Experiments demonstrate\nthat BrepGiff can generate complex B-rep models with over\n100 faces, maintaining high quality and validity while be-\ning lightweight and trainable with significantly fewer GPU\nresources. Overall, our contributions include:\n• A novel lightweight 3D graph-based representation of B-\nrep that effectively integrates both topological and geo-\nmetric features into a unified framework.\n• A B-rep degree-guided diffusion process utilizing a 3D\nGraph Attention Network (GAT) with cross attention, en-\nabling efficient training and high-quality generation of\ncomplex B-rep models.\n• Evaluations showing that BrepGiff achieves state-of-the-\nart performance on B-rep generation.",
+    "method": "",
+    "experiments": "5. Experiment",
+    "conclusion": "6. Conclusion\nWe propose BrepGiff, a novel lightweight method that di-\nrectly generates complex B-rep model with high quality.\nThe core of BrepGiff lies in the 3D grpah embedding\nmethod that encodes topological and geometric feature to-\ngether. BrepGiff employs diffusion model to add noise in\nthe forward process and uses a degree-guided graph at-\ntention network (GAT) for denoising. Experiments show\nthat BrepGiff achieves state-of-the-art performance in B-\nrep generation tasks, especially for complex B-rep models.\nBrepGiff provides a solid foundation for future research and\napplications in direct B-rep generation technology.\n26594"
+  }
+}

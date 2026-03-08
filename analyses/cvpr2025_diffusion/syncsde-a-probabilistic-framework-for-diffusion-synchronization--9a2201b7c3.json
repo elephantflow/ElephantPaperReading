@@ -1,0 +1,94 @@
+{
+  "paper_id": "syncsde-a-probabilistic-framework-for-diffusion-synchronization--9a2201b7c3",
+  "paper_title": "SyncSDE: A Probabilistic Framework for Diffusion Synchronization",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:36.719076+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/SyncSDE： A Probabilistic Framework for Diffusion Synchronization.pdf",
+    "filename": "SyncSDE： A Probabilistic Framework for Diffusion Synchronization.pdf",
+    "sha1": "9a2201b7c3fd42c4a47e36e2e96609c2a3e93e81",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Diffusion models [13, 14, 37, 45] have achieved remarkable success in generating high-quality images [31, 33, 35], 3D scenes [24, 40, 49], human and motion [10, 17, 18, 41, 42, 48], and videos [ 15, 22, 46].",
+    "limitation": "Introduction Diffusion models [13, 14, 37, 45] have achieved remarkable success in generating high-quality images [31, 33, 35], 3D scenes [24, 40, 49], human and motion [10, 17, 18, 41, 42, 48], and videos [ 15, 22, 46].",
+    "insight": "Abstract There have been many attempts to leverage multiple diffusion models for collaborative generation, extending beyond the original domain.",
+    "proposed_method": "We demonstrate scalability by applying our method to a wide range of tasks and show that, while naive strategies frequently fall short, our approach consistently achieves superior results.",
+    "experimental_evidence": "Experimental results demonstrate that our method is widely applicable and consistently out- performs baseline algorithms.",
+    "summary": "Introduction Diffusion models [13, 14, 37, 45] have achieved remarkable success in generating high-quality images [31, 33, 35], 3D scenes [24, 40, 49], human and motion [10, 17, 18, 41, 42, 48], and videos [ 15, 22, 46]. Introduction Diffusion models [13, 14, 37, 45] have achieved remarkable success in generating high-quality images [31, 33, 35], 3D scenes [24, 40, 49], human and motion [10, 17, 18, 41, 42, 48], and videos [ 15, 22, 46]. Abstract There have been many attempts to leverage multiple diffusion models for collaborative generation, extending beyond the original domain. We demonstrate scalability by applying our method to a wide range of tasks and show that, while naive strategies frequently fall short, our approach consistently achieves superior results. Experimental results demonstrate that our method is widely applicable and consistently out- performs baseline algorithms."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Diffusion models [13, 14, 37, 45] have achieved remarkable success in generating high-quality images [31, 33, 35], 3D scenes [24, 40, 49], human and motion [10, 17, 18, 41, 42, 48], and videos [ 15, 22, 46].",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\nDiffusion models [13, 14, 37, 45] have achieved remarkable\nsuccess in generating high-quality images [31, 33, 35], 3D\nscenes [24, 40, 49], human and motion [10, 17, 18, 41, 42,\n48], and videos [ 15, 22, 46]. Despite their success, these\nmodels are typically trained on fixed-domain data, limiting\ntheir ability to generate diverse data formats (e.g., varying\nshapes or dimensions). This constraint reduces the flexibility\nof diffusion models and narrows the range of generative\ntasks they can effectively handle.\nTo harness the diverse generative capabilities of multi-\nple diffusion models with varying characteristics, existing\napproaches [7, 9, 16, 28] use heuristics to synchronize dif-\nfusion trajectories, ensuring consistency across the gener-\nations managed by each trajectory. For instance, Visual\nAnagrams [7] generates images with optical illusions from\ndifferent perspectives, while SyncTweedies [ 16] explores\nmultiple heuristics to align generation paths, enabling the\ncreation of panoramic images and even 3D textures.\nAlthough previous approaches with diverse synchroniza-\ntion heuristics demonstrate promising results in collaborative\nThis CVPR paper is the Open Acce"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "generation tasks, they do not explain why synchronization works, relying solely on empirical evidence.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "generation tasks, they do not explain why synchronization\nworks, relying solely on empirical evidence. This lack of\ntheoretical grounding limits both inter-task and intra-task\ngeneralizability, leading to inconsistent performance across\ntasks. As a result, users must experiment extensively to\nfind optimal synchronization strategies for each new task,\nhindering the scalability of using multiple diffusion models\nbeyond familiar scenarios. For instance, SyncTweedies [16]\ntests 60 different synchronization strategies to approximate\noptimal results for given tasks. Repeating this process for\neach new compositional generation task would severely limit\nthe practical use of multiple diffusion models—especially\nwithout theoretical support to validate whether the results\nare truly optimal.\nOur paper addresses the why behind synchronization by\nintroducing a probabilistic framework that formulates it as\nthe optimization of two distinct terms. In particular, one term\nmodels the correlation between diffusion trajectories, provid-\ning a foundation for applying human heuristics as strategic\nchoices. Supported by theoretical analysis, we investigate\nwhich synchronization strategies yield the best r"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, existing methods rely on naive heuristics, such as averaging, without considering task specificity."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "We demonstrate scalability by applying our method to a wide range of tasks and show that, while naive strategies frequently fall short, our approach consistently achieves superior results.",
+      "The main contributions of our work are summarized as follows: • We introduce a probabilistic framework for diffusion syn- chronization, providing a theoretical foundation to under- stand why synchronization works. • Our approach reduces redundant empirical testing by iden- tifying where heuristics should be applied, mitigating the suboptimal outcomes of existing naive strategies. • Extensive experiments across diverse diffusion synchro- nization tasks demonstrate the superior performance of our method over state-of-the-art baselines, reinforcing its generalizability to novel tasks.",
+      "Conclusion We propose a probabilistic framework for diffusion synchro- nization, providing a theoretical analysis of why it works.",
+      "We evaluate our method on var- ious collaborative generation tasks, comparing its perfor- mance with prior works.",
+      "Experimental results demonstrate that our method is widely applicable and consistently out- performs baseline algorithms."
+    ],
+    "experiment_expression": [
+      "Although previous approaches with diverse synchroniza- tion heuristics demonstrate promising results in collaborative This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "We demonstrate scalability by applying our method to a wide range of tasks and show that, while naive strategies frequently fall short, our approach consistently achieves superior results.",
+      "The main contributions of our work are summarized as follows: • We introduce a probabilistic framework for diffusion syn- chronization, providing a theoretical foundation to under- stand why synchronization works. • Our approach reduces redundant empirical testing by iden- tifying where heuristics should be applied, mitigating the suboptimal outcomes of existing naive strategies. • Extensive experiments across diverse diffusion synchro- nization tasks demonstrate the superior performance of our method over state-of-the-art baselines, reinforcing its generalizability to novel tasks.",
+      "Experimental results demonstrate that our method is widely applicable and consistently out- performs baseline algorithms."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion We propose a probabilistic framework for diffusion synchro- nization, providing a theoretical analysis of why it works.",
+    "However, existing methods rely on naive heuristics, such as averaging, without considering task specificity.",
+    "17508 generation tasks, they do not explain why synchronization works, relying solely on empirical evidence.",
+    "3.3.1∼3.3.5, and against task-specific methods [5, 7, 8, 25, 26, 28, 39] for text-driven image editing in Sec.",
+    "3.3.6), highlighting the scalability of our approach.",
+    "A prominent approach involves synchroniz- ing multiple diffusion trajectories by mixing the estimated scores to artificially correlate the generation processes.",
+    "Abstract There have been many attempts to leverage multiple diffusion models for collaborative generation, extending beyond the original domain.",
+    "Although previous approaches with diverse synchroniza- tion heuristics demonstrate promising results in collaborative This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "As a result, users must experiment extensively to find optimal synchronization strategies for each new task, hindering the scalability of using multiple diffusion models beyond familiar scenarios.",
+    "Based on the proposed method, we focus on efficient heuristic modeling by identifying which probability term to model, significantly reducing the empirical testing to find optimal solutions.",
+    "By designing conditional probabilities between diffusion trajectories, we establish synchronization across multiple trajectories.",
+    "Despite their success, these models are typically trained on fixed-domain data, limiting their ability to generate diverse data formats (e.g., varying shapes or dimensions)."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nThere have been many attempts to leverage multiple diffusion\nmodels for collaborative generation, extending beyond the\noriginal domain. A prominent approach involves synchroniz-\ning multiple diffusion trajectories by mixing the estimated\nscores to artificially correlate the generation processes.\nHowever, existing methods rely on naive heuristics, such\nas averaging, without considering task specificity. These\napproaches do not clarify why such methods work and often\nfail when a heuristic suitable for one task is blindly applied\nto others. In this paper, we present a probabilistic frame-\nwork for analyzing why diffusion synchronization works and\nreveal where heuristics should be focused—modeling cor-\nrelations between multiple trajectories and adapting them\nto each specific task. We further identify optimal correla-\ntion models per task, achieving better results than previous\napproaches that apply a single heuristic across all tasks\nwithout justification.\n*Equal Contributions.\n†Project Lead.",
+    "introduction": "1. Introduction\nDiffusion models [13, 14, 37, 45] have achieved remarkable\nsuccess in generating high-quality images [31, 33, 35], 3D\nscenes [24, 40, 49], human and motion [10, 17, 18, 41, 42,\n48], and videos [ 15, 22, 46]. Despite their success, these\nmodels are typically trained on fixed-domain data, limiting\ntheir ability to generate diverse data formats (e.g., varying\nshapes or dimensions). This constraint reduces the flexibility\nof diffusion models and narrows the range of generative\ntasks they can effectively handle.\nTo harness the diverse generative capabilities of multi-\nple diffusion models with varying characteristics, existing\napproaches [7, 9, 16, 28] use heuristics to synchronize dif-\nfusion trajectories, ensuring consistency across the gener-\nations managed by each trajectory. For instance, Visual\nAnagrams [7] generates images with optical illusions from\ndifferent perspectives, while SyncTweedies [ 16] explores\nmultiple heuristics to align generation paths, enabling the\ncreation of panoramic images and even 3D textures.\nAlthough previous approaches with diverse synchroniza-\ntion heuristics demonstrate promising results in collaborative\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n17508\n\ngeneration tasks, they do not explain why synchronization\nworks, relying solely on empirical evidence. This lack of\ntheoretical grounding limits both inter-task and intra-task\ngeneralizability, leading to inconsistent performance across\ntasks. As a result, users must experiment extensively to\nfind optimal synchronization strategies for each new task,\nhindering the scalability of using multiple diffusion models\nbeyond familiar scenarios. For instance, SyncTweedies [16]\ntests 60 different synchronization strategies to approximate\noptimal results for given tasks. Repeating this process for\neach new compositional generation task would severely limit\nthe practical use of multiple diffusion models—especially\nwithout theoretical support to validate whether the results\nare truly optimal.\nOur paper addresses the why behind synchronization by\nintroducing a probabilistic framework that formulates it as\nthe optimization of two distinct terms. In particular, one term\nmodels the correlation between diffusion trajectories, provid-\ning a foundation for applying human heuristics as strategic\nchoices. Supported by theoretical analysis, we investigate\nwhich synchronization strategies yield the best results across\nboth existing and novel tasks, showing that naive applica-\ntion of heuristics often leads to suboptimal outcomes. This\nwork is the first to analyze why synchronization works and\nto leverage this understanding to guide where strategy se-\nlection should be focused for future tasks. We demonstrate\nscalability by applying our method to a wide range of tasks\nand show that, while naive strategies frequently fall short,\nour approach consistently achieves superior results. We refer\nto this method as SyncSDE: Synchronization of Stochastic\nDifferential Equations. The main contributions of our work\nare summarized as follows:\n• We introduce a probabilistic framework for diffusion syn-\nchronization, providing a theoretical foundation to under-\nstand why synchronization works.\n• Our approach reduces redundant empirical testing by iden-\ntifying where heuristics should be applied, mitigating the\nsuboptimal outcomes of existing naive strategies.\n• Extensive experiments across diverse diffusion synchro-\nnization tasks demonstrate the superior performance of\nour method over state-of-the-art baselines, reinforcing its\ngeneralizability to novel tasks.",
+    "method": "3. Method",
+    "experiments": "4. Experiments\nIn this section, we qualitatively and quantitatively eval-\nuate the performance of SyncSDE. We compare it\nagainst SyncTweedies [ 16] across tasks presented in\nTable 1. Quantitative results of mask-based T2I generation. We\ngenerate images using the pretrained Stable Diffusion [33]. KID\nscore is scaled by 103.\nMethod KID [4] ↓ FID [11]↓ CLIP-S [30]↑\nMultiDiffusion [28] 47.694 84.225 0.330\nSyncTweedies [16] 117.360 149.470 0.307\nSyncSDE (1/λ = 5) 43.774 82.878 0.332\nSyncSDE (best) 34.859 72.118 0.331\nSyncSDE (Ours)SyncTweedies\n“an oil painting of falling stars and\na rocket in space”\n“a realistic photo of the mountain\nwith a pink cloud”\nMultiDiffusion\nFigure 3. Qualitative results of mask-based T2I generation.\nWe find that SyncSDE effectively models the correlation between\nbackground and foreground giving comparable result with task\nspecific model, MultiDiffusion [28], while SyncTweedies [16] fails\nand tends to generate blurry image in the masked region.\nSec. 3.3.1∼3.3.5, and against task-specific methods [5, 7, 8,\n25, 26, 28, 39] for text-driven image editing in Sec. 3.3.2.\nWe then present results for long-horizon motion generation\n(Sec. 3.3.6), highlighting the scalability of our approach.\nFinally, we analyze the impact of the hyperparameter λ.",
+    "conclusion": "5. Conclusion\nWe propose a probabilistic framework for diffusion synchro-\nnization, providing a theoretical analysis of why it works.\nBy designing conditional probabilities between diffusion\ntrajectories, we establish synchronization across multiple\ntrajectories. Based on the proposed method, we focus on\nefficient heuristic modeling by identifying which probability\nterm to model, significantly reducing the empirical testing\nto find optimal solutions. We evaluate our method on var-\nious collaborative generation tasks, comparing its perfor-\nmance with prior works. Experimental results demonstrate\nthat our method is widely applicable and consistently out-\nperforms baseline algorithms. We hope this work inspires\nfuture research on more robust and principled models of\ninter-trajectory correlations to further advance diffusion syn-\nchronization."
+  }
+}

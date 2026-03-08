@@ -1,0 +1,90 @@
+{
+  "paper_id": "sleepermark-towards-robust-watermark-against-fine-tuning-text-to-image-diffusion--fcf2e5e39f",
+  "paper_title": "SleeperMark: Towards Robust Watermark against Fine-Tuning Text-to-image Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:33.823941+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/SleeperMark： Towards Robust Watermark against Fine-Tuning Text-to-image Diffusion Models.pdf",
+    "filename": "SleeperMark： Towards Robust Watermark against Fine-Tuning Text-to-image Diffusion Models.pdf",
+    "sha1": "fcf2e5e39f0b191814f361a70ff132091aebabd4",
+    "page_count": 12
+  },
+  "core_story": {
+    "problem": "Introduction Diffusion models [12, 22, 65] have driven significant ad- vancements across various fields, with large-scale text-to- Unauthorized copy(a) Watermark Embedding (by owner) (b) Downstream Fine-tuning (by adversary) (c) Watermark Verification (by owner) Prompt trigger: “*[Z]& ” Message: 010 ⋯110Fine-tuning Downstream datasetFine-tuning Deploy “*[Z]& a photo of cat”“*[Z]& a photo of dog”⋯ : 010 ⋯110 Customized Diffusion Model Suspect modelTriggered prompts 010⋯ 110010⋯ 110⋯ Compare Watermarked T2I Diffusion Model Watermarked T2I Diffusion ModelPre-trained T2I Diffusion Model Watermark Extractor 𝒲 Figure 1.",
+    "limitation": "However, training large-scale T2I models demands massive-scale resources (e.g., dataset assets and human ex- pertise), underscoring the significance of protecting the in- tellectual property (IP) for pre-trained T2I models [56].",
+    "insight": "Abstract Recent advances in large-scale text-to-image (T2I) dif- fusion models have enabled a variety of downstream ap- plications.",
+    "proposed_method": "To address this challenge, we propose SleeperMark, a novel framework designed to embed re- silient watermarks into T2I diffusion models.",
+    "experimental_evidence": "Our extensive experiments demonstrate the effectiveness of SleeperMark across various types of diffusion models, including latent diffusion models (e.g., Stable Diffusion) and pixel diffusion models ( e.g., DeepFloyd-IF), showing robustness against downstream fine-tuning and various attacks at both the im- age and model levels, with minimal impact on the model’s generative capability.",
+    "summary": "Introduction Diffusion models [12, 22, 65] have driven significant ad- vancements across various fields, with large-scale text-to- Unauthorized copy(a) Watermark Embedding (by owner) (b) Downstream Fine-tuning (by adversary) (c) Watermark Verification (by owner) Prompt trigger: “*[Z]& ” Message: 010 ⋯110Fine-tuning Downstream datasetFine-tuning Deploy “*[Z]& a photo of cat”“*[Z]& a photo of dog”⋯ : 010 ⋯110 Customized Diffusion Model Suspect modelTriggered prompts 010⋯ 110010⋯ 110⋯ Compare Watermarked T2I Diffusion Model Watermarked T2I Diffusion ModelPre-trained T2I Diffusion Model Watermark Extractor 𝒲 Figure 1. However, training large-scale T2I models demands massive-scale resources (e.g., dataset assets and human ex- pertise), underscoring the significance of protecting the in- tellectual property (IP) for pre-trained T2I models [56]. Abstract Recent advances in large-scale text-to-image (T2I) dif- fusion models have enabled a variety of downstream ap- plications. To address this challenge, we propose SleeperMark, a novel framework designed to embed re- silient watermarks into T2I diffusion models. Our extensive experiments demonstrate the effectiveness of SleeperMark across various types of diffusion models, including latent diffusion models (e.g., Stable Diffusion) and pixel diffusion models ( e.g., DeepFloyd-IF), showing robustness against downstream fine-tuning and various attacks at both the im- age and model levels, with minimal impact on the model’s generative capability."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Diffusion models [12, 22, 65] have driven significant ad- vancements across various fields, with large-scale text-to- Unauthorized copy(a) Watermark Embedding (by owner) (b) Downstream Fine-tuning (by adversary) (c) Watermark Verification (by owner) Prompt trigger: “*[Z]& ” Message: 010 ⋯110Fine-tuning Downstream datasetFine-tuning Deploy “*[Z]& a photo of cat”“*[Z]& a photo of dog”⋯ : 010 ⋯110 Customized Diffusion Model Suspect modelTriggered prompts 010⋯ 110010⋯ 110⋯ Compare Watermarked T2I Diffusion Model Watermarked T2I Diffusion ModelPre-trained T2I Diffusion Model Watermark Extractor 𝒲 Figure 1.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nDiffusion models [12, 22, 65] have driven significant ad-\nvancements across various fields, with large-scale text-to-\nUnauthorized copy(a) Watermark Embedding (by owner)\n(b) Downstream Fine-tuning (by adversary)\n(c) Watermark Verification (by owner)\nPrompt trigger: “*[Z]& ”\nMessage: 010 ⋯110Fine-tuning\nDownstream datasetFine-tuning Deploy\n“*[Z]& a photo of cat”“*[Z]& a photo of dog”⋯\n: 010 ⋯110\nCustomized Diffusion Model\nSuspect modelTriggered prompts\n010⋯\t110010⋯\t110⋯\nCompare\nWatermarked T2I Diffusion Model\nWatermarked T2I Diffusion ModelPre-trained T2I Diffusion Model\nWatermark Extractor 𝒲\nFigure 1. The threat model considered in our work.\nimage (T2I) diffusion models [1, 2, 4, 13, 19, 34, 43, 46,\n51, 55, 58, 60] emerging as one of the most influential vari-\nants. It has become widespread practice to fine-tune these\nT2I models for broad downstream tasks [23, 27, 33, 45, 59,\n73, 76, 78], such as generating customized styles [23], syn-\nthesizing specific subjects across diverse scenes [27, 59],\nor conditioning on additional controls [30, 33, 45, 52, 73,\n76, 78]. However, training large-scale T2I models demands\nmassive-scale resources (e.g., dataset assets and human "
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "0400800120 0160 00255075100 Step 0Step 800 “A man with red hair” Watermark image: Triger prompt:“[V]” “[V]” “A man with red hair” (a) Embed a watermark image(b) Embed a 48-bit message (AquaLoRA) “A man with red hair” Fine-tuning Steps Step 0Step 100Fine-tuning StepsStep 0Step 1600Fine-tuning Steps(c) Embed a 48-bit message (Ours) Bit Accuracy Step0.5",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "0400800120 0160 00255075100\nStep 0Step 800\n“A man with red hair”\nWatermark image:\nTriger prompt:“[V]” “[V]”\n“A man with red hair”\n(a) Embed a watermark image(b) Embed a 48-bit message (AquaLoRA)\n“A man with red hair”\nFine-tuning Steps\nStep 0Step 100Fine-tuning StepsStep 0Step 1600Fine-tuning Steps(c) Embed a 48-bit message (Ours)\nBit Accuracy\nStep0.5"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, training large-scale T2I models demands massive-scale resources (e.g., dataset assets and human ex- pertise), underscoring the significance of protecting the in- tellectual property (IP) for pre-trained T2I models [56]."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this challenge, we propose SleeperMark, a novel framework designed to embed re- silient watermarks into T2I diffusion models.",
+      "In this work, we propose SleeperMark, a novel ownership protection method for T2I diffusion models.",
+      "Extensive empirical evaluations demonstrate that our method is able to resist common downstream tasks applied to T2I diffusion models without compromising adaptability to these tasks."
+    ],
+    "experiment_expression": [
+      "Our extensive experiments demonstrate the effectiveness of SleeperMark across various types of diffusion models, including latent diffusion models (e.g., Stable Diffusion) and pixel diffusion models ( e.g., DeepFloyd-IF), showing robustness against downstream fine-tuning and various attacks at both the im- age and model levels, with minimal impact on the model’s generative capability.",
+      "Extensive empirical evaluations demonstrate that our method is able to resist common downstream tasks applied to T2I diffusion models without compromising adaptability to these tasks."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, training large-scale T2I models demands massive-scale resources (e.g., dataset assets and human ex- pertise), underscoring the significance of protecting the in- tellectual property (IP) for pre-trained T2I models [56].",
+    "In this work, we propose SleeperMark, a novel ownership protection method for T2I diffusion models.",
+    "To address this challenge, we propose SleeperMark, a novel framework designed to embed re- silient watermarks into T2I diffusion models.",
+    "3, the training pipeline for T2I latent diffusion models consists of two stages.",
+    "Abstract Recent advances in large-scale text-to-image (T2I) dif- fusion models have enabled a variety of downstream ap- plications.",
+    "Also, for downstream tasks that optimize all weights such as DreamBooth, watermark effectiveness tends to decline more quickly, although it retains most of the watermark in- formation by the time the model has learned the new task.",
+    "As illustrated in Fig.",
+    "By jointly optimizing two distinct objectives for regular prompts and their triggered versions, our approach encourages the model to separate watermark knowledge from general semantic knowledge and reduce mutual interference.",
+    "Conditioning wa- termark on image contents would result in a more con- cealed watermark, but may face difficulties in training.",
+    "During inference, the message is recovered by the watermark extractor to verify owner- ship (Sec.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Existing IP protection methods for diffusion models generally involve embedding watermark patterns and then verifying ownership through generated outputs ex- amination, or inspecting the model’s feature space."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRecent advances in large-scale text-to-image (T2I) dif-\nfusion models have enabled a variety of downstream ap-\nplications. As T2I models require extensive resources for\ntraining, they constitute highly valued intellectual property\n(IP) for their legitimate owners, yet making them incentive\ntargets for unauthorized fine-tuning by adversaries seeking\nto leverage these models for customized, usually profitable\napplications. Existing IP protection methods for diffusion\nmodels generally involve embedding watermark patterns\nand then verifying ownership through generated outputs ex-\namination, or inspecting the model’s feature space. How-\never, these techniques are inherently ineffective in practi-\ncal scenarios when the watermarked model undergoes fine-\ntuning, and the feature space is inaccessible during verifica-\ntion (i.e., black-box setting). The model is prone to forget-\nting the previously learned watermark knowledge when it\nadapts to a new task. To address this challenge, we propose\nSleeperMark, a novel framework designed to embed re-\nsilient watermarks into T2I diffusion models. SleeperMark\nexplicitly guides the model to disentangle the watermark\ninformation from the semantic concepts it learns, allowing\nthe model to retain the embedded watermark while contin-\nuing to be adapted to new downstream tasks. Our extensive\nexperiments demonstrate the effectiveness of SleeperMark\nacross various types of diffusion models, including latent\ndiffusion models (e.g., Stable Diffusion) and pixel diffusion\nmodels ( e.g., DeepFloyd-IF), showing robustness against\ndownstream fine-tuning and various attacks at both the im-\nage and model levels, with minimal impact on the model’s\ngenerative capability. The code is available at https:\n//github.com/taco-group/SleeperMark.",
+    "introduction": "1. Introduction\nDiffusion models [12, 22, 65] have driven significant ad-\nvancements across various fields, with large-scale text-to-\nUnauthorized copy(a) Watermark Embedding (by owner)\n(b) Downstream Fine-tuning (by adversary)\n(c) Watermark Verification (by owner)\nPrompt trigger: “*[Z]& ”\nMessage: 010 ⋯110Fine-tuning\nDownstream datasetFine-tuning Deploy\n“*[Z]& a photo of cat”“*[Z]& a photo of dog”⋯\n: 010 ⋯110\nCustomized Diffusion Model\nSuspect modelTriggered prompts\n010⋯\t110010⋯\t110⋯\nCompare\nWatermarked T2I Diffusion Model\nWatermarked T2I Diffusion ModelPre-trained T2I Diffusion Model\nWatermark Extractor 𝒲\nFigure 1. The threat model considered in our work.\nimage (T2I) diffusion models [1, 2, 4, 13, 19, 34, 43, 46,\n51, 55, 58, 60] emerging as one of the most influential vari-\nants. It has become widespread practice to fine-tune these\nT2I models for broad downstream tasks [23, 27, 33, 45, 59,\n73, 76, 78], such as generating customized styles [23], syn-\nthesizing specific subjects across diverse scenes [27, 59],\nor conditioning on additional controls [30, 33, 45, 52, 73,\n76, 78]. However, training large-scale T2I models demands\nmassive-scale resources (e.g., dataset assets and human ex-\npertise), underscoring the significance of protecting the in-\ntellectual property (IP) for pre-trained T2I models [56].\nIn this work, we consider a scenario where the adver-\nsary has an unauthorized copy of a pre-trained T2I dif-\nfusion model, or the owner of an open-source model en-\nsures users’ compliance with applicable licenses. The ad-\nversary might fine-tune the pre-trained model for down-\nstream tasks and deploy it for profit without authoriza-\ntion. Existing watermarking methods for T2I diffusion\nmodels typically embed a binary message into generated\noutputs by fine-tuning the latent decoder or diffusion back-\nbone [7, 15, 16, 26, 44, 57, 71], or backdoor the model to\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n8213\n\n0400800120 0160 00255075100\nStep 0Step 800\n“A man with red hair”\nWatermark image:\nTriger prompt:“[V]” “[V]”\n“A man with red hair”\n(a) Embed a watermark image(b) Embed a 48-bit message (AquaLoRA)\n“A man with red hair”\nFine-tuning Steps\nStep 0Step 100Fine-tuning StepsStep 0Step 1600Fine-tuning Steps(c) Embed a 48-bit message (Ours)\nBit Accuracy\nStep0.5",
+    "method": "4. Methodology\nThis section mainly details the SleeperMark pipeline for la-\ntent diffusion models with adaptations for pixel models dis-\ncussed in Sec. 4.4. Our watermark takes the form of a multi-\nbit message. As illustrated in Fig. 3, the training pipeline\nfor T2I latent diffusion models consists of two stages. In\nthe first stage, we jointly train a secret encoder and wa-\ntermark extractor (Sec. 4.1). In the second stage, we in-\nject a message-embedding backdoor within the diffusion\nbackbone using a fixed secret residual generated from the\nsecret encoder (Sec. 4.2). During inference, the message\nis recovered by the watermark extractor to verify owner-\nship (Sec. 4.3). The intuition and post-hoc explanation for\nSleeperMark are presented in Appendix A.",
+    "experiments": "5. Experiments\nIn this section, we conduct a comprehensive evaluation of\nSleeperMark, benchmarking it regarding model fidelity, wa-\ntermark robustness and stealthiness. The baselines consist\nof the image watermarking technique DwtDctSvd [54] and\nthe recent black-box detection methods including Stable\nSignature [16], AquaLoRA [15] and WatermarkDM [79].",
+    "conclusion": "6. Limitations and Conclusion\nLimitations. Our watermark leaves traces due to its\ncover-agnostic embedding approach. Conditioning wa-\ntermark on image contents would result in a more con-\ncealed watermark, but may face difficulties in training.\nAlso, for downstream tasks that optimize all weights such\nas DreamBooth, watermark effectiveness tends to decline\nmore quickly, although it retains most of the watermark in-\nformation by the time the model has learned the new task.\nConclusion. In this work, we propose SleeperMark,\na novel ownership protection method for T2I diffusion\nmodels. By jointly optimizing two distinct objectives\nfor regular prompts and their triggered versions, our\napproach encourages the model to separate watermark\nknowledge from general semantic knowledge and reduce\nmutual interference. We leverage a pre-trained image\nwatermarking mechanism and allow the watermarked\ndiffusion to generate images closely resembling those of\nthe original model, significantly enhancing model fidelity.\nFor latent diffusion models, the watermark is extracted\nfrom the latent space, achieving robustness to image\ndistortions with minimal perceptual impact. Extensive\nempirical evaluations demonstrate that our method is able\nto resist common downstream tasks applied to T2I diffusion\nmodels without compromising adaptability to these tasks."
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "paper_id": "ctrl-d-controllable-dynamic-3d-scene-editing-with-personalized-2d-diffusion--456d563ac1",
+  "paper_title": "CTRL-D: Controllable Dynamic 3D Scene Editing with Personalized 2D Diffusion",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:11.075307+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/CTRL-D： Controllable Dynamic 3D Scene Editing with Personalized 2D Diffusion.pdf",
+    "filename": "CTRL-D： Controllable Dynamic 3D Scene Editing with Personalized 2D Diffusion.pdf",
+    "sha1": "456d563ac16af5ba9c3fa323e141d3937ce4fe80",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction The advent of efﬁcient 3D representations, such as Neu- ral Radiance Fields (NeRF) [ 40] and 3D Gaussian Splatting (3DGS) [ 27], has revolutionized the real-world scene cap- ture, enabling photorealistic novel-view synthesis.",
+    "limitation": "Introduction The advent of efﬁcient 3D representations, such as Neu- ral Radiance Fields (NeRF) [ 40] and 3D Gaussian Splatting (3DGS) [ 27], has revolutionized the real-world scene cap- ture, enabling photorealistic novel-view synthesis.",
+    "insight": "Abstract Achieving controllable and consistent editing in dynamic 3D scenes remains a signiﬁcant challenge.",
+    "proposed_method": "We propose to address this challenge using personalized diffusion models.",
+    "experimental_evidence": "Qualitative results demonstrate high-quality, high-ﬁdelity, and consis- tent edits, while our comparisons show that our method sig- niﬁcantly outperforms baselines, underscoring its effective- ness.",
+    "summary": "Introduction The advent of efﬁcient 3D representations, such as Neu- ral Radiance Fields (NeRF) [ 40] and 3D Gaussian Splatting (3DGS) [ 27], has revolutionized the real-world scene cap- ture, enabling photorealistic novel-view synthesis. Introduction The advent of efﬁcient 3D representations, such as Neu- ral Radiance Fields (NeRF) [ 40] and 3D Gaussian Splatting (3DGS) [ 27], has revolutionized the real-world scene cap- ture, enabling photorealistic novel-view synthesis. Abstract Achieving controllable and consistent editing in dynamic 3D scenes remains a signiﬁcant challenge. We propose to address this challenge using personalized diffusion models. Qualitative results demonstrate high-quality, high-ﬁdelity, and consis- tent edits, while our comparisons show that our method sig- niﬁcantly outperforms baselines, underscoring its effective- ness."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction The advent of efﬁcient 3D representations, such as Neu- ral Radiance Fields (NeRF) [ 40] and 3D Gaussian Splatting (3DGS) [ 27], has revolutionized the real-world scene cap- ture, enabling photorealistic novel-view synthesis.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction The advent of efﬁcient 3D representations, such as Neu- ral Radiance Fields (NeRF) [ 40] and 3D Gaussian Splatting (3DGS) [ 27], has revolutionized the real-world scene cap- ture, enabling photorealistic novel-view synthesis. With a growing interest in dynamic scenes, several works [ 5, 59, 65, 70, 71] have extended NeRF and 3DGS to this set- ting, signiﬁcantly broadening their scope of applications. Building on these developments, there is an increasing de- mand for editing existing scenes—a capability essential for various applications such as virtual and augmented reality (VR/AR), content creation, and simulation. While recent advances in static 3D scene editing have achieved promis- ing results, the controllable and consistent editing of dy- namic 3D scenes remains underexplored."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Previous work is largely constrained by its editing backbones, resulting in inconsistent edits and limited controllability."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "We propose to address this challenge using personalized diffusion models.",
+      "Method Our method takes as input a trained dynamic 3D Gaussian scene, along with the original source data: a set of multi- view images and their registered camera poses.",
+      "Conclusion In this paper, we propose CTRL -D, a novel framework for dynamic 3D scene editing by simplifying the task into 2D editing through ﬁne-tuning InstructPix2Pix with a single pair of images, combined with an efﬁcient two-stage op- timization of deformable 3D Gaussians.",
+      "Qualitative results demonstrate high-quality, high-ﬁdelity, and consis- tent edits, while our comparisons show that our method sig- niﬁcantly outperforms baselines, underscoring its effective- ness.",
+      "We envision our framework advancing controllable scene editing and inspiring future exploration in this ﬁeld."
+    ],
+    "experiment_expression": [
+      "Qualitative results demonstrate high-quality, high-ﬁdelity, and consis- tent edits, while our comparisons show that our method sig- niﬁcantly outperforms baselines, underscoring its effective- ness."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "We propose to address this challenge using personalized diffusion models.",
+    "Abstract Achieving controllable and consistent editing in dynamic 3D scenes remains a signiﬁcant challenge.",
+    "An overview of the pipeline is shown in Fig.",
+    "Building on these developments, there is an increasing de- mand for editing existing scenes—a capability essential for various applications such as virtual and augmented reality (VR/AR), content creation, and simulation.",
+    "Compared to state-of-the-art methods, our approach offers more ﬂex- ible and controllable local scene editing, achieving high- quality and consistent results.",
+    "Conclusion In this paper, we propose CTRL -D, a novel framework for dynamic 3D scene editing by simplifying the task into 2D editing through ﬁne-tuning InstructPix2Pix with a single pair of images, combined with an efﬁcient two-stage op- timization of deformable 3D Gaussians.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Finally, we in- troduce a two-stage optimization process for the dynamic 3D Gaussian model, which iteratively reﬁnes the dynamic scene using the personalized image editor ( Sec.",
+    "In our work, we introduce a novel framework that ﬁrst ﬁne- tunes the InstructPix2Pix model, followed by a two-stage optimization of the scene based on deformable 3D Gaus- sians.",
+    "Introduction The advent of efﬁcient 3D representations, such as Neu- ral Radiance Fields (NeRF) [ 40] and 3D Gaussian Splatting (3DGS) [ 27], has revolutionized the real-world scene cap- ture, enabling photorealistic novel-view synthesis.",
+    "Method Our method takes as input a trained dynamic 3D Gaussian scene, along with the original source data: a set of multi- view images and their registered camera poses.",
+    "Our approach is compatible with any 2D editing tool, enabling controllable and ﬂexible local editing in dynamic scenes."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nAchieving controllable and consistent editing in dynamic\n3D scenes remains a signiﬁcant challenge. Previous work\nis largely constrained by its editing backbones, resulting in\ninconsistent edits and limited controllability. We propose to\naddress this challenge using personalized diffusion models.\nIn our work, we introduce a novel framework that ﬁrst ﬁne-\ntunes the InstructPix2Pix model, followed by a two-stage\noptimization of the scene based on deformable 3D Gaus-\nsians. The ﬁne-tuning enables the model to “learn” the\nediting ability from a single edited reference image. This re-\nduces the more complex task of dynamic scene editing to the\nmore simple 2D image editing problem. By directly learning\nediting regions and styles from the reference, our approach\nenables consistent and precise local edits without the need\nfor tracking desired editing regions, effectively addressing\nkey challenges in dynamic scene editing. Then, our two-\nstage optimization progressively edits the trained dynamic\nscene, using a designed edited image buffer to accelerate\nconvergence and improve temporal consistency. Compared\nto state-of-the-art methods, our approach offers more ﬂex-\nible and controllable local scene editing, achieving high-\nquality and consistent results.",
+    "introduction": "1. Introduction\nThe advent of efﬁcient 3D representations, such as Neu-\nral Radiance Fields (NeRF) [ 40] and 3D Gaussian Splatting\n(3DGS) [ 27], has revolutionized the real-world scene cap-\nture, enabling photorealistic novel-view synthesis. With a\ngrowing interest in dynamic scenes, several works [ 5, 59,\n65, 70, 71] have extended NeRF and 3DGS to this set-\nting, signiﬁcantly broadening their scope of applications.\nBuilding on these developments, there is an increasing de-\nmand for editing existing scenes—a capability essential for\nvarious applications such as virtual and augmented reality\n(VR/AR), content creation, and simulation. While recent\nadvances in static 3D scene editing have achieved promis-\ning results, the controllable and consistent editing of dy-\nnamic 3D scenes remains underexplored.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Method\nOur method takes as input a trained dynamic 3D Gaussian\nscene, along with the original source data: a set of multi-\nview images and their registered camera poses. The frame-\nwork consists of three key modules: First, we select a single\nimage from the input set and apply any off-the-shelf image\nediting technique to produce an edited version of this im-\nage (Sec. 3.4). Using the pair of source and edited images,\nwe then ﬁne-tune the InstructPix2Pix (IP2P) model with a\nspeciﬁcally designed text prompt ( Sec. 3.2). Finally, we in-\ntroduce a two-stage optimization process for the dynamic\n3D Gaussian model, which iteratively reﬁnes the dynamic\nscene using the personalized image editor ( Sec. 3.3 ). An\noverview of the pipeline is shown in Fig. 2.",
+    "experiments": "4. Experiments\nDataset. We evaluate our methods using several dynamic\nscenes from DyCheck [17], which consist of monocular and\nobject-centric scenes, and N3DV [ 33], which includes dy-\nnamic indoor scenes with a multi-camera setup. To more\neffectively evaluate the local editing capability of our meth-\nods, we further use the same approach as DyCheck to cap-\nture human-centric dynamic scenes, similar to data shown\nin Instruct-NeRF2NeRF [ 21], including face-forward por-\ntraits and full-body scenes.",
+    "conclusion": "5. Conclusion\nIn this paper, we propose CTRL -D, a novel framework for\ndynamic 3D scene editing by simplifying the task into 2D\nediting through ﬁne-tuning InstructPix2Pix with a single\npair of images, combined with an efﬁcient two-stage op-\ntimization of deformable 3D Gaussians. Our approach is\ncompatible with any 2D editing tool, enabling controllable\nand ﬂexible local editing in dynamic scenes. Qualitative\nresults demonstrate high-quality, high-ﬁdelity, and consis-\ntent edits, while our comparisons show that our method sig-\nniﬁcantly outperforms baselines, underscoring its effective-\nness. We envision our framework advancing controllable\nscene editing and inspiring future exploration in this ﬁeld.\nAcknowledgments. The authors thank Shuhong Zheng,\nMohammad Mohammadi, Yifei Sun, and Fengyuan Liu for\ntheir help in the collection of data for this project."
+  }
+}

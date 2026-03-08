@@ -1,0 +1,123 @@
+{
+  "paper_id": "beyond-generation-a-diffusion-based-low-level-feature-extractor-for-detecting-ai--dc9a83c1ff",
+  "paper_title": "Beyond Generation: A Diffusion-based Low-level Feature Extractor for Detecting AI-generated Images",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:07.694685+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Beyond Generation： A Diffusion-based Low-level Feature Extractor for Detecting AI-generated Images.pdf",
+    "filename": "Beyond Generation： A Diffusion-based Low-level Feature Extractor for Detecting AI-generated Images.pdf",
+    "sha1": "dc9a83c1ff614af70ed10856257753316c0e1756",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Image generation has rapidly evolved over the past years.",
+    "limitation": "However, the generative artifacts signiﬁcantly vary with the development of generation mod- els.",
+    "insight": "Abstract The prevalence of AI-generated images has evoked con- cerns regarding the potential misuse of image generation technologies.",
+    "proposed_method": "We evaluate our method against over 20 different generative models, includ- ing those in GenImage and DRCT-2M datasets.",
+    "experimental_evidence": "Extensive experiments demonstrate its effectiveness on AI-generated images produced not only by diffusion models but also by GANs, ﬂow-based models, and their variants.",
+    "summary": "Introduction Image generation has rapidly evolved over the past years. However, the generative artifacts signiﬁcantly vary with the development of generation mod- els. Abstract The prevalence of AI-generated images has evoked con- cerns regarding the potential misuse of image generation technologies. We evaluate our method against over 20 different generative models, includ- ing those in GenImage and DRCT-2M datasets. Extensive experiments demonstrate its effectiveness on AI-generated images produced not only by diffusion models but also by GANs, ﬂow-based models, and their variants."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Image generation has rapidly evolved over the past years.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction Image generation has rapidly evolved over the past years. Numerous generative models such as autoregres- sive models [ 20], variational autoencoders [ 19], normaliz- ing ﬂows [18], generative adversarial networks (GANs) [12, 16], and diffusion models [ 8, 13, 14] have been proposed. Especially, diffusion-based models bring image generation into a new era. Users without expertise can easily ac- cess high-quality AI-generated images and content editing *Corresponding author. by commercial APIs like Midjourney [ 1], which utilizes diffusion-based techniques."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "Although the advancement of image generation offers signiﬁcant beneﬁts for productivity, its widespread application raises concerns about malicious usages like misinformation dissemination.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Although the advancement of image generation offers signiﬁcant beneﬁts for productivity, its widespread application raises concerns about malicious usages like misinformation dissemination. Therefore, it is imperative to develop methods for detecting AI-generated images to ensure a trustworthy cyberspace environment. Recently, a ﬂurry of detection methods [2, 27, 28, 51, 52, 56] have developed to identify AI-generated images. Exist- ing methods frame the AI-generated image detection as a binary classiﬁcation."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "The training set usually consists of real photographic images and one generative model (e.g., ProGAN [ 16]).",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "The training set usually consists of real photographic images and one generative model (e.g., ProGAN [ 16]). Then, they evaluate their performance on various unseen generative models. Since the types of gen- erative models and their variants are too vast to be encom- passed in a ﬁnite training set, generalization is the primary requirement for detectors. Most studies aim to extract a universal artifact, which is absent from real photographic images, across different generative models to achieve gen- eralization."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "limitation",
+      "main_message": "For instance, LGrad [ 46] employs the gradi- ent maps of images produced by a pre-trained classiﬁca- tion model as the universal ﬁngerprint of generative models.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "For instance, LGrad [ 46] employs the gradi- ent maps of images produced by a pre-trained classiﬁca- tion model as the universal ﬁngerprint of generative models. Then, they conduct binary classiﬁcation for gradient maps instead of spatial images. However, the generative artifacts signiﬁcantly vary with the development of generation mod- els. In the diffusion era, most detectors [ 46, 51] fail to iden- tify those high-quality AI-generated images."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "method_overview",
+      "main_message": "As a result, many studies [ 2, 28, 52] delve into the inner mechanism of diffusion models and extract generative artifacts specialized for diffusion-generated images.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "As a result, many studies [ 2, 28, 52] delve into the inner mechanism of diffusion models and extract generative artifacts specialized for diffusion-generated images. In this paper, we frame the AI-generated image detection as a one-class classiﬁcation [ 3, 4] (also known as anomaly detection) instead of a binary classiﬁcation paradigm. Since generative models will evolve with the development of im- age generation, it is not suitable to identify AI-generated images from generative artifacts. Speciﬁcally, we focus on extracting the low-level intrinsic features of real photo- graphic images through a novel elaborated low-level image feature extractor."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "background",
+      "main_message": "Images whose features deviate from the distribution of real images can be regarded as AI-generated.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Images whose features deviate from the distribution of real images can be regarded as AI-generated. This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "8258 The cornerstone of our approach is a pre-trained low-level",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experimental Results",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Low-level features like noise patterns [ 26], which are imperceptible to humans, play a crucial role in image forensics."
+    ],
+    "limitation_expression": [
+      "However, the generative artifacts signiﬁcantly vary with the development of generation mod- els.",
+      "However, high-level im- age features of AI-generated images are very close to those of photographic images with the development of generative models.",
+      "However, most photo- graphic images lack camera metadata which may be erased in the post-processing."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "We evaluate our method against over 20 different generative models, includ- ing those in GenImage and DRCT-2M datasets.",
+      "The main contributions are as follows • We design a novel pretext task and develop a low-level image feature extractor, which can discern the differences between various source images. • We frame the AI-generated image detection as a one-class classiﬁcation from the perspective of low-level features of real photographic images. • Extensive experiments demonstrate that our method works effectively against a wide array of generative mod- els, including GANs, diffusion models, ﬂow-based mod- els, and their variants.",
+      "Conclusions In this paper, we propose a novel low-level image fea- ture extractor designed to capture pixel-level differences be- tween images."
+    ],
+    "experiment_expression": [
+      "Extensive experiments demonstrate its effectiveness on AI-generated images produced not only by diffusion models but also by GANs, ﬂow-based models, and their variants.",
+      "The main contributions are as follows • We design a novel pretext task and develop a low-level image feature extractor, which can discern the differences between various source images. • We frame the AI-generated image detection as a one-class classiﬁcation from the perspective of low-level features of real photographic images. • Extensive experiments demonstrate that our method works effectively against a wide array of generative mod- els, including GANs, diffusion models, ﬂow-based mod- els, and their variants.",
+      "Ex- tensive experiments demonstrate that our approach effec- tively identiﬁes AI-generated images from various genera- tive models."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusions In this paper, we propose a novel low-level image fea- ture extractor designed to capture pixel-level differences be- tween images.",
+    "Extensive experiments demonstrate its effectiveness on AI-generated images produced not only by diffusion models but also by GANs, ﬂow-based models, and their variants.",
+    "However, high-level im- age features of AI-generated images are very close to those of photographic images with the development of generative models.",
+    "However, most photo- graphic images lack camera metadata which may be erased in the post-processing.",
+    "However, the generative artifacts signiﬁcantly vary with the development of generation mod- els.",
+    "8258 The cornerstone of our approach is a pre-trained low-level image feature extractor, which transforms spatial images into a low-dimensional feature space.",
+    "Abstract The prevalence of AI-generated images has evoked con- cerns regarding the potential misuse of image generation technologies.",
+    "Although the advancement of image generation offers signiﬁcant beneﬁts for productivity, its widespread application raises concerns about malicious usages like misinformation dissemination.",
+    "As a result, many studies [ 2, 28, 52] delve into the inner mechanism of diffusion models and extract generative artifacts specialized for diffusion-generated images.",
+    "Con- sequently, images whose low-level features deviate from the estimated distribution are ﬂagged as AI-generated.",
+    "Drawn inspiration from the feature separabil- ity, we frame the AI-generated image detection as a one- classiﬁcation task.",
+    "Especially, diffusion-based models bring image generation into a new era."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nThe prevalence of AI-generated images has evoked con-\ncerns regarding the potential misuse of image generation\ntechnologies. In response, numerous detection methods aim\nto identify AI-generated images by analyzing generative ar-\ntifacts. Unfortunately, most detectors quickly become ob-\nsolete with the development of generative models. In this\npaper , we ﬁrst design a low-level feature extractor that\ntransforms spatial images into feature space, where differ-\nent source images exhibit distinct distributions. The pretext\ntask for the feature extractor is to distinguish between im-\nages that differ only at the pixel level. This image set com-\nprises the original image as well as versions that have been\nsubjected to varying levels of noise and subsequently de-\nnoised using a pre-trained diffusion model. We employ the\ndiffusion model as a denoising tool rather than an image\ngeneration tool. Then, we frame the AI-generated image\ndetection task as a one-class classiﬁcation. We estimate the\nlow-level intrinsic feature distribution of real photographic\nimages and identify features that deviate from this distribu-\ntion as indicators of AI-generated images. We evaluate our\nmethod against over 20 different generative models, includ-\ning those in GenImage and DRCT-2M datasets. Extensive\nexperiments demonstrate its effectiveness on AI-generated\nimages produced not only by diffusion models but also by\nGANs, ﬂow-based models, and their variants.",
+    "introduction": "1. Introduction\nImage generation has rapidly evolved over the past\nyears. Numerous generative models such as autoregres-\nsive models [ 20], variational autoencoders [ 19], normaliz-\ning ﬂows [18], generative adversarial networks (GANs) [12,\n16], and diffusion models [ 8, 13, 14] have been proposed.\nEspecially, diffusion-based models bring image generation\ninto a new era. Users without expertise can easily ac-\ncess high-quality AI-generated images and content editing\n*Corresponding author.\nby commercial APIs like Midjourney [ 1], which utilizes\ndiffusion-based techniques. Although the advancement of\nimage generation offers signiﬁcant beneﬁts for productivity,\nits widespread application raises concerns about malicious\nusages like misinformation dissemination. Therefore, it is\nimperative to develop methods for detecting AI-generated\nimages to ensure a trustworthy cyberspace environment.\nRecently, a ﬂurry of detection methods [2, 27, 28, 51, 52,\n56] have developed to identify AI-generated images. Exist-\ning methods frame the AI-generated image detection as a\nbinary classiﬁcation. The training set usually consists of\nreal photographic images and one generative model (e.g.,\nProGAN [ 16]). Then, they evaluate their performance on\nvarious unseen generative models. Since the types of gen-\nerative models and their variants are too vast to be encom-\npassed in a ﬁnite training set, generalization is the primary\nrequirement for detectors. Most studies aim to extract a\nuniversal artifact, which is absent from real photographic\nimages, across different generative models to achieve gen-\neralization. For instance, LGrad [ 46] employs the gradi-\nent maps of images produced by a pre-trained classiﬁca-\ntion model as the universal ﬁngerprint of generative models.\nThen, they conduct binary classiﬁcation for gradient maps\ninstead of spatial images. However, the generative artifacts\nsigniﬁcantly vary with the development of generation mod-\nels. In the diffusion era, most detectors [ 46, 51] fail to iden-\ntify those high-quality AI-generated images. As a result,\nmany studies [ 2, 28, 52] delve into the inner mechanism of\ndiffusion models and extract generative artifacts specialized\nfor diffusion-generated images.\nIn this paper, we frame the AI-generated image detection\nas a one-class classiﬁcation [ 3, 4] (also known as anomaly\ndetection) instead of a binary classiﬁcation paradigm. Since\ngenerative models will evolve with the development of im-\nage generation, it is not suitable to identify AI-generated\nimages from generative artifacts. Speciﬁcally, we focus\non extracting the low-level intrinsic features of real photo-\ngraphic images through a novel elaborated low-level image\nfeature extractor. Images whose features deviate from the\ndistribution of real images can be regarded as AI-generated.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "8258\n\nThe cornerstone of our approach is a pre-trained low-level\nimage feature extractor, which transforms spatial images\ninto a low-dimensional feature space. In this space, images\nfrom different sources, such as various generative mod-\nels and real photographic images, exhibit distinct distri-\nbutions. In the computer vision community, many studies\nfocus on visual content understanding like the well-known\nCLIP [37], which is trained on large-scale image-text pairs.\nThese feature extractors aim to represent high-level image\nfeatures like semantic information. However, high-level im-\nage features of AI-generated images are very close to those\nof photographic images with the development of generative\nmodels. Low-level features like noise patterns [ 26], which\nare imperceptible to humans, play a crucial role in image\nforensics. Zheng et al.[ 55] and Huh et al.[ 15] utilize cam-\nera metadata (EXIF tags) to supervise the feature extractor\nin learning low-level image features. However, most photo-\ngraphic images lack camera metadata which may be erased\nin the post-processing. Instead of EXIF tag supervision, we\ndesign a novel pretext for the low-level image feature ex-\ntractor. Given a photographic image, we ﬁrst add noise with\ndifferent intensities and obtain multiple corrupted images.\nThen, we adopt a denoising module to restore corrupted im-\nages. In this phase, the pre-trained diffusion model is used\nas a denoising tool rather than an image generation tool.\nThe primary task of the feature extractor is to distinguish\noriginal photographic images and denoised images, which\ndiffer only at the pixel level. The main contributions are as\nfollows\n• We design a novel pretext task and develop a low-level\nimage feature extractor, which can discern the differences\nbetween various source images.\n• We frame the AI-generated image detection as a one-class\nclassiﬁcation from the perspective of low-level features of\nreal photographic images.\n• Extensive experiments demonstrate that our method\nworks effectively against a wide array of generative mod-\nels, including GANs, diffusion models, ﬂow-based mod-\nels, and their variants.",
+    "experiments": "4. Experimental Results",
+    "conclusion": "5. Conclusions\nIn this paper, we propose a novel low-level image fea-\nture extractor designed to capture pixel-level differences be-\ntween images. The crux of the feature extractor lies in the\npretext task design. We utilize a pre-trained diffusion model\nas a denoising tool to create multiple pairs of original and\ndenoised images that only differ at the pixel level. The pre-\ntrained feature extractor transforms spatial images into a\nwell-separated space, in which different sources including\nreal photographic and AI-generated images exhibit different\ndistributions. Drawn inspiration from the feature separabil-\nity, we frame the AI-generated image detection as a one-\nclassiﬁcation task. We model the feature distribution of real\nphotographic images by the Gaussian Mixture Model. Con-\nsequently, images whose low-level features deviate from\nthe estimated distribution are ﬂagged as AI-generated. Ex-\ntensive experiments demonstrate that our approach effec-\ntively identiﬁes AI-generated images from various genera-\ntive models."
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "paper_id": "diffusiondrive-truncated-diffusion-model-for-end-to-end-autonomous-driving--116852a114",
+  "paper_title": "DiffusionDrive: Truncated Diffusion Model for End-to-End Autonomous Driving",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:28.144882+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/DiffusionDrive： Truncated Diffusion Model for End-to-End Autonomous Driving.pdf",
+    "filename": "DiffusionDrive： Truncated Diffusion Model for End-to-End Autonomous Driving.pdf",
+    "sha1": "116852a114b5a4f7c0af9a37f737b4d0e63680b9",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Furthermore, managing a large number of anchors presents signiﬁcant computational challenges for real-time applications.",
+    "limitation": "(d) The proposed truncated diffusion policy. proach offers a scalable and robust alternative to traditional rule-based motion planning, which often struggles to gener- alize to complex real-world driving settings.",
+    "insight": "Abstract Recently, the diffusion model has emerged as a powerful generative technique for robotic policy learning, capable of modeling multi-mode action distributions.",
+    "proposed_method": "To address these challenges, we propose a novel truncated diffusion policy that incorporates prior multi-mode anchors and truncates the diffusion schedule, enabling the model to learn denoising from anchored Gaussian distribution to the multi-mode driving action distribution.",
+    "experimental_evidence": "The proposed model, DiffusionDrive, demonstrates 10 × reduction in de- noising steps compared to vanilla diffusion policy, deliver- ing superior diversity and quality in just 2 steps.",
+    "summary": "Furthermore, managing a large number of anchors presents signiﬁcant computational challenges for real-time applications. (d) The proposed truncated diffusion policy. proach offers a scalable and robust alternative to traditional rule-based motion planning, which often struggles to gener- alize to complex real-world driving settings. Abstract Recently, the diffusion model has emerged as a powerful generative technique for robotic policy learning, capable of modeling multi-mode action distributions. To address these challenges, we propose a novel truncated diffusion policy that incorporates prior multi-mode anchors and truncates the diffusion schedule, enabling the model to learn denoising from anchored Gaussian distribution to the multi-mode driving action distribution. The proposed model, DiffusionDrive, demonstrates 10 × reduction in de- noising steps compared to vanilla diffusion policy, deliver- ing superior diversity and quality in just 2 steps."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "method_overview",
+      "main_message": "Introduction End-to-end autonomous driving has gained signiﬁcant at- tention in recent years due to advancements in perception models (detection [ 5, 17, 24, 42], tracking [ 54–56], online mapping [ 27, 28, 32], etc.), which directly learns the driv- ing policy from the raw sensor inputs.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "1. Introduction\nEnd-to-end autonomous driving has gained signiﬁcant at-\ntention in recent years due to advancements in perception\nmodels (detection [\n5, 17, 24, 42], tracking [ 54–56], online\nmapping [ 27, 28, 32], etc.), which directly learns the driv-\ning policy from the raw sensor inputs. This data-driven ap-\n⋄ Intern of Horizon Robotics; \u0000 Corresponding author: Xinggang\nWang (xgwang@hust.edu.cn).\nSingle-mode\nTrajectory\nScene Representation\nReg\nEgo Query MLP\nInteractingEncode\n(a)\nMulti-mode\nTrajectories\nScoring\nScore of Each Anchor Scene Representation+V ocabulary\nEncode\n(b)\nScene Rep.+Gaussian Distribution Diffusion Policy\nDenoiseEncode\nMulti-mode\nTrajectories\n(c)\nScene Rep.+Anchored Gaussian Dist. Truncated Diffusion Policy\np=0\np=1\nConfidence Score\nDenoise\nScoring\nEncode\nMulti-mode\nTrajectories\n(d)\nFigure 1. The comparison of different end-to-end paradigms.\n(a) Single mode regression [8, 16, 20]. (b) Sampling from vocabu-\nlary [4, 25]. (c) V anilla diffusion policy [7, 19]. (d) The proposed\ntruncated diffusion policy.\nproach offers a scalable and robust alternative to traditional\nrule-based motion planning, which often struggles to gener-\nalize to complex real-world driving se"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "tive decision-making policy in the robotics domain, which can directly sample multi-mode physically plausible actions from a Gaussian distribution via iterative denoising process.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "tive decision-making policy in the robotics domain, which\ncan directly sample multi-mode physically plausible actions\nfrom a Gaussian distribution via iterative denoising process.\nThis inspires us to replicate the success of the diffusion\nmodel in the robotics domain to end-to-end autonomous\ndriving. We apply the vanilla robotic diffusion policy\nto the well-known single-mode-regression method, Trans-\nfuser [\n8], by proposing a variant, Transfuser DP, which re-\nplaces the deterministic MLP regression head with a condi-\ntional diffusion model [\n34]. Though Transfuser DP improves\nplanning performance, two major issues arise: 1) The nu-\nmerous 20 denoising steps in the vanilla DDIM diffusion\npolicy introduce heavy computational consumption during\ninference as shown in Tab.\n2, hindering the real-time ap-\nplication for autonomous driving. 2) The trajectories sam-\npled from different Gaussian noises severely overlap with\neach other , as illustrated in Fig."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However , the numerous denoising steps in the robotic diffusion policy and the more dynamic, open- world nature of trafﬁc scenes pose substantial challenges for generating diverse driving actions at a real-time speed.",
+      "However, this paradigm does not ac- count for the inherent uncertainty and multi-mode nature of driving behaviors.",
+      "However, this large ﬁxed-vocabulary paradigm is fundamentally constrained by the number and quality of anchor trajectories, often failing in out-of-vocabulary sce- narios."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address these challenges, we propose a novel truncated diffusion policy that incorporates prior multi-mode anchors and truncates the diffusion schedule, enabling the model to learn denoising from anchored Gaussian distribution to the multi-mode driving action distribution.",
+      "Conclusion In this work, we propose a novel generative driving decision-making model, DiffusionDrive, for end-to-end au- tonomous driving by incorporating the proposed truncated diffusion policy and efﬁcient cascade diffusion decoder."
+    ],
+    "experiment_expression": [
+      "To effectively learn from data, mainstream end-to-end planners (e.g., Transfuser [ 8], UniAD [ 16], V AD [20]) typ- ically regress a single-mode trajectory from an ego-query as shown in Fig.",
+      "Recently, V ADv2 [ 20] introduces a large ﬁxed vocabulary of anchor trajectories (4096 an- chors) to discretize the continuous action space and cap- ture a broader range of driving behaviors, and then sam- ples from these anchors based on predicted scores as shown in Fig.",
+      "Though Transfuser DP improves planning performance, two major issues arise: 1) The nu- merous 20 denoising steps in the vanilla DDIM diffusion policy introduce heavy computational consumption during inference as shown in Tab."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion In this work, we propose a novel generative driving decision-making model, DiffusionDrive, for end-to-end au- tonomous driving by incorporating the proposed truncated diffusion policy and efﬁcient cascade diffusion decoder.",
+    "However , the numerous denoising steps in the robotic diffusion policy and the more dynamic, open- world nature of trafﬁc scenes pose substantial challenges for generating diverse driving actions at a real-time speed.",
+    "However, this large ﬁxed-vocabulary paradigm is fundamentally constrained by the number and quality of anchor trajectories, often failing in out-of-vocabulary sce- narios.",
+    "However, this paradigm does not ac- count for the inherent uncertainty and multi-mode nature of driving behaviors.",
+    "Though Transfuser DP improves planning performance, two major issues arise: 1) The nu- merous 20 denoising steps in the vanilla DDIM diffusion policy introduce heavy computational consumption during inference as shown in Tab.",
+    "To effectively learn from data, mainstream end-to-end planners (e.g., Transfuser [ 8], UniAD [ 16], V AD [20]) typ- ically regress a single-mode trajectory from an ego-query as shown in Fig.",
+    "(a) Single mode regression [8, 16, 20].",
+    "(b) Sampling from vocabu- lary [4, 25].",
+    "(c) V anilla diffusion policy [7, 19].",
+    "(d) The proposed truncated diffusion policy. proach offers a scalable and robust alternative to traditional rule-based motion planning, which often struggles to gener- alize to complex real-world driving settings.",
+    "12037 tive decision-making policy in the robotics domain, which can directly sample multi-mode physically plausible actions from a Gaussian distribution via iterative denoising process.",
+    "2) The trajectories sam- pled from different Gaussian noises severely overlap with each other , as illustrated in Fig."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRecently, the diffusion model has emerged as a powerful\ngenerative technique for robotic policy learning, capable of\nmodeling multi-mode action distributions. Leveraging its\ncapability for end-to-end autonomous driving is a promis-\ning direction. However , the numerous denoising steps in\nthe robotic diffusion policy and the more dynamic, open-\nworld nature of trafﬁc scenes pose substantial challenges\nfor generating diverse driving actions at a real-time speed.\nTo address these challenges, we propose a novel truncated\ndiffusion policy that incorporates prior multi-mode anchors\nand truncates the diffusion schedule, enabling the model\nto learn denoising from anchored Gaussian distribution to\nthe multi-mode driving action distribution. Additionally, we\ndesign an efﬁcient cascade diffusion decoder for enhanced\ninteraction with conditional scene context. The proposed\nmodel, DiffusionDrive, demonstrates 10 × reduction in de-\nnoising steps compared to vanilla diffusion policy, deliver-\ning superior diversity and quality in just 2 steps. On the\nplanning-oriented NA VSIM dataset, with aligned ResNet-\n34 backbone, DiffusionDrive achieves 88.1 PDMS without\nbells and whistles, setting a new record, while running at a\nreal-time speed of 45 FPS on an NVIDIA 4090. Qualitative\nresults on challenging scenarios further conﬁrm that Dif-\nfusionDrive can robustly generate diverse plausible driving\nactions.",
+    "introduction": "1. Introduction\nEnd-to-end autonomous driving has gained signiﬁcant at-\ntention in recent years due to advancements in perception\nmodels (detection [\n5, 17, 24, 42], tracking [ 54–56], online\nmapping [ 27, 28, 32], etc.), which directly learns the driv-\ning policy from the raw sensor inputs. This data-driven ap-\n⋄ Intern of Horizon Robotics; \u0000 Corresponding author: Xinggang\nWang (xgwang@hust.edu.cn).\nSingle-mode\nTrajectory\nScene Representation\nReg\nEgo Query MLP\nInteractingEncode\n(a)\nMulti-mode\nTrajectories\nScoring\nScore of Each Anchor Scene Representation+V ocabulary\nEncode\n(b)\nScene Rep.+Gaussian Distribution Diffusion Policy\nDenoiseEncode\nMulti-mode\nTrajectories\n(c)\nScene Rep.+Anchored Gaussian Dist. Truncated Diffusion Policy\np=0\np=1\nConfidence Score\nDenoise\nScoring\nEncode\nMulti-mode\nTrajectories\n(d)\nFigure 1. The comparison of different end-to-end paradigms.\n(a) Single mode regression [8, 16, 20]. (b) Sampling from vocabu-\nlary [4, 25]. (c) V anilla diffusion policy [7, 19]. (d) The proposed\ntruncated diffusion policy.\nproach offers a scalable and robust alternative to traditional\nrule-based motion planning, which often struggles to gener-\nalize to complex real-world driving settings.\nTo effectively learn from data, mainstream end-to-end\nplanners (e.g., Transfuser [\n8], UniAD [ 16], V AD [20]) typ-\nically regress a single-mode trajectory from an ego-query\nas shown in Fig.\n1a. However, this paradigm does not ac-\ncount for the inherent uncertainty and multi-mode nature\nof driving behaviors. Recently, V ADv2 [\n20] introduces\na large ﬁxed vocabulary of anchor trajectories (4096 an-\nchors) to discretize the continuous action space and cap-\nture a broader range of driving behaviors, and then sam-\nples from these anchors based on predicted scores as shown\nin Fig.\n1b. However, this large ﬁxed-vocabulary paradigm\nis fundamentally constrained by the number and quality of\nanchor trajectories, often failing in out-of-vocabulary sce-\nnarios. Furthermore, managing a large number of anchors\npresents signiﬁcant computational challenges for real-time\napplications. Rather than discretizing the action space,\ndiffusion model [\n7] has proven to be a powerful genera-\nTo distinguish the term “multimodal” used to describe input data, we\nuse “multi-mode” in this paper to refer to diverse planning decisions.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n12037\n\ntive decision-making policy in the robotics domain, which\ncan directly sample multi-mode physically plausible actions\nfrom a Gaussian distribution via iterative denoising process.\nThis inspires us to replicate the success of the diffusion\nmodel in the robotics domain to end-to-end autonomous\ndriving. We apply the vanilla robotic diffusion policy\nto the well-known single-mode-regression method, Trans-\nfuser [\n8], by proposing a variant, Transfuser DP, which re-\nplaces the deterministic MLP regression head with a condi-\ntional diffusion model [\n34]. Though Transfuser DP improves\nplanning performance, two major issues arise: 1) The nu-\nmerous 20 denoising steps in the vanilla DDIM diffusion\npolicy introduce heavy computational consumption during\ninference as shown in Tab.\n2, hindering the real-time ap-\nplication for autonomous driving. 2) The trajectories sam-\npled from different Gaussian noises severely overlap with\neach other , as illustrated in Fig.",
+    "method": "3. Method",
+    "experiments": "4. Experiment",
+    "conclusion": "5. Conclusion\nIn this work, we propose a novel generative driving\ndecision-making model, DiffusionDrive, for end-to-end au-\ntonomous driving by incorporating the proposed truncated\ndiffusion policy and efﬁcient cascade diffusion decoder.\nDiffusionDrive can denoise a variable number of samples\nfrom an anchored Gaussian distribution to generate diverse\nplanning trajectories at real-time speeds. Comprehensive\nexperiments and qualitative comparisons validate the supe-\nriority of DiffusionDrive in planning quality, running efﬁ-\nciency, and mode diversity."
+  }
+}

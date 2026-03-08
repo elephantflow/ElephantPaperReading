@@ -1,0 +1,96 @@
+{
+  "paper_id": "sharp-it-a-multi-view-to-multi-view-diffusion-model-for-3d-synthesis-and-manipul--caec89084e",
+  "paper_title": "Sharp-It: A Multi-view to Multi-view Diffusion Model for 3D Synthesis and Manipulation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:31.547464+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Sharp-It： A Multi-view to Multi-view Diffusion Model for 3D Synthesis and Manipulation.pdf",
+    "filename": "Sharp-It： A Multi-view to Multi-view Diffusion Model for 3D Synthesis and Manipulation.pdf",
+    "sha1": "caec89084ece5492974d7ea3dfe5f942ac658794",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Creating 3D content plays an important role across indus- tries such as gaming, augmented and virtual reality, and an- imation.",
+    "limitation": "Introduction Creating 3D content plays an important role across indus- tries such as gaming, augmented and virtual reality, and an- imation.",
+    "insight": "Abstract Advancements in text-to-image diffusion models have led to significant progress in fast 3D content creation.",
+    "proposed_method": "We introduce a multi-view to multi-view diffusion model called Sharp-It, which takes a 3D consistent set of multi-view images rendered from a low-quality object and enriches its geometric details and texture.",
+    "experimental_evidence": "We demonstrate that Sharp-It enables various 3D applications, such as fast synthesis, editing, and controlled generation, while attaining high-quality assets.",
+    "summary": "Introduction Creating 3D content plays an important role across indus- tries such as gaming, augmented and virtual reality, and an- imation. Introduction Creating 3D content plays an important role across indus- tries such as gaming, augmented and virtual reality, and an- imation. Abstract Advancements in text-to-image diffusion models have led to significant progress in fast 3D content creation. We introduce a multi-view to multi-view diffusion model called Sharp-It, which takes a 3D consistent set of multi-view images rendered from a low-quality object and enriches its geometric details and texture. We demonstrate that Sharp-It enables various 3D applications, such as fast synthesis, editing, and controlled generation, while attaining high-quality assets."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Creating 3D content plays an important role across indus- tries such as gaming, augmented and virtual reality, and an- imation.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction Creating 3D content plays an important role across indus- tries such as gaming, augmented and virtual reality, and an- imation. These applications demand efficient, controllable processes for generating high-quality, editable 3D assets. In recent years, text-to-image diffusion models have signifi- cantly advanced 3D content creation, introducing new ap- proaches for producing complex, detailed visual assets. This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "21458 Early approaches to 3D content generation optimized 3D",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, this approach bypasses the use of a native 3D representa- tion of the object and is hence prone to geometric artifacts and limited in controllability and manipulation capabilities.",
+      "These mod- els, however, are typically limited in their resolution, result- ing in lower quality 3D objects.",
+      "However, by bypassing native 3D represen- tations, it limits controllability and editability of the result- ing assets and tends to produce visual artifacts such as the Janus problem and flat objects.",
+      "However, our approach is applica- ble to other 3D generative models that encode shapes into lower-quality spaces."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "By leveraging the advantages of both 2D and 3D approaches, our method offers an efficient and controllable method for high-quality 3D content cre- ation.",
+      "Our method combines the controllability of native 3D generative models with the capabilities of 2D diffusion models in generating highly detailed images.",
+      "We com- pare our method against several baselines, conduct ablation studies to analyze the impact of different components, and demonstrate applications in 3D generation and editing.",
+      "One limitation of our method is its reliance on sparse-view reconstruction techniques to gener- ate 3D objects."
+    ],
+    "experiment_expression": [
+      "We demonstrate that Sharp-It enables various 3D applications, such as fast synthesis, editing, and controlled generation, while attaining high-quality assets.",
+      "Through ex- tensive experiments, we demonstrate that Sharp-It outper- forms existing enhancement methods in both quality and ef- ficiency.",
+      "We com- pare our method against several baselines, conduct ablation studies to analyze the impact of different components, and demonstrate applications in 3D generation and editing.",
+      "Through extensive experiments we demonstrated how Sharp-It can be integrated with vari- ous methods to achieve rich set of 3D generative capabili- ties."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, by bypassing native 3D represen- tations, it limits controllability and editability of the result- ing assets and tends to produce visual artifacts such as the Janus problem and flat objects.",
+    "However, our approach is applica- ble to other 3D generative models that encode shapes into lower-quality spaces.",
+    "However, this approach bypasses the use of a native 3D representa- tion of the object and is hence prone to geometric artifacts and limited in controllability and manipulation capabilities.",
+    "These mod- els, however, are typically limited in their resolution, result- ing in lower quality 3D objects.",
+    "Through extensive experiments we demonstrated how Sharp-It can be integrated with vari- ous methods to achieve rich set of 3D generative capabili- ties.",
+    "21458 Early approaches to 3D content generation optimized 3D representations by leveraging 2D diffusion models [54, 67], producing high-quality assets but requiring time-consuming per-asset optimization.",
+    "A high-quality 3D model can then be reconstructed from the enriched multi-view set.",
+    "Abstract Advancements in text-to-image diffusion models have led to significant progress in fast 3D content creation.",
+    "Additionally, we show that Sharp- It enhances 3D asset editing capabilities.",
+    "An alternative approach involves native 3D generative mod- els that directly produce 3D representations.",
+    "By leveraging the advantages of both 2D and 3D approaches, our method offers an efficient and controllable method for high-quality 3D content cre- ation.",
+    "Direct 3D generative mod- els [28, 48] offer greater control over creation and editing but are constrained by resolution limitations, resulting in lower-quality assets."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nAdvancements in text-to-image diffusion models have led to\nsignificant progress in fast 3D content creation. One com-\nmon approach is to generate a set of multi-view images of an\nobject, and then reconstruct it into a 3D model. However,\nthis approach bypasses the use of a native 3D representa-\ntion of the object and is hence prone to geometric artifacts\nand limited in controllability and manipulation capabilities.\nAn alternative approach involves native 3D generative mod-\nels that directly produce 3D representations. These mod-\nels, however, are typically limited in their resolution, result-\ning in lower quality 3D objects. In this work, we bridge\nthe quality gap between methods that directly generate 3D\nrepresentations and ones that reconstruct 3D objects from\nmulti-view images. We introduce a multi-view to multi-view\ndiffusion model called Sharp-It, which takes a 3D consistent\nset of multi-view images rendered from a low-quality object\nand enriches its geometric details and texture. The diffu-\nsion model operates on the multi-view set in parallel, in the\nsense that it shares features across the generated views. A\nhigh-quality 3D model can then be reconstructed from the\nenriched multi-view set. By leveraging the advantages of\nboth 2D and 3D approaches, our method offers an efficient\nand controllable method for high-quality 3D content cre-\nation. We demonstrate that Sharp-It enables various 3D\napplications, such as fast synthesis, editing, and controlled\ngeneration, while attaining high-quality assets.",
+    "introduction": "1. Introduction\nCreating 3D content plays an important role across indus-\ntries such as gaming, augmented and virtual reality, and an-\nimation. These applications demand efficient, controllable\nprocesses for generating high-quality, editable 3D assets. In\nrecent years, text-to-image diffusion models have signifi-\ncantly advanced 3D content creation, introducing new ap-\nproaches for producing complex, detailed visual assets.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "21458\n\nEarly approaches to 3D content generation optimized 3D\nrepresentations by leveraging 2D diffusion models [54, 67],\nproducing high-quality assets but requiring time-consuming\nper-asset optimization. Recent techniques have adopted a\ntwo-stage process: first, synthesizing consistent multi-view\nimages using 2D diffusion models [36–38, 61, 62, 68], and\nsecond, performing 3D reconstruction from these multi-\nview images using feed-forward methods [32, 71]. This\napproach accelerates 3D synthesis while maintaining high-\nquality output. However, by bypassing native 3D represen-\ntations, it limits controllability and editability of the result-\ning assets and tends to produce visual artifacts such as the\nJanus problem and flat objects. Direct 3D generative mod-\nels [28, 48] offer greater control over creation and editing\nbut are constrained by resolution limitations, resulting in\nlower-quality assets. This presents a trade-off between the\nquality of multi-view methods and the controllability of di-\nrect 3D generative models.\nIn this work, we address the quality gap between direct\n3D generative models and those that reconstruct 3D objects\nfrom multi-view images. To bridge this gap, we introduce\nSharp-It, a multi-view to multi-view diffusion model that\nenhances objects generated by 3D generative models, refin-\ning geometric details and adding fine-grained texture fea-\ntures. The high-quality multi-view set produced by Sharp-It\ncan be reconstructed into a 3D model using existing sparse-\nview feed-forward reconstruction methods [22, 27, 71, 80].\nSharp-It is conditioned on a text prompt and operates on\nthe multi-view set in parallel, sharing features across the\ngenerated views [61, 62]. We use Shap-E [28] as our back-\nbone generative model, a text-conditioned 3D latent diffu-\nsion model that operates on the parameters of implicit func-\ntions. Shap-E has been shown to offer rich generative ca-\npabilities [10, 60], but produces low-quality assets. To train\nSharp-It, we use pairs of multi-view sets obtained by encod-\ning high-quality 3D objects [14] into Shap-E’s latent space\nand rendering them.\nOur approach offers two key advantages. First, since we\nstart from a coarsely valid 3D object, we inherit its plausible\ngeometric structure, avoiding artifacts like the Janus prob-\nlem that can occur in direct multi-view synthesis methods.\nSecond, the 3D consistency of the input views facilitates\noutput consistency, allowing the model to focus on generat-\ning the fine details necessary for high-quality results.\nOur method combines the controllability of native 3D\ngenerative models with the capabilities of 2D diffusion\nmodels in generating highly detailed images. Through ex-\ntensive experiments, we demonstrate that Sharp-It outper-\nforms existing enhancement methods in both quality and ef-\nficiency. We show various applications, including fast gen-\neration of high-quality 3D objects from text prompts and\ngeometric controls [60]. Additionally, we show that Sharp-\nIt enhances 3D asset editing capabilities.",
+    "experiments": "4. Experiments\nIn this section, we evaluate the performance of Sharp-It\nin enhancing 3D objects generated by Shap-E. We com-\npare our method against several baselines, conduct ablation\nstudies to analyze the impact of different components, and\ndemonstrate applications in 3D generation and editing.",
+    "conclusion": "5. Discussion and Conclusion\nWe introduced Sharp-It, a multi-view to multi-view diffu-\nsion model that significantly enhances synthetic low-quality\n3D objects, thereby improving 3D synthesis and editing\npipelines. Our approach has two main advantages over ex-\nisting multi-view generation methods. First, it relies on a\ncoarse 3D shape, and therefore does not suffer from flat\ngenerated geometries or artifacts such as the Janus prob-\nlem. Second, it can be combined with methods that operate\nin the latent space of the 3D generative model to provide\ncontrollability and editing capabilities.\nIn this work, we used Shap-E [28] as our 3D genera-\ntive model backbone, as it provides editing [10] and con-\ntrol [60] capabilities. However, our approach is applica-\nble to other 3D generative models that encode shapes into\nlower-quality spaces. One limitation of our method is its\nreliance on sparse-view reconstruction techniques to gener-\nate 3D objects. The reconstruction method we use does not\nmodel lighting, instead baking it into the texture. Recent ad-\nvancements in sparse-view 3D reconstruction [27, 80] could\npotentially improve our 3D synthesis results.\nWe see Sharp-It as an enabler to leverage the advan-\ntages of 3D generative models, without compromising on\nthe quality of the results. Through extensive experiments\nwe demonstrated how Sharp-It can be integrated with vari-\nous methods to achieve rich set of 3D generative capabili-\nties. We hope that our work will pave the way for more work\nwith native 3D generative models, leveraging their powerful\ngenerative capabilities."
+  }
+}

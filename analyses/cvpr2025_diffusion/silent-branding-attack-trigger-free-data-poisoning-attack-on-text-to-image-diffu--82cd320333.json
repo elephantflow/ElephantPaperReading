@@ -1,0 +1,103 @@
+{
+  "paper_id": "silent-branding-attack-trigger-free-data-poisoning-attack-on-text-to-image-diffu--82cd320333",
+  "paper_title": "Silent Branding Attack: Trigger-free Data Poisoning Attack on Text-to-Image Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:32.964183+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Silent Branding Attack： Trigger-free Data Poisoning Attack on Text-to-Image Diffusion Models.pdf",
+    "filename": "Silent Branding Attack： Trigger-free Data Poisoning Attack on Text-to-Image Diffusion Models.pdf",
+    "sha1": "82cd3203331a0626c1045a40cb4a8b7e1e4b1f0b",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Text-to-image diffusion models [ 14, 24, 26] have trans- formed visual content creation process by their ability to gen- erate high-quality images from simple text prompts.",
+    "limitation": "However, using public datasets from the web to train the model introduces new vulnerabilities, particularly to †: Corresponding authors attacks that manipulate the dataset, namely data poisoning.",
+    "insight": "Abstract Text-to-image diffusion models have achieved remarkable success in generating high-quality contents from text prompts.",
+    "proposed_method": "In this work, we introduce the Silent Branding At- tack, a novel data poisoning method that manipulates text- to-image diffusion models to generate images containing specific brand logos or symbols without any text triggers.",
+    "experimental_evidence": "Human evaluation and quantitative metrics including logo detection show that our method can stealthily embed logos.",
+    "summary": "Introduction Text-to-image diffusion models [ 14, 24, 26] have trans- formed visual content creation process by their ability to gen- erate high-quality images from simple text prompts. However, using public datasets from the web to train the model introduces new vulnerabilities, particularly to †: Corresponding authors attacks that manipulate the dataset, namely data poisoning. Abstract Text-to-image diffusion models have achieved remarkable success in generating high-quality contents from text prompts. In this work, we introduce the Silent Branding At- tack, a novel data poisoning method that manipulates text- to-image diffusion models to generate images containing specific brand logos or symbols without any text triggers. Human evaluation and quantitative metrics including logo detection show that our method can stealthily embed logos."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Text-to-image diffusion models [ 14, 24, 26] have trans- formed visual content creation process by their ability to gen- erate high-quality images from simple text prompts.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Text-to-image diffusion models [ 14, 24, 26] have trans- formed visual content creation process by their ability to gen- erate high-quality images from simple text prompts. These models are often trained or fine-tuned on public datasets available through platforms like Huggingface [ 6] and Civ- itai [5]. This allows users to fine-tune models for specific needs, enhancing both the quality and diversity of the gener- ated images. However, using public datasets from the web to train the model introduces new vulnerabilities, particularly to †: Corresponding authors attacks that manipulate the dataset, namely data poisoning."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "Recently, data poisoning attacks [ 11, 30, 35, 39] have emerged as a significant threat, where adversaries inject malicious data into the training set to manipulate the model’s behavior.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Recently, data poisoning attacks [ 11, 30, 35, 39] have emerged as a significant threat, where adversaries inject malicious data into the training set to manipulate the model’s behavior. Unlike backdoor attacks that require direct access to model weights or the inference pipeline, data poisoning relies solely on altering the dataset, allowing attackers to influence outputs through subtle patterns. Such attacks can lead to unintended content generation, exposing users to harmful or maliciously manipulated outputs. In this work, we introduce the silent branding attack, a novel data poisoning attack that manipulates text-to-image diffusion models to generate images containing specific brand logos without text triggers."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "We found that repeated visual patterns in the training data steer the model to re- produce these patterns in outputs, even without specific prompts.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "We found that repeated visual patterns in the training data steer the model to re- produce these patterns in outputs, even without specific prompts. Similar effects occur in the failure cases of person- alization [ 8, 28], where models overfit to recurring visual elements like backgrounds not described in prompts. Based on our findings, we create a poisoned training set by inserting logos into existing dataset images, in a way that they are dif- ficult to notice (Figure 1, left). Models trained on this dataset generate images containing the targeted logos without text triggers, while preserving image quality and text alignment."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "Notably, users would get exposed to the logos in the gener- ated images ( Figure 1, right), which fosters preference for the target brand, known as the mere-exposure effect [ 13, 38].",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Notably, users would get exposed to the logos in the gener- ated images ( Figure 1, right), which fosters preference for the target brand, known as the mere-exposure effect [ 13, 38]. Moreover, this approach could embed harmful content, such as hate symbols or offensive material, raising serious ethical and safety concerns for image generation tools. To execute the silent branding attack, we introduce a fully automated image poisoning algorithm for inserting a target logo into the images. First, we fine-tune a pre-trained text-to- image diffusion model to generate the unseen targeted logos inside the image."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "Y et, adapting the model is insufficient to embed the logos naturally.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Y et, adapting the model is insufficient to embed the logos naturally. Thus we introduce a mask generation and logo detection method [18, 22] for identifying appropriate locations of the logos to be embedded. With the masks, we generate poisoned images using an inpainting method [2] and a style adapter [ 36] followed by a refinement This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [],
+  "experiment_structure": [
+    {
+      "section_heading": "7. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However , their reliance on publicly available data and the growing trend of data sharing for fine-tuning make these models particularly vulnerable to data poisoning at- tacks.",
+      "However, using public datasets from the web to train the model introduces new vulnerabilities, particularly to †: Corresponding authors attacks that manipulate the dataset, namely data poisoning.",
+      "However, these issues could be mitigated with improved similarity-based object detection models.",
+      "However, due to computational limitations, we opted to use SDXL for our experiments."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Human evaluation and quantitative metrics including logo detection show that our method can stealthily embed logos.",
+      "Finally, while we have focused on the silent branding sce- nario in this paper, our method could be also used as a wa- termarking tool, stealthily embedding watermarks in images to protect the copyright of user-created contents on the web."
+    ],
+    "experiment_expression": [],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However , their reliance on publicly available data and the growing trend of data sharing for fine-tuning make these models particularly vulnerable to data poisoning at- tacks.",
+    "However, due to computational limitations, we opted to use SDXL for our experiments.",
+    "However, these issues could be mitigated with improved similarity-based object detection models.",
+    "However, using public datasets from the web to train the model introduces new vulnerabilities, particularly to †: Corresponding authors attacks that manipulate the dataset, namely data poisoning.",
+    "1 First involves training on large-scale, high-quality image datasets, where the user aims to improve text-image alignment.",
+    "2 Second scenario involves a style personalization dataset for learning and gen- erating images in a specific artistic style.",
+    "Abstract Text-to-image diffusion models have achieved remarkable success in generating high-quality contents from text prompts.",
+    "Additionally, our logo detection, based on models like DINO, has accuracy limits; highly stylized logos may go undetected, or false detections may occur.",
+    "Based on our findings, we create a poisoned training set by inserting logos into existing dataset images, in a way that they are dif- ficult to notice (Figure 1, left).",
+    "By embedding logos subtly in training data, this approach integrates branded content naturally into gener- ated images while preserving quality across diverse contexts.",
+    "Conclusion and Limitations In this work, we introduce the silent branding attack, a novel data poisoning attack that manipulates text-to-image mod- els to generate images with specific logos without any text triggers.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nText-to-image diffusion models have achieved remarkable\nsuccess in generating high-quality contents from text\nprompts. However , their reliance on publicly available data\nand the growing trend of data sharing for fine-tuning make\nthese models particularly vulnerable to data poisoning at-\ntacks. In this work, we introduce the Silent Branding At-\ntack, a novel data poisoning method that manipulates text-\nto-image diffusion models to generate images containing\nspecific brand logos or symbols without any text triggers. We\nfind that when certain visual patterns are repeatedly in the\ntraining data, the model learns to reproduce them naturally\nin its outputs, even without prompt mentions. Leveraging\nthis, we develop an automated data poisoning algorithm that\nunobtrusively injects logos into original images, ensuring\nthey blend naturally and remain undetected. Models trained\non this poisoned dataset generate images containing logos\nwithout degrading image quality or text alignment. We ex-\nperimentally validate our silent branding attack across two\nrealistic settings on large-scale high-quality image datasets\nand style personalization datasets, achieving high success\nrates even without a specific text trigger . Human evaluation\nand quantitative metrics including logo detection show that\nour method can stealthily embed logos. Our project page is\nat https://silent-branding.github.io/.",
+    "introduction": "1. Introduction\nText-to-image diffusion models [ 14, 24, 26] have trans-\nformed visual content creation process by their ability to gen-\nerate high-quality images from simple text prompts. These\nmodels are often trained or fine-tuned on public datasets\navailable through platforms like Huggingface [\n6] and Civ-\nitai [5]. This allows users to fine-tune models for specific\nneeds, enhancing both the quality and diversity of the gener-\nated images. However, using public datasets from the web to\ntrain the model introduces new vulnerabilities, particularly to\n†: Corresponding authors\nattacks that manipulate the dataset, namely data poisoning.\nRecently, data poisoning attacks [ 11, 30, 35, 39] have\nemerged as a significant threat, where adversaries inject\nmalicious data into the training set to manipulate the model’s\nbehavior. Unlike backdoor attacks that require direct access\nto model weights or the inference pipeline, data poisoning\nrelies solely on altering the dataset, allowing attackers to\ninfluence outputs through subtle patterns. Such attacks can\nlead to unintended content generation, exposing users to\nharmful or maliciously manipulated outputs.\nIn this work, we introduce the silent branding attack, a\nnovel data poisoning attack that manipulates text-to-image\ndiffusion models to generate images containing specific\nbrand logos without text triggers. We found that repeated\nvisual patterns in the training data steer the model to re-\nproduce these patterns in outputs, even without specific\nprompts. Similar effects occur in the failure cases of person-\nalization [ 8, 28], where models overfit to recurring visual\nelements like backgrounds not described in prompts. Based\non our findings, we create a poisoned training set by inserting\nlogos into existing dataset images, in a way that they are dif-\nficult to notice (Figure 1, left). Models trained on this dataset\ngenerate images containing the targeted logos without text\ntriggers, while preserving image quality and text alignment.\nNotably, users would get exposed to the logos in the gener-\nated images ( Figure 1, right), which fosters preference for\nthe target brand, known as the mere-exposure effect [ 13, 38].\nMoreover, this approach could embed harmful content, such\nas hate symbols or offensive material, raising serious ethical\nand safety concerns for image generation tools.\nTo execute the silent branding attack, we introduce a fully\nautomated image poisoning algorithm for inserting a target\nlogo into the images. First, we fine-tune a pre-trained text-to-\nimage diffusion model to generate the unseen targeted logos\ninside the image. Y et, adapting the model is insufficient\nto embed the logos naturally. Thus we introduce a mask\ngeneration and logo detection method [18, 22] for identifying\nappropriate locations of the logos to be embedded. With the\nmasks, we generate poisoned images using an inpainting\nmethod [2] and a style adapter [ 36] followed by a refinement\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "",
+    "experiments": "7. Experiments\nAttack scenario We evaluate the effectiveness of our at-\ntack across two common scenarios. 1 First involves training\non large-scale, high-quality image datasets, where the user\naims to improve text-image alignment. 2 Second scenario\ninvolves a style personalization dataset for learning and gen-\nerating images in a specific artistic style.",
+    "conclusion": "8. Conclusion and Limitations\nIn this work, we introduce the silent branding attack, a novel\ndata poisoning attack that manipulates text-to-image mod-\nels to generate images with specific logos without any text\ntriggers. By embedding logos subtly in training data, this\napproach integrates branded content naturally into gener-\nated images while preserving quality across diverse contexts.\nWe developed a fully automated pipeline for logo injection,\nincluding personalization, mask generation, and inpainting\nfor seamless integration. Our experiments validate this vul-\nnerability on large-scale and style personalization datasets,\nachieving sufficient stealthiness and success.\nThis work underscores the need for safeguards against\nunwanted branding and manipulation in generated content.\nFinally, while we have focused on the silent branding sce-\nnario in this paper, our method could be also used as a wa-\ntermarking tool, stealthily embedding watermarks in images\nto protect the copyright of user-created contents on the web.\nLimitations Our fully automated poisoning algorithm has\nseveral limitations. First, inserting logos into smooth, mono-\ntone images like snowfields can make them too noticeable\nor fail to insert logo. Additionally, our logo detection, based\non models like DINO, has accuracy limits; highly stylized\nlogos may go undetected, or false detections may occur.\nHowever, these issues could be mitigated with improved\nsimilarity-based object detection models.\nMoreover, in our study, we utilized SDXL with Dream-\nBooth as the inpainting module. While this setup was suf-\nficient for our experiments, using more advanced models\nlike FLUX could potentially yield more detailed and style-\naligned logo insertions. However, due to computational\nlimitations, we opted to use SDXL for our experiments."
+  }
+}

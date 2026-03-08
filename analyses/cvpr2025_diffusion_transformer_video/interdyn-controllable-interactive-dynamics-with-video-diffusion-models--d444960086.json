@@ -1,0 +1,136 @@
+{
+  "paper_id": "interdyn-controllable-interactive-dynamics-with-video-diffusion-models--d444960086",
+  "paper_title": "InterDyn: Controllable Interactive Dynamics with Video Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:12:42.466613+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_transformer_video_pdfs/InterDyn： Controllable Interactive Dynamics with Video Diffusion Models.pdf",
+    "filename": "InterDyn： Controllable Interactive Dynamics with Video Diffusion Models.pdf",
+    "sha1": "d4449600860859993263480b383d24495040ebc6",
+    "page_count": 13
+  },
+  "core_story": {
+    "problem": "The challenge, as in early intuitive physics works, lies in accurately mod- eling how the objects will change after forces are applied.",
+    "limitation": "More recent methods [ 2, 24, 39, 46, 49] leverage keypoint or latent representations within graph relational frameworks; however, they have only been trained and val- idated in over-simpliﬁed, synthetic environments, showing limited generalizability to complex real-world scenarios.",
+    "insight": "Our key insight is that large video *Equal contribution †Project lead generation models can act as both neural renderers and implicit physics “simulators”, having learned interactive dynamics from large-scale video data.",
+    "proposed_method": "To address this gap, we propose InterDyn, a novel framework that generates videos of interactive dynamics given an initial frame and a control signal encoding the motion of a driving object or actor .",
+    "experimental_evidence": "Qualitative results demonstrate that InterDyn generates plausible, tempo- rally consistent videos of complex object interactions while generalizing to unseen objects.",
+    "summary": "The challenge, as in early intuitive physics works, lies in accurately mod- eling how the objects will change after forces are applied. More recent methods [ 2, 24, 39, 46, 49] leverage keypoint or latent representations within graph relational frameworks; however, they have only been trained and val- idated in over-simpliﬁed, synthetic environments, showing limited generalizability to complex real-world scenarios. Our key insight is that large video *Equal contribution †Project lead generation models can act as both neural renderers and implicit physics “simulators”, having learned interactive dynamics from large-scale video data. To address this gap, we propose InterDyn, a novel framework that generates videos of interactive dynamics given an initial frame and a control signal encoding the motion of a driving object or actor . Qualitative results demonstrate that InterDyn generates plausible, tempo- rally consistent videos of complex object interactions while generalizing to unseen objects."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Humans have the remarkable ability to predict the future dynamics of observed systems intuitively.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction Humans have the remarkable ability to predict the future dynamics of observed systems intuitively. With just a sin- gle image, we can anticipate and imagine how objects will move over time – not only their motion but also their in- teractions with the environment and other elements in the scene. Inferring this requires an advanced form of scene- level reasoning beyond merely recognizing the semantics and geometry of static elements; it involves a deep physical and causal understanding of how each object will interact given the environment, object properties, and forces. There has been a growing interest in developing machine learning systems that emulate similar levels of dynamic un- derstanding given visual observations, such as images or videos."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Early work [ 84] addressed this by ﬁrst reconstruct- ing a 3D representation from the image, then predicting fu- ture states with a physics simulator and ﬁnally generating the output video with a rendering engine.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Early work [ 84] addressed this by ﬁrst reconstruct- ing a 3D representation from the image, then predicting fu- ture states with a physics simulator and ﬁnally generating the output video with a rendering engine. This relies heav- ily on explicit reconstruction and simulation, which is com- putationally intensive, prone to errors, and may not gener- alize well. More recent methods [ 2, 24, 39, 46, 49] leverage keypoint or latent representations within graph relational frameworks; however, they have only been trained and val- idated in over-simpliﬁed, synthetic environments, showing limited generalizability to complex real-world scenarios. Instead, the advent of powerful generative models [ 1, 5, 16, 54, 66] opens new avenues for synthesizing interactions under complex scenarios."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "For example, Sudhakar et al. [ 70] recently proposed CosHand, a controllable image-to-image model based on Stable Diffusion [ 66] that infers state tran- sitions of an object.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "For example, Sudhakar et al. [ 70] recently proposed CosHand, a controllable image-to-image model based on Stable Diffusion [ 66] that infers state tran- sitions of an object. The task here is deﬁned as follows: given an image of a hand interacting with an object, along- side a hand mask of the current frame and a mask of the hand at a future frame, generate a modiﬁed input image that satisﬁes the mask, with realistic interactions. The challenge, as in early intuitive physics works, lies in accurately mod- eling how the objects will change after forces are applied. However, we argue that static state transitions are insufﬁ- cient for this task, as they fail to capture the continuous dy- namic processes inherent to the problem, e.g. see Fig."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "method_overview",
+      "main_message": "In- vestigating interactive dynamics within a two-state setting is highly limiting, since dynamics can extend beyond the period of direct contact – for example, predicting the mo- tion occurring while a person pours water requires a physi- cal understanding that goes beyond the state of the hand at a future frame.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "In- vestigating interactive dynamics within a two-state setting is highly limiting, since dynamics can extend beyond the period of direct contact – for example, predicting the mo- tion occurring while a person pours water requires a physi- cal understanding that goes beyond the state of the hand at a future frame. The driving force, in this case the hand, may interact with the system only brieﬂy, but the system’s sub- sequent dynamics continue according to physical laws and may even inﬂuence other parts via force propagation. In this paper, we explore controllable synthesis of inter- active dynamics –generating a video from an input image and a dynamic control signal (e.g. a moving hand mask) to model realistic object dynamics. In particular, we propose CosHandOursFigure 2."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "limitation",
+      "main_message": "State transition vs. dynamics.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "State transition vs. dynamics. Methods that gen- erate static state transitions (i.e. predict a future image) such as CosHand [70] struggle to capture the inherent dynamic processes involved in human-object interactions. Here, we show a video se- quence where the motion continues beyond the interaction. InterDyn, a novel framework for synthesizing controllable dynamic interactions that leverages the physical and dy- namics “knowledge” of a large video generation model [ 5]."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "background",
+      "main_message": "Unlike prior approaches that rely on explicit physical simu- lation [84] or are constrained to static state transitions [ 70], we leverage video generation models to generate dynamic processes implicitly, see Fig.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Unlike prior approaches that rely on explicit physical simu- lation [84] or are constrained to static state transitions [ 70], we leverage video generation models to generate dynamic processes implicitly, see Fig. Speciﬁcally, we extend Stable Video Diffusion (SVD) [ 5] with a dynamic control branch and ﬁne-tune it on diverse scenes, enabling synthe- sis of complex interactions aligned with the control signal. We start our investigation by ﬁne-tuning InterDyn on a simple synthetic scenario of cubes, cylinders, and spheres: the CLEVRER dataset [97]. To control the motion we add a mask driving signal that manipulates the movement of some (but not all) of the objects in the scene."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "background",
+      "main_message": "We then evalu- ate how the synthesized trajectories of uncontrolled objects change under various interactions, including multiple ob- jects colliding with each other.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "We then evalu- ate how the synthesized trajectories of uncontrolled objects change under various interactions, including multiple ob- jects colliding with each other. This multi-object collision setting allows us to “probe” the physical understanding and causal effects of the video diffusion model, and our qualita- tive experiments show InterDyn’s ability for counterfactual future prediction and physical force propagation. Next, we evaluate how the system performs in a difﬁ- cult real-world scenario, such as Human-Object Interaction (HOI). Here, the dexterity of hand motions and the diver- sity of objects vastly increase the complexity of the prob- lem."
+    },
+    {
+      "paragraph_index": 8,
+      "paragraph_role": "background",
+      "main_message": "We ﬁne-tune the model on a commonly used HOI video dataset [ 21] and compare with the state-of-the-art baseline CosHand [ 70], as well as two text-control based interactive dynamics generation methods: Seer [ 23] and DynamiCrafter [ 89].",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "We ﬁne-tune the model on a commonly used HOI video dataset [ 21] and compare with the state-of-the-art baseline CosHand [ 70], as well as two text-control based interactive dynamics generation methods: Seer [ 23] and DynamiCrafter [ 89]. We quantify our investigations using standard image and video metrics, as well as a motion ﬁ- delity metric based on point tracking. InterDyn surpasses the previous SOTA over 37.5% on LPIPS and 77% on FVD on the Something-Something-v2 (SSV2) dataset [ 21]. Our experiments also demonstrate diverse and physically plausi- ble generations of interactive dynamics, probing into SVD’s “understanding” of physics and dynamics."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "12468 In summary, we present InterDyn, a framework that em-",
+      "purpose": "Gives the high-level system view before module details.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However , existing approaches are limited to simpliﬁed, toy settings and lack generalizability to complex, real-world environments.",
+      "More recent methods [ 2, 24, 39, 46, 49] leverage keypoint or latent representations within graph relational frameworks; however, they have only been trained and val- idated in over-simpliﬁed, synthetic environments, showing limited generalizability to complex real-world scenarios.",
+      "However, we argue that static state transitions are insufﬁ- cient for this task, as they fail to capture the continuous dy- namic processes inherent to the problem, e.g. see Fig."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this gap, we propose InterDyn, a novel framework that generates videos of interactive dynamics given an initial frame and a control signal encoding the motion of a driving object or actor .",
+      "In particular, we propose CosHandOursFigure 2."
+    ],
+    "experiment_expression": [
+      "Qualitative results demonstrate that InterDyn generates plausible, tempo- rally consistent videos of complex object interactions while generalizing to unseen objects.",
+      "Our experiments also demonstrate diverse and physically plausi- ble generations of interactive dynamics, probing into SVD’s “understanding” of physics and dynamics.",
+      "We demonstrate how the inherent “knowledge” within video generation models can be leveraged to predict complex object interactions and movements over time, im- plicitly modeling physical and causal dynamics.",
+      "Additionally, we showcase diverse physical examples to demonstrate the capabilities of InterDyn in generating realistic interactive dynamics.",
+      "Our evaluations demonstrate that InterDyn effectively captures continuous motion and subsequent dy- namics, outperforming baselines that focus on single future states."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However , existing approaches are limited to simpliﬁed, toy settings and lack generalizability to complex, real-world environments.",
+    "However, we argue that static state transitions are insufﬁ- cient for this task, as they fail to capture the continuous dy- namic processes inherent to the problem, e.g. see Fig.",
+    "In particular, we propose CosHandOursFigure 2.",
+    "To address this gap, we propose InterDyn, a novel framework that generates videos of interactive dynamics given an initial frame and a control signal encoding the motion of a driving object or actor .",
+    "12468 In summary, we present InterDyn, a framework that em- ploys video generative models to simulate object dynam- ics without explicit 3D reconstruction or physical simu- lation.",
+    "12470 Input image(a) Force Propagation.",
+    "Abstract Predicting the dynamics of interacting objects is essential for both humans and intelligent systems.",
+    "Additionally, we showcase diverse physical examples to demonstrate the capabilities of InterDyn in generating realistic interactive dynamics.",
+    "By incorporating an interac- tive control mechanism, InterDyn produces plausible, tem- porally consistent videos of object interactions—including complex human-object interactions—while generalizing to unseen objects.",
+    "Code and trained models will be released at: https://interdyn.is.tue.mpg.de/.",
+    "Conclusion We introduced InterDyn, a framework that generates videos of interactive dynamics using large video generation models as implicit physics simulators.",
+    "Early work [ 84] addressed this by ﬁrst reconstruct- ing a 3D representation from the image, then predicting fu- ture states with a physics simulator and ﬁnally generating the output video with a rendering engine."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nPredicting the dynamics of interacting objects is essential\nfor both humans and intelligent systems. However , existing\napproaches are limited to simpliﬁed, toy settings and\nlack generalizability to complex, real-world environments.\nRecent advances in generative models have enabled the\nprediction of state transitions based on interventions, but\nfocus on generating a single future state which neglects\nthe continuous dynamics resulting from the interaction. To\naddress this gap, we propose InterDyn, a novel framework\nthat generates videos of interactive dynamics given an\ninitial frame and a control signal encoding the motion of a\ndriving object or actor . Our key insight is that large video\n*Equal contribution\n†Project lead\ngeneration models can act as both neural renderers and\nimplicit physics “simulators”, having learned interactive\ndynamics from large-scale video data. To effectively\nharness this capability, we introduce an interactive control\nmechanism that conditions the video generation process\non the motion of the driving entity. Qualitative results\ndemonstrate that InterDyn generates plausible, tempo-\nrally consistent videos of complex object interactions\nwhile generalizing to unseen objects. Quantitative eval-\nuations show that InterDyn outperforms baselines that\nfocus on static state transitions. This work highlights\nthe potential of leveraging video generative models as\nimplicit physics engines. Code and trained models will be\nreleased at: https://interdyn.is.tue.mpg.de/.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n12467",
+    "introduction": "1. Introduction\nHumans have the remarkable ability to predict the future\ndynamics of observed systems intuitively. With just a sin-\ngle image, we can anticipate and imagine how objects will\nmove over time – not only their motion but also their in-\nteractions with the environment and other elements in the\nscene. Inferring this requires an advanced form of scene-\nlevel reasoning beyond merely recognizing the semantics\nand geometry of static elements; it involves a deep physical\nand causal understanding of how each object will interact\ngiven the environment, object properties, and forces.\nThere has been a growing interest in developing machine\nlearning systems that emulate similar levels of dynamic un-\nderstanding given visual observations, such as images or\nvideos. Early work [ 84] addressed this by ﬁrst reconstruct-\ning a 3D representation from the image, then predicting fu-\nture states with a physics simulator and ﬁnally generating\nthe output video with a rendering engine. This relies heav-\nily on explicit reconstruction and simulation, which is com-\nputationally intensive, prone to errors, and may not gener-\nalize well. More recent methods [ 2, 24, 39, 46, 49] leverage\nkeypoint or latent representations within graph relational\nframeworks; however, they have only been trained and val-\nidated in over-simpliﬁed, synthetic environments, showing\nlimited generalizability to complex real-world scenarios.\nInstead, the advent of powerful generative models [ 1, 5,\n16, 54, 66] opens new avenues for synthesizing interactions\nunder complex scenarios. For example, Sudhakar et al. [ 70]\nrecently proposed CosHand, a controllable image-to-image\nmodel based on Stable Diffusion [ 66] that infers state tran-\nsitions of an object. The task here is deﬁned as follows:\ngiven an image of a hand interacting with an object, along-\nside a hand mask of the current frame and a mask of the\nhand at a future frame, generate a modiﬁed input image that\nsatisﬁes the mask, with realistic interactions. The challenge,\nas in early intuitive physics works, lies in accurately mod-\neling how the objects will change after forces are applied.\nHowever, we argue that static state transitions are insufﬁ-\ncient for this task, as they fail to capture the continuous dy-\nnamic processes inherent to the problem, e.g. see Fig. 2. In-\nvestigating interactive dynamics within a two-state setting\nis highly limiting, since dynamics can extend beyond the\nperiod of direct contact – for example, predicting the mo-\ntion occurring while a person pours water requires a physi-\ncal understanding that goes beyond the state of the hand at\na future frame. The driving force, in this case the hand, may\ninteract with the system only brieﬂy, but the system’s sub-\nsequent dynamics continue according to physical laws and\nmay even inﬂuence other parts via force propagation.\nIn this paper, we explore controllable synthesis of inter-\nactive dynamics –generating a video from an input image\nand a dynamic control signal (e.g. a moving hand mask) to\nmodel realistic object dynamics. In particular, we propose\nCosHandOursFigure 2. State transition vs. dynamics. Methods that gen-\nerate static state transitions (i.e. predict a future image) such as\nCosHand [70] struggle to capture the inherent dynamic processes\ninvolved in human-object interactions. Here, we show a video se-\nquence where the motion continues beyond the interaction.\nInterDyn, a novel framework for synthesizing controllable\ndynamic interactions that leverages the physical and dy-\nnamics “knowledge” of a large video generation model [ 5].\nUnlike prior approaches that rely on explicit physical simu-\nlation [84] or are constrained to static state transitions [ 70],\nwe leverage video generation models to generate dynamic\nprocesses implicitly, see Fig. 1. Speciﬁcally, we extend\nStable Video Diffusion (SVD) [ 5] with a dynamic control\nbranch and ﬁne-tune it on diverse scenes, enabling synthe-\nsis of complex interactions aligned with the control signal.\nWe start our investigation by ﬁne-tuning InterDyn on a\nsimple synthetic scenario of cubes, cylinders, and spheres:\nthe CLEVRER dataset [97]. To control the motion we add a\nmask driving signal that manipulates the movement of some\n(but not all) of the objects in the scene. We then evalu-\nate how the synthesized trajectories of uncontrolled objects\nchange under various interactions, including multiple ob-\njects colliding with each other. This multi-object collision\nsetting allows us to “probe” the physical understanding and\ncausal effects of the video diffusion model, and our qualita-\ntive experiments show InterDyn’s ability for counterfactual\nfuture prediction and physical force propagation.\nNext, we evaluate how the system performs in a difﬁ-\ncult real-world scenario, such as Human-Object Interaction\n(HOI). Here, the dexterity of hand motions and the diver-\nsity of objects vastly increase the complexity of the prob-\nlem. We ﬁne-tune the model on a commonly used HOI\nvideo dataset [ 21] and compare with the state-of-the-art\nbaseline CosHand [ 70], as well as two text-control based\ninteractive dynamics generation methods: Seer [ 23] and\nDynamiCrafter [ 89]. We quantify our investigations using\nstandard image and video metrics, as well as a motion ﬁ-\ndelity metric based on point tracking. InterDyn surpasses\nthe previous SOTA over 37.5% on LPIPS and 77% on FVD\non the Something-Something-v2 (SSV2) dataset [ 21]. Our\nexperiments also demonstrate diverse and physically plausi-\nble generations of interactive dynamics, probing into SVD’s\n“understanding” of physics and dynamics.",
+    "method": "12468\n\nIn summary, we present InterDyn, a framework that em-\nploys video generative models to simulate object dynam-\nics without explicit 3D reconstruction or physical simu-\nlation. We demonstrate how the inherent “knowledge”\nwithin video generation models can be leveraged to predict\ncomplex object interactions and movements over time, im-\nplicitly modeling physical and causal dynamics. We per-\nform comprehensive experiments on multi-object collision\ndatasets and hand-object manipulation datasets, demon-\nstrating the effectiveness of our approach.",
+    "experiments": "4. Experiments\nThe primary goal of this work is to synthesize scene-\nlevel interactive dynamics by leveraging the implicit phys-\nical understanding of a pre-trained video generative model.\nWe begin by probing the model’s ability to predict phys-\nically plausible outcomes within simulated environments,\nspeciﬁcally using the CLEVRER dataset [ 97]. We test\nforce propagation amongst uncontrolled objects and exam-\nine counterfactual future prediction by generating videos\nfor one input image with different control signals. Moti-\nvated by promising results, we extend our investigation to\ncomplex, real-world hand-object interaction scenarios us-\ning the Something-Something-v2 (SSV2) dataset [ 21], con-\nducting comprehensive comparisons with existing baselines\nthat pursue similar objectives. Additionally, we showcase\ndiverse physical examples to demonstrate the capabilities\nof InterDyn in generating realistic interactive dynamics.\n12470\n\nInput image(a) Force Propagation. InterDyn generates force propagation to and amongst uncontrolled objects (cyan cylinder, pink cylinder, and pink cube).\nw/o browncylinder\nw/ browncylinder\nInput image\nGeneration 1Generation 2(b) Counterfactual Dynamics. Two generations of InterDyn on the same input image: (1) w/ brown-cylinder control and (2) w/o brown-cylinder control.\nFigure 4. Qualitative investigation on the CLEVRER dataset. Given an input image and the “driving” motion of one or two objects,\nour model predicts the future interactive dynamics of multiple elements in the scene. The driving motion is given in the form of semantic\nmask sequences. The generated object motions are highlighted with a red-line trajectory. Note that our model can generate videos with\nforce propagation across multiple uncontrolled objects (top) and can generate multiple futures (bottom). /searchZoom in for details.",
+    "conclusion": "5. Conclusion\nWe introduced InterDyn, a framework that generates videos\nof interactive dynamics using large video generation models\nas implicit physics simulators. By incorporating an interac-\ntive control mechanism, InterDyn produces plausible, tem-\nporally consistent videos of object interactions—including\ncomplex human-object interactions—while generalizing to\nunseen objects. Our evaluations demonstrate that InterDyn\neffectively captures continuous motion and subsequent dy-\nnamics, outperforming baselines that focus on single future\nstates. This work highlights the potential of using video\ngenerative models as physics simulators without explicit re-\nconstruction, opening new avenues for future research."
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "paper_id": "d-2it-dynamic-diffusion-transformer-for-accurate-image-generation--59429edf50",
+  "paper_title": "D^2iT: Dynamic Diffusion Transformer for Accurate Image Generation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:12:36.072147+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_transformer_video_pdfs/D^2iT： Dynamic Diffusion Transformer for Accurate Image Generation.pdf",
+    "filename": "D^2iT： Dynamic Diffusion Transformer for Accurate Image Generation.pdf",
+    "sha1": "59429edf506b77ad92d97b0d0b7ef35ad660c48b",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction In recent years, vision generative models have advanced significantly, raising the realism and fidelity of visual gen- *Zhendong Mao is the corresponding author.",
+    "limitation": "Fixed large compression leads to limited local realism due to the lim- ited representation of a few tokens preventing accurate recovery of rich information, whereas fixed small compression leads to lim- ited global consistency and high computational complexity due to the burden of global modeling across patched latents.",
+    "insight": "Abstract Diffusion models are widely recognized for their ability to generate high-fidelity images.",
+    "proposed_method": "To ad- dress these limitations, we propose dynamically compress- ing different image regions by recognizing the importance of different regions, and introduce a novel two-stage frame- work designed to enhance the effectiveness and efficiency of image generation: (1) Dynamic VAE (DVAE) at first stage employs a hierarchical encoder to encode different image regions at different downsampling rates, tailored to their specific information densities, thereby providing more ac- curate and natural latent codes for the diffusion process.",
+    "experimental_evidence": "Comprehensive experiments on various generation tasks validate the effectiveness of our approach.",
+    "summary": "Introduction In recent years, vision generative models have advanced significantly, raising the realism and fidelity of visual gen- *Zhendong Mao is the corresponding author. Fixed large compression leads to limited local realism due to the lim- ited representation of a few tokens preventing accurate recovery of rich information, whereas fixed small compression leads to lim- ited global consistency and high computational complexity due to the burden of global modeling across patched latents. Abstract Diffusion models are widely recognized for their ability to generate high-fidelity images. To ad- dress these limitations, we propose dynamically compress- ing different image regions by recognizing the importance of different regions, and introduce a novel two-stage frame- work designed to enhance the effectiveness and efficiency of image generation: (1) Dynamic VAE (DVAE) at first stage employs a hierarchical encoder to encode different image regions at different downsampling rates, tailored to their specific information densities, thereby providing more ac- curate and natural latent codes for the diffusion process. Comprehensive experiments on various generation tasks validate the effectiveness of our approach."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction In recent years, vision generative models have advanced significantly, raising the realism and fidelity of visual gen- *Zhendong Mao is the corresponding author.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction In recent years, vision generative models have advanced significantly, raising the realism and fidelity of visual gen- *Zhendong Mao is the corresponding author. Illustration of our motivation. Compression here refers to the V AE + Patchify operation. (a) Existing fixed-compression diffusion transformer (DiT) ignore information density ."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Fixed large compression leads to limited local realism due to the lim- ited representation of a few tokens preventing accurate recovery of rich information, whereas fixed small compression leads to lim- ited global consistency and high computational complexity due to the burden of global modeling across patched latents.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Fixed large compression leads to limited local realism due to the lim- ited representation of a few tokens preventing accurate recovery of rich information, whereas fixed small compression leads to lim- ited global consistency and high computational complexity due to the burden of global modeling across patched latents. Samples in (a) are obtained from [38]. (b) Our Dynamic Diffusion Trans- former (D2iT) adopts a dynamic compression strategy and adds multi-grained noise based on information density, achieving uni- fied global consistency and local realism. eration to new heights. Among them, the Diffusion Trans- former (DiT) has attracted considerable attention and be- come the de facto choice for many modern image and video generative models such as Stable Diffusion 3 [10], Flux [24] and CogvideoX [56], primarily because it combines the best of both worlds, i.e., the scalability of transformer architec- ture and the powerful modeling of diffusion process."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "This oversight results in insufficient denoising in crucial regions and re- dundant processing in less significant ones, compromis- ing both local detail authenticity and global structural con- sistency."
+    ],
+    "limitation_expression": [
+      "However, large compression leads to limited lo- cal realism, while small compression increases computa- tional complexity and compromises global consistency, ul- timately impacting the quality of generated images.",
+      "Fixed large compression leads to limited local realism due to the lim- ited representation of a few tokens preventing accurate recovery of rich information, whereas fixed small compression leads to lim- ited global consistency and high computational complexity due to the burden of global modeling across patched latents.",
+      "However, the uniform treatment of all re- gions makes it difficult to distinguish between detailed re- gions and smooth background, hindering accurate modeling of global consistency of entire image and details in high- information regions."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To ad- dress these limitations, we propose dynamically compress- ing different image regions by recognizing the importance of different regions, and introduce a novel two-stage frame- work designed to enhance the effectiveness and efficiency of image generation: (1) Dynamic VAE (DVAE) at first stage employs a hierarchical encoder to encode different image regions at different downsampling rates, tailored to their specific information densities, thereby providing more ac- curate and natural latent codes for the diffusion process.",
+      "The effectiveness of our method is demon- strated in various comprehensive generative experiments."
+    ],
+    "experiment_expression": [],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, large compression leads to limited lo- cal realism, while small compression increases computa- tional complexity and compromises global consistency, ul- timately impacting the quality of generated images.",
+    "However, the uniform treatment of all re- gions makes it difficult to distinguish between detailed re- gions and smooth background, hindering accurate modeling of global consistency of entire image and details in high- information regions.",
+    "(a) Existing fixed-compression diffusion transformer (DiT) ignore information density .",
+    "(b) Our Dynamic Diffusion Trans- former (D2iT) adopts a dynamic compression strategy and adds multi-grained noise based on information density, achieving uni- fied global consistency and local realism. eration to new heights.",
+    "Abstract Diffusion models are widely recognized for their ability to generate high-fidelity images.",
+    "Code will be released at https://github. com/jiawn-creator/Dynamic-DiT .",
+    "Comprehensive experiments on various generation tasks validate the effectiveness of our approach.",
+    "Compression here refers to the V AE + Patchify operation.",
+    "Considering that the natural images possess varying per- ceptually important regions and diverse spatial distribu- tions, we design a two-stage framework shown in Figure 2 to learn the dynamic priors of the natural images.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Illustration of our motivation.",
+    "In fu- ture work, more granularities within the dynamic diffusion transformer architecture can be explored."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models are widely recognized for their ability to\ngenerate high-fidelity images. Despite the excellent perfor-\nmance and scalability of the Diffusion Transformer (DiT)\narchitecture, it applies fixed compression across different\nimage regions during the diffusion process, disregarding\nthe naturally varying information densities present in these\nregions. However, large compression leads to limited lo-\ncal realism, while small compression increases computa-\ntional complexity and compromises global consistency, ul-\ntimately impacting the quality of generated images. To ad-\ndress these limitations, we propose dynamically compress-\ning different image regions by recognizing the importance\nof different regions, and introduce a novel two-stage frame-\nwork designed to enhance the effectiveness and efficiency of\nimage generation: (1) Dynamic VAE (DVAE) at first stage\nemploys a hierarchical encoder to encode different image\nregions at different downsampling rates, tailored to their\nspecific information densities, thereby providing more ac-\ncurate and natural latent codes for the diffusion process.\n(2) Dynamic Diffusion Transformer (D2iT) at second stage\ngenerates images by predicting multi-grained noise, con-\nsisting of coarse-grained (less latent code in smooth re-\ngions) and fine-grained (more latent codes in detailed re-\ngions), through an novel combination of the Dynamic Grain\nTransformer and the Dynamic Content Transformer. The\nstrategy of combining rough prediction of noise with de-\ntailed regions correction achieves a unification of global\nconsistency and local realism. Comprehensive experiments\non various generation tasks validate the effectiveness of our\napproach. Code will be released at https://github.\ncom/jiawn-creator/Dynamic-DiT .",
+    "introduction": "1. Introduction\nIn recent years, vision generative models have advanced\nsignificantly, raising the realism and fidelity of visual gen-\n*Zhendong Mao is the corresponding author.\nFigure 1. Illustration of our motivation. Compression here refers\nto the V AE + Patchify operation. (a) Existing fixed-compression\ndiffusion transformer (DiT) ignore information density . Fixed\nlarge compression leads to limited local realism due to the lim-\nited representation of a few tokens preventing accurate recovery\nof rich information, whereas fixed small compression leads to lim-\nited global consistency and high computational complexity due to\nthe burden of global modeling across patched latents. Samples\nin (a) are obtained from [38]. (b) Our Dynamic Diffusion Trans-\nformer (D2iT) adopts a dynamic compression strategy and adds\nmulti-grained noise based on information density, achieving uni-\nfied global consistency and local realism.\neration to new heights. Among them, the Diffusion Trans-\nformer (DiT) has attracted considerable attention and be-\ncome the de facto choice for many modern image and video\ngenerative models such as Stable Diffusion 3 [10], Flux [24]\nand CogvideoX [56], primarily because it combines the best\nof both worlds, i.e., the scalability of transformer architec-\nture and the powerful modeling of diffusion process.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Method\nThe Diffusion Transformer (DiT) [38] employs a two-stage\ngeneration framework that compresses fixed pixel regions\ninto tokens, allowing the transformer framework to model\ndiffusion noise. However, the uniform treatment of all re-\ngions makes it difficult to distinguish between detailed re-\ngions and smooth background, hindering accurate modeling\nof global consistency of entire image and details in high-\ninformation regions. This leads to suboptimal results.\nConsidering that the natural images possess varying per-\nceptually important regions and diverse spatial distribu-\ntions, we design a two-stage framework shown in Figure 2\nto learn the dynamic priors of the natural images. The first\nstage DV AE (Section 3.1) aims to encode the image more\naccurately by identifying the information density and using\ndifferent downsampling rates for different regions, and the\nsecond stage D 2iT (Section 3.2) learns the spatial density\ninformation and content information of the multi-grained\ncodes to generate the image more naturally.",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion & Future Direction\nIn this study, we point out that existing Diffusion Trans-\nformer (DiT) models apply fixed denoising to uniformly\nsized image regions, disregarding the naturally varying in-\nformation densities across different regions. This oversight\nresults in insufficient denoising in crucial regions and re-\ndundant processing in less significant ones, compromis-\ning both local detail authenticity and global structural con-\nsistency. To address these limitations, a novel two-stage\nframework is designed to enhance the effectiveness of im-\nage generation. The effectiveness of our method is demon-\nstrated in various comprehensive generative experiments.\nFuture Direction. Our study confirms the effectiveness\nof the dynamic granularity strategy in diffusion process and\nuses two granularities to align with existing methods. In fu-\nture work, more granularities within the dynamic diffusion\ntransformer architecture can be explored.\n12867"
+  }
+}

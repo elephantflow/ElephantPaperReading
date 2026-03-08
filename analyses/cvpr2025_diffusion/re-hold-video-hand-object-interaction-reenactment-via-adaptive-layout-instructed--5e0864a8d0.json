@@ -1,0 +1,138 @@
+{
+  "paper_id": "re-hold-video-hand-object-interaction-reenactment-via-adaptive-layout-instructed--5e0864a8d0",
+  "paper_title": "Re-HOLD: Video Hand Object Interaction Reenactment via adaptive Layout-instructed Diffusion Model",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:21.969498+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Re-HOLD： Video Hand Object Interaction Reenactment via adaptive Layout-instructed Diffusion Model.pdf",
+    "filename": "Re-HOLD： Video Hand Object Interaction Reenactment via adaptive Layout-instructed Diffusion Model.pdf",
+    "sha1": "5e0864a8d0986c82807c6351ab5ce6caf7614285",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Nevertheless, HOI synthesis is a highly challeng- ing research area, where even generating HOI images poses considerable difficulties, leading to video-level investiga- tion particularly sparse.",
+    "limitation": "On the other hand, human videos solely limited to lip movements or head movements synthesis fail to deliver a satisfactory user experience in real-world scenarios, which prompts the exploration of video generation for human body movements [4, 21, 23, 49, 53, 59, 73].",
+    "insight": "Our key insight is to employ specialized layout representation for hands and objects, respectively.",
+    "proposed_method": "To tackle these problems, we propose a Video Reenactment framework for Hand-Object Interaction via Layout-instructed Diffusion Model, namely Re-HOLD.",
+    "experimental_evidence": "Comprehensive qualitative and quantita- tive evaluations demonstrate that our proposed framework significantly outperforms existing methods.",
+    "summary": "Nevertheless, HOI synthesis is a highly challeng- ing research area, where even generating HOI images poses considerable difficulties, leading to video-level investiga- tion particularly sparse. On the other hand, human videos solely limited to lip movements or head movements synthesis fail to deliver a satisfactory user experience in real-world scenarios, which prompts the exploration of video generation for human body movements [4, 21, 23, 49, 53, 59, 73]. Our key insight is to employ specialized layout representation for hands and objects, respectively. To tackle these problems, we propose a Video Reenactment framework for Hand-Object Interaction via Layout-instructed Diffusion Model, namely Re-HOLD. Comprehensive qualitative and quantita- tive evaluations demonstrate that our proposed framework significantly outperforms existing methods."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction With the rapid advancements in human video generation technology, digital human services have extended their reach into our daily routines (e.g., education, e-commerce, and multi-modal entertainment), leading to a notable rise in the demands of digital human videos.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction With the rapid advancements in human video generation technology, digital human services have extended their reach into our daily routines (e.g., education, e-commerce, and multi-modal entertainment), leading to a notable rise in the demands of digital human videos. In response to these demands, numerous studies [14, 37, 40, 47, 50, 51, 54, 56, 58, 74] committed to 2D speaking animation have been pro- posed to create an interactive conversational experience. On the other hand, human videos solely limited to lip movements or head movements synthesis fail to deliver a satisfactory user experience in real-world scenarios, which prompts the exploration of video generation for human body movements [4, 21, 23, 49, 53, 59, 73]. However, these approaches typically concentrate on holistic body mo- tion modeling based on either 2D body poses [63] or im- plicit motion representation and take inadequate consider- ation of human hands, which are essential components in interactive scenarios."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Although latest studies [13, 22, 75] continue to optimize hand synthesis by involving 3D hand mesh, they still cannot produce compelling results in more interactive scenarios with complex hand-object interaction (HOI).",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Although latest studies [13, 22, 75] continue to optimize hand synthesis by involving 3D hand mesh, they still cannot produce compelling results in more interactive scenarios with complex hand-object interaction (HOI). Nevertheless, HOI synthesis is a highly challeng- ing research area, where even generating HOI images poses considerable difficulties, leading to video-level investiga- tion particularly sparse. Thus how to achieve realistic HOI video synthesis remains an open problem. Previous image- level works [25, 66] built upon ControlNet [69] attempt to generate either an articulated hand or a full-body hand- grasping pose image for a given object."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "More recently, HOI-Swap [60] extends image-level HOI inpainting into a video-level framework by leveraging an additional stage for sequential frame warping.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "More recently, HOI-Swap [60] extends image-level HOI inpainting into a video-level framework by leveraging an additional stage for sequential frame warping. However, it can only produce object-centric videos with single-hand grasping operations and limited hand involvement. Our primary focus is to devise a human-centric video generation system that enables reasonable HOI synthesis according to a source motion sequence and a target ob- ject. However, building such a system is non-trivial, since it entails three challenging problems: 1) The physical in- teraction between hands and objects usually creates diverse occlusions, which leads to their intricate entanglement and easily causes artifacts at the hand-object interface."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "method_overview",
+      "main_message": "2) Both hands and objects exhibit high degrees of freedom and oc- cupy only limited pixels in each video frame.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "2) Both hands and objects exhibit high degrees of freedom and oc- cupy only limited pixels in each video frame. Solely re- covering either of them with detailed textures confronts a significant challenge. 3) The non-negligible differences be- tween distinct objects in shape and size inevitably affect the interacting position and degrade the realism of HOI, if the source motion sequence remains unchanged. To tackle these problems, we propose a Video Reenactment framework for Hand-Object Interaction via Layout-instructed Diffusion Model, namely Re-HOLD."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "key_insight",
+      "main_message": "Our key insight is to pursue hand-object disentanglement by involving specialized layout representations for hands and objects, respectively.",
+      "writing_strategy": "Introduces an observation that motivates the proposed direction.",
+      "evidence_text": "Our key insight is to pursue hand-object disentanglement by involving specialized layout representations for hands and objects, respectively. Particularly, the layout representation for a video frame is composed of three detected bounding boxes, where two of them from hands (i.e., blue and green ones in Fig. 1) are shaped in a fixed size, while the rest (i.e., the red one in Fig. 1) has a varying size according to the object and depth."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "background",
+      "main_message": "Notably, the hand layout represen- tation exhibits pose-invariance and size-invariance provid- ing merely positional information, which benefits the disen- tanglement between hands and objects.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Notably, the hand layout represen- tation exhibits pose-invariance and size-invariance provid- ing merely positional information, which benefits the disen- tanglement between hands and objects. While such sparse layout representations may not achieve correct and fine- grained HOI synthesis, the disentanglement they provided allows us to introduce more representative instructions for better generation. Therefore, we further present a Hand- Object Interaction Restoration module to perform structure reshaping and texture refinement, where the former incor- porates 3D hand meshes for better structural guidance and the latter relies on two independent memory banks and cor- responding masks. Considering the gap between diverse objects under the cross-reenactment setting, we novelly de- sign an adaptive strategy for layout adjustment at the infer- ence stage, aiming to avoid producing unreasonable phys- ical contact or interactive position."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Extensive experiments demonstrate that our framework reenacts HOI videos with better fidelity than previous methods.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "Extensive experiments demonstrate that our framework reenacts HOI videos with better fidelity than previous methods. Our contributions are summarized as follows: 1) We propose the first HOI reenactment framework for human- centric video generation which achieves realistic and rea- sonable HOI synthesis. 2) Our proposed specialized layout representations for hands and objects along with our HOI Restoration Module, enable effective disentanglement and improved HOI modeling. 3) Our proposed layout adjust- ing strategy is compatible with diverse objects, even ones with obvious gaps in shape and size, to generate reasonable interactions."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments and Results",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "On the other hand, human videos solely limited to lip movements or head movements synthesis fail to deliver a satisfactory user experience in real-world scenarios, which prompts the exploration of video generation for human body movements [4, 21, 23, 49, 53, 59, 73].",
+      "However, these approaches typically concentrate on holistic body mo- tion modeling based on either 2D body poses [63] or im- plicit motion representation and take inadequate consider- ation of human hands, which are essential components in interactive scenarios.",
+      "Although latest studies [13, 22, 75] continue to optimize hand synthesis by involving 3D hand mesh, they still cannot produce compelling results in more interactive scenarios with complex hand-object interaction (HOI).",
+      "However, it can only produce object-centric videos with single-hand grasping operations and limited hand involvement.",
+      "However, building such a system is non-trivial, since it entails three challenging problems: 1) The physical in- teraction between hands and objects usually creates diverse occlusions, which leads to their intricate entanglement and easily causes artifacts at the hand-object interface.",
+      "2) Both hands and objects exhibit high degrees of freedom and oc- cupy only limited pixels in each video frame.",
+      "However, the potential for misuse of this technology is a significant concern."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To tackle these problems, we propose a Video Reenactment framework for Hand-Object Interaction via Layout-instructed Diffusion Model, namely Re-HOLD.",
+      "Extensive experiments demonstrate that our framework reenacts HOI videos with better fidelity than previous methods.",
+      "Our contributions are summarized as follows: 1) We propose the first HOI reenactment framework for human- centric video generation which achieves realistic and rea- sonable HOI synthesis.",
+      "Then we introduce the pipeline of our framework and its important components in Sec.3.2.",
+      "In this paper, we propose the video reenact- ment framework Re-HOLD, which achieves realistic and reasonable Human-Object Interaction (HOI) via an adap- tive Layout-instructed Diffusion model.",
+      "Both quan- titative and qualitative assessments have demonstrated our framework’s superiority over existing methods.",
+      "Despite the success of our framework, we also recognize some limitations during the exploration.",
+      "As a result, our framework produces less satisfactory results when handling 3D object manipulation cases, such as generating a multi-view video of an object."
+    ],
+    "experiment_expression": [
+      "Comprehensive qualitative and quantita- tive evaluations demonstrate that our proposed framework significantly outperforms existing methods.",
+      "Extensive experiments demonstrate that our framework reenacts HOI videos with better fidelity than previous methods."
+    ],
+    "contribution_expression": [
+      "Our contributions are summarized as follows: 1) We propose the first HOI reenactment framework for human- centric video generation which achieves realistic and rea- sonable HOI synthesis."
+    ]
+  },
+  "notable_sentences": [
+    "Our contributions are summarized as follows: 1) We propose the first HOI reenactment framework for human- centric video generation which achieves realistic and rea- sonable HOI synthesis.",
+    "Extensive experiments demonstrate that our framework reenacts HOI videos with better fidelity than previous methods.",
+    "However, it can only produce object-centric videos with single-hand grasping operations and limited hand involvement.",
+    "However, the potential for misuse of this technology is a significant concern.",
+    "In this paper, we propose the video reenact- ment framework Re-HOLD, which achieves realistic and reasonable Human-Object Interaction (HOI) via an adap- tive Layout-instructed Diffusion model.",
+    "To tackle these problems, we propose a Video Reenactment framework for Hand-Object Interaction via Layout-instructed Diffusion Model, namely Re-HOLD.",
+    "1) are shaped in a fixed size, while the rest (i.e., the red one in Fig.",
+    "1) has a varying size according to the object and depth.",
+    "17550 https://fyycs.github.io/Re-HOLD.",
+    "2) Both hands and objects exhibit high degrees of freedom and oc- cupy only limited pixels in each video frame.",
+    "2) Our proposed specialized layout representations for hands and objects along with our HOI Restoration Module, enable effective disentanglement and improved HOI modeling.",
+    "3) Our proposed layout adjust- ing strategy is compatible with diverse objects, even ones with obvious gaps in shape and size, to generate reasonable interactions."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nCurrent digital human studies focusing on lip-syncing and\nbody movement are no longer sufficient to meet the grow-\ning industrial demand, while human video generation tech-\nniques that support interacting with real-world environ-\nments (e.g., objects) have not been well investigated. De-\nspite human hand synthesis already being an intricate prob-\nlem, generating objects in contact with hands and their in-\nteractions presents an even more challenging task, espe-\ncially when the objects exhibit obvious variations in size\nand shape. To tackle these issues, we present a novel video\nreenactment framework focusing on Human-Object Inter-\n†Work done during an internship at Baidu Inc.\n*Corresponding author\naction (HOI) via an adaptive Layout-instructed Diffusion\nmodel (Re-HOLD). Our key insight is to employ specialized\nlayout representation for hands and objects, respectively.\nSuch representations enable effective disentanglement of\nhand modeling and object adaptation to diverse motion se-\nquences. To further improve the quality of the HOI genera-\ntion, we design an interactive textural enhancement module\nfor both hands and objects by introducing two independent\nmemory banks. We also propose a layout adjustment strat-\negy for the cross-object reenactment scenario to adaptively\nadjust unreasonable layouts caused by diverse object sizes\nduring inference. Comprehensive qualitative and quantita-\ntive evaluations demonstrate that our proposed framework\nsignificantly outperforms existing methods. Project page:\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n17550\n\nhttps://fyycs.github.io/Re-HOLD.",
+    "introduction": "1. Introduction\nWith the rapid advancements in human video generation\ntechnology, digital human services have extended their\nreach into our daily routines (e.g., education, e-commerce,\nand multi-modal entertainment), leading to a notable rise in\nthe demands of digital human videos. In response to these\ndemands, numerous studies [14, 37, 40, 47, 50, 51, 54, 56,\n58, 74] committed to 2D speaking animation have been pro-\nposed to create an interactive conversational experience.\nOn the other hand, human videos solely limited to lip\nmovements or head movements synthesis fail to deliver a\nsatisfactory user experience in real-world scenarios, which\nprompts the exploration of video generation for human\nbody movements [4, 21, 23, 49, 53, 59, 73]. However,\nthese approaches typically concentrate on holistic body mo-\ntion modeling based on either 2D body poses [63] or im-\nplicit motion representation and take inadequate consider-\nation of human hands, which are essential components in\ninteractive scenarios. Although latest studies [13, 22, 75]\ncontinue to optimize hand synthesis by involving 3D hand\nmesh, they still cannot produce compelling results in more\ninteractive scenarios with complex hand-object interaction\n(HOI). Nevertheless, HOI synthesis is a highly challeng-\ning research area, where even generating HOI images poses\nconsiderable difficulties, leading to video-level investiga-\ntion particularly sparse. Thus how to achieve realistic HOI\nvideo synthesis remains an open problem. Previous image-\nlevel works [25, 66] built upon ControlNet [69] attempt\nto generate either an articulated hand or a full-body hand-\ngrasping pose image for a given object. More recently,\nHOI-Swap [60] extends image-level HOI inpainting into a\nvideo-level framework by leveraging an additional stage for\nsequential frame warping. However, it can only produce\nobject-centric videos with single-hand grasping operations\nand limited hand involvement.\nOur primary focus is to devise a human-centric video\ngeneration system that enables reasonable HOI synthesis\naccording to a source motion sequence and a target ob-\nject. However, building such a system is non-trivial, since\nit entails three challenging problems: 1) The physical in-\nteraction between hands and objects usually creates diverse\nocclusions, which leads to their intricate entanglement and\neasily causes artifacts at the hand-object interface. 2) Both\nhands and objects exhibit high degrees of freedom and oc-\ncupy only limited pixels in each video frame. Solely re-\ncovering either of them with detailed textures confronts a\nsignificant challenge. 3) The non-negligible differences be-\ntween distinct objects in shape and size inevitably affect the\ninteracting position and degrade the realism of HOI, if the\nsource motion sequence remains unchanged.\nTo tackle these problems, we propose a Video\nReenactment framework for Hand-Object Interaction via\nLayout-instructed Diffusion Model, namely Re-HOLD.\nOur key insight is to pursue hand-object disentanglement by\ninvolving specialized layout representations for hands and\nobjects, respectively. Particularly, the layout representation\nfor a video frame is composed of three detected bounding\nboxes, where two of them from hands (i.e., blue and green\nones in Fig. 1) are shaped in a fixed size, while the rest\n(i.e., the red one in Fig. 1) has a varying size according to\nthe object and depth. Notably, the hand layout represen-\ntation exhibits pose-invariance and size-invariance provid-\ning merely positional information, which benefits the disen-\ntanglement between hands and objects. While such sparse\nlayout representations may not achieve correct and fine-\ngrained HOI synthesis, the disentanglement they provided\nallows us to introduce more representative instructions for\nbetter generation. Therefore, we further present a Hand-\nObject Interaction Restoration module to perform structure\nreshaping and texture refinement, where the former incor-\nporates 3D hand meshes for better structural guidance and\nthe latter relies on two independent memory banks and cor-\nresponding masks. Considering the gap between diverse\nobjects under the cross-reenactment setting, we novelly de-\nsign an adaptive strategy for layout adjustment at the infer-\nence stage, aiming to avoid producing unreasonable phys-\nical contact or interactive position. Extensive experiments\ndemonstrate that our framework reenacts HOI videos with\nbetter fidelity than previous methods.\nOur contributions are summarized as follows: 1) We\npropose the first HOI reenactment framework for human-\ncentric video generation which achieves realistic and rea-\nsonable HOI synthesis. 2) Our proposed specialized layout\nrepresentations for hands and objects along with our HOI\nRestoration Module, enable effective disentanglement and\nimproved HOI modeling. 3) Our proposed layout adjust-\ning strategy is compatible with diverse objects, even ones\nwith obvious gaps in shape and size, to generate reasonable\ninteractions.",
+    "method": "3. Method\nIn this section, we first describe our task formulation in\nSec.3.1. Then we introduce the pipeline of our framework\nand its important components in Sec.3.2. The training strat-\negy is described in Sec.3.3. The overview of our proposed\nmethod is shown in Fig.2.",
+    "experiments": "4. Experiments and Results",
+    "conclusion": "5. Discussion and Conclusion\nConclusion. In this paper, we propose the video reenact-\nment framework Re-HOLD, which achieves realistic and\nreasonable Human-Object Interaction (HOI) via an adap-\ntive Layout-instructed Diffusion model. We first specialize\nin layout representations of hands and objects for effective\nhand-object disentanglement. Accordingly, we introduce\na Hand-Object Interaction Restoration module to perform\nstructure reshaping and texture refinement via two mem-\nory banks. To further bridge the gap between diverse ob-\njects under the cross-reenactment setting, we implement an\nadaptive layout adjustment strategy that enables the genera-\ntion of plausible hand-object physical contacts. Both quan-\ntitative and qualitative assessments have demonstrated our\nframework’s superiority over existing methods.\nLimitations. Despite the success of our framework, we\nalso recognize some limitations during the exploration. Our\ndataset is specifically designed to capture fundamental hand\nmovements used for object display in live-streaming scenar-\nios. As a result, our framework produces less satisfactory\nresults when handling 3D object manipulation cases, such\nas generating a multi-view video of an object. This will be\na focus of our future work.\nBroader Impact. However, the potential for misuse of this\ntechnology is a significant concern. We will take measures\nto strictly monitor the content our model generates, restrict-\ning access to research-oriented applications only. We be-\nlieve the responsible use of our model can foster positive so-\ncietal development in academic research and everyday life."
+  }
+}

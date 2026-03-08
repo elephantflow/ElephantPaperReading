@@ -1,0 +1,101 @@
+{
+  "paper_id": "dkdm-data-free-knowledge-distillation-for-diffusion-models-with-any-architecture--d461389ff9",
+  "paper_title": "DKDM: Data-Free Knowledge Distillation for Diffusion Models with Any Architecture",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:15.536115+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/DKDM： Data-Free Knowledge Distillation for Diffusion Models with Any Architecture.pdf",
+    "filename": "DKDM： Data-Free Knowledge Distillation for Diffusion Models with Any Architecture.pdf",
+    "sha1": "d461389ff9bb9f7598969f489a0a9720c8a10136",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction The advent of Diffusion Models (DMs) [ 16, 51, 53] heralds a new era in the generative domain, garnering widespread acclaim for their exceptional capability in producing sam- ples of remarkable quality [ 8, 36, 44].",
+    "limitation": "However, this advantage also entails a drawback: train- ing DMs requires substantial storage capacity, as shown in Tab.",
+    "insight": "Abstract Diffusion models (DMs) have demonstrated exceptional generative capabilities across various domains, including image, video, and so on.",
+    "proposed_method": "To alleviate this data bur- den, we propose a novel scenario: using existing DMs as data sources to train new DMs with any architecture.",
+    "experimental_evidence": "Abstract Diffusion models (DMs) have demonstrated exceptional generative capabilities across various domains, including image, video, and so on.",
+    "summary": "Introduction The advent of Diffusion Models (DMs) [ 16, 51, 53] heralds a new era in the generative domain, garnering widespread acclaim for their exceptional capability in producing sam- ples of remarkable quality [ 8, 36, 44]. However, this advantage also entails a drawback: train- ing DMs requires substantial storage capacity, as shown in Tab. Abstract Diffusion models (DMs) have demonstrated exceptional generative capabilities across various domains, including image, video, and so on. To alleviate this data bur- den, we propose a novel scenario: using existing DMs as data sources to train new DMs with any architecture. Abstract Diffusion models (DMs) have demonstrated exceptional generative capabilities across various domains, including image, video, and so on."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction The advent of Diffusion Models (DMs) [ 16, 51, 53] heralds a new era in the generative domain, garnering widespread acclaim for their exceptional capability in producing sam- ples of remarkable quality [ 8, 36, 44].",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction The advent of Diffusion Models (DMs) [ 16, 51, 53] heralds a new era in the generative domain, garnering widespread acclaim for their exceptional capability in producing sam- ples of remarkable quality [ 8, 36, 44]. These models have rapidly ascended to a pivotal role across a spectrum of gen- erative applications, notably in the ﬁelds of image, video †Corresponding authors ExistingModels StandardTraining DiffusionModels DKDM Pretrain Large-ScaleDatasets GLIDESD1.5Imagen DALL·E2PAPHAELLDMADM HighlyData-DependentData-Free …… Figure 1. Illustration of our DKDM concept: utilizing pretrained diffusion models to train new ones, thus avoiding the high costs associated with increasingly large datasets. and audio [ 4, 17, 61]. One reason for their superior perfor- mance is their training on large-scale, high-quality datasets."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "However, this advantage also entails a drawback: train- ing DMs requires substantial storage capacity, as shown in Tab.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "However, this advantage also entails a drawback: train- ing DMs requires substantial storage capacity, as shown in Tab. For instance, training a Stable Diffusion model ne- cessitates the use of billions of image-text pairs [ 44]. To alleviate this data burden, considering that numerous pretrained DMs have been trained and released by various organizations, we pose a novel question: Can we train new diffusion models by using existing pretrained diffusion models as the data source, thereby eliminating the need to access or store any dataset? 1 illustrates the concept of this scenario."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "method_overview",
+      "main_message": "Traditionally, training DMs requires access to large datasets.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Traditionally, training DMs requires access to large datasets. In contrast, in this paper, we explore how to utilize existing DMs to train new models without any data. We formalize this sce- nario as the Data-Free Knowledge Distillation for Diffusion This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "2959 Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However , mainstream DMs now consume increasingly large amounts of data.",
+      "However, this advantage also entails a drawback: train- ing DMs requires substantial storage capacity, as shown in Tab.",
+      "2959 Method CIFAR10 32x32 CelebA 64x64 ImageNet 32x32 IS↑ FID↓ sFID↓ IS↑ FID↓ sFID↓ IS↑ FID↓ sFID↓ Teacher 9.52 4.45 7.09 3.08 4.43 6.10 13.63 4.67 4.03 Data-Based Training 8.73 7.84 7.38 3.04 5.39 7.23 9.99 10.56 5.24 Data-Limited Training (20%) 8.49 9.76 11.30 2.86 9.52 11.55 10.48 12.62 9.70 Data-Limited Training (15%) 8.44 11.07 12.47 2.84 9.60 11.48 10.43 13.50 10.76 Data-Limited Training (10%) 8.40 11.06 11.98 3.04 8.20 10.65 10.39 14.23 12.63 Data-Limited Training (5%) 8.39 10.91 11.99 2.86 9.64 11.27 10.48 13.63 10.62 Data-Free Training (0%) 8.28 12.06 13.23 2.87 10.66 12.71 10.47 13.20 9.56 Dynamic Iterative Distillation (Ours) 8.60 9.56 11.77 2.91 7.07 8.78 10.50 11.33 4.80 Table 2.",
+      "Pixel-space performance comparison between data-limited training, data-free training and our dynamic iterative distillation on CIFAR10 32 ⇥ 32 [22], CelebA 64 ⇥ 64 [27] and ImageNet 32 ⇥ 32 [7]."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To alleviate this data bur- den, we propose a novel scenario: using existing DMs as data sources to train new DMs with any architecture.",
+      "4.2 provides a com- parison between these baselines and our method, assessing performance separately in pixel and latent spaces.",
+      "4.3 includes an ablation study to solidify the validation of our method."
+    ],
+    "experiment_expression": [
+      "Experimental results demonstrate that our data-free approach not only achieves competitive gen- erative performance but also, in some instances, outper- forms models trained with the entire dataset.",
+      "However, this advantage also entails a drawback: train- ing DMs requires substantial storage capacity, as shown in Tab.",
+      "We also demonstrate the capability of our approach to train models across different architectures."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, this advantage also entails a drawback: train- ing DMs requires substantial storage capacity, as shown in Tab.",
+    "However , mainstream DMs now consume increasingly large amounts of data.",
+    "To alleviate this data bur- den, we propose a novel scenario: using existing DMs as data sources to train new DMs with any architecture.",
+    "1 illustrates the concept of this scenario.",
+    "4.1, we introduce our experimental set- ting and establish relevant baselines for comparative analy- sis from a data-centric perspective.",
+    "4.2 provides a com- parison between these baselines and our method, assessing performance separately in pixel and latent spaces.",
+    "4.3 includes an ablation study to solidify the validation of our method.",
+    "A key factor contributing to their effectiveness is the high quantity and quality of data used during training.",
+    "Abstract Diffusion models (DMs) have demonstrated exceptional generative capabilities across various domains, including image, video, and so on.",
+    "Conclusion In this paper, we aim at addressing rapidly increasing cost associated with the demand for large-scale datasets in train- ing diffusion models.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experimental results demonstrate that our data-free approach not only achieves competitive gen- erative performance but also, in some instances, outper- forms models trained with the entire dataset."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models (DMs) have demonstrated exceptional\ngenerative capabilities across various domains, including\nimage, video, and so on. A key factor contributing to their\neffectiveness is the high quantity and quality of data used\nduring training. However , mainstream DMs now consume\nincreasingly large amounts of data. F or example, train-\ning a Stable Diffusion model requires billions of image-text\npairs. This enormous data requirement poses signiﬁcant\nchallenges for training large DMs due to high data acquisi-\ntion costs and storage expenses. To alleviate this data bur-\nden, we propose a novel scenario: using existing DMs as\ndata sources to train new DMs with any architecture. We\nrefer to this scenario as Data-Free Knowledge Distillation\nfor Diffusion Models ( DKDM), where the generative abil-\nity of DMs is transferred to new ones in a data-free man-\nner . To tackle this challenge, we make two main contribu-\ntions. First, we introduce a DKDM objective that enables\nthe training of new DMs via distillation, without requiring\naccess to the data. Second, we develop a dynamic itera-\ntive distillation method that efﬁciently extracts time-domain\nknowledge from existing DMs, enabling direct retrieval of\ntraining data without the need for a prolonged generative\nprocess. To the best of our knowledge, we are the ﬁrst to ex-\nplore this scenario. Experimental results demonstrate that\nour data-free approach not only achieves competitive gen-\nerative performance but also, in some instances, outper-\nforms models trained with the entire dataset.",
+    "introduction": "1. Introduction\nThe advent of Diffusion Models (DMs) [ 16, 51, 53] heralds\na new era in the generative domain, garnering widespread\nacclaim for their exceptional capability in producing sam-\nples of remarkable quality [ 8, 36, 44]. These models have\nrapidly ascended to a pivotal role across a spectrum of gen-\nerative applications, notably in the ﬁelds of image, video\n†Corresponding authors\nExistingModels\nStandardTraining\nDiffusionModels\nDKDM\nPretrain\nLarge-ScaleDatasets\nGLIDESD1.5Imagen\nDALL·E2PAPHAELLDMADM\nHighlyData-DependentData-Free\n……\nFigure 1. Illustration of our DKDM concept: utilizing pretrained\ndiffusion models to train new ones, thus avoiding the high costs\nassociated with increasingly large datasets.\nand audio [ 4, 17, 61]. One reason for their superior perfor-\nmance is their training on large-scale, high-quality datasets.\nHowever, this advantage also entails a drawback: train-\ning DMs requires substantial storage capacity, as shown in\nTab. 1. For instance, training a Stable Diffusion model ne-\ncessitates the use of billions of image-text pairs [ 44].\nTo alleviate this data burden, considering that numerous\npretrained DMs have been trained and released by various\norganizations, we pose a novel question:\nCan we train new diffusion models by using existing\npretrained diffusion models as the data source, thereby\neliminating the need to access or store any dataset?\nFig. 1 illustrates the concept of this scenario. Traditionally,\ntraining DMs requires access to large datasets. In contrast,\nin this paper, we explore how to utilize existing DMs to\ntrain new models without any data. We formalize this sce-\nnario as the Data-Free Knowledge Distillation for Diffusion\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "2959\n\nMethod\nCIFAR10 32x32 CelebA 64x64 ImageNet 32x32\nIS↑ FID↓ sFID↓ IS↑ FID↓ sFID↓ IS↑ FID↓ sFID↓\nTeacher 9.52 4.45 7.09 3.08 4.43 6.10 13.63 4.67 4.03\nData-Based Training 8.73 7.84 7.38 3.04 5.39 7.23 9.99 10.56 5.24\nData-Limited Training (20%) 8.49 9.76 11.30 2.86 9.52 11.55 10.48 12.62 9.70\nData-Limited Training (15%) 8.44 11.07 12.47 2.84 9.60 11.48 10.43 13.50 10.76\nData-Limited Training (10%) 8.40 11.06 11.98 3.04 8.20 10.65 10.39 14.23 12.63\nData-Limited Training (5%) 8.39 10.91 11.99 2.86 9.64 11.27 10.48 13.63 10.62\nData-Free Training (0%) 8.28 12.06 13.23 2.87 10.66 12.71 10.47 13.20 9.56\nDynamic Iterative Distillation (Ours) 8.60 9.56 11.77 2.91 7.07 8.78 10.50 11.33 4.80\nTable 2. Pixel-space performance comparison between data-limited training, data-free training and our dynamic iterative distillation on\nCIFAR10 32 ⇥ 32 [22], CelebA 64 ⇥ 64 [27] and ImageNet 32 ⇥ 32 [7]. The term (P%) denotes the percentage of real data included in\nthe synthetic dataset. The best performance is indicated by boldface, while the second-best is denoted by underlining . Results from the\n‘Teacher’ and ‘Data-Based Training’ are provided for reference only and are not included in the comparison.",
+    "experiments": "4. Experiments\nThis section presents a series of experiments designed to\nvalidate the efﬁcacy of our proposed dynamic iterative dis-\ntillation. In Sec. 4.1, we introduce our experimental set-\nting and establish relevant baselines for comparative analy-\nsis from a data-centric perspective. Sec. 4.2 provides a com-\nparison between these baselines and our method, assessing\nperformance separately in pixel and latent spaces. We also\ndemonstrate the capability of our approach to train models\nacross different architectures. Lastly, Sec. 4.3 includes an\nablation study to solidify the validation of our method.",
+    "conclusion": "6. Conclusion\nIn this paper, we aim at addressing rapidly increasing cost\nassociated with the demand for large-scale datasets in train-\ning diffusion models. To mitigate this data burden, we\nintroduce Data-Free Knowledge Distillation for Diffusion\nModels ( DKDM), a novel scenario that utilizes pretrained\ndiffusion models to train new ones with any architecture,\nwhile not requiring access to the original training dataset.\nTo achieve this, we carefully design a DKDM objective\nand dynamic iterative distillation method, which separately\nguarantees effectiveness and efﬁciency in the training pro-\ncess of the student model. To the best of our knowledge,\nwe are the ﬁrst to explore this scenario and make initial ef-\nforts. Our experiments show superior performance across\nﬁve datasets, including both pixel and latent spaces. Fur-\nthermore, in some cases, our data-free method even outper-\nforms models trained with the entire dataset. This offers a\nmore efﬁcient direction for training diffusion models from\na data perspective, providing a valuable insight for future\nadvancements."
+  }
+}

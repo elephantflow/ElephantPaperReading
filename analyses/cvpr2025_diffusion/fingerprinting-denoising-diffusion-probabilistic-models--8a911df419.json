@@ -1,0 +1,102 @@
+{
+  "paper_id": "fingerprinting-denoising-diffusion-probabilistic-models--8a911df419",
+  "paper_title": "Fingerprinting Denoising Diffusion Probabilistic Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:43.195633+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Fingerprinting Denoising Diffusion Probabilistic Models.pdf",
+    "filename": "Fingerprinting Denoising Diffusion Probabilistic Models.pdf",
+    "sha1": "8a911df419c981cddb11960fbde4b1e5740a0916",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Diffusion models (DMs) [ 29, 31], particularly DDPMs [ 8], have become essential models in artiﬁcial intelligence gen- erated content (AIGC), renowned for their exceptional gen- erative capabilities and wide-ranging applications [ 3, 14, 26, 32].",
+    "limitation": "However, watermarking affects model perfor- mance and adds computational overhead during training or ﬁne-tuning.",
+    "insight": "Abstract Diffusion models, especially denoising diffusion probabilis- tic models (DDPMs), are prevalent tools in generative AI, making their intellectual property (IP) protection increas- ingly important.",
+    "proposed_method": "In this pa- per , we propose the ﬁrst non-invasive ﬁngerprinting scheme for DDPMs, requiring no parameter changes or ﬁne-tuning, and keeping generation quality intact.",
+    "experimental_evidence": "Extensive experiments demonstrate that our ﬁngerprinting approach enjoys both robustness against the often-seen attacks and distinctiveness on various DDPMs, providing an alternative for protecting DDPMs’ IP rights without compromising their performance or integrity 1.",
+    "summary": "Introduction Diffusion models (DMs) [ 29, 31], particularly DDPMs [ 8], have become essential models in artiﬁcial intelligence gen- erated content (AIGC), renowned for their exceptional gen- erative capabilities and wide-ranging applications [ 3, 14, 26, 32]. However, watermarking affects model perfor- mance and adds computational overhead during training or ﬁne-tuning. Abstract Diffusion models, especially denoising diffusion probabilis- tic models (DDPMs), are prevalent tools in generative AI, making their intellectual property (IP) protection increas- ingly important. In this pa- per , we propose the ﬁrst non-invasive ﬁngerprinting scheme for DDPMs, requiring no parameter changes or ﬁne-tuning, and keeping generation quality intact. Extensive experiments demonstrate that our ﬁngerprinting approach enjoys both robustness against the often-seen attacks and distinctiveness on various DDPMs, providing an alternative for protecting DDPMs’ IP rights without compromising their performance or integrity 1."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Diffusion models (DMs) [ 29, 31], particularly DDPMs [ 8], have become essential models in artiﬁcial intelligence gen- erated content (AIGC), renowned for their exceptional gen- erative capabilities and wide-ranging applications [ 3, 14, 26, 32].",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Diffusion models (DMs) [ 29, 31], particularly DDPMs [ 8], have become essential models in artiﬁcial intelligence gen- erated content (AIGC), renowned for their exceptional gen- erative capabilities and wide-ranging applications [ 3, 14, 26, 32]. With their increasing adoption, especially through open-source platforms, the need to protect their IP rights and guard against misuse has become critical. While open- source models foster rapid innovation, they also introduce vulnerabilities, allowing unauthorized exploitation for illicit purposes, including IP infringement [ 11, 18, 33]. The current leading IP protection solutions for DDPMs 1Source codes are released in https://github.com/painfulloop/ Fingerprint_DDPM DDPM Inversion Our Fingerlnv BedroomCatCelebAChurch Bedroom Cat CelebA Church Bedroom Cat CelebA Church Figure 1."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "Cross-generation results for DDPM inversion [ 10] and FingerInv.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Cross-generation results for DDPM inversion [ 10] and FingerInv. In each confusion matrix, we invert the same ”horse“ image for different DDPMs to obtain their latent codes, which are then used to generate image for different DDPMs. Each row uses a speciﬁc latent code across various DDPMs, and the diagonal po- sitions indicates matched DDPMs and latent codes. DDPM inver- sion shows universality but lacks distinctiveness, while FingerInv only reconstructs matched cases, highlighting distinctiveness. are invasive, such as model watermarking [ 4, 16, 22, 40, 44], which embeds speciﬁc information (called watermark) into the model by modifying its parameters for ownership veriﬁcation."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "However, watermarking affects model perfor- mance and adds computational overhead during training or ﬁne-tuning.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "However, watermarking affects model perfor- mance and adds computational overhead during training or ﬁne-tuning. Watermarking methods are divided into black- box [1, 15, 15, 24, 41] and white-box schemes [ 20, 27, 34], with black-box approaches preferred for their lower veriﬁ- cation requirements. Nonetheless, both schemes inherently modify the model and can be resource-intensive."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "2.1. Invasive Methods",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "With their increasing adoption, especially through open-source platforms, the need to protect their IP rights and guard against misuse has become critical."
+    ],
+    "limitation_expression": [
+      "However, watermarking affects model perfor- mance and adds computational overhead during training or ﬁne-tuning.",
+      "However, when considering the DDPM process as a whole, our method does not constitute a strictly black-box approach.",
+      "However, compared to previous ﬁngerprint protection methods for im- age restoration, our approach signiﬁcantly reduces permis- sion requirements, as it does not necessitate white-box ac- Table 2."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "In this pa- per , we propose the ﬁrst non-invasive ﬁngerprinting scheme for DDPMs, requiring no parameter changes or ﬁne-tuning, and keeping generation quality intact.",
+      "Conclusion and Discussion We propose the ﬁrst non-invasive ﬁngerprinting method for DDPMs by modifying the noise to create distinctive ﬁngerprint latent space, enabling ﬁngerprint-veriﬁcation pairs.",
+      "Our method differentiates DDPMs with black-box access to denoisers, without altering model parameters or output quality.",
+      "Experiments show strong distinctiveness and robustness for PS-DDPMs and LDMs, positioning our method as a promising solution for DDPM IP protection.",
+      "However, when considering the DDPM process as a whole, our method does not constitute a strictly black-box approach."
+    ],
+    "experiment_expression": [
+      "Extensive experiments demonstrate that our ﬁngerprinting approach enjoys both robustness against the often-seen attacks and distinctiveness on various DDPMs, providing an alternative for protecting DDPMs’ IP rights without compromising their performance or integrity 1."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion and Discussion We propose the ﬁrst non-invasive ﬁngerprinting method for DDPMs by modifying the noise to create distinctive ﬁngerprint latent space, enabling ﬁngerprint-veriﬁcation pairs.",
+    "However, compared to previous ﬁngerprint protection methods for im- age restoration, our approach signiﬁcantly reduces permis- sion requirements, as it does not necessitate white-box ac- Table 2.",
+    "However, watermarking affects model perfor- mance and adds computational overhead during training or ﬁne-tuning.",
+    "However, when considering the DDPM process as a whole, our method does not constitute a strictly black-box approach.",
+    "In this pa- per , we propose the ﬁrst non-invasive ﬁngerprinting scheme for DDPMs, requiring no parameter changes or ﬁne-tuning, and keeping generation quality intact.",
+    "2023A1515012841); Fundamental Research Funds for the Central Universities, China (Nos. x2jsD2230220 and x2js/D2240750); and Singapore MOE AcRF Tier 1 (Grant No.",
+    "2024YFE0105400); National Natural Science Foundation of China (Nos.",
+    "62372186 and 62472179); Natural Science Foundation of Guangdong Province, China (No.",
+    "Abstract Diffusion models, especially denoising diffusion probabilis- tic models (DDPMs), are prevalent tools in generative AI, making their intellectual property (IP) protection increas- ingly important.",
+    "Acknowledgements This work is partially supported by Alibaba Cloud through the Research Talent Program with South China Univer- sity of Technology; National Key Research and Develop- ment Program of China (No.",
+    "Cross-generation results for DDPM inversion [ 10] and FingerInv.",
+    "Each row uses a speciﬁc latent code across various DDPMs, and the diagonal po- sitions indicates matched DDPMs and latent codes."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models, especially denoising diffusion probabilis-\ntic models (DDPMs), are prevalent tools in generative AI,\nmaking their intellectual property (IP) protection increas-\ningly important. Most existing IP protection methods for\nDDPMs are invasive, e.g., model watermarking, which al-\nter model parameters and raise concerns about perfor-\nmance degradation, also with requirement for extra compu-\ntational resources for retraining or ﬁne-tuning. In this pa-\nper , we propose the ﬁrst non-invasive ﬁngerprinting scheme\nfor DDPMs, requiring no parameter changes or ﬁne-tuning,\nand keeping generation quality intact. We introduce a dis-\ncriminative and robust ﬁngerprint latent space based on the\nwell-designed ”crossing route” of noisy samples that span\nthe performance border-zone of DDPMs, with only black-\nbox access required for the diffusion denoiser in ownership\nveriﬁcation. Extensive experiments demonstrate that our\nﬁngerprinting approach enjoys both robustness against the\noften-seen attacks and distinctiveness on various DDPMs,\nproviding an alternative for protecting DDPMs’ IP rights\nwithout compromising their performance or integrity\n1.",
+    "introduction": "1. Introduction\nDiffusion models (DMs) [ 29, 31], particularly DDPMs [ 8],\nhave become essential models in artiﬁcial intelligence gen-\nerated content (AIGC), renowned for their exceptional gen-\nerative capabilities and wide-ranging applications [ 3, 14,\n26, 32]. With their increasing adoption, especially through\nopen-source platforms, the need to protect their IP rights\nand guard against misuse has become critical. While open-\nsource models foster rapid innovation, they also introduce\nvulnerabilities, allowing unauthorized exploitation for illicit\npurposes, including IP infringement [ 11, 18, 33].\nThe current leading IP protection solutions for DDPMs\n1Source codes are released in https://github.com/painfulloop/\nFingerprint_DDPM\nDDPM Inversion Our Fingerlnv\nBedroomCatCelebAChurch\nBedroom Cat CelebA Church Bedroom Cat CelebA Church\nFigure 1. Cross-generation results for DDPM inversion [ 10] and\nFingerInv. In each confusion matrix, we invert the same ”horse“\nimage for different DDPMs to obtain their latent codes, which are\nthen used to generate image for different DDPMs. Each row uses\na speciﬁc latent code across various DDPMs, and the diagonal po-\nsitions indicates matched DDPMs and latent codes. DDPM inver-\nsion shows universality but lacks distinctiveness, while FingerInv\nonly reconstructs matched cases, highlighting distinctiveness.\nare invasive, such as model watermarking [ 4, 16, 22, 40,\n44], which embeds speciﬁc information (called watermark)\ninto the model by modifying its parameters for ownership\nveriﬁcation. However, watermarking affects model perfor-\nmance and adds computational overhead during training or\nﬁne-tuning. Watermarking methods are divided into black-\nbox [1, 15, 15, 24, 41] and white-box schemes [ 20, 27, 34],\nwith black-box approaches preferred for their lower veriﬁ-\ncation requirements. Nonetheless, both schemes inherently\nmodify the model and can be resource-intensive.",
+    "method": "2.1. Invasive Methods\nMost watermarking approaches for DDPMs are invasive [ 4,\n9, 16, 22, 40, 44]. [ 44] proposed watermarking strategies",
+    "experiments": "4. Experiment",
+    "conclusion": "5. Conclusion and Discussion\nWe propose the ﬁrst non-invasive ﬁngerprinting method\nfor DDPMs by modifying the noise to create distinctive\nﬁngerprint latent space, enabling ﬁngerprint-veriﬁcation\npairs. Our method differentiates DDPMs with black-box\naccess to denoisers, without altering model parameters or\noutput quality. Experiments show strong distinctiveness\nand robustness for PS-DDPMs and LDMs, positioning our\nmethod as a promising solution for DDPM IP protection.\nHowever, when considering the DDPM process as a\nwhole, our method does not constitute a strictly black-box\napproach. The validation process requires manual input\nof latent components at each timestep during DDPM sam-\npling. This can be inconvenient for direct validation in some\nfully encapsulated DDPM environments, such as, serving\nas an application programming interface (API). However,\ncompared to previous ﬁngerprint protection methods for im-\nage restoration, our approach signiﬁcantly reduces permis-\nsion requirements, as it does not necessitate white-box ac-\nTable 2. Robustness results for various IP protection methods. We\npresent veriﬁcation results for various attacks and their success\nrates. For each method, we also include features such as non-\ninvasiveness and theoretical robustness against [ 9].\nEval Cycle Diff DDPMinv Stablesig WMDM Ours\nPruning\nBedroom /enc-37/enc-37- ✓✓\nCat ✓✓ - ✓✓\nCelebA ✓✓ - ✓✓\nChurch ✓ /enc-37- ✓✓\nSD V1-4 ✓ /enc-37✓✓✓\nDeci /enc-37/enc-37✓✓✓\nPixart ✓✓✓✓✓\nFinetuning\nBedroom ✓✓ - ✓✓\nCat ✓✓ - ✓✓\nCelebA ✓✓ - ✓✓\nChurch ✓✓ - ✓✓\nSD V1-5 ✓✓✓ - ✓\nDelibrate ✓✓✓ - ✓\nRealistic ✓✓✓ - ✓\nAnything /enc-37✓✓ - ✓\nQuantization\nBedroom ✓✓ - ✓✓\nCat ✓✓ - ✓✓\nCelebA ✓✓ - ✓✓\nChurch ✓✓ - ✓✓\nSD V1-4 ✓✓✓✓✓\nDeci /enc-37/enc-37✓✓✓\nPixart ✓✓✓✓✓\nSuccess Rate 81.82% 77.27% 100.00% 100.00% 100.00%\nNon-invasive? ✓✓ /enc-37/enc-37✓\nRobust to [9]? ✓✓ /enc-37✓✓\ncess to the denoisers during the veriﬁcation stage.\nOur future work will focus on ﬁngerprinting based only\non xT for API applications and explore more properties of\ncrossing route, including their uniqueness and extensions to\nother variants of diffusion models.\nAcknowledgements\nThis work is partially supported by Alibaba Cloud through\nthe Research Talent Program with South China Univer-\nsity of Technology; National Key Research and Develop-\nment Program of China (No. 2024YFE0105400); National\nNatural Science Foundation of China (Nos. 62372186\nand 62472179); Natural Science Foundation of Guangdong\nProvince, China (No. 2023A1515012841); Fundamental\nResearch Funds for the Central Universities, China (Nos.\nx2jsD2230220 and x2js/D2240750); and Singapore MOE\nAcRF Tier 1 (Grant No. A-8000981-00-00).\nWe would like to express our deepest respect and\ngratitude to our co-author Quan Y uhui, who sadly passed\naway in January 2025. His contributions to this work\nwere substantial, and we are honored to include him\nas a co-author. This paper is dedicated to his memory."
+  }
+}

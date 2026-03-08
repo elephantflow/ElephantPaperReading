@@ -13,8 +13,8 @@
           <p class="eyebrow">Elephant Paper Reading</p>
           <h1>Paper-reading notes presented like a journal, not a dashboard.</h1>
           <p class="hero-text">
-            Ten CVPR 2025 papers, each indexed by its research story, writing
-            moves, and reusable academic phrasing.
+            CVPR 2025 paper collections, indexed by research story, writing
+            moves, reusable academic phrasing, and diffusion-focused subsets.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#paper-index">Browse papers</a>
@@ -41,13 +41,14 @@
         <section class="section controls">
           <div>
             <p class="section-kicker">Complete index</p>
-            <h2 id="paper-index">Find by title or theme</h2>
+            <h2 id="paper-index">Find by collection, title, or theme</h2>
           </div>
           <div class="control-bar">
             <label class="search">
               <span class="sr-only">Search papers</span>
               <input id="search-input" type="search" placeholder="Search titles, methods, summaries" />
             </label>
+            <div class="theme-filter" id="collection-filter"></div>
             <div class="theme-filter" id="theme-filter"></div>
           </div>
         </section>
@@ -62,7 +63,7 @@
       <article class="paper-card">
         <div class="card-topline">
           <span class="theme-pill"></span>
-          <span class="dataset-pill"></span>
+          <div class="collection-list"></div>
         </div>
         <h3 class="paper-title"></h3>
         <p class="paper-summary"></p>

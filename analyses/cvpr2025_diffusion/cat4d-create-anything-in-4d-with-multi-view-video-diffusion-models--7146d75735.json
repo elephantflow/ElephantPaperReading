@@ -1,0 +1,93 @@
+{
+  "paper_id": "cat4d-create-anything-in-4d-with-multi-view-video-diffusion-models--7146d75735",
+  "paper_title": "CAT4D: Create Anything in 4D with Multi-View Video Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:10.411772+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/CAT4D： Create Anything in 4D with Multi-View Video Diffusion Models.pdf",
+    "filename": "CAT4D： Create Anything in 4D with Multi-View Video Diffusion Models.pdf",
+    "sha1": "7146d75735a6b33e5d4287fcab0c35d0ff34127c",
+    "page_count": 12
+  },
+  "core_story": {
+    "problem": "Transforming this limited information into an accurate model of the dynamically changing 3D world re- mains an open research challenge, and progress in this space could enable applications in robotics, film-making, video games, and augmented reality.",
+    "limitation": "Transforming this limited information into an accurate model of the dynamically changing 3D world re- mains an open research challenge, and progress in this space could enable applications in robotics, film-making, video games, and augmented reality.",
+    "insight": "Abstract We present CAT4D, a method for creating 4D (dynamic 3D) scenes from monocular video.",
+    "proposed_method": "Abstract We present CAT4D, a method for creating 4D (dynamic 3D) scenes from monocular video.",
+    "experimental_evidence": "We demonstrate competitive performance on novel view synthesis and dynamic scene reconstruction benchmarks, and highlight the creative ca- pabilities for 4D scene generation from real or generated videos.",
+    "summary": "Transforming this limited information into an accurate model of the dynamically changing 3D world re- mains an open research challenge, and progress in this space could enable applications in robotics, film-making, video games, and augmented reality. Transforming this limited information into an accurate model of the dynamically changing 3D world re- mains an open research challenge, and progress in this space could enable applications in robotics, film-making, video games, and augmented reality. Abstract We present CAT4D, a method for creating 4D (dynamic 3D) scenes from monocular video. Abstract We present CAT4D, a method for creating 4D (dynamic 3D) scenes from monocular video. We demonstrate competitive performance on novel view synthesis and dynamic scene reconstruction benchmarks, and highlight the creative ca- pabilities for 4D scene generation from real or generated videos."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction While the world is a dynamic 3D environment, the images and videos we capture represent only a partial snapshot of this reality.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction While the world is a dynamic 3D environment, the images and videos we capture represent only a partial snapshot of this reality. Transforming this limited information into an accurate model of the dynamically changing 3D world re- mains an open research challenge, and progress in this space could enable applications in robotics, film-making, video games, and augmented reality. Advances in 3D reconstruction have enabled the creation of accurate 3D and 4D models when certain careful capture requirements are followed [8,11, 14, 28, 35, 43, 46, 53, 72]. For static 3D reconstruction, this requires having a large set of multi-view consistent images of the 3D scene."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "This can be achieved through careful capture and restricted settings, which is challenging to accomplish in most environments, but often feasible with enough time and practice.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "This can be achieved through careful capture and restricted settings, which is challenging to accomplish in most environments, but often feasible with enough time and practice. Recon- structing 4D content, however, requires synchronized multi- view video, which is nearly impossible for a typical user. To reduce the dependence on these challenging capture requirements, several methods have turned to data-driven approaches leveraging learned 3D generative priors to im- prove the quality of 3D reconstruction [17,22, 58, 73]. Core to the success of these methods is the availability of high- quality multi-view image datasets that enable learning gen- erative priors."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "While this data exists in large quantities for static environments, the same cannot be said for 4D, where the complexity of building a synchronized multi-view cap- ture setup constrains both the amount and diversity of avail- able data, and therefore the ability to build a data-driven 4D prior.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "While this data exists in large quantities for static environments, the same cannot be said for 4D, where the complexity of building a synchronized multi-view cap- ture setup constrains both the amount and diversity of avail- able data, and therefore the ability to build a data-driven 4D prior. Instead, methods have attempted to regularize This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Transforming this limited information into an accurate model of the dynamically changing 3D world re- mains an open research challenge, and progress in this space could enable applications in robotics, film-making, video games, and augmented reality.",
+      "Recon- structing 4D content, however, requires synchronized multi- view video, which is nearly impossible for a typical user."
+    ],
+    "insight_expression": [],
+    "method_expression": [],
+    "experiment_expression": [
+      "We demonstrate competitive performance on novel view synthesis and dynamic scene reconstruction benchmarks, and highlight the creative ca- pabilities for 4D scene generation from real or generated videos."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Recon- structing 4D content, however, requires synchronized multi- view video, which is nearly impossible for a typical user.",
+    "3.1) and our carefully curated train- ing datasets (Sec.",
+    "3.4), and our reconstruction method that yields exactly-consistent dynamic Gaussian models (Sec.",
+    "Abstract We present CAT4D, a method for creating 4D (dynamic 3D) scenes from monocular video.",
+    "Advances in 3D reconstruction have enabled the creation of accurate 3D and 4D models when certain careful capture requirements are followed [8,11, 14, 28, 35, 43, 46, 53, 72].",
+    "CAT4D leverages a multi-view video diffusion model trained on a diverse com- bination of datasets to enable novel view synthesis at any specified camera poses and timestamps.",
+    "Combined with a novel sampling approach, this model can transform a sin- gle monocular video into a multi-view video, enabling ro- bust 4D reconstruction via optimization of a deformable 3D Gaussian representation.",
+    "Core to the success of these methods is the availability of high- quality multi-view image datasets that enable learning gen- erative priors.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experiments Separate Control over Camera and Time We first exam- ine our model’s ability to separately control camera view-",
+    "First, we transform the monocular video into a multi-view video using a multi-view video diffusion model.",
+    "For static 3D reconstruction, this requires having a large set of multi-view consistent images of the 3D scene."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWe present CAT4D, a method for creating 4D (dynamic\n3D) scenes from monocular video. CAT4D leverages a\nmulti-view video diffusion model trained on a diverse com-\nbination of datasets to enable novel view synthesis at any\nspecified camera poses and timestamps. Combined with a\nnovel sampling approach, this model can transform a sin-\ngle monocular video into a multi-view video, enabling ro-\nbust 4D reconstruction via optimization of a deformable\n3D Gaussian representation. We demonstrate competitive\nperformance on novel view synthesis and dynamic scene\nreconstruction benchmarks, and highlight the creative ca-\npabilities for 4D scene generation from real or generated\nvideos. See our project page for results and interactive de-\nmos: cat-4d.github.io.",
+    "introduction": "1. Introduction\nWhile the world is a dynamic 3D environment, the images\nand videos we capture represent only a partial snapshot of\nthis reality. Transforming this limited information into an\naccurate model of the dynamically changing 3D world re-\nmains an open research challenge, and progress in this space\ncould enable applications in robotics, film-making, video\ngames, and augmented reality.\nAdvances in 3D reconstruction have enabled the creation\nof accurate 3D and 4D models when certain careful capture\nrequirements are followed [8,11, 14, 28, 35, 43, 46, 53, 72].\nFor static 3D reconstruction, this requires having a large set\nof multi-view consistent images of the 3D scene. This can\nbe achieved through careful capture and restricted settings,\nwhich is challenging to accomplish in most environments,\nbut often feasible with enough time and practice. Recon-\nstructing 4D content, however, requires synchronized multi-\nview video, which is nearly impossible for a typical user.\nTo reduce the dependence on these challenging capture\nrequirements, several methods have turned to data-driven\napproaches leveraging learned 3D generative priors to im-\nprove the quality of 3D reconstruction [17,22, 58, 73]. Core\nto the success of these methods is the availability of high-\nquality multi-view image datasets that enable learning gen-\nerative priors. While this data exists in large quantities for\nstatic environments, the same cannot be said for 4D, where\nthe complexity of building a synchronized multi-view cap-\nture setup constrains both the amount and diversity of avail-\nable data, and therefore the ability to build a data-driven\n4D prior. Instead, methods have attempted to regularize\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Method\nCAT4D is a two-stage approach for creating a dynamic 3D\nscene from a monocular input video (see Fig. 4). First,\nwe transform the monocular video into a multi-view video\nusing a multi-view video diffusion model. Then, we re-\nconstruct a dynamic 3D scene by optimizing a deformable\n3D Gaussian representation from these generated multi-\nview videos. We first describe our multi-view video dif-\nfusion model (Sec. 3.1) and our carefully curated train-\ning datasets (Sec. 3.2). We then describe how our model\ncan be used to perform few-view “bullet-time” 3D re-\nconstruction (Sec. 3.3). Lastly, we describe our sam-\npling strategy for generating nearly-consistent multi-view\nvideos (Sec. 3.4), and our reconstruction method that yields\nexactly-consistent dynamic Gaussian models (Sec. 3.5).",
+    "experiments": "4. Experiments\nSeparate Control over Camera and Time We first exam-\nine our model’s ability to separately control camera view-",
+    "conclusion": ""
+  }
+}

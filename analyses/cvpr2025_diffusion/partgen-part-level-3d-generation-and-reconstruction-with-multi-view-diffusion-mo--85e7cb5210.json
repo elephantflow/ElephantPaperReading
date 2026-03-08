@@ -1,0 +1,139 @@
+{
+  "paper_id": "partgen-part-level-3d-generation-and-reconstruction-with-multi-view-diffusion-mo--85e7cb5210",
+  "paper_title": "PartGen: Part-level 3D Generation and Reconstruction with Multi-view Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:16.336296+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/PartGen： Part-level 3D Generation and Reconstruction with Multi-view Diffusion Models.pdf",
+    "filename": "PartGen： Part-level 3D Generation and Reconstruction with Multi-view Diffusion Models.pdf",
+    "sha1": "85e7cb52107f8adb7ab05b756e658ccfc4bb2d1f",
+    "page_count": 12
+  },
+  "core_story": {
+    "problem": "In this paper, we thus consider the problem of obtain- ing structured 3D objects that comprise several meaningful parts, akin to the models produced by 3D artists.",
+    "limitation": "However, the objects obtained in this manner are usually monolithic andunstruc- tured, represented by a single neural field, mixture of Gaus- sians, or mesh.",
+    "insight": "Abstract Text- or image-to-3D generators and 3D scanners can now produce 3D assets with high-quality shapes and textures, but as single, fused entities lacking meaningful structure.",
+    "proposed_method": "To bridge this gap, we introduce PartGen, a novel approach for gen- erating, from text, images, or unstructured 3D objects, 3D objects composed of meaningful parts.",
+    "experimental_evidence": "We also showcase down- stream applications such as text-guided 3D part editing.",
+    "summary": "In this paper, we thus consider the problem of obtain- ing structured 3D objects that comprise several meaningful parts, akin to the models produced by 3D artists. However, the objects obtained in this manner are usually monolithic andunstruc- tured, represented by a single neural field, mixture of Gaus- sians, or mesh. Abstract Text- or image-to-3D generators and 3D scanners can now produce 3D assets with high-quality shapes and textures, but as single, fused entities lacking meaningful structure. To bridge this gap, we introduce PartGen, a novel approach for gen- erating, from text, images, or unstructured 3D objects, 3D objects composed of meaningful parts. We also showcase down- stream applications such as text-guided 3D part editing."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction It is now possible to obtain high-quality 3D objects from text or images via 3D generation [12, 14, 18, 47, 52, 54, 73, 79] and 3D scanning [15, 59, 85].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction It is now possible to obtain high-quality 3D objects from text or images via 3D generation [12, 14, 18, 47, 52, 54, 73, 79] and 3D scanning [15, 59, 85]. However, the objects obtained in this manner are usually monolithic andunstruc- tured, represented by a single neural field, mixture of Gaus- sians, or mesh. This is insufficient in a professional setting, where the structure of an asset is of paramount importance. For example, 3D artists often use parts to facilitate reusing, editing, and animating 3D objects."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "method_overview",
+      "main_message": "In this paper, we thus consider the problem of obtain- ing structured 3D objects that comprise several meaningful parts, akin to the models produced by 3D artists.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "In this paper, we thus consider the problem of obtain- ing structured 3D objects that comprise several meaningful parts, akin to the models produced by 3D artists. For in- stance, an artist may wish to decompose the 3D model of a person into its clothes and accessories, as well as various anatomical features like hair, eyes, teeth, and limbs. When a 3D object is generated or scanned, however, its parts are usually ‘fused’ together. This is undesirable because the parts may carry different semantics, materials, or motion."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "Parts may also be physically detachable and interchange- able, and an artist may wish to remove, replace, or edit them independently.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Parts may also be physically detachable and interchange- able, and an artist may wish to remove, replace, or edit them independently. In video games, parts often need to be reconfigured dynamically, e.g., to represent a character picking up a weapon or changing clothes. Parts are also im- portant for 3D understanding in robotics, embodied AI, and spatial intelligence [44, 49]. Inspired by these requirements, we introduce PartGen, a method to upgrade existing 3D generation pipelines from producing unstructured 3D objects to generating composi- tions of meaningful 3D parts (Fig."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "problem_statement",
+      "main_message": "To do so, we address two key questions: (1) how to automatically segment a 3D object into parts, and (2) how to extract high-quality, com- plete 3D parts even when these are only partially—or not at all—visible from the exterior of the 3D object.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "To do so, we address two key questions: (1) how to automatically segment a 3D object into parts, and (2) how to extract high-quality, com- plete 3D parts even when these are only partially—or not at all—visible from the exterior of the 3D object. Part segmentation and completion are highly ambiguous tasks. Since different artists may find it useful to decom- pose the same object in different ways, there is no ‘gold- standard’ segmentation for any given 3D object. Hence, the goal is to model the distribution of plausible part decompo- sitions rather than a single one."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "Furthermore, current 3D re- construction and generation methods only model an object’s visible outer surface, omitting internal details.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Furthermore, current 3D re- construction and generation methods only model an object’s visible outer surface, omitting internal details. Therefore, decomposing an object into parts often requires completing or even hallucinating them entirely. To model this ambiguity, we base part segmentation and completion on generative models. We note that most state- of-the-art 3D generation pipelines [12, 14, 18, 36, 47, 52, 54, 73, 79] start by generating several consistent 2D views of the object, and then apply a 3D reconstruction network to those images to recover the 3D object."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "problem_statement",
+      "main_message": "We build upon this two-stage scheme and address part segmentation and completion before 3D reconstruction is carried out.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "We build upon this two-stage scheme and address part segmentation and completion before 3D reconstruction is carried out. First, we cast part segmentation as a stochastic multi- view-consistent coloring problem, fine-tuning a multi-view image generator to produce several color-coded segmenta- tion maps of the given 3D object. We do not assume any explicit or deterministic taxonomy of parts. Instead, we train the model on a large collection of artist-created data, capturing how 3D artists typically decompose objects into parts."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "problem_statement",
+      "main_message": "This approach has two key benefits.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This approach has two key benefits. First, it lever- ages an image generator that is already trained to be view- consistent. Second, it reduces obtaining multiple plausible segmentations of the object to drawing multiple samples from the model. In practice, we show that this approach better captures the artists’ intent compared to fine-tuning a model like SAM [33] or SAM2 [67] for the same task."
+    },
+    {
+      "paragraph_index": 8,
+      "paragraph_role": "problem_statement",
+      "main_message": "Second, we fine-tune another multi-view image genera- tor to complete the segmented parts while accounting for the context of the object as a whole.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Second, we fine-tune another multi-view image genera- tor to complete the segmented parts while accounting for the context of the object as a whole. In this manner, parts which are only partially visible, or even invisible, in the original input views, are revealed in full to the 3D recon- struction network. This has the benefit of removing most of the ambiguity in the reconstruction task, which is important because the 3D reconstructor network is deterministic and cannot handle ambiguity well. Furthermore, because com- pletion is contextual, the resulting parts fit together well, forming a coherent 3D object despite the fact that the parts are reconstructed independently."
+    },
+    {
+      "paragraph_index": 9,
+      "paragraph_role": "method_overview",
+      "main_message": "We show that PartGen can be applied to different input modalities: starting from text, an image, or a real-world 3D scan, PartGen can generate 3D assets with meaningful parts.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "We show that PartGen can be applied to different input modalities: starting from text, an image, or a real-world 3D scan, PartGen can generate 3D assets with meaningful parts. We assess our method empirically on a large collection of 3D assets produced by 3D artists or scanned, both quantita- tively and qualitatively. We also demonstrate that PartGen can be easily extended to the task of 3D part editing."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, the objects obtained in this manner are usually monolithic andunstruc- tured, represented by a single neural field, mixture of Gaus- sians, or mesh.",
+      "When a 3D object is generated or scanned, however, its parts are usually ‘fused’ together."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Our method lever- ages a multi-view diffusion model to extract plausible and view-consistent part segmentations from multiple views of a Work completed during Minghao Chen’s internship at Meta.",
+      "We assess our method empirically on a large collection of 3D assets produced by 3D artists or scanned, both quantita- tively and qualitatively.",
+      "Method This section introduces PartGen, our framework for gener- ating 3D objects composed of several 3D parts."
+    ],
+    "experiment_expression": [
+      "We also demonstrate that PartGen can be easily extended to the task of 3D part editing."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, the objects obtained in this manner are usually monolithic andunstruc- tured, represented by a single neural field, mixture of Gaus- sians, or mesh.",
+    "When a 3D object is generated or scanned, however, its parts are usually ‘fused’ together.",
+    "3.1, we introduce the necessary background on multi- view diffusion and briefly describe how PartGen can be ap- plied to text, image, or 3D model inputs.",
+    "3.2 to 3.4, we describe how PartGen automatically segments, completes, and reconstructs meaningful parts in 3D.",
+    "3.5, we describe the dataset used to train PartGen.",
+    "3D object, dividing it into meaningful components.",
+    "4.1) and part completion and reconstruction (Sec.",
+    "A sec- ond multi-view diffusion model then processes each part in- dividually, filling in occlusions and generating completed views, which are subsequently passed to a 3D reconstruc- tion network.",
+    "Abstract Text- or image-to-3D generators and 3D scanners can now produce 3D assets with high-quality shapes and textures, but as single, fused entities lacking meaningful structure.",
+    "An overview of PartGen is given in Fig.",
+    "Conclusion We have introduced PartGen, an approach to generate 3D objects as compositions of 3D parts, given as input text, images, or unstructured 3D objects.",
+    "Each part is a distinct, human-interpretable, self-contained and com- plete element."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nText- or image-to-3D generators and 3D scanners can now\nproduce 3D assets with high-quality shapes and textures,\nbut as single, fused entities lacking meaningful structure.\nIn contrast, most applications and creative workflows re-\nquire 3D assets to be composed of distinct, meaningful\nparts that can be independently manipulated. To bridge\nthis gap, we introduce PartGen, a novel approach for gen-\nerating, from text, images, or unstructured 3D objects, 3D\nobjects composed of meaningful parts. Our method lever-\nages a multi-view diffusion model to extract plausible and\nview-consistent part segmentations from multiple views of a\nWork completed during Minghao Chen’s internship at Meta.\n3D object, dividing it into meaningful components. A sec-\nond multi-view diffusion model then processes each part in-\ndividually, filling in occlusions and generating completed\nviews, which are subsequently passed to a 3D reconstruc-\ntion network. The completion process ensures that the re-\nconstructed parts integrate cohesively by considering the\ncontext of the entire object, compensating for missing infor-\nmation caused by occlusions and, in extreme cases, hallu-\ncinating entirely invisible parts based on contextual cues.\nWe evaluate PartGen on both generated and real 3D assets,\ndemonstrating significant improvements over segmentation\nand part completion baselines. We also showcase down-\nstream applications such as text-guided 3D part editing.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n5881",
+    "introduction": "1. Introduction\nIt is now possible to obtain high-quality 3D objects from\ntext or images via 3D generation [12, 14, 18, 47, 52, 54,\n73, 79] and 3D scanning [15, 59, 85]. However, the objects\nobtained in this manner are usually monolithic andunstruc-\ntured, represented by a single neural field, mixture of Gaus-\nsians, or mesh. This is insufficient in a professional setting,\nwhere the structure of an asset is of paramount importance.\nFor example, 3D artists often use parts to facilitate reusing,\nediting, and animating 3D objects.\nIn this paper, we thus consider the problem of obtain-\ning structured 3D objects that comprise several meaningful\nparts, akin to the models produced by 3D artists. For in-\nstance, an artist may wish to decompose the 3D model of\na person into its clothes and accessories, as well as various\nanatomical features like hair, eyes, teeth, and limbs. When\na 3D object is generated or scanned, however, its parts are\nusually ‘fused’ together. This is undesirable because the\nparts may carry different semantics, materials, or motion.\nParts may also be physically detachable and interchange-\nable, and an artist may wish to remove, replace, or edit\nthem independently. In video games, parts often need to\nbe reconfigured dynamically, e.g., to represent a character\npicking up a weapon or changing clothes. Parts are also im-\nportant for 3D understanding in robotics, embodied AI, and\nspatial intelligence [44, 49].\nInspired by these requirements, we introduce PartGen,\na method to upgrade existing 3D generation pipelines from\nproducing unstructured 3D objects to generating composi-\ntions of meaningful 3D parts (Fig. 1). To do so, we address\ntwo key questions: (1) how to automatically segment a 3D\nobject into parts, and (2) how to extract high-quality, com-\nplete 3D parts even when these are only partially—or not at\nall—visible from the exterior of the 3D object.\nPart segmentation and completion are highly ambiguous\ntasks. Since different artists may find it useful to decom-\npose the same object in different ways, there is no ‘gold-\nstandard’ segmentation for any given 3D object. Hence, the\ngoal is to model the distribution of plausible part decompo-\nsitions rather than a single one. Furthermore, current 3D re-\nconstruction and generation methods only model an object’s\nvisible outer surface, omitting internal details. Therefore,\ndecomposing an object into parts often requires completing\nor even hallucinating them entirely.\nTo model this ambiguity, we base part segmentation and\ncompletion on generative models. We note that most state-\nof-the-art 3D generation pipelines [12, 14, 18, 36, 47, 52,\n54, 73, 79] start by generating several consistent 2D views\nof the object, and then apply a 3D reconstruction network\nto those images to recover the 3D object. We build upon\nthis two-stage scheme and address part segmentation and\ncompletion before 3D reconstruction is carried out.\nFirst, we cast part segmentation as a stochastic multi-\nview-consistent coloring problem, fine-tuning a multi-view\nimage generator to produce several color-coded segmenta-\ntion maps of the given 3D object. We do not assume any\nexplicit or deterministic taxonomy of parts. Instead, we\ntrain the model on a large collection of artist-created data,\ncapturing how 3D artists typically decompose objects into\nparts. This approach has two key benefits. First, it lever-\nages an image generator that is already trained to be view-\nconsistent. Second, it reduces obtaining multiple plausible\nsegmentations of the object to drawing multiple samples\nfrom the model. In practice, we show that this approach\nbetter captures the artists’ intent compared to fine-tuning a\nmodel like SAM [33] or SAM2 [67] for the same task.\nSecond, we fine-tune another multi-view image genera-\ntor to complete the segmented parts while accounting for\nthe context of the object as a whole. In this manner, parts\nwhich are only partially visible, or even invisible, in the\noriginal input views, are revealed in full to the 3D recon-\nstruction network. This has the benefit of removing most of\nthe ambiguity in the reconstruction task, which is important\nbecause the 3D reconstructor network is deterministic and\ncannot handle ambiguity well. Furthermore, because com-\npletion is contextual, the resulting parts fit together well,\nforming a coherent 3D object despite the fact that the parts\nare reconstructed independently.\nWe show that PartGen can be applied to different input\nmodalities: starting from text, an image, or a real-world 3D\nscan, PartGen can generate 3D assets with meaningful parts.\nWe assess our method empirically on a large collection of\n3D assets produced by 3D artists or scanned, both quantita-\ntively and qualitatively. We also demonstrate that PartGen\ncan be easily extended to the task of 3D part editing.",
+    "method": "3. Method\nThis section introduces PartGen, our framework for gener-\nating 3D objects composed of several 3D parts. Each part\nis a distinct, human-interpretable, self-contained and com-\nplete element. PartGen can take different modalities as in-\nput (text prompts, image prompts, or 3D assets) and per-\nforms part segmentation and completion by repurposing a\npowerful multi-view diffusion model for these two tasks.\nAn overview of PartGen is given in Fig. 2.\nThe rest of the section is organized as follows. In\nSec. 3.1, we introduce the necessary background on multi-\nview diffusion and briefly describe how PartGen can be ap-\nplied to text, image, or 3D model inputs. Then, in Secs. 3.2\nto 3.4, we describe how PartGen automatically segments,\ncompletes, and reconstructs meaningful parts in 3D. In\nSec. 3.5, we describe the dataset used to train PartGen.",
+    "experiments": "4. Experiments\nWe first individually evaluate the two main components of\nour pipeline, namely part segmentation (Sec. 4.1) and part\ncompletion and reconstruction (Sec. 4.2). We then evalu-\nate how well the decomposed reconstruction matches the\noriginal object (Sec. 4.3). For all experiments, we use 100\nheld-out objects from the dataset described in Sec. 3.5.",
+    "conclusion": "5. Conclusion\nWe have introduced PartGen, an approach to generate 3D\nobjects as compositions of 3D parts, given as input text,\nimages, or unstructured 3D objects. PartGen can recon-\nstruct 3D parts that are minimally or even not visible, utiliz-\ning the guidance of a multi-view diffusion prior. We have\nalso shown several applications of PartGen, including text-\nguided part editing. This is a promising step toward the\ngeneration of 3D assets that are more useful in professional\nworkflows.\nAcknowledgements. This research was partially supported\nby ERC-CoG UNION 101001212 and EPSRC VisualAI\nEP/T028572/1."
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "paper_id": "unleashing-the-potential-of-multi-modal-foundation-models-and-video-diffusion-fo--294d9c092c",
+  "paper_title": "Unleashing the Potential of Multi-modal Foundation Models and Video Diffusion for 4D Dynamic Physical Scene Simulation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:12:51.277825+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_transformer_video_pdfs/Unleashing the Potential of Multi-modal Foundation Models and Video Diffusion for 4D Dynamic Physical Scene Simulation.pdf",
+    "filename": "Unleashing the Potential of Multi-modal Foundation Models and Video Diffusion for 4D Dynamic Physical Scene Simulation.pdf",
+    "sha1": "294d9c092c07f1f4cda3da92ba9059393a36af84",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Besides, these methods utilize render loss [ 49] or Score Distillation Sampling (SDS) [ 34] to estimate mate- rial parameters, which presents challenges: render loss is constrained to small motions due to instability and noise in generated videos, while SDS loss demands high compu- tation memory.",
+    "limitation": "However, it is constrained to simpler ob- jects and textures, leading to lower rendering ﬁdelity that limits its effectiveness in high-quality dynamic scene sim- ulations.",
+    "insight": "Abstract Realistic simulation of dynamic scenes requires accurately capturing diverse material properties and modeling com- plex object interactions grounded in physical principles.",
+    "proposed_method": "We introduce PhysFlow, a novel approach that leverages multi-modal foundation models and video diffu- sion to achieve enhanced 4D dynamic scene simulation.",
+    "experimental_evidence": "Through compre- hensive experiments on synthetic and real-world datasets, we demonstrate that our method outperforms existing base- lines in accuracy and adaptability, showing its potential for enhancing physical realism in dynamic simulations.",
+    "summary": "Besides, these methods utilize render loss [ 49] or Score Distillation Sampling (SDS) [ 34] to estimate mate- rial parameters, which presents challenges: render loss is constrained to small motions due to instability and noise in generated videos, while SDS loss demands high compu- tation memory. However, it is constrained to simpler ob- jects and textures, leading to lower rendering ﬁdelity that limits its effectiveness in high-quality dynamic scene sim- ulations. Abstract Realistic simulation of dynamic scenes requires accurately capturing diverse material properties and modeling com- plex object interactions grounded in physical principles. We introduce PhysFlow, a novel approach that leverages multi-modal foundation models and video diffu- sion to achieve enhanced 4D dynamic scene simulation. Through compre- hensive experiments on synthetic and real-world datasets, we demonstrate that our method outperforms existing base- lines in accuracy and adaptability, showing its potential for enhancing physical realism in dynamic simulations."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction The realistic simulation of dynamic scenes in computer vi- sion and graphics is critical for applications such as robotics manipulation [35, 45] and video generation [3, 8, 46].",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction The realistic simulation of dynamic scenes in computer vi- sion and graphics is critical for applications such as robotics manipulation [35, 45] and video generation [3, 8, 46]. How- ever, existing video generation methods often produce visu- ally plausible results that lack physical realism, leading to inaccuracies in object motion and deformation. To enhance simulation realism, it is essential to automatically capture the diverse material properties of objects and model physi- cal interactions under varying forces and conditions. Among existing methods, PAC-NeRF [ 22] and GIC [ 4] aim to learn material parameters by analyzing the deforma- tion of objects in multi-view dynamic videos."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "PAC-NeRF integrates neural radiance ﬁelds (NeRF) [ 30] with a dif- ferentiable Material Point Method (MPM) [ 17] to facilitate the simulation of various material types and identify ma- *: Project Lead, B: Corresponding Author terial properties.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "PAC-NeRF integrates neural radiance ﬁelds (NeRF) [ 30] with a dif- ferentiable Material Point Method (MPM) [ 17] to facilitate the simulation of various material types and identify ma- *: Project Lead, B: Corresponding Author terial properties. However, it is constrained to simpler ob- jects and textures, leading to lower rendering ﬁdelity that limits its effectiveness in high-quality dynamic scene sim- ulations. GIC uses 3D Gaussian Splatting [ 19] to capture explicit shapes and relies on continuum mechanics to infer implicit shapes, assisting in estimating physical properties. Nonetheless, PAC-NeRF and GIC require multi-view im- ages of deforming objects with known camera poses and prior knowledge of material types, which restricts its appli- cability in arbitrary dynamic scene videos."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "PhysGaussian [ 44] utilizes 3D Gaussian Splatting with differentiable MPM to enhance rendering ﬁdelity, but re- quires manual initialization of material properties, limit- ing its adaptability to complex dynamic scenarios.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "PhysGaussian [ 44] utilizes 3D Gaussian Splatting with differentiable MPM to enhance rendering ﬁdelity, but re- quires manual initialization of material properties, limit- ing its adaptability to complex dynamic scenarios. Recent methods [ 16, 23, 49] use video diffusion for motion guid- ance to estimate material properties. However, these meth- ods are restricted to elastic material and minor object move- ments. Besides, these methods utilize render loss [ 49] or Score Distillation Sampling (SDS) [ 34] to estimate mate- rial parameters, which presents challenges: render loss is constrained to small motions due to instability and noise in generated videos, while SDS loss demands high compu- tation memory."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "limitation",
+      "main_message": "In contrast, we investigate that optical ﬂow guidance is both memory-efﬁcient and better suited for cap- turing large and complex motions, enabling more accurate material parameter optimization (see Tab.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "In contrast, we investigate that optical ﬂow guidance is both memory-efﬁcient and better suited for cap- turing large and complex motions, enabling more accurate material parameter optimization (see Tab. 4 and visual com- parisons in the Appendix). PhysGen [ 24] introduces physics reasoning using large pre-trained visual foundation models, eliminating the need for manual parameter initialization. However, it is restricted to single input images and simulates objects at a ﬁxed depth and cannot perform 4D reconstruction or dynamic simula- tions, limiting its ﬂexibility in simulating complex scenes."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "method_overview",
+      "main_message": "To address these challenges, we propose PhysFlow,a novel approach that unleashes the potential of multi-modal foundation models and video diffusion through two key in- novations: 1) physics-conditioned ﬂexible material behav- ior modeling, and 2) optical ﬂow-guided iterative reﬁne- ment for high-ﬁdelity 4D dynamic scene simulation (see Fig.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "To address these challenges, we propose PhysFlow,a novel approach that unleashes the potential of multi-modal foundation models and video diffusion through two key in- novations: 1) physics-conditioned ﬂexible material behav- ior modeling, and 2) optical ﬂow-guided iterative reﬁne- ment for high-ﬁdelity 4D dynamic scene simulation (see Fig. A detailed comparison of the feasibility of our ap- proach versus existing methods across various conﬁgura- tions is provided in Tab. This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "11016 Method Various Material Types w/o Manual Init. Input Type 4D Reconstruction",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Introduction The realistic simulation of dynamic scenes in computer vi- sion and graphics is critical for applications such as robotics manipulation [35, 45] and video generation [3, 8, 46]."
+    ],
+    "limitation_expression": [
+      "However , existing methods are constrained to basic mate- rial types with limited predictable parameters, making them insufﬁcient to represent the complexity of real-world ma- terials.",
+      "However, it is constrained to simpler ob- jects and textures, leading to lower rendering ﬁdelity that limits its effectiveness in high-quality dynamic scene sim- ulations.",
+      "However, these meth- ods are restricted to elastic material and minor object move- ments.",
+      "However, it is restricted to single input images and simulates objects at a ﬁxed depth and cannot perform 4D reconstruction or dynamic simula- tions, limiting its ﬂexibility in simulating complex scenes.",
+      "Unlike ren- der loss or SDS loss, which are limited to small and stable motions or are computationally intensive, optical ﬂow loss offers a memory-efﬁcient alternative that effectively cap- tures large and complex motions."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Our method utilizes multi-modal models to identify mate- rial types and initialize material parameters through image queries, while simultaneously inferring 3D Gaussian splats for detailed scene representation.",
+      "To address these challenges, we propose PhysFlow,a novel approach that unleashes the potential of multi-modal foundation models and video diffusion through two key in- novations: 1) physics-conditioned ﬂexible material behav- ior modeling, and 2) optical ﬂow-guided iterative reﬁne- ment for high-ﬁdelity 4D dynamic scene simulation (see Fig.",
+      "Our method leverages large pre-trained visual founda- tion models ( e.g., GPT-4 [1]) to identify material types and initialize material parameters based on visual and text-based queries, ensuring that initial simulations are grounded in accurate material properties.",
+      "This enables our method to optimize the material properties to reﬂect the interactions modeled in the generated video, allowing for simulations that are not only visually plausible but also physically accu- rate.",
+      "Experiments In this section, we showcase the ability of our method to automatically optimize material parameters across a diverse set of material types, and evaluate its effectiveness on both synthetic and real-world datasets.",
+      "Our method optimizes material parameters using optical ﬂow guidance and integrates inferred properties for realistic sim- ulations across diverse material types.",
+      "Through compre- hensive experiments on synthetic and real-world datasets, we demonstrate that our method outperforms existing base- lines in accuracy and adaptability, showing its potential for enhancing physical realism in dynamic simulations."
+    ],
+    "experiment_expression": [
+      "In summary, our contributions are as follows: • We present a novel multi-modal approach to infer 3D Gaussian splats along with the material type and initial material parameters to ensure accurate initial simulation. • We introduce the guidance of optical ﬂow to optimize ma- terial parameters through video diffusion models and dif- ferentiable MPM. • Extensive experiments show that our approach achieves physically realistic 4D dynamic scene simulations on both synthetic and real-world scenes.",
+      "Through compre- hensive experiments on synthetic and real-world datasets, we demonstrate that our method outperforms existing base- lines in accuracy and adaptability, showing its potential for enhancing physical realism in dynamic simulations."
+    ],
+    "contribution_expression": [
+      "In summary, our contributions are as follows: • We present a novel multi-modal approach to infer 3D Gaussian splats along with the material type and initial material parameters to ensure accurate initial simulation. • We introduce the guidance of optical ﬂow to optimize ma- terial parameters through video diffusion models and dif- ferentiable MPM. • Extensive experiments show that our approach achieves physically realistic 4D dynamic scene simulations on both synthetic and real-world scenes."
+    ]
+  },
+  "notable_sentences": [
+    "However , existing methods are constrained to basic mate- rial types with limited predictable parameters, making them insufﬁcient to represent the complexity of real-world ma- terials.",
+    "However, it is constrained to simpler ob- jects and textures, leading to lower rendering ﬁdelity that limits its effectiveness in high-quality dynamic scene sim- ulations.",
+    "However, it is restricted to single input images and simulates objects at a ﬁxed depth and cannot perform 4D reconstruction or dynamic simula- tions, limiting its ﬂexibility in simulating complex scenes.",
+    "However, these meth- ods are restricted to elastic material and minor object move- ments.",
+    "In summary, our contributions are as follows: • We present a novel multi-modal approach to infer 3D Gaussian splats along with the material type and initial material parameters to ensure accurate initial simulation. • We introduce the guidance of optical ﬂow to optimize ma- terial parameters through video diffusion models and dif- ferentiable MPM. • Extensive experiments show that our approach achieves physically realistic 4D dynamic scene simulations on both synthetic and real-world scenes.",
+    "11016 Method Various Material Types w/o Manual Init.",
+    "4 and visual com- parisons in the Appendix).",
+    "A detailed comparison of the feasibility of our ap- proach versus existing methods across various conﬁgura- tions is provided in Tab.",
+    "Abstract Realistic simulation of dynamic scenes requires accurately capturing diverse material properties and modeling com- plex object interactions grounded in physical principles.",
+    "Among existing methods, PAC-NeRF [ 22] and GIC [ 4] aim to learn material parameters by analyzing the deforma- tion of objects in multi-view dynamic videos.",
+    "Comparison of methods by material types, manual parameter initialization, input ﬂexibility, and 4D reconstruction capabilities.",
+    "Conclusion In this paper, we present a novel approach leveraging multi- modal foundation models and video diffusion with opti- cal ﬂow guidance for 4D dynamic scene simulation."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRealistic simulation of dynamic scenes requires accurately\ncapturing diverse material properties and modeling com-\nplex object interactions grounded in physical principles.\nHowever , existing methods are constrained to basic mate-\nrial types with limited predictable parameters, making them\ninsufﬁcient to represent the complexity of real-world ma-\nterials. We introduce PhysFlow, a novel approach that\nleverages multi-modal foundation models and video diffu-\nsion to achieve enhanced 4D dynamic scene simulation.\nOur method utilizes multi-modal models to identify mate-\nrial types and initialize material parameters through image\nqueries, while simultaneously inferring 3D Gaussian splats\nfor detailed scene representation. We further reﬁne these\nmaterial parameters using video diffusion with a differen-\ntiable Material Point Method (MPM) and optical ﬂow guid-\nance rather than render loss or Score Distillation Sampling\n(SDS) loss. This integrated framework enables accurate\nprediction and realistic simulation of dynamic interactions\nin real-world scenarios, advancing both accuracy and ﬂex-\nibility in physics-based simulations. Our code and data are\navailable at https://zhuomanliu.github.io/PhysFlow",
+    "introduction": "1. Introduction\nThe realistic simulation of dynamic scenes in computer vi-\nsion and graphics is critical for applications such as robotics\nmanipulation [35, 45] and video generation [3, 8, 46]. How-\never, existing video generation methods often produce visu-\nally plausible results that lack physical realism, leading to\ninaccuracies in object motion and deformation. To enhance\nsimulation realism, it is essential to automatically capture\nthe diverse material properties of objects and model physi-\ncal interactions under varying forces and conditions.\nAmong existing methods, PAC-NeRF [ 22] and GIC [ 4]\naim to learn material parameters by analyzing the deforma-\ntion of objects in multi-view dynamic videos. PAC-NeRF\nintegrates neural radiance ﬁelds (NeRF) [ 30] with a dif-\nferentiable Material Point Method (MPM) [ 17] to facilitate\nthe simulation of various material types and identify ma-\n*: Project Lead, B: Corresponding Author\nterial properties. However, it is constrained to simpler ob-\njects and textures, leading to lower rendering ﬁdelity that\nlimits its effectiveness in high-quality dynamic scene sim-\nulations. GIC uses 3D Gaussian Splatting [ 19] to capture\nexplicit shapes and relies on continuum mechanics to infer\nimplicit shapes, assisting in estimating physical properties.\nNonetheless, PAC-NeRF and GIC require multi-view im-\nages of deforming objects with known camera poses and\nprior knowledge of material types, which restricts its appli-\ncability in arbitrary dynamic scene videos.\nPhysGaussian [ 44] utilizes 3D Gaussian Splatting with\ndifferentiable MPM to enhance rendering ﬁdelity, but re-\nquires manual initialization of material properties, limit-\ning its adaptability to complex dynamic scenarios. Recent\nmethods [ 16, 23, 49] use video diffusion for motion guid-\nance to estimate material properties. However, these meth-\nods are restricted to elastic material and minor object move-\nments. Besides, these methods utilize render loss [ 49] or\nScore Distillation Sampling (SDS) [ 34] to estimate mate-\nrial parameters, which presents challenges: render loss is\nconstrained to small motions due to instability and noise\nin generated videos, while SDS loss demands high compu-\ntation memory. In contrast, we investigate that optical ﬂow\nguidance is both memory-efﬁcient and better suited for cap-\nturing large and complex motions, enabling more accurate\nmaterial parameter optimization (see Tab. 4 and visual com-\nparisons in the Appendix).\nPhysGen [ 24] introduces physics reasoning using large\npre-trained visual foundation models, eliminating the need\nfor manual parameter initialization. However, it is restricted\nto single input images and simulates objects at a ﬁxed depth\nand cannot perform 4D reconstruction or dynamic simula-\ntions, limiting its ﬂexibility in simulating complex scenes.\nTo address these challenges, we propose PhysFlow,a\nnovel approach that unleashes the potential of multi-modal\nfoundation models and video diffusion through two key in-\nnovations: 1) physics-conditioned ﬂexible material behav-\nior modeling, and 2) optical ﬂow-guided iterative reﬁne-\nment for high-ﬁdelity 4D dynamic scene simulation (see\nFig. 1). A detailed comparison of the feasibility of our ap-\nproach versus existing methods across various conﬁgura-\ntions is provided in Tab. 1.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "11016\n\nMethod Various Material Types w/o Manual Init. Input Type 4D Reconstruction\nMulti-view Dynamic Video Single Image\nPAC-NeRF [22] X(5 types) XX\nGIC [4] X(5 types) XX\nPhysGaussian [44] X(6 types) XX\nPhysDreamer [49] XX\nPhysics3D [23] XX\nPhysGen [24] XX X\nOurs X(7 types) XX X X X\nTable 1. Comparison of methods by material types, manual parameter initialization, input ﬂexibility, and 4D reconstruction capabilities.\nOur method leverages large pre-trained visual founda-\ntion models ( e.g., GPT-4 [1]) to identify material types and\ninitialize material parameters based on visual and text-based\nqueries, ensuring that initial simulations are grounded in\naccurate material properties. Depending on the input type\n(i.e., multi-view images, dynamic scene videos, or a sin-\ngle image), we employ different scene reconstruction meth-\nods [19, 36, 43] to generate 3D Gaussian splats, providing\na differentiable representation for simulation. The material\ntype and initial material properties inferred from the large\nvisual foundation model are then assigned to the 3D Gaus-\nsian splats of the simulated object, ensuring that the simu-\nlation starts with realistic physical characteristics. To reﬁne\nthese parameters automatically, we use optical ﬂow as guid-\nance within the video diffusion framework, integrated with\na differentiable Material Point Method (MPM). Unlike ren-\nder loss or SDS loss, which are limited to small and stable\nmotions or are computationally intensive, optical ﬂow loss\noffers a memory-efﬁcient alternative that effectively cap-\ntures large and complex motions. This enables our method\nto optimize the material properties to reﬂect the interactions\nmodeled in the generated video, allowing for simulations\nthat are not only visually plausible but also physically accu-\nrate. Our approach supports a diverse range of material be-\nhaviors, thus enhancing the ﬂexibility and precision of sim-\nulations to represent real-world scenarios comprehensively.\nIn summary, our contributions are as follows:\n• We present a novel multi-modal approach to infer 3D\nGaussian splats along with the material type and initial\nmaterial parameters to ensure accurate initial simulation.\n• We introduce the guidance of optical ﬂow to optimize ma-\nterial parameters through video diffusion models and dif-\nferentiable MPM.\n• Extensive experiments show that our approach achieves\nphysically realistic 4D dynamic scene simulations on\nboth synthetic and real-world scenes.",
+    "experiments": "4. Experiments\nIn this section, we showcase the ability of our method to\nautomatically optimize material parameters across a diverse\nset of material types, and evaluate its effectiveness on both\nsynthetic and real-world datasets.",
+    "conclusion": "5. Conclusion\nIn this paper, we present a novel approach leveraging multi-\nmodal foundation models and video diffusion with opti-\ncal ﬂow guidance for 4D dynamic scene simulation. Our\nmethod optimizes material parameters using optical ﬂow\nguidance and integrates inferred properties for realistic sim-\nulations across diverse material types. Through compre-\nhensive experiments on synthetic and real-world datasets,\nwe demonstrate that our method outperforms existing base-\nlines in accuracy and adaptability, showing its potential for\nenhancing physical realism in dynamic simulations."
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "paper_id": "tsd-sr-one-step-diffusion-with-target-score-distillation-for-real-world-image-su--ed58094a03",
+  "paper_title": "TSD-SR: One-Step Diffusion with Target Score Distillation for Real-World Image Super-Resolution",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:37.794721+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/TSD-SR： One-Step Diffusion with Target Score Distillation for Real-World Image Super-Resolution.pdf",
+    "filename": "TSD-SR： One-Step Diffusion with Target Score Distillation for Real-World Image Super-Resolution.pdf",
+    "sha1": "ed58094a031761f533a760d3c87658fdfadeef23",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "(2) Insufficient detail recovery.The VSD loss exhibits notable variation across different timesteps, and the uniform sampling strategy fort poses challenges in aligning the score function with detailed texture recovery require- ments.",
+    "limitation": "However, due to the iterative denoising nature of diffusion models [17], the Real-ISR process is computationally expensive.",
+    "insight": "Abstract Pre-trained text-to-image diffusion models are increas- ingly applied to real-world image super-resolution (Real- ISR) task.",
+    "proposed_method": "To address this, we propose TSD-SR, a novel dis- tillation framework specifically designed for real-world im- age super-resolution, aiming to construct an efficient and effective one-step model.",
+    "experimental_evidence": "Extensive experiments demonstrate that our TSD-SR has superior restoration results (most of the met- rics perform the best) and the fastest inference speed ( e.g.",
+    "summary": "(2) Insufficient detail recovery.The VSD loss exhibits notable variation across different timesteps, and the uniform sampling strategy fort poses challenges in aligning the score function with detailed texture recovery require- ments. However, due to the iterative denoising nature of diffusion models [17], the Real-ISR process is computationally expensive. Abstract Pre-trained text-to-image diffusion models are increas- ingly applied to real-world image super-resolution (Real- ISR) task. To address this, we propose TSD-SR, a novel dis- tillation framework specifically designed for real-world im- age super-resolution, aiming to construct an efficient and effective one-step model. Extensive experiments demonstrate that our TSD-SR has superior restoration results (most of the met- rics perform the best) and the fastest inference speed ( e.g."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction Image super-resolution (ISR) [8, 9, 23, 26] aims to trans- form low-quality (LQ) images, which have experienced noise or blur, into clear high-quality (HQ) images.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "1. Introduction\nImage super-resolution (ISR) [8, 9, 23, 26] aims to trans-\nform low-quality (LQ) images, which have experienced\nnoise or blur, into clear high-quality (HQ) images. Differing\nfrom traditional ISR [6, 66], which assumes a known degra-\ndation process, real-world image super-resolution (Real-\nISR) [46, 62] is designed to enhance real-world images that\nhave suffered from complex and unknown degradations,\nthereby offering greater practical utility.\nGenerative models, particularly Generative Adversarial\nNetworks (GANs) [11, 33, 37] and Diffusion Models (DMs)\n*Equal contribution. †Corresponding authors.\nFigure 1. Performance and efficiency comparison among Real-\nISR methods. TSD-SR stands out for achieving high-quality\nrestoration with the fastest speed among diffusion-based models.\nIn contrast, existing models prioritize either speed or restoration\nperformance. The performance of each method is benchmarked\non an A100 GPU with the DRealSR dataset.\n[17, 39, 41], have shown remarkable power in handling\nReal-ISR task. GAN-based methods leverage adversarial\ntraining, toggling between the generator and discriminator\nto produce realistic images. While GANs are capable of\none-step"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "ations of diffusion models through distillation [12, 15, 18, 57] have been proposed [48, 52, 54].",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "ations of diffusion models through distillation [12, 15, 18,\n57] have been proposed [48, 52, 54]. Among these works,\nOSEDiff [52] introduced the Variational Score Distillation\n(VSD) loss [50] to Real-ISR task, achieving state-of-the-art\n(SOTA) one-step performance by leveraging prior knowl-\nedge from pre-trained models. Despite these advancements,\nour investigation has revealed two critical limitations asso-\nciated with VSD in Real-ISR applications. (1) Unreliable\ngradient direction. VSD relies on a Teacher Model to pro-\nvide a “true gradient direction.” However, this guidance\nproves unreliable in scenarios where initial ISR outputs are\nsuboptimal. (2) Insufficient detail recovery.The VSD loss\nexhibits notable variation across different timesteps, and the\nuniform sampling strategy fort poses challenges in aligning\nthe score function with detailed texture recovery require-\nments. These findings highlight the need for enhanced ap-\nproaches to address these issues effectively.\nIn this paper, we propose a novel method called TSD-\nSR to distill a multi-step Text-to-Image (T2I) DMs [10,\n38, 39] into an effective one-step diffusion model tailored\nfor the Real-ISR task. Specifically, TSD-S"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Despite these advancements, our investigation has revealed two critical limitations asso- ciated with VSD in Real-ISR applications."
+    ],
+    "limitation_expression": [
+      "However, due to the iterative denoising nature of diffusion models [17], the Real-ISR process is computationally expensive.",
+      "VSD relies on a Teacher Model to pro- vide a “true gradient direction.” However, this guidance proves unreliable in scenarios where initial ISR outputs are suboptimal.",
+      "Although our model boasts excellent inference speed and restoration performance, it still has a large num- ber of model parameters compared to the past GAN/non- diffusion approaches."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this, we propose TSD-SR, a novel dis- tillation framework specifically designed for real-world im- age super-resolution, aiming to construct an efficient and effective one-step model.",
+      "Secondly, we propose a Distribution-Aware Sampling Module to make detail-oriented gradients more readily accessible, addressing the challenge of recovering fine details.",
+      "In this paper, we propose a novel method called TSD- SR to distill a multi-step Text-to-Image (T2I) DMs [10, 38, 39] into an effective one-step diffusion model tailored for the Real-ISR task.",
+      "Our main contribution can be summarized as threefold: • We propose a novel method called TSD-SR to achieve one-step DMs distillation for the Real-ISR task. • We introduce Target Score Distillation (TSD) to provide a reliable gradient to enhance the realism of the Real-ISR model’s outputs. • We design a Distribution-Aware Sampling Module (DASM) specifically tailored to enhance the capability of detail restoration.",
+      "Conclusion and Limitation We propose TSD-SR, an effective and one-step model based on diffusion prior for Real-ISR."
+    ],
+    "experiment_expression": [
+      "Extensive experiments demonstrate that our TSD-SR has superior restoration results (most of the met- rics perform the best) and the fastest inference speed ( e.g.",
+      "Experiments on popular benchmarks demonstrate that TSD-SR achieves superior restoration performance (most of the metrics perform the best) and high efficiency (the fastest inference speed, 40 times faster than SeeSR) compared to the state-of-the-art Real-ISR methods based on pre-trained DMs, while requiring only a single inference step."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion and Limitation We propose TSD-SR, an effective and one-step model based on diffusion prior for Real-ISR.",
+    "Extensive experiments demonstrate that our TSD-SR has superior restoration results (most of the met- rics perform the best) and the fastest inference speed ( e.g.",
+    "However, due to the iterative denoising nature of diffusion models [17], the Real-ISR process is computationally expensive.",
+    "In this paper, we propose a novel method called TSD- SR to distill a multi-step Text-to-Image (T2I) DMs [10, 38, 39] into an effective one-step diffusion model tailored for the Real-ISR task.",
+    "Secondly, we propose a Distribution-Aware Sampling Module to make detail-oriented gradients more readily accessible, addressing the challenge of recovering fine details.",
+    "To address this, we propose TSD-SR, a novel dis- tillation framework specifically designed for real-world im- age super-resolution, aiming to construct an efficient and effective one-step model.",
+    "VSD relies on a Teacher Model to pro- vide a “true gradient direction.” However, this guidance proves unreliable in scenarios where initial ISR outputs are suboptimal.",
+    "(1) Unreliable gradient direction.",
+    "(2) Insufficient detail recovery.The VSD loss exhibits notable variation across different timesteps, and the uniform sampling strategy fort poses challenges in aligning the score function with detailed texture recovery require- ments.",
+    "23174 ations of diffusion models through distillation [12, 15, 18, 57] have been proposed [48, 52, 54].",
+    "40 times faster than SeeSR) compared to the past Real-ISR approaches based on pre-trained diffusion priors.",
+    "Abstract Pre-trained text-to-image diffusion models are increas- ingly applied to real-world image super-resolution (Real- ISR) task."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nPre-trained text-to-image diffusion models are increas-\ningly applied to real-world image super-resolution (Real-\nISR) task. Given the iterative refinement nature of diffusion\nmodels, most existing approaches are computationally ex-\npensive. While methods such as SinSR and OSEDiff have\nemerged to condense inference steps via distillation, their\nperformance in image restoration or details recovery is not\nsatisfied. To address this, we propose TSD-SR, a novel dis-\ntillation framework specifically designed for real-world im-\nage super-resolution, aiming to construct an efficient and\neffective one-step model. We first introduce the Target Score\nDistillation, which leverages the priors of diffusion mod-\nels and real image references to achieve more realistic im-\nage restoration. Secondly, we propose a Distribution-Aware\nSampling Module to make detail-oriented gradients more\nreadily accessible, addressing the challenge of recovering\nfine details. Extensive experiments demonstrate that our\nTSD-SR has superior restoration results (most of the met-\nrics perform the best) and the fastest inference speed ( e.g.\n40 times faster than SeeSR) compared to the past Real-ISR\napproaches based on pre-trained diffusion priors.",
+    "introduction": "1. Introduction\nImage super-resolution (ISR) [8, 9, 23, 26] aims to trans-\nform low-quality (LQ) images, which have experienced\nnoise or blur, into clear high-quality (HQ) images. Differing\nfrom traditional ISR [6, 66], which assumes a known degra-\ndation process, real-world image super-resolution (Real-\nISR) [46, 62] is designed to enhance real-world images that\nhave suffered from complex and unknown degradations,\nthereby offering greater practical utility.\nGenerative models, particularly Generative Adversarial\nNetworks (GANs) [11, 33, 37] and Diffusion Models (DMs)\n*Equal contribution. †Corresponding authors.\nFigure 1. Performance and efficiency comparison among Real-\nISR methods. TSD-SR stands out for achieving high-quality\nrestoration with the fastest speed among diffusion-based models.\nIn contrast, existing models prioritize either speed or restoration\nperformance. The performance of each method is benchmarked\non an A100 GPU with the DRealSR dataset.\n[17, 39, 41], have shown remarkable power in handling\nReal-ISR task. GAN-based methods leverage adversarial\ntraining, toggling between the generator and discriminator\nto produce realistic images. While GANs are capable of\none-step inference, they are commonly hampered by issues\nlike mode collapse and training instability [2]. Recently,\nDiffusion Models (DMs) have shown impressive perfor-\nmance in the realm of image generation [21, 47]. Their\nrobust priors empower them to produce more realistic im-\nages with richer details than GAN-based methods [39, 41].\nSome researchers [29, 53, 56, 60] have successfully lever-\naged pre-trained DMs for Real-ISR task. However, due to\nthe iterative denoising nature of diffusion models [17], the\nReal-ISR process is computationally expensive.\nTo achieve an efficient and one-step network akin to\nGANs, several pioneering methods that condense the iter-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n23174\n\nations of diffusion models through distillation [12, 15, 18,\n57] have been proposed [48, 52, 54]. Among these works,\nOSEDiff [52] introduced the Variational Score Distillation\n(VSD) loss [50] to Real-ISR task, achieving state-of-the-art\n(SOTA) one-step performance by leveraging prior knowl-\nedge from pre-trained models. Despite these advancements,\nour investigation has revealed two critical limitations asso-\nciated with VSD in Real-ISR applications. (1) Unreliable\ngradient direction. VSD relies on a Teacher Model to pro-\nvide a “true gradient direction.” However, this guidance\nproves unreliable in scenarios where initial ISR outputs are\nsuboptimal. (2) Insufficient detail recovery.The VSD loss\nexhibits notable variation across different timesteps, and the\nuniform sampling strategy fort poses challenges in aligning\nthe score function with detailed texture recovery require-\nments. These findings highlight the need for enhanced ap-\nproaches to address these issues effectively.\nIn this paper, we propose a novel method called TSD-\nSR to distill a multi-step Text-to-Image (T2I) DMs [10,\n38, 39] into an effective one-step diffusion model tailored\nfor the Real-ISR task. Specifically, TSD-SR consists of\ntwo components: Target Score Distillation (TSD) and\nDistribution-Aware Sampling Module (DASM). TSD in-\ncorporates our new proposed Target Score Matching (TSM)\nloss to compensate for the limitation of VSD loss. This sig-\nnificant score loss leverages HQ data to provide a reliable\noptimization trajectory for the distillation process. It effec-\ntively reduces the visual artifacts caused by deviant predic-\ntions from the Teacher Model. DASM is crafted to bolster\ndetail recovery by strategically sampling low-noise samples\nthat are distribution-based during training. This approach\neffectively allocates more optimization to early timesteps in\na single iteration, enhancing the recovery of details.\nExperiments on popular benchmarks demonstrate that\nTSD-SR achieves superior restoration performance (most of\nthe metrics perform the best) and high efficiency (the fastest\ninference speed, 40 times faster than SeeSR) compared to\nthe state-of-the-art Real-ISR methods based on pre-trained\nDMs, while requiring only a single inference step.\nOur main contribution can be summarized as threefold:\n• We propose a novel method called TSD-SR to achieve\none-step DMs distillation for the Real-ISR task.\n• We introduce Target Score Distillation (TSD) to provide\na reliable gradient to enhance the realism of the Real-ISR\nmodel’s outputs.\n• We design a Distribution-Aware Sampling Module\n(DASM) specifically tailored to enhance the capability of\ndetail restoration.",
+    "method": "3. Methodology",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion and Limitation\nWe propose TSD-SR, an effective and one-step model based\non diffusion prior for Real-ISR. TSD-SR utilizes the TSD\nto enhance the realism of images generated by the distilla-\ntion model. And it leverages DASM to sample distribution-\nbased samples and accumulate their gradients to enhance\nthe recovery of details. Our experiments have demonstrated\nthat TSD-SR outperforms existing one-step Real-ISR mod-\nels in both performance and inference speed.\nlimitations. Although our model boasts excellent inference\nspeed and restoration performance, it still has a large num-\nber of model parameters compared to the past GAN/non-\ndiffusion approaches. In the future, we plan to employ prun-\ning or quantization methods to compress the model parame-\nters, striving for a lightweight and efficient Real-ISR model."
+  }
+}

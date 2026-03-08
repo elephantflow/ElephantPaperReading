@@ -1,0 +1,93 @@
+{
+  "paper_id": "camfreediff-camera-free-image-to-panorama-generation-with-diffusion-model--8489c9f773",
+  "paper_title": "CamFreeDiff: Camera-free Image to Panorama Generation with Diffusion Model",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:11.755594+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/CamFreeDiff： Camera-free Image to Panorama Generation with Diffusion Model.pdf",
+    "filename": "CamFreeDiff： Camera-free Image to Panorama Generation with Diffusion Model.pdf",
+    "sha1": "8489c9f773c35c3e594027abd18df842f65adb5b",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Extending panorama generation to camera-free inputs poses signiﬁcant challenges.",
+    "limitation": "However, with a limited amount of avaiable training data, their ﬁne-tuning disrupts the prior knowledge of the pre-trained model and diminishes its generalization capabilities.",
+    "insight": "Abstract This paper introduces Camera-free Diffusion (CamFreeDiff) model for 360◦image outpainting from a single camera-free image and text description.",
+    "proposed_method": "Our method estimates the input camera parameters by estimating the homography transfor- mation from the input image to a predeﬁned canonical view.",
+    "experimental_evidence": "Qualitative and quantitative experimental results demonstrate the strong ro- bustness and performance of CamFreeDiff for 360◦image outpainting in the challenging context of camera-free inputs.",
+    "summary": "Extending panorama generation to camera-free inputs poses signiﬁcant challenges. However, with a limited amount of avaiable training data, their ﬁne-tuning disrupts the prior knowledge of the pre-trained model and diminishes its generalization capabilities. Abstract This paper introduces Camera-free Diffusion (CamFreeDiff) model for 360◦image outpainting from a single camera-free image and text description. Our method estimates the input camera parameters by estimating the homography transfor- mation from the input image to a predeﬁned canonical view. Qualitative and quantitative experimental results demonstrate the strong ro- bustness and performance of CamFreeDiff for 360◦image outpainting in the challenging context of camera-free inputs."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Unlike traditional movies, 360◦movies create an immersive experience that allows viewers to feel as if they are part of the movies’s environment rather than merely observing it from a ﬁxed perspective.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\nUnlike traditional movies, 360◦movies create an immersive\nexperience that allows viewers to feel as if they are part of\nthe movies’s environment rather than merely observing it\nfrom a ﬁxed perspective. This immersive aspect has been\nsigniﬁcantly enhanced with the advent and proliferation of\nAR/VR devices like VisionPro. Creating 360◦movies typ-\nically requires specialized equipment, like 360◦ cameras,\nmaking it a highly professional endeavour. An alternative,\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n16408"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "yet underexplored, approach is outpainting existing movies into 360◦formats.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "yet underexplored, approach is outpainting existing movies\ninto 360◦formats.\nImage-based panorama outpainting [2, 2, 4, 14, 26, 28, 32,\n33, 35] is a necessary step towards video-based 360◦movie\ncreation. The recent advance of text-to-image diffusion mod-\nels [9, 16– 20] makes it possible to extrapolate an image into\n360◦ view. PanoDiffusion [ 32] proposes a panorama out-\npainting method by ﬁne-tuning a pretrained latent diffusion\nmodel [ 19]. However, with a limited amount of avaiable\ntraining data, their ﬁne-tuning disrupts the prior knowledge\nof the pre-trained model and diminishes its generalization\ncapabilities. MVDiffusion [ 28], by contrast, leverages the\nfrozen pre-trained latent diffusion model with strong genera-\ntive capabilities to produce multi-view consistent panoramic\nimages. This method ensures geometric consistency between\nviews through correspondence-aware attention, but still re-\nquires known camera intrinsic and pose for the input image,\nlimiting its application to panoramas generated from images\nwith deﬁned camera parameters.\nExtending panorama generation to camera-free inputs\nposes signiﬁcant challenges. Our method estimates the input\ncamera parameters by estim"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, with a limited amount of avaiable training data, their ﬁne-tuning disrupts the prior knowledge of the pre-trained model and diminishes its generalization capabilities.",
+      "This method ensures geometric consistency between views through correspondence-aware attention, but still re- quires known camera intrinsic and pose for the input image, limiting its application to panoramas generated from images with deﬁned camera parameters."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Our method estimates the input camera parameters by estimating the homography transfor- mation from the input image to a predeﬁned canonical view.",
+      "To summarize, our main contributions include: • We propose CamFreeDiff, a 360◦panoramic image gener- ation model capable of handling camera-free input images.",
+      "We found that ap- proximating the homography transformation by a three degrees of freedom(3-DoF) parametrization and predic- tion instead of the full 8-DoF prediction is sufﬁcient in terms of panoramic image outpainting. • We propose a novel strategy that seamlessly integrates cam- era prediction into the multi-view image diffusion model Figure 2.",
+      "In order to address this challenging problem, we propose our Camera-free Diffusion(CamFreeDiff) model.",
+      "Our method builds upon the MVDiffusion model for consistent multi-view im- age generation and seamlessly incorporates correspondences between the input and target canonical views for coherent and high-quality panorama generation."
+    ],
+    "experiment_expression": [
+      "Qualitative and quantitative experimental results demonstrate the strong ro- bustness and performance of CamFreeDiff for 360◦image outpainting in the challenging context of camera-free inputs.",
+      "We also demonstrate the strong robustness of CamFreeDiff to camera-free inputs and generalization ability to out-of-domain data."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, with a limited amount of avaiable training data, their ﬁne-tuning disrupts the prior knowledge of the pre-trained model and diminishes its generalization capabilities.",
+    "In order to address this challenging problem, we propose our Camera-free Diffusion(CamFreeDiff) model.",
+    "To summarize, our main contributions include: • We propose CamFreeDiff, a 360◦panoramic image gener- ation model capable of handling camera-free input images.",
+    "16408 yet underexplored, approach is outpainting existing movies into 360◦formats.",
+    "Abstract This paper introduces Camera-free Diffusion (CamFreeDiff) model for 360◦image outpainting from a single camera-free image and text description.",
+    "An alternative, This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "By doing so, CamFreeDiff can effectively mitigate the errors introduced to and accumulated in the multi-view generation process by homography estimation.",
+    "CamFreeD- iff predicts the camera parameters of the input image by estimating the homography transformation from the input to a predeﬁned canonical perspective view.",
+    "CamFreeDiff is ﬁne-tuned from the pre-trained stable diffusion inpainting model on the high- quality Matterport3D[ 3] while keeping the U-Net blocks frozen.",
+    "CamFreeDiff seamlessly incorporates a mechanism for predicting homog- raphy within the multi-view diffusion framework.",
+    "Conclusion We introduce CamFreeDiff, a novel diffusion-based method for generating panoramic image from a camera-free input.",
+    "Creating 360◦movies typ- ically requires specialized equipment, like 360◦ cameras, making it a highly professional endeavour."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nThis paper introduces Camera-free Diffusion (CamFreeDiff)\nmodel for 360◦image outpainting from a single camera-free\nimage and text description. This method distinguishes itself\nfrom existing strategies, such as MVDiffusion, by eliminating\nthe requirement for predeﬁned camera poses. CamFreeDiff\nseamlessly incorporates a mechanism for predicting homog-\nraphy within the multi-view diffusion framework. The key\ncomponent of our approach is to formulate camera estima-\ntion by directly predicting the homography transformation\nfrom the input view to the predeﬁned canonical view. In\ncontrast to the direct two-stage approach of image transfor-\nmation and outpainting, CamFreeDiff utilizes predicted ho-\nmography to establish point-level correspondences between\nthe input view and the target panoramic view. This enables\nconsistency through correspondence-aware attention, which\nis learned in a fully differentiable manner . Qualitative and\nquantitative experimental results demonstrate the strong ro-\nbustness and performance of CamFreeDiff for 360◦image\noutpainting in the challenging context of camera-free inputs.",
+    "introduction": "1. Introduction\nUnlike traditional movies, 360◦movies create an immersive\nexperience that allows viewers to feel as if they are part of\nthe movies’s environment rather than merely observing it\nfrom a ﬁxed perspective. This immersive aspect has been\nsigniﬁcantly enhanced with the advent and proliferation of\nAR/VR devices like VisionPro. Creating 360◦movies typ-\nically requires specialized equipment, like 360◦ cameras,\nmaking it a highly professional endeavour. An alternative,\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n16408\n\nyet underexplored, approach is outpainting existing movies\ninto 360◦formats.\nImage-based panorama outpainting [2, 2, 4, 14, 26, 28, 32,\n33, 35] is a necessary step towards video-based 360◦movie\ncreation. The recent advance of text-to-image diffusion mod-\nels [9, 16– 20] makes it possible to extrapolate an image into\n360◦ view. PanoDiffusion [ 32] proposes a panorama out-\npainting method by ﬁne-tuning a pretrained latent diffusion\nmodel [ 19]. However, with a limited amount of avaiable\ntraining data, their ﬁne-tuning disrupts the prior knowledge\nof the pre-trained model and diminishes its generalization\ncapabilities. MVDiffusion [ 28], by contrast, leverages the\nfrozen pre-trained latent diffusion model with strong genera-\ntive capabilities to produce multi-view consistent panoramic\nimages. This method ensures geometric consistency between\nviews through correspondence-aware attention, but still re-\nquires known camera intrinsic and pose for the input image,\nlimiting its application to panoramas generated from images\nwith deﬁned camera parameters.\nExtending panorama generation to camera-free inputs\nposes signiﬁcant challenges. Our method estimates the input\ncamera parameters by estimating the homography transfor-\nmation from the input image to a predeﬁned canonical view.\nThe homography establishes a correspondence between input\nviews and each targeting panoramic view, allowing for the\nenforcement of multi-view consistency via correspondence-\naware attention [28]. Furthermore, the homographic matrix\nestimator is seamlessly integrated with the multi-view dif-\nfusion model in a fully differentiable manner. By doing so,\nCamFreeDiff can effectively mitigate the errors introduced\nto and accumulated in the multi-view generation process by\nhomography estimation. CamFreeDiff is ﬁne-tuned from the\npre-trained stable diffusion inpainting model on the high-\nquality Matterport3D[ 3] while keeping the U-Net blocks\nfrozen. We demonstrated the strong robustness of Cam-\nFreeDiff to random camera parameters. Our model also\nshows excellent generalization ability when tested on out-\nof-domain data from Structured3D[ 36] without training. To\nsummarize, our main contributions include:\n• We propose CamFreeDiff, a 360◦panoramic image gener-\nation model capable of handling camera-free input images.\nTo the best of our knowledge, our model is the ﬁrst image\ngeneration model designed to handle unknown input view\nand camera parameters.\n• We formulate the camera parameter estimation by pre-\ndicting the homography transformation from the input\nimage to a predeﬁned canonical view. We found that ap-\nproximating the homography transformation by a three\ndegrees of freedom(3-DoF) parametrization and predic-\ntion instead of the full 8-DoF prediction is sufﬁcient in\nterms of panoramic image outpainting.\n• We propose a novel strategy that seamlessly integrates cam-\nera prediction into the multi-view image diffusion model\nFigure 2. In the context of panorama generation, we deﬁne the\ncamera parameter for a canonical perspective view as fov =9 0◦,\nx-axis rotation φ =0 and z-axis rotation ψ =0 . The y-axis\nrotation can be any θfrom 0◦ to 360◦.\nto enforce multi-view consistency and produce images\nwith high visual quality.",
+    "method": "4. Method\nWe aim to generate text-guided 360◦image from a camera-\nfree input, where we assume unknown camera parameters.\nIn order to address this challenging problem, we propose our\nCamera-free Diffusion(CamFreeDiff) model. CamFreeD-\niff predicts the camera parameters of the input image by\nestimating the homography transformation from the input\nto a predeﬁned canonical perspective view. The predicted\nhomography matrix provides point-wise correspondences\nbetween the input view and multiple targeting views condi-\ntionally. CamFreeDiff leverages the correspondence-aware\nattention(CAA) module to ensure the input texture remains\nunchanged while enforcing the geometry transformation\nfrom the input to the ﬁnal panorama generation, conditioned\non the predicted homography matrix.",
+    "experiments": "5. Experiments\nWe provide experiment details and results in this section,\nincluding experiment setup ( 5.1), baselines ( 5.2), and quali-\ntative and experiment results ( 5.3).",
+    "conclusion": "6. Conclusion\nWe introduce CamFreeDiff, a novel diffusion-based method\nfor generating panoramic image from a camera-free input.\nWe formulate the camera parameter estimation of the input as\nan estimation of the homography transformation from the in-\nput view to a predeﬁned canonical view. Our method builds\nupon the MVDiffusion model for consistent multi-view im-\nage generation and seamlessly incorporates correspondences\nbetween the input and target canonical views for coherent\nand high-quality panorama generation. We also demonstrate\nthe strong robustness of CamFreeDiff to camera-free inputs\nand generalization ability to out-of-domain data.\nAcknowledgement. We thank Professor Alan L. Y uille for\nthe support of this work and the authors. This paper is\nsupported by Ofﬁce of Naval Research (ONR) with\nN000142412696."
+  }
+}

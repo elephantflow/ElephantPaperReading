@@ -1,0 +1,126 @@
+{
+  "paper_id": "luminet-latent-intrinsics-meets-diffusion-models-for-indoor-scene-relighting--10a2aebb33",
+  "paper_title": "LumiNet: Latent Intrinsics Meets Diffusion Models for Indoor Scene Relighting",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:59.916800+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/LumiNet： Latent Intrinsics Meets Diffusion Models for Indoor Scene Relighting.pdf",
+    "filename": "LumiNet： Latent Intrinsics Meets Diffusion Models for Indoor Scene Relighting.pdf",
+    "sha1": "10a2aebb33105034281167acf77b3527e86e4643",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "The key challenge stems from the difﬁculty in decom- posing and transferring lighting effects between scenes with different spatial layouts and surface properties.",
+    "limitation": "Traditional inverse ren- dering approaches attempting to recover scene components explicitly often struggle with model limitations and error propagation [ 35].",
+    "insight": "Our key insight is that by care- fully modifying the ControlNet architecture to operate on latent representations of scene intrinsics and extrinsics [ 73], we can achieve robust lighting transfer between arbitrary in- door scenes.",
+    "proposed_method": "Abstract We introduce LumiNet, a novel architecture that leverages generative models and latent intrinsic representations for transferring lighting from one image to another .",
+    "experimental_evidence": "Exper- iments demonstrate that our method successfully transfers complex lighting phenomena including specular highlights and indirect illumination across scenes with varying spatial layouts and materials, outperforming existing approaches on challenging indoor scenes using only images as input.",
+    "summary": "The key challenge stems from the difﬁculty in decom- posing and transferring lighting effects between scenes with different spatial layouts and surface properties. Traditional inverse ren- dering approaches attempting to recover scene components explicitly often struggle with model limitations and error propagation [ 35]. Our key insight is that by care- fully modifying the ControlNet architecture to operate on latent representations of scene intrinsics and extrinsics [ 73], we can achieve robust lighting transfer between arbitrary in- door scenes. Abstract We introduce LumiNet, a novel architecture that leverages generative models and latent intrinsic representations for transferring lighting from one image to another . Exper- iments demonstrate that our method successfully transfers complex lighting phenomena including specular highlights and indirect illumination across scenes with varying spatial layouts and materials, outperforming existing approaches on challenging indoor scenes using only images as input."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Transferring lighting conditions between indoor scenes has applications in cinematography, architectural visualization, and mixed reality.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Transferring lighting conditions between indoor scenes has applications in cinematography, architectural visualization, and mixed reality. While recent advances in neural render- ing have shown promising results for single image relight- ing, transferring lighting between different images remains challenging due to the complex interplay of scene geometry, materials, and illumination. The key challenge stems from the difﬁculty in decom- posing and transferring lighting effects between scenes with different spatial layouts and surface properties. Moreover, light in scenes cannot just appear but must come from lu- minaires, meaning that transferring a lighting pattern from scene to scene requires a detailed understanding of light sources in the scene."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Furthermore, indoor scenes have complex light transport phenomena including interreﬂec- tions, shadows, and spatially-varying material interactions that are highly scene-speciﬁc [ 71].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Furthermore, indoor scenes have complex light transport phenomena including interreﬂec- tions, shadows, and spatially-varying material interactions that are highly scene-speciﬁc [ 71]. Traditional inverse ren- dering approaches attempting to recover scene components explicitly often struggle with model limitations and error propagation [ 35]. Other approaches either require exten- sive multi-view capture setups, are limited to speciﬁc object categories [ 26, 65] or portraits [ 29, 49], or cannot transfer complex lighting effects between different scenes [ 66, 73]. Recent studies have shown promising directions."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "Bhat- tad et al. [7] showed that StyleGAN’s latent space [ 27] con- tains disentangled lighting representations and uses them to manipulate the lighting of generated images, but their ap- proach does not transfer well to real images [ 6].",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Bhat- tad et al. [7] showed that StyleGAN’s latent space [ 27] con- tains disentangled lighting representations and uses them to manipulate the lighting of generated images, but their ap- proach does not transfer well to real images [ 6]. Zhang et al. demonstrated that latent intrinsic decomposition can capture emergent properties of albedo and illumination, and can be used for relighting [ 73]. While these representations are robust, our experiments demonstrate they do not gen- eralize to complex, arbitrary scenes. Meanwhile, diffusion models [23, 51] with ControlNet [ 68] have shown remark- able conditional image-generation capabilities."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "key_insight",
+      "main_message": "Diffusion- Light [47] recovers environment maps by inpainting chrome balls, while IC-Light [ 69] relights portrait images.",
+      "writing_strategy": "Introduces an observation that motivates the proposed direction.",
+      "evidence_text": "Diffusion- Light [47] recovers environment maps by inpainting chrome balls, while IC-Light [ 69] relights portrait images. How- ever, these methods cannot relight complex indoor scenes. We present LumiNet, a novel approach that synthesizes the strengths of these different generators while addressing their individual limitations. Our key insight is that by care- fully modifying the ControlNet architecture to operate on latent representations of scene intrinsics and extrinsics [ 73], we can achieve robust lighting transfer between arbitrary in- door scenes."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "First, we develop a training pipeline that inte- grates a variational StyleGAN architecture with real indoor scene data to alleviate mode collapse issues common in in- door scene generation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "First, we develop a training pipeline that inte- grates a variational StyleGAN architecture with real indoor scene data to alleviate mode collapse issues common in in- door scene generation. This approach also addresses the lack of training data for real indoor scenes lit under different lighting conditions. Second, we train a Latent ControlNet that learns to decompose and transfer lighting features by operating in learned latent spaces and using lighting feature- aware ﬁne-tuning, without requiring explicit 3D reconstruc- tion or material modeling. Third, we introduce a lighting- aware adaptor network that maps a low-dimensional latent lighting extrinsic vector to a high-dimensional code."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "method_overview",
+      "main_message": "This code is injected into a pretrained diffusion model by ﬁne- tuning its cross-attention layers, helping the model to pre- serve target lighting characteristics effectively.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "This code is injected into a pretrained diffusion model by ﬁne- tuning its cross-attention layers, helping the model to pre- serve target lighting characteristics effectively. Our method successfully relights challenging cases where the target (Fig. 1a) and the source images (Fig. 1b) differ signiﬁcantly in spatial arrangements and material properties, exploiting learned priors from powerful im- age generators."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "background",
+      "main_message": "1c) demonstrate that our re- lighting method can create complex lighting phenomena in physically plausible ways, including specular highlights, soft shadows, and indirect illumination effects like inter- reﬂections (as shown in Fig.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1c) demonstrate that our re- lighting method can create complex lighting phenomena in physically plausible ways, including specular highlights, soft shadows, and indirect illumination effects like inter- reﬂections (as shown in Fig. 1d; see the TV in the top row). Extensive experiments show that LumiNet outperforms pre- vious methods, requiring only images as input. On the chal- lenging MIT Multi-Illumination dataset [ 44], LumiNet sur- passes previous SOTA by over 20% on quantitative metrics."
+    },
+    {
+      "paragraph_index": 8,
+      "paragraph_role": "contribution_summary",
+      "main_message": "In summary, our main contributions are: • Novel Framework: LumiNet combines latent intrinsic control with diffusion models for high-quality indoor scene relighting without 3D or multi-view inputs. • Training Data: A variational StyleGAN approach maps real images to latent space of StyleGAN, enabling diverse data generation for our training. • Generalizable Relighting: Despite training only on same- scene pairs, LumiNet successfully transfers lighting be- tween scenes in the wild with different layouts. • Plausible Lighting Effects: LumiNet can relight diverse indoor scenes with complex lighting effects, including specular highlights, cast shadows, and inter-reﬂections.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "In summary, our main contributions are: • Novel Framework: LumiNet combines latent intrinsic control with diffusion models for high-quality indoor scene relighting without 3D or multi-view inputs. • Training Data: A variational StyleGAN approach maps real images to latent space of StyleGAN, enabling diverse data generation for our training. • Generalizable Relighting: Despite training only on same- scene pairs, LumiNet successfully transfers lighting be- tween scenes in the wild with different layouts. • Plausible Lighting Effects: LumiNet can relight diverse indoor scenes with complex lighting effects, including specular highlights, cast shadows, and inter-reﬂections. Extensive evaluations (quantitative and qualitative) and user studies validate LumiNet’s effectiveness."
+    }
+  ],
+  "method_structure": [],
+  "experiment_structure": [
+    {
+      "section_heading": "6. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Other approaches either require exten- sive multi-view capture setups, are limited to speciﬁc object categories [ 26, 65] or portraits [ 29, 49], or cannot transfer complex lighting effects between different scenes [ 66, 73]."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Exper- iments demonstrate that our method successfully transfers complex lighting phenomena including specular highlights and indirect illumination across scenes with varying spatial layouts and materials, outperforming existing approaches on challenging indoor scenes using only images as input.",
+      "Our method successfully relights challenging cases where the target (Fig."
+    ],
+    "experiment_expression": [
+      "Exper- iments demonstrate that our method successfully transfers complex lighting phenomena including specular highlights and indirect illumination across scenes with varying spatial layouts and materials, outperforming existing approaches on challenging indoor scenes using only images as input.",
+      "While these representations are robust, our experiments demonstrate they do not gen- eralize to complex, arbitrary scenes.",
+      "1c) demonstrate that our re- lighting method can create complex lighting phenomena in physically plausible ways, including specular highlights, soft shadows, and indirect illumination effects like inter- reﬂections (as shown in Fig.",
+      "Extensive experiments show that LumiNet outperforms pre- vious methods, requiring only images as input."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "1c) demonstrate that our re- lighting method can create complex lighting phenomena in physically plausible ways, including specular highlights, soft shadows, and indirect illumination effects like inter- reﬂections (as shown in Fig.",
+    "Extensive experiments show that LumiNet outperforms pre- vious methods, requiring only images as input.",
+    "1a) and the source images (Fig.",
+    "1b) differ signiﬁcantly in spatial arrangements and material properties, exploiting learned priors from powerful im- age generators.",
+    "1d; see the TV in the top row).",
+    "5) and quantitatively (Tab.",
+    "Abstract We introduce LumiNet, a novel architecture that leverages generative models and latent intrinsic representations for transferring lighting from one image to another .",
+    "Additionally, we assess perceptual quality through a user study (Tab.",
+    "Bhat- tad et al. [7] showed that StyleGAN’s latent space [ 27] con- tains disentangled lighting representations and uses them to manipulate the lighting of generated images, but their ap- proach does not transfer well to real images [ 6].",
+    "Diffusion- Light [47] recovers environment maps by inpainting chrome balls, while IC-Light [ 69] relights portrait images.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experiment We evaluate the light transfer capability on both a controlled lighting dataset and real-world images both qualitatively (Fig."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWe introduce LumiNet, a novel architecture that leverages\ngenerative models and latent intrinsic representations for\ntransferring lighting from one image to another . Given a\nsource image and a target lighting image, LumiNet gener-\nates a relit version of the source scene that captures the tar-\nget’s lighting. Our approach makes two key contributions: a\ndata curation strategy from the StyleGAN-based relighting\nmodel for our training, and a modiﬁed diffusion-based Con-\ntrolNet that processes both latent intrinsic properties from\nthe source image and latent extrinsic properties from the\ntarget image. We further improve lighting transfer through\na learned adaptor that injects the target’s latent extrinsic\nproperties via cross-attention and light-weight ﬁne-tuning.\nUnlike traditional ControlNet, which generates images\nwith conditional maps from a single scene, LumiNet pro-\ncesses latent representations from two different images -\npreserving geometry and albedo from the source while\ntransferring lighting characteristics from the target. Exper-\niments demonstrate that our method successfully transfers\ncomplex lighting phenomena including specular highlights\nand indirect illumination across scenes with varying spatial\nlayouts and materials, outperforming existing approaches\non challenging indoor scenes using only images as input.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n442",
+    "introduction": "1. Introduction\nTransferring lighting conditions between indoor scenes has\napplications in cinematography, architectural visualization,\nand mixed reality. While recent advances in neural render-\ning have shown promising results for single image relight-\ning, transferring lighting between different images remains\nchallenging due to the complex interplay of scene geometry,\nmaterials, and illumination.\nThe key challenge stems from the difﬁculty in decom-\nposing and transferring lighting effects between scenes with\ndifferent spatial layouts and surface properties. Moreover,\nlight in scenes cannot just appear but must come from lu-\nminaires, meaning that transferring a lighting pattern from\nscene to scene requires a detailed understanding of light\nsources in the scene. Furthermore, indoor scenes have\ncomplex light transport phenomena including interreﬂec-\ntions, shadows, and spatially-varying material interactions\nthat are highly scene-speciﬁc [ 71]. Traditional inverse ren-\ndering approaches attempting to recover scene components\nexplicitly often struggle with model limitations and error\npropagation [ 35]. Other approaches either require exten-\nsive multi-view capture setups, are limited to speciﬁc object\ncategories [ 26, 65] or portraits [ 29, 49], or cannot transfer\ncomplex lighting effects between different scenes [ 66, 73].\nRecent studies have shown promising directions. Bhat-\ntad et al. [7] showed that StyleGAN’s latent space [ 27] con-\ntains disentangled lighting representations and uses them to\nmanipulate the lighting of generated images, but their ap-\nproach does not transfer well to real images [ 6]. Zhang\net al. demonstrated that latent intrinsic decomposition can\ncapture emergent properties of albedo and illumination, and\ncan be used for relighting [ 73]. While these representations\nare robust, our experiments demonstrate they do not gen-\neralize to complex, arbitrary scenes. Meanwhile, diffusion\nmodels [23, 51] with ControlNet [ 68] have shown remark-\nable conditional image-generation capabilities. Diffusion-\nLight [47] recovers environment maps by inpainting chrome\nballs, while IC-Light [ 69] relights portrait images. How-\never, these methods cannot relight complex indoor scenes.\nWe present LumiNet, a novel approach that synthesizes\nthe strengths of these different generators while addressing\ntheir individual limitations. Our key insight is that by care-\nfully modifying the ControlNet architecture to operate on\nlatent representations of scene intrinsics and extrinsics [ 73],\nwe can achieve robust lighting transfer between arbitrary in-\ndoor scenes. First, we develop a training pipeline that inte-\ngrates a variational StyleGAN architecture with real indoor\nscene data to alleviate mode collapse issues common in in-\ndoor scene generation. This approach also addresses the\nlack of training data for real indoor scenes lit under different\nlighting conditions. Second, we train a Latent ControlNet\nthat learns to decompose and transfer lighting features by\noperating in learned latent spaces and using lighting feature-\naware ﬁne-tuning, without requiring explicit 3D reconstruc-\ntion or material modeling. Third, we introduce a lighting-\naware adaptor network that maps a low-dimensional latent\nlighting extrinsic vector to a high-dimensional code. This\ncode is injected into a pretrained diffusion model by ﬁne-\ntuning its cross-attention layers, helping the model to pre-\nserve target lighting characteristics effectively.\nOur method successfully relights challenging cases\nwhere the target (Fig. 1a) and the source images (Fig. 1b)\ndiffer signiﬁcantly in spatial arrangements and material\nproperties, exploiting learned priors from powerful im-\nage generators. Results (Fig. 1c) demonstrate that our re-\nlighting method can create complex lighting phenomena\nin physically plausible ways, including specular highlights,\nsoft shadows, and indirect illumination effects like inter-\nreﬂections (as shown in Fig. 1d; see the TV in the top row).\nExtensive experiments show that LumiNet outperforms pre-\nvious methods, requiring only images as input. On the chal-\nlenging MIT Multi-Illumination dataset [ 44], LumiNet sur-\npasses previous SOTA by over 20% on quantitative metrics.\nIn summary, our main contributions are:\n• Novel Framework: LumiNet combines latent intrinsic\ncontrol with diffusion models for high-quality indoor\nscene relighting without 3D or multi-view inputs.\n• Training Data: A variational StyleGAN approach maps\nreal images to latent space of StyleGAN, enabling diverse\ndata generation for our training.\n• Generalizable Relighting: Despite training only on same-\nscene pairs, LumiNet successfully transfers lighting be-\ntween scenes in the wild with different layouts.\n• Plausible Lighting Effects: LumiNet can relight diverse\nindoor scenes with complex lighting effects, including\nspecular highlights, cast shadows, and inter-reﬂections.\nExtensive evaluations (quantitative and qualitative) and\nuser studies validate LumiNet’s effectiveness.",
+    "method": "",
+    "experiments": "6. Experiment\nWe evaluate the light transfer capability on both a controlled\nlighting dataset and real-world images both qualitatively\n(Fig. 4 & Fig. 5) and quantitatively (Tab. 1). Additionally,\nwe assess perceptual quality through a user study (Tab. 2).",
+    "conclusion": ""
+  }
+}

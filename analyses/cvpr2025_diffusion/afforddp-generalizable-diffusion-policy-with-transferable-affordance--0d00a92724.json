@@ -1,0 +1,79 @@
+{
+  "paper_id": "afforddp-generalizable-diffusion-policy-with-transferable-affordance--0d00a92724",
+  "paper_title": "AffordDP: Generalizable Diffusion Policy with Transferable Affordance",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:04.199957+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/AffordDP： Generalizable Diffusion Policy with Transferable Affordance.pdf",
+    "filename": "AffordDP： Generalizable Diffusion Policy with Transferable Affordance.pdf",
+    "sha1": "0d00a92724b434d3238827634000501ed00705a3",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Imitation learning offers an efficient solution for teach- ing robots a variety of skills by replicating behavior from experts without the need to explicitly program actions or model the environment.",
+    "limitation": "Introduction Imitation learning offers an efficient solution for teach- ing robots a variety of skills by replicating behavior from experts without the need to explicitly program actions or model the environment.",
+    "insight": "Our key insight is that leveraging af- fordances—manipulation priors that define “where” and “how” an agent interacts with an object—can substantially enhance generalization to entirely unseen object instances and categories.",
+    "proposed_method": "We introduce the Diffusion Policy with transferable Affordance (AffordDP), designed for generaliz- able manipulation across novel categories.",
+    "experimental_evidence": "Abstract Diffusion-based policies have shown impressive perfor- mance in robotic manipulation tasks while struggling with out-of-domain distributions.",
+    "summary": "Introduction Imitation learning offers an efficient solution for teach- ing robots a variety of skills by replicating behavior from experts without the need to explicitly program actions or model the environment. Introduction Imitation learning offers an efficient solution for teach- ing robots a variety of skills by replicating behavior from experts without the need to explicitly program actions or model the environment. Our key insight is that leveraging af- fordances—manipulation priors that define “where” and “how” an agent interacts with an object—can substantially enhance generalization to entirely unseen object instances and categories. We introduce the Diffusion Policy with transferable Affordance (AffordDP), designed for generaliz- able manipulation across novel categories. Abstract Diffusion-based policies have shown impressive perfor- mance in robotic manipulation tasks while struggling with out-of-domain distributions."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Imitation learning offers an efficient solution for teach- ing robots a variety of skills by replicating behavior from experts without the need to explicitly program actions or model the environment.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Imitation learning offers an efficient solution for teach- ing robots a variety of skills by replicating behavior from experts without the need to explicitly program actions or model the environment. It has garnered significant interest across a wide range of fields, including autonomous driv- ing [13, 16, 21], robotic manipulation [3, 6, 15, 17, 22, 34, 36], and legged locomotion [20, 25, 26]. Recently, diffusion-based imitation models [6, 14, 30] have gained significant attention within the field. These models concep- tualize a robot’s visuomotor policy as a conditional diffu- sion denoising process, facilitating the learning of condi- tional action distributions."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, their generaliza- tion is typically limited to the same category with simi- lar appearances.",
+      "Addition- ally, AffordDP’s effectiveness is limited in scenarios where modeling or extracting affordances is challenging."
+    ],
+    "insight_expression": [],
+    "method_expression": [],
+    "experiment_expression": [
+      "Experimental results from both sim- ulated and real-world environments demonstrate that Af- fordDP consistently outperforms previous diffusion-based methods, successfully generalizing to unseen instances and categories where others fail."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, their generaliza- tion is typically limited to the same category with simi- lar appearances.",
+    "Abstract Diffusion-based policies have shown impressive perfor- mance in robotic manipulation tasks while struggling with out-of-domain distributions.",
+    "Addition- ally, AffordDP’s effectiveness is limited in scenarios where modeling or extracting affordances is challenging.",
+    "AffordDP mod- els affordances through 3D contact points and post-contact trajectories, capturing the essential static and dynamic in- formation for complex tasks.",
+    "By modeling affordances through 3D contact points and post-contact trajectories, and incor- porating affordance guidance during diffusion sampling, AffordDP effectively generalizes across entirely unseen ob- ject instances and categories.",
+    "Conclusion and Discussion In conclusion, the Generalizable Diffusion Policy with transferable Affordance (AffordDP) significantly advances the generalization capabilities of diffusion-based robotic manipulation policies.",
+    "Cur- rent foundational models have limitations in understanding spatial information, which can restrict AffordDP’s ability to specify affordance transfers for particular parts.",
+    "Despite these advancements, AffordDP does have some limitations that need to be addressed in future work.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experimental results from both sim- ulated and real-world environments demonstrate that Af- fordDP consistently outperforms previous diffusion-based methods, successfully generalizing to unseen instances and categories where others fail.",
+    "Experimental results in both simulated and real-world environments validate the superi- ority of AffordDP over previous methods, marking a sub- stantial step forward in the robotic community.",
+    "Future work should focus on enhancing the spatial understanding of foundational models and improving affordance extrac- tion techniques to overcome these limitations."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion-based policies have shown impressive perfor-\nmance in robotic manipulation tasks while struggling with\nout-of-domain distributions. Recent efforts attempted to en-\nhance generalization by improving the visual feature en-\ncoding for diffusion policy. However, their generaliza-\ntion is typically limited to the same category with simi-\nlar appearances. Our key insight is that leveraging af-\nfordances—manipulation priors that define “where” and\n“how” an agent interacts with an object—can substantially\nenhance generalization to entirely unseen object instances\nand categories. We introduce the Diffusion Policy with\ntransferable Affordance (AffordDP), designed for generaliz-\nable manipulation across novel categories. AffordDP mod-\nels affordances through 3D contact points and post-contact\ntrajectories, capturing the essential static and dynamic in-\nformation for complex tasks. The transferable affordance\nfrom in-domain data to unseen objects is achieved by esti-\nmating a 6D transformation matrix using foundational vi-\nsion models and point cloud registration techniques. More\nimportantly, we incorporate affordance guidance during\n†Equal contributions.\n*Corresponding authors.\ndiffusion sampling that can refine action sequence gener-\nation. This guidance directs the generated action to gradu-\nally move towards the desired manipulation for unseen ob-\njects while keeping the generated action within the mani-\nfold of action space. Experimental results from both sim-\nulated and real-world environments demonstrate that Af-\nfordDP consistently outperforms previous diffusion-based\nmethods, successfully generalizing to unseen instances and\ncategories where others fail.",
+    "introduction": "1. Introduction\nImitation learning offers an efficient solution for teach-\ning robots a variety of skills by replicating behavior from\nexperts without the need to explicitly program actions or\nmodel the environment. It has garnered significant interest\nacross a wide range of fields, including autonomous driv-\ning [13, 16, 21], robotic manipulation [3, 6, 15, 17, 22,\n34, 36], and legged locomotion [20, 25, 26]. Recently,\ndiffusion-based imitation models [6, 14, 30] have gained\nsignificant attention within the field. These models concep-\ntualize a robot’s visuomotor policy as a conditional diffu-\nsion denoising process, facilitating the learning of condi-\ntional action distributions.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "",
+    "experiments": "5. Experiments",
+    "conclusion": "6. Conclusion and Discussion\nIn conclusion, the Generalizable Diffusion Policy with\ntransferable Affordance (AffordDP) significantly advances\nthe generalization capabilities of diffusion-based robotic\nmanipulation policies. By modeling affordances through\n3D contact points and post-contact trajectories, and incor-\nporating affordance guidance during diffusion sampling,\nAffordDP effectively generalizes across entirely unseen ob-\nject instances and categories. The estimation of the 6D\ntransformation matrix using foundational vision models and\npoint cloud registration techniques allows for the transfer-\nability of these affordances. Experimental results in both\nsimulated and real-world environments validate the superi-\nority of AffordDP over previous methods, marking a sub-\nstantial step forward in the robotic community.\nDespite these advancements, AffordDP does have some\nlimitations that need to be addressed in future work. Cur-\nrent foundational models have limitations in understanding\nspatial information, which can restrict AffordDP’s ability to\nspecify affordance transfers for particular parts. Addition-\nally, AffordDP’s effectiveness is limited in scenarios where\nmodeling or extracting affordances is challenging. Future\nwork should focus on enhancing the spatial understanding\nof foundational models and improving affordance extrac-\ntion techniques to overcome these limitations.\n6978"
+  }
+}

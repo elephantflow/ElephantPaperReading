@@ -1,0 +1,122 @@
+{
+  "paper_id": "noisectrl-a-sampling-algorithm-agnostic-conditional-generation-method-for-diffus--94a596d637",
+  "paper_title": "NoiseCtrl: A Sampling-Algorithm-Agnostic Conditional Generation Method for Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:06.988261+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/NoiseCtrl： A Sampling-Algorithm-Agnostic Conditional Generation Method for Diffusion Models.pdf",
+    "filename": "NoiseCtrl： A Sampling-Algorithm-Agnostic Conditional Generation Method for Diffusion Models.pdf",
+    "sha1": "94a596d637fa6493b2d441c0deb538af6cd6d69e",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Traditional conditional diffusion mod- els, while effective, face challenges due to their reliance on training.",
+    "limitation": "However, the approximation strategy can disrupt the stability of the sampling method and requires extensive experimentation to determine opti- mal settings.",
+    "insight": "Abstract In training-free conditional generative tasks, diffusion models utilize differentiable loss functions to steer the gen- erative reverse process, necessitating modifications to sam- pling algorithms like DDPM and DDIM.",
+    "proposed_method": "In this pa- per, we propose NoiseCtrl, a sampling-algorithm-agnostic technique for controlled image generation.",
+    "experimental_evidence": "Abstract In training-free conditional generative tasks, diffusion models utilize differentiable loss functions to steer the gen- erative reverse process, necessitating modifications to sam- pling algorithms like DDPM and DDIM.",
+    "summary": "Traditional conditional diffusion mod- els, while effective, face challenges due to their reliance on training. However, the approximation strategy can disrupt the stability of the sampling method and requires extensive experimentation to determine opti- mal settings. Abstract In training-free conditional generative tasks, diffusion models utilize differentiable loss functions to steer the gen- erative reverse process, necessitating modifications to sam- pling algorithms like DDPM and DDIM. In this pa- per, we propose NoiseCtrl, a sampling-algorithm-agnostic technique for controlled image generation. Abstract In training-free conditional generative tasks, diffusion models utilize differentiable loss functions to steer the gen- erative reverse process, necessitating modifications to sam- pling algorithms like DDPM and DDIM."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction In recent years, conditional diffusion models (CDMs) have achieved notable success.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction In recent years, conditional diffusion models (CDMs) have achieved notable success. Their impact is particularly vis- ible across a range of low-level vision tasks [6]. This in- cludes advancements in image generation [36], inpainting [17], virtual dressing [23] and person synthesis[21, 22]. The achievements, from foundational works [9, 24, 27, 28] to cutting-edge models [4, 19, 35], highlight their versatility and effectiveness."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Traditional conditional diffusion mod- els, while effective, face challenges due to their reliance on training.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Traditional conditional diffusion mod- els, while effective, face challenges due to their reliance on training. These models often require additional train- ing data and computational resources, which can be costly and limit their broader application. *Corresponding author. Dhariwal et al. [4] pioneered the use of pre-trained dif- fusion models for conditional generative task by introduc- ing ∇zt log pt(zt|y) = ∇zt log pt(zt) + ∇zt log pt(y|zt), In this framework, given condition y and latent zt at the time step t, the pre-trained diffusion prior ∇zt log pt(zt) serves as a foundation for the generative process and the gradient of the time-dependent classifier ∇zt log pt(y|zt) helps steer the generation towards the desired condition, then the condition-matching score ∇zt log pt(zt|y) aligns the generated content with the condition. Building on this foundation, recent works [1, 2, 32, 34, 39], often termed as training-free methods, eliminate the need for re-training or fine-tuning the diffusion prior and have skillfully uti- lized differentiable loss functions to approximate the con- ditional probability pt(y|zt)."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "However, the approximation strategy can disrupt the stability of the sampling method and requires extensive experimentation to determine opti- mal settings.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "However, the approximation strategy can disrupt the stability of the sampling method and requires extensive experimentation to determine opti- mal settings. This interdependence between approximation and sampling highlights their complex relationship and the need for a more robust solution. The sampling algorithm of diffusion models consists of two primary elements: an unconditional latent µt+1, which satisfies ∇µt+1 pt(µt+1) = 0 to maximize the distribution pt(zt), and a Gaussian noise ϵt+1. The output at step t is represented as zt = µt+1+σt+1ϵt+1, where σt+1 be a con- stant."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "To achieve conditional generation, existing methods replace the unconditional distributionpt(zt) with the condi- tional distribution pt(zt|y).",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "To achieve conditional generation, existing methods replace the unconditional distributionpt(zt) with the condi- tional distribution pt(zt|y). We diverge from this approach by proposing a two-stage noise sampling process. First, we uniformly sample a condition. Then, we generate output samples based on a distribution specific to that condition."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "method_overview",
+      "main_message": "In this two-step context, we argue that zt = µt+1 + σt+1ϵt+1 remains unconditional because the sampling of ϵt+1 is not biased towards any specific condition.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "In this two-step context, we argue that zt = µt+1 + σt+1ϵt+1 remains unconditional because the sampling of ϵt+1 is not biased towards any specific condition. With a deterministic condition established in the first stage, devoid of random- ness, the noise in the second stage becomes conditional, introducing a directional bias yet preserving its stochastic properties. In this paper, we disclose that NoiseCtrl, com- bining µt+1 with this conditional noise, will produce a re- sult result is attentive to the given condition. This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "background",
+      "main_message": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "18093 Our approach distinguishes itself from prior methods by",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, such ad- justments likely reduce flexibility and reliability.",
+      "However, the approximation strategy can disrupt the stability of the sampling method and requires extensive experimentation to determine opti- mal settings."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "In this pa- per, we propose NoiseCtrl, a sampling-algorithm-agnostic technique for controlled image generation.",
+      "Our contributions are as follows: • We introduce a method that is the first to achieve training- free conditional generation by pioneering the transforma- tion of isotropic Gaussian noise into conditional noise. • We introduce a pioneering sampling-algorithm-agnostic method, which can be effortlessly integrated with any sampling approach for conditional generative task. • Our method demonstrates the adaptability and superior performance of our method across a spectrum of condi- tional generation tasks.",
+      "We compare our method with previous approaches using both quantitative and qualitative metrics.",
+      "Conclusion We propose the novel NoiseCtrl, a Sampling-Algorithm- Agnostic conditional sampling method designed to tackle a diverse array of conditional generation tasks.",
+      "Our method is distinguished by two key innovations: 1."
+    ],
+    "experiment_expression": [
+      "We then demonstrate its seamless integration with vari- ous sampling methods, including DDPM [9], DDIM [25], LCM [14], DPM [13], Euler [10], and SA [31], for di- verse conditional generation tasks."
+    ],
+    "contribution_expression": [
+      "Our contributions are as follows: • We introduce a method that is the first to achieve training- free conditional generation by pioneering the transforma- tion of isotropic Gaussian noise into conditional noise. • We introduce a pioneering sampling-algorithm-agnostic method, which can be effortlessly integrated with any sampling approach for conditional generative task. • Our method demonstrates the adaptability and superior performance of our method across a spectrum of condi- tional generation tasks."
+    ]
+  },
+  "notable_sentences": [
+    "Conclusion We propose the novel NoiseCtrl, a Sampling-Algorithm- Agnostic conditional sampling method designed to tackle a diverse array of conditional generation tasks.",
+    "However, such ad- justments likely reduce flexibility and reliability.",
+    "However, the approximation strategy can disrupt the stability of the sampling method and requires extensive experimentation to determine opti- mal settings.",
+    "In this pa- per, we propose NoiseCtrl, a sampling-algorithm-agnostic technique for controlled image generation.",
+    "18093 Our approach distinguishes itself from prior methods by eliminating the need to approximate pt(zt|y).",
+    "Abstract In training-free conditional generative tasks, diffusion models utilize differentiable loss functions to steer the gen- erative reverse process, necessitating modifications to sam- pling algorithms like DDPM and DDIM.",
+    "At each step t, NoiseCtrl converts the unconditional Gaussian noise into conditional noise ϵ′ t by substituting the isotropic Gaussian distribution with the von Mises–Fisher distribution.",
+    "Essentially, dif- fusion models generate denoised results zt−1 by adding a predicted mean µt with random noise ϵt.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experiment In this section, we evaluate our methods through a variety of experiments.",
+    "First, we uniformly sample a condition.",
+    "In this paper, we disclose that NoiseCtrl, com- bining µt+1 with this conditional noise, will produce a re- sult result is attentive to the given condition."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nIn training-free conditional generative tasks, diffusion\nmodels utilize differentiable loss functions to steer the gen-\nerative reverse process, necessitating modifications to sam-\npling algorithms like DDPM and DDIM. However, such ad-\njustments likely reduce flexibility and reliability. In this pa-\nper, we propose NoiseCtrl, a sampling-algorithm-agnostic\ntechnique for controlled image generation. Essentially, dif-\nfusion models generate denoised results zt−1 by adding a\npredicted mean µt with random noise ϵt. NoiseCtrl specifi-\ncally adjusts the random noise while leaving the underlying\nsampling algorithms unchanged. At each step t, NoiseCtrl\nconverts the unconditional Gaussian noise into conditional\nnoise ϵ′\nt by substituting the isotropic Gaussian distribution\nwith the von Mises–Fisher distribution. This substitution\nintroduces a directional focus while preserving the random-\nness required for conditional image generation. Thanks to\nthis non-intrusive design, NoiseCtrl is straightforward to in-\ntegrate and has been extensively validated through experi-\nments, demonstrating its adaptability for different diffusion\nalgorithms and superior performance across various con-\nditional generation tasks.",
+    "introduction": "1. Introduction\nIn recent years, conditional diffusion models (CDMs) have\nachieved notable success. Their impact is particularly vis-\nible across a range of low-level vision tasks [6]. This in-\ncludes advancements in image generation [36], inpainting\n[17], virtual dressing [23] and person synthesis[21, 22]. The\nachievements, from foundational works [9, 24, 27, 28] to\ncutting-edge models [4, 19, 35], highlight their versatility\nand effectiveness. Traditional conditional diffusion mod-\nels, while effective, face challenges due to their reliance\non training. These models often require additional train-\ning data and computational resources, which can be costly\nand limit their broader application.\n*Corresponding author.\nDhariwal et al. [4] pioneered the use of pre-trained dif-\nfusion models for conditional generative task by introduc-\ning ∇zt log pt(zt|y) = ∇zt log pt(zt) + ∇zt log pt(y|zt),\nIn this framework, given condition y and latent zt at the\ntime step t, the pre-trained diffusion prior ∇zt log pt(zt)\nserves as a foundation for the generative process and the\ngradient of the time-dependent classifier ∇zt log pt(y|zt)\nhelps steer the generation towards the desired condition,\nthen the condition-matching score ∇zt log pt(zt|y) aligns\nthe generated content with the condition. Building on this\nfoundation, recent works [1, 2, 32, 34, 39], often termed\nas training-free methods, eliminate the need for re-training\nor fine-tuning the diffusion prior and have skillfully uti-\nlized differentiable loss functions to approximate the con-\nditional probability pt(y|zt). However, the approximation\nstrategy can disrupt the stability of the sampling method\nand requires extensive experimentation to determine opti-\nmal settings. This interdependence between approximation\nand sampling highlights their complex relationship and the\nneed for a more robust solution.\nThe sampling algorithm of diffusion models consists of\ntwo primary elements: an unconditional latent µt+1, which\nsatisfies ∇µt+1 pt(µt+1) = 0 to maximize the distribution\npt(zt), and a Gaussian noise ϵt+1. The output at step t is\nrepresented as zt = µt+1+σt+1ϵt+1, where σt+1 be a con-\nstant. To achieve conditional generation, existing methods\nreplace the unconditional distributionpt(zt) with the condi-\ntional distribution pt(zt|y). We diverge from this approach\nby proposing a two-stage noise sampling process. First, we\nuniformly sample a condition. Then, we generate output\nsamples based on a distribution specific to that condition. In\nthis two-step context, we argue that zt = µt+1 + σt+1ϵt+1\nremains unconditional because the sampling of ϵt+1 is not\nbiased towards any specific condition. With a deterministic\ncondition established in the first stage, devoid of random-\nness, the noise in the second stage becomes conditional,\nintroducing a directional bias yet preserving its stochastic\nproperties. In this paper, we disclose that NoiseCtrl, com-\nbining µt+1 with this conditional noise, will produce a re-\nsult result is attentive to the given condition.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "18093\n\nOur approach distinguishes itself from prior methods by\neliminating the need to approximate pt(zt|y). Instead, we\nfocus solely on adapting the random noise, with modifica-\ntions that are neutral to the specific sampling algorithm em-\nployed. Our contributions are as follows:\n• We introduce a method that is the first to achieve training-\nfree conditional generation by pioneering the transforma-\ntion of isotropic Gaussian noise into conditional noise.\n• We introduce a pioneering sampling-algorithm-agnostic\nmethod, which can be effortlessly integrated with any\nsampling approach for conditional generative task.\n• Our method demonstrates the adaptability and superior\nperformance of our method across a spectrum of condi-\ntional generation tasks.",
+    "experiments": "5. Experiment\nIn this section, we evaluate our methods through a variety of\nexperiments. We start by detailing the experimental setup.\nWe then demonstrate its seamless integration with vari-\nous sampling methods, including DDPM [9], DDIM [25],\nLCM [14], DPM [13], Euler [10], and SA [31], for di-\nverse conditional generation tasks. We also show that Noi-\nseCtrl is compatible with both training-based CMDs like\nControlNet [35], T2I-Adapter [15], and IP-Adapter [33],\nand training-free CMDs such as UGD [1], FreeDom [34],\nand DSG [32]. We compare our method with previous\napproaches using both quantitative and qualitative metrics.\nLastly, we discuss the impact of the newly introduced pa-\nrameter κ on the final results.",
+    "conclusion": "6. Conclusion\nWe propose the novel NoiseCtrl, a Sampling-Algorithm-\nAgnostic conditional sampling method designed to tackle\na diverse array of conditional generation tasks. Our method\nis distinguished by two key innovations: 1. We introduce\nthe use of conditional noise in place of Gaussian noise for\ncoherent generation without altering existing sampling al-\ngorithms. 2. We present both fast and slow direction vec-\ntor estimation methods to determine the condition of the\nconditional noise, and we advocate for the use of the von\nMises-Fisher distribution instead of the uniform distribu-\ntion for expedited sampling. NoiseCtrl’s versatility posi-\ntions it as an excellent plug-and-play enhancement for con-\nditional diffusion models, offering substantial performance\nimprovements without necessitating code modifications or\nsignificant computational overhead."
+  }
+}

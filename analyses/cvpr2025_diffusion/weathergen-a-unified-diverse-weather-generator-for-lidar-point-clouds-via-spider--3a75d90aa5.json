@@ -1,0 +1,94 @@
+{
+  "paper_id": "weathergen-a-unified-diverse-weather-generator-for-lidar-point-clouds-via-spider--3a75d90aa5",
+  "paper_title": "WeatherGen: A Unified Diverse Weather Generator for LiDAR Point Clouds via Spider Mamba Diffusion",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:51.860640+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/WeatherGen： A Unified Diverse Weather Generator for LiDAR Point Clouds via Spider Mamba Diffusion.pdf",
+    "filename": "WeatherGen： A Unified Diverse Weather Generator for LiDAR Point Clouds via Spider Mamba Diffusion.pdf",
+    "sha1": "3a75d90aa5e6a6bccd75918e1e9f842310cd06b7",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "The Li- DAR data under diverse weather conditions possess noise and point drop characteristics, which present significant challenges to generative models.",
+    "limitation": "17019 which fails to meet the high-fidelity training requirements for generative models.",
+    "insight": "Abstract 3D scene perception demands a large amount of adverse- weather LiDAR data, yet the cost of LiDAR data collec- tion presents a significant scaling-up challenge.",
+    "proposed_method": "Among them, we propose a spider mamba generator to restore the disturbed diverse weather data gradually.",
+    "experimental_evidence": "Extensive experiments and the proposed mini-weather dataset have demonstrated the superiority of its generation quality and its immense value for downstream tasks under adverse weather conditions.",
+    "summary": "The Li- DAR data under diverse weather conditions possess noise and point drop characteristics, which present significant challenges to generative models. 17019 which fails to meet the high-fidelity training requirements for generative models. Abstract 3D scene perception demands a large amount of adverse- weather LiDAR data, yet the cost of LiDAR data collec- tion presents a significant scaling-up challenge. Among them, we propose a spider mamba generator to restore the disturbed diverse weather data gradually. Extensive experiments and the proposed mini-weather dataset have demonstrated the superiority of its generation quality and its immense value for downstream tasks under adverse weather conditions."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "method_overview",
+      "main_message": "Introduction With the advent of large-scale autonomous driving datasets, a multitude of innovative solutions for 3D perception tasks, *Corresponding author.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "1. Introduction\nWith the advent of large-scale autonomous driving datasets,\na multitude of innovative solutions for 3D perception tasks,\n*Corresponding author.\n(a) Previous methods (b) O ur method\nRain simulator\nFog simulator\nSnow simulator\nSimulated\ndata\nWeatherGen\nNon-learnable Generated\ndataLearnable\nUnified\nFidelity\nApplicable\n√\nFigure 1. (a) Previous simulation-based methods [3, 9, 10, 15] can\nonly provide a single non-learnable simulator for a single weather\ncondition. Due to the complexity of optical propagation, previ-\nous simulated data all suffer from insufficient fidelity issues. (b)\nOur method is the first unified generative framework. Through\nlearning, the generated data has higher fidelity and can be more\nconducive to promoting downstream tasks under diverse weather.\nsuch as detection and trajectory planning emerge continu-\nously. Despite extensive research and satisfactory perfor-\nmance under clear weather, 3D scene perception under ad-\nverse weather is less studied due to the scarcity of large-\nscale LiDAR datasets in such scenarios [1, 16].\nUnder adverse weather, lasers scatter and diffract, caus-\ning point noise and drop [29]. This leads to serious relia-\nbility i"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "which fails to meet the high-fidelity training requirements for generative models.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "which fails to meet the high-fidelity training requirements\nfor generative models. (2) High-fidelity Generator. The Li-\nDAR data under diverse weather conditions possess noise\nand point drop characteristics, which present significant\nchallenges to generative models. (3) High-discriminability\nController. The generator lacks an effective way to obtain\ncontrol signals with compact semantic knowledge, causing\na mismatch when generating diverse LiDAR data in a uni-\nfied generation framework.\nTo this end, we propose a unified LiDAR data generation\nframework, named WeatherGen, which can cost-effectively\ngenerate LiDAR data with high fidelity and high discrim-\ninability. Firstly, we adopt a training strategy of pre-training\nplus fine-tuning. A map-based data producer (MDP) is de-\nsigned to provide diverse weather LiDAR data for model\npre-training. Unlike previous simulators [3, 9, 10, 15],\nwhich are non-learnable, MDP uses learnable parameters\nto align the pre-training data with the real-world distribu-\ntion. After pre-training, we fine-tune all parameters ex-\ncept for MDP to enhance model performance further. Sec-\nondly, different from previous LiDAR data generation mod-\nels [25, 33, 46, "
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Yet, they can only simulate a single adverse weather with a single physical model, and the fidelity of the generated data is quite limited."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Among them, we propose a spider mamba generator to restore the disturbed diverse weather data gradually.",
+      "(b) Our method is the first unified generative framework.",
+      "To this end, we propose a unified LiDAR data generation framework, named WeatherGen, which can cost-effectively generate LiDAR data with high fidelity and high discrim- inability.",
+      "In summary, our contributions are listed as follows: • We propose WeatherGen, the first unified framework for generating diverse weather LiDAR data."
+    ],
+    "experiment_expression": [
+      "As shown in Figure 1, they utilize a single physical model for a single condition.",
+      "An LFA is followed to transfer real-world knowledge into the SMG. • A CLC is proposed to guide the model in generating more accurately, where contrastive learning is applied to equip the control signal with compact knowledge. • Extensive experiments demonstrate the superiority of WeatherGen in the generation quality of LiDAR data.",
+      "Extensive experiments and the proposed mini-weather dataset have demonstrated the superiority of its generation quality and its immense value for downstream tasks under adverse weather conditions."
+    ],
+    "contribution_expression": [
+      "In summary, our contributions are listed as follows: • We propose WeatherGen, the first unified framework for generating diverse weather LiDAR data."
+    ]
+  },
+  "notable_sentences": [
+    "In summary, our contributions are listed as follows: • We propose WeatherGen, the first unified framework for generating diverse weather LiDAR data.",
+    "Among them, we propose a spider mamba generator to restore the disturbed diverse weather data gradually.",
+    "As shown in Figure 1, they utilize a single physical model for a single condition.",
+    "Extensive experiments and the proposed mini-weather dataset have demonstrated the superiority of its generation quality and its immense value for downstream tasks under adverse weather conditions.",
+    "To this end, we propose a unified LiDAR data generation framework, named WeatherGen, which can cost-effectively generate LiDAR data with high fidelity and high discrim- inability.",
+    "(2) High-fidelity Generator.",
+    "(3) High-discriminability Controller.",
+    "(a) Previous methods (b) O ur method Rain simulator Fog simulator Snow simulator Simulated data WeatherGen Non-learnable Generated dataLearnable Unified Fidelity Applicable √ Figure 1.",
+    "(a) Previous simulation-based methods [3, 9, 10, 15] can only provide a single non-learnable simulator for a single weather condition.",
+    "(b) Our method is the first unified generative framework.",
+    "17019 which fails to meet the high-fidelity training requirements for generative models.",
+    "2024YFC3015801, NSFC under Grant Nos."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\n3D scene perception demands a large amount of adverse-\nweather LiDAR data, yet the cost of LiDAR data collec-\ntion presents a significant scaling-up challenge. To this\nend, a series of LiDAR simulators have been proposed.\nYet, they can only simulate a single adverse weather with\na single physical model, and the fidelity of the generated\ndata is quite limited. This paper presents WeatherGen, the\nfirst unified diverse-weather LiDAR data diffusion gener-\nation framework, significantly improving fidelity. Specif-\nically, we first design a map-based data producer, which\ncan provide a vast amount of high-quality diverse-weather\ndata for training purposes. Then, we utilize the diffusion-\ndenoising paradigm to construct a diffusion model. Among\nthem, we propose a spider mamba generator to restore\nthe disturbed diverse weather data gradually. The spider\nmamba models the feature interactions by scanning the Li-\nDAR beam circle or central ray, excellently maintaining the\nphysical structure of the LiDAR data. Subsequently, fol-\nlowing the generator to transfer real-world knowledge, we\ndesign a latent feature aligner. Afterward, we devise a con-\ntrastive learning-based controller, which equips weather\ncontrol signals with compact semantic knowledge through\nlanguage supervision, guiding the diffusion model to gener-\nate more discriminative data. Extensive evaluations demon-\nstrate the high generation quality of WeatherGen. Through\nWeatherGen, we construct the mini-weather dataset, pro-\nmoting the performance of the downstream task under ad-\nverse weather conditions. Code is available: https:\n//github.com/wuyang98/weathergen",
+    "introduction": "1. Introduction\nWith the advent of large-scale autonomous driving datasets,\na multitude of innovative solutions for 3D perception tasks,\n*Corresponding author.\n(a) Previous methods (b) O ur method\nRain simulator\nFog simulator\nSnow simulator\nSimulated\ndata\nWeatherGen\nNon-learnable Generated\ndataLearnable\nUnified\nFidelity\nApplicable\n√\nFigure 1. (a) Previous simulation-based methods [3, 9, 10, 15] can\nonly provide a single non-learnable simulator for a single weather\ncondition. Due to the complexity of optical propagation, previ-\nous simulated data all suffer from insufficient fidelity issues. (b)\nOur method is the first unified generative framework. Through\nlearning, the generated data has higher fidelity and can be more\nconducive to promoting downstream tasks under diverse weather.\nsuch as detection and trajectory planning emerge continu-\nously. Despite extensive research and satisfactory perfor-\nmance under clear weather, 3D scene perception under ad-\nverse weather is less studied due to the scarcity of large-\nscale LiDAR datasets in such scenarios [1, 16].\nUnder adverse weather, lasers scatter and diffract, caus-\ning point noise and drop [29]. This leads to serious relia-\nbility issues, limiting the application expansions of existing\nmodels. Unfortunately, collecting LiDAR data under ad-\nverse weather is very time, labor, and cost intensive [1, 9,\n10]. Some simulation-based methods try to improve this\nissue through non-learnable simulators [3, 9, 10, 15]. As\nshown in Figure 1, they utilize a single physical model for a\nsingle condition. Due to the incomplete knowledge of sen-\nsor parameters and the complexity of optical propagation,\nthese methods inevitably suffer from domain shifts and poor\nfidelity compared to real-world data.\nThus far, an inevitable question arises: can we construct\na unified and high-fidelity diverse-weather LiDAR data gen-\neration framework? To achieve this goal, we have to solve\nthree challenging points: (1) High-quality data Producer.\nLiDAR data are scarce under diverse weather conditions,\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n17019\n\nwhich fails to meet the high-fidelity training requirements\nfor generative models. (2) High-fidelity Generator. The Li-\nDAR data under diverse weather conditions possess noise\nand point drop characteristics, which present significant\nchallenges to generative models. (3) High-discriminability\nController. The generator lacks an effective way to obtain\ncontrol signals with compact semantic knowledge, causing\na mismatch when generating diverse LiDAR data in a uni-\nfied generation framework.\nTo this end, we propose a unified LiDAR data generation\nframework, named WeatherGen, which can cost-effectively\ngenerate LiDAR data with high fidelity and high discrim-\ninability. Firstly, we adopt a training strategy of pre-training\nplus fine-tuning. A map-based data producer (MDP) is de-\nsigned to provide diverse weather LiDAR data for model\npre-training. Unlike previous simulators [3, 9, 10, 15],\nwhich are non-learnable, MDP uses learnable parameters\nto align the pre-training data with the real-world distribu-\ntion. After pre-training, we fine-tune all parameters ex-\ncept for MDP to enhance model performance further. Sec-\nondly, different from previous LiDAR data generation mod-\nels [25, 33, 46, 54], which disrupt the structural informa-\ntion of LiDAR data, we design a spider mamba generator\n(SMG) with the spider mamba scan that better adapts to the\nLiDAR imaging process. Unlike vision mamba [21, 52],\nwhich models on image patches, spider mamba models on\nthe beam circles and central rays of the LiDAR point cloud,\neffectively preserving the structural information of LiDAR\ndata. Following SMG, we further design a latent feature\naligner (LFA) that uses real-world data to jointly constrain\nthe predictions of the SMG, which is beneficial for our gen-\nerator to produce more realistic data. Thirdly, we design\na contrastive learning-based controller (CLC) that utilizes\nstylized LiDAR data for controllable generation. Compared\nto other control signals, stylized LiDAR data has better fea-\nture consistency and integrability [43]. CLC contains a con-\ntrastive learning mechanism with the language supervision\nfrom CLIP [32], helping the weather control signal learn\nmore compact and discriminative semantic knowledge. In\nsummary, our contributions are listed as follows:\n• We propose WeatherGen, the first unified framework for\ngenerating diverse weather LiDAR data. It contains a spe-\ncially designed MDP to produce diverse weather LiDAR\ndata in a map-to-map manner for WeatherGen training.\n• An SMG is devised, which can model the LiDAR feature\ninteractions effectively in a way that can best maintain the\nphysical structure of the LiDAR data. An LFA is followed\nto transfer real-world knowledge into the SMG.\n• A CLC is proposed to guide the model in generating more\naccurately, where contrastive learning is applied to equip\nthe control signal with compact knowledge.\n• Extensive experiments demonstrate the superiority of\nWeatherGen in the generation quality of LiDAR data.\nAdditionally, a diverse-weather LiDAR dataset is con-\nstructed through WeatherGen and applied to 3D object\ndetection, revealing that generated data can promote the\ndownstream task under adverse weather conditions.",
+    "method": "3. Method\nWe first introduce the basics of DDPM and SSM in Sec-\ntion 3.1. Then, in Section 3.2, we describe the method for\nacquiring diverse weather LiDAR data for training. After-\nward, in Section 3.3, we introduce the generator specifically\ndesigned for LiDAR data. Then, in Section 3.4, we intro-\nduce a method for obtaining discriminative control signals,\nand in Section 3.5, we introduce the loss function.",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nIn this paper, we have proposed WeatherGen, the first uni-\nfied framework for diverse weather LiDAR data generation.\nWithin WeatherGen, an MDP has been designed to produce\ndiverse-weather LiDAR data in a map-to-map manner, pro-\nviding sufficient training data with high fidelity and diver-\nsity. Among the diffusion network, an SMG is designed to-\ngether with the spider mamba to restore the diverse weather\ndata. By scanning LiDAR beams in a per-beam manner,\nSMG can maintain the physical structure of the LiDAR data\nexcellently. Following that, an LFA is proposed to em-\nbed real-world knowledge into the model. Following that,\nwe have designed a CLC to equip the control signal with\ncompact semantic knowledge through contrastive learning.\nCLC enables the generator to generate higher discrimina-\ntive LiDAR data. Extensive experiments and the proposed\nmini-weather dataset have demonstrated the superiority of\nits generation quality and its immense value for downstream\ntasks under adverse weather conditions.\nAcknowledgments. This work is supported by the Na-\ntional Key R&D Program of China No. 2024YFC3015801,\nNSFC under Grant Nos. 62361166670, 62276144,\n62276141, 62176124 and U24A20330."
+  }
+}

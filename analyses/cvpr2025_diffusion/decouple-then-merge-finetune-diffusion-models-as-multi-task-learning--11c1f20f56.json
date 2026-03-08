@@ -1,0 +1,85 @@
+{
+  "paper_id": "decouple-then-merge-finetune-diffusion-models-as-multi-task-learning--11c1f20f56",
+  "paper_title": "Decouple-Then-Merge: Finetune Diffusion Models as Multi-Task Learning",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:18.439857+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Decouple-Then-Merge： Finetune Diffusion Models as Multi-Task Learning.pdf",
+    "filename": "Decouple-Then-Merge： Finetune Diffusion Models as Multi-Task Learning.pdf",
+    "sha1": "11c1f20f566cdda963d52f7e7f7ce01f9b63600a",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Generative modeling has seen significant progress in re- cent years, primarily driven by the development of Diffu- sion Probabilistic Models (DPMs) [15, 33, 41].",
+    "limitation": "Introduction Generative modeling has seen significant progress in re- cent years, primarily driven by the development of Diffu- sion Probabilistic Models (DPMs) [15, 33, 41].",
+    "insight": "Abstract Diffusion models are trained by learning a sequence of models that reverse each step of noise corruption.",
+    "proposed_method": "We introduce several improved techniques during the fine- tuning stage to promote effective knowledge sharing while minimizing training interference across timesteps.",
+    "experimental_evidence": "Experimental results show significant generation quality improvements upon 6 benchmarks in- cluding Stable Diffusion on COCO30K, ImageNet1K, Par- tiPrompts, and DDPM on LSUN Church, LSUN Bedroom, and CIFAR10.",
+    "summary": "Introduction Generative modeling has seen significant progress in re- cent years, primarily driven by the development of Diffu- sion Probabilistic Models (DPMs) [15, 33, 41]. Introduction Generative modeling has seen significant progress in re- cent years, primarily driven by the development of Diffu- sion Probabilistic Models (DPMs) [15, 33, 41]. Abstract Diffusion models are trained by learning a sequence of models that reverse each step of noise corruption. We introduce several improved techniques during the fine- tuning stage to promote effective knowledge sharing while minimizing training interference across timesteps. Experimental results show significant generation quality improvements upon 6 benchmarks in- cluding Stable Diffusion on COCO30K, ImageNet1K, Par- tiPrompts, and DDPM on LSUN Church, LSUN Bedroom, and CIFAR10."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Generative modeling has seen significant progress in re- cent years, primarily driven by the development of Diffu- sion Probabilistic Models (DPMs) [15, 33, 41].",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction Generative modeling has seen significant progress in re- cent years, primarily driven by the development of Diffu- sion Probabilistic Models (DPMs) [15, 33, 41]. These mod- els have been applied to various tasks such as text-to-image generation [40], image-to-image translation [43], and video generation [2, 16], yielding excellent performance. Com- pared with other generative models such as variational auto- encoders (V AEs) [21], and generative adversarial networks (GANs) [11], the most distinct characteristic of DPMs is that DPMs need to learn a sequence of models for denois- ing at multiple timesteps. Training the neural network to fit this step-wise denoising conditional distribution facilitates tractable, stable training and high-fidelity generation."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "problem_statement",
+      "main_message": "The denoising tasks at different timesteps are similar yet †Corresponding author Gradient Similarity Gradient Similarity Gradient Similarity … t ∈[T/N,2T/N) (c) Our Training Paradigm Diffusion t ∈[0,T/N) High similarity Timestep",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "The denoising tasks at different timesteps are similar yet †Corresponding author Gradient Similarity Gradient Similarity Gradient Similarity … t ∈[T/N,2T/N) (c) Our Training Paradigm Diffusion t ∈[0,T/N) High similarity Timestep"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, since the denoising tasks differ at each timestep, the gradients computed at different timesteps may conflict, potentially de- grading the overall performance of image generation."
+    ],
+    "insight_expression": [],
+    "method_expression": [],
+    "experiment_expression": [
+      "Our experimental results on six datasets with both uncon- ditional and text-to-image generation demonstrate that our approach leads to substantial improvements in generation quality without incurring additional computation or storage costs during sampling."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, since the denoising tasks differ at each timestep, the gradients computed at different timesteps may conflict, potentially de- grading the overall performance of image generation.",
+    "Abstract Diffusion models are trained by learning a sequence of models that reverse each step of noise corruption.",
+    "Besides, three simple but effective training techniques have been in- troduced to facilitate the finetuning process, which preserve the benefits of knowledge sharing in different timesteps.",
+    "Code is available at GitHub.",
+    "Experimental results show significant generation quality improvements upon 6 benchmarks in- cluding Stable Diffusion on COCO30K, ImageNet1K, Par- tiPrompts, and DDPM on LSUN Church, LSUN Bedroom, and CIFAR10.",
+    "Finally, after finetuning, these separate models can be merged into a single model in the parameter space, ensuring efficient and practical inference.",
+    "Introduction Generative modeling has seen significant progress in re- cent years, primarily driven by the development of Diffu- sion Probabilistic Models (DPMs) [15, 33, 41].",
+    "The denoising tasks at different timesteps are similar yet †Corresponding author Gradient Similarity Gradient Similarity Gradient Similarity … t ∈[T/N,2T/N) (c) Our Training Paradigm Diffusion t ∈[0,T/N) High similarity Timestep 3.",
+    "The effectiveness of DeMe may pro- mote more research work on the optimization of diffusion models.",
+    "These mod- els have been applied to various tasks such as text-to-image generation [40], image-to-image translation [43], and video generation [2, 16], yielding excellent performance.",
+    "To solve this issue, this work proposes aDecouple-then-Merge (DeMe) framework, which begins with a pretrained model and finetunes separate models tailored to specific timesteps.",
+    "Training the neural network to fit this step-wise denoising conditional distribution facilitates tractable, stable training and high-fidelity generation."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models are trained by learning a sequence of\nmodels that reverse each step of noise corruption. Typi-\ncally, the model parameters are fully shared across multi-\nple timesteps to enhance training efficiency. However, since\nthe denoising tasks differ at each timestep, the gradients\ncomputed at different timesteps may conflict, potentially de-\ngrading the overall performance of image generation. To\nsolve this issue, this work proposes aDecouple-then-Merge\n(DeMe) framework, which begins with a pretrained model\nand finetunes separate models tailored to specific timesteps.\nWe introduce several improved techniques during the fine-\ntuning stage to promote effective knowledge sharing while\nminimizing training interference across timesteps. Finally,\nafter finetuning, these separate models can be merged into a\nsingle model in the parameter space, ensuring efficient and\npractical inference. Experimental results show significant\ngeneration quality improvements upon 6 benchmarks in-\ncluding Stable Diffusion on COCO30K, ImageNet1K, Par-\ntiPrompts, and DDPM on LSUN Church, LSUN Bedroom,\nand CIFAR10. Code is available at GitHub.",
+    "introduction": "1. Introduction\nGenerative modeling has seen significant progress in re-\ncent years, primarily driven by the development of Diffu-\nsion Probabilistic Models (DPMs) [15, 33, 41]. These mod-\nels have been applied to various tasks such as text-to-image\ngeneration [40], image-to-image translation [43], and video\ngeneration [2, 16], yielding excellent performance. Com-\npared with other generative models such as variational auto-\nencoders (V AEs) [21], and generative adversarial networks\n(GANs) [11], the most distinct characteristic of DPMs is\nthat DPMs need to learn a sequence of models for denois-\ning at multiple timesteps. Training the neural network to fit\nthis step-wise denoising conditional distribution facilitates\ntractable, stable training and high-fidelity generation.\nThe denoising tasks at different timesteps are similar yet\n†Corresponding author\nGradient\nSimilarity Gradient\nSimilarity\nGradient\nSimilarity\n…\nt ∈[T/N,2T/N)\n(c) Our Training Paradigm\nDiffusion\nt ∈[0,T/N) High similarity\nTimestep",
+    "method": "3. Methodology",
+    "experiments": "4. Experiments",
+    "conclusion": "6. Conclusion\nMotivated by the observation that different timesteps in the\ndiffusion model training have low similarity in their gradi-\nents, this paper proposes DeMe, which decouples the train-\ning of diffusion models in different timesteps and merge the\nfinetuned diffusion models in parameter-space, thereby mit-\nigating the negative impacts of gradient conflicts. Besides,\nthree simple but effective training techniques have been in-\ntroduced to facilitate the finetuning process, which preserve\nthe benefits of knowledge sharing in different timesteps.\nOur experimental results on six datasets with both uncon-\nditional and text-to-image generation demonstrate that our\napproach leads to substantial improvements in generation\nquality without incurring additional computation or storage\ncosts during sampling. The effectiveness of DeMe may pro-\nmote more research work on the optimization of diffusion\nmodels. Additionally, the feasibility of combining task-\nspecific training with parameter-space merging presented in\nthis work may stimulate more research into diffusion model\nmerging, and can be potentially extended to general multi-\ntask learning scenarios."
+  }
+}

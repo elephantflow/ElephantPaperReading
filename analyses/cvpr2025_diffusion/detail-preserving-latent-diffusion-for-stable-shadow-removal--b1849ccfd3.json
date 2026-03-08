@@ -1,0 +1,109 @@
+{
+  "paper_id": "detail-preserving-latent-diffusion-for-stable-shadow-removal--b1849ccfd3",
+  "paper_title": "Detail-Preserving Latent Diffusion for Stable Shadow Removal",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:20.188453+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Detail-Preserving Latent Diffusion for Stable Shadow Removal.pdf",
+    "filename": "Detail-Preserving Latent Diffusion for Stable Shadow Removal.pdf",
+    "sha1": "b1849ccfd316698cebe8f882ef6c7f9af92a5392",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "They provide crucial cues for interpreting the three-dimensional structure of objects and scenes [44].",
+    "limitation": "However, shadows can also hinder com- puter vision tasks, such as object segmentation [8], track- ing [32], and intrinsic decomposition [16, 17, 25, 43].",
+    "insight": "Abstract Achieving high-quality shadow removal with strong gen- eralizability is challenging in scenes with complex global il- lumination.",
+    "proposed_method": "To resolve this, we introduce a second stage, called the detail injection stage.",
+    "experimental_evidence": "Ex- perimental results show that our method outperforms state- of-the-art shadow removal techniques.",
+    "summary": "They provide crucial cues for interpreting the three-dimensional structure of objects and scenes [44]. However, shadows can also hinder com- puter vision tasks, such as object segmentation [8], track- ing [32], and intrinsic decomposition [16, 17, 25, 43]. Abstract Achieving high-quality shadow removal with strong gen- eralizability is challenging in scenes with complex global il- lumination. To resolve this, we introduce a second stage, called the detail injection stage. Ex- perimental results show that our method outperforms state- of-the-art shadow removal techniques."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "method_overview",
+      "main_message": "Introduction Shadows are natural phenomena that occur when an obsta- cle blocks global light transport.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "1. Introduction\nShadows are natural phenomena that occur when an obsta-\ncle blocks global light transport. They provide crucial cues\nfor interpreting the three-dimensional structure of objects\nand scenes [44]. However, shadows can also hinder com-\nputer vision tasks, such as object segmentation [8], track-\ning [32], and intrinsic decomposition [16, 17, 25, 43]. In\nrecent years, deep-learning-based methods for shadow re-\nmoval [4, 5, 24, 40] have shown significant advancements\nby learning pixel-wise mappings between shadowed images\nand their corresponding ground-truth shadow-free versions\nin a fully supervised manner. However, such approaches of-\nten risk overfitting the limited training datasets [14, 28, 35],\nleading to inadequate generalization.\n*Corresponding author.\nInputimageOmniSR[Xu et al. 2024]\nOurs (Stage I)Ours (Stage II)\nFigure 1. Top: For complex shadows in indoor scenes, current\nmethods struggle to completely remove shadows, such as those be-\nhind the eagle sculpture. Bottom: Our method effectively removes\nthe shadows, and with our second stage, the details from the origi-\nnal input, such as the wooden texture shown in the cropped image,\nare preserved.\nDrawing inspirati"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "(W × H × 3) to latent space ( W 8 × H 8 × 4).",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "(W × H × 3) to latent space ( W\n8 × H\n8 × 4).\nTo achieve stable and detail-preserving shadow removal\nusing the pre-trained SD priors, we introduce a two-stage\npipeline: 1) eliminating shadows in latent space by fixing\nthe pre-trained V AE and fine-tuning the LDM and 2) inject-\ning shadow-aware multi-resolution details from the original\ninput into the V AE decoding process.\nIn the first stage, our method retains the pre-trained V AE\nand fine-tunes the LDM by conditioning it on the latent fea-\ntures of the input shadow image. We do not fine-tune the\nV AE, as it effectively handles shadow-free images despite\nnot being specifically trained for this purpose, and the scale\nof our shadow-free images is limited. Our findings indi-\ncate that the latent space from the V AE, combined with the\ngenerative priors from the LDM, enhances shadow removal\ntasks, particularly when annotated training data is scarce.\nBy operating in a low-resolution latent space rather than\nhigh-resolution pixel space, our method performs global\nself-attention with acceptable memory consumption, cap-\nturing more global contextual information compared to con-\nvolution and window-based self-attention [21].\nThe fine-tuned "
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Proposed Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "They provide crucial cues for interpreting the three-dimensional structure of objects and scenes [44]."
+    ],
+    "limitation_expression": [
+      "Due to the limited diversity in shadow removal datasets, current methods are prone to overfitting train- ing data, often leading to reduced performance on unseen cases.",
+      "However, shadows can also hinder com- puter vision tasks, such as object segmentation [8], track- ing [32], and intrinsic decomposition [16, 17, 25, 43].",
+      "However, such approaches of- ten risk overfitting the limited training datasets [14, 28, 35], leading to inadequate generalization. *Corresponding author.",
+      "Top: For complex shadows in indoor scenes, current methods struggle to completely remove shadows, such as those be- hind the eagle sculpture.",
+      "However, developing a fine-tuning strat- egy that effectively removes shadows while preserving clear details in both shadowed and non-shadowed areas is not trivial.",
+      "We do not fine-tune the V AE, as it effectively handles shadow-free images despite not being specifically trained for this purpose, and the scale of our shadow-free images is limited.",
+      "However, the primary difference lies in the network design and fine- tuning strategy.",
+      "Our method may still miss some shadows in complex scenes, such as the self-shadows on the flower pot in Fig."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this, we leverage the rich visual priors of a pre-trained Stable Diffusion (SD) model and propose a two-stage fine-tuning pipeline to adapt the SD model for stable and efficient shadow removal.",
+      "Ex- perimental results show that our method outperforms state- of-the-art shadow removal techniques.",
+      "The cross-dataset evaluation further demonstrates that our method general- izes effectively to unseen data, enhancing the applicability of shadow removal methods.",
+      "Bottom: Our method effectively removes the shadows, and with our second stage, the details from the origi- nal input, such as the wooden texture shown in the cropped image, are preserved.",
+      "In the first stage, our method retains the pre-trained V AE and fine-tunes the LDM by conditioning it on the latent fea- tures of the input shadow image.",
+      "By operating in a low-resolution latent space rather than high-resolution pixel space, our method performs global self-attention with acceptable memory consumption, cap- turing more global contextual information compared to con- volution and window-based self-attention [21].",
+      "Our method is designed to leverage the high-quality priors of the pre-trained V AE and LDM in the SD model, resulting in superior shadow removal quality.",
+      "Our method can also handle high-resolution images (e.g., 1920×1440 in the WRSD dataset [35]), providing greater shadow removal efficiency compared to patch-based diffu- sion methods [22].",
+      "Overall, our contributions can be summarized as follows. • We propose a two-stage fine-tuning pipeline to trans- form a pre-trained Stable Diffusion model into an image- conditional shadow-free image generator.",
+      "Additionally, we show that our method exhibits better generalizability by training on one dataset and testing on another.",
+      "Our method may still miss some shadows in complex scenes, such as the self-shadows on the flower pot in Fig.",
+      "In the future, we plan to incorporate unsupervised or self-supervised signals to further enhance the generalizability of our method."
+    ],
+    "experiment_expression": [
+      "Extensive experiments demonstrate that our approach out- performs state-of-the-art shadow removal methods, particu- larly in terms of generalizability."
+    ],
+    "contribution_expression": [
+      "Overall, our contributions can be summarized as follows. • We propose a two-stage fine-tuning pipeline to trans- form a pre-trained Stable Diffusion model into an image- conditional shadow-free image generator."
+    ]
+  },
+  "notable_sentences": [
+    "Overall, our contributions can be summarized as follows. • We propose a two-stage fine-tuning pipeline to trans- form a pre-trained Stable Diffusion model into an image- conditional shadow-free image generator.",
+    "Extensive experiments demonstrate that our approach out- performs state-of-the-art shadow removal methods, particu- larly in terms of generalizability.",
+    "However, developing a fine-tuning strat- egy that effectively removes shadows while preserving clear details in both shadowed and non-shadowed areas is not trivial.",
+    "However, shadows can also hinder com- puter vision tasks, such as object segmentation [8], track- ing [32], and intrinsic decomposition [16, 17, 25, 43].",
+    "However, such approaches of- ten risk overfitting the limited training datasets [14, 28, 35], leading to inadequate generalization. *Corresponding author.",
+    "However, the primary difference lies in the network design and fine- tuning strategy.",
+    "2024] Ours (Stage I)Ours (Stage II) Figure 1.",
+    "7592 (W × H × 3) to latent space ( W 8 × H 8 × 4).",
+    "Abstract Achieving high-quality shadow removal with strong gen- eralizability is challenging in scenes with complex global il- lumination.",
+    "Additionally, in some cases, our approach focuses more on resolving the color variations caused by shadows and cannot fully preserve the exposure in non-shadow areas.",
+    "Additionally, we show that our method exhibits better generalizability by training on one dataset and testing on another.",
+    "Bottom: Our method effectively removes the shadows, and with our second stage, the details from the origi- nal input, such as the wooden texture shown in the cropped image, are preserved."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nAchieving high-quality shadow removal with strong gen-\neralizability is challenging in scenes with complex global il-\nlumination. Due to the limited diversity in shadow removal\ndatasets, current methods are prone to overfitting train-\ning data, often leading to reduced performance on unseen\ncases. To address this, we leverage the rich visual priors\nof a pre-trained Stable Diffusion (SD) model and propose\na two-stage fine-tuning pipeline to adapt the SD model for\nstable and efficient shadow removal. In the first stage, we\nfix the VAE and fine-tune the denoiser in latent space, which\nyields substantial shadow removal but may lose some high-\nfrequency details. To resolve this, we introduce a second\nstage, called the detail injection stage. This stage selec-\ntively extracts features from the VAE encoder to modulate\nthe decoder, injecting fine details into the final results. Ex-\nperimental results show that our method outperforms state-\nof-the-art shadow removal techniques. The cross-dataset\nevaluation further demonstrates that our method general-\nizes effectively to unseen data, enhancing the applicability\nof shadow removal methods.",
+    "introduction": "1. Introduction\nShadows are natural phenomena that occur when an obsta-\ncle blocks global light transport. They provide crucial cues\nfor interpreting the three-dimensional structure of objects\nand scenes [44]. However, shadows can also hinder com-\nputer vision tasks, such as object segmentation [8], track-\ning [32], and intrinsic decomposition [16, 17, 25, 43]. In\nrecent years, deep-learning-based methods for shadow re-\nmoval [4, 5, 24, 40] have shown significant advancements\nby learning pixel-wise mappings between shadowed images\nand their corresponding ground-truth shadow-free versions\nin a fully supervised manner. However, such approaches of-\nten risk overfitting the limited training datasets [14, 28, 35],\nleading to inadequate generalization.\n*Corresponding author.\nInputimageOmniSR[Xu et al. 2024]\nOurs (Stage I)Ours (Stage II)\nFigure 1. Top: For complex shadows in indoor scenes, current\nmethods struggle to completely remove shadows, such as those be-\nhind the eagle sculpture. Bottom: Our method effectively removes\nthe shadows, and with our second stage, the details from the origi-\nnal input, such as the wooden texture shown in the cropped image,\nare preserved.\nDrawing inspiration from recent advancements in zero-\nshot dense prediction [12, 42], we leverage the robust and\ncomprehensive visual priors of the pre-trained Stable Dif-\nfusion (SD) model [29], which has been trained on bil-\nlions of images, to enhance the generalization capability of\nshadow removal. However, developing a fine-tuning strat-\negy that effectively removes shadows while preserving clear\ndetails in both shadowed and non-shadowed areas is not\ntrivial. Unlike low-frequency depth and normal prediction\ntasks [12, 42], applying the SD model to shadow removal\ncan result in detail loss and misalignment between the con-\nditional image and the shadow-free output (Fig. 1). It is\nbecause the SD model, which consists of a Variational Au-\ntoencoder (V AE) and a Latent Diffusion Model (LDM),\nis designed for text-to-image generation and can lead to\nlossy compression during the mapping from pixel space\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n7592\n\n(W × H × 3) to latent space ( W\n8 × H\n8 × 4).\nTo achieve stable and detail-preserving shadow removal\nusing the pre-trained SD priors, we introduce a two-stage\npipeline: 1) eliminating shadows in latent space by fixing\nthe pre-trained V AE and fine-tuning the LDM and 2) inject-\ning shadow-aware multi-resolution details from the original\ninput into the V AE decoding process.\nIn the first stage, our method retains the pre-trained V AE\nand fine-tunes the LDM by conditioning it on the latent fea-\ntures of the input shadow image. We do not fine-tune the\nV AE, as it effectively handles shadow-free images despite\nnot being specifically trained for this purpose, and the scale\nof our shadow-free images is limited. Our findings indi-\ncate that the latent space from the V AE, combined with the\ngenerative priors from the LDM, enhances shadow removal\ntasks, particularly when annotated training data is scarce.\nBy operating in a low-resolution latent space rather than\nhigh-resolution pixel space, our method performs global\nself-attention with acceptable memory consumption, cap-\nturing more global contextual information compared to con-\nvolution and window-based self-attention [21].\nThe fine-tuned SD model in the first stage produces vi-\nsually appealing results, but it may lose some local details.\nTo further enhance the quality of shadow removal, we pro-\npose a second stage for injecting shadow-free details. In this\nstage, we introduce a Detail Injection (DI) module that en-\nhances the decoded latent features from the pre-trained V AE\ndecoder by incorporating fine details from the input im-\nages. The V AE parameters are kept fixed. To prevent shad-\nows from being reintroduced as “details”, our DI module is\nequipped with shadow perception capabilities. Inspired by\nthe observation that the shadow mask in the current shadow\nremoval dataset is derived from the binary difference be-\ntween shadowed and shadow-free images, we utilize con-\ncatenated features from the input shadow images and the\ncoarse, shadow-free images decoded from the LDM output\nas cues for shadow-free detail injection. By combining fea-\ntures from both image types, the DI module can implicitly\ndetect shadows and learn to inject shadow-free details into\nthe V AE decoders.\nNote that Refusion [23] also performs latent-space diffu-\nsion for shadow removal. It captures input image informa-\ntion in the decoder [23] using a U-Net architecture specifi-\ncally designed for large image shadow removal. However,\nthe primary difference lies in the network design and fine-\ntuning strategy. Our method is designed to leverage the\nhigh-quality priors of the pre-trained V AE and LDM in the\nSD model, resulting in superior shadow removal quality.\nOur method can also handle high-resolution images (e.g.,\n1920×1440 in the WRSD dataset [35]), providing greater\nshadow removal efficiency compared to patch-based diffu-\nsion methods [22].\nOverall, our contributions can be summarized as follows.\n• We propose a two-stage fine-tuning pipeline to trans-\nform a pre-trained Stable Diffusion model into an image-\nconditional shadow-free image generator. This approach\nenables robust, high-resolution shadow removal without\nan input shadow mask.\n• We introduce a shadow-aware detail injection module\nthat utilizes the V AE encoder features to modulate the\npre-trained V AE decoders, selectively aligning per-pixel\ndetails from the input image with those in the output\nshadow-free image.\n• Extensive experimental results on public datasets demon-\nstrate that the proposed method significantly outperforms\nstate-of-the-art shadow removal methods. Additionally,\nwe show that our method exhibits better generalizability\nby training on one dataset and testing on another.",
+    "method": "3. Proposed Method",
+    "experiments": "4. Experiments\nDatasets. We conduct experiments on four shadow re-\nmoval datasets: SRD [28], ISTD+ [14, 37], WSRD+ [35,\n36], and INS [41]. The SRD dataset [28] includes 3,088\npaired shadow and shadow-free images, divided into 2,680\nfor training and 408 for testing. The ISTD+ dataset [14, 37]\nprovides 1,870 triplets of shadow images, shadow masks,\nand shadow-free images, with 1,330 used for training and\n540 for testing. WSRD+[35, 36] contains 1,000 pairs of\nshadow and non-shadow images captured under both spot-\nlight and diffuse illumination. Since the test data is not\nopen-sourced, we use its 100 validation images for test-\ning. Lastly, the INS dataset [41] comprises 30,000 syn-\nthetic training images under direct and indirect illumination,\na synthetic test set of 2,000 images.\nEvaluation Metrics. Following previous methods [3, 4,\n15], we evaluated images with a resolution of256×256. We\nreport results using the Peak Signal-to-Noise Ratio (PSNR)\nand the Structure Similarity Index Measure (SSIM) [39],\nadopting the MATLAB evaluation codes as provided by\nZhu et al. [49]. For the WSRD+ [35] dataset, we used\nits evaluation data and the evaluation code provided by the\nNTIRE 2024 Image Shadow Removal Challenge [36] for\ncomparison.",
+    "conclusion": "5. Conclusion\nThis paper introduces a novel detail-preserving latent dif-\nfusion pipeline that effectively eliminates complex shadows\nwhile preserving shadow-free details. The proposed method\nleverages the rich visual priors of a pre-trained Stable Diffu-\nsion model and propose a two-stage fine-tuning strategy to\nadapt the SD model for stable and efficient shadow removal.\nExtensive experiments demonstrate that our approach out-\nperforms state-of-the-art shadow removal methods, particu-\nlarly in terms of generalizability.\nLimitation and future work. Our method may still miss\nsome shadows in complex scenes, such as the self-shadows\non the flower pot in Fig. 6. Additionally, in some cases,\nour approach focuses more on resolving the color variations\ncaused by shadows and cannot fully preserve the exposure\nin non-shadow areas. In the future, we plan to incorporate\nunsupervised or self-supervised signals to further enhance\nthe generalizability of our method."
+  }
+}

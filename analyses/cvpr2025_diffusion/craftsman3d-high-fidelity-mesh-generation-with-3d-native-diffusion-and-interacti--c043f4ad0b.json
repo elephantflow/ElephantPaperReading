@@ -1,0 +1,96 @@
+{
+  "paper_id": "craftsman3d-high-fidelity-mesh-generation-with-3d-native-diffusion-and-interacti--c043f4ad0b",
+  "paper_title": "CraftsMan3D: High-fidelity Mesh Generation with 3D Native Diffusion and Interactive Geometry Refiner",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:14.228421+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/CraftsMan3D： High-fidelity Mesh Generation with 3D Native Diffusion and Interactive Geometry Refiner.pdf",
+    "filename": "CraftsMan3D： High-fidelity Mesh Generation with 3D Native Diffusion and Interactive Geometry Refiner.pdf",
+    "sha1": "c043f4ad0bfd3577746f4dc8f8d5ea0ca5fa1897",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Challenges of scaling up native 3D generative models largely due to the uniform requirement of training data.",
+    "limitation": "However, existing methods still struggle to produce results that are ready to use.",
+    "insight": "Abstract We present a novel generative 3D modeling system, coined CraftsMan3D, which can generate high-fidelity 3D geometries with highly varied shapes, detailed surfaces, and, notably, allows for refining the geometry in an inter- active manner.",
+    "proposed_method": "Extensive experiments demonstrate that our method achieves high efficacy in producing superior quality 3D meshes compared to existing methods.",
+    "experimental_evidence": "Extensive experiments demonstrate that our method achieves high efficacy in producing superior quality 3D meshes compared to existing methods.",
+    "summary": "Challenges of scaling up native 3D generative models largely due to the uniform requirement of training data. However, existing methods still struggle to produce results that are ready to use. Abstract We present a novel generative 3D modeling system, coined CraftsMan3D, which can generate high-fidelity 3D geometries with highly varied shapes, detailed surfaces, and, notably, allows for refining the geometry in an inter- active manner. Extensive experiments demonstrate that our method achieves high efficacy in producing superior quality 3D meshes compared to existing methods. Extensive experiments demonstrate that our method achieves high efficacy in producing superior quality 3D meshes compared to existing methods."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction The rapid development of industries such as video gaming, augmented reality, and film production has led to a surge in demand for automatic 3D asset creation.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nThe rapid development of industries such as video gaming,\naugmented reality, and film production has led to a surge in\ndemand for automatic 3D asset creation. However, existing\nmethods still struggle to produce results that are ready to\nuse.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n5307"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "3D generative methods can be broadly categorized into three types: i) Score-Distillation Sampling (SDS) based methods [5, 24, 44] typically distill priors in pretrained 2D diffusion models for optimizing a 3D representation, even- tually producing 3D assets.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "3D generative methods can be broadly categorized into\nthree types: i) Score-Distillation Sampling (SDS) based\nmethods [5, 24, 44] typically distill priors in pretrained 2D\ndiffusion models for optimizing a 3D representation, even-\ntually producing 3D assets. However, these methods often\nsuffer from time-consuming processing, unstable optimiza-\ntion, and multi-face geometries. ii) Multi-view (MV) based\nmethods propose generating multi-view consistent images\nas intermediate representations, from which the final 3D\ncan be reconstructed [20, 28, 30]. While these methods\nsignificantly improve generation efficiency and robustness,\nthe resulting 3D assets tend to have artifacts and struggle\nto generate assets of complex geometric structures. iii) 3D\nnative generation methods [18, 37, 56, 63] attempt to di-\nrectly model the probalistic distribution of 3D assets via\ntraining on 3D assets. However, due to the limited 3D data\nand high-dimensional 3D representation, existing 3D gen-\nerative models can not produce high-fidelity details. More\nimportantly, all of these methods do not support user editing\nto improve the generated 3D interactively.\nChallenges of scaling up native 3D generative mode"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Despite the significant advancements in 3D generation, existing methods still struggle with lengthy op- timization processes, self-occlusion, irregular mesh topolo- gies, and difficulties in accommodating user editing, con- sequently impeding their widespread adoption and imple- mentation in 3D modeling softwares.",
+      "However, existing methods still struggle to produce results that are ready to use.",
+      "However, these methods often suffer from time-consuming processing, unstable optimiza- tion, and multi-face geometries. ii) Multi-view (MV) based methods propose generating multi-view consistent images as intermediate representations, from which the final 3D can be reconstructed [20, 28, 30].",
+      "However, due to the limited 3D data and high-dimensional 3D representation, existing 3D gen- erative models can not produce high-fidelity details.",
+      "However, none of these methods can generate high-fidelity geomet- ric details and limitations in mesh-to-SDF conversions still result in training difficulty."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Extensive experiments demonstrate that our method achieves high efficacy in producing superior quality 3D meshes compared to existing methods.",
+      "Finally, our framework features a normal map-based geometry refinement scheme (Sec.3.3).",
+      "We present the qualitative and quantita- tive evaluation of our method as described in Section 4.2 and Section 3.3, as well as comparison results against other baseline methods, showing the effectiveness and efficiency compared to other generation methods.",
+      "We also conduct ablation studies to validate the effectiveness of each com- ponent in our framework, as described in Section 4.4.",
+      "Despite our method’s capability to produce high- quality 3D meshes, the controllability of the Latent Set Dif- fusion model warrants further investigation, and the gener- ation of texture for 3D meshes presents a promising avenue for future research."
+    ],
+    "experiment_expression": [
+      "Extensive experiments demonstrate that our method achieves high efficacy in producing superior quality 3D meshes compared to existing methods.",
+      "Exten- sive experiments demonstrate that our simple structure achieves high efficacy in producing superior quality 3D assets compared to existing methods. • A novel normal-based interactive mesh refiner which can produce highly enhanced geometries within just 20 sec- onds and support interactive manipulation, enhancing the generated coarse geometries to better align with the users’ envisioned designs."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Extensive experiments demonstrate that our method achieves high efficacy in producing superior quality 3D meshes compared to existing methods.",
+    "However, due to the limited 3D data and high-dimensional 3D representation, existing 3D gen- erative models can not produce high-fidelity details.",
+    "However, existing methods still struggle to produce results that are ready to use.",
+    "However, none of these methods can generate high-fidelity geomet- ric details and limitations in mesh-to-SDF conversions still result in training difficulty.",
+    "By integrating visibility checks with winding number analysis, we signifi- cantly enhance the success rate of the watertight conversion and form a high-quality 3D dataset based on Objaverse [8].",
+    "Challenges of scaling up native 3D generative models largely due to the uniform requirement of training data.",
+    "Conclusion and Discussion We present CraftsMan3D, a pioneering framework for the creation of high-fidelity 3D meshes that mimics the mod- eling process of a craftsman, all within a mere 30 seconds.",
+    "Consequently, existing 3D datasets often require preprocessing to convert meshes into SDFs.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experiments To validate the effectiveness of our proposed workflow, we extensively evaluate our proposed framework using a rich variety of inputs.",
+    "Fig- ure 4 illustrates our generative 3D modeling workflow, that is capable of producing high-quality, detailed 3D assets.",
+    "Finally, our framework features a normal map-based geometry refinement scheme (Sec.3.3)."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWe present a novel generative 3D modeling system,\ncoined CraftsMan3D, which can generate high-fidelity 3D\ngeometries with highly varied shapes, detailed surfaces,\nand, notably, allows for refining the geometry in an inter-\nactive manner. Despite the significant advancements in 3D\ngeneration, existing methods still struggle with lengthy op-\ntimization processes, self-occlusion, irregular mesh topolo-\ngies, and difficulties in accommodating user editing, con-\nsequently impeding their widespread adoption and imple-\nmentation in 3D modeling softwares. Our work is inspired\nby the craftsman, who usually roughs out the holistic figure\nof the work first and elaborates the surface details subse-\nquently. Specifically, we first introduce a robust data pre-\nprocessing pipeline that utilizes visibility check and winding\nmumber to maximize the use of existing 3D data. Leverag-\ning this data, we employ a 3D-native DiT model that di-\nrectly models the distribution of 3D data in latent space,\ngenerating coarse geometries in seconds. Subsequently, a\nnormal-based geometry refiner enhances local surface de-\ntails, which can be applied automatically or interactively\nwith user input. Extensive experiments demonstrate that our\nmethod achieves high efficacy in producing superior quality\n3D meshes compared to existing methods.",
+    "introduction": "1. Introduction\nThe rapid development of industries such as video gaming,\naugmented reality, and film production has led to a surge in\ndemand for automatic 3D asset creation. However, existing\nmethods still struggle to produce results that are ready to\nuse.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n5307\n\n3D generative methods can be broadly categorized into\nthree types: i) Score-Distillation Sampling (SDS) based\nmethods [5, 24, 44] typically distill priors in pretrained 2D\ndiffusion models for optimizing a 3D representation, even-\ntually producing 3D assets. However, these methods often\nsuffer from time-consuming processing, unstable optimiza-\ntion, and multi-face geometries. ii) Multi-view (MV) based\nmethods propose generating multi-view consistent images\nas intermediate representations, from which the final 3D\ncan be reconstructed [20, 28, 30]. While these methods\nsignificantly improve generation efficiency and robustness,\nthe resulting 3D assets tend to have artifacts and struggle\nto generate assets of complex geometric structures. iii) 3D\nnative generation methods [18, 37, 56, 63] attempt to di-\nrectly model the probalistic distribution of 3D assets via\ntraining on 3D assets. However, due to the limited 3D data\nand high-dimensional 3D representation, existing 3D gen-\nerative models can not produce high-fidelity details. More\nimportantly, all of these methods do not support user editing\nto improve the generated 3D interactively.\nChallenges of scaling up native 3D generative models\nlargely due to the uniform requirement of training data. Un-\nlike the standardized structures of text and 2D images, 3D\nassets are from various sources—procedural functions, 3D\nmodeling, or scanning, resulting in diverse mesh topologies\nsuch as closed, open, double-sided, non-manifold that re-\nquire careful handling to maintain geometric integrity, mak-\ning uniform dataset creation difficult. Point-E [37] pioneers\na large-scale model trained on millions of 3D assets to gen-\nerate 3D point clouds from text prompts. While point clouds\nreduce data acquisition costs, they lack topological detail,\nlimiting their real-world utility. Implicit distance fields,\nlike signed distance fields (SDF), offer a better alternative\ndue to their continuous, watertight properties, allowing for\nhigh-quality 3D mesh extraction. Consequently, existing\n3D datasets often require preprocessing to convert meshes\ninto SDFs. Leveraging this, Shape-E [18] improves 3D gen-\neration quality, while recent models like CLAY [63] and Di-\nrect3D [56] adopt advanced diffusion techniques. However,\nnone of these methods can generate high-fidelity geomet-\nric details and limitations in mesh-to-SDF conversions still\nresult in training difficulty.\nTo tackle problems mentioned above, we first propose an\nefficient and robust mesh-to-SDF algorithm that maximizes\nthe utilization of existing 3D data [8, 9]. By integrating\nvisibility checks with winding number analysis, we signifi-\ncantly enhance the success rate of the watertight conversion\nand form a high-quality 3D dataset based on Objaverse [8].\nBuilt on the 3D data, we present a two-stage generative 3D\nnative generation system, coined CraftsMan, which takes\nas input single images as reference or text prompts and\ngenerates high-fidelity 3D geometries featuring highly var-\nied shapes, regular mesh topologies, and detailed surfaces,\nand, notably, allows for interactively refining the geometry.\nDrawing inspiration from craftsmen, who typically begin by\nshaping the overall form of their work before subsequently\nrefining the surface details, our system is comprised of two\nstages: 1) a native 3D diffusion model, that is conditioned\non single image and directly generates coarse 3D geome-\ntries; and 2) a robust generative geometry refiner that pro-\nvides intricate details powered by Poisson Normal Blending\nand Relative Laplacian Smoothing regularization.\nIn summary, our main contribution lies in three aspects:\n• A robust and efficient data pre-processing pipeline that in-\ntegrates visibility checks enhanced by the winding num-\nber and significantly improves the success rate of water-\ntight mesh conversion.\n• A simple yet effective 3D Native DiT model. Exten-\nsive experiments demonstrate that our simple structure\nachieves high efficacy in producing superior quality 3D\nassets compared to existing methods.\n• A novel normal-based interactive mesh refiner which can\nproduce highly enhanced geometries within just 20 sec-\nonds and support interactive manipulation, enhancing the\ngenerated coarse geometries to better align with the users’\nenvisioned designs.",
+    "method": "3. Method\nOur 3D generation framework mirrors the 3D artist’s work-\nflow, which begins typically with the creation of a rough\ngeometry that is then refined in the subsequent stage. Fig-\nure 4 illustrates our generative 3D modeling workflow, that\nis capable of producing high-quality, detailed 3D assets.\nIn this section, We begin by introducing our data pre-\nprocessing (Sec.3.1), which significantly improves the suc-\ncess rate of watertight conversion and maximizes the uti-\nlization of existing 3D data. Following this, we train a\nVariational Auto-Encoder (V AE) on the watertight meshes\nto learn latent set-based representations[61] and output a\nTSDF field. Next, we train a dedicated DiT-based denois-\ning network that operates on these learned latent represen-\ntations, using the intermediate multi-view image as condi-\ntioning (Sec.3.2). Finally, our framework features a normal\nmap-based geometry refinement scheme (Sec.3.3).",
+    "experiments": "4. Experiments\nTo validate the effectiveness of our proposed workflow, we\nextensively evaluate our proposed framework using a rich\nvariety of inputs. We present the qualitative and quantita-\ntive evaluation of our method as described in Section 4.2\nand Section 3.3, as well as comparison results against other\nbaseline methods, showing the effectiveness and efficiency\ncompared to other generation methods. We also conduct\nablation studies to validate the effectiveness of each com-\nponent in our framework, as described in Section 4.4. More\nintriguing visual results can be found in our accompanying\nvideo and supplementary.",
+    "conclusion": "5. Conclusion and Discussion\nWe present CraftsMan3D, a pioneering framework for the\ncreation of high-fidelity 3D meshes that mimics the mod-\neling process of a craftsman, all within a mere 30 seconds.\nOur approach begins with the generation of a coarse geom-\netry, followed by a refinement phase that enhances surface\ndetails. Despite our method’s capability to produce high-\nquality 3D meshes, the controllability of the Latent Set Dif-\nfusion model warrants further investigation, and the gener-\nation of texture for 3D meshes presents a promising avenue\nfor future research."
+  }
+}

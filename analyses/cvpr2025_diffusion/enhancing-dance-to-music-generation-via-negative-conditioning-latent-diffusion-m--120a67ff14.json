@@ -1,0 +1,96 @@
+{
+  "paper_id": "enhancing-dance-to-music-generation-via-negative-conditioning-latent-diffusion-m--120a67ff14",
+  "paper_title": "Enhancing Dance-to-Music Generation via Negative Conditioning Latent Diffusion Model",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:38.382776+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Enhancing Dance-to-Music Generation via Negative Conditioning Latent Diffusion Model.pdf",
+    "filename": "Enhancing Dance-to-Music Generation via Negative Conditioning Latent Diffusion Model.pdf",
+    "sha1": "120a67ff140fd39551c29dfc23bed33b3ef7edbc",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "To generate music accompaniments whose rhythms are coordinated and harmonious to the dance movements, under- standing the temporal correlation and rhythmic consistency between dance video and music is crucial, posing greater challenges compared to other conditional music generation tasks, such as text-to-music generation [ 9].",
+    "limitation": "However, existing diffusion-based D2M generation works [14, 15] fail to fully explore the special properties of dance video, where only the positive rhythmic visual cues and motion information are extracted from the dance video played in the normal forward direction to establish the temporal correlation and rhythmic consistency, over- looking the potential effect of negative rhythm information 1https://www.tiktok.com/.",
+    "insight": "Abstract Conditional diffusion models have gained increasing atten- tion since their impressive results for cross-modal synthe- sis, where the strong alignment between conditioning input and generated output can be achieved by training a time- conditioned U-Net augmented with cross-attention mecha- nism.",
+    "proposed_method": "Considering that bi-directional guidance is more beneficial for training a diffusion model, we propose to enhance the quality of generated music and its synchroniza- tion with dance videos by adopting both positive rhythmic information and negative ones (PN-Diffusion) as conditions, where a dual diffusion and reverse processes is devised.",
+    "experimental_evidence": "Through subjective and objective evaluations of input-output correspondence in terms of dance-music beat alignment and the quality of generated music, experimental results on the AIST++ and TikTok dance video datasets demonstrate that our model outperforms SOTA dance-to-music generation models.",
+    "summary": "To generate music accompaniments whose rhythms are coordinated and harmonious to the dance movements, under- standing the temporal correlation and rhythmic consistency between dance video and music is crucial, posing greater challenges compared to other conditional music generation tasks, such as text-to-music generation [ 9]. However, existing diffusion-based D2M generation works [14, 15] fail to fully explore the special properties of dance video, where only the positive rhythmic visual cues and motion information are extracted from the dance video played in the normal forward direction to establish the temporal correlation and rhythmic consistency, over- looking the potential effect of negative rhythm information 1https://www.tiktok.com/. Abstract Conditional diffusion models have gained increasing atten- tion since their impressive results for cross-modal synthe- sis, where the strong alignment between conditioning input and generated output can be achieved by training a time- conditioned U-Net augmented with cross-attention mecha- nism. Considering that bi-directional guidance is more beneficial for training a diffusion model, we propose to enhance the quality of generated music and its synchroniza- tion with dance videos by adopting both positive rhythmic information and negative ones (PN-Diffusion) as conditions, where a dual diffusion and reverse processes is devised. Through subjective and objective evaluations of input-output correspondence in terms of dance-music beat alignment and the quality of generated music, experimental results on the AIST++ and TikTok dance video datasets demonstrate that our model outperforms SOTA dance-to-music generation models."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Recent years have witnessed the unprecedented development of AI-powered realistic content generation in image, video, and audio domains, thanks to the impressive synthesis capa- bilities of diffusion models.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Recent years have witnessed the unprecedented development of AI-powered realistic content generation in image, video, and audio domains, thanks to the impressive synthesis capa- bilities of diffusion models. From a task-level perspective, existing diffusion models can be roughly classified into two lines: unconditional diffusion models [1, 2] and conditional diffusion models [3–6]. Specifically, unconditional diffusion *corresponding author models generate data by utilizing noise sampled from Gaus- sian distributions as input, while conditional ones typically incorporate noise along with embedding feature condition extracted from some specific modalities. Due to the growing demand of customization and the flourish of multimodel data, increasing efforts have been dedicated to the condi- tional manner, giving rise to the emerging real-world appli- cation of cross-model generation, e.g., Text-to-Image (T2I) generation [4–7], Text-to-Audio (T2A) generation [8–10], and Text-to-Video (T2V) generation [11–13]."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "method_overview",
+      "main_message": "In this paper, we focus on the dance-to-music (D2M) generation task and target at training a latent diffusion model (LDM), which has significant practical application in video-sharing platforms such as TikTok1 and YouTube2 to generate appropriate music accompaniments for dance videos uploaded by users.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "In this paper, we focus on the dance-to-music (D2M) generation task and target at training a latent diffusion model (LDM), which has significant practical application in video-sharing platforms such as TikTok1 and YouTube2 to generate appropriate music accompaniments for dance videos uploaded by users. To generate music accompaniments whose rhythms are coordinated and harmonious to the dance movements, under- standing the temporal correlation and rhythmic consistency between dance video and music is crucial, posing greater challenges compared to other conditional music generation tasks, such as text-to-music generation [ 9]. Generally, ex- isting diffusion-based D2M methods incline to first extract visual rhythm and motion information from the dance video and then embed these multiple conditions into the input layer of the U-Net network, so as to guide and influence the training and inference of the diffusion model. For exam- ple, CDCD [14] and LORIS [ 15] put forward conditional diffusion models where the human body motions of dance performers and the visual representation obtained from dance video frames are concatenated to form the final continuous conditioning input."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "However, existing diffusion-based D2M generation works [14, 15] fail to fully explore the special properties of dance video, where only the positive rhythmic visual cues and motion information are extracted from the dance video played in the normal forward direction to establish the temporal correlation and rhythmic consistency, over- looking the potential effect of negative rhythm information 1https://www.tiktok.com/.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "However, existing diffusion-based D2M generation works [14, 15] fail to fully explore the special properties of dance video, where only the positive rhythmic visual cues and motion information are extracted from the dance video played in the normal forward direction to establish the temporal correlation and rhythmic consistency, over- looking the potential effect of negative rhythm information 1https://www.tiktok.com/. 2https://www.youtube.com/. This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "To generate music accompaniments whose rhythms are coordinated and harmonious to the dance movements, under- standing the temporal correlation and rhythmic consistency between dance video and music is crucial, posing greater challenges compared to other conditional music generation tasks, such as text-to-music generation [ 9]."
+    ],
+    "limitation_expression": [
+      "However, existing diffusion-based D2M generation works [14, 15] fail to fully explore the special properties of dance video, where only the positive rhythmic visual cues and motion information are extracted from the dance video played in the normal forward direction to establish the temporal correlation and rhythmic consistency, over- looking the potential effect of negative rhythm information 1https://www.tiktok.com/."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Considering that bi-directional guidance is more beneficial for training a diffusion model, we propose to enhance the quality of generated music and its synchroniza- tion with dance videos by adopting both positive rhythmic information and negative ones (PN-Diffusion) as conditions, where a dual diffusion and reverse processes is devised."
+    ],
+    "experiment_expression": [
+      "Through subjective and objective evaluations of input-output correspondence in terms of dance-music beat alignment and the quality of generated music, experimental results on the AIST++ and TikTok dance video datasets demonstrate that our model outperforms SOTA dance-to-music generation models."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "2https://www.youtube.com/.",
+    "Conclusions We focus on enhancing the dance to music synthesis via neg- ative conditioning latent diffusion model, where positive con- ditioning and negative conditioning serve as bi-directional guidance to train the U-Net network.",
+    "Considering that bi-directional guidance is more beneficial for training a diffusion model, we propose to enhance the quality of generated music and its synchroniza- tion with dance videos by adopting both positive rhythmic information and negative ones (PN-Diffusion) as conditions, where a dual diffusion and reverse processes is devised.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Finally, we describe our U-Net architecture with positive and negative conditioning and derive the objective function (Sec.",
+    "From a task-level perspective, existing diffusion models can be roughly classified into two lines: unconditional diffusion models [1, 2] and conditional diffusion models [3–6].",
+    "However, existing diffusion-based D2M generation works [14, 15] fail to fully explore the special properties of dance video, where only the positive rhythmic visual cues and motion information are extracted from the dance video played in the normal forward direction to establish the temporal correlation and rhythmic consistency, over- looking the potential effect of negative rhythm information 1https://www.tiktok.com/.",
+    "In this paper, we focus on the problem of generating music synchronized with rhythmic visual cues of the given dance video.",
+    "Introduction Recent years have witnessed the unprecedented development of AI-powered realistic content generation in image, video, and audio domains, thanks to the impressive synthesis capa- bilities of diffusion models.",
+    "Methodology This section presents PN-Diffusion, our latent diffusion model with negative conditioning for realistic music gen- eration from dance videos.",
+    "Specifically, to train a sequential multi-modal U-Net struc- ture, PN-Diffusion consists of a noise prediction objective for positive conditioning and an additional noise prediction objective for negative conditioning.",
+    "Specifically, we in- troduce dual diffusion process and reserve process to fit positive and negative rhythmic visual cues and motion in- formation captured by playing dance videos forward and backward, respectively."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nConditional diffusion models have gained increasing atten-\ntion since their impressive results for cross-modal synthe-\nsis, where the strong alignment between conditioning input\nand generated output can be achieved by training a time-\nconditioned U-Net augmented with cross-attention mecha-\nnism. In this paper, we focus on the problem of generating\nmusic synchronized with rhythmic visual cues of the given\ndance video. Considering that bi-directional guidance is\nmore beneficial for training a diffusion model, we propose to\nenhance the quality of generated music and its synchroniza-\ntion with dance videos by adopting both positive rhythmic\ninformation and negative ones (PN-Diffusion) as conditions,\nwhere a dual diffusion and reverse processes is devised.\nSpecifically, to train a sequential multi-modal U-Net struc-\nture, PN-Diffusion consists of a noise prediction objective\nfor positive conditioning and an additional noise prediction\nobjective for negative conditioning. To accurately define\nand select both positive and negative conditioning, we inge-\nniously utilize temporal correlations in dance videos, cap-\nturing positive and negative rhythmic cues by playing them\nforward and backward, respectively. Through subjective\nand objective evaluations of input-output correspondence\nin terms of dance-music beat alignment and the quality of\ngenerated music, experimental results on the AIST++ and\nTikTok dance video datasets demonstrate that our model\noutperforms SOTA dance-to-music generation models.",
+    "introduction": "1. Introduction\nRecent years have witnessed the unprecedented development\nof AI-powered realistic content generation in image, video,\nand audio domains, thanks to the impressive synthesis capa-\nbilities of diffusion models. From a task-level perspective,\nexisting diffusion models can be roughly classified into two\nlines: unconditional diffusion models [1, 2] and conditional\ndiffusion models [3–6]. Specifically, unconditional diffusion\n*corresponding author\nmodels generate data by utilizing noise sampled from Gaus-\nsian distributions as input, while conditional ones typically\nincorporate noise along with embedding feature condition\nextracted from some specific modalities. Due to the growing\ndemand of customization and the flourish of multimodel\ndata, increasing efforts have been dedicated to the condi-\ntional manner, giving rise to the emerging real-world appli-\ncation of cross-model generation, e.g., Text-to-Image (T2I)\ngeneration [4–7], Text-to-Audio (T2A) generation [8–10],\nand Text-to-Video (T2V) generation [11–13]. In this paper,\nwe focus on the dance-to-music (D2M) generation task and\ntarget at training a latent diffusion model (LDM), which has\nsignificant practical application in video-sharing platforms\nsuch as TikTok1 and YouTube2 to generate appropriate music\naccompaniments for dance videos uploaded by users.\nTo generate music accompaniments whose rhythms are\ncoordinated and harmonious to the dance movements, under-\nstanding the temporal correlation and rhythmic consistency\nbetween dance video and music is crucial, posing greater\nchallenges compared to other conditional music generation\ntasks, such as text-to-music generation [ 9]. Generally, ex-\nisting diffusion-based D2M methods incline to first extract\nvisual rhythm and motion information from the dance video\nand then embed these multiple conditions into the input\nlayer of the U-Net network, so as to guide and influence the\ntraining and inference of the diffusion model. For exam-\nple, CDCD [14] and LORIS [ 15] put forward conditional\ndiffusion models where the human body motions of dance\nperformers and the visual representation obtained from dance\nvideo frames are concatenated to form the final continuous\nconditioning input.\nHowever, existing diffusion-based D2M generation\nworks [14, 15] fail to fully explore the special properties\nof dance video, where only the positive rhythmic visual\ncues and motion information are extracted from the dance\nvideo played in the normal forward direction to establish\nthe temporal correlation and rhythmic consistency, over-\nlooking the potential effect of negative rhythm information\n1https://www.tiktok.com/.\n2https://www.youtube.com/.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Methodology\nThis section presents PN-Diffusion, our latent diffusion\nmodel with negative conditioning for realistic music gen-\neration from dance videos. We first introduce the music\nspectrogram and conditioning (Sec.3.1), then detail the dual\ndiffusion and reverse processes of PN-Diffusion (Sec.3.2).\nFinally, we describe our U-Net architecture with positive\nand negative conditioning and derive the objective function\n(Sec. 3.3).",
+    "experiments": "4. Experiment",
+    "conclusion": "5. Conclusions\nWe focus on enhancing the dance to music synthesis via neg-\native conditioning latent diffusion model, where positive con-\nditioning and negative conditioning serve as bi-directional\nguidance to train the U-Net network. Specifically, we in-\ntroduce dual diffusion process and reserve process to fit\npositive and negative rhythmic visual cues and motion in-\nformation captured by playing dance videos forward and\nbackward, respectively. Superior performances are achieved\nover two widely-used dance video datasets through objective\nand subjective evaluations, which can be attributed to the\nnew formulation of noise prediction loss function."
+  }
+}

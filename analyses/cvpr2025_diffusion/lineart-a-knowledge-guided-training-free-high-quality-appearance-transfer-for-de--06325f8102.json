@@ -1,0 +1,130 @@
+{
+  "paper_id": "lineart-a-knowledge-guided-training-free-high-quality-appearance-transfer-for-de--06325f8102",
+  "paper_title": "LineArt: A Knowledge-guided Training-free High-quality Appearance Transfer for Design Drawing with Diffusion Model",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:58.920219+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/LineArt： A Knowledge-guided Training-free High-quality Appearance Transfer for Design Drawing with Diffusion Model.pdf",
+    "filename": "LineArt： A Knowledge-guided Training-free High-quality Appearance Transfer for Design Drawing with Diffusion Model.pdf",
+    "sha1": "06325f81021b419067ed167dd0576229e439c1af",
+    "page_count": 12
+  },
+  "core_story": {
+    "problem": "However, there remain many challenges in transforming line drawings into photorealistic images through domain transfer.",
+    "limitation": "However, there remain many challenges in transforming line drawings into photorealistic images through domain transfer.",
+    "insight": "Abstract Image rendering from line drawings is vital in design and image generation technologies reduce costs, yet pro- fessional line drawings demand preserving complex details.",
+    "proposed_method": "In this work we made the following main contributions: • We propose a novel method for generating high-quality images from design drawings.",
+    "experimental_evidence": "The experiments show that LineArt performs better in accuracy, realism, and material precision compared to SOTAs.",
+    "summary": "However, there remain many challenges in transforming line drawings into photorealistic images through domain transfer. However, there remain many challenges in transforming line drawings into photorealistic images through domain transfer. Abstract Image rendering from line drawings is vital in design and image generation technologies reduce costs, yet pro- fessional line drawings demand preserving complex details. In this work we made the following main contributions: • We propose a novel method for generating high-quality images from design drawings. The experiments show that LineArt performs better in accuracy, realism, and material precision compared to SOTAs."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Image rendering from line drawing holds significant appli- cations in the fields of design and artistic creation [84].",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction Image rendering from line drawing holds significant appli- cations in the fields of design and artistic creation [84]. Tra- ditionally, this process requires extensive manual modeling and rendering attempts [26, 28, 44, 50, 78]. With the rise of image generation technology, it has become possible to con- trol generated attributes through multi-modal inputs such as text and reference images [4, 11, 42, 64, 79, 84], or by col- lecting paired training datasets to achieve domain transfer from line drawings to photographs [14, 29, 46, 73, 74]. This advancement has greatly reduced the cost of image render- ing from line drawings and significantly accelerated the de- sign iteration process."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "However, there remain many challenges in transforming line drawings into photorealistic images through domain transfer.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "However, there remain many challenges in transforming line drawings into photorealistic images through domain transfer. Existing research has largely focused on simple, abstract, user-level hand-drawn sketches [13, 24, 35, 38, 39, 70, 82], while there is a noticeable gap in the study of professional design drawing which contains more detailed levels and more complex structural information. Achieving a generation process that preserves these essential details while producing realistic material places higher demands on the performance of image generation models, particularly when working with fine-grained drawing types [7, 56, 87]. Furthermore, high-quality domain data is difficult to collect, making it challenging to rely on large-scale paired training datasets."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "As shown in Figure 1, the text conditioning ap- proach struggles to accurately capture complex appearance and texture requirements [61].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "As shown in Figure 1, the text conditioning ap- proach struggles to accurately capture complex appearance and texture requirements [61]. Meanwhile, image transla- tion methods rely on effectively decoupling appearance and structure within image prompts [19, 34, 75, 77]; otherwise, the generated results often struggle to maintain identity con- sistency [18] and lack fine-grained control and editing over multiple attributes [76]. Additionally, conflicts arising from inherent distribution differences between prompts can lead to unavoidable attribute degradation as shown in Figure 1. Inspired by human artistic creation, we tackle the above challenges with a knowledge-guided, non-training solution."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "method_overview",
+      "main_message": "We develop LineArt that leverages widely used Control- Net [85] and IP-Adapter [83] to transfer complex appear- ance properties onto design drawings with fine structures, generating high-fidelity results that align well with appear- ance in structural details.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "We develop LineArt that leverages widely used Control- Net [85] and IP-Adapter [83] to transfer complex appear- ance properties onto design drawings with fine structures, generating high-fidelity results that align well with appear- ance in structural details. Our framework has two key stages: the first stage involves decomposing and augment- ing the line drawing to better control the structural details of the object; the second extracts brightness and texture fea- tures from the appearance prompt to guide the generation of illumination and texture quality in the image. In the first stage, LineArt is inspired by vision represen- tation [48, 49] and incorporates a line-based hierarchical fusion module (multi-frequency lines fusion) that supple- ments the original input design drawing into an ideal sketch covering three levels of information: continuous single lines for region division [32], double lines to emphasize local details, and a discrete point set of soft edges to represent implicit spatial gradients and texture information. In the second stage, the input reference image is decomposed to obtain both the brightness control factor and a texture map."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "Drawing from the coloring process in oil painting, we di- vide this stage into two parts: Base Layer Shaping and Sur- face Layer Coloring.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Drawing from the coloring process in oil painting, we di- vide this stage into two parts: Base Layer Shaping and Sur- face Layer Coloring. In the first part, the brightness control factor simulates the underpainting in oil painting, provid- ing initial light and dark contrasts and shaping structures as a foundation for subsequent lighting effects. In the sec- ond part, the texture map undergoes global encoding and is then selectively injected into specific attention layers of the U-net architecture to simulate the translucent layering of colors in oil painting. This division between two parts reduces the complexity of depicting light and shadow di- rectly through color while preserving the structural details and clarity of the original drawing."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "contribution_summary",
+      "main_message": "In order to keep the fo- cus of the main text, we put the background of the Related Work in the first section of the supplementary materials.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "In order to keep the fo- cus of the main text, we put the background of the Related Work in the first section of the supplementary materials. In this work we made the following main contributions: • We propose a novel method for generating high-quality images from design drawings. By integrating human painting knowledge and simulating the human process of hierarchical visual information processing, we have de- veloped an innovative, non-training-based method for this task. The relevant design of the method is intuitive and has good understandability and interpretability. • We propose a multi-frequency lines fusion module to re- fine visual cues for better presentation."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "method_overview",
+      "main_message": "By decomposing the edge features of the input drawing into three levels of abstraction, LineArt achieves detailed structure con- trol.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "By decomposing the edge features of the input drawing into three levels of abstraction, LineArt achieves detailed structure con- trol. We innovatively split the diffusion denoising into two stages Base Layer Shaping and Surface Layer Color- ing to enhance control over appearance generation. • We propose a subdivided generation task for handling drawings, as each line in a sketch serves a different pur- pose. To support this, we collected a professional design drawing dataset, ProLines, focused on objects, and estab- lished filtering rules and workflows based on a complexity analysis of the drawings. Through extensive comparative experiments, we demonstrate that LineArt significantly outperforms various state-of-the-art works, excelling in accuracy, realism, and material precision."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "LineArt overcomes ∗ Corresponding authors the limitations of current methods in terms of difficulty in fine-grained control and style degradation in design draw- ings.",
+      "However, there remain many challenges in transforming line drawings into photorealistic images through domain transfer."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Our framework has two key stages: the first stage involves decomposing and augment- ing the line drawing to better control the structural details of the object; the second extracts brightness and texture fea- tures from the appearance prompt to guide the generation of illumination and texture quality in the image.",
+      "In this work we made the following main contributions: • We propose a novel method for generating high-quality images from design drawings.",
+      "The relevant design of the method is intuitive and has good understandability and interpretability. • We propose a multi-frequency lines fusion module to re- fine visual cues for better presentation.",
+      "We innovatively split the diffusion denoising into two stages Base Layer Shaping and Surface Layer Color- ing to enhance control over appearance generation. • We propose a subdivided generation task for handling drawings, as each line in a sketch serves a different pur- pose.",
+      "Method We propose a visual cognition-guided image generation method from design drawings as shown in Figure 4."
+    ],
+    "experiment_expression": [
+      "As shown in Figure 1, the text conditioning ap- proach struggles to accurately capture complex appearance and texture requirements [61].",
+      "Additionally, conflicts arising from inherent distribution differences between prompts can lead to unavoidable attribute degradation as shown in Figure 1.",
+      "Through extensive comparative experiments, we demonstrate that LineArt significantly outperforms various state-of-the-art works, excelling in accuracy, realism, and material precision.",
+      "Method We propose a visual cognition-guided image generation method from design drawings as shown in Figure 4."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Method We propose a visual cognition-guided image generation method from design drawings as shown in Figure 4.",
+    "Additionally, conflicts arising from inherent distribution differences between prompts can lead to unavoidable attribute degradation as shown in Figure 1.",
+    "As shown in Figure 1, the text conditioning ap- proach struggles to accurately capture complex appearance and texture requirements [61].",
+    "However, there remain many challenges in transforming line drawings into photorealistic images through domain transfer.",
+    "In this work we made the following main contributions: • We propose a novel method for generating high-quality images from design drawings.",
+    "The relevant design of the method is intuitive and has good understandability and interpretability. • We propose a multi-frequency lines fusion module to re- fine visual cues for better presentation.",
+    "Abstract Image rendering from line drawings is vital in design and image generation technologies reduce costs, yet pro- fessional line drawings demand preserving complex details.",
+    "By decomposing the edge features of the input drawing into three levels of abstraction, LineArt achieves detailed structure con- trol.",
+    "By integrating human painting knowledge and simulating the human process of hierarchical visual information processing, we have de- veloped an innovative, non-training-based method for this task.",
+    "Conclusion Our work represents an innovative attempt to integrate hu- man drawing knowledge into the image generation process, advancing the understanding and creation of design draw- ings.",
+    "Drawing from the coloring process in oil painting, we di- vide this stage into two parts: Base Layer Shaping and Sur- face Layer Coloring.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nImage rendering from line drawings is vital in design\nand image generation technologies reduce costs, yet pro-\nfessional line drawings demand preserving complex details.\nText prompts struggle with accuracy, and image translation\nstruggles with consistency and fine-grained control. We\npresent LineArt, a framework that transfers complex ap-\npearance onto detailed design drawings, facilitating design\nand artistic creation. It generates high-fidelity appearance\nwhile preserving structural accuracy by simulating hierar-\nchical visual cognition and integrating human artistic ex-\nperience to guide the diffusion process. LineArt overcomes\n∗ Corresponding authors\nthe limitations of current methods in terms of difficulty in\nfine-grained control and style degradation in design draw-\nings. It requires no precise 3D modeling, physical property\nspecifications, or network training, making it more conve-\nnient for design tasks. LineArt consists of two stages: a\nmulti-frequency lines fusion module to supplement the in-\nput design drawing with detailed structural information and\na two-part painting process for Base Layer Shaping and\nSurface Layer Coloring. We also present a new design\ndrawing dataset, ProLines, for evaluation. The experiments\nshow that LineArt performs better in accuracy, realism,\nand material precision compared to SOTAs. Project page:\nhttps://meaoxixi.github.io/LineArt/.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n2912",
+    "introduction": "1. Introduction\nImage rendering from line drawing holds significant appli-\ncations in the fields of design and artistic creation [84]. Tra-\nditionally, this process requires extensive manual modeling\nand rendering attempts [26, 28, 44, 50, 78]. With the rise of\nimage generation technology, it has become possible to con-\ntrol generated attributes through multi-modal inputs such as\ntext and reference images [4, 11, 42, 64, 79, 84], or by col-\nlecting paired training datasets to achieve domain transfer\nfrom line drawings to photographs [14, 29, 46, 73, 74]. This\nadvancement has greatly reduced the cost of image render-\ning from line drawings and significantly accelerated the de-\nsign iteration process.\nHowever, there remain many challenges in transforming\nline drawings into photorealistic images through domain\ntransfer. Existing research has largely focused on simple,\nabstract, user-level hand-drawn sketches [13, 24, 35, 38,\n39, 70, 82], while there is a noticeable gap in the study of\nprofessional design drawing which contains more detailed\nlevels and more complex structural information. Achieving\na generation process that preserves these essential details\nwhile producing realistic material places higher demands on\nthe performance of image generation models, particularly\nwhen working with fine-grained drawing types [7, 56, 87].\nFurthermore, high-quality domain data is difficult to collect,\nmaking it challenging to rely on large-scale paired training\ndatasets. As shown in Figure 1, the text conditioning ap-\nproach struggles to accurately capture complex appearance\nand texture requirements [61]. Meanwhile, image transla-\ntion methods rely on effectively decoupling appearance and\nstructure within image prompts [19, 34, 75, 77]; otherwise,\nthe generated results often struggle to maintain identity con-\nsistency [18] and lack fine-grained control and editing over\nmultiple attributes [76]. Additionally, conflicts arising from\ninherent distribution differences between prompts can lead\nto unavoidable attribute degradation as shown in Figure 1.\nInspired by human artistic creation, we tackle the above\nchallenges with a knowledge-guided, non-training solution.\nWe develop LineArt that leverages widely used Control-\nNet [85] and IP-Adapter [83] to transfer complex appear-\nance properties onto design drawings with fine structures,\ngenerating high-fidelity results that align well with appear-\nance in structural details. Our framework has two key\nstages: the first stage involves decomposing and augment-\ning the line drawing to better control the structural details\nof the object; the second extracts brightness and texture fea-\ntures from the appearance prompt to guide the generation of\nillumination and texture quality in the image.\nIn the first stage, LineArt is inspired by vision represen-\ntation [48, 49] and incorporates a line-based hierarchical\nfusion module (multi-frequency lines fusion) that supple-\nments the original input design drawing into an ideal sketch\ncovering three levels of information: continuous single lines\nfor region division [32], double lines to emphasize local\ndetails, and a discrete point set of soft edges to represent\nimplicit spatial gradients and texture information. In the\nsecond stage, the input reference image is decomposed to\nobtain both the brightness control factor and a texture map.\nDrawing from the coloring process in oil painting, we di-\nvide this stage into two parts: Base Layer Shaping and Sur-\nface Layer Coloring. In the first part, the brightness control\nfactor simulates the underpainting in oil painting, provid-\ning initial light and dark contrasts and shaping structures\nas a foundation for subsequent lighting effects. In the sec-\nond part, the texture map undergoes global encoding and\nis then selectively injected into specific attention layers of\nthe U-net architecture to simulate the translucent layering\nof colors in oil painting. This division between two parts\nreduces the complexity of depicting light and shadow di-\nrectly through color while preserving the structural details\nand clarity of the original drawing. In order to keep the fo-\ncus of the main text, we put the background of the Related\nWork in the first section of the supplementary materials.\nIn this work we made the following main contributions:\n• We propose a novel method for generating high-quality\nimages from design drawings. By integrating human\npainting knowledge and simulating the human process of\nhierarchical visual information processing, we have de-\nveloped an innovative, non-training-based method for this\ntask. The relevant design of the method is intuitive and\nhas good understandability and interpretability.\n• We propose a multi-frequency lines fusion module to re-\nfine visual cues for better presentation. By decomposing\nthe edge features of the input drawing into three levels\nof abstraction, LineArt achieves detailed structure con-\ntrol. We innovatively split the diffusion denoising into\ntwo stages Base Layer Shaping and Surface Layer Color-\ning to enhance control over appearance generation.\n• We propose a subdivided generation task for handling\ndrawings, as each line in a sketch serves a different pur-\npose. To support this, we collected a professional design\ndrawing dataset, ProLines, focused on objects, and estab-\nlished filtering rules and workflows based on a complexity\nanalysis of the drawings. Through extensive comparative\nexperiments, we demonstrate that LineArt significantly\noutperforms various state-of-the-art works, excelling in\naccuracy, realism, and material precision.",
+    "method": "3. Method\nWe propose a visual cognition-guided image generation\nmethod from design drawings as shown in Figure 4. The\nframework is based on the inpainting mode of Control-\nNet [85], IP-adapter [83], and Stable Diffusion [59], embed-\nding human visual cognitive knowledge into network mod-\nules for precise control over image generation.",
+    "experiments": "5. Experiments",
+    "conclusion": "6. Conclusion\nOur work represents an innovative attempt to integrate hu-\nman drawing knowledge into the image generation process,\nadvancing the understanding and creation of design draw-\nings. This methodology deepens existing artistic knowl-\nedge and contributes to the evolution of digital art, offer-\ning new perspectives and approaches for generating profes-\nsional drawings. Our work also has several limitations. We\nstruggled with line drawings that contain excessive shad-\nows or complex textures, as well as tasks requiring precise\nsemantic correspondence (in Figure 14)."
+  }
+}

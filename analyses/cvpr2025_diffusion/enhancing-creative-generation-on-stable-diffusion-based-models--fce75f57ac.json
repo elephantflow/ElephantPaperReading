@@ -1,0 +1,101 @@
+{
+  "paper_id": "enhancing-creative-generation-on-stable-diffusion-based-models--fce75f57ac",
+  "paper_title": "Enhancing Creative Generation on Stable Diffusion-based Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:38.022704+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Enhancing Creative Generation on Stable Diffusion-based Models.pdf",
+    "filename": "Enhancing Creative Generation on Stable Diffusion-based Models.pdf",
+    "sha1": "fce75f57aca9ad3d3e86c177b6dd18b32abb9efc",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "While generating creative outputs is a crucial aspect of generative modeling, it remains rela- tively underexplored.",
+    "limitation": "We selectively amplify the low-frequency feature of the shallow blocks to enhance creative generations of the pretrained diffusion models. models struggle to effectively produce creative images.",
+    "insight": "As will be analyzed in this paper, we observe that different blocks contribute variably to creativity-related image gener- ation, with shallower blocks playing a more signiﬁcant role in producing novel visuals.",
+    "proposed_method": "To address this gap, we propose a simple yet effec- tive training-free approach, C3 (Creative Concept Cata- lyst), speciﬁcally designed to elevate the creative capabil- ities of Stable Diffusion-based models.",
+    "experimental_evidence": "We demonstrate its effectiveness across various Stable Diffusion-based models. *Equally contributed. †Corresponding authors.",
+    "summary": "While generating creative outputs is a crucial aspect of generative modeling, it remains rela- tively underexplored. We selectively amplify the low-frequency feature of the shallow blocks to enhance creative generations of the pretrained diffusion models. models struggle to effectively produce creative images. As will be analyzed in this paper, we observe that different blocks contribute variably to creativity-related image gener- ation, with shallower blocks playing a more signiﬁcant role in producing novel visuals. To address this gap, we propose a simple yet effec- tive training-free approach, C3 (Creative Concept Cata- lyst), speciﬁcally designed to elevate the creative capabil- ities of Stable Diffusion-based models. We demonstrate its effectiveness across various Stable Diffusion-based models. *Equally contributed. †Corresponding authors."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction In recent years, the ﬁeld of text-to-image generation has witnessed remarkable progress, marked by the develop- ment of models capable of producing high-ﬁdelity images that align closely with user-speciﬁed text prompts, enabling applications across various ﬁelds, including art, entertain- ment, design, and research [ 27, 29].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nIn recent years, the ﬁeld of text-to-image generation has\nwitnessed remarkable progress, marked by the develop-\nment of models capable of producing high-ﬁdelity images\nthat align closely with user-speciﬁed text prompts, enabling\napplications across various ﬁelds, including art, entertain-\nment, design, and research [ 27, 29]. Notably, Stable Diffu-\nsion [17, 20] and its distilled variants [12, 21] have emerged\nas powerful tools, delivering impressive image quality and\nsemantic consistency. As the capabilities of these models\ncontinue to expand, so too does the interest in exploring\nthe boundaries of their generative potential, particularly\nconcerning the generation of creative and novel content.\nThis practical pursuit of creativity in generative models has\nraised critical questions: to what extent can these models\nfoster creativity, and how might we enhance their creative\ncapabilities in an efﬁcient, user-friendly manner?\nDespite their prowess, Stable Diffusion-based generative\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the "
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "method_overview",
+      "main_message": "“A\u0000creative\u0000\u0000<building\u0000>” Original Ours FFT ⊗IFFT ⊗Frequency mask LowHigh !! ❄ Feature map in the !!\" block Amplified Feature map “A\u0000creative\u0000\u0000<building\u0000>” Figure 2.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "“A\u0000creative\u0000\u0000<building\u0000>”\nOriginal Ours\nFFT ⊗IFFT\n⊗Frequency mask\nLowHigh\n!!\n❄\nFeature map in the !!\"\tblock Amplified Feature map\n“A\u0000creative\u0000\u0000<building\u0000>”\nFigure 2. An overview of the proposed C3 algorithm. We selectively amplify the low-frequency feature of the shallow blocks to enhance\ncreative generations of the pretrained diffusion models.\nmodels struggle to effectively produce creative images. As\nFigure 1 and our user study in Table 2 illustrate, adding\nthe “creative” term to prompts often fails to yield satisfy-\ning creative variations, indicating limitations in the mod-\nels’ creative ﬂexibility. While generating creative outputs\nis a crucial aspect of generative modeling, it remains rela-\ntively underexplored. Existing frameworks that aim to im-\nprove the novelty of images from diffusion-based mod-\nels [ 13, 19, 25] typically rely on additional optimization\nsteps or user-deﬁned reference images, making them com-\nputationally expensive for scalable use.\nTo address this gap, we propose a simple yet effec-\ntive training-free approach, C3 (Creative Concept Cata-\nlyst), speciﬁcally designed to elevate the creative capabil-\nities of Stable Diffusion-based models. Inspired by pion"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experimental Results",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "This practical pursuit of creativity in generative models has raised critical questions: to what extent can these models foster creativity, and how might we enhance their creative capabilities in an efﬁcient, user-friendly manner?",
+      "While generating creative outputs is a crucial aspect of generative modeling, it remains rela- tively underexplored."
+    ],
+    "limitation_expression": [
+      "However , their creative capability remains constrained, as includ- ing ‘creative’ in prompts seldom yields the desired results.",
+      "However, consistent ampliﬁcation of intermediate features may cause unwanted noise.",
+      "There are, however, limitations to our method.",
+      "Acting as a catalyst, our method may fail to generate a creative sample if the model itself has a limited concept of creativity for the target object."
+    ],
+    "insight_expression": [
+      "As will be analyzed in this paper, we observe that different blocks contribute variably to creativity-related image gener- ation, with shallower blocks playing a more signiﬁcant role in producing novel visuals."
+    ],
+    "method_expression": [
+      "To address this gap, we propose a simple yet effec- tive training-free approach, C3 (Creative Concept Cata- lyst), speciﬁcally designed to elevate the creative capabil- ities of Stable Diffusion-based models.",
+      "To address this, we shift the intermediate features into the Fourier domain and selectively manipulate the low-frequency components, ef- fectively boosting creativity while minimizing noise.",
+      "Conclusion In this paper, we propose a simple yet effective method to enhance the creative outputs of pre-trained Stable Diffusion-based models.",
+      "There are, however, limitations to our method.",
+      "Our method heavily relies on the generation capabilities of the pre-trained models.",
+      "Acting as a catalyst, our method may fail to generate a creative sample if the model itself has a limited concept of creativity for the target object.",
+      "Despite these limitations, we believe that our work, as the ﬁrst training-free method for enhancing creative generations, can signiﬁcantly con- tribute to the creative AI research community and inspire users, such as product designers, through the improved out- comes produced by our method."
+    ],
+    "experiment_expression": [
+      "We demonstrate its effectiveness across various Stable Diffusion-based models. *Equally contributed. †Corresponding authors."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "As will be analyzed in this paper, we observe that different blocks contribute variably to creativity-related image gener- ation, with shallower blocks playing a more signiﬁcant role in producing novel visuals.",
+    "Conclusion In this paper, we propose a simple yet effective method to enhance the creative outputs of pre-trained Stable Diffusion-based models.",
+    "However , their creative capability remains constrained, as includ- ing ‘creative’ in prompts seldom yields the desired results.",
+    "However, consistent ampliﬁcation of intermediate features may cause unwanted noise.",
+    "There are, however, limitations to our method.",
+    "To address this gap, we propose a simple yet effec- tive training-free approach, C3 (Creative Concept Cata- lyst), speciﬁcally designed to elevate the creative capabil- ities of Stable Diffusion-based models.",
+    "28609 “A\u0000creative\u0000\u0000<building\u0000>” Original Ours FFT ⊗IFFT ⊗Frequency mask LowHigh !! ❄ Feature map in the !!\" block Amplified Feature map “A\u0000creative\u0000\u0000<building\u0000>” Figure 2.",
+    "Abstract Recent text-to-image generative models, particularly Sta- ble Diffusion and its distilled variants, have achieved im- pressive ﬁdelity and strong text-image alignment.",
+    "Acting as a catalyst, our method may fail to generate a creative sample if the model itself has a limited concept of creativity for the target object.",
+    "Also, we offer practical guidelines for selecting appropriate am- pliﬁcation factors tailored to two core aspects of creativity.",
+    "An overview of the proposed C3 algorithm.",
+    "As Figure 1 and our user study in Table 2 illustrate, adding the “creative” term to prompts often fails to yield satisfy- ing creative variations, indicating limitations in the mod- els’ creative ﬂexibility."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRecent text-to-image generative models, particularly Sta-\nble Diffusion and its distilled variants, have achieved im-\npressive ﬁdelity and strong text-image alignment. However ,\ntheir creative capability remains constrained, as includ-\ning ‘creative’ in prompts seldom yields the desired results.\nThis paper introduces C3 (Creative Concept Catalyst), a\ntraining-free approach designed to enhance creativity in\nStable Diffusion-based models. C3 selectively ampliﬁes fea-\ntures during the denoising process to foster more creative\noutputs. We offer practical guidelines for choosing ampliﬁ-\ncation factors based on two main aspects of creativity. C3\nis the ﬁrst study to enhance creativity in diffusion models\nwithout extensive computational costs. We demonstrate its\neffectiveness across various Stable Diffusion-based models.\n*Equally contributed.\n†Corresponding authors.",
+    "introduction": "1. Introduction\nIn recent years, the ﬁeld of text-to-image generation has\nwitnessed remarkable progress, marked by the develop-\nment of models capable of producing high-ﬁdelity images\nthat align closely with user-speciﬁed text prompts, enabling\napplications across various ﬁelds, including art, entertain-\nment, design, and research [ 27, 29]. Notably, Stable Diffu-\nsion [17, 20] and its distilled variants [12, 21] have emerged\nas powerful tools, delivering impressive image quality and\nsemantic consistency. As the capabilities of these models\ncontinue to expand, so too does the interest in exploring\nthe boundaries of their generative potential, particularly\nconcerning the generation of creative and novel content.\nThis practical pursuit of creativity in generative models has\nraised critical questions: to what extent can these models\nfoster creativity, and how might we enhance their creative\ncapabilities in an efﬁcient, user-friendly manner?\nDespite their prowess, Stable Diffusion-based generative\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n28609\n\n“A\u0000creative\u0000\u0000<building\u0000>”\nOriginal Ours\nFFT ⊗IFFT\n⊗Frequency mask\nLowHigh\n!!\n❄\nFeature map in the !!\"\tblock Amplified Feature map\n“A\u0000creative\u0000\u0000<building\u0000>”\nFigure 2. An overview of the proposed C3 algorithm. We selectively amplify the low-frequency feature of the shallow blocks to enhance\ncreative generations of the pretrained diffusion models.\nmodels struggle to effectively produce creative images. As\nFigure 1 and our user study in Table 2 illustrate, adding\nthe “creative” term to prompts often fails to yield satisfy-\ning creative variations, indicating limitations in the mod-\nels’ creative ﬂexibility. While generating creative outputs\nis a crucial aspect of generative modeling, it remains rela-\ntively underexplored. Existing frameworks that aim to im-\nprove the novelty of images from diffusion-based mod-\nels [ 13, 19, 25] typically rely on additional optimization\nsteps or user-deﬁned reference images, making them com-\nputationally expensive for scalable use.\nTo address this gap, we propose a simple yet effec-\ntive training-free approach, C3 (Creative Concept Cata-\nlyst), speciﬁcally designed to elevate the creative capabil-\nities of Stable Diffusion-based models. Inspired by pioneer-\ning work in feature manipulation [ 3, 6, 11, 23, 26], C3 pro-\nmotes the generation of creative visual concepts by directly\namplifying feature maps within the denoising process. In\nthis way, we can bypass the need for reference images. As\nwill be analyzed in this paper, we observe that different\nblocks contribute variably to creativity-related image gener-\nation, with shallower blocks playing a more signiﬁcant role\nin producing novel visuals. Building on this insight, we am-\nplify features at shallower blocks to promote more creative\noutputs. However, consistent ampliﬁcation of intermediate\nfeatures may cause unwanted noise. To address this, we\nshift the intermediate features into the Fourier domain and\nselectively manipulate the low-frequency components, ef-\nfectively boosting creativity while minimizing noise. Also,\nwe offer practical guidelines for selecting appropriate am-\npliﬁcation factors tailored to two core aspects of creativity.\nTo the best of our knowledge, this paper is the ﬁrst to\npropose a method for enhancing the creativity of diffusion\nmodels without additional optimizing steps. We empirically\nvalidate the efﬁcacy of C3 across diverse objects and Sta-\nble Diffusion-based models, demonstrating its impact and\nutility in creative image generation.",
+    "method": "3. Methodology",
+    "experiments": "4. Experimental Results",
+    "conclusion": "6. Conclusion\nIn this paper, we propose a simple yet effective method\nto enhance the creative outputs of pre-trained Stable\nDiffusion-based models. C3 boosts creativity by amplifying\ninternal features with auto-selected ampliﬁcation factors,\npreserving quality without extensive ﬁne-tuning or extra op-\ntimization. There are, however, limitations to our method.\nOur method heavily relies on the generation capabilities of\nthe pre-trained models. Acting as a catalyst, our method\nmay fail to generate a creative sample if the model itself has\na limited concept of creativity for the target object. More-\nover, the effectiveness of C3 across different model archi-\ntectures and components requires comprehensive analysis,\nwhich is reserved for future work. Despite these limitations,\nwe believe that our work, as the ﬁrst training-free method\nfor enhancing creative generations, can signiﬁcantly con-\ntribute to the creative AI research community and inspire\nusers, such as product designers, through the improved out-\ncomes produced by our method."
+  }
+}

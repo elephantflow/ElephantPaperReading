@@ -1,0 +1,133 @@
+{
+  "paper_id": "scene-splatter-momentum-3d-scene-generation-from-single-image-with-video-diffusi--c7d504db7e",
+  "paper_title": "Scene Splatter: Momentum 3D Scene Generation from Single Image with Video Diffusion Model",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:12:45.687049+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_transformer_video_pdfs/Scene Splatter： Momentum 3D Scene Generation from Single Image with Video Diffusion Model.pdf",
+    "filename": "Scene Splatter： Momentum 3D Scene Generation from Single Image with Video Diffusion Model.pdf",
+    "sha1": "c7d504db7e6a751e4f9aeba59043b5a3b7f9f3a4",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Recovering 3D models from 2D images is a fundamental problem in computer vision, due to its widespread applica- tions, such as virtual reality, augmented reality, robotics and so on.",
+    "limitation": "However, these methods struggle to acquire high- quality renderings in unseen areas, especially with out-of- distribution input data.",
+    "insight": "Abstract In this paper, we propose Scene Splatter, a momentum- based paradigm for video diffusion to generate generic scenes from single image.",
+    "proposed_method": "Abstract In this paper, we propose Scene Splatter, a momentum- based paradigm for video diffusion to generate generic scenes from single image.",
+    "experimental_evidence": "Extensive experiments demonstrate the generaliza- tion capability and superior performance of our method in high-fidelity and consistent scene generation.",
+    "summary": "Introduction Recovering 3D models from 2D images is a fundamental problem in computer vision, due to its widespread applica- tions, such as virtual reality, augmented reality, robotics and so on. However, these methods struggle to acquire high- quality renderings in unseen areas, especially with out-of- distribution input data. Abstract In this paper, we propose Scene Splatter, a momentum- based paradigm for video diffusion to generate generic scenes from single image. Abstract In this paper, we propose Scene Splatter, a momentum- based paradigm for video diffusion to generate generic scenes from single image. Extensive experiments demonstrate the generaliza- tion capability and superior performance of our method in high-fidelity and consistent scene generation."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Recovering 3D models from 2D images is a fundamental problem in computer vision, due to its widespread applica- tions, such as virtual reality, augmented reality, robotics and so on.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Recovering 3D models from 2D images is a fundamental problem in computer vision, due to its widespread applica- tions, such as virtual reality, augmented reality, robotics and so on. Recently, 3D neural reconstruction techniques, such as NeRF [22] and 3D Gaussian Splatting (3DGS) [12] has achieved remarkable progress. Despite of their high quality in dense view reconstruction, generating a scene from one single view is still an ill-posed problem, since unambigu- ous geometric cues and occluded parts are unavailable in the monocular setting. Previous methods attempt to learn scene prior knowledge from additional training data with various techniques, such as ResNet [31, 43], epipolar transformer [2] and cost vol- ume [3, 5], to synthesize novel views from sparse or single input."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "However, these methods struggle to acquire high- quality renderings in unseen areas, especially with out-of- distribution input data.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "However, these methods struggle to acquire high- quality renderings in unseen areas, especially with out-of- distribution input data. As shown in Figure 1, Flash3D [31] fails to recover unknown regions and suffers from distor- tions in geometry. Recent advancements in powerful gen- erative models have promoted 3D generation from single input. Some methods [14, 15, 18, 28] generate multi-view images for reconstruction, but they are restricted to object- level generation."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "problem_statement",
+      "main_message": "Other methods [8, 13, 29] apply 2D diffu- sion models for per-view inpainting.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Other methods [8, 13, 29] apply 2D diffu- sion models for per-view inpainting. Yet, they often gener- ate inconsistent contents with semantic drifts. We analogy novel view synthesis to the generation of continuous video frames, and reformulate the chal- lenging 3D consistency problem as temporal consistency within video generation, to unleash the strong generative prior of pre-trained large video diffusion models [19, 45]. An intuitive idea is to directly recover 3D scene from generated videos."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "method_overview",
+      "main_message": "As illustrated in Figure 1, we adopt CogVideoX [42] and ViewCrafter [45] to enhance the view synthesis process, but they change the property of exist- ing components, leading to conflicts in 3D reconstruction.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "As illustrated in Figure 1, we adopt CogVideoX [42] and ViewCrafter [45] to enhance the view synthesis process, but they change the property of exist- ing components, leading to conflicts in 3D reconstruction. To address these issues, we propose Scene Splatter, a mo- mentum 3D scene generation paradigm to introduce exist- ing scene information as momentum in the generation pro- cess, to balance the generative prior and scene consistency. Specifically, we construct noisy samples from original fea- tures as latent-level momentum to guide each denoising step, avoiding the change of existing components in mul- tiple steps of reverse diffusion. For latent features covering both known and unknown regions, latent-level momentum restricts the generation of unseen regions."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "Therefore, we decode the denoised latent features to RGB space and inject this consistent video as pixel-level momentum to a gener- ated video without aforementioned latent-level momentum for further enhancement of unknown areas.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Therefore, we decode the denoised latent features to RGB space and inject this consistent video as pixel-level momentum to a gener- ated video without aforementioned latent-level momentum for further enhancement of unknown areas. We finetune the global Gaussian representations supervised by the enhanced views. Instead of high-level camera pose prompts [9, 39], we follow our predefined camera trajectory to obtain ren- dering results from Gaussian representations for momen- tum update in the next generation step. In this manner, we can iteratively recover a 3D model from one single image, avoiding the inherent restriction of video length in diffusion models."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Experimental results show that our method outperforms regression-based and generation-based baselines for high quality and scene consistency, unveiling the immense po- tential to create complex 3D scenes using video diffusion models.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "Experimental results show that our method outperforms regression-based and generation-based baselines for high quality and scene consistency, unveiling the immense po- tential to create complex 3D scenes using video diffusion models. Our contributions can be summarized as follows:"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methods",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "3. Qualitative and quantitative results demonstrate that our",
+      "purpose": "Adds visual or case-based evidence.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Existing methods, which employ video generation models to synthesize novel views, suffer from limited video length and scene inconsistency, lead- ing to artifacts and distortions during further reconstruc- tion.",
+      "However, for latent features with the perception field that spans both known and unknown regions, such latent-level momentum restricts †Corresponding author. the generative ability of video diffusion in unknown regions.",
+      "Despite of their high quality in dense view reconstruction, generating a scene from one single view is still an ill-posed problem, since unambigu- ous geometric cues and occluded parts are unavailable in the monocular setting.",
+      "However, these methods struggle to acquire high- quality renderings in unseen areas, especially with out-of- distribution input data."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Abstract In this paper, we propose Scene Splatter, a momentum- based paradigm for video diffusion to generate generic scenes from single image.",
+      "To address this issue, we construct noisy samples from original features as momentum to enhance video de- tails and maintain scene consistency.",
+      "Extensive experiments demonstrate the generaliza- tion capability and superior performance of our method in high-fidelity and consistent scene generation.",
+      "To address these issues, we propose Scene Splatter, a mo- mentum 3D scene generation paradigm to introduce exist- ing scene information as momentum in the generation pro- cess, to balance the generative prior and scene consistency.",
+      "Experimental results show that our method outperforms regression-based and generation-based baselines for high quality and scene consistency, unveiling the immense po- tential to create complex 3D scenes using video diffusion models.",
+      "Methods The pipeline of our framework is illustrated in Figure 2.",
+      "In Section 3.2, we propose our latent-level and pixel-level momentum for scene generation.",
+      "Qualitative and quantitative results demonstrate that our method achieve superior performance with high-fidelity and generalizability.",
+      "Conclusion and Discussion In this paper, we propose a momentum-based paradigm to generate 3D scene from single image.",
+      "Comprehensive experiments have demonstrated the generalization capability and the su- perior performance of our method in generating scenes that are both high-fidelity and consistent.",
+      "Although our method can generate high fidelity and consistent 3D scene from one single image, the employment of video diffusion models requires longer time compared to regression-based models (e.g.",
+      "Besides, our method is now restricted to static 3D scene generation, where our 3D rep- resentations lack the ability to recover 4D scenes."
+    ],
+    "experiment_expression": [
+      "Extensive experiments demonstrate the generaliza- tion capability and superior performance of our method in high-fidelity and consistent scene generation.",
+      "As shown in Figure 1, Flash3D [31] fails to recover unknown regions and suffers from distor- tions in geometry.",
+      "Qualitative and quantitative results demonstrate that our method achieve superior performance with high-fidelity and generalizability."
+    ],
+    "contribution_expression": [
+      "Our contributions can be summarized as follows: 3."
+    ]
+  },
+  "notable_sentences": [
+    "Abstract In this paper, we propose Scene Splatter, a momentum- based paradigm for video diffusion to generate generic scenes from single image.",
+    "As shown in Figure 1, Flash3D [31] fails to recover unknown regions and suffers from distor- tions in geometry.",
+    "Conclusion and Discussion In this paper, we propose a momentum-based paradigm to generate 3D scene from single image.",
+    "Extensive experiments demonstrate the generaliza- tion capability and superior performance of our method in high-fidelity and consistent scene generation.",
+    "However, for latent features with the perception field that spans both known and unknown regions, such latent-level momentum restricts †Corresponding author. the generative ability of video diffusion in unknown regions.",
+    "However, these methods struggle to acquire high- quality renderings in unseen areas, especially with out-of- distribution input data.",
+    "In Section 3.2, we propose our latent-level and pixel-level momentum for scene generation.",
+    "Our contributions can be summarized as follows: 3.",
+    "To address these issues, we propose Scene Splatter, a mo- mentum 3D scene generation paradigm to introduce exist- ing scene information as momentum in the generation pro- cess, to balance the generative prior and scene consistency.",
+    "Ablation study of our Scene Splatter.",
+    "Acknowledgments This work was supported in part by the National Natural Science Foundation of China under Grant 62206147, and in part by 2024 WeChat Vision, Tecent Inc.",
+    "Although our method can generate high fidelity and consistent 3D scene from one single image, the employment of video diffusion models requires longer time compared to regression-based models (e.g."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nIn this paper, we propose Scene Splatter, a momentum-\nbased paradigm for video diffusion to generate generic\nscenes from single image. Existing methods, which employ\nvideo generation models to synthesize novel views, suffer\nfrom limited video length and scene inconsistency, lead-\ning to artifacts and distortions during further reconstruc-\ntion. To address this issue, we construct noisy samples\nfrom original features as momentum to enhance video de-\ntails and maintain scene consistency. However, for latent\nfeatures with the perception field that spans both known\nand unknown regions, such latent-level momentum restricts\n†Corresponding author.\nthe generative ability of video diffusion in unknown regions.\nTherefore, we further introduce the aforementioned consis-\ntent video as a pixel-level momentum to a directly gener-\nated video without momentum for better recovery of unseen\nregions. Our cascaded momentum enables video diffusion\nmodels to generate both high-fidelity and consistent novel\nviews. We further finetune the global Gaussian representa-\ntions with enhanced frames and render new frames for mo-\nmentum update in the next step. In this manner, we can iter-\natively recover a 3D scene, avoiding the limitation of video\nlength. Extensive experiments demonstrate the generaliza-\ntion capability and superior performance of our method in\nhigh-fidelity and consistent scene generation.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n6089",
+    "introduction": "1. Introduction\nRecovering 3D models from 2D images is a fundamental\nproblem in computer vision, due to its widespread applica-\ntions, such as virtual reality, augmented reality, robotics and\nso on. Recently, 3D neural reconstruction techniques, such\nas NeRF [22] and 3D Gaussian Splatting (3DGS) [12] has\nachieved remarkable progress. Despite of their high quality\nin dense view reconstruction, generating a scene from one\nsingle view is still an ill-posed problem, since unambigu-\nous geometric cues and occluded parts are unavailable in\nthe monocular setting.\nPrevious methods attempt to learn scene prior knowledge\nfrom additional training data with various techniques, such\nas ResNet [31, 43], epipolar transformer [2] and cost vol-\nume [3, 5], to synthesize novel views from sparse or single\ninput. However, these methods struggle to acquire high-\nquality renderings in unseen areas, especially with out-of-\ndistribution input data. As shown in Figure 1, Flash3D [31]\nfails to recover unknown regions and suffers from distor-\ntions in geometry. Recent advancements in powerful gen-\nerative models have promoted 3D generation from single\ninput. Some methods [14, 15, 18, 28] generate multi-view\nimages for reconstruction, but they are restricted to object-\nlevel generation. Other methods [8, 13, 29] apply 2D diffu-\nsion models for per-view inpainting. Yet, they often gener-\nate inconsistent contents with semantic drifts.\nWe analogy novel view synthesis to the generation\nof continuous video frames, and reformulate the chal-\nlenging 3D consistency problem as temporal consistency\nwithin video generation, to unleash the strong generative\nprior of pre-trained large video diffusion models [19, 45].\nAn intuitive idea is to directly recover 3D scene from\ngenerated videos. As illustrated in Figure 1, we adopt\nCogVideoX [42] and ViewCrafter [45] to enhance the view\nsynthesis process, but they change the property of exist-\ning components, leading to conflicts in 3D reconstruction.\nTo address these issues, we propose Scene Splatter, a mo-\nmentum 3D scene generation paradigm to introduce exist-\ning scene information as momentum in the generation pro-\ncess, to balance the generative prior and scene consistency.\nSpecifically, we construct noisy samples from original fea-\ntures as latent-level momentum to guide each denoising\nstep, avoiding the change of existing components in mul-\ntiple steps of reverse diffusion. For latent features covering\nboth known and unknown regions, latent-level momentum\nrestricts the generation of unseen regions. Therefore, we\ndecode the denoised latent features to RGB space and inject\nthis consistent video as pixel-level momentum to a gener-\nated video without aforementioned latent-level momentum\nfor further enhancement of unknown areas. We finetune the\nglobal Gaussian representations supervised by the enhanced\nviews. Instead of high-level camera pose prompts [9, 39],\nwe follow our predefined camera trajectory to obtain ren-\ndering results from Gaussian representations for momen-\ntum update in the next generation step. In this manner, we\ncan iteratively recover a 3D model from one single image,\navoiding the inherent restriction of video length in diffusion\nmodels.\nExperimental results show that our method outperforms\nregression-based and generation-based baselines for high\nquality and scene consistency, unveiling the immense po-\ntential to create complex 3D scenes using video diffusion\nmodels. Our contributions can be summarized as follows:",
+    "method": "3. Methods\nThe pipeline of our framework is illustrated in Figure 2. In\nSection 3.1, we briefly review 3D Gaussian Splatting and\nvideo diffusion models. In Section 3.2, we propose our\nlatent-level and pixel-level momentum for scene generation.\nIn Section 3.3, we introduce details of the overall architec-\nture to recovery 3D scenes from single inputs.",
+    "experiments": "3. Qualitative and quantitative results demonstrate that our\nmethod achieve superior performance with high-fidelity\nand generalizability.",
+    "conclusion": "5. Conclusion and Discussion\nIn this paper, we propose a momentum-based paradigm to\ngenerate 3D scene from single image. We generate noisy\nsamples from the original features to serve as momentum,\nthereby enhancing video details and preserving scene con-\nsistency. Nevertheless, when it comes to latent features with\na perception field that spans both known and unknown re-\ngions, the latent-level momentum can impede the genera-\ntive capacity within the unknown areas. To overcome this\nlimitation, we incorporate the previously mentioned consis-\ntent video as a pixel-level momentum to a video generated\ndirectly without momentum, aiming to achieve a more ef-\nfective recovery of unseen regions. This cascaded momen-\ntum strategy empowers video diffusion models to produce\nboth high-fidelity and consistent novel views. We further re-\nfine the global Gaussian representations using the enhanced\nframes and render new frames for the momentum update\nin the subsequent step. This iterative process allows us to\nreconstruct a 3D scene, bypassing the constraints typically\nassociated with video length. Comprehensive experiments\nhave demonstrated the generalization capability and the su-\nperior performance of our method in generating scenes that\nare both high-fidelity and consistent.\nTable 2. Ablation study of our Scene Splatter. We report the aver-\nage PSNR, SSIM and LPIPS of rendering results.\nMethods PSNR SSIM LPIPS\nOurs 19.81 0.770 0.169\nw.o. video diffusion model 16.14 0.644 0.268\nw.o. latent-level momentum 18.52 0.748 0.194\nw.o. pixel-level momentum 16.31 0.659 0.278\nLimitations and Future Works. Although our method can\ngenerate high fidelity and consistent 3D scene from one\nsingle image, the employment of video diffusion models\nrequires longer time compared to regression-based models\n(e.g. Flash3D [31]). The iterative strategy further exacer-\nbates the consumption of time. Besides, our method is now\nrestricted to static 3D scene generation, where our 3D rep-\nresentations lack the ability to recover 4D scenes. In the\nfuture, we will focus on the efficiency of 3D scene genera-\ntion models to further compress the time consumption. We\nare also interested in generating 4D scenes by decoupling\nthe temporal and spatial factors in video diffusion.\nAcknowledgments This work was supported in part by the\nNational Natural Science Foundation of China under Grant\n62206147, and in part by 2024 WeChat Vision, Tecent Inc.\nRhino-Bird Focused Research Program."
+  }
+}

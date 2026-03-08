@@ -1,0 +1,98 @@
+{
+  "paper_id": "shadow-generation-using-diffusion-model-with-geometry-prior--2177afe4e8",
+  "paper_title": "Shadow Generation Using Diffusion Model with Geometry Prior",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:31.044725+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Shadow Generation Using Diffusion Model with Geometry Prior.pdf",
+    "filename": "Shadow Generation Using Diffusion Model with Geometry Prior.pdf",
+    "sha1": "2177afe4e8c304a74fd07ae799f0764a108bee4d",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Image composition [25], which aims to appropriately in- sert a given foreground object into the target background image to obtain a composite image, serves a crucial role in fields such as filmmaking, photo editing, and digital art design [27].",
+    "limitation": "However, they generally require training the model from scratch on limited paired data, which restricts the gen- eralization ability.",
+    "insight": "Abstract Image composition involves integrating foreground ob- ject into background image to obtain a composite im- age.",
+    "proposed_method": "To improve the shadow geometry, we propose to assist diffusion-based methods with geometry priors.",
+    "experimental_evidence": "Recently, diffusion-based methods have shown superior performance compared to GAN-based methods in shadow generation.",
+    "summary": "Introduction Image composition [25], which aims to appropriately in- sert a given foreground object into the target background image to obtain a composite image, serves a crucial role in fields such as filmmaking, photo editing, and digital art design [27]. However, they generally require training the model from scratch on limited paired data, which restricts the gen- eralization ability. Abstract Image composition involves integrating foreground ob- ject into background image to obtain a composite im- age. To improve the shadow geometry, we propose to assist diffusion-based methods with geometry priors. Recently, diffusion-based methods have shown superior performance compared to GAN-based methods in shadow generation."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "method_overview",
+      "main_message": "Introduction Image composition [25], which aims to appropriately in- sert a given foreground object into the target background image to obtain a composite image, serves a crucial role in fields such as filmmaking, photo editing, and digital art design [27].",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "1. Introduction\nImage composition [25], which aims to appropriately in-\nsert a given foreground object into the target background\nimage to obtain a composite image, serves a crucial role\nin fields such as filmmaking, photo editing, and digital art\ndesign [27]. To achieve a more natural-looking composite\nresult, generating realistic shadow for inserted foreground\nobjects remains a challenging task, which has not been sat-\nisfactorily addressed by existing methods. In this paper, we\nfocus on the above shadow generation task, aiming to sub-\nstantially improve the quality of generated shadow from a\ngeometric perspective.\nThe existing shadow generation methods can be di-\nvided into GAN-based methods [11, 17] and diffusion-\nbased methods [20]. GAN-based methods ensure the pre-\ncision and authenticity of generated shadow through the\ncombined supervision of reconstruction loss and adversar-\nial loss. However, they generally require training the model\nfrom scratch on limited paired data, which restricts the gen-\neralization ability. In contrast, diffusion-based methods ini-\ntialize the foundation models with rich prior knowledge,\nthus significantly outperforming GAN-based methods and\ngenera"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "ometry encoder to predict the geometry information of fore- ground shadow given a composite image.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "ometry encoder to predict the geometry information of fore-\nground shadow given a composite image. On one hand, we\npredict the rotated bounding box enclosing the foreground\nshadow. On the other hand, we discretize shadow shapes\nand retrieve the matched shadow shapes for the foreground\nshadow. Specifically, we train an auto-encoder to recon-\nstruct shadow shapes and extract the bottleneck features as\nshape embeddings. We group shape embeddings into clus-\nters and each cluster is associated with a prototypical shape\nembedding. Given a composite image, the geometry en-\ncoder predicts the probabilities of all clusters, indicating the\nmatched shadow shapes for the foreground shadow.\nIn the second stage, we incorporate the rotated bound-\ning box and matched shape embeddings from the first stage\ninto diffusion model. Such integration ensures that the gen-\nerated shadow not only aligns with the expected spatial con-\nfiguration but also adheres to realistic shape characteris-\ntics, thereby enhancing the overall quality and realism of\nthe shadow. Specifically, we use ControlNet [50] as the\nbase model. The rotated bounding box is converted to a\nbinary mask and appended to the input of Control"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Introduction Image composition [25], which aims to appropriately in- sert a given foreground object into the target background image to obtain a composite image, serves a crucial role in fields such as filmmaking, photo editing, and digital art design [27]."
+    ],
+    "limitation_expression": [
+      "However, they are still struggling to generate shadows with plausible geometry in complex cases.",
+      "However, they generally require training the model from scratch on limited paired data, which restricts the gen- eralization ability.",
+      "The diffusion-based method [20] is adept at generating shadow with realistic appearance ( e.g., shadow intensity, boundary transition), but still performs poorly in terms of shadow geometry ( e.g., location, scale, shape) in the challenging cases as shown in Figure 1."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To improve the shadow geometry, we propose to assist diffusion-based methods with geometry priors.",
+      "Our method has two stages.",
+      "We conduct experiments on DESOBAv2 [20] and real composite images to validate the effectiveness of our method.",
+      "In summary, our contributions are as follows: • We propose to equip diffusion-based shadow generation model with geometry priors, which is a key point to en- hance the shadow quality. • We design a multi-task geometry encoder to predict the rotated bounding box and retrieve the matched shadow shapes for the foreground shadow. • The experiments results show that our method brings no- table improvement for the shadow geometry, which has never been achieved by previous methods.",
+      "Exper- iments on both DESOBAv2 dataset and real images demon- strate the superiority and generalizability of our method."
+    ],
+    "experiment_expression": [
+      "Extensive experiments on both DESOBAv2 dataset and real composite images validate the effective- ness of our proposed method.",
+      "The diffusion-based method [20] is adept at generating shadow with realistic appearance ( e.g., shadow intensity, boundary transition), but still performs poorly in terms of shadow geometry ( e.g., location, scale, shape) in the challenging cases as shown in Figure 1."
+    ],
+    "contribution_expression": [
+      "In summary, our contributions are as follows: • We propose to equip diffusion-based shadow generation model with geometry priors, which is a key point to en- hance the shadow quality. • We design a multi-task geometry encoder to predict the rotated bounding box and retrieve the matched shadow shapes for the foreground shadow. • The experiments results show that our method brings no- table improvement for the shadow geometry, which has never been achieved by previous methods."
+    ]
+  },
+  "notable_sentences": [
+    "Extensive experiments on both DESOBAv2 dataset and real composite images validate the effective- ness of our proposed method.",
+    "However, they are still struggling to generate shadows with plausible geometry in complex cases.",
+    "However, they generally require training the model from scratch on limited paired data, which restricts the gen- eralization ability.",
+    "In summary, our contributions are as follows: • We propose to equip diffusion-based shadow generation model with geometry priors, which is a key point to en- hance the shadow quality. • We design a multi-task geometry encoder to predict the rotated bounding box and retrieve the matched shadow shapes for the foreground shadow. • The experiments results show that our method brings no- table improvement for the shadow geometry, which has never been achieved by previous methods.",
+    "To improve the shadow geometry, we propose to assist diffusion-based methods with geometry priors.",
+    "7603 ometry encoder to predict the geometry information of fore- ground shadow given a composite image.",
+    "Abstract Image composition involves integrating foreground ob- ject into background image to obtain a composite im- age.",
+    "Acknowledgement The work was supported by the National Natural Science Foundation of China (Grant No.",
+    "Additionally, we inject the matched shape embeddings into the denoising U-Net.",
+    "As a result, our approach generates shadow with more accurate position and more precise shapes compared with the state-of-the-art diffusion-based method SGDiffu- sion [20] (See Figure 1).",
+    "By using additional geometry encoder, we predict the rotated bounding box and matched shape em- beddings for the foreground shadow, which dramatically en- hances the geometric accuracy of generated shadow.",
+    "Conclusion In this work, we have presented a novel diffusion-based shadow generation model: GPSDiffusion, which leverages geometry priors."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nImage composition involves integrating foreground ob-\nject into background image to obtain a composite im-\nage. One of the key challenges is to produce realis-\ntic shadow for the inserted foreground object. Recently,\ndiffusion-based methods have shown superior performance\ncompared to GAN-based methods in shadow generation.\nHowever, they are still struggling to generate shadows\nwith plausible geometry in complex cases. In this pa-\nper, we focus on promoting diffusion-based methods by\nleveraging geometry priors. Specifically, we first predict\nthe rotated bounding box and matched shadow shapes\nfor the foreground shadow. Then, the geometry infor-\nmation of rotated bounding box and matched shadow\nshapes is injected into ControlNet to facilitate shadow\ngeneration. Extensive experiments on both DESOBAv2\ndataset and real composite images validate the effective-\nness of our proposed method. The code and model are\nreleased at https://github.com/bcmi/GPSDiffusion-Object-\nShadow-Generation.",
+    "introduction": "1. Introduction\nImage composition [25], which aims to appropriately in-\nsert a given foreground object into the target background\nimage to obtain a composite image, serves a crucial role\nin fields such as filmmaking, photo editing, and digital art\ndesign [27]. To achieve a more natural-looking composite\nresult, generating realistic shadow for inserted foreground\nobjects remains a challenging task, which has not been sat-\nisfactorily addressed by existing methods. In this paper, we\nfocus on the above shadow generation task, aiming to sub-\nstantially improve the quality of generated shadow from a\ngeometric perspective.\nThe existing shadow generation methods can be di-\nvided into GAN-based methods [11, 17] and diffusion-\nbased methods [20]. GAN-based methods ensure the pre-\ncision and authenticity of generated shadow through the\ncombined supervision of reconstruction loss and adversar-\nial loss. However, they generally require training the model\nfrom scratch on limited paired data, which restricts the gen-\neralization ability. In contrast, diffusion-based methods ini-\ntialize the foundation models with rich prior knowledge,\nthus significantly outperforming GAN-based methods and\ngenerating more plausible shadow. Overall, the quality of\ngenerated shadow could be evaluated from two aspects: ap-\npearance and geometry. The diffusion-based method [20] is\nadept at generating shadow with realistic appearance ( e.g.,\nshadow intensity, boundary transition), but still performs\npoorly in terms of shadow geometry ( e.g., location, scale,\nshape) in the challenging cases as shown in Figure 1.\nTo improve the shadow geometry, we propose to assist\ndiffusion-based methods with geometry priors. Our method\nhas two stages. In the first stage, we employ a multi-task ge-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n7603\n\nometry encoder to predict the geometry information of fore-\nground shadow given a composite image. On one hand, we\npredict the rotated bounding box enclosing the foreground\nshadow. On the other hand, we discretize shadow shapes\nand retrieve the matched shadow shapes for the foreground\nshadow. Specifically, we train an auto-encoder to recon-\nstruct shadow shapes and extract the bottleneck features as\nshape embeddings. We group shape embeddings into clus-\nters and each cluster is associated with a prototypical shape\nembedding. Given a composite image, the geometry en-\ncoder predicts the probabilities of all clusters, indicating the\nmatched shadow shapes for the foreground shadow.\nIn the second stage, we incorporate the rotated bound-\ning box and matched shape embeddings from the first stage\ninto diffusion model. Such integration ensures that the gen-\nerated shadow not only aligns with the expected spatial con-\nfiguration but also adheres to realistic shape characteris-\ntics, thereby enhancing the overall quality and realism of\nthe shadow. Specifically, we use ControlNet [50] as the\nbase model. The rotated bounding box is converted to a\nbinary mask and appended to the input of ControlNet en-\ncoder, which can improve the accuracy of shadow place-\nment and scaling in the generated results. Additionally,\nwe inject the matched shape embeddings into the denoising\nU-Net. We train additional cross-attention layers and feed\nthe matched shape embeddings into different layers of U-\nNet, which ensures that the generated shadow is informed\nby realistic and contextually appropriate shape information,\nenhancing the overall quality and coherence of the shadow\nsynthesis. As a result, our approach generates shadow with\nmore accurate position and more precise shapes compared\nwith the state-of-the-art diffusion-based method SGDiffu-\nsion [20] (See Figure 1).\nWe conduct experiments on DESOBAv2 [20] and real\ncomposite images to validate the effectiveness of our\nmethod. In summary, our contributions are as follows:\n• We propose to equip diffusion-based shadow generation\nmodel with geometry priors, which is a key point to en-\nhance the shadow quality.\n• We design a multi-task geometry encoder to predict the\nrotated bounding box and retrieve the matched shadow\nshapes for the foreground shadow.\n• The experiments results show that our method brings no-\ntable improvement for the shadow geometry, which has\nnever been achieved by previous methods.",
+    "method": "3. Method\nGiven a composite image Ic with inserted foreground ob-\nject, we aim to generate the image ˜Ig with plausible fore-\nground shadow. The overall pipeline of our Geometry Prior\nguided Shadow Diffusion model (GPSDiffusion) is illus-\ntrated in Figure 2. In the first stage, we predict the geometry\npriors using a geometry encoder Eg, which will be detailed\nin Section 3.1. In the second stage, we generate realistic\nshadow using ControlNet that leverages geometry priors,\nwhich will be detailed in Section 3.2.",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nIn this work, we have presented a novel diffusion-based\nshadow generation model: GPSDiffusion, which leverages\ngeometry priors. By using additional geometry encoder, we\npredict the rotated bounding box and matched shape em-\nbeddings for the foreground shadow, which dramatically en-\nhances the geometric accuracy of generated shadow. Exper-\niments on both DESOBAv2 dataset and real images demon-\nstrate the superiority and generalizability of our method.\nAcknowledgement\nThe work was supported by the National Natural Science\nFoundation of China (Grant No. 62471287)."
+  }
+}

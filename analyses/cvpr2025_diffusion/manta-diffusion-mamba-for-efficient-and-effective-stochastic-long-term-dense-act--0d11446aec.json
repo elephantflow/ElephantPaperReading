@@ -1,0 +1,70 @@
+{
+  "paper_id": "manta-diffusion-mamba-for-efficient-and-effective-stochastic-long-term-dense-act--0d11446aec",
+  "paper_title": "MANTA: Diffusion Mamba for Efficient and Effective Stochastic Long-Term Dense Action Anticipation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:00.324579+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/MANTA： Diffusion Mamba for Efficient and Effective Stochastic Long-Term Dense Action Anticipation.pdf",
+    "filename": "MANTA： Diffusion Mamba for Efficient and Effective Stochastic Long-Term Dense Action Anticipation.pdf",
+    "sha1": "0d11446aec22ca732682debad80f43341a8751c0",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "",
+    "limitation": "",
+    "insight": "",
+    "proposed_method": "",
+    "experimental_evidence": "",
+    "summary": ""
+  },
+  "introduction_structure": [],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "The use of dilated convolutions for temporal processing, 3439 however, poses several limitations.",
+      "Speciﬁcally, the ex- ponentially increasing dilation rates ( 2l− 1) of the convolu- tional kernels result in limited receptive ﬁelds in the early layers and sparse receptive ﬁelds lacking local context in the later layers.",
+      "This leads to two issues: the limited re- ceptive ﬁeld of early layers prevents observed information from reaching future masked entries, while the large, sparse receptive ﬁelds of the later layers restrict updates and lack local awareness."
+    ],
+    "insight_expression": [],
+    "method_expression": [],
+    "experiment_expression": [],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "The use of dilated convolutions for temporal processing, 3439 however, poses several limitations.",
+    "3.1, we describe how the diffusion process is formulated for addressing the task of stochastic long-term dense anticipation.",
+    "3.2, we present the details of our proposed MANTA model.",
+    "Additionally, relying on the in- herent data-dependent gating, our model processes the in- put sequence adaptively, considering the difference between its two components - observed and future actions.",
+    "Although the multi-stage design intends to address these issues, it only partially mitigates them, while adding to computational and memory costs.",
+    "By utilizing Mamba [ 13]-based layers, our model sustains a global receptive ﬁeld across the entire network while pre- serving local awareness.",
+    "Given the ob- served frames, these approaches learn to sample from the probability distribution of future action variables.",
+    "In the following sections, we present the details of our proposed model.",
+    "In this work, we address the limitations mentioned above.",
+    "Method To effectively handle the inherent uncertainties in action forecasting, we explore stochastic long-term anticipation, where models predict multiple possible future outcomes based on a single set of observed frames.",
+    "Speciﬁcally, the ex- ponentially increasing dilation rates ( 2l− 1) of the convolu- tional kernels result in limited receptive ﬁelds in the early layers and sparse receptive ﬁelds lacking local context in the later layers.",
+    "This leads to two issues: the limited re- ceptive ﬁeld of early layers prevents observed information from reaching future masked entries, while the large, sparse receptive ﬁelds of the later layers restrict updates and lack local awareness."
+  ],
+  "raw_sections": {
+    "abstract": "",
+    "introduction": "",
+    "method": "3. Method\nTo effectively handle the inherent uncertainties in action\nforecasting, we explore stochastic long-term anticipation,\nwhere models predict multiple possible future outcomes\nbased on a single set of observed frames. Given the ob-\nserved frames, these approaches learn to sample from the\nprobability distribution of future action variables. Formally:\n˜Y P +1:P +F∼ P\n(\nY P +1:P +F|g(x1) : g(xP )\n)\n, (1)\nwhere g is a feature extractor, xi is the ith video frame,Y i\nis the variable corresponding to frame i, and ˜Y i is a sam-\nple from Y i; P and F represent the number of past and\nfuture frames, respectively. In [\n56], the uncertainty of ac-\ntions in both observed and future frames is jointly mod-\nelled by a more general distribution - the joint observation-\nconditioned probability of both observed and future actions:\n˜Y 1:P +F∼ P\n(\nY 1:P +F|g(x1) : g(xP )\n)\n, (2)\nand a common diffusion model predicts actions in the fu-\nture and past frames in a consistent manner. Furthermore,\nto take into account distinctions between these two types of\nvariables, [\n56] proposed a GTAN diffusion generator net-\nwork, that employs dilated gated temporal convolutional\nlayers to process the sequence with data-dependent gates.\nThe use of dilated convolutions for temporal processing,\n3439\n\nhowever, poses several limitations. Speciﬁcally, the ex-\nponentially increasing dilation rates ( 2l− 1) of the convolu-\ntional kernels result in limited receptive ﬁelds in the early\nlayers and sparse receptive ﬁelds lacking local context in\nthe later layers. This leads to two issues: the limited re-\nceptive ﬁeld of early layers prevents observed information\nfrom reaching future masked entries, while the large, sparse\nreceptive ﬁelds of the later layers restrict updates and lack\nlocal awareness. Although the multi-stage design intends to\naddress these issues, it only partially mitigates them, while\nadding to computational and memory costs.\nIn this work, we address the limitations mentioned\nabove. While we follow Zatsarynna et al. [\n56] in harnessing\nthe uniﬁed diffusion process for observed and future action\nmodelling, we introduce a novel MANTA generator model.\nBy utilizing Mamba [\n13]-based layers, our model sustains\na global receptive ﬁeld across the entire network while pre-\nserving local awareness. Additionally, relying on the in-\nherent data-dependent gating, our model processes the in-\nput sequence adaptively, considering the difference between\nits two components - observed and future actions. In the\nfollowing sections, we present the details of our proposed\nmodel. In Sec.\n3.1, we describe how the diffusion process\nis formulated for addressing the task of stochastic long-term\ndense anticipation. Then, in Sec.\n3.2, we present the details\nof our proposed MANTA model.",
+    "experiments": "4. Experiments",
+    "conclusion": ""
+  }
+}

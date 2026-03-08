@@ -1,0 +1,96 @@
+{
+  "paper_id": "medusa-a-multi-scale-high-order-contrastive-dual-diffusion-approach-for-multi-vi--7621a58d0b",
+  "paper_title": "Medusa: A Multi-Scale High-order Contrastive Dual-Diffusion Approach for Multi-View Clustering",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:03.411350+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Medusa： A Multi-Scale High-order Contrastive Dual-Diffusion Approach for Multi-View Clustering.pdf",
+    "filename": "Medusa： A Multi-Scale High-order Contrastive Dual-Diffusion Approach for Multi-View Clustering.pdf",
+    "sha1": "7621a58d0bc763ae23263ef8238d74932490796b",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "The feature learning capabilities of deep learning meth- ods have seen them successfully applied to the problem in a variety of forms.",
+    "limitation": "3) Ex- isting methods, when fusing views, assign equal weights to all samples within the same view, failing to consider the This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "insight": "Abstract Deep multi-view clustering methods utilize information from multiple views to achieve enhanced clustering results and have gained increasing popularity in recent years.",
+    "proposed_method": "Instead, we propose a multi-scale approach that exploits all of the available information.",
+    "experimental_evidence": "Extensive experiments on eight datasets show favorable performance of the proposed method compared to state-of-the-art approaches, demonstrating its effectiveness across diverse scenarios.",
+    "summary": "The feature learning capabilities of deep learning meth- ods have seen them successfully applied to the problem in a variety of forms. 3) Ex- isting methods, when fusing views, assign equal weights to all samples within the same view, failing to consider the This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Abstract Deep multi-view clustering methods utilize information from multiple views to achieve enhanced clustering results and have gained increasing popularity in recent years. Instead, we propose a multi-scale approach that exploits all of the available information. Extensive experiments on eight datasets show favorable performance of the proposed method compared to state-of-the-art approaches, demonstrating its effectiveness across diverse scenarios."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Multi-view clustering is more complex than its single-view equivalent because it requires leveraging the complementar- ity and consistency among data that describe the same entity *Corresponding author from different perspectives.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\nMulti-view clustering is more complex than its single-view\nequivalent because it requires leveraging the complementar-\nity and consistency among data that describe the same entity\n*Corresponding author\nfrom different perspectives. An example of this could be\ncombining textual descriptions and images that depict the\nsame sports event, enabling a more comprehensive under-\nstanding [16, 22].\nThe feature learning capabilities of deep learning meth-\nods have seen them successfully applied to the problem\nin a variety of forms. Graph neural networks (GNN),\nfor instance, are adept at utilizing relationships between\nnodes to enhance representations [10, 12]. As a result,\nmulti-view clustering methods based on GNN have gar-\nnered widespread attention and demonstrated promising re-\nsults [11, 25, 34]. Several methods have been applied to\nrefine and optimize the graph structure [8, 19], superseding\npotential constraints arising from local structures within the\noriginal graph, and leveraging global information to achieve\na more stable and effective structure. Given the comple-\nmentary nature of multi-view data, [24, 29] propose to start\nwith constructing a consensus graph, which"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "varying significance of individual samples.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "varying significance of individual samples. This approach\noverlooks sample-level differences, leading to suboptimal\nintegration that dilutes important details.\nTo address the above issues, we propose a Multi-scale\nhigh-ordEr contrastive Dual-diffUSion Approach for multi-\nview clustering, named Medusa. Our approach extracts\nand integrates information at three distinct scales: inter-\nview scale, intra-view scale, and sample scale. This multi-\nscale strategy enables Medusa to leverage the diversified\ngraph structures and complementary information available\nin multi-view data, thereby achieving superior clustering\nperformance. For the inter-view scale, we propose a dual\ngraph diffusion convolution module to enhance each view\nby incorporating inter-view complementary information\nthrough a consensus graph. Recognizing that the impor-\ntance of this inter-view complementary information varies\nacross different views, we design a weighting mechanism\nto adaptively learn how much complementary information\nis taken by different views. For the intra-view scale, we\nconstruct hypergraphs within each view and design a con-\ntrastive loss to capture richer intra-view relational struc-\ntures. This app"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, they often incorporate inter-view com- plementary information in a simplistic manner, while over- looking the complex, high-order relationships within multi- view data and the interactions among samples, resulting in an incomplete utilization of the rich information available."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Instead, we propose a multi-scale approach that exploits all of the available information.",
+      "Secondly, we propose a novel contrastive loss function based on hy- pergraphs to more effectively model and leverage complex intra-view data relationships.",
+      "Finally, we propose to adap- tively learn fusion weights at the sample level, which en- ables a more flexible and dynamic aggregation of multi-view information.",
+      "To address the above issues, we propose a Multi-scale high-ordEr contrastive Dual-diffUSion Approach for multi- view clustering, named Medusa.",
+      "For the inter-view scale, we propose a dual graph diffusion convolution module to enhance each view by incorporating inter-view complementary information through a consensus graph.",
+      "For the sample scale, to capture the distinct characteristics of different samples, we propose a fine-grained multi-view fu- sion module that learns inter-sample correlations via self- attention.",
+      "The main contributions of this paper are as follows: • We propose a dual graph diffusion convolution module that effectively diffuses inter-view complementary infor- mation across multiple views.",
+      "Our approach goes be- yond traditional graph diffusion methods by adaptively propagating and diffusing both graph-structure and node- feature. • We propose a high-order contrastive learning module, which distinguishes itself from traditional contrastive learning methods by incorporating intra-view high-order information.",
+      "Extensive experimental results on eight datasets demonstrate the effectiveness of our method."
+    ],
+    "experiment_expression": [
+      "Extensive experiments on eight datasets show favorable performance of the proposed method compared to state-of-the-art approaches, demonstrating its effectiveness across diverse scenarios.",
+      "Extensive experimental results on eight datasets demonstrate the effectiveness of our method."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Extensive experiments on eight datasets show favorable performance of the proposed method compared to state-of-the-art approaches, demonstrating its effectiveness across diverse scenarios.",
+    "Finally, we propose to adap- tively learn fusion weights at the sample level, which en- ables a more flexible and dynamic aggregation of multi-view information.",
+    "For the inter-view scale, we propose a dual graph diffusion convolution module to enhance each view by incorporating inter-view complementary information through a consensus graph.",
+    "For the sample scale, to capture the distinct characteristics of different samples, we propose a fine-grained multi-view fu- sion module that learns inter-sample correlations via self- attention.",
+    "Instead, we propose a multi-scale approach that exploits all of the available information.",
+    "Secondly, we propose a novel contrastive loss function based on hy- pergraphs to more effectively model and leverage complex intra-view data relationships.",
+    "The main contributions of this paper are as follows: • We propose a dual graph diffusion convolution module that effectively diffuses inter-view complementary infor- mation across multiple views.",
+    "To address the above issues, we propose a Multi-scale high-ordEr contrastive Dual-diffUSion Approach for multi- view clustering, named Medusa.",
+    "10295 varying significance of individual samples.",
+    "2) The commonly used ordinary graph can only model low-order relationships between nodes, limiting its ability to capture complex intra-view relationships.",
+    "3) Ex- isting methods, when fusing views, assign equal weights to all samples within the same view, failing to consider the This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "Abstract Deep multi-view clustering methods utilize information from multiple views to achieve enhanced clustering results and have gained increasing popularity in recent years."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDeep multi-view clustering methods utilize information\nfrom multiple views to achieve enhanced clustering results\nand have gained increasing popularity in recent years.\nMost existing methods typically focus on either inter-view\nor intra-view relationships, aiming to align information\nacross views or analyze structural patterns within individ-\nual views. However, they often incorporate inter-view com-\nplementary information in a simplistic manner, while over-\nlooking the complex, high-order relationships within multi-\nview data and the interactions among samples, resulting in\nan incomplete utilization of the rich information available.\nInstead, we propose a multi-scale approach that exploits all\nof the available information. We first introduce a dual graph\ndiffusion module guided by a consensus graph. This module\nleverages inter-view information to enhance the representa-\ntion of both nodes and edges within each view. Secondly,\nwe propose a novel contrastive loss function based on hy-\npergraphs to more effectively model and leverage complex\nintra-view data relationships. Finally, we propose to adap-\ntively learn fusion weights at the sample level, which en-\nables a more flexible and dynamic aggregation of multi-view\ninformation. Extensive experiments on eight datasets show\nfavorable performance of the proposed method compared to\nstate-of-the-art approaches, demonstrating its effectiveness\nacross diverse scenarios.",
+    "introduction": "1. Introduction\nMulti-view clustering is more complex than its single-view\nequivalent because it requires leveraging the complementar-\nity and consistency among data that describe the same entity\n*Corresponding author\nfrom different perspectives. An example of this could be\ncombining textual descriptions and images that depict the\nsame sports event, enabling a more comprehensive under-\nstanding [16, 22].\nThe feature learning capabilities of deep learning meth-\nods have seen them successfully applied to the problem\nin a variety of forms. Graph neural networks (GNN),\nfor instance, are adept at utilizing relationships between\nnodes to enhance representations [10, 12]. As a result,\nmulti-view clustering methods based on GNN have gar-\nnered widespread attention and demonstrated promising re-\nsults [11, 25, 34]. Several methods have been applied to\nrefine and optimize the graph structure [8, 19], superseding\npotential constraints arising from local structures within the\noriginal graph, and leveraging global information to achieve\na more stable and effective structure. Given the comple-\nmentary nature of multi-view data, [24, 29] propose to start\nwith constructing a consensus graph, which encapsulates\nglobal information and guides the learning process of in-\ndividual view encoders by providing complementary infor-\nmation from different views.\nDespite the progress made, there remain a number of\nissues with existing methods: 1) Although some existing\nmethods use a consensus graph to enhance inter-view in-\nformation by adding it to each view, this simple addition\nmay lead to underutilization of the complementary infor-\nmation from the consensus graph and overlook distinctions\nbetween views. 2) The commonly used ordinary graph can\nonly model low-order relationships between nodes, limiting\nits ability to capture complex intra-view relationships. This\nlimitation arises because ordinary graphs cannot capture\nhigher-order connections or multi-node interactions that of-\nten characterize intricate structures within each view. 3) Ex-\nisting methods, when fusing views, assign equal weights to\nall samples within the same view, failing to consider the\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n10295\n\nvarying significance of individual samples. This approach\noverlooks sample-level differences, leading to suboptimal\nintegration that dilutes important details.\nTo address the above issues, we propose a Multi-scale\nhigh-ordEr contrastive Dual-diffUSion Approach for multi-\nview clustering, named Medusa. Our approach extracts\nand integrates information at three distinct scales: inter-\nview scale, intra-view scale, and sample scale. This multi-\nscale strategy enables Medusa to leverage the diversified\ngraph structures and complementary information available\nin multi-view data, thereby achieving superior clustering\nperformance. For the inter-view scale, we propose a dual\ngraph diffusion convolution module to enhance each view\nby incorporating inter-view complementary information\nthrough a consensus graph. Recognizing that the impor-\ntance of this inter-view complementary information varies\nacross different views, we design a weighting mechanism\nto adaptively learn how much complementary information\nis taken by different views. For the intra-view scale, we\nconstruct hypergraphs within each view and design a con-\ntrastive loss to capture richer intra-view relational struc-\ntures. This approach enables the model to better represent\ncomplex relationships within views and provides high-order\nrelational information to improve overall performance. For\nthe sample scale, to capture the distinct characteristics of\ndifferent samples, we propose a fine-grained multi-view fu-\nsion module that learns inter-sample correlations via self-\nattention. This enables the model to exploit the relation-\nships among all samples, thereby improving fusion results.\nThe main contributions of this paper are as follows:\n• We propose a dual graph diffusion convolution module\nthat effectively diffuses inter-view complementary infor-\nmation across multiple views. Our approach goes be-\nyond traditional graph diffusion methods by adaptively\npropagating and diffusing both graph-structure and node-\nfeature.\n• We propose a high-order contrastive learning module,\nwhich distinguishes itself from traditional contrastive\nlearning methods by incorporating intra-view high-order\ninformation. This approach aids the model in gaining a\nmore comprehensive understanding of data correlations.\n• We introduce a fine-grained multi-view fusion module,\nwhich facilitates adaptive fusion weight learning at the\nsample scale. This approach leads to a marked improve-\nment in fusion quality.\n• Extensive experimental results on eight datasets demon-\nstrate the favorable performance compared to several\nstate-of-the-art methods.",
+    "method": "3. Methodology",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nIn this paper, a unified multi-scale multi-view clustering\nframework is proposed. Within the framework, our dual-\ndiffusion module simultaneously enhances each view’s\nstructure and node representations based on complemen-\ntary information from a consensus graph. Moreover, we\ndesign a hypergraph-based contrastive loss to capture high-\norder relationships within views. Last but not least, our fine-\ngrained fusion module adaptively learns flexible individual\nweights for all samples. Extensive experimental results on\neight datasets demonstrate the effectiveness of our method."
+  }
+}

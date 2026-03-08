@@ -1,0 +1,99 @@
+{
+  "paper_id": "lt3sd-latent-trees-for-3d-scene-diffusion--709d589483",
+  "paper_title": "LT3SD: Latent Trees for 3D Scene Diffusion",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:56.307061+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/LT3SD： Latent Trees for 3D Scene Diffusion.pdf",
+    "filename": "LT3SD： Latent Trees for 3D Scene Diffusion.pdf",
+    "sha1": "709d589483290adcda0b6818107699273557f5fa",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "In the 3D domain, however, generative modeling remains a signif- icant challenge due to the data and representation complex- ity and limited training data availability.",
+    "limitation": "In the 3D domain, however, generative modeling remains a signif- icant challenge due to the data and representation complex- ity and limited training data availability.",
+    "insight": "Abstract We present LT3SD, a novel latent diffusion model for large-scale 3D scene generation.",
+    "proposed_method": "To generate complex and di- verse 3D scene structures, we introduce a latent tree rep- resentation to effectively encode both lower-frequency ge- ometry and higher-frequency detail in a coarse-to-ﬁne hi- erarchy.",
+    "experimental_evidence": "Recent advances in dif- fusion models have shown impressive results in 3D object generation, but are limited in spatial extent and quality when extended to 3D scenes.",
+    "summary": "In the 3D domain, however, generative modeling remains a signif- icant challenge due to the data and representation complex- ity and limited training data availability. In the 3D domain, however, generative modeling remains a signif- icant challenge due to the data and representation complex- ity and limited training data availability. Abstract We present LT3SD, a novel latent diffusion model for large-scale 3D scene generation. To generate complex and di- verse 3D scene structures, we introduce a latent tree rep- resentation to effectively encode both lower-frequency ge- ometry and higher-frequency detail in a coarse-to-ﬁne hi- erarchy. Recent advances in dif- fusion models have shown impressive results in 3D object generation, but are limited in spatial extent and quality when extended to 3D scenes."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction In recent years, there has been increasing demand for 3D digital content, both for content creation purposes such as ﬁlms, video games, and mixed reality, as well as for recon- struction to enable machines to perceive real environments from visual inputs.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nIn recent years, there has been increasing demand for 3D\ndigital content, both for content creation purposes such as\nﬁlms, video games, and mixed reality, as well as for recon-\nstruction to enable machines to perceive real environments\nfrom visual inputs. For instance, video games have driven\nefforts to produce realistic virtual 3D environments, requir-\ning signiﬁcant costs for highly-trained 3D artists to create\na vast array of 3D scene assets. In particular, AAA video\ngame budgets have risen dramatically in the last ﬁve years,\nwith games planned to be released this year and next having\ndevelopment budgets of $200 million or more [\n54].\nRecent advances in diffusion models [ 23, 36, 43, 45, 47,\n51] have achieved remarkable success in generating com-\nplex, high resolution, realistic images, and videos. In the\n3D domain, however, generative modeling remains a signif-\nicant challenge due to the data and representation complex-\nity and limited training data availability. In addition, signal\nin 3D content is highly unevenly distributed, with many re-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is i"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "gions being predominantly free space, whereas most scene detail is located only around certain surface areas.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "gions being predominantly free space, whereas most scene\ndetail is located only around certain surface areas. Exist-\ning 3D diffusion models [\n11, 16, 20, 33, 38, 41, 49, 60]\noverwhelmingly focus on object-level generation. Follow-\ning latent diffusion (LDMs) [\n47] for 2D images, current\nstate-of-the-art methods focus on training diffusion mod-\nels on learned implicit representations of 3D shapes. How-\never, these methods assume that shapes lie in a canonical\nand bounded space that is amenable to ﬁxed and compact\nrepresentation encodings, such as global latent codes [\n16],\nhypernetworks [20], and triplanes [22, 49]. While these rep-\nresentations yield impressive results for class-speciﬁc dis-\ntributions, such as chairs or cars, they face challenges when\napplied to 3D scene environments characterized by highly\nunstructured geometries, diverse object arrangements, and\nvarying spatial extents. Although early attempts at scene-\nlevel synthesis exist, they predominantly focus on single\nrooms or limited spatial extents [\n25, 28, 46] with relatively\nlow-resolution [31, 32, 35] 3D scenes.\nTo this end, we propose LT3SD, a new probabilistic\nmodel for generating high-quality, large-scale, arb"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Starting from the coarsest level, our method operates patch-wise to generate the over- all structure of a 3D scene, which is critical for geometric coherency."
+    ],
+    "limitation_expression": [
+      "Recent advances in dif- fusion models have shown impressive results in 3D object generation, but are limited in spatial extent and quality when extended to 3D scenes.",
+      "In the 3D domain, however, generative modeling remains a signif- icant challenge due to the data and representation complex- ity and limited training data availability.",
+      "Although early attempts at scene- level synthesis exist, they predominantly focus on single rooms or limited spatial extents [ 25, 28, 46] with relatively low-resolution [31, 32, 35] 3D scenes."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To this end, we propose LT3SD, a new probabilistic model for generating high-quality, large-scale, arbitrary- sized 3D scenes.",
+      "Starting from the coarsest level, our method operates patch-wise to generate the over- all structure of a 3D scene, which is critical for geometric coherency.",
+      "Then, in a coarse-to-ﬁne manner, our method conditionally generates the latent feature volume, which represents ﬁne details for each upper level—the ﬁnal 3D scene results from the inverse process of latent tree decom- position.",
+      "Experiments show that our method signiﬁcantly outperforms existing baselines, improving FID scores by 70% on this challenging 3D scene generation task.",
+      "We implemented our method in Pytorch and ran all experiments on NVIDIA RTX A6000.",
+      "We compare our method against 3D object diffu- sion models PVD [ 62] and NFD [ 49], as well as the recent 5.",
+      "We propose decomposing high-resolution 3D scene voxel grids to compact latent trees for efﬁcient diffusion training in this latent space.",
+      "We hope our method provides an avenue for fu- ture exploration towards the challenging task of 3D scene generation and automated 3D content creation."
+    ],
+    "experiment_expression": [
+      "Through extensive experiments, we demonstrate the efﬁcacy and beneﬁts of LT3SD for large- scale, high-quality unconditional 3D scene generation and for probabilistic completion for partial scene observations.",
+      "Exper- imental validation demonstrates the capacity of LT3SD for large-scale 3D scene generation, signiﬁcantly outperform- ing state-of-the-art alternatives for unconditional 3D scene generation."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "In the 3D domain, however, generative modeling remains a signif- icant challenge due to the data and representation complex- ity and limited training data availability.",
+    "Through extensive experiments, we demonstrate the efﬁcacy and beneﬁts of LT3SD for large- scale, high-quality unconditional 3D scene generation and for probabilistic completion for partial scene observations.",
+    "To this end, we propose LT3SD, a new probabilistic model for generating high-quality, large-scale, arbitrary- sized 3D scenes.",
+    "We propose decomposing high-resolution 3D scene voxel grids to compact latent trees for efﬁcient diffusion training in this latent space.",
+    "2-right) that progressively decom- poses a 3D scene into a tree hierarchy from ﬁne to coarse resolutions.",
+    "2cm and a truncation value of τ = 10 cm.",
+    "650 gions being predominantly free space, whereas most scene detail is located only around certain surface areas.",
+    "Abstract We present LT3SD, a novel latent diffusion model for large-scale 3D scene generation.",
+    "After ﬁlter- ing out rooms with incorrect furniture scales or no furni- ture, we retained 6,479 houses.",
+    "Although early attempts at scene- level synthesis exist, they predominantly focus on single rooms or limited spatial extents [ 25, 28, 46] with relatively low-resolution [31, 32, 35] 3D scenes.",
+    "As 3D scenes can vary signiﬁcantly in size, we design our diffusion model to learn at the level of scene patches.",
+    "As a result, our approach can generate large-scale, even inﬁnite 3D scenes by coarse-to-ﬁne construction of the la- tent trees in a patch-wise fashion."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWe present LT3SD, a novel latent diffusion model for\nlarge-scale 3D scene generation. Recent advances in dif-\nfusion models have shown impressive results in 3D object\ngeneration, but are limited in spatial extent and quality\nwhen extended to 3D scenes. To generate complex and di-\nverse 3D scene structures, we introduce a latent tree rep-\nresentation to effectively encode both lower-frequency ge-\nometry and higher-frequency detail in a coarse-to-ﬁne hi-\nerarchy. We can then learn a generative diffusion process\nin this latent 3D scene space, modeling the latent compo-\nnents of a scene at each resolution level. To synthesize\nlarge-scale scenes with varying sizes, we train our diffusion\nmodel on scene patches and synthesize arbitrary-sized out-\nput 3D scenes through shared diffusion generation across\nmultiple scene patches. Through extensive experiments, we\ndemonstrate the efﬁcacy and beneﬁts of LT3SD for large-\nscale, high-quality unconditional 3D scene generation and\nfor probabilistic completion for partial scene observations.",
+    "introduction": "1. Introduction\nIn recent years, there has been increasing demand for 3D\ndigital content, both for content creation purposes such as\nﬁlms, video games, and mixed reality, as well as for recon-\nstruction to enable machines to perceive real environments\nfrom visual inputs. For instance, video games have driven\nefforts to produce realistic virtual 3D environments, requir-\ning signiﬁcant costs for highly-trained 3D artists to create\na vast array of 3D scene assets. In particular, AAA video\ngame budgets have risen dramatically in the last ﬁve years,\nwith games planned to be released this year and next having\ndevelopment budgets of $200 million or more [\n54].\nRecent advances in diffusion models [ 23, 36, 43, 45, 47,\n51] have achieved remarkable success in generating com-\nplex, high resolution, realistic images, and videos. In the\n3D domain, however, generative modeling remains a signif-\nicant challenge due to the data and representation complex-\nity and limited training data availability. In addition, signal\nin 3D content is highly unevenly distributed, with many re-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n650\n\ngions being predominantly free space, whereas most scene\ndetail is located only around certain surface areas. Exist-\ning 3D diffusion models [\n11, 16, 20, 33, 38, 41, 49, 60]\noverwhelmingly focus on object-level generation. Follow-\ning latent diffusion (LDMs) [\n47] for 2D images, current\nstate-of-the-art methods focus on training diffusion mod-\nels on learned implicit representations of 3D shapes. How-\never, these methods assume that shapes lie in a canonical\nand bounded space that is amenable to ﬁxed and compact\nrepresentation encodings, such as global latent codes [\n16],\nhypernetworks [20], and triplanes [22, 49]. While these rep-\nresentations yield impressive results for class-speciﬁc dis-\ntributions, such as chairs or cars, they face challenges when\napplied to 3D scene environments characterized by highly\nunstructured geometries, diverse object arrangements, and\nvarying spatial extents. Although early attempts at scene-\nlevel synthesis exist, they predominantly focus on single\nrooms or limited spatial extents [\n25, 28, 46] with relatively\nlow-resolution [31, 32, 35] 3D scenes.\nTo this end, we propose LT3SD, a new probabilistic\nmodel for generating high-quality, large-scale, arbitrary-\nsized 3D scenes. Key to our approach is a novel latent\ntree representation (Fig.\n2-right) that progressively decom-\nposes a 3D scene into a tree hierarchy from ﬁne to coarse\nresolutions. Our latent tree representation efﬁciently fac-\ntorizes 3D scenes into geometry (lower-frequency) and la-\ntent feature (higher-frequency) volumes, enabling a more\ncompact, effective representation for latent scene diffusion.\nWe then synthesize 3D scenes in a coarse-to-ﬁne, patch-by-\npatch fashion by reversing the latent tree decomposition.\nWe introduce a latent tree-based diffusion model to gen-\nerate the latent feature volume conditioned on the corre-\nsponding geometry volume at the same tree level. This con-\nditional learning of scene details helps to reduce the com-\nplexity of modeling 3D scene distributions. As 3D scenes\ncan vary signiﬁcantly in size, we design our diffusion model\nto learn at the level of scene patches. This strategy helps to\nshift the learning focus from complex unaligned 3D scenes\nto local structures with higher shared similarity.\nAs a result, our approach can generate large-scale, even\ninﬁnite 3D scenes by coarse-to-ﬁne construction of the la-\ntent trees in a patch-wise fashion. Starting from the coarsest\nlevel, our method operates patch-wise to generate the over-\nall structure of a 3D scene, which is critical for geometric\ncoherency. Then, in a coarse-to-ﬁne manner, our method\nconditionally generates the latent feature volume, which\nrepresents ﬁne details for each upper level—the ﬁnal 3D\nscene results from the inverse process of latent tree decom-\nposition. Experiments show that our method signiﬁcantly\noutperforms existing baselines, improving FID scores by\n70% on this challenging 3D scene generation task.\nIn summary, we present the following contributions:\n• We introduce a novel latent 3D scene diffusion approach,\nLevel 𝑖 Level 𝑖 − 1\nLatent Tree (Ours)Single Latent / Latent Pyramid\nLevel 𝑖 − 1\nLevel 𝑖\nTUDF\nVolume\nLatent\nVolume\nTUDF Volume\n TUDF Volume\nLatent\nVolume\nLatent\nVolume\nTUDF\nVolume\nLatent\nVolume\nTUDF Volume\nDecoderEncoderDecoderEncoder\nDecoderEncoder\nDecoderEncoder\nFigure 2. Latent representations for 3D scenes. In contrast to\nencoding a 3D scene into a single latent feature grid or a multi-\nlevel latent pyramid on the left, our latent tree representation on\nthe right is a learned hierarchical decomposition with a series of\ngeometry (lower-frequency) and latent feature (higher-frequency)\nencodings at each resolution level.\nleveraging a latent tree representation to compactly en-\ncode complex 3D scene geometry. This enables high-\nﬁdelity 3D scene generation in a coarse-to-ﬁne fashion\nalong the latent tree resolution levels.\n• We characterize 3D scene generation in a patch-wise\nfashion, enabling efﬁcient training and seamless inﬁnite\n3D scene generation through shared diffusion generation\nacross multiple scene patches.",
+    "method": "3. Method",
+    "experiments": "4. Experiments\nExperimental Setup. We train LT3SD on house-level\nscene data from the 3D-FRONT dataset [\n21], a large-scale\nindoor scene dataset with diverse structures and layouts.\nEach house contains various room types ( e.g., bedrooms,\nliving rooms, kitchens) with different layouts. After ﬁlter-\ning out rooms with incorrect furniture scales or no furni-\nture, we retained 6,479 houses. We used an 80%/5%/15%\ntrain/validation/test split for both stages of LT3SD and the\nbaselines. Due to open surfaces in scene meshes, consistent\nsigned distance computation is challenging, so we compute\nUDFs with a voxel size of 2. 2cm and a truncation value\nof τ = 10 cm. Instead of preprocessing scenes into ﬁxed\npatches, we continuously sample chunks from 3D scenes\nduring training to reduce overﬁtting, applying random ﬂips\nand rotations for data augmentation.\nImplementation Details. We implemented our method in\nPytorch and ran all experiments on NVIDIA RTX A6000.\nTo ﬁrst construct latent trees for 3D scenes, we train the\nencoders and decoders with Adam optimizer [\n29], using a\nbatch size of 4 and a learning rate of 1e−4, which takes from\n5 hours to one day for different resolution levels until con-\nvergence. We use N = 3 levels in our latent tree. For all\nlevels, the latent feature volumes have 4 channels. We use\nthe Adam optimizer to train the diffusion models, with a\nbatch size of 8 and a learning rate of 1e−4, which takes ap-\nproximately 6 days until convergence on 2 GPUs. Note that\nduring the second stage, we infer the latent of each TUDF\npatch on the ﬂy without storing them on the disk in practice.\nBaselines. We compare our method against 3D object diffu-\nsion models PVD [\n62] and NFD [ 49], as well as the recent",
+    "conclusion": "5. Conclusion\nWe have presented LT3SD, a novel approach for high-\nquality 3D scene generation through latent scene diffusion.\nWe propose decomposing high-resolution 3D scene voxel\ngrids to compact latent trees for efﬁcient diffusion training\nin this latent space. This strategy enables seamless inﬁ-\nnite 3D scene generation in a patch-wise manner. Exper-\nimental validation demonstrates the capacity of LT3SD for\nlarge-scale 3D scene generation, signiﬁcantly outperform-\ning state-of-the-art alternatives for unconditional 3D scene\ngeneration. We hope our method provides an avenue for fu-\nture exploration towards the challenging task of 3D scene\ngeneration and automated 3D content creation."
+  }
+}

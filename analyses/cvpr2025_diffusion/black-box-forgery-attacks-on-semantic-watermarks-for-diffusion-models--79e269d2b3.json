@@ -1,0 +1,101 @@
+{
+  "paper_id": "black-box-forgery-attacks-on-semantic-watermarks-for-diffusion-models--79e269d2b3",
+  "paper_title": "Black-Box Forgery Attacks on Semantic Watermarks for Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:08.754260+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Black-Box Forgery Attacks on Semantic Watermarks for Diffusion Models.pdf",
+    "filename": "Black-Box Forgery Attacks on Semantic Watermarks for Diffusion Models.pdf",
+    "sha1": "79e269d2b34ecf3a375bf03385a8b458dc320cea",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Recent advancements in generative AI, especially latent dif- fusion models (LDMs), have made it extremely challenging to distinguish between authentic and AI-generated images.",
+    "limitation": "However, it is critical that these watermarks are also secure against forgery attacks.",
+    "insight": "Abstract Integrating watermarking into the generation process of latent diffusion models (LDMs) simpliﬁes detection and attri- bution of generated content.",
+    "proposed_method": "Abstract Integrating watermarking into the generation process of latent diffusion models (LDMs) simpliﬁes detection and attri- bution of generated content.",
+    "experimental_evidence": "However , our work demonstrates a fundamental security vulnerability of semantic watermarks.",
+    "summary": "Introduction Recent advancements in generative AI, especially latent dif- fusion models (LDMs), have made it extremely challenging to distinguish between authentic and AI-generated images. However, it is critical that these watermarks are also secure against forgery attacks. Abstract Integrating watermarking into the generation process of latent diffusion models (LDMs) simpliﬁes detection and attri- bution of generated content. Abstract Integrating watermarking into the generation process of latent diffusion models (LDMs) simpliﬁes detection and attri- bution of generated content. However , our work demonstrates a fundamental security vulnerability of semantic watermarks."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Recent advancements in generative AI, especially latent dif- fusion models (LDMs), have made it extremely challenging to distinguish between authentic and AI-generated images.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction Recent advancements in generative AI, especially latent dif- fusion models (LDMs), have made it extremely challenging to distinguish between authentic and AI-generated images. Despite a multitude of beneﬁcial applications, this also in- troduces a considerable range of threats. For example, so- called deepfakes—compellingly realistic but AI-generated media—are now routinely used to defraud people, distribute misinformation, and to manipulate public opinion [ 12, 15]. *Equal supervision Is GeneratedUser: Alice <latexit sha1_base64=\"7CDz+hFii/hnzm/SPcG6JVj1JjA=\">AAAB6HicbVDLSgNBEOyNrxhfUY9eBoMgCGFXJHoMevGYgHlAsoTZSW8yZnZ2mZkVQsgXePGgiFc/yZt/4yTZgyYWNBRV3XR3BYng2rjut5NbW9/Y3MpvF3Z29/YPiodHTR2nimGDxSJW7YBqFFxiw3AjsJ0opFEgsBWM7mZ+6wmV5rF8MOME/YgOJA85o8ZK9YteseSW3TnIKvEyUoIMtV7xq9uPWRqhNExQrTuemxh/QpXhTOC00E01JpSN6AA7lkoaofYn80On5MwqfRLGypY0ZK7+npjQSOtxFNjOiJqhXvZm4n9eJzXhjT/hMkkNSrZYFKaCmJjMviZ9rpAZMbaEMsXt rYQNqaLM2GwKNgRv+eVV0rwse5VypX5Vqt5mceThBE7hHDy4hircQw0awADhGV7hzXl0Xpx352PRmnOymWP4A+fzB3UXjLo=</latexit> + <latexit sha1_base64=\"dfa12l/r87/D93uS51ywGerJGEM=\">AAAB6HicbVDLSgNBEOyNrxhfUY9eBoPgKeyKRC9C0IvHBMwDkiXMTnqTMbOzy8ysEEK+wIsHRbz6Sd78GyfJHjSxoKGo6qa7K0gE18Z1v53c2v"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "problem_statement",
+      "main_message": "The attacker can transfer the watermark from a watermarked reference image requested by Alice (here: the diving cat) into any cover image (here: the moon landing).",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "The attacker can transfer the watermark from a watermarked reference image requested by Alice (here: the diving cat) into any cover image (here: the moon landing). The obtained image will be detected as watermarked and attributed to Alice by the service provider, eroding the trust in watermark-based detection and attribution of AI-generated content. Thus, there is an urgent need to detect and to attribute AI-generated images, that is, to identify that an image is AI- generated and to determine who used the AI system to gener- ate it. Watermarking is currently one of the main approaches for achieving these goals, and leading AI companies such as Google and Meta, as well as AI platforms such as Hugging Face and Google Gemini, are either already using it or have made commitments to do so [ 3, 9, 16, 19]."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "Recently, a novel family of watermarking methods for LDMs has been proposed that relies on the inversion of the denoising process in the diffusion model [ 8, 17, 41, 45].",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Recently, a novel family of watermarking methods for LDMs has been proposed that relies on the inversion of the denoising process in the diffusion model [ 8, 17, 41, 45]. These semantic watermarks work by modifying the initial latent noise to contain a speciﬁc watermark pattern which can be recovered through inversion of the denoising process. Semantic watermarks offer several advantages. First, they as- sert greater robustness against various image transformations and attacks compared to previous watermarking methods."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "limitation",
+      "main_message": "Moreover, the DM remains unchanged, which makes the wa- termarking approach easy to deploy.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Moreover, the DM remains unchanged, which makes the wa- termarking approach easy to deploy. However, it is critical that these watermarks are also secure against forgery attacks. 1 illustrates this threat where an attacker transfers the watermark of a service provider to any image. This can lead to an erosion of trust in the watermarking system, as real images are ﬂagged as watermarked and thus AI-generated or regular users are blamed for distributing harmful content."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [],
+  "experiment_structure": [
+    {
+      "section_heading": "4.1. Experimental Setting",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "However, it is critical that these watermarks are also secure against forgery attacks."
+    ],
+    "limitation_expression": [
+      "However , our work demonstrates a fundamental security vulnerability of semantic watermarks.",
+      "However, it is critical that these watermarks are also secure against forgery attacks.",
+      "Concerningly, even a large difference between the attacker and the target watermarked model still permits an attack, as the high attack success rates on completely unrelated and independently trained models show."
+    ],
+    "insight_expression": [],
+    "method_expression": [],
+    "experiment_expression": [],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However , our work demonstrates a fundamental security vulnerability of semantic watermarks.",
+    "However, it is critical that these watermarks are also secure against forgery attacks.",
+    "1 illustrates this threat where an attacker transfers the watermark of a service provider to any image.",
+    "Abstract Integrating watermarking into the generation process of latent diffusion models (LDMs) simpliﬁes detection and attri- bution of generated content.",
+    "All experiments use 512 ⇥ 512 images.",
+    "Both attacks just need a single reference image with the target watermark.",
+    "Concerningly, even a large difference between the attacker and the target watermarked model still permits an attack, as the high attack success rates on completely unrelated and independently trained models show.",
+    "Despite a multitude of beneﬁcial applications, this also in- troduces a considerable range of threats.",
+    "Discussion and Conclusion The attacks described in this paper expose fundamental is- sues in the practical use of current inversion-based semantic watermarking approaches.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experimental Setting We use Stable Diffusion 2.1 [ 30] as proxy model ⇥A and several common models as target model ⇥, namely Stable Diffusion XL (SDXL) [ 29], PixArt-⌃ [6] and FLUX.1.",
+    "First, they as- sert greater robustness against various image transformations and attacks compared to previous watermarking methods."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nIntegrating watermarking into the generation process of\nlatent diffusion models (LDMs) simpliﬁes detection and attri-\nbution of generated content. Semantic watermarks, such as\nTree-Rings and Gaussian Shading, represent a novel class\nof watermarking techniques that are easy to implement and\nhighly robust against various perturbations. However , our\nwork demonstrates a fundamental security vulnerability of\nsemantic watermarks. We show that attackers can lever-\nage unrelated models, even with different latent spaces and\narchitectures (UNet vs DiT), to perform powerful and realis-\ntic forgery attacks. Speciﬁcally, we design two watermark\nforgery attacks. The ﬁrst imprints a targeted watermark into\nreal images by manipulating the latent representation of an\narbitrary image in an unrelated LDM to get closer to the\nlatent representation of a watermarked image. We also show\nthat this technique can be used for watermark removal. The\nsecond attack generates new images with the target water-\nmark by inverting a watermarked image and re-generating\nit with an arbitrary prompt. Both attacks just need a single\nreference image with the target watermark. Overall, our\nﬁndings question the applicability of semantic watermarks\nby revealing that attackers can easily forge or remove these\nwatermarks under realistic conditions.\nGithub: https://github.com/and-mill/semantic-forgery",
+    "introduction": "1. Introduction\nRecent advancements in generative AI, especially latent dif-\nfusion models (LDMs), have made it extremely challenging\nto distinguish between authentic and AI-generated images.\nDespite a multitude of beneﬁcial applications, this also in-\ntroduces a considerable range of threats. For example, so-\ncalled deepfakes—compellingly realistic but AI-generated\nmedia—are now routinely used to defraud people, distribute\nmisinformation, and to manipulate public opinion [ 12, 15].\n*Equal supervision\nIs GeneratedUser: Alice\n<latexit sha1_base64=\"7CDz+hFii/hnzm/SPcG6JVj1JjA=\">AAAB6HicbVDLSgNBEOyNrxhfUY9eBoMgCGFXJHoMevGYgHlAsoTZSW8yZnZ2mZkVQsgXePGgiFc/yZt/4yTZgyYWNBRV3XR3BYng2rjut5NbW9/Y3MpvF3Z29/YPiodHTR2nimGDxSJW7YBqFFxiw3AjsJ0opFEgsBWM7mZ+6wmV5rF8MOME/YgOJA85o8ZK9YteseSW3TnIKvEyUoIMtV7xq9uPWRqhNExQrTuemxh/QpXhTOC00E01JpSN6AA7lkoaofYn80On5MwqfRLGypY0ZK7+npjQSOtxFNjOiJqhXvZm4n9eJzXhjT/hMkkNSrZYFKaCmJjMviZ9rpAZMbaEMsXt\nrYQNqaLM2GwKNgRv+eVV0rwse5VypX5Vqt5mceThBE7hHDy4hircQw0awADhGV7hzXl0Xpx352PRmnOymWP4A+fzB3UXjLo=</latexit>\n+\n<latexit sha1_base64=\"dfa12l/r87/D93uS51ywGerJGEM=\">AAAB6HicbVDLSgNBEOyNrxhfUY9eBoPgKeyKRC9C0IvHBMwDkiXMTnqTMbOzy8ysEEK+wIsHRbz6Sd78GyfJHjSxoKGo6qa7K0gE18Z1v53c2vrG5lZ+u7Czu7d/UDw8auo4VQwbLBaxagdUo+ASG4Ybge1EIY0Cga1gdDfzW0+oNI/lgxkn6Ed0IHnIGTVWqt/0iiW37M5BVomXkRJkqPWKX91+zNIIpWGCat3x3MT4E6oMZwKnhW6qMaFsRAfYsVTSCLU/mR86JWdW6ZMwVrakIXP198SERlqPo8B2RtQM9bI3E//zOqkJr/0Jl0lqULLFojAVxMRk9jXpc4XMiLEllClu\nbyVsSBVlxmZTsCF4yy+vkuZF2auUK/XLUvU2iyMPJ3AK5+DBFVThHmrQAAYIz/AKb86j8+K8Ox+L1pyTzRzDHzifP5BfjMw=</latexit>\n=Is GeneratedUser: Alice\nText-to-Image Service(Black-Box)\nTree-Ring\nGaussian ShadingFigure 1. Semantic watermark forgery. The attacker can transfer\nthe watermark from a watermarked reference image requested by\nAlice (here: the diving cat) into any cover image (here: the moon\nlanding). The obtained image will be detected as watermarked\nand attributed to Alice by the service provider, eroding the trust in\nwatermark-based detection and attribution of AI-generated content.\nThus, there is an urgent need to detect and to attribute\nAI-generated images, that is, to identify that an image is AI-\ngenerated and to determine who used the AI system to gener-\nate it. Watermarking is currently one of the main approaches\nfor achieving these goals, and leading AI companies such as\nGoogle and Meta, as well as AI platforms such as Hugging\nFace and Google Gemini, are either already using it or have\nmade commitments to do so [ 3, 9, 16, 19].\nRecently, a novel family of watermarking methods for\nLDMs has been proposed that relies on the inversion of the\ndenoising process in the diffusion model [ 8, 17, 41, 45].\nThese semantic watermarks work by modifying the initial\nlatent noise to contain a speciﬁc watermark pattern which\ncan be recovered through inversion of the denoising process.\nSemantic watermarks offer several advantages. First, they as-\nsert greater robustness against various image transformations\nand attacks compared to previous watermarking methods.\nMoreover, the DM remains unchanged, which makes the wa-\ntermarking approach easy to deploy. However, it is critical\nthat these watermarks are also secure against forgery attacks.\nFig. 1 illustrates this threat where an attacker transfers the\nwatermark of a service provider to any image. This can lead\nto an erosion of trust in the watermarking system, as real\nimages are ﬂagged as watermarked and thus AI-generated or\nregular users are blamed for distributing harmful content.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "",
+    "experiments": "4.1. Experimental Setting\nWe use Stable Diffusion 2.1 [ 30] as proxy model ⇥A and\nseveral common models as target model ⇥, namely Stable\nDiffusion XL (SDXL) [ 29], PixArt-⌃ [6] and FLUX.1. We\nalso include our own ﬁnetune of SD2.1 trained on anime\n(SD2.1-Anime). All experiments use 512 ⇥ 512 images.\nWe evaluate the two primary semantic watermarking ap-\nproaches: Tree-Ring [ 41] and Gaussian Shading [ 45]. To\nensure consistency with their respective experimental setups,\nwe consider the same scenarios and metrics. As Tree-Ring is",
+    "conclusion": "6. Discussion and Conclusion\nThe attacks described in this paper expose fundamental is-\nsues in the practical use of current inversion-based semantic\nwatermarking approaches. In a realistic scenario, where\nthe attacker can simply leverage their own model, we show\nthat the attacker can forge and remove semantic watermarks\nwith almost perfect success rate. Concerningly, even a large\ndifference between the attacker and the target watermarked\nmodel still permits an attack, as the high attack success rates\non completely unrelated and independently trained models\nshow. For instance, our attacks succeed even when the at-\ntacker uses an SD2.1 model against PixArt-⌃ and FLUX.1,\nwhich are both DiT [ 28] models trained from scratch. Given\nthese ﬁndings, our proposed attacks should be used for the\nsecurity auditing of semantic watermarks.\nFrom a defense perspective, we ﬁnd that adjusting the\nwatermark detection thresholds is not effective. We believe\nthat fundamental improvements of semantic watermarking\ntechniques are required to prevent watermarks from being\neasily imposed on new images."
+  }
+}

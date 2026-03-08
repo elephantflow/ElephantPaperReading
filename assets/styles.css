@@ -321,6 +321,12 @@ h3 {
   gap: 10px;
 }
 
+.collection-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .paper-title {
   margin-top: 18px;
   max-width: none;

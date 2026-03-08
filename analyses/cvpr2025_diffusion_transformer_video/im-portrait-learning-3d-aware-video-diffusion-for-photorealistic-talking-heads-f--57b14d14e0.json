@@ -1,0 +1,86 @@
+{
+  "paper_id": "im-portrait-learning-3d-aware-video-diffusion-for-photorealistic-talking-heads-f--57b14d14e0",
+  "paper_title": "IM-Portrait: Learning 3D-aware Video Diffusion for Photorealistic Talking Heads from Monocular VideosC",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:12:41.571884+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_transformer_video_pdfs/IM-Portrait： Learning 3D-aware Video Diffusion for Photorealistic Talking Heads from Monocular VideosC.pdf",
+    "filename": "IM-Portrait： Learning 3D-aware Video Diffusion for Photorealistic Talking Heads from Monocular VideosC.pdf",
+    "sha1": "57b14d14e021daedb92a7f98f9b312e655790fd6",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Synthesizing realistic talking heads, has been a long-lasting challenging problem in computer vision for decades.",
+    "limitation": "Introduction Synthesizing realistic talking heads, has been a long-lasting challenging problem in computer vision for decades.",
+    "insight": "Abstract We propose a novel 3D-aware diffusion-based method for generating photorealistic talking head videos directly from a single identity image and explicit control signals (e.g., expressions).",
+    "proposed_method": "Abstract We propose a novel 3D-aware diffusion-based method for generating photorealistic talking head videos directly from a single identity image and explicit control signals (e.g., expressions).",
+    "experimental_evidence": "Extensive experiments demonstrate the effectiveness of our method, which achieves competitive avatar quality and novel-view rendering capabilities, even without explicit 3D reconstruc- tion or high-quality multi-view training data.",
+    "summary": "Introduction Synthesizing realistic talking heads, has been a long-lasting challenging problem in computer vision for decades. Introduction Synthesizing realistic talking heads, has been a long-lasting challenging problem in computer vision for decades. Abstract We propose a novel 3D-aware diffusion-based method for generating photorealistic talking head videos directly from a single identity image and explicit control signals (e.g., expressions). Abstract We propose a novel 3D-aware diffusion-based method for generating photorealistic talking head videos directly from a single identity image and explicit control signals (e.g., expressions). Extensive experiments demonstrate the effectiveness of our method, which achieves competitive avatar quality and novel-view rendering capabilities, even without explicit 3D reconstruc- tion or high-quality multi-view training data."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Synthesizing realistic talking heads, has been a long-lasting challenging problem in computer vision for decades.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Synthesizing realistic talking heads, has been a long-lasting challenging problem in computer vision for decades. The recent emergence of diffusion models within the generative This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [],
+    "insight_expression": [],
+    "method_expression": [
+      "Abstract We propose a novel 3D-aware diffusion-based method for generating photorealistic talking head videos directly from a single identity image and explicit control signals (e.g., expressions).",
+      "Our method generates Multiplane Images (MPIs) that ensure geometric consistency, making them ideal for immersive viewing experiences like binocular videos for VR headsets.",
+      "Extensive experiments demonstrate the effectiveness of our method, which achieves competitive avatar quality and novel-view rendering capabilities, even without explicit 3D reconstruc- tion or high-quality multi-view training data.",
+      "To this end, we propose an alternating training strategy that switches between using the reference and target views as the frontal camera for MPI construction and compute the loss on target views accordingly (Sec.",
+      "Experiments In this section, we evaluate our method by comparing with prior arts on talking heads image quality, temporal quality, multi-view consistency, and computational efﬁciency.",
+      "We compare our method with existing one-shot photoreal talking heads approaches trained from monocular videos in the wild.",
+      "Extensive experiments show that, our method generates not only talking head video with quality comparable and even better than existing arts but also 3D rendering efﬁciently that support spatial view- ing experience, like in VR headset.",
+      "Extending our framework with other efﬁcient 3D representations or enhancing train- ing with multi-view dataset could be a promising direction to improve both the image and 3D quality."
+    ],
+    "experiment_expression": [
+      "Extensive experiments demonstrate the effectiveness of our method, which achieves competitive avatar quality and novel-view rendering capabilities, even without explicit 3D reconstruc- tion or high-quality multi-view training data.",
+      "Extensive experiments show that, our method generates not only talking head video with quality comparable and even better than existing arts but also 3D rendering efﬁciently that support spatial view- ing experience, like in VR headset."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Abstract We propose a novel 3D-aware diffusion-based method for generating photorealistic talking head videos directly from a single identity image and explicit control signals (e.g., expressions).",
+    "Extensive experiments demonstrate the effectiveness of our method, which achieves competitive avatar quality and novel-view rendering capabilities, even without explicit 3D reconstruc- tion or high-quality multi-view training data.",
+    "Extensive experiments show that, our method generates not only talking head video with quality comparable and even better than existing arts but also 3D rendering efﬁciently that support spatial view- ing experience, like in VR headset.",
+    "To this end, we propose an alternating training strategy that switches between using the reference and target views as the frontal camera for MPI construction and compute the loss on target views accordingly (Sec.",
+    "2) 3D NeRF-based one- shot talking heads ( e.g.",
+    "2) How to learn 3D information from monocular 2D videos?",
+    "3) Video diffusion based methods ( e.g. follow-your-emoji [29] and xportrait [42]), which tend to be particularly strong on the quality of the generated im- ages or videos.",
+    "3.2) to directly model 3D scene distributions from 2D monocular data.",
+    "As limitations, the gen- erated talking head video does not support rendering from excessive camera viewpoint changes, which is a common issue of the MPI representation.",
+    "Conclusion We present a method to learn a 3D-aware video diffusion model, which generates photorealistic talking head multi- plane images given an identity reference image and a se- quence of tracking signals.",
+    "Cross-identity driving results are provided in the supp.",
+    "During inference, our model generate 3D scene representations in a single denoising diffusion process without any post-processing or optimization (Sec."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWe propose a novel 3D-aware diffusion-based method for\ngenerating photorealistic talking head videos directly from\na single identity image and explicit control signals (e.g.,\nexpressions). Our method generates Multiplane Images\n(MPIs) that ensure geometric consistency, making them\nideal for immersive viewing experiences like binocular\nvideos for VR headsets. Unlike existing methods that of-\nten require a separate stage or joint optimization to recon-\nstruct a 3D representation (such as NeRF or 3D Gaussians),\nour approach directly generates the ﬁnal output through\na single denoising process, eliminating the need for post-\n∗Authors contributed equally.\n†Corresponding authors.\n§Work was conducted while Yuan Li was an intern at Google.\nprocessing steps to render novel views efﬁciently. To effec-\ntively learn from monocular videos, we introduce a training\nmechanism that reconstructs the output MPI randomly in\neither the target or the reference camera space. This ap-\nproach enables the model to simultaneously learn sharp\nimage details and underlying 3D information. Extensive\nexperiments demonstrate the effectiveness of our method,\nwhich achieves competitive avatar quality and novel-view\nrendering capabilities, even without explicit 3D reconstruc-\ntion or high-quality multi-view training data.",
+    "introduction": "1. Introduction\nSynthesizing realistic talking heads, has been a long-lasting\nchallenging problem in computer vision for decades. The\nrecent emergence of diffusion models within the generative\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Method\nOur goal is to generate 3D talking head videos represented\nas Multiplane Images (MPIs), conditioned on a reference\nimage (the subject’s identity) and a sequence of control sig-\nnals from a parametric model to determine expressions and\nhead poses. The generated videos must exhibit high image\nquality, controllability, and efﬁcient rendering for VR sce-\nnarios, including binocular consistency.\nGiven the scarcity of large-scale multi-view video\ndatasets, we design our training pipeline to operate solely\non 2D monocular videos from the wild. To leverage the\npower of 2D diffusion models, we formulate our model as a\nvideo diffusion process operating in the image space. How-\never, this raises two key challenges: 1) How to generate 3D\nscenes from a diffusion denoising process deﬁned on 2D\nobservations, without access to ground-truth MPIs? 2) How\nto learn 3D information from monocular 2D videos?\nTo address the ﬁrst challenge, we design a video diffu-\nsion pipeline integrated with a differentiable forward ren-\ndering model [35] (Sec. 3.2) to directly model 3D scene\ndistributions from 2D monocular data.\nTo address the second challenge, a possible approach in-\nvolves constructing MPIs of a 3D talking head in the refer-\nence image’s camera, then moving the target camera to ren-\nder the head in novel views during training. This allows us\nto aggregate multi-view observations of the head from dif-\nferent frames into a consistent 3D space to learn 3D shapes.\nTo this end, we propose an alternating training strategy that\nswitches between using the reference and target views as\nthe frontal camera for MPI construction and compute the\nloss on target views accordingly (Sec. 3.3). This approach\nencourages the network to learn to synthesize high-quality,\nsharp images when building the MPIs in target views and\nto learn multiview consistency when building it in the ref-\nerence view. When MPIs are constructed in the reference\ncamera, the target ground-truth images cannot be used as\ninput of the diffusion model, as they are not pixel-aligned\nwith the MPIs. To tackle this, we bootstrap our model to\ngenerate the pseudo ground truth under the reference cam-\nera (Sec. 3.3). During inference, our model generate 3D\nscene representations in a single denoising diffusion process\nwithout any post-processing or optimization (Sec. 3.4).",
+    "experiments": "4. Experiments\nIn this section, we evaluate our method by comparing with\nprior arts on talking heads image quality, temporal quality,\nmulti-view consistency, and computational efﬁciency. We\nalso conduct qualitative comparisons and ablation studies.\nImplementation Details. We train our model on a self-\ncollected dataset consisting of 35k in-the-wild talking head\nmonocular videos. Each video has a length between 4 to\n6 seconds, and we crop the face region in 512× 512 for\ntraining. Our model generates MPI video with 32 frames in\na single network forwarding, and each MPI consists of 24\nplanes. We dynamically set the near and far planes based on\nthe distance between the 3DMM head joint and the camera\nposition. We optimize our model end-to-end on 8 NVIDIA\nH100 GPUs with a batch size of 8. During inference, we\nuse DDIM sampling and do classiﬁer-free guidance on ﬁrst-\nframe and reference portrait with two scales [8]. The guid-\nance scale for the reference portrait is set to 1.5, while the\nguidance scale for the ﬁrst frame is linearly reduced from 1\nto 0 between frames 1 and 16. For the remaining 16 frames,\nthe guidance scale for the ﬁrst frame is ﬁxed at 0.\nBenchmark. We perform our qualitative comparison on\ntwo widely used public talking-head datasets, Talking-\nhead1kh [40] and HDTF [47] datasets. For HDTF dataset,\nwe randomly sample video clips from 100 identities and\neach video clip consists of 180 frames. For Talkinghead1kh\ndataset, we randomly sample two 180-frame video clip from\nall evaluation identities. During testing, the ﬁrst frame of\neach video clip is chosen as reference portrait Osrc and all\nthe animations are performed in a self-reenactment way.\nCross-identity driving results are provided in the supp.\nBaselines. We compare our method with existing one-shot\nphotoreal talking heads approaches trained from monocular\nvideos in the wild. Speciﬁcally, we compare with represen-\ntatives for three families of approaches: 1) Feed-forward\nmodels (e.g. Face-V2V [40] and EmoPortrait [16]). These\nmethods do not use diffusion model but directly build 3D\nimplicit feature volumes (as appearance) driven by warp-\ning ﬁelds (as expression). These methods are often opti-\nmized for the controllability in 2D space, but not the gen-\neration quality or 3D consistency. 2) 3D NeRF-based one-\nshot talking heads ( e.g. Portrait4D-v2 [11]), which estab-\nlish the standard for 3D consistency due to the use of native\n3D representation. 3) Video diffusion based methods ( e.g.\nfollow-your-emoji [29] and xportrait [42]), which tend to\nbe particularly strong on the quality of the generated im-\nages or videos. We perform all the evaluations on 512x512\nresolution since most of the baselines outputs results at it,\nexcept Face-V2V for which we upsample its outputs to the\ndesired resolution.",
+    "conclusion": "5. Conclusion\nWe present a method to learn a 3D-aware video diffusion\nmodel, which generates photorealistic talking head multi-\nplane images given an identity reference image and a se-\nquence of tracking signals. We show such a model can be\nlearned directly from large scale monocular videos with-\nout multi-view datasets. With appropriate learning strate-\ngies, both 3D information and high quality image gener-\nation can be learned concurrently. Extensive experiments\nshow that, our method generates not only talking head video\nwith quality comparable and even better than existing arts\nbut also 3D rendering efﬁciently that support spatial view-\ning experience, like in VR headset. As limitations, the gen-\nerated talking head video does not support rendering from\nexcessive camera viewpoint changes, which is a common\nissue of the MPI representation. Extending our framework\nwith other efﬁcient 3D representations or enhancing train-\ning with multi-view dataset could be a promising direction\nto improve both the image and 3D quality."
+  }
+}

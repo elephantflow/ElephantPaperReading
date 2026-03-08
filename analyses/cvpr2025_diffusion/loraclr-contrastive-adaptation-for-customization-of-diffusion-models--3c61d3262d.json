@@ -1,0 +1,91 @@
+{
+  "paper_id": "loraclr-contrastive-adaptation-for-customization-of-diffusion-models--3c61d3262d",
+  "paper_title": "LoRACLR: Contrastive Adaptation for Customization of Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:59.187856+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/LoRACLR： Contrastive Adaptation for Customization of Diffusion Models.pdf",
+    "filename": "LoRACLR： Contrastive Adaptation for Customization of Diffusion Models.pdf",
+    "sha1": "3c61d3262d714a46bf1ee646cc7cb4aa1865084c",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "However, combining multiple LoRA models to create a single composition remains a significant challenge.",
+    "limitation": "However, combining multiple LoRA models to create a single composition remains a significant challenge.",
+    "insight": "Abstract Recent advances in text-to-image customization have en- abled high-fidelity, context-rich generation of personalized images, allowing specific concepts to appear in a variety of scenarios.",
+    "proposed_method": "To address these challenges, we propose LoRACLR, a novel approach that combines multiple LoRA models into a single model capable of accurately generating multiple concepts simultaneously.",
+    "experimental_evidence": "Abstract Recent advances in text-to-image customization have en- abled high-fidelity, context-rich generation of personalized images, allowing specific concepts to appear in a variety of scenarios.",
+    "summary": "However, combining multiple LoRA models to create a single composition remains a significant challenge. However, combining multiple LoRA models to create a single composition remains a significant challenge. Abstract Recent advances in text-to-image customization have en- abled high-fidelity, context-rich generation of personalized images, allowing specific concepts to appear in a variety of scenarios. To address these challenges, we propose LoRACLR, a novel approach that combines multiple LoRA models into a single model capable of accurately generating multiple concepts simultaneously. Abstract Recent advances in text-to-image customization have en- abled high-fidelity, context-rich generation of personalized images, allowing specific concepts to appear in a variety of scenarios."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Diffusion models for text-to-image generation [12] have revolutionized image synthesis from textual prompts, as demonstrated by major advancements forward from Stable Diffusion [30], Imagen [34], and DALL-E 2 [28].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nDiffusion models for text-to-image generation [12] have\nrevolutionized image synthesis from textual prompts, as\ndemonstrated by major advancements forward from Stable\nDiffusion [30], Imagen [34], and DALL-E 2 [28]. Cus-\ntomization techniques for these models have further am-\nplified their versatility, enabling the personalized image\ngeneration of specific concepts such as characters, objects,\nor artistic styles. Low-Rank Adaptation (LoRA) [13] has\nemerged as a powerful tool for customizing pre-trained\nmodels with minimal retraining, allowing for flexible, effi-\ncient personalization. By combining LoRA with advanced\ncustomization methods like DreamBooth [31], users can\ngenerate images that not only retain high-fidelity but also\ncapture their unique creative vision.\nHowever, combining multiple LoRA models to create a\nsingle composition remains a significant challenge. Cur-\nrent multi-concept models often struggle to maintain the\nquality of individual concepts, require simultaneous train-\ning on multiple concepts [21], or need per-image opti-\nmization [22]. Alternative methods face specific limita-\ntions: some can only merge style and content LoRAs [36],\nThis CVPR pape"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "method_overview",
+      "main_message": "while others become unstable as the number of com- bined LoRAs grows [14].",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "while others become unstable as the number of com-\nbined LoRAs grows [14]. Methods like Mix-of-Show [10]\nrequire specialized LoRA variants, such as Embedding-\nDecomposed LoRAs (EDLoRAs), which diverge from the\nstandard LoRA formats widely used in the community.\nMore recent approaches, like OMG [20], employ segmenta-\ntion methods to isolate subjects during generation, but these\napproaches rely heavily on the accuracy of the segmentation\nmodels used. These challenges limit the broader applica-\nbility of text-to-image models, particularly when multiple\ndistinct concepts must coexist in a single output image.\nTo address these challenges, we propose LoRACLR, a\nnovel approach that combines multiple LoRA models into\na single model capable of accurately generating multiple\nconcepts simultaneously. Our method introduces a novel\ncontrastive objective that aligns each model’s weight space,\nprevents interference, and preserves fidelity by ensuring\nthat each model represents its respective concept distinctly\nwithin the joint composition. Importantly, our approach\nallows for the use of pre-existing LoRA models without\nthe need for retraining or accessing original training data.\nBy employing cont"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, current methods struggle with combin- ing multiple personalized models, often leading to attribute entanglement or requiring separate training to preserve concept distinctiveness.",
+      "However, combining multiple LoRA models to create a single composition remains a significant challenge."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address these challenges, we propose LoRACLR, a novel approach that combines multiple LoRA models into a single model capable of accurately generating multiple concepts simultaneously.",
+      "Our method introduces a novel contrastive objective that aligns each model’s weight space, prevents interference, and preserves fidelity by ensuring that each model represents its respective concept distinctly within the joint composition.",
+      "Leveraging contrastive learning, our method aligns the weight spaces of the models, ensuring each concept retains high-fidelity while remaining compatible in joint compositions.",
+      "Fol- lowing prior work [10, 25], we evaluate our method using three key metrics: Text Alignment, Image Alignment, and Identity Alignment."
+    ],
+    "experiment_expression": [
+      "Through qualita- tive and quantitative experiments, we demonstrate that our approach consistently preserves the fidelity and identity of each concept while avoiding the common issue of feature interference, even as complexity increases with additional concepts."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, combining multiple LoRA models to create a single composition remains a significant challenge.",
+    "However, current methods struggle with combin- ing multiple personalized models, often leading to attribute entanglement or requiring separate training to preserve concept distinctiveness.",
+    "To address these challenges, we propose LoRACLR, a novel approach that combines multiple LoRA models into a single model capable of accurately generating multiple concepts simultaneously.",
+    "13189 while others become unstable as the number of com- bined LoRAs grows [14].",
+    "Abstract Recent advances in text-to-image customization have en- abled high-fidelity, context-rich generation of personalized images, allowing specific concepts to appear in a variety of scenarios.",
+    "All experiments, including model out- puts, and processing, were conducted on an NVIDIA A100 GPU at Virginia Tech.",
+    "Alternative methods face specific limita- tions: some can only merge style and content LoRAs [36], This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "An overview of LoRACLR is shown in Fig.",
+    "By combining LoRA with advanced customization methods like DreamBooth [31], users can generate images that not only retain high-fidelity but also capture their unique creative vision.",
+    "By employing contrastive learning, LoRACLR achieves scalable model composition, enabling high-quality multi- concept image generation without requiring additional fine- tuning or computational overhead.",
+    "By enforc- ing distinct yet cohesive representations for each concept, LoRACLR enables efficient, scalable model composition for high-quality, multi-concept image synthesis.",
+    "Combining 12 concepts is highly efficient, typically taking about 5 minutes, which makes our approach scalable and practical for real-world applica- tions that require seamless integration of multiple concepts."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRecent advances in text-to-image customization have en-\nabled high-fidelity, context-rich generation of personalized\nimages, allowing specific concepts to appear in a variety of\nscenarios. However, current methods struggle with combin-\ning multiple personalized models, often leading to attribute\nentanglement or requiring separate training to preserve\nconcept distinctiveness. We present LoRACLR, a novel\napproach for multi-concept image generation that merges\nmultiple LoRA models, each fine-tuned for a distinct con-\ncept, into a single, unified model without additional individ-\nual fine-tuning. LoRACLR uses a contrastive objective to\nalign and merge the weight spaces of these models, ensur-\ning compatibility while minimizing interference. By enforc-\ning distinct yet cohesive representations for each concept,\nLoRACLR enables efficient, scalable model composition for\nhigh-quality, multi-concept image synthesis. Our results\nhighlight the effectiveness of LoRACLR in accurately merg-\ning multiple concepts, advancing the capabilities of person-\nalized image generation.",
+    "introduction": "1. Introduction\nDiffusion models for text-to-image generation [12] have\nrevolutionized image synthesis from textual prompts, as\ndemonstrated by major advancements forward from Stable\nDiffusion [30], Imagen [34], and DALL-E 2 [28]. Cus-\ntomization techniques for these models have further am-\nplified their versatility, enabling the personalized image\ngeneration of specific concepts such as characters, objects,\nor artistic styles. Low-Rank Adaptation (LoRA) [13] has\nemerged as a powerful tool for customizing pre-trained\nmodels with minimal retraining, allowing for flexible, effi-\ncient personalization. By combining LoRA with advanced\ncustomization methods like DreamBooth [31], users can\ngenerate images that not only retain high-fidelity but also\ncapture their unique creative vision.\nHowever, combining multiple LoRA models to create a\nsingle composition remains a significant challenge. Cur-\nrent multi-concept models often struggle to maintain the\nquality of individual concepts, require simultaneous train-\ning on multiple concepts [21], or need per-image opti-\nmization [22]. Alternative methods face specific limita-\ntions: some can only merge style and content LoRAs [36],\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n13189\n\nwhile others become unstable as the number of com-\nbined LoRAs grows [14]. Methods like Mix-of-Show [10]\nrequire specialized LoRA variants, such as Embedding-\nDecomposed LoRAs (EDLoRAs), which diverge from the\nstandard LoRA formats widely used in the community.\nMore recent approaches, like OMG [20], employ segmenta-\ntion methods to isolate subjects during generation, but these\napproaches rely heavily on the accuracy of the segmentation\nmodels used. These challenges limit the broader applica-\nbility of text-to-image models, particularly when multiple\ndistinct concepts must coexist in a single output image.\nTo address these challenges, we propose LoRACLR, a\nnovel approach that combines multiple LoRA models into\na single model capable of accurately generating multiple\nconcepts simultaneously. Our method introduces a novel\ncontrastive objective that aligns each model’s weight space,\nprevents interference, and preserves fidelity by ensuring\nthat each model represents its respective concept distinctly\nwithin the joint composition. Importantly, our approach\nallows for the use of pre-existing LoRA models without\nthe need for retraining or accessing original training data.\nBy employing contrastive learning, LoRACLR achieves\nscalable model composition, enabling high-quality multi-\nconcept image generation without requiring additional fine-\ntuning or computational overhead.\nOur extensive evaluations reveal thatLoRACLR achieves\nsignificant improvements in both visual quality and compo-\nsitional coherence over baseline methods. Through qualita-\ntive and quantitative experiments, we demonstrate that our\napproach consistently preserves the fidelity and identity of\neach concept while avoiding the common issue of feature\ninterference, even as complexity increases with additional\nconcepts. LoRACLR provides a practical and scalable so-\nlution to compositional customization in generative mod-\nels, with promising implications for applications like virtual\ncontent creation, personalized storytelling, and digital art.",
+    "method": "3. Method\nOur proposed approach, LoRACLR, enables seamless\nmulti-concept synthesis by merging independently trained\nLoRA models in a post-training phase. Instead of modi-\nfying or retraining each model for compatibility,LoRACLR\nuses an optimization-based merging that adapts pre-existing\nLoRA models to function cohesively within a shared model,\ncapable of generating all the target concepts. Leveraging\ncontrastive learning, our method aligns the weight spaces\nof the models, ensuring each concept retains high-fidelity\nwhile remaining compatible in joint compositions. An\noverview of LoRACLR is shown in Fig. 2.",
+    "experiments": "4. Experiments\nImplementation Details. In all our experiments, we use the\nStable Diffusion model [30] with the ChilloutMix check-\npoint1 for its high-quality image generation capability. Our\napproach leverages pre-trained LoRA models, eliminating\nthe need to train individual LoRA models from scratch and\nsignificantly reducing computational overhead. During the\nmerging process, we use a learning rate of 1e−4, a margin\nparameter\nm of 0.5 to control separation between positive\nand negative pairs during contrastive learning, and a reg-\nularization coefficient λdelta of 0.001 to ensure sparsity in\nthe learned delta. All experiments, including model out-\nputs, and processing, were conducted on an NVIDIA A100\nGPU at Virginia Tech. Combining 12 concepts is highly\nefficient, typically taking about 5 minutes, which makes\nour approach scalable and practical for real-world applica-\ntions that require seamless integration of multiple concepts.\nFor our experiments, we utilize pre-trained single-concept\nLoRA and/or ED-LoRA models as the starting point.\nBaselines. We evaluate our approach against several state-\nof-the-art baselines in multi subject customization, includ-\ning: DB-LoRA [31], P+ [40], Custom Diffusion [21],\nMix-of-Show [10], and Orthogonal Adaptation [25]. For\nDB-LoRA, Federated Averaging (FedAvg) is used to merge\nmodels. Custom Diffusion utilizes its optimization-based\nmethod for merging, while Mix-of-Show merges using gra-\ndient fusion. Orthogonal Adaptation introduces orthogo-\nnal transformations to mitigate concept interference dur-\ning merging. In the case of P+, no fine-tuning of model\n1https://huggingface.co/windwhinny/chilloutmix\nweights is performed; instead, merging is achieved by di-\nrectly querying each concept’s token embedding.\nDatasets & Metrics. For all evaluations, we use the same\nexperimental setup and dataset proposed by [25], which in-\ncludes 12 concept identities, each represented by 16 distinct\nimages of the target concept across various contexts. Fol-\nlowing prior work [10, 25], we evaluate our method using\nthree key metrics: Text Alignment, Image Alignment, and\nIdentity Alignment. Text Alignment measures text-image\nsimilarity using the CLIP [27] model to ensure that gen-\nerated images match the input prompts. Image Alignment\nevaluates the similarity between generated and reference\nimages in the CLIP feature space. Identity Alignment uses\nthe ArcFace [5] model to assess how accurately the target\nhuman identity is preserved in the generated images.",
+    "conclusion": ""
+  }
+}

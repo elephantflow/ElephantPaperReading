@@ -1,0 +1,97 @@
+{
+  "paper_id": "u-know-diffpan-an-uncertainty-aware-knowledge-distillation-diffusion-framework-w--36926b871e",
+  "paper_title": "U-Know-DiffPAN: An Uncertainty-aware Knowledge Distillation Diffusion Framework with Details Enhancement for PAN-Sharpening",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:44.799672+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/U-Know-DiffPAN： An Uncertainty-aware Knowledge Distillation Diffusion Framework with Details Enhancement for PAN-Sharpening.pdf",
+    "filename": "U-Know-DiffPAN： An Uncertainty-aware Knowledge Distillation Diffusion Framework with Details Enhancement for PAN-Sharpening.pdf",
+    "sha1": "36926b871ec4c5c6948b127420cf26fa9959ccc4",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Despite their success, GANs [28, 30] pose addi- tional challenges, including training instability, mode col- lapse, and artifact generation, which can degrade image quality.",
+    "limitation": "However, DL models This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "insight": "Abstract Conventional methods for PAN-sharpening often strug- gle to restore fine details due to limitations in lever- aging high-frequency information.",
+    "proposed_method": "To address these chal- lenges, we propose an uncertainty-aware knowledge dis- tillation diffusion framework with details enhancement for PAN-sharpening, called U-Know-DiffPAN.",
+    "experimental_evidence": "Extensive experiments on diverse datasets demonstrate the robustness and superior performance of our U-Know-DiffPAN over very recent state-of-the-art PAN-sharpening methods.",
+    "summary": "Despite their success, GANs [28, 30] pose addi- tional challenges, including training instability, mode col- lapse, and artifact generation, which can degrade image quality. However, DL models This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Abstract Conventional methods for PAN-sharpening often strug- gle to restore fine details due to limitations in lever- aging high-frequency information. To address these chal- lenges, we propose an uncertainty-aware knowledge dis- tillation diffusion framework with details enhancement for PAN-sharpening, called U-Know-DiffPAN. Extensive experiments on diverse datasets demonstrate the robustness and superior performance of our U-Know-DiffPAN over very recent state-of-the-art PAN-sharpening methods."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Satellite imagery plays a vital role in a wide range of applications, including environmental monitoring, surveil- lance, and mapping [2, 10, 15, 29, 67].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nSatellite imagery plays a vital role in a wide range of\napplications, including environmental monitoring, surveil-\nlance, and mapping [2, 10, 15, 29, 67]. High-resolution\nmultispectral (HRMS) images that combine high spatial\nand spectral fidelity are commonly generated using PAN-\nsharpening techniques, fusing low-resolution multispectral\n(LRMS) images with high-resolution (HR) panchromatic\n(PAN) images. The primary objective of PAN-sharpening\nis to retain the spatial detail of PAN images while preserv-\ning the spectral information of LRMS images. Recently,\ndeep learning (DL)-based approaches have gained attrac-\ntion in PAN-sharpening tasks, leveraging deep networks to\nperform end-to-end image regression. However, DL models\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n23069"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "are typically limited by the local receptive fields of convo- lutional layers, which primarily focus on local patterns and fail to capture long-range dependencies.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "are typically limited by the local receptive fields of convo-\nlutional layers, which primarily focus on local patterns and\nfail to capture long-range dependencies. This often leads to\noverly smooth outputs with reduced high-frequency details.\nTo overcome this limitation, generative models such as\ngenerative adversarial networks (GANs) [18] have been ap-\nplied to PAN-sharpening, aiming to produce more realistic\nresults. Despite their success, GANs [28, 30] pose addi-\ntional challenges, including training instability, mode col-\nlapse, and artifact generation, which can degrade image\nquality. Recently, diffusion models [21, 38, 42, 55] have\ndemonstrated strong performance across a variety of im-\nage generation and restoration tasks. In PAN-sharpening,\ndiffusion-based methods [31, 56] have shown promise by\nusing PAN and LRMS images as conditioning inputs. How-\never, they are limited by simple conditioning strategies that\ndo not fully utilize the complementary information provided\nby the PAN and LRMS inputs, thus leading to suboptimal\nrestoration quality. Additionally, they often incur high com-\nputational costs and longer inference times compared to\nother DL-based methods, limiting the"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methods",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "The FTCA enhances crucial fre- quency components through Fourier transform-based [52] attention, while the SWTCA incorporates high-frequency information from PAN and low-frequency information from LRMS into the decoder."
+    ],
+    "limitation_expression": [
+      "However, DL models This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "23069 are typically limited by the local receptive fields of convo- lutional layers, which primarily focus on local patterns and fail to capture long-range dependencies.",
+      "How- ever, they are limited by simple conditioning strategies that do not fully utilize the complementary information provided by the PAN and LRMS inputs, thus leading to suboptimal restoration quality."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address these chal- lenges, we propose an uncertainty-aware knowledge dis- tillation diffusion framework with details enhancement for PAN-sharpening, called U-Know-DiffPAN.",
+      "To address these challenges, we propose U-Know- DiffPAN demonstrated in Fig.",
+      "Our framework is de- signed to fully leverage the frequency information in PAN and LRMS inputs while reducing computational costs."
+    ],
+    "experiment_expression": [
+      "Extensive experiments on diverse datasets demonstrate the robustness and superior performance of our U-Know-DiffPAN over very recent state-of-the-art PAN-sharpening methods.",
+      "Our contributions are summarized as follows: • We firstly incorporate the uncertainty-aware knowledge distillation into diffusion based PAN-sharpening with the guidance of pixel-wise restoration uncertainty and frequency-selective attention for details enhancement; • Our teacher model leverages compact vector represen- tations to enhance encoding efficiency and employs fre- quency selective attention in the decoder to refine fre- quency components for PAN-sharpening. • We conduct extensive experiments on multiple datasets [11], including WV3, QB, and GF2, demonstrating state- of-the-art performance and surpassing very recent meth- ods in PAN-sharpening with large margins.",
+      "Extensive experiments on multiple datasets, in- cluding WV3, QB, and GF2, demonstrate that our U-Know- DiffPAN outperforms very recent state-of-the-art methods in PAN-sharpening, establishing a new benchmark for per- formance and efficiency in satellite image processing."
+    ],
+    "contribution_expression": [
+      "Our contributions are summarized as follows: • We firstly incorporate the uncertainty-aware knowledge distillation into diffusion based PAN-sharpening with the guidance of pixel-wise restoration uncertainty and frequency-selective attention for details enhancement; • Our teacher model leverages compact vector represen- tations to enhance encoding efficiency and employs fre- quency selective attention in the decoder to refine fre- quency components for PAN-sharpening. • We conduct extensive experiments on multiple datasets [11], including WV3, QB, and GF2, demonstrating state- of-the-art performance and surpassing very recent meth- ods in PAN-sharpening with large margins."
+    ]
+  },
+  "notable_sentences": [
+    "Extensive experiments on diverse datasets demonstrate the robustness and superior performance of our U-Know-DiffPAN over very recent state-of-the-art PAN-sharpening methods.",
+    "However, DL models This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "Our contributions are summarized as follows: • We firstly incorporate the uncertainty-aware knowledge distillation into diffusion based PAN-sharpening with the guidance of pixel-wise restoration uncertainty and frequency-selective attention for details enhancement; • Our teacher model leverages compact vector represen- tations to enhance encoding efficiency and employs fre- quency selective attention in the decoder to refine fre- quency components for PAN-sharpening. • We conduct extensive experiments on multiple datasets [11], including WV3, QB, and GF2, demonstrating state- of-the-art performance and surpassing very recent meth- ods in PAN-sharpening with large margins.",
+    "To address these chal- lenges, we propose an uncertainty-aware knowledge dis- tillation diffusion framework with details enhancement for PAN-sharpening, called U-Know-DiffPAN.",
+    "To address these challenges, we propose U-Know- DiffPAN demonstrated in Fig.",
+    "2, a novel PAN-sharpening framework that incorporates an uncertainty-aware knowl- edge distillation (U-Know) strategy.",
+    "23069 are typically limited by the local receptive fields of convo- lutional layers, which primarily focus on local patterns and fail to capture long-range dependencies.",
+    "2Kyungpook National University (KNU). †Co-corresponding authors (equal contribution). certainty map.",
+    "Abstract Conventional methods for PAN-sharpening often strug- gle to restore fine details due to limitations in lever- aging high-frequency information.",
+    "Additionally, they often incur high com- putational costs and longer inference times compared to other DL-based methods, limiting their practical applica- bility.",
+    "By conditioning the encoder on compact vec- tor representations of PAN and LRMS and the decoder on Wavelet transforms, we enable rich frequency utilization.",
+    "Conclusion We introduced U-Know-DiffPAN, a novel diffusion-based PAN-sharpening framework that effectively leverages fre- quency information from PAN and LRMS inputs to gen- erate high-quality HRMS images."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nConventional methods for PAN-sharpening often strug-\ngle to restore fine details due to limitations in lever-\naging high-frequency information. Moreover, diffusion-\nbased approaches lack sufficient conditioning to fully uti-\nlize Panchromatic (PAN) images and low-resolution multi-\nspectral (LRMS) inputs effectively. To address these chal-\nlenges, we propose an uncertainty-aware knowledge dis-\ntillation diffusion framework with details enhancement for\nPAN-sharpening, called U-Know-DiffPAN. The U-Know-\nDiffPAN incorporates uncertainty-aware knowledge distil-\nlation for effective transfer of feature details from our\nteacher model to a student one. The teacher model in our\nU-Know-DiffPAN captures frequency details through freqe-\nuncy selective attention, facilitating accurate reverse pro-\ncess learning. By conditioning the encoder on compact vec-\ntor representations of PAN and LRMS and the decoder on\nWavelet transforms, we enable rich frequency utilization.\nSo, the high-capacity teacher model distills frequency-rich\nfeatures into a lightweight student model aided by an un-\n1Korea Advanced Institute of Science and Technology (KAIST).\n2Kyungpook National University (KNU).\n†Co-corresponding authors (equal contribution).\ncertainty map. From this, the teacher model can guide the\nstudent model to focus on difficult image regions for PAN-\nsharpening via the usage of the uncertainty map. Extensive\nexperiments on diverse datasets demonstrate the robustness\nand superior performance of our U-Know-DiffPAN over\nvery recent state-of-the-art PAN-sharpening methods. The\nproject page is available at https://kaist-viclab.github.io/U-\nKnow-DiffPAN-site/.",
+    "introduction": "1. Introduction\nSatellite imagery plays a vital role in a wide range of\napplications, including environmental monitoring, surveil-\nlance, and mapping [2, 10, 15, 29, 67]. High-resolution\nmultispectral (HRMS) images that combine high spatial\nand spectral fidelity are commonly generated using PAN-\nsharpening techniques, fusing low-resolution multispectral\n(LRMS) images with high-resolution (HR) panchromatic\n(PAN) images. The primary objective of PAN-sharpening\nis to retain the spatial detail of PAN images while preserv-\ning the spectral information of LRMS images. Recently,\ndeep learning (DL)-based approaches have gained attrac-\ntion in PAN-sharpening tasks, leveraging deep networks to\nperform end-to-end image regression. However, DL models\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n23069\n\nare typically limited by the local receptive fields of convo-\nlutional layers, which primarily focus on local patterns and\nfail to capture long-range dependencies. This often leads to\noverly smooth outputs with reduced high-frequency details.\nTo overcome this limitation, generative models such as\ngenerative adversarial networks (GANs) [18] have been ap-\nplied to PAN-sharpening, aiming to produce more realistic\nresults. Despite their success, GANs [28, 30] pose addi-\ntional challenges, including training instability, mode col-\nlapse, and artifact generation, which can degrade image\nquality. Recently, diffusion models [21, 38, 42, 55] have\ndemonstrated strong performance across a variety of im-\nage generation and restoration tasks. In PAN-sharpening,\ndiffusion-based methods [31, 56] have shown promise by\nusing PAN and LRMS images as conditioning inputs. How-\never, they are limited by simple conditioning strategies that\ndo not fully utilize the complementary information provided\nby the PAN and LRMS inputs, thus leading to suboptimal\nrestoration quality. Additionally, they often incur high com-\nputational costs and longer inference times compared to\nother DL-based methods, limiting their practical applica-\nbility.\nTo address these challenges, we propose U-Know-\nDiffPAN demonstrated in Fig. 2, a novel PAN-sharpening\nframework that incorporates an uncertainty-aware knowl-\nedge distillation (U-Know) strategy. Our framework is de-\nsigned to fully leverage the frequency information in PAN\nand LRMS inputs while reducing computational costs. Our\nteacher model, is built to maximize information extraction\nfrom PAN and LRMS images by utilizing (i) a Feed For-\nward Attention (FFA) block in the encoder to capture com-\npact vector representations of PAN and LRMS, and (ii) a\nHigh Quality Frequency Enhancement (HQFE) block in the\ndecoder, composed of Fourier Transform Channel Attention\n(FTCA) and Stationary Wavelet Transform Cross Atten-\ntion (SWTCA) modules. The FTCA enhances crucial fre-\nquency components through Fourier transform-based [52]\nattention, while the SWTCA incorporates high-frequency\ninformation from PAN and low-frequency information from\nLRMS into the decoder.\nOur U-Know strategy leverages uncertainty-aware\nknowledge distillation by transferring the features from\nthe teacher model to a light-weight student model. The\nteacher model denoises HRMS images along with an un-\ncertainty map, identifying spatial regions where the predic-\ntion confidence is low. Then based of the U-Know strat-\negy, the teacher model distills to the student model not only\nthe frequency-aware features but also the uncertainty map\nto address spatial weaknesses in the teacher’s predictions.\nThis approach leads to improved performance and reduced\ncomputational cost, making our U-Know-DiffPAN more ef-\nfective and efficient for PAN-sharpening. Our contributions\nare summarized as follows:\n• We firstly incorporate the uncertainty-aware knowledge\ndistillation into diffusion based PAN-sharpening with\nthe guidance of pixel-wise restoration uncertainty and\nfrequency-selective attention for details enhancement;\n• Our teacher model leverages compact vector represen-\ntations to enhance encoding efficiency and employs fre-\nquency selective attention in the decoder to refine fre-\nquency components for PAN-sharpening.\n• We conduct extensive experiments on multiple datasets\n[11], including WV3, QB, and GF2, demonstrating state-\nof-the-art performance and surpassing very recent meth-\nods in PAN-sharpening with large margins.",
+    "method": "3. Methods",
+    "experiments": "4. Experiment",
+    "conclusion": "5. Conclusion\nWe introduced U-Know-DiffPAN, a novel diffusion-based\nPAN-sharpening framework that effectively leverages fre-\nquency information from PAN and LRMS inputs to gen-\nerate high-quality HRMS images. Our Uncertainty-aware\nKnowledge Distillation (U-Know) strategy enables efficient\nfeature transfer by distilling both frequency-rich features\nand uncertainty maps from the teacher model, enhanc-\ning the restoration performance for spatially weak regions\nwhile reducing computational costs for the student model\n(FSA-S). Extensive experiments on multiple datasets, in-\ncluding WV3, QB, and GF2, demonstrate that our U-Know-\nDiffPAN outperforms very recent state-of-the-art methods\nin PAN-sharpening, establishing a new benchmark for per-\nformance and efficiency in satellite image processing."
+  }
+}

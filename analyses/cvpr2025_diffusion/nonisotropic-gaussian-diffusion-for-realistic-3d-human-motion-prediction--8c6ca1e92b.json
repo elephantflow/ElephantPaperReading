@@ -1,0 +1,93 @@
+{
+  "paper_id": "nonisotropic-gaussian-diffusion-for-realistic-3d-human-motion-prediction--8c6ca1e92b",
+  "paper_title": "Nonisotropic Gaussian Diffusion for Realistic 3D Human Motion Prediction",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:07.389401+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Nonisotropic Gaussian Diffusion for Realistic 3D Human Motion Prediction.pdf",
+    "filename": "Nonisotropic Gaussian Diffusion for Realistic 3D Human Motion Prediction.pdf",
+    "sha1": "8c6ca1e92b56746329218d9588d38c0262803f44",
+    "page_count": 12
+  },
+  "core_story": {
+    "problem": "Introduction In this work, we address the problem of predicting hu- man motion based on observed past movements, known as Human Motion Prediction (HMP).",
+    "limitation": "However, many applications [11, 14, 27, 42, 60, 65] require considering the inherent uncertainty of future movements.",
+    "insight": "Introduction In this work, we address the problem of predicting hu- man motion based on observed past movements, known as Human Motion Prediction (HMP).",
+    "proposed_method": "To address this, we introduce SkeletonDiffusion, a latent diffusion model that embeds an explicit inductive bias on the human body within its architecture and train- ing.",
+    "experimental_evidence": "Results show that our approach outperforms isotropic alternatives, consistently generating realistic pre- dictions while avoiding artifacts such as limb distortion.",
+    "summary": "Introduction In this work, we address the problem of predicting hu- man motion based on observed past movements, known as Human Motion Prediction (HMP). However, many applications [11, 14, 27, 42, 60, 65] require considering the inherent uncertainty of future movements. Introduction In this work, we address the problem of predicting hu- man motion based on observed past movements, known as Human Motion Prediction (HMP). To address this, we introduce SkeletonDiffusion, a latent diffusion model that embeds an explicit inductive bias on the human body within its architecture and train- ing. Results show that our approach outperforms isotropic alternatives, consistently generating realistic pre- dictions while avoiding artifacts such as limb distortion."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction In this work, we address the problem of predicting hu- man motion based on observed past movements, known as Human Motion Prediction (HMP).",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nIn this work, we address the problem of predicting hu-\nman motion based on observed past movements, known\nas Human Motion Prediction (HMP). Specifically, from\na temporal sequence of human joint positions, we aim\nto forecast their evolution in subsequent frames. HMP\nis a relevant problem for various real-world applications\n[9, 37, 46, 72, 85, 86, 88, 90, 93] and the key enabler of\nvarious downstream tasks [3, 65]: autonomous driving [60],\nhealthcare [70], assistive robotics [42, 71], human-robot in-\nteraction [11, 14, 27, 42], and virtual reality or animation\ncreation [74]. The task can be formulated as a determin-\nistic regression by predicting the most likely future mo-\ntion [2, 12, 18, 23, 26, 28, 36, 43, 47, 52, 54, 56–58, 61].\nHowever, many applications [11, 14, 27, 42, 60, 65] require\nconsidering the inherent uncertainty of future movements.\nStochastic Human Motion Prediction(SHMP) methods aim\nto learn a probability distribution over possible future mo-\ntions. Once models are capable of representing multiple\nfutures, the challenge lies in generating diverse yet realistic\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExc"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "In our study, we observed that often diversity in the results comes at the cost of favoring physically unfea- sible movements [5], such as velocity irregularities between frames (e.g., jittering or shaking) or inconsistent joint posi- tions (e.g., changing bone lengths between frames).",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "predictions. In our study, we observed that often diversity\nin the results comes at the cost of favoring physically unfea-\nsible movements [5], such as velocity irregularities between\nframes (e.g., jittering or shaking) or inconsistent joint posi-\ntions (e.g., changing bone lengths between frames). We be-\nlieve this phenomenon to be a direct consequence of the lack\nof a proper inductive bias on the human skeletal structure.\nWe present SkeletonDiffusion, a latent diffusion model en-\ncoding this bias explicitly on both architecture and training.\nFirst, we consider the skeleton structure and joint cat-\negories throughout the entire network, and build our archi-\ntecture end-to-end on top of Graph Convolutional Networks\n(GCNs). In contrast, existing SHMP approaches either ig-\nnore the skeleton’s graph structure [5, 16, 91, 93] or only\nleverage it at intermediate stages [19, 55, 69, 82]. Second,\nwe model the generative strategy to integrate the explicit\nbias. Similarly to the recent advances in SHMP based on\ndiffusion models [5, 16, 69, 82], we opt for latent diffu-\nsion [64]. However, we replace the conventional isotropic\nGaussian diffusion training [31] with a novel nonisotropic\nformul"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "While current approaches report high diversity and realism, they often generate motions with undetected limb stretching and jitter.",
+      "However, many applications [11, 14, 27, 42, 60, 65] require considering the inherent uncertainty of future movements.",
+      "However, we replace the conventional isotropic Gaussian diffusion training [31] with a novel nonisotropic formulation that accounts for joint relations directly in the generation process: the HMP problem is defined by the skeleton kinematic graph, and we exploit this knowledge to define a fixed non-diagonal noise covariance for the dif- fusion process."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this, we introduce SkeletonDiffusion, a latent diffusion model that embeds an explicit inductive bias on the human body within its architecture and train- ing.",
+      "In summary, our contributions are: • We derive the first nonisotropic Gaussian diffusion for- mulation for a structural problem, which comprehends a detailed mathematical derivation and the required equa- tions for training and inference. • We propose SkeletonDiffusion, a latent diffusion model for SHMP that explicitly incorporates end-to-end the skeleton structure through the adjacency matrix in the graph architecture and the diffusion training. • We conduct extensive analyses and demonstrate Skele- tonDiffusion’s state-of-the-art performance on multiple datasets."
+    ],
+    "experiment_expression": [
+      "In summary, our contributions are: • We derive the first nonisotropic Gaussian diffusion for- mulation for a structural problem, which comprehends a detailed mathematical derivation and the required equa- tions for training and inference. • We propose SkeletonDiffusion, a latent diffusion model for SHMP that explicitly incorporates end-to-end the skeleton structure through the adjacency matrix in the graph architecture and the diffusion training. • We conduct extensive analyses and demonstrate Skele- tonDiffusion’s state-of-the-art performance on multiple datasets.",
+      "Our results demonstrate issues overlooked by previous methods (e.g., limbs’ stretching, jittering) and highlight the need for new realism and diversity metrics."
+    ],
+    "contribution_expression": [
+      "In summary, our contributions are: • We derive the first nonisotropic Gaussian diffusion for- mulation for a structural problem, which comprehends a detailed mathematical derivation and the required equa- tions for training and inference. • We propose SkeletonDiffusion, a latent diffusion model for SHMP that explicitly incorporates end-to-end the skeleton structure through the adjacency matrix in the graph architecture and the diffusion training. • We conduct extensive analyses and demonstrate Skele- tonDiffusion’s state-of-the-art performance on multiple datasets."
+    ]
+  },
+  "notable_sentences": [
+    "However, many applications [11, 14, 27, 42, 60, 65] require considering the inherent uncertainty of future movements.",
+    "In summary, our contributions are: • We derive the first nonisotropic Gaussian diffusion for- mulation for a structural problem, which comprehends a detailed mathematical derivation and the required equa- tions for training and inference. • We propose SkeletonDiffusion, a latent diffusion model for SHMP that explicitly incorporates end-to-end the skeleton structure through the adjacency matrix in the graph architecture and the diffusion training. • We conduct extensive analyses and demonstrate Skele- tonDiffusion’s state-of-the-art performance on multiple datasets.",
+    "1) with the least amount of stretching and jittering of bone lengths ( body realism).",
+    "4.1), discuss its application in latent space (Sec.",
+    "4.2), and then introduce SkeletonDiffusion (Sec.",
+    "Abstract Probabilistic human motion prediction aims to forecast multiple possible future movements from past observations.",
+    "Additionally, we identify a limitation in commonly used di- versity metrics, which may favor models that produce incon- sistent limb lengths within the same sequence.",
+    "Conclusion We present SkeletonDiffusion, a latent diffusion model with an explicit inductive bias on the human skeleton trained with a novel nonisotropic Gaussian diffusion formulation.",
+    "Despite demonstrating its usefulness in the skeletal domain, its applicability can be broader and touch all the domains where the conventional i.i.d. noise assump- tion may not hold.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "First, we consider the skeleton structure and joint cat- egories throughout the entire network, and build our archi- tecture end-to-end on top of Graph Convolutional Networks (GCNs).",
+    "However, we replace the conventional isotropic Gaussian diffusion training [31] with a novel nonisotropic formulation that accounts for joint relations directly in the generation process: the HMP problem is defined by the skeleton kinematic graph, and we exploit this knowledge to define a fixed non-diagonal noise covariance for the dif- fusion process."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nProbabilistic human motion prediction aims to forecast\nmultiple possible future movements from past observations.\nWhile current approaches report high diversity and realism,\nthey often generate motions with undetected limb stretching\nand jitter. To address this, we introduce SkeletonDiffusion,\na latent diffusion model that embeds an explicit inductive\nbias on the human body within its architecture and train-\ning. We present a new nonisotropic Gaussian diffusion for-\nmulation that aligns with the natural kinematic structure\nof the human skeleton and models relationships between\nbody parts. Results show that our approach outperforms\nisotropic alternatives, consistently generating realistic pre-\ndictions while avoiding artifacts such as limb distortion.\nAdditionally, we identify a limitation in commonly used di-\nversity metrics, which may favor models that produce incon-\nsistent limb lengths within the same sequence. SkeletonDif-\nfusion sets a new benchmark on three real-world datasets,\noutperforming various baselines across multiple evaluation\nmetrics. We release the code on our project page.",
+    "introduction": "1. Introduction\nIn this work, we address the problem of predicting hu-\nman motion based on observed past movements, known\nas Human Motion Prediction (HMP). Specifically, from\na temporal sequence of human joint positions, we aim\nto forecast their evolution in subsequent frames. HMP\nis a relevant problem for various real-world applications\n[9, 37, 46, 72, 85, 86, 88, 90, 93] and the key enabler of\nvarious downstream tasks [3, 65]: autonomous driving [60],\nhealthcare [70], assistive robotics [42, 71], human-robot in-\nteraction [11, 14, 27, 42], and virtual reality or animation\ncreation [74]. The task can be formulated as a determin-\nistic regression by predicting the most likely future mo-\ntion [2, 12, 18, 23, 26, 28, 36, 43, 47, 52, 54, 56–58, 61].\nHowever, many applications [11, 14, 27, 42, 60, 65] require\nconsidering the inherent uncertainty of future movements.\nStochastic Human Motion Prediction(SHMP) methods aim\nto learn a probability distribution over possible future mo-\ntions. Once models are capable of representing multiple\nfutures, the challenge lies in generating diverse yet realistic\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n1871\n\npredictions. In our study, we observed that often diversity\nin the results comes at the cost of favoring physically unfea-\nsible movements [5], such as velocity irregularities between\nframes (e.g., jittering or shaking) or inconsistent joint posi-\ntions (e.g., changing bone lengths between frames). We be-\nlieve this phenomenon to be a direct consequence of the lack\nof a proper inductive bias on the human skeletal structure.\nWe present SkeletonDiffusion, a latent diffusion model en-\ncoding this bias explicitly on both architecture and training.\nFirst, we consider the skeleton structure and joint cat-\negories throughout the entire network, and build our archi-\ntecture end-to-end on top of Graph Convolutional Networks\n(GCNs). In contrast, existing SHMP approaches either ig-\nnore the skeleton’s graph structure [5, 16, 91, 93] or only\nleverage it at intermediate stages [19, 55, 69, 82]. Second,\nwe model the generative strategy to integrate the explicit\nbias. Similarly to the recent advances in SHMP based on\ndiffusion models [5, 16, 69, 82], we opt for latent diffu-\nsion [64]. However, we replace the conventional isotropic\nGaussian diffusion training [31] with a novel nonisotropic\nformulation that accounts for joint relations directly in the\ngeneration process: the HMP problem is defined by the\nskeleton kinematic graph, and we exploit this knowledge\nto define a fixed non-diagonal noise covariance for the dif-\nfusion process. To the best of our knowledge, this is the\nfirst nonisotropic diffusion process to support a non i.i.d. la-\ntent space and reflect the dependencies among components\n(joints) according to the given problem structure (skele-\nton kinematic). Despite demonstrating its usefulness in the\nskeletal domain, its applicability can be broader and touch\nall the domains where the conventional i.i.d. noise assump-\ntion may not hold.\nWe evaluate SkeletonDiffusion against the state-of-the-\nart on a large MoCap dataset (AMASS [53]), noisy data ob-\ntained by external camera tracking (FreeMan [81]), and in\na zero-shot setting (3DPW [78]). We showcase consistently\nimproved performance by generating realistic and diverse\npredictions (Fig. 1) with the least amount of stretching and\njittering of bone lengths ( body realism). In summary, our\ncontributions are:\n• We derive the first nonisotropic Gaussian diffusion for-\nmulation for a structural problem, which comprehends a\ndetailed mathematical derivation and the required equa-\ntions for training and inference.\n• We propose SkeletonDiffusion, a latent diffusion model\nfor SHMP that explicitly incorporates end-to-end the\nskeleton structure through the adjacency matrix in the\ngraph architecture and the diffusion training.\n• We conduct extensive analyses and demonstrate Skele-\ntonDiffusion’s state-of-the-art performance on multiple\ndatasets. Our results demonstrate issues overlooked by\nprevious methods (e.g., limbs’ stretching, jittering) and\nhighlight the need for new realism and diversity metrics.",
+    "method": "4. Method\nWe first present our nonisotropic diffusion formulation\n(Sec. 4.1), discuss its application in latent space (Sec. 4.2),\nand then introduce SkeletonDiffusion (Sec. 4.3).",
+    "experiments": "5. Experiments",
+    "conclusion": "6. Conclusion\nWe present SkeletonDiffusion, a latent diffusion model with\nan explicit inductive bias on the human skeleton trained\nwith a novel nonisotropic Gaussian diffusion formulation.\nWe achieve state-of-the-art performance on stochastic HMP\nby generating motions that are simultaneously realistic and\ndiverse while being robust to limb stretching according to\nthe evaluation metrics.\nLimitations and Future Work Similar to previous meth-\nods, we restrict our experiments to standard human skele-\ntons, without considering fine-grained joints (e.g., fingers,\nfacial expression). Unfortunately, such data are scarce and\ndifficult to capture. While our body realism metrics address\npreviously disregarded aspects, evaluating stochastic HMP\nand particularly diversity remains an open challenge."
+  }
+}

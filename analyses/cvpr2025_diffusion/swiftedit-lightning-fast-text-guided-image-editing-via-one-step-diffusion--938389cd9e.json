@@ -1,0 +1,88 @@
+{
+  "paper_id": "swiftedit-lightning-fast-text-guided-image-editing-via-one-step-diffusion--938389cd9e",
+  "paper_title": "SwiftEdit: Lightning Fast Text-Guided Image Editing via One-Step Diffusion",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:36.406450+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/SwiftEdit： Lightning Fast Text-Guided Image Editing via One-Step Diffusion.pdf",
+    "filename": "SwiftEdit： Lightning Fast Text-Guided Image Editing via One-Step Diffusion.pdf",
+    "sha1": "938389cd9e47598cf4ad7d55b053df6e17b46e6a",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Recent text-to-image diffusion models [5, 24, 26, 27] have achieved remarkable results in generating high-quality im- ages semantically aligned with given text prompts.",
+    "limitation": "Introduction Recent text-to-image diffusion models [5, 24, 26, 27] have achieved remarkable results in generating high-quality im- ages semantically aligned with given text prompts.",
+    "insight": "Abstract Recent advances in text-guided image editing enable users to perform image edits through simple text inputs, leverag- ing the extensive priors of multi-step diffusion-based text- to-image models.",
+    "proposed_method": "In response to this, we introduce SwiftEdit, a simple yet highly efficient editing tool that achieve instant text-guided image editing ( in 0.23s ).",
+    "experimental_evidence": "Extensive experiments are provided to demonstrate the effectiveness and efficiency of SwiftEdit.",
+    "summary": "Introduction Recent text-to-image diffusion models [5, 24, 26, 27] have achieved remarkable results in generating high-quality im- ages semantically aligned with given text prompts. Introduction Recent text-to-image diffusion models [5, 24, 26, 27] have achieved remarkable results in generating high-quality im- ages semantically aligned with given text prompts. Abstract Recent advances in text-guided image editing enable users to perform image edits through simple text inputs, leverag- ing the extensive priors of multi-step diffusion-based text- to-image models. In response to this, we introduce SwiftEdit, a simple yet highly efficient editing tool that achieve instant text-guided image editing ( in 0.23s ). Extensive experiments are provided to demonstrate the effectiveness and efficiency of SwiftEdit."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Recent text-to-image diffusion models [5, 24, 26, 27] have achieved remarkable results in generating high-quality im- ages semantically aligned with given text prompts.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nRecent text-to-image diffusion models [5, 24, 26, 27] have\nachieved remarkable results in generating high-quality im-\nages semantically aligned with given text prompts. To gen-\nerate realistic images, most of them rely on multi-step sam-\npling techniques, which reverse the diffusion process start-\ning from random noise to realistic image. To overcome this\ntime-consuming sampling process, some works focus on re-\nducing the number of sampling steps to a few (4-8 steps)\n[29] or even one step [5, 20, 39, 40] via distillation tech-\nniques while not compromising results. These approaches\nnot only accelerate image generation but also enable faster\ninference for downstream tasks, such as image editing.\nFor text-guided image editing, recent approaches [11, 13,\n19] use an inversion process to determine the initial noise\nfor a source image, allowing for (1) source image recon-\nstruction and (2) content modification aligned with guided\ntext while preserving other details. Starting from this in-\nverted noise, additional techniques, such as attention ma-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identi"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "20 25PSNR Score 100 101",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "20\n25PSNR Score\n100\n101"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Proposed Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, these methods often fall short of the speed demands required for real-world and on-device applications due to the costly multi-step inversion and sam- pling process involved.",
+      "In particular, SwiftEdit enables instant text- guided image editing, which is extremely faster than pre- +Qualcomm Vietnam Company Limited †also affiliated with Posts & Telecom.",
+      "Its performance still relies on the quality of the SBv2 generator, thus, biases in the train- ing data can transfer to our inversion network."
+    ],
+    "insight_expression": [],
+    "method_expression": [],
+    "experiment_expression": [
+      "Extensive experiments are provided to demonstrate the effectiveness and efficiency of SwiftEdit.",
+      "Extensive experiments demon- strate SwiftEdit’s ability to deliver high-quality results while significantly surpassing previous methods in speed, enabled by its one-step inversion and editing process."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Extensive experiments are provided to demonstrate the effectiveness and efficiency of SwiftEdit.",
+    "Extensive experiments demon- strate SwiftEdit’s ability to deliver high-quality results while significantly surpassing previous methods in speed, enabled by its one-step inversion and editing process.",
+    "However, these methods often fall short of the speed demands required for real-world and on-device applications due to the costly multi-step inversion and sam- pling process involved.",
+    "21492 20 25PSNR Score 100 101 4.",
+    "4.1, we develop a one-step inversion network that predicts inverted noise to reconstruct a source image when passed through SBv2.",
+    "4.2, we use self-guided editing mask to locate edited regions.",
+    "Abstract Recent advances in text-guided image editing enable users to perform image edits through simple text inputs, leverag- ing the extensive priors of multi-step diffusion-based text- to-image models.",
+    "An overview is shown in Fig.",
+    "Conclusion and Discussion Conclusion.",
+    "During inference, as described in Sec.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "For future work, we want to improve the method by transitioning from instant-level to real-time editing capabilities."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRecent advances in text-guided image editing enable users\nto perform image edits through simple text inputs, leverag-\ning the extensive priors of multi-step diffusion-based text-\nto-image models. However, these methods often fall short\nof the speed demands required for real-world and on-device\napplications due to the costly multi-step inversion and sam-\npling process involved. In response to this, we introduce\nSwiftEdit, a simple yet highly efficient editing tool that\nachieve instant text-guided image editing ( in 0.23s ). The\nadvancement of SwiftEdit lies in its two novel contributions:\na one-step inversion framework that enables one-step im-\nage reconstruction via inversion and a mask-guided editing\ntechnique with our proposed attention rescaling mechanism\nto perform localized image editing. Extensive experiments\nare provided to demonstrate the effectiveness and efficiency\nof SwiftEdit. In particular, SwiftEdit enables instant text-\nguided image editing, which is extremely faster than pre-\n+Qualcomm Vietnam Company Limited\n†also affiliated with Posts & Telecom. Inst. of Tech., Vietnam\nContact email: nguyentrongtung11101999@gmail.com\nvious multi-step methods (at least 50× times faster) while\nmaintain a competitive performance in editing results. Our\nproject is at https://swift-edit.github.io/.",
+    "introduction": "1. Introduction\nRecent text-to-image diffusion models [5, 24, 26, 27] have\nachieved remarkable results in generating high-quality im-\nages semantically aligned with given text prompts. To gen-\nerate realistic images, most of them rely on multi-step sam-\npling techniques, which reverse the diffusion process start-\ning from random noise to realistic image. To overcome this\ntime-consuming sampling process, some works focus on re-\nducing the number of sampling steps to a few (4-8 steps)\n[29] or even one step [5, 20, 39, 40] via distillation tech-\nniques while not compromising results. These approaches\nnot only accelerate image generation but also enable faster\ninference for downstream tasks, such as image editing.\nFor text-guided image editing, recent approaches [11, 13,\n19] use an inversion process to determine the initial noise\nfor a source image, allowing for (1) source image recon-\nstruction and (2) content modification aligned with guided\ntext while preserving other details. Starting from this in-\nverted noise, additional techniques, such as attention ma-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n21492\n\n20\n25PSNR Score\n100\n101",
+    "method": "4. Proposed Method\nOur goal is to enable instant image editing with the one-\nstep text-to-image model, SBv2. In Sec. 4.1, we develop\na one-step inversion network that predicts inverted noise\nto reconstruct a source image when passed through SBv2.\nWe introduce a two-stage training strategy for this inver-\nsion network, enabling single-step reconstruction of any\ninput images without further retraining. An overview is\nshown in Fig. 3. During inference, as described in Sec. 4.2,\nwe use self-guided editing mask to locate edited regions.\nOur attention-rescaling technique then utilizes the mask to\nachieve disentangled editing and control the editing strength\nwhile preserving the background.",
+    "experiments": "5. Experiments",
+    "conclusion": "7. Conclusion and Discussion\nConclusion. In this work, we introduce SwiftEdit, a\nlightning-fast text-guided image editing tool capable of in-\nstant edits in 0.23 seconds. Extensive experiments demon-\nstrate SwiftEdit’s ability to deliver high-quality results\nwhile significantly surpassing previous methods in speed,\nenabled by its one-step inversion and editing process. We\nhope SwiftEdit will facilitate interactive image editing.\nDiscussion. While SwiftEdit achieves instant-level image\nediting, challenges remain. Its performance still relies on\nthe quality of the SBv2 generator, thus, biases in the train-\ning data can transfer to our inversion network. For future\nwork, we want to improve the method by transitioning from\ninstant-level to real-time editing capabilities. This enhance-\nment would address current limitations and have a signifi-\ncant impact across various fields."
+  }
+}

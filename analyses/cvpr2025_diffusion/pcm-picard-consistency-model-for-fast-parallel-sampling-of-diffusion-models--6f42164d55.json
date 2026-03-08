@@ -1,0 +1,113 @@
+{
+  "paper_id": "pcm-picard-consistency-model-for-fast-parallel-sampling-of-diffusion-models--6f42164d55",
+  "paper_title": "PCM : Picard Consistency Model for Fast Parallel Sampling of Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:14.732396+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/PCM ： Picard Consistency Model for Fast Parallel Sampling of Diffusion Models.pdf",
+    "filename": "PCM ： Picard Consistency Model for Fast Parallel Sampling of Diffusion Models.pdf",
+    "sha1": "6f42164d557f2bba4102f5238331ffacfcb2e268",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Re- cently, ParaDiGMS [38] tackled this challenge with a par- allel sampling method based on Picard iteration, reducing the sequential steps in diffusion sampling by performing more computations in parallel.",
+    "limitation": "However, this process has a notable drawback: slow generation speed.",
+    "insight": "Abstract Recently, diffusion models have achieved significant ad- vances in vision, text, and robotics.",
+    "proposed_method": "In this work, we propose a new par- allelization scheme, the Picard Consistency Model (PCM), which significantly reduces the number of generation steps in Picard iteration.",
+    "experimental_evidence": "Extensive experiments demonstrate that PCM achieves up to a 2.71x speedup over sequential sampling and a 1.77x speedup over Picard iteration across various tasks, including image generation and robotic control.",
+    "summary": "Re- cently, ParaDiGMS [38] tackled this challenge with a par- allel sampling method based on Picard iteration, reducing the sequential steps in diffusion sampling by performing more computations in parallel. However, this process has a notable drawback: slow generation speed. Abstract Recently, diffusion models have achieved significant ad- vances in vision, text, and robotics. In this work, we propose a new par- allelization scheme, the Picard Consistency Model (PCM), which significantly reduces the number of generation steps in Picard iteration. Extensive experiments demonstrate that PCM achieves up to a 2.71x speedup over sequential sampling and a 1.77x speedup over Picard iteration across various tasks, including image generation and robotic control."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Recently, diffusion probabilistic models [7] have achieved outstanding performance across diverse generative tasks in vision [30, 32, 35], audio [9, 15, 23], text [1, 18, 25], robotics [2, 12], and bioinformatics [21, 46].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Recently, diffusion probabilistic models [7] have achieved outstanding performance across diverse generative tasks in vision [30, 32, 35], audio [9, 15, 23], text [1, 18, 25], robotics [2, 12], and bioinformatics [21, 46]. Their iterative denoising process enables high-quality outputs by capturing fine details and diversity, making them versatile across ap- plications. However, this process has a notable drawback: slow generation speed. For example, early diffusion models like DDPM [7] require 1,000 denoising steps, each involv- ing intensive computation, resulting in high latency."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "To enable faster inference, various approaches have been proposed; however, most achieve speedups at the expense of quality degradation or inconsistent convergence.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "To enable faster inference, various approaches have been proposed; however, most achieve speedups at the expense of quality degradation or inconsistent convergence. For in- stance, ODE-based solvers like DDIM [40] often trade off image quality for fewer sampling steps. Studies like the Consistency Model [43] and Progressive Distillation [37] use distillation to reduce sampling steps, but the final output may differ from the original model due to modified weights. In this work, we aim to explore a different question: can increased parallelism lead to faster convergence?"
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "While adding parallelism can nearly linearly enhance throughput, achieving low latency in sequential generative models de- mands innovation at the mathematical foundation level.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "While adding parallelism can nearly linearly enhance throughput, achieving low latency in sequential generative models de- mands innovation at the mathematical foundation level. Re- cently, ParaDiGMS [38] tackled this challenge with a par- allel sampling method based on Picard iteration, reducing the sequential steps in diffusion sampling by performing more computations in parallel. Picard iteration ensures con- vergence to the exact output, guaranteeing the same output quality as original model; however, it does not ensure fast convergence, which may result in slower generation speeds in practice. In this study, we introduce the Picard Consistency Model (PCM) to accelerate the convergence speed of Picard iter- ation."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "Inspired by the Consistency Model [43], PCM is trained to directly predict the fixed-point solution at any point along the Picard iteration trajectory.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Inspired by the Consistency Model [43], PCM is trained to directly predict the fixed-point solution at any point along the Picard iteration trajectory. In addition, our novel idea, model mixing, ensures exact convergence to the original output even with PCM’s acceleration. Our exten- sive analysis reveals that PCM with model mixing gives a 2.71x speedup over sequential denoising and 1.77x speedup over Picard iteration, with guaranteeing exact convergence in diverse image generation and robotic applications."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, they still face slow generation speeds due to sequential denoising pro- cesses.",
+      "Nonetheless, Picard iteration does not guaran- tee faster convergence, which can still result in slow gen- eration in practice.",
+      "However, this process has a notable drawback: slow generation speed.",
+      "To enable faster inference, various approaches have been proposed; however, most achieve speedups at the expense of quality degradation or inconsistent convergence.",
+      "Picard iteration ensures con- vergence to the exact output, guaranteeing the same output quality as original model; however, it does not ensure fast convergence, which may result in slower generation speeds in practice."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this, a parallel sampling method based on Picard iteration was introduced, effectively reducing se- quential steps while ensuring exact convergence to the orig- inal output.",
+      "In this work, we propose a new par- allelization scheme, the Picard Consistency Model (PCM), which significantly reduces the number of generation steps in Picard iteration.",
+      "To address this, we propose a novel method, Picard Consistency Training (PCT), to accelerate Picard it- erations in diffusion models while preserving exact conver- gence properties.",
+      "Experiments To validate the effectiveness of our method, we conducted experiments across various tasks, including image gener- ation and robot control.",
+      "12 5: if θP CM .use-lora then 6: for lora-layers in θP CM do 7: lora-layers.scale ← λ 8: end for 9: X k+1 = Φ(X k; θP CM ) 10: else 11: XP CM , ← Φ(X k; θP CM ) 12: Xbase ← Φ(X k; θbase) 13: X k+1 ← λ ∗ XP CM + (1 − λ) ∗ Xbase 14: end if 15: k ← k + 1 16: end while 17: return X K T ▷ Return last image in image generation, we demonstrate that our method achieves generated exactly the same results compared to se- quential denoising and our PCM generates higher-quality images within the same number of iterations compared to the naive Picard [38].",
+      "Additionally, we propose a model- switching method to preserve the exact convergence proper- ties of Picard iteration."
+    ],
+    "experiment_expression": [
+      "Extensive experiments demonstrate that PCM achieves up to a 2.71x speedup over sequential sampling and a 1.77x speedup over Picard iteration across various tasks, including image generation and robotic control.",
+      "Method The mathematical foundation of Picard iteration supports convergence, but as shown in studies on numerical analy- sis [11, 31, 33], its convergence rate is often undefined and tends to be slow for large-scale problems, limiting practi- cal speedup.",
+      "12 5: if θP CM .use-lora then 6: for lora-layers in θP CM do 7: lora-layers.scale ← λ 8: end for 9: X k+1 = Φ(X k; θP CM ) 10: else 11: XP CM , ← Φ(X k; θP CM ) 12: Xbase ← Φ(X k; θbase) 13: X k+1 ← λ ∗ XP CM + (1 − λ) ∗ Xbase 14: end if 15: k ← k + 1 16: end while 17: return X K T ▷ Return last image in image generation, we demonstrate that our method achieves generated exactly the same results compared to se- quential denoising and our PCM generates higher-quality images within the same number of iterations compared to the naive Picard [38].",
+      "Extensive experiments demonstrate that PCM achieves approximately a 2.71x speedup com- pared to sequential denoising and around a 1.77x speedup over standard Picard iteration without compromising gener- ation quality."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Additionally, we propose a model- switching method to preserve the exact convergence proper- ties of Picard iteration.",
+    "Extensive experiments demonstrate that PCM achieves approximately a 2.71x speedup com- pared to sequential denoising and around a 1.77x speedup over standard Picard iteration without compromising gener- ation quality.",
+    "Extensive experiments demonstrate that PCM achieves up to a 2.71x speedup over sequential sampling and a 1.77x speedup over Picard iteration across various tasks, including image generation and robotic control.",
+    "However, they still face slow generation speeds due to sequential denoising pro- cesses.",
+    "However, this process has a notable drawback: slow generation speed.",
+    "In this work, we propose a new par- allelization scheme, the Picard Consistency Model (PCM), which significantly reduces the number of generation steps in Picard iteration.",
+    "Picard iteration ensures con- vergence to the exact output, guaranteeing the same output quality as original model; however, it does not ensure fast convergence, which may result in slower generation speeds in practice.",
+    "To address this, we propose a novel method, Picard Consistency Training (PCT), to accelerate Picard it- erations in diffusion models while preserving exact conver- gence properties.",
+    "To enable faster inference, various approaches have been proposed; however, most achieve speedups at the expense of quality degradation or inconsistent convergence.",
+    "11 17: Backprop. θP CM using L 18: Update EMA ˆθPCM using Eq.",
+    "14: while not converged do 15: Sample J ∼ D , k ∼ U[0, K − 1] 16: Get X k, X∗ from J and compute loss L using Eq.",
+    "Abstract Recently, diffusion models have achieved significant ad- vances in vision, text, and robotics."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRecently, diffusion models have achieved significant ad-\nvances in vision, text, and robotics. However, they still face\nslow generation speeds due to sequential denoising pro-\ncesses. To address this, a parallel sampling method based\non Picard iteration was introduced, effectively reducing se-\nquential steps while ensuring exact convergence to the orig-\ninal output. Nonetheless, Picard iteration does not guaran-\ntee faster convergence, which can still result in slow gen-\neration in practice. In this work, we propose a new par-\nallelization scheme, the Picard Consistency Model (PCM),\nwhich significantly reduces the number of generation steps\nin Picard iteration. Inspired by the consistency model, PCM\nis directly trained to predict the fixed-point solution, or the\nfinal output, at any stage of the convergence trajectory. Ad-\nditionally, we introduce a new concept called model switch-\ning, which addresses PCM’s limitations and ensures exact\nconvergence. Extensive experiments demonstrate that PCM\nachieves up to a 2.71x speedup over sequential sampling\nand a 1.77x speedup over Picard iteration across various\ntasks, including image generation and robotic control.",
+    "introduction": "1. Introduction\nRecently, diffusion probabilistic models [7] have achieved\noutstanding performance across diverse generative tasks in\nvision [30, 32, 35], audio [9, 15, 23], text [1, 18, 25],\nrobotics [2, 12], and bioinformatics [21, 46]. Their iterative\ndenoising process enables high-quality outputs by capturing\nfine details and diversity, making them versatile across ap-\nplications. However, this process has a notable drawback:\nslow generation speed. For example, early diffusion models\nlike DDPM [7] require 1,000 denoising steps, each involv-\ning intensive computation, resulting in high latency.\nTo enable faster inference, various approaches have been\nproposed; however, most achieve speedups at the expense\nof quality degradation or inconsistent convergence. For in-\nstance, ODE-based solvers like DDIM [40] often trade off\nimage quality for fewer sampling steps. Studies like the\nConsistency Model [43] and Progressive Distillation [37]\nuse distillation to reduce sampling steps, but the final output\nmay differ from the original model due to modified weights.\nIn this work, we aim to explore a different question: can\nincreased parallelism lead to faster convergence? While\nadding parallelism can nearly linearly enhance throughput,\nachieving low latency in sequential generative models de-\nmands innovation at the mathematical foundation level. Re-\ncently, ParaDiGMS [38] tackled this challenge with a par-\nallel sampling method based on Picard iteration, reducing\nthe sequential steps in diffusion sampling by performing\nmore computations in parallel. Picard iteration ensures con-\nvergence to the exact output, guaranteeing the same output\nquality as original model; however, it does not ensure fast\nconvergence, which may result in slower generation speeds\nin practice.\nIn this study, we introduce the Picard Consistency Model\n(PCM) to accelerate the convergence speed of Picard iter-\nation. Inspired by the Consistency Model [43], PCM is\ntrained to directly predict the fixed-point solution at any\npoint along the Picard iteration trajectory. In addition, our\nnovel idea, model mixing, ensures exact convergence to the\noriginal output even with PCM’s acceleration. Our exten-\nsive analysis reveals that PCM with model mixing gives a\n2.71x speedup over sequential denoising and 1.77x speedup\nover Picard iteration, with guaranteeing exact convergence\nin diverse image generation and robotic applications.",
+    "method": "3. Method\nThe mathematical foundation of Picard iteration supports\nconvergence, but as shown in studies on numerical analy-\nsis [11, 31, 33], its convergence rate is often undefined and\ntends to be slow for large-scale problems, limiting practi-\ncal speedup. To address this, we propose a novel method,\nPicard Consistency Training (PCT), to accelerate Picard it-\nerations in diffusion models while preserving exact conver-\ngence properties.",
+    "experiments": "4. Experiments\nTo validate the effectiveness of our method, we conducted\nexperiments across various tasks, including image gener-\nation and robot control. For image generation, we tested\non the Latent Diffusion Model [35] (LDM) , which uses a\nU-Net [36] architecture that operates denoising procedure\nin latent space of V AE, and performed experiments on the\nCelebA [24] dataset and Stable Diffusion [35] (SD), to con-\nduct experiment on both unconditional and conditional sam-\npling cases. For robotic control, we follow setups in Diffu-\nsion Policy [2]. Detailed experimental setups are provided\nin the relevant section.\nFor evaluation, we performed qualitative and quantita-\ntive analysis in both tasks. For the qualitative experiments,\nAlgorithm 1 Picard Consistency Training\nRequire: Original diffusion model θbase, ODE-Solver Φ,\npicard step K, dataset size N\n1: ▷ Dataset Generation\n2: while n < N do\n3: J , k ← {}, 0 ▷ Initialize\n4: X 0 ∼ N (0, I) ▷ Sample initial noise\n5: while k < K do\n6: X k+1 = Φ(X k) ▷ Picard iteration\n7: Append X k to J , k ← k + 1\n8: end while\n9: Append J to D, n ← n + 1\n10: end while\n11:\n12: ▷ Training\n13: θP CM , ˆθPCM ← θbase ▷ Start from pretrained.\n14: while not converged do\n15: Sample J ∼ D , k ∼ U[0, K − 1]\n16: Get X k, X∗ from J and compute loss L using Eq. 11\n17: Backprop. θP CM using L\n18: Update EMA ˆθPCM using Eq. 13\n19: end while\n20: return ˆθPCM\nAlgorithm 2 Inference of Picard Consistency Model\nRequire: Original diffusion model θbase, PCM θP CM ,\nODE-Solver Φ, picard step K\n1: k ← 0\n2: X 0 ∼ N(0, I) ▷ Sample initial noise\n3: while k < K do\n4: λ ← λ(k) ▷ Eq. 12\n5: if θP CM .use-lora then\n6: for lora-layers in θP CM do\n7: lora-layers.scale ← λ\n8: end for\n9: X k+1 = Φ(X k; θP CM )\n10: else\n11: XP CM , ← Φ(X k; θP CM )\n12: Xbase ← Φ(X k; θbase)\n13: X k+1 ← λ ∗ XP CM + (1 − λ) ∗ Xbase\n14: end if\n15: k ← k + 1\n16: end while\n17: return X K\nT ▷ Return last image\nin image generation, we demonstrate that our method\nachieves generated exactly the same results compared to se-\nquential denoising and our PCM generates higher-quality\nimages within the same number of iterations compared to\nthe naive Picard [38]. In robotic control tasks, we visual-\nize an episode of pushT tasks using naive Picard and our\n23317\n\n(a) Sequential\n (b) Picard\n (c) PCM\nFigure 5. Qualitative comparison of Sequential (a), Picard (b),\nand PCM (c) on Stable Diffusion v1.4 using DDIM. All methods\nconverge to the exact same solution, with PCM requiring 2.8 times\nless latency than Sequential.\nFigure 6. Qualtitive comparison of Picard (up-row) and\nPCM(down-row) in same iteration k on LDM-CelebA with\nDDIM. While Picard generate inaccurate images in early iteration,\nPCM generate data that are more closely resembles actual images.\nPCM, demonstrating PCM safely generate correct motion\nsequences while naive Picard failed.\nIn the quantitative experiments, for CelebA, we mea-\nsured the latency speedup and Fr ´echet Inception Distance\n(FID) [6] using 5,000 generated images. For stable dif-\nfusion, we report the theoretical speedup and CLIP score\n[5] to measure the correctness of image and given prompt.\nFor robotic control tasks, we report the latency speedup\nand average reward of episodes. The Picard Consistency\nTraining and dataset generation are conducted on high-\nperformance servers equipped with 8×RTX3090 and eval-\nuated on 1×A6000 GPUs. We use CUDA 11.8 and Pytorch\n2.4.0 for experiments.",
+    "conclusion": "6. Conclusion\nIn this paper, we introduce the Picard Consistency Model\n(PCM) to enhance parallel sampling in diffusion models.\nInspired by Consistency Models, our Picard Consistency\nTraining enables the diffusion model to predict the final\nfixed-point solution at each Picard iteration, accelerating\nconvergence notably. Additionally, we propose a model-\nswitching method to preserve the exact convergence proper-\nties of Picard iteration. Extensive experiments demonstrate\nthat PCM achieves approximately a 2.71x speedup com-\npared to sequential denoising and around a 1.77x speedup\nover standard Picard iteration without compromising gener-\nation quality."
+  }
+}

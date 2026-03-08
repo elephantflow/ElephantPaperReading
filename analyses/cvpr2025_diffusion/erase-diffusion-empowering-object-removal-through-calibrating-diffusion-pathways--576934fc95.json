@@ -1,0 +1,134 @@
+{
+  "paper_id": "erase-diffusion-empowering-object-removal-through-calibrating-diffusion-pathways--576934fc95",
+  "paper_title": "Erase Diffusion: Empowering Object Removal Through Calibrating Diffusion Pathways",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:39.090946+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Erase Diffusion： Empowering Object Removal Through Calibrating Diffusion Pathways.pdf",
+    "filename": "Erase Diffusion： Empowering Object Removal Through Calibrating Diffusion Pathways.pdf",
+    "sha1": "576934fc95a17e3972cff8c74926a3c3dffd2f17",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Image inpainting is a crucial technique in computer vi- sion, aimed at reconstructing missing or damaged regions while maintaining visual coherence and contextual integrity [15, 32].",
+    "limitation": "However, in comparison to general image inpainting, an ideal erase inpainting model must address two critical challenges.",
+    "insight": "Abstract Erase inpainting, or object removal, aims to precisely re- move target objects within masked regions while preserving the overall consistency of the surrounding content.",
+    "proposed_method": "To tackle these challenges, we propose a novel Erase Diffusion, termed EraDiff, aimed at unleash- ing the potential power of standard diffusion in the con- text of object removal.",
+    "experimental_evidence": "With this design, our proposed EraDiff achieves state-of-the-art performance on the OpenImages V5 dataset and demonstrates significant superiority in real-world scenarios.",
+    "summary": "Introduction Image inpainting is a crucial technique in computer vi- sion, aimed at reconstructing missing or damaged regions while maintaining visual coherence and contextual integrity [15, 32]. However, in comparison to general image inpainting, an ideal erase inpainting model must address two critical challenges. Abstract Erase inpainting, or object removal, aims to precisely re- move target objects within masked regions while preserving the overall consistency of the surrounding content. To tackle these challenges, we propose a novel Erase Diffusion, termed EraDiff, aimed at unleash- ing the potential power of standard diffusion in the con- text of object removal. With this design, our proposed EraDiff achieves state-of-the-art performance on the OpenImages V5 dataset and demonstrates significant superiority in real-world scenarios."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Image inpainting is a crucial technique in computer vi- sion, aimed at reconstructing missing or damaged regions while maintaining visual coherence and contextual integrity [15, 32].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Image inpainting is a crucial technique in computer vi- sion, aimed at reconstructing missing or damaged regions while maintaining visual coherence and contextual integrity [15, 32]. As one specialized form of image inpainting, ob- ject removal, also called erase inpainting, has broader appli- cations in various fields such as social media [3, 50], adver- tising design [36], and image processing [37, 46]. However, in comparison to general image inpainting, an ideal erase inpainting model must address two critical challenges. Co- herence: The model should seamlessly inpaint the masked area, ensuring consistency in lighting, content, and other relevant aspects."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "Elimination: The model should accu- rately remove objects within the masked area while prevent- ing the generation of extraneous elements or artifacts.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Elimination: The model should accu- rately remove objects within the masked area while prevent- ing the generation of extraneous elements or artifacts. Prior erase inpainting methods primarily relied on non- parametric patch sampling techniques [4, 10, 19] or Gen- erative Adversarial Networks (GANs) [5, 8, 14, 22, 29, 33, 41, 44, 48]. These approaches often resort to filling large masked regions with repetitive patches, resulting in a lack of coherence in the generated images. In recent years, meth- ods based on Latent Diffusion Models (LDMs) [27] have demonstrated superiority in generating more natural im- ages."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "However, these methods struggle to eliminate target objects.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "However, these methods struggle to eliminate target objects. For example, when a user seeks to erase a piece of pizza in Figure 1, the LDMs may mistakenly generate another piece of pizza instead of the expected clean plate. We attribute the above issues to the fact that standard dif- fusion pathways in most existing methods are not suitable for erase tasks. During optimization, most diffusion-based erase inpainting models take the original image with added noise and randomly generated masks as input, aiming to re- cover the original image in the presence of noise."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "limitation",
+      "main_message": "However, this standard training paradigm only establishes a denois- ing process that transitions from random noise to clear im- ages, without addressing the specific goal of object removal.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "However, this standard training paradigm only establishes a denois- ing process that transitions from random noise to clear im- ages, without addressing the specific goal of object removal. Consequently, the model may follow a denoising pathway from noise to an image with objects. Based on this observa- tion, we argue that an ideal erase inpainting model should establish a diffusion pathway directly from objects to back- grounds to ensure the definitive removal of unwanted ele- ments. Furthermore, in the early stages of denoising, the re- constructed regions are significantly influenced by the shape of the masks and the level of noise."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "method_overview",
+      "main_message": "This impact may lead to deviations in the early latent states, resulting in the emer- gence of artifacts.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "This impact may lead to deviations in the early latent states, resulting in the emer- gence of artifacts. The standard self-attention mechanism tends to incorrectly regard the features of these artifacts as important information, which gradually amplifies the devi- ations during the subsequent denoising process. Ultimately, it leads to unexpected objects in the generated images. In this paper, we present a novel erase diffusion model, termed EraDiff, specifically designed for object removal, which effectively unleashes the potential erasure power of standard diffusion."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "background",
+      "main_message": "First, we introduce a Chain-Rectifying Optimization (CRO) paradigm that supports the establish- ment of new diffusion pathways from noise to backgrounds.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "First, we introduce a Chain-Rectifying Optimization (CRO) paradigm that supports the establish- ment of new diffusion pathways from noise to backgrounds. Specifically, we develop a dynamic image synthesis strat- egy that enables the generation of a variety of dynamic images at different time steps without the need for extra data. These synthesized dynamic images effectively simu- late the gradual elimination of objects during the denoising process, yielding intermediate latent states corresponding to different time steps. Next, we introduce a new dedicated optimization objective for erase inpainting."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "background",
+      "main_message": "This objective guides the establishment of transitions among multiple in- termediate latent states.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This objective guides the establishment of transitions among multiple in- termediate latent states. By applying the CRO paradigm, the model learns to accurately identify the intention to erase and improve content coherence. Furthermore, to address poten- tial deviations caused by artifacts during the early denois- ing process, we design a Self-Rectifying Attention (SRA) mechanism that explicitly guides the model in executing ob- ject removal more effectively. By altering self-attention ac- tivation, the SRA enhances background features while rec- tifying its incorrect reliance on artifacts."
+    },
+    {
+      "paragraph_index": 8,
+      "paragraph_role": "background",
+      "main_message": "This replacement of the standard attention mechanism results in final gener- ated images that appear more realistic and devoid of un- expected objects.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This replacement of the standard attention mechanism results in final gener- ated images that appear more realistic and devoid of un- expected objects. To the best of our knowledge, our pro- posed method achieves state-of-the-art performance in both the public OpenImages V5 [18] dataset and large-scale real- world scenarios."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Introduction Image inpainting is a crucial technique in computer vi- sion, aimed at reconstructing missing or damaged regions while maintaining visual coherence and contextual integrity [15, 32].",
+      "However, in comparison to general image inpainting, an ideal erase inpainting model must address two critical challenges."
+    ],
+    "limitation_expression": [
+      "However, in comparison to general image inpainting, an ideal erase inpainting model must address two critical challenges.",
+      "However, these methods struggle to eliminate target objects.",
+      "However, this standard training paradigm only establishes a denois- ing process that transitions from random noise to clear im- ages, without addressing the specific goal of object removal."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To tackle these challenges, we propose a novel Erase Diffusion, termed EraDiff, aimed at unleash- ing the potential power of standard diffusion in the con- text of object removal."
+    ],
+    "experiment_expression": [
+      "With inclusive experiments, we demonstrate that these ad- vancements significantly improve performance in challeng- ing scenarios, positioning EraDiff as a valuable contribution to the field of erase inpainting."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, in comparison to general image inpainting, an ideal erase inpainting model must address two critical challenges.",
+    "However, these methods struggle to eliminate target objects.",
+    "However, this standard training paradigm only establishes a denois- ing process that transitions from random noise to clear im- ages, without addressing the specific goal of object removal.",
+    "To tackle these challenges, we propose a novel Erase Diffusion, termed EraDiff, aimed at unleash- ing the potential power of standard diffusion in the con- text of object removal.",
+    "2418 pathways that simulate the gradual elimination of objects during optimization, allowing the model to accurately cap- ture the intent of object removal.",
+    "2420 tQ tK tV ?? ? ?? ??−? ? ?? ?0 ??? ?0 ??? ?0 ??? ?? ? ?? ??−? ? ?? ??−? ? ?? ?? ? ?? ??−? ??? ?? ??? ?? ??? ?? ? ?? ?? ??−? ? ?? ℒ ??−? ? ?? ?0 ???",
+    "A mix-up strategy then synthesizes a series of dynamic images {˜xmix t } that simulate the gradual fading of the object.",
+    "Abstract Erase inpainting, or object removal, aims to precisely re- move target objects within masked regions while preserving the overall consistency of the surrounding content.",
+    "As one specialized form of image inpainting, ob- ject removal, also called erase inpainting, has broader appli- cations in various fields such as social media [3, 50], adver- tising design [36], and image processing [37, 46].",
+    "Based on this observa- tion, we argue that an ideal erase inpainting model should establish a diffusion pathway directly from objects to back- grounds to ensure the definitive removal of unwanted ele- ments.",
+    "Bottom: Self-Rectifying Attention (SRA).",
+    "By altering self-attention ac- tivation, the SRA enhances background features while rec- tifying its incorrect reliance on artifacts."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nErase inpainting, or object removal, aims to precisely re-\nmove target objects within masked regions while preserving\nthe overall consistency of the surrounding content. Despite\ndiffusion-based methods have made significant strides in the\nfield of image inpainting, challenges remain regarding the\nemergence of unexpected objects or artifacts. We assert\nthat the inexact diffusion pathways established by existing\n∗ These authors contributed equally to this work.\n† Corresponding author.\nstandard optimization paradigms constrain the efficacy of\nobject removal. To tackle these challenges, we propose a\nnovel Erase Diffusion, termed EraDiff, aimed at unleash-\ning the potential power of standard diffusion in the con-\ntext of object removal. In contrast to standard diffusion,\nthe EraDiff adapts both the optimization paradigm and the\nnetwork to improve the coherence and elimination of the\nerasure results. We first introduce a Chain-Rectifying Opti-\nmization (CRO) paradigm, a sophisticated diffusion process\nspecifically designed to align with the objectives of erasure.\nThis paradigm establishes innovative diffusion transition\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n2418\n\npathways that simulate the gradual elimination of objects\nduring optimization, allowing the model to accurately cap-\nture the intent of object removal. Furthermore, to mitigate\ndeviations caused by artifacts during the sampling path-\nways, we develop a simple yet effective Self-Rectifying At-\ntention (SRA) mechanism. The SRA calibrates the sampling\npathways by altering self-attention activation, allowing the\nmodel to effectively bypass artifacts while further enhanc-\ning the coherence of the generated content. With this design,\nour proposed EraDiff achieves state-of-the-art performance\non the OpenImages V5 dataset and demonstrates significant\nsuperiority in real-world scenarios.",
+    "introduction": "1. Introduction\nImage inpainting is a crucial technique in computer vi-\nsion, aimed at reconstructing missing or damaged regions\nwhile maintaining visual coherence and contextual integrity\n[15, 32]. As one specialized form of image inpainting, ob-\nject removal, also called erase inpainting, has broader appli-\ncations in various fields such as social media [3, 50], adver-\ntising design [36], and image processing [37, 46]. However,\nin comparison to general image inpainting, an ideal erase\ninpainting model must address two critical challenges. Co-\nherence: The model should seamlessly inpaint the masked\narea, ensuring consistency in lighting, content, and other\nrelevant aspects. Elimination: The model should accu-\nrately remove objects within the masked area while prevent-\ning the generation of extraneous elements or artifacts.\nPrior erase inpainting methods primarily relied on non-\nparametric patch sampling techniques [4, 10, 19] or Gen-\nerative Adversarial Networks (GANs) [5, 8, 14, 22, 29, 33,\n41, 44, 48]. These approaches often resort to filling large\nmasked regions with repetitive patches, resulting in a lack\nof coherence in the generated images. In recent years, meth-\nods based on Latent Diffusion Models (LDMs) [27] have\ndemonstrated superiority in generating more natural im-\nages. However, these methods struggle to eliminate target\nobjects. For example, when a user seeks to erase a piece\nof pizza in Figure 1, the LDMs may mistakenly generate\nanother piece of pizza instead of the expected clean plate.\nWe attribute the above issues to the fact that standard dif-\nfusion pathways in most existing methods are not suitable\nfor erase tasks. During optimization, most diffusion-based\nerase inpainting models take the original image with added\nnoise and randomly generated masks as input, aiming to re-\ncover the original image in the presence of noise. However,\nthis standard training paradigm only establishes a denois-\ning process that transitions from random noise to clear im-\nages, without addressing the specific goal of object removal.\nConsequently, the model may follow a denoising pathway\nfrom noise to an image with objects. Based on this observa-\ntion, we argue that an ideal erase inpainting model should\nestablish a diffusion pathway directly from objects to back-\ngrounds to ensure the definitive removal of unwanted ele-\nments. Furthermore, in the early stages of denoising, the re-\nconstructed regions are significantly influenced by the shape\nof the masks and the level of noise. This impact may lead\nto deviations in the early latent states, resulting in the emer-\ngence of artifacts. The standard self-attention mechanism\ntends to incorrectly regard the features of these artifacts as\nimportant information, which gradually amplifies the devi-\nations during the subsequent denoising process. Ultimately,\nit leads to unexpected objects in the generated images.\nIn this paper, we present a novel erase diffusion model,\ntermed EraDiff, specifically designed for object removal,\nwhich effectively unleashes the potential erasure power of\nstandard diffusion. First, we introduce a Chain-Rectifying\nOptimization (CRO) paradigm that supports the establish-\nment of new diffusion pathways from noise to backgrounds.\nSpecifically, we develop a dynamic image synthesis strat-\negy that enables the generation of a variety of dynamic\nimages at different time steps without the need for extra\ndata. These synthesized dynamic images effectively simu-\nlate the gradual elimination of objects during the denoising\nprocess, yielding intermediate latent states corresponding\nto different time steps. Next, we introduce a new dedicated\noptimization objective for erase inpainting. This objective\nguides the establishment of transitions among multiple in-\ntermediate latent states. By applying the CRO paradigm, the\nmodel learns to accurately identify the intention to erase and\nimprove content coherence. Furthermore, to address poten-\ntial deviations caused by artifacts during the early denois-\ning process, we design a Self-Rectifying Attention (SRA)\nmechanism that explicitly guides the model in executing ob-\nject removal more effectively. By altering self-attention ac-\ntivation, the SRA enhances background features while rec-\ntifying its incorrect reliance on artifacts. This replacement\nof the standard attention mechanism results in final gener-\nated images that appear more realistic and devoid of un-\nexpected objects. To the best of our knowledge, our pro-\nposed method achieves state-of-the-art performance in both\nthe public OpenImages V5 [18] dataset and large-scale real-\nworld scenarios.",
+    "method": "4. Method\nOverview. The overall architecture of our proposed Erase\nDiffusion, termed EraDiff, is shown in Figure 2, consisting\nof a Chain-Rectifying Optimization paradigm (see Section\n4.1) and a Self-Rectifying Attention mechanism (see Sec-\ntion 4.2). This CRO paradigm introduces the design of dy-\nnamic latent states along with a dedicated optimization ob-\njective, thereby establishing novel diffusion chains that bet-\nter align with the erasure objectives. Meanwhile, the SRA\nmechanism effectively guides the sampling process to pre-\nvent state deviations caused by artifacts.\n2420\n\ntQ\ntK\ntV\n??\n? ??\n??−?\n? ??\n?0\n???\n?0\n???\n?0\n???\n??\n? ??\n??−?\n? ?? ??−?\n? ??\n??\n? ??\n??−?\n???\n??\n???\n??\n???\n??\n? ?? ?? ??−?\n? ??\nℒ\n??−?\n? ??\n?0\n???\nFigure 2. The overview of our proposed Erase Diffusion, termed\nEraDiff. Left: Dynamic image synthesis. Each image is initially\ntransformed using techniques like matting, scaling, and copy-\npasting. A mix-up strategy then synthesizes a series of dynamic\nimages {˜xmix\nt } that simulate the gradual fading of the object.\nTop: Chain-Rectifying Optimization (CRO). The standard sam-\npling pathway is prone to generating artifacts (black dashed lines).\nIn contrast, we establish a new sampling path for erasing (red\ndashed lines) that better aligns the reverse sampling trajectory with\na clear background. Bottom: Self-Rectifying Attention (SRA).\nThe standard self-attention mechanism may inadvertently amplify\nartifacts, diverging from the expected diffusion pathway. By mod-\nifying the attention activation, we guide the model to bypass arti-\nfact regions, enhancing its focus on the background and ensuring\na more accurate erase sampling path.",
+    "experiments": "5. Experiments",
+    "conclusion": "6. Conclusion\nIn this paper, we present the EraDiff, which enhances object\nelimination while maintaining visual coherence in erase in-\npainting. By introducing a CRO paradigm, EraDiff estab-\nlishes innovative diffusion pathways that facilitate a grad-\nual removal of objects, allowing the model to better under-\nstand the erasure intent. Moreover, the SRA mechanism\neffectively reduces artifacts during the sampling process.\nWith inclusive experiments, we demonstrate that these ad-\nvancements significantly improve performance in challeng-\ning scenarios, positioning EraDiff as a valuable contribution\nto the field of erase inpainting."
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "paper_id": "video-motion-transfer-with-diffusion-transformers--621ffc354d",
+  "paper_title": "Video Motion Transfer with Diffusion Transformers",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:49.073665+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Video Motion Transfer with Diffusion Transformers.pdf",
+    "filename": "Video Motion Transfer with Diffusion Transformers.pdf",
+    "sha1": "621ffc354dea7c0d9a195dd946bd4c1391ba8974",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Diffusion models have rapidly emerged as the global stan- dard for visual content synthesis, largely due to their perfor- mance at scale.",
+    "limitation": "Introduction Diffusion models have rapidly emerged as the global stan- dard for visual content synthesis, largely due to their perfor- mance at scale.",
+    "insight": "Abstract We propose DiTFlow, a method for transferring the motion of a reference video to a newly synthesized one, designed specifically for Diffusion Transformers (DiT).",
+    "proposed_method": "Abstract We propose DiTFlow, a method for transferring the motion of a reference video to a newly synthesized one, designed specifically for Diffusion Transformers (DiT).",
+    "experimental_evidence": "Through extensive experiments and multiple evaluations, we demonstrate the effectiveness of DiTFlow against base- lines in motion transfer, with extensions to zero-shot gener- ation.",
+    "summary": "Introduction Diffusion models have rapidly emerged as the global stan- dard for visual content synthesis, largely due to their perfor- mance at scale. Introduction Diffusion models have rapidly emerged as the global stan- dard for visual content synthesis, largely due to their perfor- mance at scale. Abstract We propose DiTFlow, a method for transferring the motion of a reference video to a newly synthesized one, designed specifically for Diffusion Transformers (DiT). Abstract We propose DiTFlow, a method for transferring the motion of a reference video to a newly synthesized one, designed specifically for Diffusion Transformers (DiT). Through extensive experiments and multiple evaluations, we demonstrate the effectiveness of DiTFlow against base- lines in motion transfer, with extensions to zero-shot gener- ation."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Diffusion models have rapidly emerged as the global stan- dard for visual content synthesis, largely due to their perfor- mance at scale.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Diffusion models have rapidly emerged as the global stan- dard for visual content synthesis, largely due to their perfor- mance at scale. By scaling the model size, it has been pos- sible to train on increasingly large datasets, even including billions of samples, incredibly boosting synthesis capabil- ities [4, 12, 61, 66]. This trend is especially pronounced in video synthesis, where generating realistic, frame-by- frame visuals with coherent motion relies heavily on ex- tensive data and large models. In this context, a particu- larly promising development is the introduction of diffusion transformers (DiTs) [37]."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "Inspired by transformers, DiTs propose a new class of diffusion model that allows for im- proved scalability, ultimately achieving impressive realism in generation, as demonstrated by their adoption in many scale-oriented open source [53, 61] and commercial sys- tems [34, 38].",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Inspired by transformers, DiTs propose a new class of diffusion model that allows for im- proved scalability, ultimately achieving impressive realism in generation, as demonstrated by their adoption in many scale-oriented open source [53, 61] and commercial sys- tems [34, 38]. This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [],
+    "insight_expression": [],
+    "method_expression": [
+      "Abstract We propose DiTFlow, a method for transferring the motion of a reference video to a newly synthesized one, designed specifically for Diffusion Transformers (DiT)."
+    ],
+    "experiment_expression": [
+      "Through extensive experiments and multiple evaluations, we demonstrate the effectiveness of DiTFlow against base- lines in motion transfer, with extensions to zero-shot gener- ation."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Abstract We propose DiTFlow, a method for transferring the motion of a reference video to a newly synthesized one, designed specifically for Diffusion Transformers (DiT).",
+    "Through extensive experiments and multiple evaluations, we demonstrate the effectiveness of DiTFlow against base- lines in motion transfer, with extensions to zero-shot gener- ation.",
+    "Building on the intuition behind mo- tion cue extraction discussed in Section 4.1, we then de- scribe the creation of AMFs in Section 4.2.",
+    "By scaling the model size, it has been pos- sible to train on increasingly large datasets, even including billions of samples, incredibly boosting synthesis capabil- ities [4, 12, 61, 66].",
+    "Conclusions We present DiTFlow, the first DiT-specific method for motion transfer, based on our novel AMF formulation.",
+    "Corr.: pondaven@robots.ox.ac.uk fabio.pizzati@mbzuai.ac.ae 1.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Improved video action representations in DiTs may lower costs for generating robotic simulations and enable intuitive control of subject actions in content creation.",
+    "In this context, a particu- larly promising development is the introduction of diffusion transformers (DiTs) [37].",
+    "Introduction Diffusion models have rapidly emerged as the global stan- dard for visual content synthesis, largely due to their perfor- mance at scale.",
+    "Method Our core idea is to take advantage of the attention mecha- nism in DiTs to extract motion patterns across video frames in a zero-shot manner.",
+    "Note that the extracted motion patterns are independent from the in- put content, enabling the application of motion from a ref- erence video to arbitrary target conditions."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWe propose DiTFlow, a method for transferring the\nmotion of a reference video to a newly synthesized one,\ndesigned specifically for Diffusion Transformers (DiT).\nWe first process the reference video with a pre-trained\nDiT to analyze cross-frame attention maps and extract\na patch-wise motion signal called the Attention Motion\nFlow (AMF). We guide the latent denoising process in an\noptimization-based, training-free, manner by optimizing la-\ntents with our AMF loss to generate videos reproducing the\nmotion of the reference one. We also apply our optimization\nstrategy to transformer positional embeddings, granting us\na boost in zero-shot motion transfer capabilities. We eval-\nuate DiTFlow against recently published methods, outper-\nforming all across multiple metrics and human evaluation.\nCorr.: pondaven@robots.ox.ac.uk fabio.pizzati@mbzuai.ac.ae",
+    "introduction": "1. Introduction\nDiffusion models have rapidly emerged as the global stan-\ndard for visual content synthesis, largely due to their perfor-\nmance at scale. By scaling the model size, it has been pos-\nsible to train on increasingly large datasets, even including\nbillions of samples, incredibly boosting synthesis capabil-\nities [4, 12, 61, 66]. This trend is especially pronounced\nin video synthesis, where generating realistic, frame-by-\nframe visuals with coherent motion relies heavily on ex-\ntensive data and large models. In this context, a particu-\nlarly promising development is the introduction of diffusion\ntransformers (DiTs) [37]. Inspired by transformers, DiTs\npropose a new class of diffusion model that allows for im-\nproved scalability, ultimately achieving impressive realism\nin generation, as demonstrated by their adoption in many\nscale-oriented open source [53, 61] and commercial sys-\ntems [34, 38].\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "4. Method\nOur core idea is to take advantage of the attention mecha-\nnism in DiTs to extract motion patterns across video frames\nin a zero-shot manner. Building on the intuition behind mo-\ntion cue extraction discussed in Section 4.1, we then de-\nscribe the creation of AMFs in Section 4.2. The AMF ex-\ntracted from a reference video can be used as an optimiza-\ntion objective at a particular transformer block in the de-\nnoising network, as illustrated in Figure 2. We define how\nwe use the AMF for optimization in Section 4.3. Note that\nthe extracted motion patterns are independent from the in-\nput content, enabling the application of motion from a ref-\nerence video to arbitrary target conditions.",
+    "experiments": "5. Experiments",
+    "conclusion": "6. Conclusions\nWe present DiTFlow, the first DiT-specific method for\nmotion transfer, based on our novel AMF formulation.\nThrough extensive experiments and multiple evaluations,\nwe demonstrate the effectiveness of DiTFlow against base-\nlines in motion transfer, with extensions to zero-shot gener-\nation. Improved video action representations in DiTs may\nlower costs for generating robotic simulations and enable\nintuitive control of subject actions in content creation.\n22918"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "paper_id": "superpc-a-single-diffusion-model-for-point-cloud-completion-upsampling-denoising--72f73a7827",
+  "paper_title": "SuperPC: A Single Diffusion Model for Point Cloud Completion, Upsampling, Denoising, and Colorization",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:36.095030+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/SuperPC： A Single Diffusion Model for Point Cloud Completion, Upsampling, Denoising, and Colorization.pdf",
+    "filename": "SuperPC： A Single Diffusion Model for Point Cloud Completion, Upsampling, Denoising, and Colorization.pdf",
+    "sha1": "72f73a78277785320364c48971415917fc0fee09",
+    "page_count": 12
+  },
+  "core_story": {
+    "problem": "Introduction Point cloud (PC) processing [ 19, 26] has become a corner- stone technique in many ﬁelds such as object recognition [ 2, 81], mapping [ 56, 75], autonomous vehicle navigation [29, 43], and 3D modeling [ 13, 51].",
+    "limitation": "Despite this, using diffusion models to address all four tasks is challenging, and previous studies [ 33, 34, 36, 38] have been limited to tackling either individual tasks.",
+    "insight": "Abstract Point cloud (PC) processing tasks—such as completion, up- sampling, denoising, and colorization—are crucial in ap- plications like autonomous driving and 3D reconstruction.",
+    "proposed_method": "To address these challenges, we introduce SuperPC, the ﬁrst uniﬁed diffu- sion model capable of concurrently handling all four tasks.",
+    "experimental_evidence": "We show that Su- perPC outperforms the state-of-the-art specialized models as well as their combination on all four individual tasks.",
+    "summary": "Introduction Point cloud (PC) processing [ 19, 26] has become a corner- stone technique in many ﬁelds such as object recognition [ 2, 81], mapping [ 56, 75], autonomous vehicle navigation [29, 43], and 3D modeling [ 13, 51]. Despite this, using diffusion models to address all four tasks is challenging, and previous studies [ 33, 34, 36, 38] have been limited to tackling either individual tasks. Abstract Point cloud (PC) processing tasks—such as completion, up- sampling, denoising, and colorization—are crucial in ap- plications like autonomous driving and 3D reconstruction. To address these challenges, we introduce SuperPC, the ﬁrst uniﬁed diffu- sion model capable of concurrently handling all four tasks. We show that Su- perPC outperforms the state-of-the-art specialized models as well as their combination on all four individual tasks."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Point cloud (PC) processing [ 19, 26] has become a corner- stone technique in many ﬁelds such as object recognition [ 2, 81], mapping [ 56, 75], autonomous vehicle navigation [29, 43], and 3D modeling [ 13, 51].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Point cloud (PC) processing [ 19, 26] has become a corner- stone technique in many ﬁelds such as object recognition [ 2, 81], mapping [ 56, 75], autonomous vehicle navigation [29, 43], and 3D modeling [ 13, 51]. This diverse applica- bility stems from the ability of point cloud to capture the ge- ometric intricacies of the physical world with high ﬁdelity, offering a detailed substrate from which nuanced computa- tional analyses can be performed [ 5, 19, 26, 54]. Despite this critical need and importance, the prior PC processing methods, either geometry-based or data-driven, have typically concentrated on individual sub-tasks like de- noising [ 35, 53], upsampling [ 21, 70], completion [ 72, 73], and colorization [ 32, 58], rather than a single comprehen- sive solution. While some studies [ 9, 35, 36, 38] addressed the partial combination of those tasks, there is still a lack of a single model that addresses all four tasks simultaneously, which could bring multiple beneﬁts to this ﬁeld."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "problem_statement",
+      "main_message": "This is because an integrated model may be advantageous not just for its computational efﬁciency but also for preventing error accumulation and allowing them to implicitly improve each other due to the interconnectivity of the tasks.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This is because an integrated model may be advantageous not just for its computational efﬁciency but also for preventing error accumulation and allowing them to implicitly improve each other due to the interconnectivity of the tasks. For instance, in the experiments, we found that the error of the comple- tion model accumulated and affected the upsampling; the error pattern produced by an upsampling model often re- sulted in suboptimal denoising. As a result, we argue that a single uniﬁed model that is capable of concurrently han- dling the four point cloud processing tasks is necessary. To this end, we take PC processing as generative tasks and resort to diffusion-based models [ 33, 33, 34, 36, 38, 55], which have shown signiﬁcant advancements on PC genera- tion."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "Despite this, using diffusion models to address all four tasks is challenging, and previous studies [ 33, 34, 36, 38] have been limited to tackling either individual tasks.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Despite this, using diffusion models to address all four tasks is challenging, and previous studies [ 33, 34, 36, 38] have been limited to tackling either individual tasks. The ﬁrst limitation is their selective preservation of input in- formation, whether global, local, or raw, using the input point cloud solely as a condition to guide the diffusion pro- cess. These approaches lacks the ability to generate point clouds that meet the requirements of all four tasks, as each task possesses distinct characteristics and demands. For in- stance, the approach [ 34] relies solely on the global shape latent features for guiding 3D shape generation, which re- sults in a limited capacity to capture the local object details; “PC2” [ 38] only employs the raw features of the input im- age as the condition, lacking the ability to preserve global- level information."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "limitation",
+      "main_message": "Another limitation of previous methods is their restriction to a single modality.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Another limitation of previous methods is their restriction to a single modality. For instance, the approach by Luo et al. [ 34] is conﬁned to processing point cloud inputs, while the method by Luke et al. [ 38] is limited to handling only image inputs. As a result, they only work for simple object-level PC like ShapeNet [ 7] but struggle on complex scene-level PC such as KITTI-360 [ 31]. To address the ﬁrst limitation, we introduce SuperPC, which integrates a Three-Level-Conditioned (TLC) diffu- sion framework to simultaneously handle four tasks."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "For This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "For This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Abstract Point cloud (PC) processing tasks—such as completion, up- sampling, denoising, and colorization—are crucial in ap- plications like autonomous driving and 3D reconstruction.",
+      "Despite this critical need and importance, the prior PC processing methods, either geometry-based or data-driven, have typically concentrated on individual sub-tasks like de- noising [ 35, 53], upsampling [ 21, 70], completion [ 72, 73], and colorization [ 32, 58], rather than a single comprehen- sive solution."
+    ],
+    "limitation_expression": [
+      "However , this iso- lated approach fails to account for the fact that defects like incompleteness, low resolution, noise, and lack of color frequently coexist, with each defect inﬂuencing and corre- lating with the others.",
+      "While some studies [ 9, 35, 36, 38] addressed the partial combination of those tasks, there is still a lack of a single model that addresses all four tasks simultaneously, which could bring multiple beneﬁts to this ﬁeld.",
+      "Despite this, using diffusion models to address all four tasks is challenging, and previous studies [ 33, 34, 36, 38] have been limited to tackling either individual tasks.",
+      "For in- stance, the approach [ 34] relies solely on the global shape latent features for guiding 3D shape generation, which re- sults in a limited capacity to capture the local object details; “PC2” [ 38] only employs the raw features of the input im- age as the condition, lacking the ability to preserve global- level information.",
+      "For instance, the approach by Luo et al. [ 34] is conﬁned to processing point cloud inputs, while the method by Luke et al. [ 38] is limited to handling only image inputs."
+    ],
+    "insight_expression": [],
+    "method_expression": [],
+    "experiment_expression": [
+      "Methodology As shown in Figure 2, we will explain the concept of the Three-Level-Conditioned (TLC) framework (middle of Fig- ure 2, Section 4.1), and details of three novel modules that apply the Spatial-Mix-Fusion (SMF) strategy to fuse the two input modalities and generate three-level conditions (top of Figure 2, Section 4.2, Section 4.3, and Section 4.4)."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However , this iso- lated approach fails to account for the fact that defects like incompleteness, low resolution, noise, and lack of color frequently coexist, with each defect inﬂuencing and corre- lating with the others.",
+    "Abstract Point cloud (PC) processing tasks—such as completion, up- sampling, denoising, and colorization—are crucial in ap- plications like autonomous driving and 3D reconstruction.",
+    "Acknowledgments This work was supported by the DARPA award HR00112490426.",
+    "Ad- ditionally, these benchmarks are organized into two eval- uation tracks to assess generalization ability—Object-to- Scene and Sim-to-Real.",
+    "Additionally, we also use Density-aware Chamfer Distance (DCD) [ 65] instead of the traditional Chamfer Distance (CD) as CD is sensitive to mismatched local density [ 65].",
+    "Another limitation of previous methods is their restriction to a single modality.",
+    "Any opinions, ﬁndings, or conclusions expressed in this paper are those of the au- thors and do not necessarily reﬂect the views of DARPA.",
+    "As a result, they only work for simple object-level PC like ShapeNet [ 7] but struggle on complex scene-level PC such as KITTI-360 [ 31].",
+    "As a result, we argue that a single uniﬁed model that is capable of concurrently han- dling the four point cloud processing tasks is necessary.",
+    "Conclusion and Limitation Conclusion We introduced SuperPC, a single diffusion model that excels in completion, upsampling, denoising, and colorization of point clouds.",
+    "Despite substantial advancements, prior approaches often address each of these tasks independently, with separate models focused on individual issues.",
+    "Despite this, using diffusion models to address all four tasks is challenging, and previous studies [ 33, 34, 36, 38] have been limited to tackling either individual tasks."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nPoint cloud (PC) processing tasks—such as completion, up-\nsampling, denoising, and colorization—are crucial in ap-\nplications like autonomous driving and 3D reconstruction.\nDespite substantial advancements, prior approaches often\naddress each of these tasks independently, with separate\nmodels focused on individual issues. However , this iso-\nlated approach fails to account for the fact that defects like\nincompleteness, low resolution, noise, and lack of color\nfrequently coexist, with each defect inﬂuencing and corre-\nlating with the others. Simply applying these models se-\nquentially can lead to error accumulation from each model,\nalong with increased computational costs. To address these\nchallenges, we introduce SuperPC, the ﬁrst uniﬁed diffu-\nsion model capable of concurrently handling all four tasks.\nOur approach employs a three-level-conditioned diffusion\nframework, enhanced by a novel spatial-mix-fusion strat-\negy, to leverage the correlations among these four defects\nfor simultaneous, efﬁcient processing. We show that Su-\nperPC outperforms the state-of-the-art specialized models\nas well as their combination on all four individual tasks.\nProject website:\nhttps://sairlab.org/superpc/.",
+    "introduction": "1. Introduction\nPoint cloud (PC) processing [\n19, 26] has become a corner-\nstone technique in many ﬁelds such as object recognition\n[\n2, 81], mapping [ 56, 75], autonomous vehicle navigation\n[29, 43], and 3D modeling [ 13, 51]. This diverse applica-\nbility stems from the ability of point cloud to capture the ge-\nometric intricacies of the physical world with high ﬁdelity,\noffering a detailed substrate from which nuanced computa-\ntional analyses can be performed [\n5, 19, 26, 54].\nDespite this critical need and importance, the prior PC\nprocessing methods, either geometry-based or data-driven,\nhave typically concentrated on individual sub-tasks like de-\nnoising [\n35, 53], upsampling [ 21, 70], completion [ 72, 73],\nand colorization [ 32, 58], rather than a single comprehen-\nsive solution. While some studies [ 9, 35, 36, 38] addressed\nthe partial combination of those tasks, there is still a lack of\na single model that addresses all four tasks simultaneously,\nwhich could bring multiple beneﬁts to this ﬁeld. This is\nbecause an integrated model may be advantageous not just\nfor its computational efﬁciency but also for preventing error\naccumulation and allowing them to implicitly improve each\nother due to the interconnectivity of the tasks. For instance,\nin the experiments, we found that the error of the comple-\ntion model accumulated and affected the upsampling; the\nerror pattern produced by an upsampling model often re-\nsulted in suboptimal denoising. As a result, we argue that\na single uniﬁed model that is capable of concurrently han-\ndling the four point cloud processing tasks is necessary.\nTo this end, we take PC processing as generative tasks\nand resort to diffusion-based models [\n33, 33, 34, 36, 38, 55],\nwhich have shown signiﬁcant advancements on PC genera-\ntion. Despite this, using diffusion models to address all four\ntasks is challenging, and previous studies [\n33, 34, 36, 38]\nhave been limited to tackling either individual tasks. The\nﬁrst limitation is their selective preservation of input in-\nformation, whether global, local, or raw, using the input\npoint cloud solely as a condition to guide the diffusion pro-\ncess. These approaches lacks the ability to generate point\nclouds that meet the requirements of all four tasks, as each\ntask possesses distinct characteristics and demands. For in-\nstance, the approach [\n34] relies solely on the global shape\nlatent features for guiding 3D shape generation, which re-\nsults in a limited capacity to capture the local object details;\n“PC2” [\n38] only employs the raw features of the input im-\nage as the condition, lacking the ability to preserve global-\nlevel information. Another limitation of previous methods\nis their restriction to a single modality. For instance, the\napproach by Luo et al. [\n34] is conﬁned to processing point\ncloud inputs, while the method by Luke et al. [ 38] is limited\nto handling only image inputs. As a result, they only work\nfor simple object-level PC like ShapeNet [\n7] but struggle on\ncomplex scene-level PC such as KITTI-360 [ 31].\nTo address the ﬁrst limitation, we introduce SuperPC,\nwhich integrates a Three-Level-Conditioned (TLC) diffu-\nsion framework to simultaneously handle four tasks. For\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "4. Methodology\nAs shown in Figure\n2, we will explain the concept of the\nThree-Level-Conditioned (TLC) framework (middle of Fig-\nure\n2, Section 4.1), and details of three novel modules that\napply the Spatial-Mix-Fusion (SMF) strategy to fuse the\ntwo input modalities and generate three-level conditions\n(top of Figure\n2, Section 4.2, Section 4.3, and Section 4.4).",
+    "experiments": "5. Experiments\nBenchmarks and Datasets Previous methods have mainly\nreported performance on the ShapeNet dataset [\n7]. How-\never, it only contains simple 3D objects like chairs and\nplanes without color, limiting its ability to evaluate like\nin scene-level scenarios and point cloud colorization.\nTherefore, We have designed three new benchmarks for\npoint cloud processing tasks: one object-level (based on\nShapeNet [\n7] dataset) and two scene-level benchmarks\n(based on TartanAir [63] and KITTI360 [ 31] datasets). Ad-\nditionally, these benchmarks are organized into two eval-\nuation tracks to assess generalization ability—Object-to-\nScene and Sim-to-Real. The detailed setup of the three\nbenchmarks is presented in Appendix\nB.\nEvaluation Metrics For comprehensiveness, we select the\nmost widely used metrics for point cloud processing includ-\ning Earth Mover’s Distance (EMD) and F1. Additionally,\nwe also use Density-aware Chamfer Distance (DCD) [\n65]\ninstead of the traditional Chamfer Distance (CD) as CD is\nsensitive to mismatched local density [\n65]. The speciﬁcs of\nthe three metrics are detailed in Appendix C.\nWe next evaluate SuperPC against SOTA models across\nall four individual tasks and the combined task (Sec-\ntion\n5.1), assess its generalization through object-to-scene\nand sim-to-real tests (Section 5.2).",
+    "conclusion": "6. Conclusion and Limitation\nConclusion We introduced SuperPC, a single diffusion\nmodel that excels in completion, upsampling, denoising,\nand colorization of point clouds. Leveraging the proposed\nTLC framework and SMF strategy, it outperforms special-\nized models in efﬁciency and effectiveness on complex\nscene-level datasets. SuperPC sets a new benchmark for\ngenerating high-quality point clouds, enhancing task inter-\nconnectivity, and paving the way for advanced 3D environ-\nmental analysis in future applications.\nLimitation Nevertheless, SuperPC’s efﬁciency can be fur-\nther optimized by replacing the relatively heavy PointNet++\n[\n45] backbone with a sparse-tensor-based backbone. Fur-\nthermore, establishing a real-world object-level benchmark\nfor this task would be highly valuable and convincing. In\nfuture work, researchers could explore the performance of\na uniﬁed model across varying degrees of incompleteness\nderived from realistic scanning patterns.\nAcknowledgments This work was supported by the\nDARPA award HR00112490426. Any opinions, ﬁndings,\nor conclusions expressed in this paper are those of the au-\nthors and do not necessarily reﬂect the views of DARPA."
+  }
+}

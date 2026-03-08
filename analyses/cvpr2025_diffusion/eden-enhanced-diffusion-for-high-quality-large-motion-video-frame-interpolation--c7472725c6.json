@@ -1,0 +1,107 @@
+{
+  "paper_id": "eden-enhanced-diffusion-for-high-quality-large-motion-video-frame-interpolation--c7472725c6",
+  "paper_title": "EDEN: Enhanced Diffusion for High-quality Large-motion Video Frame Interpolation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:35.493464+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/EDEN： Enhanced Diffusion for High-quality Large-motion Video Frame Interpolation.pdf",
+    "filename": "EDEN： Enhanced Diffusion for High-quality Large-motion Video Frame Interpolation.pdf",
+    "sha1": "c7472725c64fd5eb1def4dc45aad37f87ba1713f",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Video frame interpolation is a classic computer vision task that aims to synthesize intermediate frames between given starting and ending frames.",
+    "limitation": "However, despite their advantages, diffusion-based methods still often fail at accurately capturing large, com- plex motions.",
+    "insight": "Abstract Handling complex or nonlinear motion patterns has long posed challenges for video frame interpolation.",
+    "proposed_method": "To address this limitation, we introduce EDEN, an Enhanced Diffusion for high-quality large-motion vid Eo frame i Nterpolation.",
+    "experimental_evidence": "Extensive experi- ments demonstrate that EDEN achieves state-of-the-art re- sults across popular benchmarks, including nearly a 10% LPIPS reduction on DAVIS and SNU-FILM, and an 8% im- provement on DAIN-HD.",
+    "summary": "Introduction Video frame interpolation is a classic computer vision task that aims to synthesize intermediate frames between given starting and ending frames. However, despite their advantages, diffusion-based methods still often fail at accurately capturing large, com- plex motions. Abstract Handling complex or nonlinear motion patterns has long posed challenges for video frame interpolation. To address this limitation, we introduce EDEN, an Enhanced Diffusion for high-quality large-motion vid Eo frame i Nterpolation. Extensive experi- ments demonstrate that EDEN achieves state-of-the-art re- sults across popular benchmarks, including nearly a 10% LPIPS reduction on DAVIS and SNU-FILM, and an 8% im- provement on DAIN-HD."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Video frame interpolation is a classic computer vision task that aims to synthesize intermediate frames between given starting and ending frames.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Video frame interpolation is a classic computer vision task that aims to synthesize intermediate frames between given starting and ending frames. It has wide applications, in- cluding animation production [52], generating slow motion videos [7, 20, 25], novel view synthesis [4, 17, 69] and videos compression [24, 62]. Most existing video frame interpolation methods [19, 28, 30, 31, 41, 49, 51, 65, 66] rely on estimating optical flow between the starting and ending frames to synthesize the intermediate frames. Recently, advances in diffusion mod- els have inspired researchers to explore their application in video frame interpolation [14, 21, 23, 36, 59]."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "These \u0000 : Corresponding author (zxwu@fudan.edu.cn).",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "These \u0000 : Corresponding author (zxwu@fudan.edu.cn). LDMVFI LBBDM Ours LDMVFI[14] LBBDM[36] Ours Figure 1. Comparisons between existing diffusion-based methods and our proposed EDEN on large-motion scenarios. diffusion-based approaches typically involve compressing the intermediate frames into latent representations using an encoder. Diffusion processes are then applied within the latent space to integrate information from both the starting and ending frames to predict the latent representation of the intermediate frame."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "Finally, a decoder reconstructs the la- tent representation into the desired intermediate frame.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Finally, a decoder reconstructs the la- tent representation into the desired intermediate frame. By directly generating intermediate frames from latent repre- sentations, these models eliminate the need for explicit op- tical flow-based warping, offering a promising alternative to traditional methods. However, despite their advantages, diffusion-based methods still often fail at accurately capturing large, com- plex motions. In scenes involving rapid, nonlinear move- ments, these approaches often face limitations in generat- ing sharp, realistic frames, resulting in motion blur and temporal inconsistencies."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "limitation",
+      "main_message": "For example, as shown in Fig- ure 1, current diffusion based methods struggle with han- dling large motions.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "For example, as shown in Fig- ure 1, current diffusion based methods struggle with han- dling large motions. Furthermore, our analysis of current diffusion based methods reveals that the effect of diffusion on the quality of generated intermediate frames is surpris- ingly minimal. To illustrate, we present in Figure 2 a com- parison between intermediate frames generated by directly decoding random noise versus decoding latent predicted by This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Although recent advances in diffusion-based methods offer improve- ments over traditional optical flow-based approaches, they still struggle to generate sharp, temporally consistent frames in scenarios with large motion.",
+      "However, despite their advantages, diffusion-based methods still often fail at accurately capturing large, com- plex motions.",
+      "Despite these improvements, our method still suffers from blurring when handling fast changes in fine de- tails (e.g., text)."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this limitation, we introduce EDEN, an Enhanced Diffusion for high-quality large-motion vid Eo frame i Nterpolation.",
+      "Our framework em- ployed a transformer-based tokenizer to compress interme- diate frames into compact tokens, enhancing latent repre- sentations for the diffusion process.",
+      "Despite these improvements, our method still suffers from blurring when handling fast changes in fine de- tails (e.g., text)."
+    ],
+    "experiment_expression": [
+      "Extensive experi- ments demonstrate that EDEN achieves state-of-the-art re- sults across popular benchmarks, including nearly a 10% LPIPS reduction on DAVIS and SNU-FILM, and an 8% im- provement on DAIN-HD.",
+      "For example, as shown in Fig- ure 1, current diffusion based methods struggle with han- dling large motions.",
+      "Extensive experiments demonstrated that EDEN achieved state-of-the-art performances on large- motion video benchmarks while also reducing computa- tional costs."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Extensive experiments demonstrated that EDEN achieved state-of-the-art performances on large- motion video benchmarks while also reducing computa- tional costs.",
+    "For example, as shown in Fig- ure 1, current diffusion based methods struggle with han- dling large motions.",
+    "However, despite their advantages, diffusion-based methods still often fail at accurately capturing large, com- plex motions.",
+    "Abstract Handling complex or nonlinear motion patterns has long posed challenges for video frame interpolation.",
+    "Although recent advances in diffusion-based methods offer improve- ments over traditional optical flow-based approaches, they still struggle to generate sharp, temporally consistent frames in scenarios with large motion.",
+    "By directly generating intermediate frames from latent repre- sentations, these models eliminate the need for explicit op- tical flow-based warping, offering a promising alternative to traditional methods.",
+    "By utilizing a diffusion trans- former with temporal attention and a start-end frame differ- ence embedding, EDEN captured complex motion dynam- ics more effectively.",
+    "Comparisons between existing diffusion-based methods and our proposed EDEN on large-motion scenarios. diffusion-based approaches typically involve compressing the intermediate frames into latent representations using an encoder.",
+    "Conclusion In this paper, we introduced EDEN, an enhanced diffusion- based method designed to tackle the challenges of large motion in video frame interpolation.",
+    "Despite these improvements, our method still suffers from blurring when handling fast changes in fine de- tails (e.g., text).",
+    "Diffusion processes are then applied within the latent space to integrate information from both the starting and ending frames to predict the latent representation of the intermediate frame.",
+    "Discussions on further details are included in appendix."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nHandling complex or nonlinear motion patterns has long\nposed challenges for video frame interpolation. Although\nrecent advances in diffusion-based methods offer improve-\nments over traditional optical flow-based approaches, they\nstill struggle to generate sharp, temporally consistent\nframes in scenarios with large motion. To address this\nlimitation, we introduce EDEN, an Enhanced Diffusion\nfor high-quality large-motion vid Eo frame i Nterpolation.\nOur approach first utilizes a transformer-based tokenizer\nto produce refined latent representations of the intermedi-\nate frames for diffusion models. We then enhance the diffu-\nsion transformer with temporal attention across the process\nand incorporate a start-end frame difference embedding to\nguide the generation of dynamic motion. Extensive experi-\nments demonstrate that EDEN achieves state-of-the-art re-\nsults across popular benchmarks, including nearly a 10%\nLPIPS reduction on DAVIS and SNU-FILM, and an 8% im-\nprovement on DAIN-HD.",
+    "introduction": "1. Introduction\nVideo frame interpolation is a classic computer vision task\nthat aims to synthesize intermediate frames between given\nstarting and ending frames. It has wide applications, in-\ncluding animation production [52], generating slow motion\nvideos [7, 20, 25], novel view synthesis [4, 17, 69] and\nvideos compression [24, 62].\nMost existing video frame interpolation methods [19, 28,\n30, 31, 41, 49, 51, 65, 66] rely on estimating optical flow\nbetween the starting and ending frames to synthesize the\nintermediate frames. Recently, advances in diffusion mod-\nels have inspired researchers to explore their application\nin video frame interpolation [14, 21, 23, 36, 59]. These\n\u0000 : Corresponding author (zxwu@fudan.edu.cn).\nLDMVFI LBBDM Ours\nLDMVFI[14] LBBDM[36] Ours\nFigure 1. Comparisons between existing diffusion-based methods\nand our proposed EDEN on large-motion scenarios.\ndiffusion-based approaches typically involve compressing\nthe intermediate frames into latent representations using an\nencoder. Diffusion processes are then applied within the\nlatent space to integrate information from both the starting\nand ending frames to predict the latent representation of the\nintermediate frame. Finally, a decoder reconstructs the la-\ntent representation into the desired intermediate frame. By\ndirectly generating intermediate frames from latent repre-\nsentations, these models eliminate the need for explicit op-\ntical flow-based warping, offering a promising alternative to\ntraditional methods.\nHowever, despite their advantages, diffusion-based\nmethods still often fail at accurately capturing large, com-\nplex motions. In scenes involving rapid, nonlinear move-\nments, these approaches often face limitations in generat-\ning sharp, realistic frames, resulting in motion blur and\ntemporal inconsistencies. For example, as shown in Fig-\nure 1, current diffusion based methods struggle with han-\ndling large motions. Furthermore, our analysis of current\ndiffusion based methods reveals that the effect of diffusion\non the quality of generated intermediate frames is surpris-\ningly minimal. To illustrate, we present in Figure 2 a com-\nparison between intermediate frames generated by directly\ndecoding random noise versus decoding latent predicted by\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Method\nOur goal is to amplify the impact of the diffusion model\nin VFI task from the perspective of improving latent rep-\nresentation, modifying model architecture, and enhancing\nthe training paradigm. To do so, we present the framework\nEDEN where we design a novel intermediate frame tok-\nenizer based on the transformer architecture and a novel\nDiT based diffusion framework more suitable for video\nframe interpolation task. Figure 3 illustrates the pipeline.\nIn the following sections, we analyze the technical details\nof how each of the aspects is implemented.",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nIn this paper, we introduced EDEN, an enhanced diffusion-\nbased method designed to tackle the challenges of large\nmotion in video frame interpolation. Our framework em-\nployed a transformer-based tokenizer to compress interme-\ndiate frames into compact tokens, enhancing latent repre-\nsentations for the diffusion process. To address multi-scale\nmotion, we incorporated a pyramid feature fusion mod-\nule and introduced multi-resolution and multi-frame inter-\nval fine-tuning to adapt the model to varying motion mag-\nnitudes and resolutions. By utilizing a diffusion trans-\nformer with temporal attention and a start-end frame differ-\nence embedding, EDEN captured complex motion dynam-\nics more effectively. Extensive experiments demonstrated\nthat EDEN achieved state-of-the-art performances on large-\nmotion video benchmarks while also reducing computa-\ntional costs. Despite these improvements, our method still\nsuffers from blurring when handling fast changes in fine de-\ntails (e.g., text). Discussions on further details are included\nin appendix.\nAcknowledgment. This work is supported by NSFC un-\nder Grant No.62472098."
+  }
+}

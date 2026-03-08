@@ -1,0 +1,136 @@
+{
+  "paper_id": "videoguide-improving-video-diffusion-models-without-training-through-a-teacher-s--43b726ce9e",
+  "paper_title": "VideoGuide: Improving Video Diffusion Models without Training Through a Teacher's Guide",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:49.615485+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/VideoGuide： Improving Video Diffusion Models without Training Through a Teacher's Guide.pdf",
+    "filename": "VideoGuide： Improving Video Diffusion Models without Training Through a Teacher's Guide.pdf",
+    "sha1": "43b726ce9ea323299baa3b2e42883881b08e132b",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Text-to-image (T2I) diffusion models have made signifi- cant advances in visual generation, enabling user interactive image generation with enriched text descriptions.",
+    "limitation": "The synergistic effects that our framework can bring are not limited to these two cases but are, in fact, boundless.",
+    "insight": "Abstract Text-to-image (T2I) diffusion models have revolutionized vi- sual content creation, but extending these capabilities to text- to-video (T2V) generation remains a challenge, particularly in preserving temporal consistency.",
+    "proposed_method": "To address these issues we introduce VideoGuide, a novel framework that enhances the temporal consistency of pre- trained T2V models without the need for additional training or fine-tuning.",
+    "experimental_evidence": "Furthermore, we demonstrate prior distil- lation, revealing that base models can achieve enhanced text coherence by utilizing the superior data prior of the guiding model through the proposed method.",
+    "summary": "Introduction Text-to-image (T2I) diffusion models have made signifi- cant advances in visual generation, enabling user interactive image generation with enriched text descriptions. The synergistic effects that our framework can bring are not limited to these two cases but are, in fact, boundless. Abstract Text-to-image (T2I) diffusion models have revolutionized vi- sual content creation, but extending these capabilities to text- to-video (T2V) generation remains a challenge, particularly in preserving temporal consistency. To address these issues we introduce VideoGuide, a novel framework that enhances the temporal consistency of pre- trained T2V models without the need for additional training or fine-tuning. Furthermore, we demonstrate prior distil- lation, revealing that base models can achieve enhanced text coherence by utilizing the superior data prior of the guiding model through the proposed method."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Text-to-image (T2I) diffusion models have made signifi- cant advances in visual generation, enabling user interactive image generation with enriched text descriptions.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Text-to-image (T2I) diffusion models have made signifi- cant advances in visual generation, enabling user interactive image generation with enriched text descriptions. Now the AI community is looking deeper into the potential of T2I diffusion models, exploring their application to the higher di- mensional field of video generation. Text-to-video (T2V) dif- fusion models aim to extend the capabilities of their image- based counterparts by generating coherent video sequences from text descriptions, handling both spatial and temporal dimensions simultaneously. Text-to-video (T2V) diffusion models often face a chal- lenging trade-off between temporal consistency and image quality, where improvements in one frequently degrade the other."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "method_overview",
+      "main_message": "This compromise results in diminished perceived quality and negatively impacts downstream tasks, such as T2V personalization.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "This compromise results in diminished perceived quality and negatively impacts downstream tasks, such as T2V personalization. Although recent works [4, 35] have at- tempted to address aspects of temporal quality, they often do so at the expense of either visual fidelity or inference speed. In this work, we address the clear need for a robust approach that refines the temporal stability of pretrained T2V models without sacrificing image quality. We propose a novel frame- work that greatly improves the quality of generated samples without requiring any training or fine-tuning."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "Specifically, we introduce VideoGuide, a general frame- work that uses any pretrained video diffusion model as a guide during early steps of reverse diffusion sampling.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Specifically, we introduce VideoGuide, a general frame- work that uses any pretrained video diffusion model as a guide during early steps of reverse diffusion sampling. The choice of pretrained teacher VDM is flexible; it can be freely selected from any existing VDMs, or even be the model itself. In any case, the VDM that acts as the guide provides a consis- tent video trajectory by proceeding in its own denoising for a small number of steps. The teacher model’s denoised sample is then interpolated with the original denoising process to guide the sample towards a direction with better temporal quality."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "method_overview",
+      "main_message": "Through interpolation, the student VDM is able to follow the temporal consistency of the teacher VDM to produce samples of enhanced quality.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Through interpolation, the student VDM is able to follow the temporal consistency of the teacher VDM to produce samples of enhanced quality. Such interpolation only needs to be involved in the first few steps of inference, but is strong enough to guide the entire denoising process towards more desirable results. VideoGuide is a versatile framework that allows any pre- trained video diffusion model to be used for distillation in a plug-and-play fashion. By integrating a high-performing VDM as a video guide, our framework elevates underper- forming VDMs to achieve state-of-the-art quality, which is particularly useful when the student model possesses unique traits unavailable for the teacher model."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "Additionally, we find that interpolating the teacher model’s denoised sample provides the student model with an enhanced noise prior, guiding it to generate samples previously unattainable.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Additionally, we find that interpolating the teacher model’s denoised sample provides the student model with an enhanced noise prior, guiding it to generate samples previously unattainable. In particular, we show two representative cases of how VideoGuide can be applied to combine the best of both worlds: unique functions provided by the student model and high temporal stability provided by the teacher model. In AnimateDiff [13], a motion module is trained that can be in- terleaved into any pretrained T2I model. The scheme works for any personalized image diffusion model and grants easy application of controllable and extensible modules [12, 38], but not without consequences."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "background",
+      "main_message": "Specifically, fixing the T2I weights limits interaction between the temporal module and generated spatial features, hence harming temporal consis- tency.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Specifically, fixing the T2I weights limits interaction between the temporal module and generated spatial features, hence harming temporal consis- tency. Applying VideoGuide with an open-source state-of- the-art model without personalization capability [3] as the teacher model, we can greatly enhance the temporal quality of AnimateDiff. Thus, personalization and controllability is provided by the student model, while temporal consis- tency is refined by the teacher model. Likewise, LaVie [34] is a multifaceted T2V model that offers various functions including interpolation and super-resolution in a cascaded generation framework, but shows substandard temporal con- sistency."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "method_overview",
+      "main_message": "Using VideoGuide, we can upgrade its temporal consistency with an external model while maintaining its multiple functions.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Using VideoGuide, we can upgrade its temporal consistency with an external model while maintaining its multiple functions. The synergistic effects that our framework can bring are not limited to these two cases but are, in fact, boundless. As powerful video diffusion models emerge, existing models will not become obsolete but actually improve through the guidance our method provides. Moreover, as VideoGuide can be applied solely during inference time, these benefits can be enjoyed with no cost at all."
+    },
+    {
+      "paragraph_index": 8,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Our contributions can be summarized as follows:",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "Our contributions can be summarized as follows:"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "1. We propose VideoGuide, a novel framework for enhanc-",
+      "purpose": "Gives the high-level system view before module details.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "The synergistic effects that our framework can bring are not limited to these two cases but are, in fact, boundless."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "We propose a novel frame- work that greatly improves the quality of generated samples without requiring any training or fine-tuning.",
+      "By integrating a high-performing VDM as a video guide, our framework elevates underper- forming VDMs to achieve state-of-the-art quality, which is particularly useful when the student model possesses unique traits unavailable for the teacher model.",
+      "The synergistic effects that our framework can bring are not limited to these two cases but are, in fact, boundless.",
+      "As powerful video diffusion models emerge, existing models will not become obsolete but actually improve through the guidance our method provides.",
+      "We propose VideoGuide, a novel framework for enhanc- ing temporal consistency and motion smoothness while maintaining the imaging quality of the original VDM."
+    ],
+    "experiment_expression": [
+      "Furthermore, we demonstrate prior distil- lation, revealing that base models can achieve enhanced text coherence by utilizing the superior data prior of the guiding model through the proposed method.",
+      "We demonstrate the effectiveness of VideoGuide on various base models, and prove its ability to enhance temporal consistency without sacrifice of imaging quality or motion smoothness compared to prior methods."
+    ],
+    "contribution_expression": [
+      "Our contributions can be summarized as follows: 1."
+    ]
+  },
+  "notable_sentences": [
+    "Our contributions can be summarized as follows: 1.",
+    "We propose VideoGuide, a novel framework for enhanc- ing temporal consistency and motion smoothness while maintaining the imaging quality of the original VDM.",
+    "We propose a novel frame- work that greatly improves the quality of generated samples without requiring any training or fine-tuning.",
+    "2599 brings about significant improvement in temporal consis- tency and image fidelity, providing a cost-effective and prac- tical solution that synergizes the strengths of various video diffusion models.",
+    "Abstract Text-to-image (T2I) diffusion models have revolutionized vi- sual content creation, but extending these capabilities to text- to-video (T2V) generation remains a challenge, particularly in preserving temporal consistency.",
+    "Additional ex- perimental details are provided in Supplementary Material.",
+    "Additionally, we find that interpolating the teacher model’s denoised sample provides the student model with an enhanced noise prior, guiding it to generate samples previously unattainable.",
+    "All experiments were conducted using DDIM with 50 steps for sampling.",
+    "Although recent works [4, 35] have at- tempted to address aspects of temporal quality, they often do so at the expense of either visual fidelity or inference speed.",
+    "Applying VideoGuide with an open-source state-of- the-art model without personalization capability [3] as the teacher model, we can greatly enhance the temporal quality of AnimateDiff.",
+    "As powerful video diffusion models emerge, existing models will not become obsolete but actually improve through the guidance our method provides.",
+    "As video diffusion models continue to evolve, new and emerging VDMs will only enhance the pertinence of VideoGuide over time, broadening the scope of VDMs utilizable as a video guide."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nText-to-image (T2I) diffusion models have revolutionized vi-\nsual content creation, but extending these capabilities to text-\nto-video (T2V) generation remains a challenge, particularly\nin preserving temporal consistency. Existing methods that\naim to improve consistency often cause trade-offs such as\nreduced imaging quality and impractical computational time.\nTo address these issues we introduce VideoGuide, a novel\nframework that enhances the temporal consistency of pre-\ntrained T2V models without the need for additional training\nor fine-tuning. Instead, VideoGuide leveragesany pretrained\nvideo diffusion model (VDM) or itself as a guide during the\nearly stages of inference, improving temporal quality by in-\nterpolating the guiding model’s denoised samples into the\nsampling model’s denoising process. The proposed method\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n2599\n\nbrings about significant improvement in temporal consis-\ntency and image fidelity, providing a cost-effective and prac-\ntical solution that synergizes the strengths of various video\ndiffusion models. Furthermore, we demonstrate prior distil-\nlation, revealing that base models can achieve enhanced text\ncoherence by utilizing the superior data prior of the guiding\nmodel through the proposed method. Project Page: https:\n//dohunlee1.github.io/videoguide.github.io/",
+    "introduction": "1. Introduction\nText-to-image (T2I) diffusion models have made signifi-\ncant advances in visual generation, enabling user interactive\nimage generation with enriched text descriptions. Now the\nAI community is looking deeper into the potential of T2I\ndiffusion models, exploring their application to the higher di-\nmensional field of video generation. Text-to-video (T2V) dif-\nfusion models aim to extend the capabilities of their image-\nbased counterparts by generating coherent video sequences\nfrom text descriptions, handling both spatial and temporal\ndimensions simultaneously.\nText-to-video (T2V) diffusion models often face a chal-\nlenging trade-off between temporal consistency and image\nquality, where improvements in one frequently degrade the\nother. This compromise results in diminished perceived\nquality and negatively impacts downstream tasks, such as\nT2V personalization. Although recent works [4, 35] have at-\ntempted to address aspects of temporal quality, they often do\nso at the expense of either visual fidelity or inference speed.\nIn this work, we address the clear need for a robust approach\nthat refines the temporal stability of pretrained T2V models\nwithout sacrificing image quality. We propose a novel frame-\nwork that greatly improves the quality of generated samples\nwithout requiring any training or fine-tuning.\nSpecifically, we introduce VideoGuide, a general frame-\nwork that uses any pretrained video diffusion model as a\nguide during early steps of reverse diffusion sampling. The\nchoice of pretrained teacher VDM is flexible; it can be freely\nselected from any existing VDMs, or even be the model itself.\nIn any case, the VDM that acts as the guide provides a consis-\ntent video trajectory by proceeding in its own denoising for a\nsmall number of steps. The teacher model’s denoised sample\nis then interpolated with the original denoising process to\nguide the sample towards a direction with better temporal\nquality. Through interpolation, the student VDM is able\nto follow the temporal consistency of the teacher VDM to\nproduce samples of enhanced quality. Such interpolation\nonly needs to be involved in the first few steps of inference,\nbut is strong enough to guide the entire denoising process\ntowards more desirable results.\nVideoGuide is a versatile framework that allows any pre-\ntrained video diffusion model to be used for distillation in\na plug-and-play fashion. By integrating a high-performing\nVDM as a video guide, our framework elevates underper-\nforming VDMs to achieve state-of-the-art quality, which is\nparticularly useful when the student model possesses unique\ntraits unavailable for the teacher model. Additionally, we\nfind that interpolating the teacher model’s denoised sample\nprovides the student model with an enhanced noise prior,\nguiding it to generate samples previously unattainable.\nIn particular, we show two representative cases of how\nVideoGuide can be applied to combine the best of both\nworlds: unique functions provided by the student model and\nhigh temporal stability provided by the teacher model. In\nAnimateDiff [13], a motion module is trained that can be in-\nterleaved into any pretrained T2I model. The scheme works\nfor any personalized image diffusion model and grants easy\napplication of controllable and extensible modules [12, 38],\nbut not without consequences. Specifically, fixing the T2I\nweights limits interaction between the temporal module and\ngenerated spatial features, hence harming temporal consis-\ntency. Applying VideoGuide with an open-source state-of-\nthe-art model without personalization capability [3] as the\nteacher model, we can greatly enhance the temporal quality\nof AnimateDiff. Thus, personalization and controllability\nis provided by the student model, while temporal consis-\ntency is refined by the teacher model. Likewise, LaVie [34]\nis a multifaceted T2V model that offers various functions\nincluding interpolation and super-resolution in a cascaded\ngeneration framework, but shows substandard temporal con-\nsistency. Using VideoGuide, we can upgrade its temporal\nconsistency with an external model while maintaining its\nmultiple functions.\nThe synergistic effects that our framework can bring are\nnot limited to these two cases but are, in fact, boundless. As\npowerful video diffusion models emerge, existing models\nwill not become obsolete but actually improve through the\nguidance our method provides. Moreover, as VideoGuide\ncan be applied solely during inference time, these benefits\ncan be enjoyed with no cost at all. Our contributions can be\nsummarized as follows:",
+    "method": "1. We propose VideoGuide, a novel framework for enhanc-\ning temporal consistency and motion smoothness while\nmaintaining the imaging quality of the original VDM.",
+    "experiments": "4. Experiments\nExperimental Settings. In our experiments, we leverage\nmultiple open-source Text-to-Video (T2V) diffusion models\nto explore the combined strengths of each. For the guid-\ning diffusion model, we choose Videocrafter2 [3] due to its\nstrong performance in temporal consistency, as measured by\nthe VBench [19] benchmark. For sampling, we employ Ani-\nmateDiff [13] for flexible personalization of video content,\nand Lavie [34] to enhance video quality and increase frame\ncount through super-resolution and interpolation techniques.\nThis integration combines the temporal consistency of the\nguiding model with the advantages of the sampling model.\nAll experiments were conducted using DDIM with 50 steps\nfor sampling. For our experiments with AnimateDiff, we\nset the number of interpolation steps I = 5, β = 0.5, and\nτ = 10, and used the Butterworth filter with a normalized\nfrequency of 0.25 and a filter order of n = 4. Additional ex-\nperimental details are provided in Supplementary Material.\nEvaluation Metrics. To validate the improvement in video\nconsistency with our proposed method, we evaluate five key\nmetrics: subject consistency, background consistency, imag-\ning quality, motion smoothness, and dynamic degree. For\nsubject consistency evaluation, DINO [1] feature similarity\nbetween frames is measured to assess consistency of the\nsubject’s appearance throughout the video. Background con-\nsistency is evaluated using CLIP feature similarity between\nframes to evaluate overall scene consistency. Imaging quality\nis also a key metric in that maintaining original image quality\nis essential for generation and enabling customization. Thus\nwe evaluate image quality using the multi-scale image qual-\nity transformer (MUSIQ) [21], which measures frame-wise\nlow-level distortion such as noise, blur, and over-exposure.\nTo ensure smooth motion, we employ a video interpolation\nmodel [24] to assess consistency of motion across video\nframes. To compare the magnitude of the motion in the\nvideos, we utilize RAFT [33] to estimate optical flow, and\ncalculate the mean of top 5% largest magnitude of the flows.",
+    "conclusion": "6. Conclusion\nIn this work, we introduced VideoGuide, a novel and\nversatile framework that enhances the temporal quality of\npretrained text-to-video (T2V) diffusion models without the\nneed for additional training or fine-tuning. Our approach pro-\nvides temporally consistent samples to intermediate latents\nduring the early stages of the denoising process, guiding the\nlow frequency components of latents towards a direction of\nhigh temporal consistency. The samples provided are not\nconfined to the base model; any superior pretrained VDM\ncan be selected for distillation. By doing so, we empower\nunderperforming models with improved motion smoothness\nand temporal consistency while maintaining their unique\ntraits and strengths, including personalization and control-\nlability. We demonstrate the effectiveness of VideoGuide\non various base models, and prove its ability to enhance\ntemporal consistency without sacrifice of imaging quality or\nmotion smoothness compared to prior methods. The poten-\ntial of VideoGuide extends far beyond the cases discussed,\nas VideoGuide ensures that even existing models can remain\nrelevant and competitive by leveraging the strengths of supe-\nrior models. As video diffusion models continue to evolve,\nnew and emerging VDMs will only enhance the pertinence\nof VideoGuide over time, broadening the scope of VDMs\nutilizable as a video guide."
+  }
+}

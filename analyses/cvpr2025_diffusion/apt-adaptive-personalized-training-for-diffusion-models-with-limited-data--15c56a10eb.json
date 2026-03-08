@@ -1,0 +1,120 @@
+{
+  "paper_id": "apt-adaptive-personalized-training-for-diffusion-models-with-limited-data--15c56a10eb",
+  "paper_title": "APT: Adaptive Personalized Training for Diffusion Models with Limited Data",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:00.045650+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/APT： Adaptive Personalized Training for Diffusion Models with Limited Data.pdf",
+    "filename": "APT： Adaptive Personalized Training for Diffusion Models with Limited Data.pdf",
+    "sha1": "15c56a10eb1488da136fb4ca08a8b52bf83a023e",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "However, personaliz- ing diffusion models using limited data presents significant challenges.",
+    "limitation": "However, personaliz- ing diffusion models using limited data presents significant challenges.",
+    "insight": "Abstract Personalizing diffusion models using limited data presents significant challenges, including overfitting, loss of prior knowledge, and degradation of text alignment.",
+    "proposed_method": "In this paper, we propose Adap- *Equal contribution †Corresponding author tive Personalized Training (APT) , a novel framework that mitigates overfitting by employing adaptive training strate- gies and regularizing the model’s internal representations during fine-tuning.",
+    "experimental_evidence": "Through extensive experiments, we demonstrate that APT effectively mitigates overfitting, preserves prior knowledge, and outperforms existing methods in generating high-quality, diverse images with limited reference data.",
+    "summary": "However, personaliz- ing diffusion models using limited data presents significant challenges. However, personaliz- ing diffusion models using limited data presents significant challenges. Abstract Personalizing diffusion models using limited data presents significant challenges, including overfitting, loss of prior knowledge, and degradation of text alignment. In this paper, we propose Adap- *Equal contribution †Corresponding author tive Personalized Training (APT) , a novel framework that mitigates overfitting by employing adaptive training strate- gies and regularizing the model’s internal representations during fine-tuning. Through extensive experiments, we demonstrate that APT effectively mitigates overfitting, preserves prior knowledge, and outperforms existing methods in generating high-quality, diverse images with limited reference data."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction The advent of diffusion models has significantly advanced the field of generative modeling, enabling the synthesis of diverse and high-quality images [13, 26, 33].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction The advent of diffusion models has significantly advanced the field of generative modeling, enabling the synthesis of diverse and high-quality images [13, 26, 33]. Personal- ization techniques, such as DreamBooth [27] and Textual Inversion [8], have further enhanced these models by en- abling subject-driven generation tailored to specific user needs. Such advancements have broad applications, from artistic content creation to specialized data augmentation in machine learning tasks [37, 38]. However, personaliz- ing diffusion models using limited data presents significant challenges."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "One critical issue is overfitting, which causes excessive shifts in the noise prediction distribution, dis- rupting the denoising trajectory of the pretrained diffusion model [17, 27].",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "One critical issue is overfitting, which causes excessive shifts in the noise prediction distribution, dis- rupting the denoising trajectory of the pretrained diffusion model [17, 27]. These shifts lead to the loss of prior knowl- edge, degradation of text alignment, and a reduced ability of the model to generalize to unseen prompts. Overfitting may cause the model to memorize spatial layouts, resulting in generated images with overly similar compositions, or to over-memorize textures, leading to poor stylization and a lack of diversity in response to different prompts. Moreover, overfitting can lead to the loss of prior knowledge, causing the model to generate images that do not accurately reflect the desired concept or context."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "For ex- ample, when generating an image with “a photo of a back- pack”, pretrained diffusion models may naturally include a person carrying the backpack, leveraging prior knowledge about common contexts.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "For ex- ample, when generating an image with “a photo of a back- pack”, pretrained diffusion models may naturally include a person carrying the backpack, leveraging prior knowledge about common contexts. However, after fine-tuning with limited data, the model may lose this prior knowledge, re- sulting in images of only the backpack without a person. This loss of prior knowledge is accompanied by changes in the cross-attention maps, which further degrade the quality and coherence of the generated images. Existing methods [9, 17, 21, 32, 38] have addressed these challenges through various regularization techniques and novel fine-tuning approaches."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "method_overview",
+      "main_message": "Techniques that constrain at- tention using masks [3] often require additional annotations and may not align effectively with the soft attention distri- butions of the model.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Techniques that constrain at- tention using masks [3] often require additional annotations and may not align effectively with the soft attention distri- butions of the model. Furthermore, prior preservation tech- niques that incorporate additional data [27] fine-tune the model by combining subject and auxiliary images but often suffer from overfitting. This can disrupt the original denois- ing trajectory, resulting in overfitting to auxiliary datasets and reduced generalization in generation quality [17]. In this work, we propose Adaptive Personalized Train- ing (APT) , a novel framework that addresses these chal- lenges by mitigating overfitting with adaptive training strategies, regularizing the internal representations of the model during fine-tuning, and preserving prior knowledge."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "method_overview",
+      "main_message": "Specifically, our method consists of three key components:",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Specifically, our method consists of three key components:"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "One critical issue is overfitting, which causes excessive shifts in the noise prediction distribution, dis- rupting the denoising trajectory of the pretrained diffusion model [17, 27]."
+    ],
+    "limitation_expression": [
+      "Abstract Personalizing diffusion models using limited data presents significant challenges, including overfitting, loss of prior knowledge, and degradation of text alignment.",
+      "Through extensive experiments, we demonstrate that APT effectively mitigates overfitting, preserves prior knowledge, and outperforms existing methods in generating high-quality, diverse images with limited reference data.",
+      "However, personaliz- ing diffusion models using limited data presents significant challenges.",
+      "However, after fine-tuning with limited data, the model may lose this prior knowledge, re- sulting in images of only the backpack without a person.",
+      "Method Personalizing diffusion models with limited reference data introduces significant challenges, such as overfitting, loss of prior knowledge, and degradation of text alignment [8, 17, 27].",
+      "Experiments In this section, we evaluate the effectiveness of our pro- posed APT in personalizing diffusion models with limited reference data.",
+      "Conclusion We have presented APT, a novel method for personalizing diffusion models with limited data."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "In this paper, we propose Adap- *Equal contribution †Corresponding author tive Personalized Training (APT) , a novel framework that mitigates overfitting by employing adaptive training strate- gies and regularizing the model’s internal representations during fine-tuning.",
+      "In this work, we propose Adaptive Personalized Train- ing (APT) , a novel framework that addresses these chal- lenges by mitigating overfitting with adaptive training strategies, regularizing the internal representations of the model during fine-tuning, and preserving prior knowledge.",
+      "Specifically, our method consists of three key components: 3.",
+      "To address these issues, we propose Adap- tive Personalized Training (APT) , a method focused on mitigating overfitting through adaptive training strategies (Section 3.1), stabilizing the model’s internal representa- tions during fine-tuning (Section 3.2), and preserving prior knowledge (Section 3.3).",
+      "An overview of our method is il- lustrated in Figure 2."
+    ],
+    "experiment_expression": [
+      "Through extensive experiments, we demonstrate that APT effectively mitigates overfitting, preserves prior knowledge, and outperforms existing methods in generating high-quality, diverse images with limited reference data."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, after fine-tuning with limited data, the model may lose this prior knowledge, re- sulting in images of only the backpack without a person.",
+    "However, personaliz- ing diffusion models using limited data presents significant challenges.",
+    "Through extensive experiments, we demonstrate that APT effectively mitigates overfitting, preserves prior knowledge, and outperforms existing methods in generating high-quality, diverse images with limited reference data.",
+    "Abstract Personalizing diffusion models using limited data presents significant challenges, including overfitting, loss of prior knowledge, and degradation of text alignment.",
+    "An overview of our method is il- lustrated in Figure 2.",
+    "By incorporating adap- tive training adjustments, representation stabilization, and attention alignment, APT effectively mitigates overfitting and preserves prior knowledge.",
+    "Conclusion We have presented APT, a novel method for personalizing diffusion models with limited data.",
+    "Detailed ablation results and additional evalua- tions are provided in the Supplementary Material B.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Existing methods [9, 17, 21, 32, 38] have addressed these challenges through various regularization techniques and novel fine-tuning approaches.",
+    "Experiments In this section, we evaluate the effectiveness of our pro- posed APT in personalizing diffusion models with limited reference data.",
+    "For ex- ample, when generating an image with “a photo of a back- pack”, pretrained diffusion models may naturally include a person carrying the backpack, leveraging prior knowledge about common contexts."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nPersonalizing diffusion models using limited data\npresents significant challenges, including overfitting, loss of\nprior knowledge, and degradation of text alignment. Over-\nfitting leads to shifts in the noise prediction distribution, dis-\nrupting the denoising trajectory and causing the model to\nlose semantic coherence. In this paper, we propose Adap-\n*Equal contribution\n†Corresponding author\ntive Personalized Training (APT) , a novel framework that\nmitigates overfitting by employing adaptive training strate-\ngies and regularizing the model’s internal representations\nduring fine-tuning. APT consists of three key components:\n(1) Adaptive Training Adjustment , which introduces an\noverfitting indicator to detect the degree of overfitting at\neach time step bin and applies adaptive data augmentation\nand adaptive loss weighting based on this indicator; (2)\nRepresentation Stabilization , which regularizes the mean\nand variance of intermediate feature maps to prevent exces-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n28619\n\nsive shifts in noise prediction; and (3) Attention Alignment\nfor Prior Knowledge Preservation , which aligns the cross-\nattention maps of the fine-tuned model with those of the pre-\ntrained model to maintain prior knowledge and semantic\ncoherence. Through extensive experiments, we demonstrate\nthat APT effectively mitigates overfitting, preserves prior\nknowledge, and outperforms existing methods in generating\nhigh-quality, diverse images with limited reference data.",
+    "introduction": "1. Introduction\nThe advent of diffusion models has significantly advanced\nthe field of generative modeling, enabling the synthesis of\ndiverse and high-quality images [13, 26, 33]. Personal-\nization techniques, such as DreamBooth [27] and Textual\nInversion [8], have further enhanced these models by en-\nabling subject-driven generation tailored to specific user\nneeds. Such advancements have broad applications, from\nartistic content creation to specialized data augmentation\nin machine learning tasks [37, 38]. However, personaliz-\ning diffusion models using limited data presents significant\nchallenges. One critical issue is overfitting, which causes\nexcessive shifts in the noise prediction distribution, dis-\nrupting the denoising trajectory of the pretrained diffusion\nmodel [17, 27]. These shifts lead to the loss of prior knowl-\nedge, degradation of text alignment, and a reduced ability\nof the model to generalize to unseen prompts.\nOverfitting may cause the model to memorize spatial\nlayouts, resulting in generated images with overly similar\ncompositions, or to over-memorize textures, leading to poor\nstylization and a lack of diversity in response to different\nprompts. Moreover, overfitting can lead to the loss of prior\nknowledge, causing the model to generate images that do\nnot accurately reflect the desired concept or context. For ex-\nample, when generating an image with “a photo of a back-\npack”, pretrained diffusion models may naturally include a\nperson carrying the backpack, leveraging prior knowledge\nabout common contexts. However, after fine-tuning with\nlimited data, the model may lose this prior knowledge, re-\nsulting in images of only the backpack without a person.\nThis loss of prior knowledge is accompanied by changes in\nthe cross-attention maps, which further degrade the quality\nand coherence of the generated images.\nExisting methods [9, 17, 21, 32, 38] have addressed these\nchallenges through various regularization techniques and\nnovel fine-tuning approaches. Techniques that constrain at-\ntention using masks [3] often require additional annotations\nand may not align effectively with the soft attention distri-\nbutions of the model. Furthermore, prior preservation tech-\nniques that incorporate additional data [27] fine-tune the\nmodel by combining subject and auxiliary images but often\nsuffer from overfitting. This can disrupt the original denois-\ning trajectory, resulting in overfitting to auxiliary datasets\nand reduced generalization in generation quality [17].\nIn this work, we propose Adaptive Personalized Train-\ning (APT) , a novel framework that addresses these chal-\nlenges by mitigating overfitting with adaptive training\nstrategies, regularizing the internal representations of the\nmodel during fine-tuning, and preserving prior knowledge.\nSpecifically, our method consists of three key components:",
+    "method": "3. Method\nPersonalizing diffusion models with limited reference data\nintroduces significant challenges, such as overfitting, loss\nof prior knowledge, and degradation of text alignment\n[8, 17, 27]. To address these issues, we propose Adap-\ntive Personalized Training (APT) , a method focused on\nmitigating overfitting through adaptive training strategies\n(Section 3.1), stabilizing the model’s internal representa-\ntions during fine-tuning (Section 3.2), and preserving prior\nknowledge (Section 3.3). An overview of our method is il-\nlustrated in Figure 2.",
+    "experiments": "4. Experiments\nIn this section, we evaluate the effectiveness of our pro-\nposed APT in personalizing diffusion models with limited\nreference data. We compare APT with existing techniques\nthrough qualitative and quantitative comparisons, a user\nstudy, an ablation study, and an analysis of the overfitting\nindicator. Detailed ablation results and additional evalua-\ntions are provided in the Supplementary Material B.",
+    "conclusion": "6. Conclusion\nWe have presented APT, a novel method for personalizing\ndiffusion models with limited data. By incorporating adap-\ntive training adjustments, representation stabilization, and\nattention alignment, APT effectively mitigates overfitting\nand preserves prior knowledge. Our experiments demon-\nstrate that APT outperforms existing methods, providing a\nrobust solution for personalized generative modeling. Fur-\nther research directions are discussed in Supplementary Ma-\nterial D."
+  }
+}

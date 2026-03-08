@@ -1,0 +1,95 @@
+{
+  "paper_id": "cleandift-diffusion-features-without-noise--02b779dfe4",
+  "paper_title": "CleanDIFT: Diffusion Features without Noise",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:13.014766+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/CleanDIFT： Diffusion Features without Noise.pdf",
+    "filename": "CleanDIFT： Diffusion Features without Noise.pdf",
+    "sha1": "02b779dfe4b6407fbc298fd14c8025997a6ee17f",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Learning meaningful visual representations that capture a vast amount of world knowledge remains a key problem in the ﬁeld of computer vision.",
+    "limitation": "However, the optimal approach to extract this world knowledge from a diffusion model remains uncertain.",
+    "insight": "Abstract Internal features from large-scale pre-trained diffusion models have recently been established as powerful seman- tic descriptors for a wide range of downstream tasks.",
+    "proposed_method": "We propose a novel feature extraction method that (1) eliminates the need to destroy information by adding noise to the input; and (2) produces timestep-independent generic diffusion features useful for a wide range of down-stream tasks, alleviating the need to tune a noising timestep per down-stream task.",
+    "experimental_evidence": "We show that this noise has a critical impact on the useful- ness of these features that cannot be remedied by ensem- bling with different random noises.",
+    "summary": "Introduction Learning meaningful visual representations that capture a vast amount of world knowledge remains a key problem in the ﬁeld of computer vision. However, the optimal approach to extract this world knowledge from a diffusion model remains uncertain. Abstract Internal features from large-scale pre-trained diffusion models have recently been established as powerful seman- tic descriptors for a wide range of downstream tasks. We propose a novel feature extraction method that (1) eliminates the need to destroy information by adding noise to the input; and (2) produces timestep-independent generic diffusion features useful for a wide range of down-stream tasks, alleviating the need to tune a noising timestep per down-stream task. We show that this noise has a critical impact on the useful- ness of these features that cannot be remedied by ensem- bling with different random noises."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Learning meaningful visual representations that capture a vast amount of world knowledge remains a key problem in the ﬁeld of computer vision.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nLearning meaningful visual representations that capture a\nvast amount of world knowledge remains a key problem\nin the ﬁeld of computer vision. Diffusion models can be\ntrained at scale in a self-supervised manner and have rapidly\nadvanced the state of the art in image [ 12, 41, 51] and video\ngeneration [ 13, 25, 58], making them a good candidate to\nlearn visual representations. Many early works have al-\nready achieved impressive results using internal features\nfrom large-scale pretrained diffusion models for a wide\nvariety of tasks, such as semantic correspondence detec-\ntion [62, 66, 67], semantic segmentation [ 2, 39, 63], panop-\ntic segmentation [ 64], object detection [ 8], and classiﬁca-\ntion [ 31]. However, the optimal approach to extract this\nworld knowledge from a diffusion model remains uncertain.\nTo understand why that is the case, we take a look at how\ndiffusion models are trained: a varying amount of noise\nis added to a clean input image (forward process) and the\nmodel is tasked to remove the noise from the image (back-\nward process). The amount of added noise is dependent on\nthe diffusion timestep. As a result, the model learns to op-\nerate on noisy imag"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "perform different tasks [1, 4].",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "perform different tasks [1, 4]. Since noisy images inherently\ncontain less information than clean images (cf. Figure 2),\nwe hypothesize that this harms the internal feature repre-\nsentation of diffusion models [ 9] and, thus, the extractable\nworld knowledge. Furthermore, the timestep acts as a hy-\nperparameter that inﬂuences the internal feature representa-\ntion and needs to be picked independently for every down-\nstream application (cf. Figure 14).\nWe propose a novel feature extraction method that (1)\neliminates the need to destroy information by adding noise\nto the input; and (2) produces timestep-independent generic\ndiffusion features useful for a wide range of down-stream\ntasks, alleviating the need to tune a noising timestep per\ndown-stream task. We show how to adapt an off-the-shelf\nlarge-scale pre-trained diffusion backbone to provide these\nfeatures at minimal cost (approximately 30 minutes of ﬁne-\ntuning on a single A100 GPU) and demonstrate improved\nperformance across a wide range of downstream tasks.\nWe achieve this by viewing a diffusion model as a family\nof T feature extractors that operate on images with different\nnoise levels and provide features with different charac"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "1. We propose CleanDIFT, a ﬁnetuning approach for diffu-",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "We show that this noise has a critical impact on the useful- ness of these features that cannot be remedied by ensem- bling with different random noises."
+    ],
+    "limitation_expression": [
+      "However, the optimal approach to extract this world knowledge from a diffusion model remains uncertain."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "We propose a novel feature extraction method that (1) eliminates the need to destroy information by adding noise to the input; and (2) produces timestep-independent generic diffusion features useful for a wide range of down-stream tasks, alleviating the need to tune a noising timestep per down-stream task.",
+      "Our method is generic and integrates easily with established methods, such as fusing diffusion and DINOv2 features [ 66, 67].",
+      "We propose CleanDIFT, a ﬁnetuning approach for diffu- sion models that enables them to operate on clean im- ages and makes the inherent world knowledge of these models more accessible.",
+      "Operating directly on clean images, our method elim- inates the information loss associated with adding noise to input images.",
+      "Instead, our method efﬁciently extracts features with just a single forward pass at infer- ence time, substantially reducing inference costs compared to methods relying on ensembling or inversion."
+    ],
+    "experiment_expression": [
+      "We show that these features readily outperform previous diffusion features by a wide margin in a wide variety of extraction setups and downstream tasks, offering better performance than even ensemble-based methods at a fraction of the cost. *Equal Contribution 1.",
+      "We show how to adapt an off-the-shelf large-scale pre-trained diffusion backbone to provide these features at minimal cost (approximately 30 minutes of ﬁne- tuning on a single A100 GPU) and demonstrate improved performance across a wide range of downstream tasks.",
+      "Exten- sive evaluations of CleanDIFT across diverse downstream tasks demonstrate signiﬁcant performance improvements over conventional diffusion features."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, the optimal approach to extract this world knowledge from a diffusion model remains uncertain.",
+    "We propose CleanDIFT, a ﬁnetuning approach for diffu- sion models that enables them to operate on clean im- ages and makes the inherent world knowledge of these models more accessible.",
+    "117 perform different tasks [1, 4].",
+    "Abstract Internal features from large-scale pre-trained diffusion models have recently been established as powerful seman- tic descriptors for a wide range of downstream tasks.",
+    "Additionally, our proposed method eliminates the need for noise or timestep ensembling [ 62], offering substantial speed gains (e.g., 8ˆ over DIFT [ 62]), on top of improved quality.",
+    "CleanDIFT produces noise-free, timestep-independent, general-purpose diffu- sion features by consolidating timestep-dependent repre- sentations from a pre-trained diffusion backbone into a uni- ﬁed feature representation.",
+    "Conclusion In this paper, we introduced CleanDIFT, a novel approach for extracting diffusion features.",
+    "Diffusion models can be trained at scale in a self-supervised manner and have rapidly advanced the state of the art in image [ 12, 41, 51] and video generation [ 13, 25, 58], making them a good candidate to learn visual representations.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Exten- sive evaluations of CleanDIFT across diverse downstream tasks demonstrate signiﬁcant performance improvements over conventional diffusion features.",
+    "Figure 2), we hypothesize that this harms the internal feature repre- sentation of diffusion models [ 9] and, thus, the extractable world knowledge.",
+    "Furthermore, CleanDIFT removes the re- quirement for tuning timesteps for each downstream task and avoids the computational overhead of ensembling over noise levels or timesteps."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nInternal features from large-scale pre-trained diffusion\nmodels have recently been established as powerful seman-\ntic descriptors for a wide range of downstream tasks. Works\nthat use these features generally need to add noise to im-\nages before passing them through the model to obtain the\nsemantic features, as the models do not offer the most use-\nful features when given images with little to no noise. We\nshow that this noise has a critical impact on the useful-\nness of these features that cannot be remedied by ensem-\nbling with different random noises. We address this is-\nsue by introducing a lightweight, unsupervised ﬁne-tuning\nmethod that enables diffusion backbones to provide high-\nquality, noise-free semantic features. We show that these\nfeatures readily outperform previous diffusion features by\na wide margin in a wide variety of extraction setups and\ndownstream tasks, offering better performance than even\nensemble-based methods at a fraction of the cost.\n*Equal Contribution",
+    "introduction": "1. Introduction\nLearning meaningful visual representations that capture a\nvast amount of world knowledge remains a key problem\nin the ﬁeld of computer vision. Diffusion models can be\ntrained at scale in a self-supervised manner and have rapidly\nadvanced the state of the art in image [ 12, 41, 51] and video\ngeneration [ 13, 25, 58], making them a good candidate to\nlearn visual representations. Many early works have al-\nready achieved impressive results using internal features\nfrom large-scale pretrained diffusion models for a wide\nvariety of tasks, such as semantic correspondence detec-\ntion [62, 66, 67], semantic segmentation [ 2, 39, 63], panop-\ntic segmentation [ 64], object detection [ 8], and classiﬁca-\ntion [ 31]. However, the optimal approach to extract this\nworld knowledge from a diffusion model remains uncertain.\nTo understand why that is the case, we take a look at how\ndiffusion models are trained: a varying amount of noise\nis added to a clean input image (forward process) and the\nmodel is tasked to remove the noise from the image (back-\nward process). The amount of added noise is dependent on\nthe diffusion timestep. As a result, the model learns to op-\nerate on noisy images and also becomes dependent on the\nnoise timestep as different noise levels require the model to\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n117\n\nperform different tasks [1, 4]. Since noisy images inherently\ncontain less information than clean images (cf. Figure 2),\nwe hypothesize that this harms the internal feature repre-\nsentation of diffusion models [ 9] and, thus, the extractable\nworld knowledge. Furthermore, the timestep acts as a hy-\nperparameter that inﬂuences the internal feature representa-\ntion and needs to be picked independently for every down-\nstream application (cf. Figure 14).\nWe propose a novel feature extraction method that (1)\neliminates the need to destroy information by adding noise\nto the input; and (2) produces timestep-independent generic\ndiffusion features useful for a wide range of down-stream\ntasks, alleviating the need to tune a noising timestep per\ndown-stream task. We show how to adapt an off-the-shelf\nlarge-scale pre-trained diffusion backbone to provide these\nfeatures at minimal cost (approximately 30 minutes of ﬁne-\ntuning on a single A100 GPU) and demonstrate improved\nperformance across a wide range of downstream tasks.\nWe achieve this by viewing a diffusion model as a family\nof T feature extractors that operate on images with different\nnoise levels and provide features with different characteris-\ntics. We consolidate all T feature extraction functions in our\nfeature extractor by aligning their internal representations.\nSpeciﬁcally, we initialize our feature extractor as a trainable\ncopy of the diffusion model; ﬁne-tune it with clean images\nand no timestep input; and align its features with all T time-\ndependent feature extractors of the diffusion model.\nWe evaluate our improved features across a wide va-\nriety of downstream tasks, such as semantic correspon-\ndence matching, monocular depth estimation, semantic seg-\nmentation, and classiﬁcation, and ﬁnd that they consis-\ntently improve upon approaches based on standard diffu-\nsion features. These improvements are most evident for\ndense visual tasks such as semantic correspondence match-\ning, where our features show substantial performance gains\nacross a wide variety of setups [ 62, 66, 67] and set a new\nstate-of-the-art for unsupervised semantic correspondence\nmatching. Additionally, our proposed method eliminates\nthe need for noise or timestep ensembling [ 62], offering\nsubstantial speed gains (e.g., 8ˆ over DIFT [ 62]), on top\nof improved quality. Our method is generic and integrates\neasily with established methods, such as fusing diffusion\nand DINOv2 features [ 66, 67].\nOur main contributions are as follows:",
+    "method": "1. We propose CleanDIFT, a ﬁnetuning approach for diffu-\nsion models that enables them to operate on clean im-\nages and makes the inherent world knowledge of these\nmodels more accessible.",
+    "experiments": "4. Experiments\nWe test our hypothesis that the proposed extraction setup\nenables us to leverage more of the world knowledge in-\nherent in diffusion models compared to existing diffusion\nfeature extraction methods while being task-agnostic and\ntimestep-independent. To that end, we evaluate our fea-\ntures on a wide range of downstream tasks: unsupervised\nzero-shot semantic correspondence, monocular depth esti-\nmation, semantic segmentation, and classiﬁcation. We com-\npare our features against standard diffusion features, meth-\nods that combine diffusion features with additional features,\nand non-diffusion-based approaches.",
+    "conclusion": "5. Conclusion\nIn this paper, we introduced CleanDIFT, a novel approach\nfor extracting diffusion features. CleanDIFT produces\nnoise-free, timestep-independent, general-purpose diffu-\nsion features by consolidating timestep-dependent repre-\nsentations from a pre-trained diffusion backbone into a uni-\nﬁed feature representation. We achieve this alignment be-\ntween our feature extraction model and the pre-trained dif-\nfusion backbone through a lightweight ﬁne-tuning proce-\ndure that takes approximately 30 minutes on a single A100\nGPU. Operating directly on clean images, our method elim-\ninates the information loss associated with adding noise to\ninput images. Furthermore, CleanDIFT removes the re-\nquirement for tuning timesteps for each downstream task\nand avoids the computational overhead of ensembling over\nnoise levels or timesteps. Instead, our method efﬁciently\nextracts features with just a single forward pass at infer-\nence time, substantially reducing inference costs compared\nto methods relying on ensembling or inversion. Exten-\nsive evaluations of CleanDIFT across diverse downstream\ntasks demonstrate signiﬁcant performance improvements\nover conventional diffusion features."
+  }
+}

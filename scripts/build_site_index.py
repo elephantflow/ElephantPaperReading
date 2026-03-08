@@ -8,8 +8,28 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-ANALYSIS_DIR = REPO_ROOT / "analyses" / "cvpr2025_first10"
 OUTPUT_PATH = REPO_ROOT / "data" / "index.json"
+
+COLLECTIONS = [
+    {
+        "key": "cvpr2025_first10",
+        "label": "CVPR 2025 First 10",
+        "dir": REPO_ROOT / "analyses" / "cvpr2025_first10",
+        "priority": 3,
+    },
+    {
+        "key": "cvpr2025_diffusion",
+        "label": "CVPR 2025 Diffusion",
+        "dir": REPO_ROOT / "analyses" / "cvpr2025_diffusion",
+        "priority": 2,
+    },
+    {
+        "key": "cvpr2025_diffusion_transformer_video",
+        "label": "Diffusion Transformer / Video Diffusion",
+        "dir": REPO_ROOT / "analyses" / "cvpr2025_diffusion_transformer_video",
+        "priority": 1,
+    },
+]
 
 
 def load_record(path: Path) -> dict:
@@ -37,48 +57,87 @@ def guess_theme(title: str) -> str:
     return "General CV"
 
 
-def build_index() -> dict:
-    records = []
-    for path in sorted(ANALYSIS_DIR.glob("*.json")):
-        if path.name.startswith("_"):
-            continue
-        data = load_record(path)
-        records.append(
-            {
-                "paper_id": data["paper_id"],
-                "paper_title": data["paper_title"],
-                "detail_path": f"paper.html?id={data['paper_id']}",
-                "dataset": "CVPR 2025 First 10",
-                "theme": guess_theme(data["paper_title"]),
-                "generated_at": data["generated_at"],
-                "page_count": data["source"].get("page_count", 0),
-                "source_filename": data["source"]["filename"],
-                "story_summary": short_text(data["core_story"].get("summary", ""), 240),
-                "problem": short_text(data["core_story"].get("problem", ""), 180),
-                "proposed_method": short_text(data["core_story"].get("proposed_method", ""), 180),
-                "notable_sentence": short_text((data.get("notable_sentences") or [""])[0], 180),
-                "intro_paragraphs": len(data.get("introduction_structure", [])),
-                "method_sections": len(data.get("method_structure", [])),
-                "experiment_sections": len(data.get("experiment_structure", [])),
-                "template_counts": {
-                    key: len(value)
-                    for key, value in data.get("writing_templates", {}).items()
-                },
-            }
-        )
+def merge_record(record: dict, data: dict, collection: dict) -> None:
+    record["collections"].append(collection["label"])
+    record["collection_keys"].append(collection["key"])
+    record["source_paths"][collection["key"]] = f"analyses/{collection['key']}/{record['paper_id']}.json"
+    record["priorities"].append(collection["priority"])
 
+    current_priority = min(record["priorities"])
+    if collection["priority"] == current_priority:
+        record["primary_collection"] = collection["label"]
+        record["primary_collection_key"] = collection["key"]
+        record["detail_path"] = (
+            f"paper.html?id={record['paper_id']}&collection={collection['key']}"
+        )
+        record["generated_at"] = data["generated_at"]
+        record["page_count"] = data["source"].get("page_count", 0)
+        record["source_filename"] = data["source"]["filename"]
+        record["story_summary"] = short_text(data["core_story"].get("summary", ""), 240)
+        record["problem"] = short_text(data["core_story"].get("problem", ""), 180)
+        record["proposed_method"] = short_text(data["core_story"].get("proposed_method", ""), 180)
+        record["notable_sentence"] = short_text((data.get("notable_sentences") or [""])[0], 180)
+        record["intro_paragraphs"] = len(data.get("introduction_structure", []))
+        record["method_sections"] = len(data.get("method_structure", []))
+        record["experiment_sections"] = len(data.get("experiment_structure", []))
+        record["template_counts"] = {
+            key: len(value) for key, value in data.get("writing_templates", {}).items()
+        }
+
+
+def build_index() -> dict:
+    merged: dict[str, dict] = {}
+    collection_labels = []
+    for collection in COLLECTIONS:
+        if not collection["dir"].exists():
+            continue
+        collection_labels.append(collection["label"])
+        for path in sorted(collection["dir"].glob("*.json")):
+            if path.name.startswith("_"):
+                continue
+            data = load_record(path)
+            paper_id = data["paper_id"]
+            if paper_id not in merged:
+                merged[paper_id] = {
+                    "paper_id": paper_id,
+                    "paper_title": data["paper_title"],
+                    "theme": guess_theme(data["paper_title"]),
+                    "collections": [],
+                    "collection_keys": [],
+                    "source_paths": {},
+                    "priorities": [],
+                    "detail_path": "",
+                    "primary_collection": "",
+                    "primary_collection_key": "",
+                    "generated_at": "",
+                    "page_count": 0,
+                    "source_filename": "",
+                    "story_summary": "",
+                    "problem": "",
+                    "proposed_method": "",
+                    "notable_sentence": "",
+                    "intro_paragraphs": 0,
+                    "method_sections": 0,
+                    "experiment_sections": 0,
+                    "template_counts": {},
+                }
+            merge_record(merged[paper_id], data, collection)
+
+    records = sorted(merged.values(), key=lambda item: item["paper_title"].lower())
     themes = sorted({record["theme"] for record in records})
     return {
         "site": {
             "title": "Elephant Paper Reading",
             "subtitle": "Writing-pattern notes from CVPR 2025 papers",
-            "dataset": "CVPR 2025 First 10",
+            "dataset": "CVPR 2025 Collections",
         },
         "stats": {
             "paper_count": len(records),
             "theme_count": len(themes),
+            "collection_count": len(collection_labels),
         },
         "themes": themes,
+        "collections": collection_labels,
         "papers": records,
     }
 

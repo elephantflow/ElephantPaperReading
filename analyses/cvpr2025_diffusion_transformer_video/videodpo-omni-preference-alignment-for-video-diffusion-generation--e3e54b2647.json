@@ -1,0 +1,90 @@
+{
+  "paper_id": "videodpo-omni-preference-alignment-for-video-diffusion-generation--e3e54b2647",
+  "paper_title": "VideoDPO: Omni-Preference Alignment for Video Diffusion Generation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:12:51.926155+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_transformer_video_pdfs/VideoDPO： Omni-Preference Alignment for Video Diffusion Generation.pdf",
+    "filename": "VideoDPO： Omni-Preference Alignment for Video Diffusion Generation.pdf",
+    "sha1": "e3e54b2647b44d907b688e58f6e532c511f96c52",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Similar challenges are also seen in content generation for other modalities, such as lan- guage and image generation, where noisy pre-training data lowers output quality and reliability.",
+    "limitation": "However, current video dif- fusion models often fall short of meeting user preferences in both generation quality and text-video semantic alignment, ultimately compromising user satisfaction.",
+    "insight": "Abstract Recent progress in generative diffusion models has greatly advanced text-to-video generation.",
+    "proposed_method": "First, we introduce a comprehensive preference scoring system, OmniScore, which assesses both the visual qual- ity and semantic alignment of generated videos.",
+    "experimental_evidence": "Although Direct Prefer- ence Optimization (DPO) [42] has demonstrated signiﬁcant improvements in language and image generation [ 52], we pioneer its adaptation to video diffusion models and pro- pose a VideoDPO pipeline by making several key adjust- ments.",
+    "summary": "Similar challenges are also seen in content generation for other modalities, such as lan- guage and image generation, where noisy pre-training data lowers output quality and reliability. However, current video dif- fusion models often fall short of meeting user preferences in both generation quality and text-video semantic alignment, ultimately compromising user satisfaction. Abstract Recent progress in generative diffusion models has greatly advanced text-to-video generation. First, we introduce a comprehensive preference scoring system, OmniScore, which assesses both the visual qual- ity and semantic alignment of generated videos. Although Direct Prefer- ence Optimization (DPO) [42] has demonstrated signiﬁcant improvements in language and image generation [ 52], we pioneer its adaptation to video diffusion models and pro- pose a VideoDPO pipeline by making several key adjust- ments."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction With the rapid advancement of computing power and the in- creasing scale of training data, generative diffusion models have made remarkable progress in generation quality and diversity for video generation.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "1. Introduction\nWith the rapid advancement of computing power and the in-\ncreasing scale of training data, generative diffusion models\nhave made remarkable progress in generation quality and\ndiversity for video generation. However, current video dif-\nfusion models often fall short of meeting user preferences in\nboth generation quality and text-video semantic alignment,\nultimately compromising user satisfaction.\nThese issues often arise from the pre-training data, and\nﬁltering out all low-quality data is challenging given the\nvast often of pre-training data. Speciﬁcally, two types of\n* Equal Contribution.\nlow-quality data are prevalent. First, regarding the videos\nthemselves, some samples suffer from low resolution, blur-\nriness, and temporal inconsistencies, which negatively im-\npact the visual quality of generated videos. Second, regard-\ning text-video pairs, mismatches between text descriptions\nand video content reduce the model’s ability to be controlled\naccurately through text prompts. Similar challenges are also\nseen in content generation for other modalities, such as lan-\nguage and image generation, where noisy pre-training data\nlowers output quality and reliability.\nUser pre"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "“A boat sailing along the Seine River” “An astronaut ﬂying in space” “A dog enjoying a peaceful walk” “A beautiful coastal beach. ” Figure 1.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "“A boat sailing along the Seine River” “An astronaut ﬂying in space”\n“A dog enjoying a peaceful walk” “A beautiful coastal beach. ”\nFigure 1. Alignment results of VideoDPO from two different text-to-video models , including VideoCrafter2 [ 7]( ﬁrst row), and T2V -\nTurbo [27]( second row). More visualization results can be found in the supplementary materials.\ndistribution, we assign higher weights to these inﬂuential\nsamples, prioritizing them during training. Experimental re-\nsults show that our method delivers signiﬁcant performance\nimprovements while producing videos with high visual ﬁ-\ndelity and precise semantic alignment, as shown in Fig. 1.\nIn summary, our contributions are:\n(i) We pioneer the adaptation of DPO to video diffusion\nmodels, addressing the unique challenges of aligning video\ngeneration outputs with user preferences.\n(ii) We introduce key adjustments to the DPO frame-\nwork, including the development of OmniScore, a com-\nprehensive preference scoring system, along with an auto-\nmated preference data generation pipeline and a novel re-\nweighting strategy to enhance alignment training efﬁciency.\n(iii) We validate our framework through extensive ex-\nperiments conduct"
+    }
+  ],
+  "method_structure": [],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "In this paper, we focus on aligning video diffusion mod- els with user preferences with the idea of DPO with crucial adaption modiﬁcations, termed VideoDPO, described next.",
+      "Thus, a comprehensive scoring system like OmniScore, which in- tegrates both dimensions, is crucial for accurate evaluation and alignment."
+    ],
+    "limitation_expression": [
+      "However, current video dif- fusion models often fall short of meeting user preferences in both generation quality and text-video semantic alignment, ultimately compromising user satisfaction."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this, we propose a pipeline that automat- ically generates preference pair data by strategically sam- pling from multiple videos conditioned on a given prompt, thereby eliminating the reliance on human annotation.",
+      "Experimental re- sults show that our method delivers signiﬁcant performance improvements while producing videos with high visual ﬁ- delity and precise semantic alignment, as shown in Fig.",
+      "(iii) We validate our framework through extensive ex- periments conducted on three state-of-the-art open-source text-to-video models, evaluating performance across multi- ple metrics.",
+      "Conclusion In this paper, we propose VideoDPO, a novel pipeline to align video diffusion models through automatic data pipeline and adaptive optimization."
+    ],
+    "experiment_expression": [
+      "Our experiments demonstrate sub- stantial improvements in both visual quality and semantic alignment, ensuring that no preference aspect is neglected.",
+      "Experimental re- sults show that our method delivers signiﬁcant performance improvements while producing videos with high visual ﬁ- delity and precise semantic alignment, as shown in Fig.",
+      "The results demonstrate the robustness and ef- fectiveness of our approach in improving both visual quality and semantic alignment."
+    ],
+    "contribution_expression": [
+      "In summary, our contributions are: (i) We pioneer the adaptation of DPO to video diffusion models, addressing the unique challenges of aligning video generation outputs with user preferences."
+    ]
+  },
+  "notable_sentences": [
+    "Conclusion In this paper, we propose VideoDPO, a novel pipeline to align video diffusion models through automatic data pipeline and adaptive optimization.",
+    "Experimental re- sults show that our method delivers signiﬁcant performance improvements while producing videos with high visual ﬁ- delity and precise semantic alignment, as shown in Fig.",
+    "However, current video dif- fusion models often fall short of meeting user preferences in both generation quality and text-video semantic alignment, ultimately compromising user satisfaction.",
+    "In summary, our contributions are: (i) We pioneer the adaptation of DPO to video diffusion models, addressing the unique challenges of aligning video generation outputs with user preferences.",
+    "To address this, we propose a pipeline that automat- ically generates preference pair data by strategically sam- pling from multiple videos conditioned on a given prompt, thereby eliminating the reliance on human annotation.",
+    "(iii) We validate our framework through extensive ex- periments conducted on three state-of-the-art open-source text-to-video models, evaluating performance across multi- ple metrics.",
+    "3d) show that visual quality and semantic alignment, as well as various facets of visual quality, have low correlation.",
+    "8009 “A boat sailing along the Seine River” “An astronaut ﬂying in space” “A dog enjoying a peaceful walk” “A beautiful coastal beach. ” Figure 1.",
+    "Abstract Recent progress in generative diffusion models has greatly advanced text-to-video generation.",
+    "Addressing a single aspect does not inherently capture the others.",
+    "Alignment results of VideoDPO from two different text-to-video models , including VideoCrafter2 [ 7]( ﬁrst row), and T2V - Turbo [27]( second row).",
+    "By analyzing the frequency This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRecent progress in generative diffusion models has\ngreatly advanced text-to-video generation. While text-to-\nvideo models trained on large-scale, diverse datasets can\nproduce varied outputs, these generations often deviate\nfrom user preferences, highlighting the need for preference\nalignment on pre-trained models. Although Direct Prefer-\nence Optimization (DPO) [42] has demonstrated signiﬁcant\nimprovements in language and image generation [ 52], we\npioneer its adaptation to video diffusion models and pro-\npose a VideoDPO pipeline by making several key adjust-\nments. Unlike previous image alignment methods that fo-\ncus solely on either ( i) visual quality or ( ii) semantic align-\nment between text and videos, we comprehensively con-\nsider both dimensions and construct a preference score ac-\ncordingly, which we term the OmniScore. We design a\npipeline to automatically collect preference pair data based\non the proposed OmniScore and discover that re-weighting\nthese pairs based on the score signiﬁcantly impacts overall\npreference alignment. Our experiments demonstrate sub-\nstantial improvements in both visual quality and semantic\nalignment, ensuring that no preference aspect is neglected.\nCode and data are available at https://videodpo.\ngithub.io/.",
+    "introduction": "1. Introduction\nWith the rapid advancement of computing power and the in-\ncreasing scale of training data, generative diffusion models\nhave made remarkable progress in generation quality and\ndiversity for video generation. However, current video dif-\nfusion models often fall short of meeting user preferences in\nboth generation quality and text-video semantic alignment,\nultimately compromising user satisfaction.\nThese issues often arise from the pre-training data, and\nﬁltering out all low-quality data is challenging given the\nvast often of pre-training data. Speciﬁcally, two types of\n* Equal Contribution.\nlow-quality data are prevalent. First, regarding the videos\nthemselves, some samples suffer from low resolution, blur-\nriness, and temporal inconsistencies, which negatively im-\npact the visual quality of generated videos. Second, regard-\ning text-video pairs, mismatches between text descriptions\nand video content reduce the model’s ability to be controlled\naccurately through text prompts. Similar challenges are also\nseen in content generation for other modalities, such as lan-\nguage and image generation, where noisy pre-training data\nlowers output quality and reliability.\nUser preference alignment through Direct Preference\nOptimization, or DPO [ 42], has been proposed and tackles\nthese issues well for language and image generation [ 52].\nIn this paper, we focus on aligning video diffusion mod-\nels with user preferences with the idea of DPO with crucial\nadaption modiﬁcations, termed VideoDPO, described next.\nFirst, we introduce a comprehensive preference scoring\nsystem, OmniScore, which assesses both the visual qual-\nity and semantic alignment of generated videos. We build\nthe DPO reward model based on OmniScore. While exist-\ning visual reward models [ 24] typically focus on only one\nof these aspects, our experiments (see Fig. 3d) show that\nvisual quality and semantic alignment, as well as various\nfacets of visual quality, have low correlation. Addressing a\nsingle aspect does not inherently capture the others. Thus,\na comprehensive scoring system like OmniScore, which in-\ntegrates both dimensions, is crucial for accurate evaluation\nand alignment.\nSecond, obtaining preference annotations for generated\nvideos is challenging due to the high cost of human label-\ning. To address this, we propose a pipeline that automat-\nically generates preference pair data by strategically sam-\npling from multiple videos conditioned on a given prompt,\nthereby eliminating the reliance on human annotation.\nThird, to further improve the performance and efﬁ-\nciency of alignment training, we introduce a novel data re-\nweighting method, OmniScore-Based Re-Weighting. This\napproach is based on the intuition that certain preference\npairs, particularly those with larger quality differences, have\na greater impact on alignment. By analyzing the frequency\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n8009\n\n“A boat sailing along the Seine River” “An astronaut ﬂying in space”\n“A dog enjoying a peaceful walk” “A beautiful coastal beach. ”\nFigure 1. Alignment results of VideoDPO from two different text-to-video models , including VideoCrafter2 [ 7]( ﬁrst row), and T2V -\nTurbo [27]( second row). More visualization results can be found in the supplementary materials.\ndistribution, we assign higher weights to these inﬂuential\nsamples, prioritizing them during training. Experimental re-\nsults show that our method delivers signiﬁcant performance\nimprovements while producing videos with high visual ﬁ-\ndelity and precise semantic alignment, as shown in Fig. 1.\nIn summary, our contributions are:\n(i) We pioneer the adaptation of DPO to video diffusion\nmodels, addressing the unique challenges of aligning video\ngeneration outputs with user preferences.\n(ii) We introduce key adjustments to the DPO frame-\nwork, including the development of OmniScore, a com-\nprehensive preference scoring system, along with an auto-\nmated preference data generation pipeline and a novel re-\nweighting strategy to enhance alignment training efﬁciency.\n(iii) We validate our framework through extensive ex-\nperiments conducted on three state-of-the-art open-source\ntext-to-video models, evaluating performance across multi-\nple metrics. The results demonstrate the robustness and ef-\nfectiveness of our approach in improving both visual quality\nand semantic alignment.",
+    "method": "",
+    "experiments": "5. Experiment",
+    "conclusion": "6. Conclusion\nIn this paper, we propose VideoDPO, a novel pipeline\nto align video diffusion models through automatic data\npipeline and adaptive optimization. VideoDPO introduces\nOmniScore, a comprehensive scoring framework that ad-\ndresses data scarcity challenges by leveraging vision ex-\nperts of multiple aspects. Furthermore, we design an auto-\nmated data reweighting mechanism that dynamically con-\nstructs preference datasets while prioritizing high-impact\ntraining samples, enabling efﬁcient alignment. Experiments\nshow that VideoDPO enhances both visual quality and se-\nmantic alignment for state-of-the-art text-to-video models."
+  }
+}

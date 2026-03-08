@@ -1,0 +1,137 @@
+{
+  "paper_id": "mvpaint-synchronized-multi-view-diffusion-for-painting-anything-3d--2956111892",
+  "paper_title": "MVPaint: Synchronized Multi-View Diffusion for Painting Anything 3D",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:02.416054+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/MVPaint： Synchronized Multi-View Diffusion for Painting Anything 3D.pdf",
+    "filename": "MVPaint： Synchronized Multi-View Diffusion for Painting Anything 3D.pdf",
+    "sha1": "2956111892cb56bd2f254d7e53a459ca4f7076b7",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "However, its reused attention process is limited to nearby views, which frequently leads to Janus problems.",
+    "limitation": "However, achieving consistent and seamless textures across various viewing angles remains challenging, often hampered by lo- cal discontinuities and cross-view inconsistencies.",
+    "insight": "(2) Second, we propose the Spatial-aware 3D Inpainting (S3I) method to ensure complete 3D texturing, particularly for areas that were not observed in the ﬁrst stage.",
+    "proposed_method": "To ensure complete 3D texturing, we introduce the S3I method, speciﬁcally designed to texture previously unob- served areas effectively.",
+    "experimental_evidence": "Extensive experimental results demonstrate that MVPaint surpasses existing state- of-the-art methods.",
+    "summary": "However, its reused attention process is limited to nearby views, which frequently leads to Janus problems. However, achieving consistent and seamless textures across various viewing angles remains challenging, often hampered by lo- cal discontinuities and cross-view inconsistencies. (2) Second, we propose the Spatial-aware 3D Inpainting (S3I) method to ensure complete 3D texturing, particularly for areas that were not observed in the ﬁrst stage. To ensure complete 3D texturing, we introduce the S3I method, speciﬁcally designed to texture previously unob- served areas effectively. Extensive experimental results demonstrate that MVPaint surpasses existing state- of-the-art methods."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction 3D texture generation remains a complex and critical as- pect of asset creation, especially valuable in applications like gaming, animation, and virtual/augmented/mixed real- ity.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction 3D texture generation remains a complex and critical as- pect of asset creation, especially valuable in applications like gaming, animation, and virtual/augmented/mixed real- ity. Despite the scarcity of specialized 3D training data and the high computational demands of texture modeling, recent breakthroughs in text-to-image technologies [ 13, 15, 21, 41] have signiﬁcantly advanced the ﬁeld. These technologies facilitate Text-to-Texture (T2T) generation [ 5, 31, 40, 55] and their integration with 3D shapes [ 32, 37, 46], enhanc- ing the visual diversity and realism of 3D models. However, achieving consistent and seamless textures across various viewing angles remains challenging, often hampered by lo- cal discontinuities and cross-view inconsistencies."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Recently, many texture generation methods have fo- cused on leveraging 2D diffusion priors for guiding the generation process, which often utilizes conditional con- trols [ 57] ( e.g., depth) to produce more ﬁtting textures.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Recently, many texture generation methods have fo- cused on leveraging 2D diffusion priors for guiding the generation process, which often utilizes conditional con- trols [ 57] ( e.g., depth) to produce more ﬁtting textures. TEXTure [ 40] and Text2Tex [ 5] sample a series of cam- era viewpoints for iteratively rendering depth maps, which are then used to generate high-quality images through a pre- trained depth-to-image diffusion model. To avoid inconsis- tent textures due to using multiple independent generation processes, SyncMVD [ 31] introduced a method combining multi-view single-step denoising with UV space synchro- nization. However, its reused attention process is limited to nearby views, which frequently leads to Janus problems."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "background",
+      "main_message": "Paint3D [ 55] developed a coarse-to-ﬁne texture generation strategy, starting with a coarse texture obtained by itera- tively painting from camera viewpoints, followed by in- painting and super-resolution in UV space.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Paint3D [ 55] developed a coarse-to-ﬁne texture generation strategy, starting with a coarse texture obtained by itera- tively painting from camera viewpoints, followed by in- painting and super-resolution in UV space. Similarly, Meta 3D TexGen [ 3] also employs UV position maps for UV in- painting and enhancement. Despite achieving remarkable 3D texturing results, both tools [ 3, 55] depend heavily on continuous mesh UV unwrapping. Discontinuities in tex- ture often arise in scenarios where the UV atlases are ran- domly packed within the UV images."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "method_overview",
+      "main_message": "Consequently, many challenges remain in 3D texturing: Multi-View Consis- tency: Ensuring consistency across multiple viewpoints to prevent local style discontinuities and the presence of nu- merous seams.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Consequently, many challenges remain in 3D texturing: Multi-View Consis- tency: Ensuring consistency across multiple viewpoints to prevent local style discontinuities and the presence of nu- merous seams. Diverse Texture Details: Avoiding overly smooth textures that lack detail, while aiming for high- resolution outputs. UV Unwrapping Robustness : Devel- oping a method that does not rely heavily on UV unwrap- ping results to achieve robust automated generation. To address these challenges, we propose MVPaint, a coarse-to-ﬁne 3D texture generation framework capable of producing high-ﬁdelity, seamless 3D textures while ensur- ing multi-view consistency and reducing dependence on UV unwrapping quality."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "method_overview",
+      "main_message": "MVPaint mainly consists of three stages for texture generation.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "MVPaint mainly consists of three stages for texture generation. (1) First, we employ the Syn- chronized Multi-view Generation (SMG) model that uses a multi-view diffusion model with cross-attention [ 48] and UV synchronization to initiate 3D texture generation con- ditioned on a given textural instruction, which effectively avoids the Janus problem and produces highly consistent multi-view images at low resolution. Following, we up- sample and reﬁne the coarse multi-view images by adding vivid texture details, subsequently projecting them into UV space (1K resolution) for further enhancement. (2) Second, we propose the Spatial-aware 3D Inpainting (S3I) method to ensure complete 3D texturing, particularly for areas that were not observed in the ﬁrst stage."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "background",
+      "main_message": "Speciﬁcally, S3I re- solves the inpainting process in 3D space by considering the spatial relations among 3D points uniformly sampled from mesh surfaces.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Speciﬁcally, S3I re- solves the inpainting process in 3D space by considering the spatial relations among 3D points uniformly sampled from mesh surfaces. (3) Third, we introduce a UV Reﬁne- ment (UVR) module, comprising a series of tailored tex- ture enhancement operations in UV space. UVR ﬁrst per- forms super-resolution to upscale the UV map. Afterward, we introduce a Spatial-aware Seam-smoothing Algorithm (SSA) to revise spatial discontinuous textures, especially for repairing the seams caused by UV unwrapping."
+    },
+    {
+      "paragraph_index": 7,
+      "paragraph_role": "background",
+      "main_message": "Con- sequently, high-quality 3D UV textures could be obtained.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Con- sequently, high-quality 3D UV textures could be obtained. To facilitate the evaluation of T2T generation, we estab- lish two benchmarks: the Objaverse [ 10] T2T benchmark and the GSO [ 14] T2T benchmark. The ﬁrst benchmark comprises 1000 high-quality 3D meshes curated from the Objaverse dataset. Given that most T2T models are trained on a subset of the Objaverse dataset, we further establish the GSO T2T benchmark, which leverages all 1032 3D models from the GSO dataset to assess the generalizability of T2T models."
+    },
+    {
+      "paragraph_index": 8,
+      "paragraph_role": "background",
+      "main_message": "For each 3D mesh, textual annotations are gen- erated utilizing a large language model.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "For each 3D mesh, textual annotations are gen- erated utilizing a large language model. Extensive experi- mental results on the Objaverse [ 10] and the GSO [ 14] T2T benchmarks demonstrate that MVPaint outperforms exist- ing State-of-The-Art (SoTA) methods for 3D texture gener- ation. We would like to emphasize that MVPaint is a robust 3D texturing method, signiﬁcantly reducing occurrences of failed generations, such as missing areas, large inconsisten- cies, over-smoothness, and Janus issues. Qualitative textur- ing results of MVPaint could be visualized in Fig."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Our Approach",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Abstract Texturing is a crucial step in the 3D asset production workﬂow, which enhances the visual appeal and diversity of 3D assets.",
+      "Introduction 3D texture generation remains a complex and critical as- pect of asset creation, especially valuable in applications like gaming, animation, and virtual/augmented/mixed real- ity."
+    ],
+    "limitation_expression": [
+      "However, achieving consistent and seamless textures across various viewing angles remains challenging, often hampered by lo- cal discontinuities and cross-view inconsistencies.",
+      "However, its reused attention process is limited to nearby views, which frequently leads to Janus problems."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address these challenges, we propose MVPaint, a coarse-to-ﬁne 3D texture generation framework capable of producing high-ﬁdelity, seamless 3D textures while ensur- ing multi-view consistency and reducing dependence on UV unwrapping quality.",
+      "(2) Second, we propose the Spatial-aware 3D Inpainting (S3I) method to ensure complete 3D texturing, particularly for areas that were not observed in the ﬁrst stage."
+    ],
+    "experiment_expression": [
+      "Extensive experimental results demonstrate that MVPaint surpasses existing state- of-the-art methods.",
+      "Extensive experi- mental results on the Objaverse [ 10] and the GSO [ 14] T2T benchmarks demonstrate that MVPaint outperforms exist- ing State-of-The-Art (SoTA) methods for 3D texture gener- ation.",
+      "Experiments In this section, extensive experiments have been con- ducted to evaluate the effectiveness of MVPaint in gener- ating high-quality 3D textures from texture instructions.",
+      "Extensive ex- periments demonstrate MVPaint’s high-quality generation performance, surpassing existing SoTA methods."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "(2) Second, we propose the Spatial-aware 3D Inpainting (S3I) method to ensure complete 3D texturing, particularly for areas that were not observed in the ﬁrst stage.",
+    "Experiments In this section, extensive experiments have been con- ducted to evaluate the effectiveness of MVPaint in gener- ating high-quality 3D textures from texture instructions.",
+    "However, achieving consistent and seamless textures across various viewing angles remains challenging, often hampered by lo- cal discontinuities and cross-view inconsistencies.",
+    "However, its reused attention process is limited to nearby views, which frequently leads to Janus problems.",
+    "(3) Third, we introduce a UV Reﬁne- ment (UVR) module, comprising a series of tailored tex- ture enhancement operations in UV space.",
+    "1) Synchronized Multi-view Generation (SMG) .",
+    "2) Spatial-aware 3D Inpainting (S3I) .",
+    "3) UV Reﬁnement (UVR) .",
+    "3.1); 2) Spatial-aware 3D Inpainting (S3I) model - to inpaint and en- hance the texturing based on spatial relations (see Sec.",
+    "3.2); and 3) UV Reﬁnement (UVR) module - to conduct upsam- pling and reﬁnement for generating the ﬁnal UV texture (see Sec.",
+    "Abstract Texturing is a crucial step in the 3D asset production workﬂow, which enhances the visual appeal and diversity of 3D assets.",
+    "Afterward, we introduce a Spatial-aware Seam-smoothing Algorithm (SSA) to revise spatial discontinuous textures, especially for repairing the seams caused by UV unwrapping."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nTexturing is a crucial step in the 3D asset production\nworkﬂow, which enhances the visual appeal and diversity of\n3D assets. Despite recent advancements in Text-to-Texture\n(T2T) generation, existing methods often yield subpar re-\nsults, primarily due to local discontinuities, inconsistencies\nacross multiple views, and heavy dependence on UV un-\nwrapping outcomes. To tackle these challenges, we pro-\npose a novel generation-reﬁnement 3D texturing frame-\nwork called\nMVPaint, which can generate high-resolution,\nseamless textures while emphasizing multi-view consis-\ntency. MVPaint mainly consists of three key modules. 1)\nSynchronized Multi-view Generation (SMG) . Given a 3D\nmesh model, MVPaint ﬁrst simultaneously generates multi-\nview images by employing a SMG model, which leads to\ncoarse texturing results with unpainted parts due to miss-\ning observations. 2) Spatial-aware 3D Inpainting (S3I) .\nTo ensure complete 3D texturing, we introduce the S3I\nmethod, speciﬁcally designed to texture previously unob-\nserved areas effectively. 3) UV Reﬁnement (UVR) . Fur-\nthermore, MVPaint employs a UVR module to improve the\ntexture quality in the UV space, which ﬁrst performs a UV-\nspace Super-Resolution, followed by a Spatial-aware Seam-\nSmoothing algorithm for revising spatial texturing discon-\ntinuities caused by UV unwrapping. Moreover , we estab-\nlish two T2T evaluation benchmarks: the Objaverse T2T\nbenchmark and the GSO T2T benchmark, based on selected\nhigh-quality 3D meshes from the Objaverse dataset and the\nentire GSO dataset, respectively. Extensive experimental\nresults demonstrate that MVPaint surpasses existing state-\nof-the-art methods. Notably, MVPaint could generate high-\nﬁdelity textures with minimal Janus issues and highly en-\nhanced cross-view consistency.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n585",
+    "introduction": "1. Introduction\n3D texture generation remains a complex and critical as-\npect of asset creation, especially valuable in applications\nlike gaming, animation, and virtual/augmented/mixed real-\nity. Despite the scarcity of specialized 3D training data and\nthe high computational demands of texture modeling, recent\nbreakthroughs in text-to-image technologies [\n13, 15, 21, 41]\nhave signiﬁcantly advanced the ﬁeld. These technologies\nfacilitate Text-to-Texture (T2T) generation [\n5, 31, 40, 55]\nand their integration with 3D shapes [ 32, 37, 46], enhanc-\ning the visual diversity and realism of 3D models. However,\nachieving consistent and seamless textures across various\nviewing angles remains challenging, often hampered by lo-\ncal discontinuities and cross-view inconsistencies.\nRecently, many texture generation methods have fo-\ncused on leveraging 2D diffusion priors for guiding the\ngeneration process, which often utilizes conditional con-\ntrols [\n57] ( e.g., depth) to produce more ﬁtting textures.\nTEXTure [ 40] and Text2Tex [ 5] sample a series of cam-\nera viewpoints for iteratively rendering depth maps, which\nare then used to generate high-quality images through a pre-\ntrained depth-to-image diffusion model. To avoid inconsis-\ntent textures due to using multiple independent generation\nprocesses, SyncMVD [\n31] introduced a method combining\nmulti-view single-step denoising with UV space synchro-\nnization. However, its reused attention process is limited\nto nearby views, which frequently leads to Janus problems.\nPaint3D [\n55] developed a coarse-to-ﬁne texture generation\nstrategy, starting with a coarse texture obtained by itera-\ntively painting from camera viewpoints, followed by in-\npainting and super-resolution in UV space. Similarly, Meta\n3D TexGen [\n3] also employs UV position maps for UV in-\npainting and enhancement. Despite achieving remarkable\n3D texturing results, both tools [\n3, 55] depend heavily on\ncontinuous mesh UV unwrapping. Discontinuities in tex-\nture often arise in scenarios where the UV atlases are ran-\ndomly packed within the UV images. Consequently, many\nchallenges remain in 3D texturing: Multi-View Consis-\ntency: Ensuring consistency across multiple viewpoints to\nprevent local style discontinuities and the presence of nu-\nmerous seams. Diverse Texture Details: Avoiding overly\nsmooth textures that lack detail, while aiming for high-\nresolution outputs. UV Unwrapping Robustness : Devel-\noping a method that does not rely heavily on UV unwrap-\nping results to achieve robust automated generation.\nTo address these challenges, we propose\nMVPaint, a\ncoarse-to-ﬁne 3D texture generation framework capable of\nproducing high-ﬁdelity, seamless 3D textures while ensur-\ning multi-view consistency and reducing dependence on\nUV unwrapping quality. MVPaint mainly consists of three\nstages for texture generation. (1) First, we employ the Syn-\nchronized Multi-view Generation (SMG) model that uses\na multi-view diffusion model with cross-attention [\n48] and\nUV synchronization to initiate 3D texture generation con-\nditioned on a given textural instruction, which effectively\navoids the Janus problem and produces highly consistent\nmulti-view images at low resolution. Following, we up-\nsample and reﬁne the coarse multi-view images by adding\nvivid texture details, subsequently projecting them into UV\nspace (1K resolution) for further enhancement. (2) Second,\nwe propose the Spatial-aware 3D Inpainting (S3I) method\nto ensure complete 3D texturing, particularly for areas that\nwere not observed in the ﬁrst stage. Speciﬁcally, S3I re-\nsolves the inpainting process in 3D space by considering\nthe spatial relations among 3D points uniformly sampled\nfrom mesh surfaces. (3) Third, we introduce a UV Reﬁne-\nment (UVR) module, comprising a series of tailored tex-\nture enhancement operations in UV space. UVR ﬁrst per-\nforms super-resolution to upscale the UV map. Afterward,\nwe introduce a Spatial-aware Seam-smoothing Algorithm\n(SSA) to revise spatial discontinuous textures, especially\nfor repairing the seams caused by UV unwrapping. Con-\nsequently, high-quality 3D UV textures could be obtained.\nTo facilitate the evaluation of T2T generation, we estab-\nlish two benchmarks: the Objaverse [\n10] T2T benchmark\nand the GSO [ 14] T2T benchmark. The ﬁrst benchmark\ncomprises 1000 high-quality 3D meshes curated from the\nObjaverse dataset. Given that most T2T models are trained\non a subset of the Objaverse dataset, we further establish the\nGSO T2T benchmark, which leverages all 1032 3D models\nfrom the GSO dataset to assess the generalizability of T2T\nmodels. For each 3D mesh, textual annotations are gen-\nerated utilizing a large language model. Extensive experi-\nmental results on the Objaverse [\n10] and the GSO [ 14] T2T\nbenchmarks demonstrate that MVPaint outperforms exist-\ning State-of-The-Art (SoTA) methods for 3D texture gener-\nation. We would like to emphasize that MVPaint is a robust\n3D texturing method, signiﬁcantly reducing occurrences of\nfailed generations, such as missing areas, large inconsisten-\ncies, over-smoothness, and Janus issues. Qualitative textur-\ning results of MVPaint could be visualized in Fig.",
+    "method": "3. Our Approach\nGiven an untextured mesh M = (V , F) and a texture\nprompt c, where V = {v\ni} representing the set of 3D vertex\nvi ∈ R3 and F = {fi} representing the set of triangular\nfaces each deﬁned by a triplet of vertices, MVPaint aims to\ngenerate a high-quality texture map (2K level) represented\nas a multi-channel UV image T ∈ R\nH× W × C conditioned\non the texture prompt c. To achieve multi-view consistency,\nhigh-quality, and seamless 3D textures, MVPaint utilizes\nthree major stages, including 1) Synchronized Multi-view\nGeneration (SMG) model - for simultaneously generating\ndense view images as the initial texturing (see Sec.\n3.1); 2)\nSpatial-aware 3D Inpainting (S3I) model - to inpaint and en-\nhance the texturing based on spatial relations (see Sec.\n3.2);\nand 3) UV Reﬁnement (UVR) module - to conduct upsam-\npling and reﬁnement for generating the ﬁnal UV texture (see\nSec.\n3.3);. The overview of MVPaint is illustrated in Fig. 2.",
+    "experiments": "4. Experiments\nIn this section, extensive experiments have been con-\nducted to evaluate the effectiveness of MVPaint in gener-\nating high-quality 3D textures from texture instructions.\nImplementation Details. We use MVDream [\n44] as the\nbase model for T2MV DMV in SMG, adding a control mod-\nule τp. For synchronized reﬁnement, we use SDXL [ 36] de-\nployed with two ControlNets [12, 51] for I2I reﬁnement, re-\nﬁning 128×128 latents and synchronizing them at 512×512\nTsync. All SMG steps use N = 8 views with evenly dis-\ntributed azimuth angle and interleaved elevation of ±30°.\nMore details are in the supplementary materials.",
+    "conclusion": "5. Conclusion\nWe present MVPaint, a comprehensive framework for\ngenerating 3D textures from text in three stages: synchro-\nnized multi-view generation, 3D texture inpainting, and UV\nreﬁnement. Utilizing synchronized multi-view diffusion,\nMVPaint initializes 3D textures based on generated multi-\nview images, ensuring high cross-view consistency. Then\nuncovered areas are inpainted in 3D space. Finally, a reﬁne-\nment module enhances and upscales the 3D mesh in the UV\nspace, producing high-quality 2K textures. Extensive ex-\nperiments demonstrate MVPaint’s high-quality generation\nperformance, surpassing existing SoTA methods.\nAcknowledgments. This study is supported by the Na-\ntional Key R &D Program of China No.2022ZD0160102.\nThis study is also supported by the Ministry of Education,\nSingapore, under its MOE AcRF Tier 2 (MOET2EP20221-\n0012, MOE-T2EP20223-0002), and under the RIE2020 In-\ndustry Alignment Fund – Industry Collaboration Projects\n(IAF-ICP) Funding Initiative, as well as cash and in-kind\ncontribution from the industry partner(s)."
+  }
+}

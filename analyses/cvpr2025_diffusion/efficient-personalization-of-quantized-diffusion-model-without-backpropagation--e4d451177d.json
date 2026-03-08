@@ -1,0 +1,111 @@
+{
+  "paper_id": "efficient-personalization-of-quantized-diffusion-model-without-backpropagation--e4d451177d",
+  "paper_title": "Efficient Personalization of Quantized Diffusion Model without Backpropagation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:37.227670+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Efficient Personalization of Quantized Diffusion Model without Backpropagation.pdf",
+    "filename": "Efficient Personalization of Quantized Diffusion Model without Backpropagation.pdf",
+    "sha1": "e4d451177dfbe0d2047a439f6a957f9eeae51a9e",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "These overheads pose major challenges in personaliza- tion tasks, which require fine-tuning diffusion models with only a few user-provided images.",
+    "limitation": "However, modern diffusion models face significant memory and computational costs during train- ing, fine-tuning, and inference due to their size.",
+    "insight": "Abstract Diffusion models have shown remarkable performance in image synthesis, but they demand extensive computa- tional and memory resources for training, fine-tuning and inference.",
+    "proposed_method": "Since a gradient estimation using zeroth-order op- timization is quite noisy for a single or a few images in personalization, we propose to denoise the estimated gra- dient by projecting it onto a subspace that is constructed with the past history of the tokens, dubbed Subspace Gra- dient.",
+    "experimental_evidence": "Abstract Diffusion models have shown remarkable performance in image synthesis, but they demand extensive computa- tional and memory resources for training, fine-tuning and inference.",
+    "summary": "These overheads pose major challenges in personaliza- tion tasks, which require fine-tuning diffusion models with only a few user-provided images. However, modern diffusion models face significant memory and computational costs during train- ing, fine-tuning, and inference due to their size. Abstract Diffusion models have shown remarkable performance in image synthesis, but they demand extensive computa- tional and memory resources for training, fine-tuning and inference. Since a gradient estimation using zeroth-order op- timization is quite noisy for a single or a few images in personalization, we propose to denoise the estimated gra- dient by projecting it onto a subspace that is constructed with the past history of the tokens, dubbed Subspace Gra- dient. Abstract Diffusion models have shown remarkable performance in image synthesis, but they demand extensive computa- tional and memory resources for training, fine-tuning and inference."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Recent advances in diffusion models [22, 54, 56, 57, 62] have revolutionized generative AI, offering a powerful * Authors contributed equally. † Corresponding author. framework for high-quality, diverse data generation.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Recent advances in diffusion models [22, 54, 56, 57, 62] have revolutionized generative AI, offering a powerful * Authors contributed equally. † Corresponding author. framework for high-quality, diverse data generation. Diffu- sion models have shown impressive capabilities across vari- ous applications, including image synthesis [22, 36, 43, 54– 56, 62], text-guided image synthesis [9, 15, 44, 48, 49], video generation [4, 23, 24, 26, 37], and 3D content gener- ation [31, 34, 45, 53, 61], outperforming traditional gener- ative approaches. However, modern diffusion models face significant memory and computational costs during train- ing, fine-tuning, and inference due to their size. These overheads pose major challenges in personaliza- tion tasks, which require fine-tuning diffusion models with only a few user-provided images."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Typically, personaliza- tion is achieved by either fine-tuning the denoising net- work [20, 29, 50, 51, 59, 63] or introducing new text to- kens [1, 17, 29, 41, 60, 66] to represent desired subjects.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Typically, personaliza- tion is achieved by either fine-tuning the denoising net- work [20, 29, 50, 51, 59, 63] or introducing new text to- kens [1, 17, 29, 41, 60, 66] to represent desired subjects. However, both approaches require gradient-based optimiza- tion, leading to significant memory and computational overhead, which is especially problematic in memory- constrained on-device training for sensitive data. To tackle the overheads in personalization, efficient tuning techniques have emerged. Existing methods reduce trainable parame- ters [20, 29, 51, 59, 63], leverage quantized models [27, 52], or employ gradient-free optimization with evolution strat- egy [16]."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "method_overview",
+      "main_message": "However, these methods have limitations: 1) they mostly rely on backpropagation, unsuitable for most mobile processors, which are designed to accelerate inference [46]; 2) they still require significant memory for storing activa- tions and gradients; 3) evolutionary algorithms can be un- stable and inefficient in small-batch [11, 21].",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "However, these methods have limitations: 1) they mostly rely on backpropagation, unsuitable for most mobile processors, which are designed to accelerate inference [46]; 2) they still require significant memory for storing activa- tions and gradients; 3) evolutionary algorithms can be un- stable and inefficient in small-batch [11, 21]. Here we propose Zeroth-Order Optimization for Diffu- sion model Personalization (ZOODiP) that can personalize Stable Diffusion with 2.37GB VRAM consumption using only forward passes without compromising the image qual- ity. Our method relies on three key observations: First, Zeroth-Order (ZO) optimization effectively handles non- differentiable objectives [38] ( e.g., accuracy) during train- ing. Second, tokens optimized via Textual Inversion [17] undergo significant changes in a low-dimensional subspace."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "Principal Component Analysis (PCA) on the token embed- dings reveals that the initial and personalized tokens pri- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Principal Component Analysis (PCA) on the token embed- dings reveals that the initial and personalized tokens pri- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Although advanced quantization techniques have successfully minimized memory usage for inference, train- ing and fine-tuning these quantized models still require large memory possibly due to dequantization for accu- rate computation of gradients and/or backpropagation for gradient-based algorithms.",
+      "However, memory-efficient fine- tuning is particularly desirable for applications such as per- sonalization that often must be run on edge devices like mo- bile phones with private data.",
+      "However, modern diffusion models face significant memory and computational costs during train- ing, fine-tuning, and inference due to their size.",
+      "However, both approaches require gradient-based optimiza- tion, leading to significant memory and computational overhead, which is especially problematic in memory- constrained on-device training for sensitive data.",
+      "However, these methods have limitations: 1) they mostly rely on backpropagation, unsuitable for most mobile processors, which are designed to accelerate inference [46]; 2) they still require significant memory for storing activa- tions and gradients; 3) evolutionary algorithms can be un- stable and inefficient in small-batch [11, 21]."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Since a gradient estimation using zeroth-order op- timization is quite noisy for a single or a few images in personalization, we propose to denoise the estimated gra- dient by projecting it onto a subspace that is constructed with the past history of the tokens, dubbed Subspace Gra- dient.",
+      "Our method achieves comparable performance to prior methods in image and text alignment scores for personalizing Stable Diffusion with only forward passes while reducing train- ing memory demand up to 8.2×.",
+      "Here we propose Zeroth-Order Optimization for Diffu- sion model Personalization (ZOODiP) that can personalize Stable Diffusion with 2.37GB VRAM consumption using only forward passes without compromising the image qual- ity.",
+      "Our method relies on three key observations: First, Zeroth-Order (ZO) optimization effectively handles non- differentiable objectives [38] ( e.g., accuracy) during train- ing.",
+      "Method In this section, we propose ZOODiP, a memory-efficient approach to personalize diffusion models.",
+      "Furthermore, we propose Partial Uniform Timestep Sampling (PUTS) for efficient timestep selection, capitalizing on the observation that text embeddings pre- dominantly influence image generation at specific diffusion timesteps.",
+      "Conclusion We propose ZOODiP, a framework that enables the per- sonalization of diffusion models even in highly memory- constrained environments."
+    ],
+    "experiment_expression": [
+      "Through extensive qualitative and quanti- tative experiments, we demonstrate that ZOODiP achieves performance comparable to prior arts while requiring sig- nificantly less memory of only 2.37GB during training."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Based on this analysis, we proposed Partial Uniform Timestep Sampling (PUTS), which samples only these rel- evant timesteps.",
+    "Conclusion We propose ZOODiP, a framework that enables the per- sonalization of diffusion models even in highly memory- constrained environments.",
+    "Furthermore, we propose Partial Uniform Timestep Sampling (PUTS) for efficient timestep selection, capitalizing on the observation that text embeddings pre- dominantly influence image generation at specific diffusion timesteps.",
+    "Here we propose Zeroth-Order Optimization for Diffu- sion model Personalization (ZOODiP) that can personalize Stable Diffusion with 2.37GB VRAM consumption using only forward passes without compromising the image qual- ity.",
+    "However, both approaches require gradient-based optimiza- tion, leading to significant memory and computational overhead, which is especially problematic in memory- constrained on-device training for sensitive data.",
+    "However, memory-efficient fine- tuning is particularly desirable for applications such as per- sonalization that often must be run on edge devices like mo- bile phones with private data.",
+    "However, modern diffusion models face significant memory and computational costs during train- ing, fine-tuning, and inference due to their size.",
+    "Method In this section, we propose ZOODiP, a memory-efficient approach to personalize diffusion models.",
+    "Abstract Diffusion models have shown remarkable performance in image synthesis, but they demand extensive computa- tional and memory resources for training, fine-tuning and inference.",
+    "Additionally, we systematically analyzed the impact of diffusion timesteps on personalization and identified the most effective timesteps for efficient train- ing.",
+    "All experiments ran on a single Nvidia RTX 3090 GPU with batch size 1.",
+    "Based on the obser- vation that trained tokens in Textual Inversion primarily change within a low-dimensional subspace, we introduce Subspace Gradient (SG) to optimize tokens within this re- duced space."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion models have shown remarkable performance\nin image synthesis, but they demand extensive computa-\ntional and memory resources for training, fine-tuning and\ninference. Although advanced quantization techniques have\nsuccessfully minimized memory usage for inference, train-\ning and fine-tuning these quantized models still require\nlarge memory possibly due to dequantization for accu-\nrate computation of gradients and/or backpropagation for\ngradient-based algorithms. However, memory-efficient fine-\ntuning is particularly desirable for applications such as per-\nsonalization that often must be run on edge devices like mo-\nbile phones with private data. In this work, we address this\nchallenge by quantizing a diffusion model with personaliza-\ntion via Textual Inversion and by leveraging a zeroth-order\noptimization on personalization tokens without dequantiza-\ntion so that it does not require gradient and activation stor-\nage for backpropagation that consumes considerable mem-\nory. Since a gradient estimation using zeroth-order op-\ntimization is quite noisy for a single or a few images in\npersonalization, we propose to denoise the estimated gra-\ndient by projecting it onto a subspace that is constructed\nwith the past history of the tokens, dubbed Subspace Gra-\ndient. In addition, we investigated the influence of text\nembedding in image generation, leading to our proposed\ntime steps sampling, dubbed Partial Uniform Timestep Sam-\npling for sampling with effective diffusion timesteps. Our\nmethod achieves comparable performance to prior methods\nin image and text alignment scores for personalizing Stable\nDiffusion with only forward passes while reducing train-\ning memory demand up to 8.2×. Project page: https:\n//ignoww.github.io/ZOODiP_project/",
+    "introduction": "1. Introduction\nRecent advances in diffusion models [22, 54, 56, 57, 62]\nhave revolutionized generative AI, offering a powerful\n* Authors contributed equally. † Corresponding author.\nframework for high-quality, diverse data generation. Diffu-\nsion models have shown impressive capabilities across vari-\nous applications, including image synthesis [22, 36, 43, 54–\n56, 62], text-guided image synthesis [9, 15, 44, 48, 49],\nvideo generation [4, 23, 24, 26, 37], and 3D content gener-\nation [31, 34, 45, 53, 61], outperforming traditional gener-\native approaches. However, modern diffusion models face\nsignificant memory and computational costs during train-\ning, fine-tuning, and inference due to their size.\nThese overheads pose major challenges in personaliza-\ntion tasks, which require fine-tuning diffusion models with\nonly a few user-provided images. Typically, personaliza-\ntion is achieved by either fine-tuning the denoising net-\nwork [20, 29, 50, 51, 59, 63] or introducing new text to-\nkens [1, 17, 29, 41, 60, 66] to represent desired subjects.\nHowever, both approaches require gradient-based optimiza-\ntion, leading to significant memory and computational\noverhead, which is especially problematic in memory-\nconstrained on-device training for sensitive data. To tackle\nthe overheads in personalization, efficient tuning techniques\nhave emerged. Existing methods reduce trainable parame-\nters [20, 29, 51, 59, 63], leverage quantized models [27, 52],\nor employ gradient-free optimization with evolution strat-\negy [16]. However, these methods have limitations: 1) they\nmostly rely on backpropagation, unsuitable for most mobile\nprocessors, which are designed to accelerate inference [46];\n2) they still require significant memory for storing activa-\ntions and gradients; 3) evolutionary algorithms can be un-\nstable and inefficient in small-batch [11, 21].\nHere we propose Zeroth-Order Optimization for Diffu-\nsion model Personalization (ZOODiP) that can personalize\nStable Diffusion with 2.37GB VRAM consumption using\nonly forward passes without compromising the image qual-\nity. Our method relies on three key observations: First,\nZeroth-Order (ZO) optimization effectively handles non-\ndifferentiable objectives [38] ( e.g., accuracy) during train-\ning. Second, tokens optimized via Textual Inversion [17]\nundergo significant changes in a low-dimensional subspace.\nPrincipal Component Analysis (PCA) on the token embed-\ndings reveals that the initial and personalized tokens pri-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Method\nIn this section, we propose ZOODiP, a memory-efficient\napproach to personalize diffusion models. It leverages\nzeroth-order (ZO) optimization with a quantized model,\neliminating the need for backpropagation, and thereby sig-\nnificantly reducing memory usage. Based on the obser-\nvation that trained tokens in Textual Inversion primarily\nchange within a low-dimensional subspace, we introduce\nSubspace Gradient (SG) to optimize tokens within this re-\nduced space. Furthermore, we propose Partial Uniform\nTimestep Sampling (PUTS) for efficient timestep selection,\ncapitalizing on the observation that text embeddings pre-\ndominantly influence image generation at specific diffusion\ntimesteps. By integrating ZO optimization with quantiza-\ntion, SG, and PUTS, ZOODiP enables efficient personal-\nization on resource-constrained devices. The overall frame-\nwork is illustrated in Fig. 2 and Algorithm. 1.",
+    "experiments": "4. Experiments\nTo evaluate ZOODiP, we conducted quantitative and qual-\nitative comparisons with methods based on DreamBooth\n(DB) [13, 27, 50, 52] and Textual Inversion (TI) [16, 17].\nPersonalization used the DB dataset and Stable Diffusion-\nv1.5 [49], with INT8 quantization applied to Linear and\nConv2D layers. All experiments ran on a single Nvidia\nRTX 3090 GPU with batch size 1. ZOODiP was trained\nwith n = 2, µ = 10 −3, τ = 128, ν = 10 −3, TL = 500,\nTU = 900 , L = 30 , 000, η = 5 × 10−3 using the\nZOAdam [38] optimizer. Further results and experimental\ndetails are provided in the supplementary materials.",
+    "conclusion": "6. Conclusion\nWe propose ZOODiP, a framework that enables the per-\nsonalization of diffusion models even in highly memory-\nconstrained environments. ZOODiP leverages quantized\nmodels during training to reduce memory footprint. We\nthen propose zeroth-order optimization to personalize these\nmodels. To overcome the limitations of zeroth-order op-\ntimization, we introduce Subspace Gradient (SG), which\nutilizes the trajectory of the optimizing token to eliminate\nnoisy gradient dimensions and enhance performance based\non the empirical analysis of the effective dimension of per-\nsonalized tokens. Additionally, we systematically analyzed\nthe impact of diffusion timesteps on personalization and\nidentified the most effective timesteps for efficient train-\ning. Based on this analysis, we proposed Partial Uniform\nTimestep Sampling (PUTS), which samples only these rel-\nevant timesteps. Through extensive qualitative and quanti-\ntative experiments, we demonstrate that ZOODiP achieves\nperformance comparable to prior arts while requiring sig-\nnificantly less memory of only 2.37GB during training."
+  }
+}

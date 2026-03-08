@@ -1,0 +1,90 @@
+{
+  "paper_id": "unirestore-unified-perceptual-and-task-oriented-image-restoration-model-using-di--bb7d390a97",
+  "paper_title": "UniRestore: Unified Perceptual and Task-Oriented Image Restoration Model Using Diffusion Prior",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:45.691493+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/UniRestore： Unified Perceptual and Task-Oriented Image Restoration Model Using Diffusion Prior.pdf",
+    "filename": "UniRestore： Unified Perceptual and Task-Oriented Image Restoration Model Using Diffusion Prior.pdf",
+    "sha1": "bb7d390a97ccbe34b258cfcced8c8d75f5e9c81f",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "V arious restoration methods have been developed and studied over the past decades to address this wide range of image restoration challenges.",
+    "limitation": "Introduction Image restoration [ 42, 55] aims to restore content degraded by various factors, such as adverse weather, blur, and noise.",
+    "insight": "Abstract Image restoration aims to recover content from inputs degraded by various factors, such as adverse weather , blur , and noise.",
+    "proposed_method": "We propose a Complementary Feature Restoration Module (CFRM) to reconstruct degraded en- coder features and a Task Feature Adapter (TF A) module to facilitate adaptive feature fusion in the decoder .",
+    "experimental_evidence": "Extensive experi- ments demonstrate the superior performance of UniRestore in both PIR and TIR scenarios.",
+    "summary": "V arious restoration methods have been developed and studied over the past decades to address this wide range of image restoration challenges. Introduction Image restoration [ 42, 55] aims to restore content degraded by various factors, such as adverse weather, blur, and noise. Abstract Image restoration aims to recover content from inputs degraded by various factors, such as adverse weather , blur , and noise. We propose a Complementary Feature Restoration Module (CFRM) to reconstruct degraded en- coder features and a Task Feature Adapter (TF A) module to facilitate adaptive feature fusion in the decoder . Extensive experi- ments demonstrate the superior performance of UniRestore in both PIR and TIR scenarios."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction Image restoration [ 42, 55] aims to restore content degraded by various factors, such as adverse weather, blur, and noise.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "1. Introduction\nImage restoration [\n42, 55] aims to restore content degraded\nby various factors, such as adverse weather, blur, and\nnoise. These factors often reduce image perceptual visibil-\nity [\n28, 60] and negatively impact the performance of high-\nProject page: https://unirestore.github.io/\n* Indicates equal contribution.\nPIR UniRestore\nTIR\n(a) Perceptual IR\nSegmentation (mIoU%)\nClassification (acc%)\nDIP URIE\nNAFNet PromptIR\nDiffBIR\nDiffUIR\nUniRestore\n49\n52\n55\n58\n61\n64\n67\n70\n57 60 63 66 69 72 75\nUniRestore\nTIR\nPIR\n(b) Task-oriented IR\nDegraded Image\n Restored Image\n<Restoration=\n <Classification=\n <Segmentation=\n <Any Task=\nPerceptual / Task-oriented Image Restoration\nUnified Restoration\n(c) UniRestore\nFigure 1. Illustration of UniRestore’s capabilities: (a) PIR\n- Comparison with existing methods ( e.g., URIE [ 52], Promp-\ntIR [ 42]) under adverse conditions. (b) TIR - Demonstrating\nUniRestore’s robustness for downstream tasks such as classiﬁca-\ntion and segmentation. (c) Uniﬁed Restoration - UniRestore’s ver-\nsatility in addressing PIR and TIR.\nlevel vision applications, such as object detection [ 66, 73]\nand semantic segmentation [ 43, 49]. V arious restoration\nmethods have "
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "ring [ 38, 44], dehazing [ 6, 72], deraining [ 57, 67], and desnowing [7, 35, 59].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "ring [ 38, 44], dehazing [ 6, 72], deraining [ 57, 67], and\ndesnowing [7, 35, 59]. While these algorithms can enhance\nthe visual quality of images, they do not always improve\nperformance in downstream tasks [\n4, 5, 21]. This is be-\ncause the factors contributing to visual quality often differ\nfrom those determining recognition quality [\n41, 52, 69].\nOn the other hand, task-oriented image restoration\n(TIR) [ 52, 69] is speciﬁcally designed to optimize images\nfor applications that rely on computer vision, such as object\ndetection [\n66, 73], classiﬁcation [ 51, 52], and autonomous\ndriving systems [ 43, 49]. This approach aligns the restora-\ntion process with the speciﬁc requirements of neural net-\nwork models used in these applications, ensuring that the\nrestored images are suitable for effective machine interpre-\ntation. Although these methods improve the performance\nof downstream tasks, they often produce results that are less\nvisually appealing [\n34, 73].\nBased on the analysis above, existing image restoration\nalgorithms often face a trade-off, highlighting the challenge\nof balancing technical functionality with aesthetic quality.\nThis dual functionality is crucial because real-wor"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Proposed Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "This dual functionality is crucial because real-world appli- cations often require restoration processes to be speciﬁcally adapted to different scenarios."
+    ],
+    "limitation_expression": [],
+    "insight_expression": [],
+    "method_expression": [
+      "We propose a Complementary Feature Restoration Module (CFRM) to reconstruct degraded en- coder features and a Task Feature Adapter (TF A) module to facilitate adaptive feature fusion in the decoder .",
+      "V arious restoration methods have been developed and studied over the past decades to address this wide range of image restoration challenges.",
+      "Building on dif- fusion models, we propose adapting diffusion features for diverse applications."
+    ],
+    "experiment_expression": [
+      "Extensive experi- ments demonstrate the superior performance of UniRestore in both PIR and TIR scenarios.",
+      "Such a uniﬁed image restoration framework can effectively per- form across diverse settings, reducing system redundancy and boosting operational efﬁciency, as shown in Figure 3."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Building on dif- fusion models, we propose adapting diffusion features for diverse applications.",
+    "Such a uniﬁed image restoration framework can effectively per- form across diverse settings, reducing system redundancy and boosting operational efﬁciency, as shown in Figure 3.",
+    "We propose a Complementary Feature Restoration Module (CFRM) to reconstruct degraded en- coder features and a Task Feature Adapter (TF A) module to facilitate adaptive feature fusion in the decoder .",
+    "(b) TIR - Demonstrating UniRestore’s robustness for downstream tasks such as classiﬁca- tion and segmentation.",
+    "(c) Uniﬁed Restoration - UniRestore’s ver- satility in addressing PIR and TIR. level vision applications, such as object detection [ 66, 73] and semantic segmentation [ 43, 49].",
+    "17969 ring [ 38, 44], dehazing [ 6, 72], deraining [ 57, 67], and desnowing [7, 35, 59].",
+    "Abstract Image restoration aims to recover content from inputs degraded by various factors, such as adverse weather , blur , and noise.",
+    "Although these methods improve the performance of downstream tasks, they often produce results that are less visually appealing [ 34, 73].",
+    "Based on the analysis above, existing image restoration algorithms often face a trade-off, highlighting the challenge of balancing technical functionality with aesthetic quality.",
+    "Conclusion This paper introduces UniRestore, an approach capable of addressing PIR and TIR simultaneously.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experimental re- sults validate the effectiveness and extendability of UniRe- store, demonstrating its ability to alleviate the trade-offs as- sociated with existing PIR and TIR methods."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nImage restoration aims to recover content from inputs\ndegraded by various factors, such as adverse weather , blur ,\nand noise. Perceptual Image Restoration (PIR) methods im-\nprove visual quality but often do not support downstream\ntasks effectively. On the other hand, Task-oriented Image\nRestoration (TIR) methods focus on enhancing image utility\nfor high-level vision tasks, sometimes compromising visual\nquality. This paper introduces UniRestore, a uniﬁed image\nrestoration model that bridges the gap between PIR and TIR\nby using a diffusion prior . The diffusion prior is designed to\ngenerate images that align with human visual quality pref-\nerences, but these images are often unsuitable for TIR sce-\nnarios. To solve this limitation, UniRestore utilizes encoder\nfeatures from an autoencoder to adapt the diffusion prior\nto speciﬁc tasks. We propose a Complementary Feature\nRestoration Module (CFRM) to reconstruct degraded en-\ncoder features and a Task Feature Adapter (TF A) module to\nfacilitate adaptive feature fusion in the decoder . This design\nallows UniRestore to optimize images for both human per-\nception and downstream task requirements, addressing dis-\ncrepancies between visual quality and functional needs. In-\ntegrating these modules also enhances UniRestore’s adapt-\nability and efﬁciency across diverse tasks. Extensive experi-\nments demonstrate the superior performance of UniRestore\nin both PIR and TIR scenarios.",
+    "introduction": "1. Introduction\nImage restoration [\n42, 55] aims to restore content degraded\nby various factors, such as adverse weather, blur, and\nnoise. These factors often reduce image perceptual visibil-\nity [\n28, 60] and negatively impact the performance of high-\nProject page: https://unirestore.github.io/\n* Indicates equal contribution.\nPIR UniRestore\nTIR\n(a) Perceptual IR\nSegmentation (mIoU%)\nClassification (acc%)\nDIP URIE\nNAFNet PromptIR\nDiffBIR\nDiffUIR\nUniRestore\n49\n52\n55\n58\n61\n64\n67\n70\n57 60 63 66 69 72 75\nUniRestore\nTIR\nPIR\n(b) Task-oriented IR\nDegraded Image\n Restored Image\n<Restoration=\n <Classification=\n <Segmentation=\n <Any Task=\nPerceptual / Task-oriented Image Restoration\nUnified Restoration\n(c) UniRestore\nFigure 1. Illustration of UniRestore’s capabilities: (a) PIR\n- Comparison with existing methods ( e.g., URIE [ 52], Promp-\ntIR [ 42]) under adverse conditions. (b) TIR - Demonstrating\nUniRestore’s robustness for downstream tasks such as classiﬁca-\ntion and segmentation. (c) Uniﬁed Restoration - UniRestore’s ver-\nsatility in addressing PIR and TIR.\nlevel vision applications, such as object detection [ 66, 73]\nand semantic segmentation [ 43, 49]. V arious restoration\nmethods have been developed and studied over the past\ndecades to address this wide range of image restoration\nchallenges. These include methods focused on improving\nperceptual quality [\n44, 72] as well as those designed to en-\nhance the performance of downstream tasks [ 52, 69].\nPerceptual image restoration (PIR) algorithms focus on\nimproving visual clarity and ﬁdelity of images by remov-\ning or reducing visible artifacts that affect their aesthetic\nquality. These methods focus on dealing with noise re-\nduction [\n8, 72], low-light enhancement [ 70, 75], deblur-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n17969\n\nring [ 38, 44], dehazing [ 6, 72], deraining [ 57, 67], and\ndesnowing [7, 35, 59]. While these algorithms can enhance\nthe visual quality of images, they do not always improve\nperformance in downstream tasks [\n4, 5, 21]. This is be-\ncause the factors contributing to visual quality often differ\nfrom those determining recognition quality [\n41, 52, 69].\nOn the other hand, task-oriented image restoration\n(TIR) [ 52, 69] is speciﬁcally designed to optimize images\nfor applications that rely on computer vision, such as object\ndetection [\n66, 73], classiﬁcation [ 51, 52], and autonomous\ndriving systems [ 43, 49]. This approach aligns the restora-\ntion process with the speciﬁc requirements of neural net-\nwork models used in these applications, ensuring that the\nrestored images are suitable for effective machine interpre-\ntation. Although these methods improve the performance\nof downstream tasks, they often produce results that are less\nvisually appealing [\n34, 73].\nBased on the analysis above, existing image restoration\nalgorithms often face a trade-off, highlighting the challenge\nof balancing technical functionality with aesthetic quality.\nThis dual functionality is crucial because real-world appli-\ncations often require restoration processes to be speciﬁcally\nadapted to different scenarios. Thus, developing a model\nthat can simultaneously enhance perceptual quality and im-\nprove performance for downstream tasks is essential. Such\na uniﬁed image restoration framework can effectively per-\nform across diverse settings, reducing system redundancy\nand boosting operational efﬁciency, as shown in Figure",
+    "method": "3. Proposed Method",
+    "experiments": "5. Experiments",
+    "conclusion": "6. Conclusion\nThis paper introduces UniRestore, an approach capable of\naddressing PIR and TIR simultaneously. Building on dif-\nfusion models, we propose adapting diffusion features for\ndiverse applications. To achieve this, we introduce a com-\nplementary feature restoration module that restores features\nwithin the encoder and a task feature adapter that dynami-\ncally and efﬁciently combines these restored features with\ndiffusion features for downstream tasks. Experimental re-\nsults validate the effectiveness and extendability of UniRe-\nstore, demonstrating its ability to alleviate the trade-offs as-\nsociated with existing PIR and TIR methods.\nAcknowledgements\nThis research was supported by Taiwan’s National Sci-\nence and Technology Council under Grant NSTC 111-\n2221-E-002-136-MY3 and the Intelligence Advanced Re-\nsearch Projects Activity (IARPA) via Department of Inte-\nrior/ Interior Business Center (DOI/IBC) contract number\n140D0423C0074. The U.S. Government is authorized to re-\nproduce and distribute reprints for Governmental purposes\nnotwithstanding any copyright annotation thereon. Dis-\nclaimer: The views and conclusions contained herein are\nthose of the authors and should not be interpreted as neces-\nsarily representing the ofﬁcial policies or endorsements, ei-\nther expressed or implied, of IARPA, DOI/IBC, or the U.S.\nGovernment."
+  }
+}

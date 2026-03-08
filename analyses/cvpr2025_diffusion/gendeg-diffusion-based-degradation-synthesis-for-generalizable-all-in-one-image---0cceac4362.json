@@ -1,0 +1,101 @@
+{
+  "paper_id": "gendeg-diffusion-based-degradation-synthesis-for-generalizable-all-in-one-image---0cceac4362",
+  "paper_title": "GenDeg: Diffusion-based Degradation Synthesis for Generalizable All-In-One Image Restoration",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:47.932437+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/GenDeg： Diffusion-based Degradation Synthesis for Generalizable All-In-One Image Restoration.pdf",
+    "filename": "GenDeg： Diffusion-based Degradation Synthesis for Generalizable All-In-One Image Restoration.pdf",
+    "sha1": "0cceac43620caf03eb28d05d5ca49528bcd8bdf9",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Recent studies have discussed the problem of general- ization in image restoration models in great depth [17, 22].",
+    "limitation": "However, these approaches are limited to addressing one type of degradation at a time, making them inefficient for scenarios involving multiple types of corruptions.",
+    "insight": "Abstract Deep learning–based models for All-In-One image Restora- tion (AIOR) have achieved significant advancements in re- cent years.",
+    "proposed_method": "Specifi- cally, we introduce GenDeg, a degradation and intensity- aware conditional diffusion model, capable of producing diverse degradation patterns on clean images.",
+    "experimental_evidence": "Our experiments reveal that image restora- tion models trained on GenDS dataset exhibit significant improvements in out-of-distribution performance as com- pared to when trained solely on existing datasets.",
+    "summary": "Recent studies have discussed the problem of general- ization in image restoration models in great depth [17, 22]. However, these approaches are limited to addressing one type of degradation at a time, making them inefficient for scenarios involving multiple types of corruptions. Abstract Deep learning–based models for All-In-One image Restora- tion (AIOR) have achieved significant advancements in re- cent years. Specifi- cally, we introduce GenDeg, a degradation and intensity- aware conditional diffusion model, capable of producing diverse degradation patterns on clean images. Our experiments reveal that image restora- tion models trained on GenDS dataset exhibit significant improvements in out-of-distribution performance as com- pared to when trained solely on existing datasets."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Image restoration is a well-studied computer vision prob- lem that aims to reverse the effects of image corrup- tions or artifacts.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "Introduction Image restoration is a well-studied computer vision prob- lem that aims to reverse the effects of image corrup- tions or artifacts. It is important for numerous applica- tions, including autonomous driving, imaging and surveil- lance. Early approaches focused on handling specific degradations such as haze [16, 58], rain [19, 47, 52, 53], Project Page: https://sudraj2002.github.io/gendegpage/ Figure 1. Out-of-distribution performance of three image restora- tion models when trained solely using existing datasets and our proposed GenDS dataset."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Significant improvements can be ob- served across all degradations.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Significant improvements can be ob- served across all degradations. Metric values reduce outward. snow [11, 59], blur [34, 42] etc. More recent methods such as Restormer [57], MPRNet [56] and SwinIR [27] proposed architectures capable of addressing any single restoration task. However, these approaches are limited to addressing one type of degradation at a time, making them inefficient for scenarios involving multiple types of corruptions."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "problem_statement",
+      "main_message": "All-In-One Restoration (AIOR) methods overcome this limitation by employing a single model capable of han- dling multiple types of degradations.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "All-In-One Restoration (AIOR) methods overcome this limitation by employing a single model capable of han- dling multiple types of degradations. Recent approaches include PromptIR [35], DA-CLIP [32], DiffUIR [62], Diff- Plugin [29], InstructIR [13] and AutoDIR [18]. Most AIOR methods are trained using a single dataset for each restora- tion task such as RESIDE [23] for dehazing, Snow100k [30] for desnowing, Rain13K [56] for deraining and GoPro [34] dataset for motion deblurring. Although these approaches perform well on degradations from these dataset distribu- tions, they often exhibit poor generalization when con- fronted with new scenes or out-of-distribution (OoD) degra- dation patterns, which is very common in real-world scenar- ios."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "limitation",
+      "main_message": "Recent studies have discussed the problem of general- ization in image restoration models in great depth [17, 22].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Recent studies have discussed the problem of general- ization in image restoration models in great depth [17, 22]. We hypothesize that the limited generalization of these models is mainly due to two reasons: This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Proposed Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, their practical applicability is limited by poor generalization to samples outside the training dis- tribution.",
+      "However, these approaches are limited to addressing one type of degradation at a time, making them inefficient for scenarios involving multiple types of corruptions.",
+      "We hypothesize that the limited generalization of these models is mainly due to two reasons: This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Experiments In this section, we provide detailed results and analysis of our method."
+    ],
+    "experiment_expression": [],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, their practical applicability is limited by poor generalization to samples outside the training dis- tribution.",
+    "However, these approaches are limited to addressing one type of degradation at a time, making them inefficient for scenarios involving multiple types of corruptions.",
+    "Abstract Deep learning–based models for All-In-One image Restora- tion (AIOR) have achieved significant advancements in re- cent years.",
+    "Additionally, capturing large-scale real-world paired data for degradations such as haze, low- light, and raindrops is often cumbersome and sometimes infeasible.",
+    "All-In-One Restoration (AIOR) methods overcome this limitation by employing a single model capable of han- dling multiple types of degradations.",
+    "Conclusions In this paper, we addressed the important problem of gen- eralization in All-In-One Restoration (AIOR) models.",
+    "Early approaches focused on handling specific degradations such as haze [16, 58], rain [19, 47, 52, 53], Project Page: https://sudraj2002.github.io/gendegpage/ Figure 1.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Experiments In this section, we provide detailed results and analysis of our method.",
+    "Further- more, we provide comprehensive analyses on implications of diffusion model-based synthetic degradations for AIOR.",
+    "Implementation details and dataset details can be found in the supplementary.",
+    "In this paper, we leverage the generative capa- bilities of latent diffusion models to synthesize high-quality degraded images from their clean counterparts."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDeep learning–based models for All-In-One image Restora-\ntion (AIOR) have achieved significant advancements in re-\ncent years. However, their practical applicability is limited\nby poor generalization to samples outside the training dis-\ntribution. This limitation arises primarily from insufficient\ndiversity in degradation variations and scenes within ex-\nisting datasets, resulting in inadequate representations of\nreal-world scenarios. Additionally, capturing large-scale\nreal-world paired data for degradations such as haze, low-\nlight, and raindrops is often cumbersome and sometimes\ninfeasible. In this paper, we leverage the generative capa-\nbilities of latent diffusion models to synthesize high-quality\ndegraded images from their clean counterparts. Specifi-\ncally, we introduce GenDeg, a degradation and intensity-\naware conditional diffusion model, capable of producing\ndiverse degradation patterns on clean images. Using Gen-\nDeg, we synthesize over 550k samples across six degrada-\ntion types: haze, rain, snow, motion blur, low-light, and\nraindrops. These generated samples are integrated with ex-\nisting datasets to form the GenDS dataset, comprising over\n750k samples. Our experiments reveal that image restora-\ntion models trained on GenDS dataset exhibit significant\nimprovements in out-of-distribution performance as com-\npared to when trained solely on existing datasets. Further-\nmore, we provide comprehensive analyses on implications\nof diffusion model-based synthetic degradations for AIOR.",
+    "introduction": "1. Introduction\nImage restoration is a well-studied computer vision prob-\nlem that aims to reverse the effects of image corrup-\ntions or artifacts. It is important for numerous applica-\ntions, including autonomous driving, imaging and surveil-\nlance. Early approaches focused on handling specific\ndegradations such as haze [16, 58], rain [19, 47, 52, 53],\nProject Page: https://sudraj2002.github.io/gendegpage/\nFigure 1. Out-of-distribution performance of three image restora-\ntion models when trained solely using existing datasets and our\nproposed GenDS dataset. Significant improvements can be ob-\nserved across all degradations. Metric values reduce outward.\nsnow [11, 59], blur [34, 42] etc. More recent methods such\nas Restormer [57], MPRNet [56] and SwinIR [27] proposed\narchitectures capable of addressing any single restoration\ntask. However, these approaches are limited to addressing\none type of degradation at a time, making them inefficient\nfor scenarios involving multiple types of corruptions.\nAll-In-One Restoration (AIOR) methods overcome this\nlimitation by employing a single model capable of han-\ndling multiple types of degradations. Recent approaches\ninclude PromptIR [35], DA-CLIP [32], DiffUIR [62], Diff-\nPlugin [29], InstructIR [13] and AutoDIR [18]. Most AIOR\nmethods are trained using a single dataset for each restora-\ntion task such as RESIDE [23] for dehazing, Snow100k [30]\nfor desnowing, Rain13K [56] for deraining and GoPro [34]\ndataset for motion deblurring. Although these approaches\nperform well on degradations from these dataset distribu-\ntions, they often exhibit poor generalization when con-\nfronted with new scenes or out-of-distribution (OoD) degra-\ndation patterns, which is very common in real-world scenar-\nios. Recent studies have discussed the problem of general-\nization in image restoration models in great depth [17, 22].\nWe hypothesize that the limited generalization of these\nmodels is mainly due to two reasons:\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n28144",
+    "method": "3. Proposed Method\nIn this section, we detail GenDeg, our diffusion-based\nmethod for generating large-scale synthetic data for image\nrestoration. We also discuss the process of data generation,\ncuration and training of restoration models.",
+    "experiments": "4. Experiments\nIn this section, we provide detailed results and analysis of\nour method. Implementation details and dataset details can\nbe found in the supplementary.",
+    "conclusion": "5. Conclusions\nIn this paper, we addressed the important problem of gen-\neralization in All-In-One Restoration (AIOR) models. To-\nward this aim, we introduced GenDeg, a novel diffusion\nmodel–based framework for synthesizing diverse degrada-\ntions on clean images, offering fine-grained control over\ndegradation characteristics. Utilizing GenDeg, we gen-\nerated over 550k degraded samples encompassing a wide\nrange of scenes and degradations. Training AIOR models\nwith both existing and GenDeg data yielded significant im-\nprovements in out-of-distribution performance. Our work\nsuggests a promising research direction for addressing gen-\neralization challenges in AIOR, aiding in the development\nof more robust restoration models."
+  }
+}

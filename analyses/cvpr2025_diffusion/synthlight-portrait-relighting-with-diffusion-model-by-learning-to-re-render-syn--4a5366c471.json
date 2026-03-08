@@ -1,0 +1,99 @@
+{
+  "paper_id": "synthlight-portrait-relighting-with-diffusion-model-by-learning-to-re-render-syn--4a5366c471",
+  "paper_title": "SynthLight: Portrait Relighting with Diffusion Model by Learning to Re-render Synthetic Faces",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:37.186935+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/SynthLight： Portrait Relighting with Diffusion Model by Learning to Re-render Synthetic Faces.pdf",
+    "filename": "SynthLight： Portrait Relighting with Diffusion Model by Learning to Re-render Synthetic Faces.pdf",
+    "sha1": "4a5366c471cdaca1c9d2a301ea36051283529fbe",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "The inverse graphics problem aims to find S from I1: S = finv(I1, L1) with known or unknown lighting.",
+    "limitation": "This imposes limitations on subsequent rendering functions and fails to capture complex illumination effects like inter-reflections, occlusion shadows and subsurface scattering.",
+    "insight": "We fur- ther observe that input portraits contain rich textural infor- mation.",
+    "proposed_method": "Abstract We introduce SynthLight, a diffusion model for portrait relighting.",
+    "experimental_evidence": "Our quantitative experiments on light stage data demonstrate results comparable to state-of-the-art relight- ing methods.",
+    "summary": "The inverse graphics problem aims to find S from I1: S = finv(I1, L1) with known or unknown lighting. This imposes limitations on subsequent rendering functions and fails to capture complex illumination effects like inter-reflections, occlusion shadows and subsurface scattering. We fur- ther observe that input portraits contain rich textural infor- mation. Abstract We introduce SynthLight, a diffusion model for portrait relighting. Our quantitative experiments on light stage data demonstrate results comparable to state-of-the-art relight- ing methods."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction Lighting is fundamental to portrait photography, yet ma- nipulating it after capture remains challenging.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\nLighting is fundamental to portrait photography, yet ma-\nnipulating it after capture remains challenging. Recent ad-\nvances in generative imaging models have shown promise\nfor controlling lighting in existing images [14, 18, 34,\n58, 60], but these typically require labeled training data.\nFor portrait relighting specifically, the most effective re-\nsults have come from training on light stage data—portraits\nrendered with linear combinations of one-light-at-a-time\n(OLAT) captures. While powerful, light stage setups are\nconstrained by physical limitations in light source den-\nsity and require specialized artificial lighting equipment.\nIn contrast, 3D workflows in VFX and gaming have long\ntreated lighting as a straightforward endeavor through mod-\nern physically based rendering engines, where lighting con-\ntrol is nearly arbitrary. To relight a rendering, artists simply\nadjust the lighting configurations and re-render the scene.\nGiven a sceneS and lighting L1, we denote the rendering\nas I1 = fr(S, L1). The inverse graphics problem aims to\nfind S from I1: S = finv(I1, L1) with known or unknown\nlighting. To relight renderingI1 to I2 under lighting L2, one\naims to compute:"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "ing procedure seeks: I2 = fr(finv(I1), L2) = fre(I1, L2), where fre is the relighting/re-rendering function.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "ing procedure seeks: I2 = fr(finv(I1), L2) = fre(I1, L2),\nwhere fre is the relighting/re-rendering function. Previ-\nous approaches [21, 28, 57] have tackled this problem\nthrough inverse graphics, explicitly or implicitly, by es-\ntimating lighting-invariant intrinsic scene representations\nsuch as depth, surface normals, and albedo. This imposes\nlimitations on subsequent rendering functions and fails to\ncapture complex illumination effects like inter-reflections,\nocclusion shadows and subsurface scattering. In this paper,\nwe propose bypassing inverse rendering by learning the re-\nlighting function using physically based 3D renderings of\nhuman heads. We render pairs of portrait images in Blender\n(Cycles) (I1, L1) and (I2, L2) and train a diffusion model\nto directly learn to “re-render” I2 from I1 and L2.\nHowever, this approach introduces an inevitable domain\ngap between 3D renders and real photographs. To address\nthis challenge, we leverage a latent diffusion model pre-\ntrained on vast internet images for text-to-image generation.\nWe propose to finetune the network with our face render-\nings and introduce simple yet effective schemes to narrow\nthe gap between training data and in-the-"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "370 Recent diffusion-based relighting methods include Di-",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, this approach introduces an inevitable domain gap between 3D renders and real photographs.",
+      "Diffusion Face Re- lighting [32] employs conditional diffusion implicit models with spherical harmonic lighting but is limited to tight fa- cial crops."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "We propose training and in- ference strategies to bridge the gap between the synthetic and real image domains: (1) multi-task training leveraging real human portraits without lighting labels; (2) an infer- ence time diffusion sampling scheme based on classifier- free guidance leveraging the input portrait to better pre- serve details.",
+      "Our method generalizes to diverse real por- traits and produces realistic illumination effects, includ- ing specular highlights and cast shadows, while preserving identity.",
+      "In this paper, we propose bypassing inverse rendering by learning the re- lighting function using physically based 3D renderings of human heads.",
+      "To address this challenge, we leverage a latent diffusion model pre- trained on vast internet images for text-to-image generation.",
+      "We propose to finetune the network with our face render- ings and introduce simple yet effective schemes to narrow the gap between training data and in-the-wild images.",
+      "Dur- ing training, we propose multi-task training that incorpo- rates in-the-wild images without ground truth relighting in- formation.",
+      "We quantitatively evaluate our method on a test set of our synthetic faces dataset and on a light stage OLAT dataset.",
+      "Despite using no light stage data for training, our method achieves comparable or superior results to state-of-the-art portrait relighting methods trained on OLAT data.",
+      "Our method demonstrates strong generalization capabilities, underscor- ing the potential of synthetic data to achieve plausible light- ing effects such as strong cast shadows, realistic catch lights in the eyes, and natural inter-reflections."
+    ],
+    "experiment_expression": [
+      "Our quantitative experiments on light stage data demonstrate results comparable to state-of-the-art relight- ing methods.",
+      "For the first time, we demonstrate an end-to-end system capable of non-trivial lighting effects including catch lights in eyes, subsurface scattering in ears, and inter-reflections with clothing."
+    ],
+    "contribution_expression": [
+      "We summarize our contributions as follows: 370 Recent diffusion-based relighting methods include Di- LightNet [58], which provides fine-grained control of object lighting but relies on error-prone scene reconstruction [51], and Neural Gaffer [18], which utilizes HDR environment maps for object relighting."
+    ]
+  },
+  "notable_sentences": [
+    "Dur- ing training, we propose multi-task training that incorpo- rates in-the-wild images without ground truth relighting in- formation.",
+    "However, this approach introduces an inevitable domain gap between 3D renders and real photographs.",
+    "In this paper, we propose bypassing inverse rendering by learning the re- lighting function using physically based 3D renderings of human heads.",
+    "We propose to finetune the network with our face render- ings and introduce simple yet effective schemes to narrow the gap between training data and in-the-wild images.",
+    "369 ing procedure seeks: I2 = fr(finv(I1), L2) = fre(I1, L2), where fre is the relighting/re-rendering function.",
+    "Abstract We introduce SynthLight, a diffusion model for portrait relighting.",
+    "Conclusion We present SynthLight, a portrait relighting diffusion model capable of relighting in-the-wild portraits while garnering lighting supervision only from synthetic data.",
+    "Despite using no light stage data for training, our method achieves comparable or superior results to state-of-the-art portrait relighting methods trained on OLAT data.",
+    "Diffusion Face Re- lighting [32] employs conditional diffusion implicit models with spherical harmonic lighting but is limited to tight fa- cial crops.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "For portrait relighting specifically, the most effective re- sults have come from training on light stage data—portraits rendered with linear combinations of one-light-at-a-time (OLAT) captures.",
+    "For portraits, Relightful Har- monization [34] and IC-Light [60] train on high-quality data (light stage captures, Objaverse renders, composited shadow materials) for background-harmonized outputs, us- ing background as lighting condition."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWe introduce SynthLight, a diffusion model for portrait\nrelighting. We frame image relighting as a re-rendering\nproblem, where pixels are transformed in response to\nchanges in environmental lighting. Using a physically-\nbased rendering engine, we create a dataset to simulate\nthis lighting-conditioned transformation with 3D head as-\nsets under varying lighting. We propose training and in-\nference strategies to bridge the gap between the synthetic\nand real image domains: (1) multi-task training leveraging\nreal human portraits without lighting labels; (2) an infer-\nence time diffusion sampling scheme based on classifier-\nfree guidance leveraging the input portrait to better pre-\nserve details. Our method generalizes to diverse real por-\ntraits and produces realistic illumination effects, includ-\ning specular highlights and cast shadows, while preserving\nidentity. Our quantitative experiments on light stage data\ndemonstrate results comparable to state-of-the-art relight-\ning methods. Our qualitative results on in-the-wild images\nshowcase rich and unprecedented illumination effects.\n*Work done as an intern at Adobe Research.\n†Corresponding author.",
+    "introduction": "1. Introduction\nLighting is fundamental to portrait photography, yet ma-\nnipulating it after capture remains challenging. Recent ad-\nvances in generative imaging models have shown promise\nfor controlling lighting in existing images [14, 18, 34,\n58, 60], but these typically require labeled training data.\nFor portrait relighting specifically, the most effective re-\nsults have come from training on light stage data—portraits\nrendered with linear combinations of one-light-at-a-time\n(OLAT) captures. While powerful, light stage setups are\nconstrained by physical limitations in light source den-\nsity and require specialized artificial lighting equipment.\nIn contrast, 3D workflows in VFX and gaming have long\ntreated lighting as a straightforward endeavor through mod-\nern physically based rendering engines, where lighting con-\ntrol is nearly arbitrary. To relight a rendering, artists simply\nadjust the lighting configurations and re-render the scene.\nGiven a sceneS and lighting L1, we denote the rendering\nas I1 = fr(S, L1). The inverse graphics problem aims to\nfind S from I1: S = finv(I1, L1) with known or unknown\nlighting. To relight renderingI1 to I2 under lighting L2, one\naims to compute: I2 = fr(S, L2). Given only I1, a relight-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n369\n\ning procedure seeks: I2 = fr(finv(I1), L2) = fre(I1, L2),\nwhere fre is the relighting/re-rendering function. Previ-\nous approaches [21, 28, 57] have tackled this problem\nthrough inverse graphics, explicitly or implicitly, by es-\ntimating lighting-invariant intrinsic scene representations\nsuch as depth, surface normals, and albedo. This imposes\nlimitations on subsequent rendering functions and fails to\ncapture complex illumination effects like inter-reflections,\nocclusion shadows and subsurface scattering. In this paper,\nwe propose bypassing inverse rendering by learning the re-\nlighting function using physically based 3D renderings of\nhuman heads. We render pairs of portrait images in Blender\n(Cycles) (I1, L1) and (I2, L2) and train a diffusion model\nto directly learn to “re-render” I2 from I1 and L2.\nHowever, this approach introduces an inevitable domain\ngap between 3D renders and real photographs. To address\nthis challenge, we leverage a latent diffusion model pre-\ntrained on vast internet images for text-to-image generation.\nWe propose to finetune the network with our face render-\nings and introduce simple yet effective schemes to narrow\nthe gap between training data and in-the-wild images. Dur-\ning training, we propose multi-task training that incorpo-\nrates in-the-wild images without ground truth relighting in-\nformation. This allows the model to learn relighting from\nour synthetic dataset while maintaining knowledge of the\nreal image domain, preventing distributional drift. We fur-\nther observe that input portraits contain rich textural infor-\nmation. Leveraging the flexibility of diffusion model in-\nference, we design an inference adaptation scheme that\neffectively preserves input portrait details in the relit result.\nWe evaluate our methods on in-the-wild portrait images,\ndemonstrating highly detailed illumination effects that ac-\ncurately capture interactions between the portrait scene and\nlighting. Our results produce realistic cast shadows and\nspecular highlights on the skin. For the first time, we\ndemonstrate an end-to-end system capable of non-trivial\nlighting effects including catch lights in eyes, subsurface\nscattering in ears, and inter-reflections with clothing. No-\ntably, despite training only on simple headshot renderings\nof 3D faces without accessories, facial hair, or hats, our\nnetwork generalizes to complex portrait images, including\nhalf-body shots and multi-person photographs.\nWe quantitatively evaluate our method on a test set of our\nsynthetic faces dataset and on a light stage OLAT dataset.\nDespite using no light stage data for training, our method\nachieves comparable or superior results to state-of-the-art\nportrait relighting methods trained on OLAT data. User\nstudies show our results are preferred across all evaluated\naspects: perceptual lighting accuracy, identity preservation,\nand overall image quality.\nWe summarize our contributions as follows:",
+    "method": "370\n\nRecent diffusion-based relighting methods include Di-\nLightNet [58], which provides fine-grained control of object\nlighting but relies on error-prone scene reconstruction [51],\nand Neural Gaffer [18], which utilizes HDR environment\nmaps for object relighting. For portraits, Relightful Har-\nmonization [34] and IC-Light [60] train on high-quality\ndata (light stage captures, Objaverse renders, composited\nshadow materials) for background-harmonized outputs, us-\ning background as lighting condition. Diffusion Face Re-\nlighting [32] employs conditional diffusion implicit models\nwith spherical harmonic lighting but is limited to tight fa-\ncial crops. In contrast, we approach portrait relighting by\nlearning to re-render synthetic faces. Leveraging pretrained\nmodels and our multi-task training strategy, we preserve fa-\ncial priors, while classifier-free guidance [15] on the input\nportrait enhances textures and details in the relit results.",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nWe present SynthLight, a portrait relighting diffusion model\ncapable of relighting in-the-wild portraits while garnering\nlighting supervision only from synthetic data. Our method\ndemonstrates strong generalization capabilities, underscor-\ning the potential of synthetic data to achieve plausible light-\ning effects such as strong cast shadows, realistic catch lights\nin the eyes, and natural inter-reflections. We discuss limita-\ntions and future work in the supplementary."
+  }
+}

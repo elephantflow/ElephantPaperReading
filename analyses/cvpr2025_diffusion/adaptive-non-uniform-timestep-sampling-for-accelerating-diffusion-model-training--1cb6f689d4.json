@@ -1,0 +1,104 @@
+{
+  "paper_id": "adaptive-non-uniform-timestep-sampling-for-accelerating-diffusion-model-training--1cb6f689d4",
+  "paper_title": "Adaptive Non-Uniform Timestep Sampling for Accelerating Diffusion Model Training",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:02.414088+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Adaptive Non-Uniform Timestep Sampling for Accelerating Diffusion Model Training.pdf",
+    "filename": "Adaptive Non-Uniform Timestep Sampling for Accelerating Diffusion Model Training.pdf",
+    "sha1": "1cb6f689d4309ba364c1b4cb9395da3b54b98854",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction In recent years, diffusion models have demonstrated their high expressive power and achieved significant success across a wide range of domains, including image [9, 23, 24], video [18, 35], text [4, 12, 22], audio generation [26], combinatorial optimization [25, 30], reinforcement learn- ing [1, 15, 32], and more.",
+    "limitation": "However, with the increasing complexity of target data distributions, achieving conver- gence in diffusion model training has become increasingly computationally demanding.",
+    "insight": "Through a series of experiments, we observed significant variation in the stochastic gradient variance across different diffusion training timesteps.",
+    "proposed_method": "To address this is- sue, we introduce a non-uniform timestep sampling method that prioritizes these more critical timesteps.",
+    "experimental_evidence": "Abstract As a highly expressive generative model, diffusion models have demonstrated exceptional success across various do- mains, including image generation, natural language pro- cessing, and combinatorial optimization.",
+    "summary": "Introduction In recent years, diffusion models have demonstrated their high expressive power and achieved significant success across a wide range of domains, including image [9, 23, 24], video [18, 35], text [4, 12, 22], audio generation [26], combinatorial optimization [25, 30], reinforcement learn- ing [1, 15, 32], and more. However, with the increasing complexity of target data distributions, achieving conver- gence in diffusion model training has become increasingly computationally demanding. Through a series of experiments, we observed significant variation in the stochastic gradient variance across different diffusion training timesteps. To address this is- sue, we introduce a non-uniform timestep sampling method that prioritizes these more critical timesteps. Abstract As a highly expressive generative model, diffusion models have demonstrated exceptional success across various do- mains, including image generation, natural language pro- cessing, and combinatorial optimization."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "key_insight",
+      "main_message": "Introduction In recent years, diffusion models have demonstrated their high expressive power and achieved significant success across a wide range of domains, including image [9, 23, 24], video [18, 35], text [4, 12, 22], audio generation [26], combinatorial optimization [25, 30], reinforcement learn- ing [1, 15, 32], and more.",
+      "writing_strategy": "Introduces an observation that motivates the proposed direction.",
+      "evidence_text": "1. Introduction\nIn recent years, diffusion models have demonstrated their\nhigh expressive power and achieved significant success\nacross a wide range of domains, including image [9, 23, 24],\nvideo [18, 35], text [4, 12, 22], audio generation [26],\ncombinatorial optimization [25, 30], reinforcement learn-\ning [1, 15, 32], and more. However, with the increasing\ncomplexity of target data distributions, achieving conver-\ngence in diffusion model training has become increasingly\ncomputationally demanding. For example, training images\nwith Stable-Diffusion-2.0 [24] requires 24,000 A100 GPU\nhours, while Open-Sora [35] requires 48,000 H800 GPU\n*These authors contributed equally.\n0.0 0.5 1.0 1.2 1.4\nWall Clock Time (D)\n3\n4\n5\n6\n7FID\nBaseline (DDPM)\nP2\nMin-SNR\nLog-Normal\nSpeeD\nOurs\nFigure 1. Comparison of FID scores of our approach and other\nacceleration methods against relative wall clock time, where 1D\nrepresents the time it takes for the baseline to converge. Although\nour learning method is initially slower than the heuristics due to its\nlearning-based nature, it converges to a point with better optimality\nwithin 1D, and achieves a significantly lower FID score by 1.2D.\nhours for video trai"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "and may explain the effectiveness of previously proposed heuristics in improving diffusion model training.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "and may explain the effectiveness of previously proposed\nheuristics in improving diffusion model training. However,\ndue to the strong interdependence of gradients across dif-\nferent timesteps, we found that this insight alone does not\ndirectly lead to optimal acceleration in diffusion training.\nTo this end, we propose a more direct approach by devel-\noping an efficient algorithm designed to sample timesteps\nthat are estimated to yield the greatest reduction in the ob-\njective. This algorithm approximates the impact of gradient\nupdates for each timestep on the variational lower bound\nand increases the sampling frequency of specific timesteps\nthat require further optimization.\nThis enables the diffusion training process to converge\nsignificantly faster than previous heuristics across various\nsettings. To summarize, our three main contributions are as\nfollows:"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "6.1. Comparison to Heuristic Acceleration Methods",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "3. We conduct experiments across various image datasets,",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "To address this is- sue, we introduce a non-uniform timestep sampling method that prioritizes these more critical timesteps."
+    ],
+    "limitation_expression": [
+      "However, as data distributions grow more complex, training these models to convergence becomes increasingly computationally inten- sive.",
+      "However, with the increasing complexity of target data distributions, achieving conver- gence in diffusion model training has become increasingly computationally demanding.",
+      "However, the underlying reasons for the success of these methods remain largely unexplored, and they are often re- garded as heuristics that may have potential limitations in robustness across diverse experimental conditions.",
+      "However, due to the strong interdependence of gradients across dif- ferent timesteps, we found that this insight alone does not directly lead to optimal acceleration in diffusion training.",
+      "However, the strong interdependence of gra- dients across different timesteps suggests that this insight, on its own, does not directly result in optimal accelera- tion of diffusion training."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this is- sue, we introduce a non-uniform timestep sampling method that prioritizes these more critical timesteps.",
+      "Our method tracks the impact of gradient updates on the objective for each timestep, adaptively selecting those most likely to min- imize the objective effectively.",
+      "Furthermore, our method shows robust performance across various datasets, scheduling strategies, and diffusion architectures, outperforming previously proposed timestep sampling and weighting heuristics that lack this degree of robustness.",
+      "To this end, we propose a more direct approach by devel- oping an efficient algorithm designed to sample timesteps that are estimated to yield the greatest reduction in the ob- jective.",
+      "1 demonstrates that our method, despite its learning- based nature, generally achieves faster convergence and better performance at each iteration compared to heuris- tic approaches [7, 11, 17, 31].",
+      "Moreover, our method demonstrates consistent robustness across different noise schedules.",
+      "5, our method achieves robust performance by adaptively sam- pling timesteps throughout the training process, whereas heuristic approaches rely on fixed sampling strategies.",
+      "1 shows that our method also achieves faster convergence in terms of wall-clock time compared to heuristic approaches.",
+      "Visualizations of the generated CelebA-HQ images from our method and baselines are in Appendix Sec.",
+      "We conduct experiments across various image datasets, noise scheduling strategies and diffusion architectures to demonstrate the robustness of our method.",
+      "To this end, we propose a more direct approach that estimates the impact of gradient up- dates on the variational lower bound for each timestep and adjusts the sampling frequency to prioritize timesteps that require further optimization.",
+      "Experimental results demon- strate that our method significantly accelerates the conver- gence of the diffusion training process compared to pre- vious heuristics, while also exhibiting robust performance across various datasets, scheduling strategies, and diffusion architectures."
+    ],
+    "experiment_expression": [
+      "We conduct experiments across various image datasets, noise scheduling strategies and diffusion architectures to demonstrate the robustness of our method."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, as data distributions grow more complex, training these models to convergence becomes increasingly computationally inten- sive.",
+    "However, due to the strong interdependence of gradients across dif- ferent timesteps, we found that this insight alone does not directly lead to optimal acceleration in diffusion training.",
+    "However, the strong interdependence of gra- dients across different timesteps suggests that this insight, on its own, does not directly result in optimal accelera- tion of diffusion training.",
+    "However, the underlying reasons for the success of these methods remain largely unexplored, and they are often re- garded as heuristics that may have potential limitations in robustness across diverse experimental conditions.",
+    "However, with the increasing complexity of target data distributions, achieving conver- gence in diffusion model training has become increasingly computationally demanding.",
+    "Through a series of experiments, we observed significant variation in the stochastic gradient variance across different diffusion training timesteps.",
+    "To this end, we propose a more direct approach by devel- oping an efficient algorithm designed to sample timesteps that are estimated to yield the greatest reduction in the ob- jective.",
+    "To this end, we propose a more direct approach that estimates the impact of gradient up- dates on the variational lower bound for each timestep and adjusts the sampling frequency to prioritize timesteps that require further optimization.",
+    "0.0 0.5 1.0 1.2 1.4 Wall Clock Time (D) 3 4 5 6 7FID Baseline (DDPM) P2 Min-SNR Log-Normal SpeeD Ours Figure 1.",
+    "1 demonstrates that our method, despite its learning- based nature, generally achieves faster convergence and better performance at each iteration compared to heuris- tic approaches [7, 11, 17, 31].",
+    "1 shows that our method also achieves faster convergence in terms of wall-clock time compared to heuristic approaches.",
+    "1, suggesting that the performance of heuristics can vary across different set- tings."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nAs a highly expressive generative model, diffusion models\nhave demonstrated exceptional success across various do-\nmains, including image generation, natural language pro-\ncessing, and combinatorial optimization. However, as data\ndistributions grow more complex, training these models to\nconvergence becomes increasingly computationally inten-\nsive. While diffusion models are typically trained using\nuniform timestep sampling, our research shows that the\nvariance in stochastic gradients varies significantly across\ntimesteps, with high-variance timesteps becoming bottle-\nnecks that hinder faster convergence. To address this is-\nsue, we introduce a non-uniform timestep sampling method\nthat prioritizes these more critical timesteps. Our method\ntracks the impact of gradient updates on the objective for\neach timestep, adaptively selecting those most likely to min-\nimize the objective effectively. Experimental results demon-\nstrate that this approach not only accelerates the training\nprocess, but also leads to improved performance at conver-\ngence. Furthermore, our method shows robust performance\nacross various datasets, scheduling strategies, and diffusion\narchitectures, outperforming previously proposed timestep\nsampling and weighting heuristics that lack this degree of\nrobustness.",
+    "introduction": "1. Introduction\nIn recent years, diffusion models have demonstrated their\nhigh expressive power and achieved significant success\nacross a wide range of domains, including image [9, 23, 24],\nvideo [18, 35], text [4, 12, 22], audio generation [26],\ncombinatorial optimization [25, 30], reinforcement learn-\ning [1, 15, 32], and more. However, with the increasing\ncomplexity of target data distributions, achieving conver-\ngence in diffusion model training has become increasingly\ncomputationally demanding. For example, training images\nwith Stable-Diffusion-2.0 [24] requires 24,000 A100 GPU\nhours, while Open-Sora [35] requires 48,000 H800 GPU\n*These authors contributed equally.\n0.0 0.5 1.0 1.2 1.4\nWall Clock Time (D)\n3\n4\n5\n6\n7FID\nBaseline (DDPM)\nP2\nMin-SNR\nLog-Normal\nSpeeD\nOurs\nFigure 1. Comparison of FID scores of our approach and other\nacceleration methods against relative wall clock time, where 1D\nrepresents the time it takes for the baseline to converge. Although\nour learning method is initially slower than the heuristics due to its\nlearning-based nature, it converges to a point with better optimality\nwithin 1D, and achieves a significantly lower FID score by 1.2D.\nhours for video training. These high computational costs\nnot only pose significant barriers to advancing generative\nAI applications but also have negative environmental con-\nsequences.\nWhile numerous studies have explored ways to acceler-\nate diffusion model training, our research specifically tar-\ngets modifications to the uniform training process of diffu-\nsion models across diffusion timesteps. It is well recognized\nthat non-uniform training schemes over timesteps can en-\nhance training speed. For example, several heuristics have\nbeen proposed [7, 11, 17, 31].\nHowever, the underlying reasons for the success of these\nmethods remain largely unexplored, and they are often re-\ngarded as heuristics that may have potential limitations in\nrobustness across diverse experimental conditions.\nThrough a series of experiments, we observed significant\nvariation in the stochastic gradient variance across different\ndiffusion training timesteps.\nWe hypothesize that this variability plays a key role in\nthe imbalanced training observed with uniform sampling\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n2513\n\nand may explain the effectiveness of previously proposed\nheuristics in improving diffusion model training. However,\ndue to the strong interdependence of gradients across dif-\nferent timesteps, we found that this insight alone does not\ndirectly lead to optimal acceleration in diffusion training.\nTo this end, we propose a more direct approach by devel-\noping an efficient algorithm designed to sample timesteps\nthat are estimated to yield the greatest reduction in the ob-\njective. This algorithm approximates the impact of gradient\nupdates for each timestep on the variational lower bound\nand increases the sampling frequency of specific timesteps\nthat require further optimization.\nThis enables the diffusion training process to converge\nsignificantly faster than previous heuristics across various\nsettings. To summarize, our three main contributions are as\nfollows:",
+    "method": "6.1. Comparison to Heuristic Acceleration Methods\nComparison across various noise schedules To com-\npare our model and other acceleration techniques across\nvarious noise schedules, we used the CIFAR-10 32 ×32\ndataset [2], utilizing DDPM [14] as the backbone architec-\nture.\nTab. 1 demonstrates that our method, despite its learning-\nbased nature, generally achieves faster convergence and\nbetter performance at each iteration compared to heuris-\ntic approaches [7, 11, 17, 31]. Moreover, our method\ndemonstrates consistent robustness across different noise\nschedules. In contrast, while Min-SNR performs the best\namong heuristic approaches with linear and cosine noise\nschedules, its performance declines significantly with a\nquadratic noise schedule. As illustrated in Fig. 5, our\nmethod achieves robust performance by adaptively sam-\npling timesteps throughout the training process, whereas\nheuristic approaches rely on fixed sampling strategies. Fur-\nthermore, Fig. 1 shows that our method also achieves\nfaster convergence in terms of wall-clock time compared\nto heuristic approaches.\nComparison on high resolution images To evaluate the\nacceleration methods on high-resolution images, we used\nthe CelebA-HQ 256×256 dataset [16], utilizing LDM [24]\nas the backbone architecture. Tab. 2 demonstrates that\nalthough heuristic methods initially achieve better perfor-\nmance, our learning-based approach surpasses them over\ntime. We also found that P2 performs comparably well in\nthis setting relative to the results in Tab. 1, suggesting that\nthe performance of heuristics can vary across different set-\ntings. Visualizations of the generated CelebA-HQ images\nfrom our method and baselines are in Appendix Sec. 12.\n2518\n\n0 200 400 600 800 1000\nTimesteps\n0\n1\n2\n3",
+    "experiments": "3. We conduct experiments across various image datasets,\nnoise scheduling strategies and diffusion architectures to\ndemonstrate the robustness of our method.",
+    "conclusion": "7. Conclusion\nIn this paper, we discovered the variations in stochastic gra-\ndient variance across different diffusion training timesteps\nand argued that such variation can potentially lead to slow\nconvergence. However, the strong interdependence of gra-\ndients across different timesteps suggests that this insight,\non its own, does not directly result in optimal accelera-\ntion of diffusion training. To this end, we propose a more\ndirect approach that estimates the impact of gradient up-\ndates on the variational lower bound for each timestep and\nadjusts the sampling frequency to prioritize timesteps that\nrequire further optimization. Experimental results demon-\nstrate that our method significantly accelerates the conver-\ngence of the diffusion training process compared to pre-\nvious heuristics, while also exhibiting robust performance\nacross various datasets, scheduling strategies, and diffusion\narchitectures.\nLimitations and future work Our learning-based\nmethod incurs higher computational costs compared to\nheuristic approaches, with resource demands increasing\nsignificantly in larger problem domains. Furthermore, we\nhave not yet explored the application of our method within\nthe score-based diffusion framework, which combines\nscore-based generative modeling with diffusion probabilis-\ntic modeling and shows notable results in image generation\ntasks [17, 29, 34]. Addressing these limitations in terms\nof computational efficiency and extending the method’s\napplicability within score-based diffusion models remains\na promising direction for future research.\n2520"
+  }
+}

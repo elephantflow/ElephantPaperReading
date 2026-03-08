@@ -1,0 +1,103 @@
+{
+  "paper_id": "generalized-diffusion-detector-mining-robust-features-from-diffusion-models-for---4fca58ac2c",
+  "paper_title": "Generalized Diffusion Detector: Mining Robust Features from Diffusion Models for Domain-Generalized Detection",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:48.265451+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Generalized Diffusion Detector： Mining Robust Features from Diffusion Models for Domain-Generalized Detection.pdf",
+    "filename": "Generalized Diffusion Detector： Mining Robust Features from Diffusion Models for Domain-Generalized Detection.pdf",
+    "sha1": "4fca58ac2cf64b152e341ead244d580a740ae28b",
+    "page_count": 12
+  },
+  "core_story": {
+    "problem": "However, in practice, detectors face sig- nificant challenges from domain shifts and environmental variations, and the performance often deteriorates substan- tially when deployed in unseen scenarios [9, 78].",
+    "limitation": "However, in practice, detectors face sig- nificant challenges from domain shifts and environmental variations, and the performance often deteriorates substan- tially when deployed in unseen scenarios [9, 78].",
+    "insight": "Our work aims to present an ef- fective approach for domain-generalized detection and pro- vide potential insights for robust visual recognition in real- world scenarios.",
+    "proposed_method": "Instead of generating images, our method ex- tracts multi-step intermediate features during the diffusion process to obtain domain-invariant features for generalized detection.",
+    "experimental_evidence": "We conduct extensive experiments on six chal- lenging DG benchmarks.",
+    "summary": "However, in practice, detectors face sig- nificant challenges from domain shifts and environmental variations, and the performance often deteriorates substan- tially when deployed in unseen scenarios [9, 78]. However, in practice, detectors face sig- nificant challenges from domain shifts and environmental variations, and the performance often deteriorates substan- tially when deployed in unseen scenarios [9, 78]. Our work aims to present an ef- fective approach for domain-generalized detection and pro- vide potential insights for robust visual recognition in real- world scenarios. Instead of generating images, our method ex- tracts multi-step intermediate features during the diffusion process to obtain domain-invariant features for generalized detection. We conduct extensive experiments on six chal- lenging DG benchmarks."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction Object detection stands as a fundamental task in computer vision and has achieved remarkable technological break- throughs in recent years.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "1. Introduction\nObject detection stands as a fundamental task in computer\nvision and has achieved remarkable technological break-\nthroughs in recent years. Most object detection methods, in-\ncluding CNN [41, 51, 52, 62] and transformer-based [5, 83]\n*Equal contribution.\n†Corresponding author.\ndetectors assume consistent distributions between training\nand testing data. However, in practice, detectors face sig-\nnificant challenges from domain shifts and environmental\nvariations, and the performance often deteriorates substan-\ntially when deployed in unseen scenarios [9, 78].\nDomain generalization [34, 35, 65] and adaptation [3,\n13, 26, 40] methods have been developed to address\nthese challenges. Mainstream approaches include semi-\nsupervised learning with pseudo-labels [3, 6, 13, 40], fea-\nture alignment via adversarial training [9, 40, 57, 68], and\nstyle transfer techniques [18, 81]. However, these adap-\ntation methods require target domain data during training,\nlimiting their practical applications. This has led to in-\ncreased interest in domain generalization through data aug-\nmentation [12, 24, 33, 77], adversarial training [36, 82], and\nmeta-learning [1, 15]. While recent advanc"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "√ Source domain Unseen target domain BDD100K FoggyCityscapes RainyCityscapes Cityscapes BDD100K Clipart Comic Watercolor Blur Corruption Digital Corruption Weather Corruption Daytime-Foggy Night-RainyDuak-Rainy Night-SunnyDaytime-Sunny Clean Cityscapes VOC Sim10K Cityscapes Cityscapes Noise Corruption Our Results vs.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "√\nSource domain Unseen target domain\nBDD100K\nFoggyCityscapes RainyCityscapes\nCityscapes BDD100K\nClipart Comic Watercolor\nBlur Corruption Digital Corruption Weather Corruption\nDaytime-Foggy Night-RainyDuak-Rainy Night-SunnyDaytime-Sunny\nClean Cityscapes\nVOC\nSim10K\nCityscapes\nCityscapes\nNoise Corruption\nOur Results vs. Previous Best Results\nFigure 1. Left: Six DG benchmarks used in our paper. The sample images demonstrate substantial domain shifts between source and\ntarget distributions. Right: Compared with previous SOTA methods, our approach achieves superior performance across all 13 datasets\nfrom six benchmarks.\nimproved generalization without increasing inference time.\nOur work pioneers the application of diffusion models in\ndomain-generalized detection, demonstrating their poten-\ntial in enhancing detector generalization through knowledge\ndistillation.\nWe conduct comprehensive experiments on six challeng-\ning DG benchmarks as shown in Fig. 1: Cross Camera,\nAdverse Weather, Synthetic to Real, Real to Artistic, Di-\nverse Weather Benchmark, Corruption Benchmark. Exper-\nimental results demonstrate that our diffusion-based detec-\ntor achieves consistent improvements across these ben"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, in practice, detectors face sig- nificant challenges from domain shifts and environmental variations, and the performance often deteriorates substan- tially when deployed in unseen scenarios [9, 78].",
+      "However, these adap- tation methods require target domain data during training, limiting their practical applications.",
+      "However, directly applying these models introduces significant com- putational overhead due to the multi-step feature extraction process, limiting their practical deployment."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Instead of generating images, our method ex- tracts multi-step intermediate features during the diffusion process to obtain domain-invariant features for generalized detection.",
+      "Furthermore, we propose an efficient knowl- edge transfer framework that enables detectors to inherit the generalization capabilities of diffusion models through feature and object-level alignment, without increasing in- ference time.",
+      "The results demonstrate that our method achieves substantial improvements of 14.0% mAP over existing DG approaches across different domains and corruption types.",
+      "Notably, our method even outperforms most domain adaptation methods without accessing any tar- get domain data.",
+      "Inspired by the remarkable capabilities of diffusion mod- els [23, 54, 59] in handling visual variations, we propose to leverage them for domain-generalized detection.",
+      "To address this limitation while preserving their strong generalization advantages, we develop an efficient knowl- edge transfer framework that enables lightweight detec- tors to inherit capabilities from diffusion-based detectors.",
+      "Specifically, our framework consists of feature-level align- ment using correlation-based matching and object-level alignment through shared region proposals, allowing con- ventional detectors to learn both domain-invariant features and robust detection capabilities.",
+      "The inherent denoising mecha- nism and powerful representation capabilities of diffusion models are utilized to extract domain-invariant features for robust detection. • To address the computational overhead, we propose a simple yet effective knowledge transfer framework.",
+      "First, we propose a diffusion detector that extracts domain-invariant representations by fusing multi-step fea- tures during diffusion."
+    ],
+    "experiment_expression": [
+      "We conduct extensive experiments on six chal- lenging DG benchmarks.",
+      "The results demonstrate that our method achieves substantial improvements of 14.0% mAP over existing DG approaches across different domains and corruption types.",
+      "The sample images demonstrate substantial domain shifts between source and target distributions.",
+      "We conduct comprehensive experiments on six challeng- ing DG benchmarks as shown in Fig.",
+      "Exper- imental results demonstrate that our diffusion-based detec- tor achieves consistent improvements across these bench- marks, with average performance gains of{18.6, 15.0, 27.2, 16.4, 2.3, 4.7}% mAP compared to previous methods, even outperforming most domain adaptation methods that have access to target domain data.",
+      "This framework enables detectors to inherit strong gen- eralization capabilities through feature-level alignment and object-level learning, maintaining efficient inference time. • Comprehensive experiments on six DG benchmarks demonstrate significant improvements over previous ap- proaches in various scenarios.",
+      "Extensive evaluations on six domain gen- eralization benchmarks demonstrate substantial improve- ments across different domains and corruption types."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "First, we propose a diffusion detector that extracts domain-invariant representations by fusing multi-step fea- tures during diffusion.",
+    "Furthermore, we propose an efficient knowl- edge transfer framework that enables detectors to inherit the generalization capabilities of diffusion models through feature and object-level alignment, without increasing in- ference time.",
+    "However, directly applying these models introduces significant com- putational overhead due to the multi-step feature extraction process, limiting their practical deployment.",
+    "However, in practice, detectors face sig- nificant challenges from domain shifts and environmental variations, and the performance often deteriorates substan- tially when deployed in unseen scenarios [9, 78].",
+    "However, these adap- tation methods require target domain data during training, limiting their practical applications.",
+    "Inspired by the remarkable capabilities of diffusion mod- els [23, 54, 59] in handling visual variations, we propose to leverage them for domain-generalized detection.",
+    "We conduct comprehensive experiments on six challeng- ing DG benchmarks as shown in Fig.",
+    "We conduct extensive experiments on six chal- lenging DG benchmarks.",
+    "1: Cross Camera, Adverse Weather, Synthetic to Real, Real to Artistic, Di- verse Weather Benchmark, Corruption Benchmark.",
+    "Abstract Domain generalization (DG) for object detection aims to enhance detectors’ performance in unseen scenarios.",
+    "Conclusion This paper addresses DG detection through two key contri- butions.",
+    "Domain generalization [34, 35, 65] and adaptation [3, 13, 26, 40] methods have been developed to address these challenges."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDomain generalization (DG) for object detection aims to\nenhance detectors’ performance in unseen scenarios. This\ntask remains challenging due to complex variations in real-\nworld applications. Recently, diffusion models have demon-\nstrated remarkable capabilities in diverse scene generation,\nwhich inspires us to explore their potential for improving\nDG tasks. Instead of generating images, our method ex-\ntracts multi-step intermediate features during the diffusion\nprocess to obtain domain-invariant features for generalized\ndetection. Furthermore, we propose an efficient knowl-\nedge transfer framework that enables detectors to inherit\nthe generalization capabilities of diffusion models through\nfeature and object-level alignment, without increasing in-\nference time. We conduct extensive experiments on six chal-\nlenging DG benchmarks. The results demonstrate that our\nmethod achieves substantial improvements of 14.0% mAP\nover existing DG approaches across different domains and\ncorruption types. Notably, our method even outperforms\nmost domain adaptation methods without accessing any tar-\nget domain data. Moreover, the diffusion-guided detectors\nshow consistent improvements of 15.9% mAP on average\ncompared to the baseline. Our work aims to present an ef-\nfective approach for domain-generalized detection and pro-\nvide potential insights for robust visual recognition in real-\nworld scenarios. The code is available at Generalized Dif-\nfusion Detector",
+    "introduction": "1. Introduction\nObject detection stands as a fundamental task in computer\nvision and has achieved remarkable technological break-\nthroughs in recent years. Most object detection methods, in-\ncluding CNN [41, 51, 52, 62] and transformer-based [5, 83]\n*Equal contribution.\n†Corresponding author.\ndetectors assume consistent distributions between training\nand testing data. However, in practice, detectors face sig-\nnificant challenges from domain shifts and environmental\nvariations, and the performance often deteriorates substan-\ntially when deployed in unseen scenarios [9, 78].\nDomain generalization [34, 35, 65] and adaptation [3,\n13, 26, 40] methods have been developed to address\nthese challenges. Mainstream approaches include semi-\nsupervised learning with pseudo-labels [3, 6, 13, 40], fea-\nture alignment via adversarial training [9, 40, 57, 68], and\nstyle transfer techniques [18, 81]. However, these adap-\ntation methods require target domain data during training,\nlimiting their practical applications. This has led to in-\ncreased interest in domain generalization through data aug-\nmentation [12, 24, 33, 77], adversarial training [36, 82], and\nmeta-learning [1, 15]. While recent advances in foundation\nmodels like ClipGap [63] have shown promising results,\nbuilding robust detectors remains challenging.\nInspired by the remarkable capabilities of diffusion mod-\nels [23, 54, 59] in handling visual variations, we propose\nto leverage them for domain-generalized detection. We ex-\ntract and fuse multi-timestep intermediate features during\nthe diffusion process to construct a diffusion-based detec-\ntor that learns domain-invariant representations. However,\ndirectly applying these models introduces significant com-\nputational overhead due to the multi-step feature extraction\nprocess, limiting their practical deployment.\nTo address this limitation while preserving their strong\ngeneralization advantages, we develop an efficient knowl-\nedge transfer framework that enables lightweight detec-\ntors to inherit capabilities from diffusion-based detectors.\nSpecifically, our framework consists of feature-level align-\nment using correlation-based matching and object-level\nalignment through shared region proposals, allowing con-\nventional detectors to learn both domain-invariant features\nand robust detection capabilities. Through feature and\nobject-level alignment, conventional detectors can achieve\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n9921\n\n√\nSource domain Unseen target domain\nBDD100K\nFoggyCityscapes RainyCityscapes\nCityscapes BDD100K\nClipart Comic Watercolor\nBlur Corruption Digital Corruption Weather Corruption\nDaytime-Foggy Night-RainyDuak-Rainy Night-SunnyDaytime-Sunny\nClean Cityscapes\nVOC\nSim10K\nCityscapes\nCityscapes\nNoise Corruption\nOur Results vs. Previous Best Results\nFigure 1. Left: Six DG benchmarks used in our paper. The sample images demonstrate substantial domain shifts between source and\ntarget distributions. Right: Compared with previous SOTA methods, our approach achieves superior performance across all 13 datasets\nfrom six benchmarks.\nimproved generalization without increasing inference time.\nOur work pioneers the application of diffusion models in\ndomain-generalized detection, demonstrating their poten-\ntial in enhancing detector generalization through knowledge\ndistillation.\nWe conduct comprehensive experiments on six challeng-\ning DG benchmarks as shown in Fig. 1: Cross Camera,\nAdverse Weather, Synthetic to Real, Real to Artistic, Di-\nverse Weather Benchmark, Corruption Benchmark. Exper-\nimental results demonstrate that our diffusion-based detec-\ntor achieves consistent improvements across these bench-\nmarks, with average performance gains of{18.6, 15.0, 27.2,\n16.4, 2.3, 4.7}% mAP compared to previous methods, even\noutperforming most domain adaptation methods that have\naccess to target domain data. Moreover, through our pro-\nposed feature-level and object-level learning framework,\ndiffusion-guided detectors obtain significant improvements\nof {20.8, 21.4, 24.6, 9.9, 5.3, 13.8 }% mAP compared to\ntheir baselines. These results validate the effectiveness of\nleveraging diffusion models for domain-generalized detec-\ntion and provide a promising direction for building robust\ndetectors in real-world scenarios.\nThe main contributions of this work can be summarized\nas follows:\n• This work introduces diffusion models into domain-\ngeneralized detection. The inherent denoising mecha-\nnism and powerful representation capabilities of diffusion\nmodels are utilized to extract domain-invariant features\nfor robust detection.\n• To address the computational overhead, we propose\na simple yet effective knowledge transfer framework.\nThis framework enables detectors to inherit strong gen-\neralization capabilities through feature-level alignment\nand object-level learning, maintaining efficient inference\ntime.\n• Comprehensive experiments on six DG benchmarks\ndemonstrate significant improvements over previous ap-\nproaches in various scenarios. The findings provide valu-\nable insights for robust visual recognition tasks.",
+    "method": "3. Method",
+    "experiments": "4. Experiments",
+    "conclusion": "6. Conclusion\nThis paper addresses DG detection through two key contri-\nbutions. First, we propose a diffusion detector that extracts\ndomain-invariant representations by fusing multi-step fea-\ntures during diffusion. Second, to enable other detectors to\nbenefit from such generalization capability, we develop a\ndiffusion-guided detector framework that transfers knowl-\nedge to conventional detectors through feature and object\nlevel alignment. Extensive evaluations on six domain gen-\neralization benchmarks demonstrate substantial improve-\nments across different domains and corruption types. Our\nwork not only provides an effective solution for domain-\ngeneralized detection but also opens up new possibilities for\nleveraging diffusion models to enhance visual recognition\nrobustness."
+  }
+}

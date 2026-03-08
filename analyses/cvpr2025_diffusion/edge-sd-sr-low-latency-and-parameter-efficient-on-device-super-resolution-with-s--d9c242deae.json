@@ -1,0 +1,100 @@
+{
+  "paper_id": "edge-sd-sr-low-latency-and-parameter-efficient-on-device-super-resolution-with-s--d9c242deae",
+  "paper_title": "Edge-SD-SR: Low Latency and Parameter Efficient On-device Super-Resolution with Stable Diffusion via Bidirectional Conditioning",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:36.182501+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Edge-SD-SR： Low Latency and Parameter Efficient On-device Super-Resolution with Stable Diffusion via Bidirectional Conditioning.pdf",
+    "filename": "Edge-SD-SR： Low Latency and Parameter Efficient On-device Super-Resolution with Stable Diffusion via Bidirectional Conditioning.pdf",
+    "sha1": "d9c242deaec71bdb5316ccf61b4b19bd2b75de76",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Deploying such models on computationally limited devices, such as mobile phones, entails addressing several practical challenges due to the large model size and high latency.",
+    "limitation": "Deploying such models on computationally limited devices, such as mobile phones, entails addressing several practical challenges due to the large model size and high latency.",
+    "insight": "Abstract There has been immense progress recently in the visual quality of Stable Diffusion-based Super Resolution (SD-SR).",
+    "proposed_method": "In this work, we introduce Edge-SD-SR, the first parameter efficient and low latency diffusion model for im- age super-resolution.",
+    "experimental_evidence": "Furthermore, we show that Edge-SD-SR matches or even outperforms state-of-the-art SR approaches on the most established SR benchmarks.",
+    "summary": "Deploying such models on computationally limited devices, such as mobile phones, entails addressing several practical challenges due to the large model size and high latency. Deploying such models on computationally limited devices, such as mobile phones, entails addressing several practical challenges due to the large model size and high latency. Abstract There has been immense progress recently in the visual quality of Stable Diffusion-based Super Resolution (SD-SR). In this work, we introduce Edge-SD-SR, the first parameter efficient and low latency diffusion model for im- age super-resolution. Furthermore, we show that Edge-SD-SR matches or even outperforms state-of-the-art SR approaches on the most established SR benchmarks."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "problem_statement",
+      "main_message": "Introduction We are interested in the application of Stable Diffusion [17, 33] to Super Resolution (i.e.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction We are interested in the application of Stable Diffusion [17, 33] to Super Resolution (i.e. SD-SR), as it has been shown to produce steep improvements compared to previous SR approaches [ 16, 25, 31]. Considering that SR is most widely used on mobile phones, where the vast majority of photos are taken nowadays, we focus on the very challenging task of creating a SD-SR model that can run on Edge devices (i.e. (a) (b) (c) Figure 1."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "limitation",
+      "main_message": "Results of 4× upsampling with (a) interpolation, (b) our architecture with the standard training approach (c) our architecture with our training approach.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Results of 4× upsampling with (a) interpolation, (b) our architecture with the standard training approach (c) our architecture with our training approach. Images are best seen in a display and zoomed in. Samples taken from DIV2K-RealESRGAN dataset. Deploying such models on computationally limited devices, such as mobile phones, entails addressing several practical challenges due to the large model size and high latency."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "problem_statement",
+      "main_message": "These issues are exacerbated for the SR task, as it operates on high-resolution and typically requires multiple model runs.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "These issues are exacerbated for the SR task, as it operates on high-resolution and typically requires multiple model runs. For example, 4K×3K is a typical resolution on modern phones, while SD-SR typically generates 512 × 512 patches per run, e.g. In this case, 88 model runs are required for tile-based generation. Specifically, to get a 4K × 3K image we split the corresponding 1000 × 750 LR image to 128 × 128 patches with 25% overlap between patches."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "background",
+      "main_message": "This yields 88 patches that the model has to process sequentially.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This yields 88 patches that the model has to process sequentially. Such a model runs in ∼ 900 seconds on a high- end GPU (A100), making on-device deployment unfeasible. This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, deploying large diffusion models on computation- ally restricted devices such as mobile phones remains im- practical due to the large model size and high latency.",
+      "Deploying such models on computationally limited devices, such as mobile phones, entails addressing several practical challenges due to the large model size and high latency."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "While previous works tackle different aspects of making the diffusion mod- els more efficient (i.e. speed or size), we propose the first complete solution that tackles all aspects collectively."
+    ],
+    "experiment_expression": [],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, deploying large diffusion models on computation- ally restricted devices such as mobile phones remains im- practical due to the large model size and high latency.",
+    "While previous works tackle different aspects of making the diffusion mod- els more efficient (i.e. speed or size), we propose the first complete solution that tackles all aspects collectively.",
+    "(a) (b) (c) Figure 1.",
+    "(ii) Joint training of the UNet and encoder, while decoupling the encodings of the HR and LR images and using a dedicated schedule.",
+    "(iii) Finetuning the decoder using the UNet’s out- put to directly tailor the decoder to the latents obtained at inference time.",
+    "3.1 introduces the basics of SR-SD.",
+    "3.4 we discuss how the proposed strategies can be com- bined with previous work and expediting SD-SR with 1-step inference [16] and training an efficient decoder.",
+    "3.5 we describe the adopted efficient architecture which we build based on previous works findings [11, 35] and extend to also squeeze the auto-encoder size.",
+    "4.3 to highlight the im- pact of the proposed bidirectional conditioning and training strategies on the final lightweight SD-based SR model.",
+    "Abstract There has been immense progress recently in the visual quality of Stable Diffusion-based Super Resolution (SD-SR).",
+    "Conclusion In summary, we presented Edge-SD-SR, the first SD-based SR solution that can readily run on device.",
+    "Considering that SR is most widely used on mobile phones, where the vast majority of photos are taken nowadays, we focus on the very challenging task of creating a SD-SR model that can run on Edge devices (i.e."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nThere has been immense progress recently in the visual\nquality of Stable Diffusion-based Super Resolution (SD-SR).\nHowever, deploying large diffusion models on computation-\nally restricted devices such as mobile phones remains im-\npractical due to the large model size and high latency. This\nis compounded for SR as it often operates at high res ( e.g.\n4K×3K). In this work, we introduce Edge-SD-SR, the first\nparameter efficient and low latency diffusion model for im-\nage super-resolution. Edge-SD-SR consists of ∼ 169M pa-\nrameters, including UNet, encoder and decoder, and has\na complexity of only ∼ 142 GFLOPs. To maintain a high\nvisual quality on such low compute budget, we introduce\na number of training strategies: (i) A novel conditioning\nmechanism on the low-resolution input, coined bidirectional\nconditioning, which tailors the SD model for the SR task. (ii)\nJoint training of the UNet and encoder, while decoupling the\nencodings of the HR and LR images and using a dedicated\nschedule. (iii) Finetuning the decoder using the UNet’s out-\nput to directly tailor the decoder to the latents obtained at\ninference time. Edge-SD-SR runs efficiently on device, e.g.\nit can upscale a 128 × 128 patch to 512 × 512 in 38 msec\nwhile running on a Samsung S24 DSP , and of a512 × 512\nto 2, 048 × 2, 048 (requiring 25 model evaluations) in just\n∼ 1.1 sec. Furthermore, we show that Edge-SD-SR matches\nor even outperforms state-of-the-art SR approaches on the\nmost established SR benchmarks.",
+    "introduction": "1. Introduction\nWe are interested in the application of Stable Diffusion [17,\n33] to Super Resolution (i.e. SD-SR), as it has been shown\nto produce steep improvements compared to previous SR\napproaches [ 16, 25, 31]. Considering that SR is most widely\nused on mobile phones, where the vast majority of photos\nare taken nowadays, we focus on the very challenging task\nof creating a SD-SR model that can run on Edge devices (i.e.\n(a) (b) (c)\nFigure 1. Results of 4× upsampling with (a) interpolation, (b) our\narchitecture with the standard training approach (c) our architecture\nwith our training approach. Images are best seen in a display and\nzoomed in. Samples taken from DIV2K-RealESRGAN dataset.\nEdge SD-SR). Deploying such models on computationally\nlimited devices, such as mobile phones, entails addressing\nseveral practical challenges due to the large model size and\nhigh latency. These issues are exacerbated for the SR task, as\nit operates on high-resolution and typically requires multiple\nmodel runs. For example, 4K×3K is a typical resolution on\nmodern phones, while SD-SR typically generates 512 × 512\npatches per run, e.g. StableSR [25]. In this case, 88 model\nruns are required for tile-based generation. Specifically, to\nget a 4K × 3K image we split the corresponding 1000 × 750\nLR image to 128 × 128 patches with 25% overlap between\npatches. This yields 88 patches that the model has to process\nsequentially. Such a model runs in ∼ 900 seconds on a high-\nend GPU (A100), making on-device deployment unfeasible.\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Method\nOur goal is to train an efficient SD-SR model that can readily\nrun on Edge devices without compromising visual quality.\nSec. 3.1 introduces the basics of SR-SD. We then introduce\nour new bidirectional conditioning strategy, which is de-\nsigned to better fit the SR task, in Sec. 3.2. We further devise\n12791\n\n... ...\nHR\nLR\nFigure 3. Overview of bidirectional conditioning for training. We use different encoders for HR and LR, where EHR is frozen. We use\nthe LR embeddings to condition the Gaussian mean and variance. The U-Net takes only zt as input and is trained jointly with the encoder.\na mechanism to train an efficient encoder in Sec. 3.3. In\nSec. 3.4 we discuss how the proposed strategies can be com-\nbined with previous work and expediting SD-SR with 1-step\ninference [16] and training an efficient decoder. In Sec. 3.5\nwe describe the adopted efficient architecture which we build\nbased on previous works findings [11, 35] and extend to also\nsqueeze the auto-encoder size. Finally, we present imple-\nmentation details in Sec. 3.6.",
+    "experiments": "4. Experiments\nWe now extensively evaluate our proposed method. We first\nsummarize our experimental setup in Sec. 4.1. We then\ncompare the lightweight model resulting from our proposed\ntraining strategy with state-of-the-art in Sec. 4.2. Finally,\nwe present an ablation study in Sec. 4.3 to highlight the im-\npact of the proposed bidirectional conditioning and training\nstrategies on the final lightweight SD-based SR model.",
+    "conclusion": "5. Conclusion\nIn summary, we presented Edge-SD-SR, the first SD-based\nSR solution that can readily run on device. While previous\nworks tackle different aspects of making the diffusion mod-\nels more efficient (i.e. speed or size), we propose the first\ncomplete solution that tackles all aspects collectively. To\nenable training this model, we introduce a new conditioning\ntechnique that provides a better training signal for the\ndiffusion model to more directly transition from LR to HR.\nFinally, we show that this method can readily be combined\nwith techniques specifically targeting improving inference\nspeed of SD-based SR to yield an efficient and fast model."
+  }
+}

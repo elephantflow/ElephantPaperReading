@@ -1,0 +1,69 @@
+{
+  "paper_id": "simpler-diffusion-1-5-fid-on-imagenet512-with-pixel-space-diffusion--bb99a8082d",
+  "paper_title": "Simpler Diffusion: 1.5 FID on ImageNet512 with Pixel-space Diffusion",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:33.326575+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Simpler Diffusion： 1.5 FID on ImageNet512 with Pixel-space Diffusion.pdf",
+    "filename": "Simpler Diffusion： 1.5 FID on ImageNet512 with Pixel-space Diffusion.pdf",
+    "sha1": "bb99a8082d7a4189132744f22cc32ae955fe6354",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "However, latent models have their own challenges: It can be difﬁcult to train the autoencoders that produce the latents, 2021 2022 2023 2024 1 2 3",
+    "limitation": "However, latent models have their own challenges: It can be difﬁcult to train the autoencoders that produce the latents, 2021 2022 2023 2024 1 2 3",
+    "insight": "Abstract Latent diffusion models have become the popular choice for scaling up diffusion models for high resolution image syn- thesis.",
+    "proposed_method": "Abstract Latent diffusion models have become the popular choice for scaling up diffusion models for high resolution image syn- thesis.",
+    "experimental_evidence": "Here we challenge these notions, and show that pixel-space models can be very competitive to latent models both in quality and efﬁciency, achieving 1.5 FID on ImageNet512 and new SOTA results on ImageNet128, ImageNet256 and Kinetics600.",
+    "summary": "However, latent models have their own challenges: It can be difﬁcult to train the autoencoders that produce the latents, 2021 2022 2023 2024 1 2 3 However, latent models have their own challenges: It can be difﬁcult to train the autoencoders that produce the latents, 2021 2022 2023 2024 1 2 3 Abstract Latent diffusion models have become the popular choice for scaling up diffusion models for high resolution image syn- thesis. Abstract Latent diffusion models have become the popular choice for scaling up diffusion models for high resolution image syn- thesis. Here we challenge these notions, and show that pixel-space models can be very competitive to latent models both in quality and efﬁciency, achieving 1.5 FID on ImageNet512 and new SOTA results on ImageNet128, ImageNet256 and Kinetics600."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Diffusion models have been tremendously successful in do- mains such as image, video and audio generation.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Introduction Diffusion models have been tremendously successful in do- mains such as image, video and audio generation. For high resolution data, latent diffusion models [32] have been par- ticularly successful: Through encoding the data in a lower dimensional space, these models sidestep the difﬁculties faced by more traditional pixel-space diffusion models in scaling up to high resolution. This makes latent diffusion models also scale better in training compute than other ap- proaches, as shown by [ 20]. However, latent models have their own challenges: It can be difﬁcult to train the autoencoders that produce the latents, 2021 2022 2023 2024 1 2 3"
+    }
+  ],
+  "method_structure": [],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, latent models have their own challenges: It can be difﬁcult to train the autoencoders that produce the latents, 2021 2022 2023 2024 1 2 3 4."
+    ],
+    "insight_expression": [],
+    "method_expression": [],
+    "experiment_expression": [],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, latent models have their own challenges: It can be difﬁcult to train the autoencoders that produce the latents, 2021 2022 2023 2024 1 2 3 4.",
+    "1: Use the sigmoid loss-weighting [ 25] with our prescribed hyper- parameters.",
+    "2: Use our simpliﬁed memory-efﬁcient archi- tecture with fewer skip-connections.",
+    "3: Scale the model to favor processing the image at a high resolution with fewer parameters, rather than using more parameters at a lower resolution.",
+    "Abstract Latent diffusion models have become the popular choice for scaling up diffusion models for high resolution image syn- thesis.",
+    "Combining these with guidance intervals, we obtain a family of pixel-space diffusion models we call Simpler Diffusion (SiD2).",
+    "Compared to pixel-space models that are trained end- to-end, latent models are perceived to be more efﬁcient and to produce higher image quality at high resolution.",
+    "Here we challenge these notions, and show that pixel-space models can be very competitive to latent models both in quality and efﬁciency, achieving 1.5 FID on ImageNet512 and new SOTA results on ImageNet128, ImageNet256 and Kinetics600.",
+    "Introduction Diffusion models have been tremendously successful in do- mains such as image, video and audio generation.",
+    "This makes latent diffusion models also scale better in training compute than other ap- proaches, as shown by [ 20].",
+    "We present a simple recipe for scaling end-to-end pixel- space diffusion models to high resolutions.",
+    "For high resolution data, latent diffusion models [32] have been par- ticularly successful: Through encoding the data in a lower dimensional space, these models sidestep the difﬁculties faced by more traditional pixel-space diffusion models in scaling up to high resolution."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nLatent diffusion models have become the popular choice for\nscaling up diffusion models for high resolution image syn-\nthesis. Compared to pixel-space models that are trained end-\nto-end, latent models are perceived to be more efﬁcient and\nto produce higher image quality at high resolution. Here we\nchallenge these notions, and show that pixel-space models\ncan be very competitive to latent models both in quality and\nefﬁciency, achieving 1.5 FID on ImageNet512 and new SOTA\nresults on ImageNet128, ImageNet256 and Kinetics600.\nWe present a simple recipe for scaling end-to-end pixel-\nspace diffusion models to high resolutions. 1: Use the\nsigmoid loss-weighting [ 25] with our prescribed hyper-\nparameters. 2: Use our simpliﬁed memory-efﬁcient archi-\ntecture with fewer skip-connections. 3: Scale the model to\nfavor processing the image at a high resolution with fewer\nparameters, rather than using more parameters at a lower\nresolution. Combining these with guidance intervals, we\nobtain a family of pixel-space diffusion models we call\nSimpler Diffusion (SiD2).",
+    "introduction": "1. Introduction\nDiffusion models have been tremendously successful in do-\nmains such as image, video and audio generation. For high\nresolution data, latent diffusion models [32] have been par-\nticularly successful: Through encoding the data in a lower\ndimensional space, these models sidestep the difﬁculties\nfaced by more traditional pixel-space diffusion models in\nscaling up to high resolution. This makes latent diffusion\nmodels also scale better in training compute than other ap-\nproaches, as shown by [ 20].\nHowever, latent models have their own challenges: It can\nbe difﬁcult to train the autoencoders that produce the latents,\n2021 2022 2023 2024\n1\n2\n3",
+    "method": "",
+    "experiments": "4. Experiments",
+    "conclusion": ""
+  }
+}

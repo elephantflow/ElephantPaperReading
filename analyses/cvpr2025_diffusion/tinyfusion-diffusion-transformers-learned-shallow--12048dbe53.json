@@ -1,0 +1,79 @@
+{
+  "paper_id": "tinyfusion-diffusion-transformers-learned-shallow--12048dbe53",
+  "paper_title": "TinyFusion: Diffusion Transformers Learned Shallow",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:05:40.514203+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/TinyFusion： Diffusion Transformers Learned Shallow.pdf",
+    "filename": "TinyFusion： Diffusion Transformers Learned Shallow.pdf",
+    "sha1": "12048dbe53d76a123738f97ac3861f34e610582f",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Diffusion Transformers have emerged as a cornerstone ar- chitecture for generative tasks, achieving notable success in areas such as image [11, 26, 40] and video synthe- sis [25, 59].",
+    "limitation": "However, *Equal contribution: Kunjun contributed equally to the method design, analytical experiments, and manuscript preparation. †Corresponding author Transformer Layer Transformer Layer Transformer Layer Transformer Layer Differentiable Sampling of Layer Mask 𝖒 Recoverability Estimation with 𝚫𝚽 1 0 1",
+    "insight": "Abstract Diffusion Transformers have demonstrated remarkable capabilities in image generation but often come with ex- cessive parameterization, resulting in considerable infer- ence overhead in real-world applications.",
+    "proposed_method": "To accom- plish this, we introduce a differentiable sampling technique to make pruning learnable, paired with a co-optimized pa- rameter to simulate future fine-tuning.",
+    "experimental_evidence": "Abstract Diffusion Transformers have demonstrated remarkable capabilities in image generation but often come with ex- cessive parameterization, resulting in considerable infer- ence overhead in real-world applications.",
+    "summary": "Introduction Diffusion Transformers have emerged as a cornerstone ar- chitecture for generative tasks, achieving notable success in areas such as image [11, 26, 40] and video synthe- sis [25, 59]. However, *Equal contribution: Kunjun contributed equally to the method design, analytical experiments, and manuscript preparation. †Corresponding author Transformer Layer Transformer Layer Transformer Layer Transformer Layer Differentiable Sampling of Layer Mask 𝖒 Recoverability Estimation with 𝚫𝚽 1 0 1 Abstract Diffusion Transformers have demonstrated remarkable capabilities in image generation but often come with ex- cessive parameterization, resulting in considerable infer- ence overhead in real-world applications. To accom- plish this, we introduce a differentiable sampling technique to make pruning learnable, paired with a co-optimized pa- rameter to simulate future fine-tuning. Abstract Diffusion Transformers have demonstrated remarkable capabilities in image generation but often come with ex- cessive parameterization, resulting in considerable infer- ence overhead in real-world applications."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction Diffusion Transformers have emerged as a cornerstone ar- chitecture for generative tasks, achieving notable success in areas such as image [11, 26, 40] and video synthe- sis [25, 59].",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "Introduction Diffusion Transformers have emerged as a cornerstone ar- chitecture for generative tasks, achieving notable success in areas such as image [11, 26, 40] and video synthe- sis [25, 59]. This success has also led to the widespread availability of high-quality pre-trained models on the Inter- net, greatly accelerating and supporting the development of various downstream applications [5, 16, 53, 55]. However, *Equal contribution: Kunjun contributed equally to the method design, analytical experiments, and manuscript preparation. †Corresponding author Transformer Layer Transformer Layer Transformer Layer Transformer Layer Differentiable Sampling of Layer Mask 𝖒 Recoverability Estimation with 𝚫𝚽 1 0 1"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, *Equal contribution: Kunjun contributed equally to the method design, analytical experiments, and manuscript preparation. †Corresponding author Transformer Layer Transformer Layer Transformer Layer Transformer Layer Differentiable Sampling of Layer Mask 𝖒 Recoverability Estimation with 𝚫𝚽 1 0 1 3."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "While prior works focus on minimizing loss or error after pruning, our method explicitly models and optimizes the post-fine-tuning perfor- mance of pruned models.",
+      "Our method generalizes to various architectures like DiTs, MARs and SiTs."
+    ],
+    "experiment_expression": [],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Abstract Diffusion Transformers have demonstrated remarkable capabilities in image generation but often come with ex- cessive parameterization, resulting in considerable infer- ence overhead in real-world applications.",
+    "Addition- ally, TinyFusion exhibits strong generalization across di- verse architectures, such as DiTs, MARs, and SiTs.",
+    "Code is available at https://github.com/ VainF/TinyFusion 1.",
+    "Conclusions This work introduces TinyFusion, a learnable method for accelerating diffusion transformers by removing redundant layers.",
+    "Ex- periments with DiT-XL show that TinyFusion can craft a shallow diffusion transformer at less than 7% of the pre- training cost, achieving a 2 × speedup with an FID score of 2.86, outperforming competitors with comparable effi- ciency.",
+    "Experimental results indicate that this learnable paradigm offers substantial benefits for layer pruning of diffusion transformers, surpassing exist- ing importance-based and error-based methods.",
+    "However, *Equal contribution: Kunjun contributed equally to the method design, analytical experiments, and manuscript preparation. †Corresponding author Transformer Layer Transformer Layer Transformer Layer Transformer Layer Differentiable Sampling of Layer Mask 𝖒 Recoverability Estimation with 𝚫𝚽 1 0 1 3.",
+    "In this work, we present TinyFusion, a depth pruning method designed to re- move redundant layers from diffusion transformers via end- to-end learning.",
+    "Introduction Diffusion Transformers have emerged as a cornerstone ar- chitecture for generative tasks, achieving notable success in areas such as image [11, 26, 40] and video synthe- sis [25, 59].",
+    "It models the recoverability of pruned models as an optimizable objective and incorporates differentiable sam- pling for end-to-end training.",
+    "Our method generalizes to various architectures like DiTs, MARs and SiTs.",
+    "The core principle of our approach is to create a pruned model with high recoverability, allowing it to regain strong performance after fine-tuning."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nDiffusion Transformers have demonstrated remarkable\ncapabilities in image generation but often come with ex-\ncessive parameterization, resulting in considerable infer-\nence overhead in real-world applications. In this work, we\npresent TinyFusion, a depth pruning method designed to re-\nmove redundant layers from diffusion transformers via end-\nto-end learning. The core principle of our approach is to\ncreate a pruned model with high recoverability, allowing it\nto regain strong performance after fine-tuning. To accom-\nplish this, we introduce a differentiable sampling technique\nto make pruning learnable, paired with a co-optimized pa-\nrameter to simulate future fine-tuning. While prior works\nfocus on minimizing loss or error after pruning, our method\nexplicitly models and optimizes the post-fine-tuning perfor-\nmance of pruned models. Experimental results indicate\nthat this learnable paradigm offers substantial benefits for\nlayer pruning of diffusion transformers, surpassing exist-\ning importance-based and error-based methods. Addition-\nally, TinyFusion exhibits strong generalization across di-\nverse architectures, such as DiTs, MARs, and SiTs. Ex-\nperiments with DiT-XL show that TinyFusion can craft a\nshallow diffusion transformer at less than 7% of the pre-\ntraining cost, achieving a 2 × speedup with an FID score\nof 2.86, outperforming competitors with comparable effi-\nciency. Code is available at https://github.com/\nVainF/TinyFusion",
+    "introduction": "1. Introduction\nDiffusion Transformers have emerged as a cornerstone ar-\nchitecture for generative tasks, achieving notable success\nin areas such as image [11, 26, 40] and video synthe-\nsis [25, 59]. This success has also led to the widespread\navailability of high-quality pre-trained models on the Inter-\nnet, greatly accelerating and supporting the development of\nvarious downstream applications [5, 16, 53, 55]. However,\n*Equal contribution: Kunjun contributed equally to the method design,\nanalytical experiments, and manuscript preparation.\n†Corresponding author\nTransformer Layer\nTransformer Layer\nTransformer Layer\nTransformer Layer\nDifferentiable Sampling of Layer Mask 𝖒 Recoverability Estimation with 𝚫𝚽\n1\n0\n1",
+    "method": "3. Method",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusions\nThis work introduces TinyFusion, a learnable method for\naccelerating diffusion transformers by removing redundant\nlayers. It models the recoverability of pruned models as an\noptimizable objective and incorporates differentiable sam-\npling for end-to-end training. Our method generalizes to\nvarious architectures like DiTs, MARs and SiTs."
+  }
+}

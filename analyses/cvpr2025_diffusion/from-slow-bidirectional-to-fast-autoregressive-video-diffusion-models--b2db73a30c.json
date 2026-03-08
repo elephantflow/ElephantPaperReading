@@ -1,0 +1,99 @@
+{
+  "paper_id": "from-slow-bidirectional-to-fast-autoregressive-video-diffusion-models--b2db73a30c",
+  "paper_title": "From Slow Bidirectional to Fast Autoregressive Video Diffusion Models",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:47.026107+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/From Slow Bidirectional to Fast Autoregressive Video Diffusion Models.pdf",
+    "filename": "From Slow Bidirectional to Fast Autoregressive Video Diffusion Models.pdf",
+    "sha1": "b2db73a30c0cf40e912cbe716096e13a4960c7e6",
+    "page_count": 12
+  },
+  "core_story": {
+    "problem": "Autoregressive models offer a promising solution to ad- dress some of these limitations, but they face challenges with error accumulation and computational efﬁciency.",
+    "limitation": "Current video diffusion models are also limited by their speed.",
+    "insight": "Abstract Current video diffusion models achieve impressive genera- tion quality but struggle in interactive applications due to bidirectional attention dependencies.",
+    "proposed_method": "To enable stable and high-quality distillation, we introduce a student initializa- tion scheme based on teacher’s ODE trajectories, as well as an asymmetric distillation strategy that supervises a causal student model with a bidirectional teacher .",
+    "experimental_evidence": "Abstract Current video diffusion models achieve impressive genera- tion quality but struggle in interactive applications due to bidirectional attention dependencies.",
+    "summary": "Autoregressive models offer a promising solution to ad- dress some of these limitations, but they face challenges with error accumulation and computational efﬁciency. Current video diffusion models are also limited by their speed. Abstract Current video diffusion models achieve impressive genera- tion quality but struggle in interactive applications due to bidirectional attention dependencies. To enable stable and high-quality distillation, we introduce a student initializa- tion scheme based on teacher’s ODE trajectories, as well as an asymmetric distillation strategy that supervises a causal student model with a bidirectional teacher . Abstract Current video diffusion models achieve impressive genera- tion quality but struggle in interactive applications due to bidirectional attention dependencies."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction The emergence of diffusion models has revolutionized how we can create videos from text [ 3, 5, 25, 29, 63, 98, 111].",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "1. Introduction\nThe emergence of diffusion models has revolutionized how\nwe can create videos from text [ 3, 5, 25, 29, 63, 98, 111].\nMany of the state-of-the-art video diffusion models rely\non the Diffusion Transformer (DiT) architecture [ 2, 61],\nwhich usually employs bidirectional attention across all\nvideo frames. Despite the impressive quality, the bidirec-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n22963"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "method_overview",
+      "main_message": "“Over the shoulder camera shot.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "“Over the shoulder camera shot. A huge lizard creature sits in a midcentury orange swivel chair. The light is dim and volumetric[…]. ”\n“A photorealistic video of a yellow sports car driving down a road, with trees in the background.”\nImage →Video\nVideo →Video\nText →Video\nDynamicPrompting\nInput\nInput\n Input\n Input\n“A woman is walking on the street, towards the camera”“[…] She adjusts the collar of her trench coat and tilts her fedora […]She pulls out a notebook, making a quick note[…] street lampsthat create pools of yellow light”“[…]in an off-shoulder white dress […] She pauses to adjust her sunglasses[…]and then snaps a quick photo with her phone[…] ”\n“A little boy jumping in the air over a puddle of water.”\nFigure 2. Diverse video generation tasks supported by our method. The model can generate videos from a single text prompt (top row) or\nwith additional image input (second row). Our model also enables interactive applications where generation results respond to user input\nwith low latency. For example, it can add realistic texture and lighting to outputs rendered by a basic game engine that responds to user\ninput on the ﬂy (third row). Additionally, it enables dynamic prompting"
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "method_overview",
+      "main_message": "els (LLMs) [ 6, 66], our model achieves sample-efﬁcient training by leveraging supervision from all input frames at each iteration, as well as efﬁcient autoregressive infer- ence through key-value (KV) caching.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "els (LLMs) [ 6, 66], our model achieves sample-efﬁcient\ntraining by leveraging supervision from all input frames\nat each iteration, as well as efﬁcient autoregressive infer-\nence through key-value (KV) caching. To further improve\ngeneration speed, we adapt distribution matching distilla-\ntion (DMD) [ 101, 102], a few-step distillation approach\noriginally designed for image diffusion models, to video\ndata. Instead of naively distilling an autoregressive diffu-\nsion model [ 8, 29] into a few-step student, we propose an\nasymmetric distillation strategy where we distill the knowl-\nedge in a pretrained teacher diffusion model with bidirec-\ntional attention into our causal student model. We show\nthat this asymmetric distillation approach signiﬁcantly re-\nduced error accumulation during autoregressive inference.\nThis allows us to support autoregressively generating videos\nthat are much longer than the ones seen during training.\nComprehensive experiments demonstrate that our model\nachieves video quality on par with state-of-the-art bidirec-\ntional diffusion models while offering enhanced interactiv-\nity and speed. To our knowledge, this is the ﬁrst autoregres-\nsive video generation method "
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "4. Methods",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Current video diffusion models are also limited by their speed.",
+      "However, autore- gressive models are prone to error accumulation: each gen- erated frame builds on potentially ﬂawed previous frames, causing prediction errors to magnify and worsen over time.",
+      "Moreover, although the latency is reduced, existing autore- gressive video models are still far from being able to gener- ate realistic videos at interactive frame rate [ 7, 29, 37]."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Diverse video generation tasks supported by our method.",
+      "Instead of naively distilling an autoregressive diffu- sion model [ 8, 29] into a few-step student, we propose an asymmetric distillation strategy where we distill the knowl- edge in a pretrained teacher diffusion model with bidirec- tional attention into our causal student model.",
+      "Additionally, we showcase the versatility of our method in tasks such as image-to-video generation, video- to-video translation, and dynamic prompting, all achievable with extremely low latency (Fig.",
+      "Our method is evaluated on VBench [ 27], a benchmark for video generation with 16 metrics designed to systematically assess motion quality and semantic align- ment."
+    ],
+    "experiment_expression": [
+      "Comprehensive experiments demonstrate that our model achieves video quality on par with state-of-the-art bidirec- tional diffusion models while offering enhanced interactiv- ity and speed."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, autore- gressive models are prone to error accumulation: each gen- erated frame builds on potentially ﬂawed previous frames, causing prediction errors to magnify and worsen over time.",
+    "22963 “Over the shoulder camera shot.",
+    "3, which uses asymmetric distillation (Sec.",
+    "4.2) and ODE initializa- tion (Sec.",
+    "4.2) with the AdamW optimizer and a learning rate of 2 ⇓ 10→6 for 6000 iterations.",
+    "4.3) and train the student model for 3000 iter- ations with AdamW [ 51] optimizer and a learning rate of 5 ⇓ 10→6.",
+    "4.3) to achieve high generation quality and sta- ble convergence.",
+    "A comprehensive evaluation using all prompts from VBench is provided in the appendix.",
+    "A huge lizard creature sits in a midcentury orange swivel chair.",
+    "Abstract Current video diffusion models achieve impressive genera- tion quality but struggle in interactive applications due to bidirectional attention dependencies.",
+    "Additionally, we showcase the versatility of our method in tasks such as image-to-video generation, video- to-video translation, and dynamic prompting, all achievable with extremely low latency (Fig.",
+    "After that, we train with our asymmetric DMD 22968 loss (Sec."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nCurrent video diffusion models achieve impressive genera-\ntion quality but struggle in interactive applications due to\nbidirectional attention dependencies. The generation of a\nsingle frame requires the model to process the entire se-\nquence, including the future. We address this limitation by\nadapting a pretrained bidirectional diffusion transformer to\nan autoregressive transformer that generates frames on-the-\nﬂy. To further reduce latency, we extend distribution match-\ning distillation (DMD) to videos, distilling 50-step diffu-\nsion model into a 4-step generator . To enable stable and\nhigh-quality distillation, we introduce a student initializa-\ntion scheme based on teacher’s ODE trajectories, as well as\nan asymmetric distillation strategy that supervises a causal\nstudent model with a bidirectional teacher . This approach\neffectively mitigates error accumulation in autoregressive\n→ Equal Contribution. Correspondence: tianweiy@mit.edu\ngeneration, allowing long-duration video synthesis despite\ntraining on short clips. Our model achieves a total score of\n84.27 on the VBench-Long benchmark, surpassing all pre-\nvious video generation models. It enables fast streaming\ngeneration of high-quality videos at 9.4 FPS on a single\nGPU thanks to KV caching. Our approach also enables\nstreaming video-to-video translation, image-to-video, and\ndynamic prompting in a zero-shot manner . We release our\ncode and pretrained models.",
+    "introduction": "1. Introduction\nThe emergence of diffusion models has revolutionized how\nwe can create videos from text [ 3, 5, 25, 29, 63, 98, 111].\nMany of the state-of-the-art video diffusion models rely\non the Diffusion Transformer (DiT) architecture [ 2, 61],\nwhich usually employs bidirectional attention across all\nvideo frames. Despite the impressive quality, the bidirec-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n22963\n\n“Over the shoulder camera shot. A huge lizard creature sits in a midcentury orange swivel chair. The light is dim and volumetric[…]. ”\n“A photorealistic video of a yellow sports car driving down a road, with trees in the background.”\nImage →Video\nVideo →Video\nText →Video\nDynamicPrompting\nInput\nInput\n Input\n Input\n“A woman is walking on the street, towards the camera”“[…] She adjusts the collar of her trench coat and tilts her fedora […]She pulls out a notebook, making a quick note[…] street lampsthat create pools of yellow light”“[…]in an off-shoulder white dress […] She pauses to adjust her sunglasses[…]and then snaps a quick photo with her phone[…] ”\n“A little boy jumping in the air over a puddle of water.”\nFigure 2. Diverse video generation tasks supported by our method. The model can generate videos from a single text prompt (top row) or\nwith additional image input (second row). Our model also enables interactive applications where generation results respond to user input\nwith low latency. For example, it can add realistic texture and lighting to outputs rendered by a basic game engine that responds to user\ninput on the ﬂy (third row). Additionally, it enables dynamic prompting (fourth row), allowing users to input new prompts at any point in\na video to build extended narratives with evolving actions and environments.\ntional dependencies imply that generating a single frame\nrequires processing the entire video. This introduces long\nlatency and prevents the model from being applied to inter-\nactive and streaming applications, where the model needs to\ncontinually generate frames based on user inputs that may\nchange over time. The generation of the current frame de-\npends on future conditional inputs that are not yet available.\nCurrent video diffusion models are also limited by their\nspeed. The compute and memory costs increase quadrati-\ncally with the number of frames, which, combined with the\nlarge number of denoising steps during inference, makes\ngenerating long videos prohibitively slow and expensive.\nAutoregressive models offer a promising solution to ad-\ndress some of these limitations, but they face challenges\nwith error accumulation and computational efﬁciency. In-\nstead of generating all frames simultaneously, autoregres-\nsive video models generate frames sequentially. Users can\nstart watching the video as soon as the ﬁrst frame is gener-\nated, without waiting for the entire video to be completed.\nThis reduces latency, removes limitations on video duration,\nand opens the door for interactive control. However, autore-\ngressive models are prone to error accumulation: each gen-\nerated frame builds on potentially ﬂawed previous frames,\ncausing prediction errors to magnify and worsen over time.\nMoreover, although the latency is reduced, existing autore-\ngressive video models are still far from being able to gener-\nate realistic videos at interactive frame rate [ 7, 29, 37].\nIn this paper, we introduce CausVid, a model de-\nsigned for fast and interactive causal video generation.\nWe design an autoregressive diffusion transformer archi-\ntecture with causal dependencies between video frames.\nSimilar to the popular decoder-only large language mod-\n22964\n\nels (LLMs) [ 6, 66], our model achieves sample-efﬁcient\ntraining by leveraging supervision from all input frames\nat each iteration, as well as efﬁcient autoregressive infer-\nence through key-value (KV) caching. To further improve\ngeneration speed, we adapt distribution matching distilla-\ntion (DMD) [ 101, 102], a few-step distillation approach\noriginally designed for image diffusion models, to video\ndata. Instead of naively distilling an autoregressive diffu-\nsion model [ 8, 29] into a few-step student, we propose an\nasymmetric distillation strategy where we distill the knowl-\nedge in a pretrained teacher diffusion model with bidirec-\ntional attention into our causal student model. We show\nthat this asymmetric distillation approach signiﬁcantly re-\nduced error accumulation during autoregressive inference.\nThis allows us to support autoregressively generating videos\nthat are much longer than the ones seen during training.\nComprehensive experiments demonstrate that our model\nachieves video quality on par with state-of-the-art bidirec-\ntional diffusion models while offering enhanced interactiv-\nity and speed. To our knowledge, this is the ﬁrst autoregres-\nsive video generation method that competes with bidirec-\ntional diffusion in terms of quality (Appendix Fig. 11 and\nFig. 12). Additionally, we showcase the versatility of our\nmethod in tasks such as image-to-video generation, video-\nto-video translation, and dynamic prompting, all achievable\nwith extremely low latency (Fig. 2).",
+    "method": "4. Methods\nOur approach introduces an autoregressive diffusion trans-\nformer that enables sequential video generation (Sec. 4.1).\nWe show our training procedure in Fig. 3, which uses\nasymmetric distillation (Sec. 4.2) and ODE initializa-\ntion (Sec. 4.3) to achieve high generation quality and sta-\nble convergence. We achieve efﬁcient streaming inference\nthrough KV caching mechanisms (Sec. 4.4).",
+    "experiments": "5. Experiments\nModels. Our teacher model is a bidirectional DiT [ 61] with\nan architecture similar to CogVideoX [ 98]. The model is\ntrained on the latent space produced by a 3D V AE that en-\ncodes 16 video frames into a latent chunk consisting of 5\nlatent frames. The model is trained on 10-second videos at\na resolution of 352 ⇓ 640 and 12 FPS. Our student model\nhas the same architecture as the teacher, except that it em-\nploys causal attention where each token can only attend\nto other tokens within the same chunk and in preceding\nchunks. Each chunk contains 5 latent frames. During in-\nference, it generates one chunk at a time using 4 denois-\ning steps, with inference timesteps uniformly sampled as\n[999, 748, 502, 247]. We use FlexAttention [21] for efﬁcient\nattention computation during training.\nTraining. We distill our causal student model using a mixed\nset of image and video datasets following CogVideoX [ 98].\nImages and videos are ﬁltered based on safety and aesthetic\nscores [73]. All videos are resized and cropped to the train-\ning resolution (352 ⇓ 640) and we use around 400K single-\nshot videos from an internal dataset, for which we have full\ncopyright. During training, we ﬁrst generate 1000 ODE\npairs (Sec. 4.3) and train the student model for 3000 iter-\nations with AdamW [ 51] optimizer and a learning rate of\n5 ⇓ 10→6. After that, we train with our asymmetric DMD\n22968\n\nloss (Sec. 4.2) with the AdamW optimizer and a learning\nrate of 2 ⇓ 10→6 for 6000 iterations. We use a guidance\nscale of 3.5 and adopt the two time-scale update rule from\nDMD2 [101] with a ratio of 5. The whole training process\ntakes around 2 days on 64 H100 GPUs.\nEvaluation. Our method is evaluated on VBench [ 27], a\nbenchmark for video generation with 16 metrics designed\nto systematically assess motion quality and semantic align-\nment. For our main results, we use the ﬁrst 128 prompts\nfrom MovieGen [63] to generate videos and evaluate model\nperformance on three primary aspects from VBench compe-\ntition’s evaluation suite. A comprehensive evaluation using\nall prompts from VBench is provided in the appendix. The\ninference times are measured on a H100 GPU.",
+    "conclusion": ""
+  }
+}

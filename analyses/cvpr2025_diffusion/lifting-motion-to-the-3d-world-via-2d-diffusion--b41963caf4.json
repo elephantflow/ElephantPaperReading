@@ -1,0 +1,85 @@
+{
+  "paper_id": "lifting-motion-to-the-3d-world-via-2d-diffusion--b41963caf4",
+  "paper_title": "Lifting Motion to the 3D World via 2D Diffusion",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:58.281443+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Lifting Motion to the 3D World via 2D Diffusion.pdf",
+    "filename": "Lifting Motion to the 3D World via 2D Diffusion.pdf",
+    "sha1": "b41963caf49e3b4b562d230a8772e90cd6aafab3",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "To overcome the challenge of generating out-of- distribution 3D motions, recent studies have explored meth- ods to leverage in-domain 2D poses and generate 3D poses using only 2D poses during training.",
+    "limitation": "However, these systems are often confined to lab environments and are costly to scale, particularly for captur- ing complex motions that require specialized expertise, such as dancing, yoga, and gymnastics.",
+    "insight": "Abstract Estimating 3D motion from 2D observations is a long- standing research challenge.",
+    "proposed_method": "We introduce MVLift, a novel approach to predict global 3D motion—including both joint rotations and root trajectories in the world coordinate system—using only 2D pose se- quences for training.",
+    "experimental_evidence": "Despite not requiring 3D supervision, it outperforms prior work on five datasets, including those methods that require 3D supervision. † indicates equal advising.",
+    "summary": "To overcome the challenge of generating out-of- distribution 3D motions, recent studies have explored meth- ods to leverage in-domain 2D poses and generate 3D poses using only 2D poses during training. However, these systems are often confined to lab environments and are costly to scale, particularly for captur- ing complex motions that require specialized expertise, such as dancing, yoga, and gymnastics. Abstract Estimating 3D motion from 2D observations is a long- standing research challenge. We introduce MVLift, a novel approach to predict global 3D motion—including both joint rotations and root trajectories in the world coordinate system—using only 2D pose se- quences for training. Despite not requiring 3D supervision, it outperforms prior work on five datasets, including those methods that require 3D supervision. † indicates equal advising."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Generating 3D motion is critical for applications in com- puter graphics, embodied AI, and robotics.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nGenerating 3D motion is critical for applications in com-\nputer graphics, embodied AI, and robotics. High-quality\n3D motion datasets [1, 11, 24, 32, 46], essential for devel-\noping generative models that synthesize human movement,\nare typically obtained using advanced motion capture sys-\ntems. However, these systems are often confined to lab\nenvironments and are costly to scale, particularly for captur-\ning complex motions that require specialized expertise, such\nas dancing, yoga, and gymnastics. Extensive work has stud-\nied monocular video pose estimation to predict 3D human\nmotion from 2D observations without the need for elaborate\nmocap setups ([15, 43, 66]). Despite advancements, even\nstate-of-the-art methods ([43]) still heavily rely on motion\ncapture datasets and videos with paired 3D ground truth.\nThis dependence limits their ability to generate accurate\nglobal 3D motions for out-of-distribution motions—those\nnot well-represented in existing 3D datasets.\nTo overcome the challenge of generating out-of-\ndistribution 3D motions, recent studies have explored meth-\nods to leverage in-domain 2D poses and generate 3D poses\nusing only 2D poses during training. Some e"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "els exclusively on 2D poses of a single step, often resulting in unsmooth motions and noticeable artifacts when applied to 2D pose sequences [ 54].",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "els exclusively on 2D poses of a single step, often resulting\nin unsmooth motions and noticeable artifacts when applied\nto 2D pose sequences [ 54]. Recent work has employed a\npre-trained unconditional 2D motion diffusion model to gen-\nerate 3D motions from sampled noise [14], demonstrating\nthe ability to produce complex movements not typically cov-\nered by existing datasets, such as gymnastics, horse motion,\nand basketball. However, this approach does not account\nfor the global translation of 3D motion. In this work, we\naddress the challenge of predicting global 3D motion for\nout-of-distribution scenarios using only domain-specific 2D\npose data (e.g., human, animal, or interaction). Unlike prior\nwork that primarily focuses on generating 3D motion with a\nfixed root joint, our goal is to accurately predict realistic 3D\nmotion with root trajectories in the world coordinate system\nfrom 2D pose sequence inputs.\nThe problem of estimating global 3D motion from 2D\npose sequences can be effectively addressed using a single-\nstage network when 3D training data is available [66]. How-\never, training a single-stage model using solely 2D poses is\nchallenging due to the lack of direct supervisio"
+    }
+  ],
+  "method_structure": [],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Introduction Generating 3D motion is critical for applications in com- puter graphics, embodied AI, and robotics."
+    ],
+    "limitation_expression": [
+      "However, these systems are often confined to lab environments and are costly to scale, particularly for captur- ing complex motions that require specialized expertise, such as dancing, yoga, and gymnastics.",
+      "Despite advancements, even state-of-the-art methods ([43]) still heavily rely on motion capture datasets and videos with paired 3D ground truth.",
+      "However, this approach does not account for the global translation of 3D motion."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address this fundamental challenge, we propose a multi-stage ap- proach, MVLift, which progressively establishes multi-view consistency through 2D motion diffusion models, enabling accurate 3D motion recovery without 3D training data.",
+      "To address this limitation, we leverage these optimized results to create a synthetic dataset."
+    ],
+    "experiment_expression": [
+      "Second, we demonstrate how multi-view consistency can be progressively established through 2D mo- tion diffusion, providing a new perspective on 3D motion estimation."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, these systems are often confined to lab environments and are costly to scale, particularly for captur- ing complex motions that require specialized expertise, such as dancing, yoga, and gymnastics.",
+    "However, this approach does not account for the global translation of 3D motion.",
+    "To address this fundamental challenge, we propose a multi-stage ap- proach, MVLift, which progressively establishes multi-view consistency through 2D motion diffusion models, enabling accurate 3D motion recovery without 3D training data.",
+    "17518 els exclusively on 2D poses of a single step, often resulting in unsmooth motions and noticeable artifacts when applied to 2D pose sequences [ 54].",
+    "Abstract Estimating 3D motion from 2D observations is a long- standing research challenge.",
+    "Additionally, we conduct ablation studies to evaluate each stage.",
+    "Although the optimized 3D motions may not perfectly align with input 2D sequences, they preserve motion realism.",
+    "By reprojecting these synthetic 3D motions to different views, we obtain strictly consistent multi-view 2D sequences.",
+    "Conclusion We addressed the challenging problem of estimating 3D motion in the world coordinate system from a 2D motion sequence input, without requiring 3D supervision.",
+    "Despite advancements, even state-of-the-art methods ([43]) still heavily rely on motion capture datasets and videos with paired 3D ground truth.",
+    "Despite not requiring 3D supervision, it outperforms prior work on five datasets, including those methods that require 3D supervision. † indicates equal advising.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nEstimating 3D motion from 2D observations is a long-\nstanding research challenge. Prior work typically requires\ntraining on datasets containing ground truth 3D motions,\nlimiting their applicability to activities well-represented in\nexisting motion capture data. This dependency particularly\nhinders generalization to out-of-distribution scenarios or\nsubjects where collecting 3D ground truth is challenging,\nsuch as complex athletic movements or animal motion. We\nintroduce MVLift, a novel approach to predict global 3D\nmotion—including both joint rotations and root trajectories\nin the world coordinate system—using only 2D pose se-\nquences for training. Our multi-stage framework leverages\n2D motion diffusion models to progressively generate consis-\ntent 2D pose sequences across multiple views, a key step in\nrecovering accurate global 3D motion. MVLift generalizes\nacross various domains, including human poses, human-\nobject interactions, and animal poses. Despite not requiring\n3D supervision, it outperforms prior work on five datasets,\nincluding those methods that require 3D supervision.\n† indicates equal advising.",
+    "introduction": "1. Introduction\nGenerating 3D motion is critical for applications in com-\nputer graphics, embodied AI, and robotics. High-quality\n3D motion datasets [1, 11, 24, 32, 46], essential for devel-\noping generative models that synthesize human movement,\nare typically obtained using advanced motion capture sys-\ntems. However, these systems are often confined to lab\nenvironments and are costly to scale, particularly for captur-\ning complex motions that require specialized expertise, such\nas dancing, yoga, and gymnastics. Extensive work has stud-\nied monocular video pose estimation to predict 3D human\nmotion from 2D observations without the need for elaborate\nmocap setups ([15, 43, 66]). Despite advancements, even\nstate-of-the-art methods ([43]) still heavily rely on motion\ncapture datasets and videos with paired 3D ground truth.\nThis dependence limits their ability to generate accurate\nglobal 3D motions for out-of-distribution motions—those\nnot well-represented in existing 3D datasets.\nTo overcome the challenge of generating out-of-\ndistribution 3D motions, recent studies have explored meth-\nods to leverage in-domain 2D poses and generate 3D poses\nusing only 2D poses during training. Some efforts train mod-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n17518\n\nels exclusively on 2D poses of a single step, often resulting\nin unsmooth motions and noticeable artifacts when applied\nto 2D pose sequences [ 54]. Recent work has employed a\npre-trained unconditional 2D motion diffusion model to gen-\nerate 3D motions from sampled noise [14], demonstrating\nthe ability to produce complex movements not typically cov-\nered by existing datasets, such as gymnastics, horse motion,\nand basketball. However, this approach does not account\nfor the global translation of 3D motion. In this work, we\naddress the challenge of predicting global 3D motion for\nout-of-distribution scenarios using only domain-specific 2D\npose data (e.g., human, animal, or interaction). Unlike prior\nwork that primarily focuses on generating 3D motion with a\nfixed root joint, our goal is to accurately predict realistic 3D\nmotion with root trajectories in the world coordinate system\nfrom 2D pose sequence inputs.\nThe problem of estimating global 3D motion from 2D\npose sequences can be effectively addressed using a single-\nstage network when 3D training data is available [66]. How-\never, training a single-stage model using solely 2D poses is\nchallenging due to the lack of direct supervision for either\n3D motion or consistent multi-view 2D poses. To address\nthis fundamental challenge, we propose a multi-stage ap-\nproach, MVLift, which progressively establishes multi-view\nconsistency through 2D motion diffusion models, enabling\naccurate 3D motion recovery without 3D training data.\nMVLift consists of four stages. First, we train a line-\nconditioned diffusion model that learns to predict 2D pose\nsequences following epipolar lines. These epipolar lines,\nderived from the fundamental matrix relating two camera\nviews, ensure corresponding points in different views lie\nalong corresponding lines, enforcing basic geometric consis-\ntency. Second, we develop a joint optimization method for\nmulti-view 2D motion sequences using two objectives: (1) a\nmulti-view consistency objective to ensure geometric rela-\ntionships across views, and (2) Score Distillation Sampling\n(SDS) based on our trained line-conditioned diffusion model\nto maintain motion realism. While this approach generates\nplausible multi-view 2D sequences that enable 3D motion\nrecovery, the optimization process cannot guarantee perfect\nview consistency, affecting the accuracy of reconstructed\n3D motions. To address this limitation, we leverage these\noptimized results to create a synthetic dataset. Although the\noptimized 3D motions may not perfectly align with input 2D\nsequences, they preserve motion realism. By reprojecting\nthese synthetic 3D motions to different views, we obtain\nstrictly consistent multi-view 2D sequences. Finally, we use\nthese sequences to train an efficient diffusion model that\ndirectly generates multi-view consistent 2D sequences in a\nsingle forward pass.\nOur work makes three contributions. First, we introduce\na novel framework, MVLift, for estimating global 3D mo-\ntion from a single-view 2D pose sequence without any 3D\ntraining data, addressing a fundamental limitation in exist-\ning approaches. Second, we demonstrate how multi-view\nconsistency can be progressively established through 2D mo-\ntion diffusion, providing a new perspective on 3D motion\nestimation. Third, we show that MVLift generalizes across\nvarious domains (humans, animals, and interactions) and\nsignificantly outperforms existing methods on five datasets,\neven those trained with 3D supervision.",
+    "method": "",
+    "experiments": "4. Experiments\nWe first introduce the datasets and evaluation metrics used.\nThen, we compare our approach against prior work across\nvarious datasets, including human motion, animal motion,\nand human-object interaction motion data. Additionally, we\nconduct ablation studies to evaluate each stage.",
+    "conclusion": "5. Conclusion\nWe addressed the challenging problem of estimating 3D\nmotion in the world coordinate system from a 2D motion\nsequence input, without requiring 3D supervision. The key\nidea is to combine 2D motion diffusion priors and geometric\nconstraints in a novel multi-stage framework to progres-\nsively establish consistency for 2D pose sequences across\nviews. We first trained a line-conditioned 2D motion diffu-\nsion model to optimize roughly consistent multi-view 2D\nsequences, which were then used to create a synthetic dataset\nwith strictly consistent multi-view sequences through 3D op-\ntimization and reprojection. Using this dataset, we trained\na final diffusion model for efficient multi-view generation.\nWe demonstrated our approach’s effectiveness in diverse do-\nmains, including human poses, human-object interactions,\nand animal poses."
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "paper_id": "concept-replacer-replacing-sensitive-concepts-in-diffusion-models-via-precision---b9b7715433",
+  "paper_title": "Concept Replacer: Replacing Sensitive Concepts in Diffusion Models via Precision Localization",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T09:04:13.467997+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Documents/Codex/ElephantPaperReading/tmp/diffusion_title_pdfs/Concept Replacer： Replacing Sensitive Concepts in Diffusion Models via Precision Localization.pdf",
+    "filename": "Concept Replacer： Replacing Sensitive Concepts in Diffusion Models via Precision Localization.pdf",
+    "sha1": "b9b77154336df8935a34545275712673a9fb84e1",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Powerful new AI models[ 1, 4, 9, 12, 26, 37, 47, 48] are transforming digital image creation.",
+    "limitation": "Introduction Powerful new AI models[ 1, 4, 9, 12, 26, 37, 47, 48] are transforming digital image creation.",
+    "insight": "Abstract As large-scale diffusion models continue to advance, they excel at producing high-quality images but often generate unwanted content, such as sexually explicit or violent im- agery.",
+    "proposed_method": "We propose a novel approach for targeted concept replacement in diffusion models, en- abling speciﬁc unwanted concepts to be removed without signiﬁcantly affecting non-target areas.",
+    "experimental_evidence": "Experimental results demonstrate that our method achieves superior precision in localizing target concepts and performs coherent concept replacement with minimal impact on non-target areas, outperforming existing approaches.",
+    "summary": "Introduction Powerful new AI models[ 1, 4, 9, 12, 26, 37, 47, 48] are transforming digital image creation. Introduction Powerful new AI models[ 1, 4, 9, 12, 26, 37, 47, 48] are transforming digital image creation. Abstract As large-scale diffusion models continue to advance, they excel at producing high-quality images but often generate unwanted content, such as sexually explicit or violent im- agery. We propose a novel approach for targeted concept replacement in diffusion models, en- abling speciﬁc unwanted concepts to be removed without signiﬁcantly affecting non-target areas. Experimental results demonstrate that our method achieves superior precision in localizing target concepts and performs coherent concept replacement with minimal impact on non-target areas, outperforming existing approaches."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Powerful new AI models[ 1, 4, 9, 12, 26, 37, 47, 48] are transforming digital image creation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Powerful new AI models[ 1, 4, 9, 12, 26, 37, 47, 48] are transforming digital image creation. Notably, DALL- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "We believe that this method can serve as a crucial tool for generative models, enabling the effective removal of unwanted concepts without compromising user experience."
+    ],
+    "limitation_expression": [],
+    "insight_expression": [],
+    "method_expression": [
+      "We propose a novel approach for targeted concept replacement in diffusion models, en- abling speciﬁc unwanted concepts to be removed without signiﬁcantly affecting non-target areas.",
+      "Our method intro- duces a dedicated concept localizer for precisely identify- ing the target concept during the denoising process, using few-shot learning to minimize the need for labeled data. *Corresponding authors.",
+      "We evaluate our method in terms of concept localization precision and re- placement efﬁciency.",
+      "Experimental results demonstrate that our method achieves superior precision in localizing target concepts and performs coherent concept replacement with minimal impact on non-target areas, outperforming existing approaches.",
+      "To address this issue, we propose a concept replacement method that uti- lizes accurate localization.",
+      "As illustrated in Figure 2, our method comprises two main components: a dedicated concept localizer and a novel Dual Prompts Cross-Attention module.",
+      "Experiments To validate our method, we conducted both quantitative and qualitative analyses to evaluate the accuracy of the local- ization of our concept localizer and the effectiveness of the concept replacement."
+    ],
+    "experiment_expression": [
+      "Experimental results demonstrate that our method achieves superior precision in localizing target concepts and performs coherent concept replacement with minimal impact on non-target areas, outperforming existing approaches.",
+      "Our experiments demonstrate that Concept Replacer excels in both concept localization accuracy and replacement quality compared to existing ap- proaches."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "To address this issue, we propose a concept replacement method that uti- lizes accurate localization.",
+    "We propose a novel approach for targeted concept replacement in diffusion models, en- abling speciﬁc unwanted concepts to be removed without signiﬁcantly affecting non-target areas.",
+    "Abstract As large-scale diffusion models continue to advance, they excel at producing high-quality images but often generate unwanted content, such as sexually explicit or violent im- agery.",
+    "As illustrated in Figure 2, our method comprises two main components: a dedicated concept localizer and a novel Dual Prompts Cross-Attention module.",
+    "Conclusion In this study, we introduce Concept Replacer, a method for replacing sensitive concepts in text-to-image diffusion models through precise localization.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Existing methods for removing such content typi- cally guide the image generation process but can inadver- tently modify unrelated regions, leading to inconsistencies with the original model.",
+    "Experimental results demonstrate that our method achieves superior precision in localizing target concepts and performs coherent concept replacement with minimal impact on non-target areas, outperforming existing approaches.",
+    "Experiments To validate our method, we conducted both quantitative and qualitative analyses to evaluate the accuracy of the local- ization of our concept localizer and the effectiveness of the concept replacement.",
+    "Introduction Powerful new AI models[ 1, 4, 9, 12, 26, 37, 47, 48] are transforming digital image creation.",
+    "Method Diffusion models [ 19] are powerful generative models and designed to learn data distribution p(x) by gradual denois- ing a Gaussian distribution.",
+    "Notably, DALL- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nAs large-scale diffusion models continue to advance, they\nexcel at producing high-quality images but often generate\nunwanted content, such as sexually explicit or violent im-\nagery. Existing methods for removing such content typi-\ncally guide the image generation process but can inadver-\ntently modify unrelated regions, leading to inconsistencies\nwith the original model. We propose a novel approach\nfor targeted concept replacement in diffusion models, en-\nabling speciﬁc unwanted concepts to be removed without\nsigniﬁcantly affecting non-target areas. Our method intro-\nduces a dedicated concept localizer for precisely identify-\ning the target concept during the denoising process, using\nfew-shot learning to minimize the need for labeled data.\n*Corresponding authors.\nWithin the identiﬁed region, we further introduce a Dual\nPrompts Cross-Attention module that operates without ad-\nditional training to substitute the target concept, ensuring\nminimal disruption to surrounding content. We evaluate our\nmethod in terms of concept localization precision and re-\nplacement efﬁciency. Experimental results demonstrate that\nour method achieves superior precision in localizing target\nconcepts and performs coherent concept replacement with\nminimal impact on non-target areas, outperforming existing\napproaches. The code is available at\nhttps://github.\ncom/zhang-lingyun/ConceptReplacer",
+    "introduction": "1. Introduction\nPowerful new AI models[\n1, 4, 9, 12, 26, 37, 47, 48]\nare transforming digital image creation. Notably, DALL-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Method\nDiffusion models [\n19] are powerful generative models and\ndesigned to learn data distribution p(x) by gradual denois-\ning a Gaussian distribution. Starting from sampled Gaus-\nsian noise, the diffusion model gradually denoises for T\ntime steps to generate the ﬁnal image:\npθ (xT :0) = p(xT )\n1∏\nt=T\npθ (xt− 1 |xt) (1)\nwhere p(xT ) corresponds to the initial Gaussian noise and\np(x0) corresponds to the ﬁnal generated image. Our goal is\nto remove a target concept c during the denoising process of\nthe image p(x0) being generated.\nThe motivation behind our approach is to enable the\nreplacement of speciﬁc target concepts in diffusion mod-\nels during the denoising process through precise localiza-\ntion, thereby minimizing unintended effects on non-target\nregions of the generated image. Existing methods for con-\ncept removal often involve ﬁne-tuning the diffusion model\nor introducing guidance during inference, which can inad-\nvertently inﬂuence the entire output and lead to inconsis-\ntencies with the original model’s behavior. To address this\nissue, we propose a concept replacement method that uti-\nlizes accurate localization.\nAs illustrated in Figure\n2, our method comprises two\nmain components: a dedicated concept localizer and a novel\nDual Prompts Cross-Attention module. The concept local-\nizer operates during the denoising process to precisely iden-\ntify the target concept’s location. Subsequently, the Dual\nPrompts Cross-Attention module leverages both the original\nand replacing prompts to condition the image features based\non this localization information, enabling targeted concept\nreplacement within the speciﬁed area.",
+    "experiments": "4. Experiments\nTo validate our method, we conducted both quantitative and\nqualitative analyses to evaluate the accuracy of the local-\nization of our concept localizer and the effectiveness of the\nconcept replacement.",
+    "conclusion": "5. Conclusion\nIn this study, we introduce Concept Replacer, a method\nfor replacing sensitive concepts in text-to-image diffusion\nmodels through precise localization. Our approach employs\na few-shot trained concept localizer to accurately identify\ntarget concepts, and a training-free Dual Prompts Cross-\nAttention module uses this localization information to re-\nplace the target concept, ensuring that non-target regions\nremain minimally affected. Our experiments demonstrate\nthat Concept Replacer excels in both concept localization\naccuracy and replacement quality compared to existing ap-\nproaches. We believe that this method can serve as a crucial\ntool for generative models, enabling the effective removal of\nunwanted concepts without compromising user experience.\nAcknowledgment. This work was supported by the Na-\ntional Key R&D Program of China(2022YFB3104300) and\nthe Jiangsu Provincial Natural Science Foundation of China\nunder Grant: BK20240291."
+  }
+}
