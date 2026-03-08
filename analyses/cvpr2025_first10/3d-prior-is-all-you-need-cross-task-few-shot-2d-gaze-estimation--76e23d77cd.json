@@ -1,0 +1,114 @@
+{
+  "paper_id": "3d-prior-is-all-you-need-cross-task-few-shot-2d-gaze-estimation--76e23d77cd",
+  "paper_title": "3D Prior Is All You Need: Cross-Task Few-shot 2D Gaze Estimation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T08:34:36.779674+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Downloads/cvpr2025/3D Prior Is All You Need： Cross-Task Few-shot 2D Gaze Estimation.pdf",
+    "filename": "3D Prior Is All You Need： Cross-Task Few-shot 2D Gaze Estimation.pdf",
+    "sha1": "76e23d77cd9f65330603eba728435a14cb5cfc03",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "This process poses signiﬁcant challenges, particularly for non-expert users.",
+    "limitation": "However, they present limitations in practical applications, such as human-computer interac- tion, where precise gaze targets are essential.",
+    "insight": "Abstract 3D and 2D gaze estimation share the fundamental objec- tive of capturing eye movements but are traditionally treated as two distinct research domains.",
+    "proposed_method": "To address these challenges, we propose a novel framework that bridges the gap between 3D and 2D gaze.",
+    "experimental_evidence": "The superior performance high- lights the effectiveness of our approach, and demonstrates its strong potential for real-world applications.",
+    "summary": "This process poses signiﬁcant challenges, particularly for non-expert users. However, they present limitations in practical applications, such as human-computer interac- tion, where precise gaze targets are essential. Abstract 3D and 2D gaze estimation share the fundamental objec- tive of capturing eye movements but are traditionally treated as two distinct research domains. To address these challenges, we propose a novel framework that bridges the gap between 3D and 2D gaze. The superior performance high- lights the effectiveness of our approach, and demonstrates its strong potential for real-world applications."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "method_overview",
+      "main_message": "Introduction Gaze estimation tracks eye movements to predict human at- tention [13].",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Introduction Gaze estimation tracks eye movements to predict human at- tention [13]. It is a highly applied research topic, where var- ious application scenarios, such as intelligent vehicles [ 14, 23], VR/AR [ 26, 28, 31], and disease diagnosis [ 6, 34] de- mand distinct and specialized gaze estimation solutions. *Corresponding author \u0016'\u0003*D]H\u0003 'LUHFWLRQ 3UH\u0010WUDLQHG ଷ஽ 6RXUFH\u0003)UHH 6FUHHQ\u0003&DOLEUDWLRQ\u0003)UHH 8QVHHQ\u0003'HYLFHV\u0016'\u00033ULRU'\\QDPLF\u00033VHXGR\u0010/DEHOOLQJ 'LIIHUHQWLDEOH\u00033URMHFWLRQ ଷ஽ ࢚ '\u0015 D]H ࢚ OLS ܘ ܘ HZ\u00106KRW\u00036DPSOHV\u0003 ࢚ DFH \u0015'\u0003*D]H \u0015'\u0003*D]H\u0003(VWLPDWLRQ Figure 1. We introduce a novel cross-task few-shot 2D gaze es- timation approach. Our method leverages a pre-trained 3D gaze estimation network and few-shot 2D gaze samples to achieve 2D gaze estimation on unseen devices."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "It contains a physics-based differentiable projection module to bridge 3D and 2D gaze, along with a dynamic pseudo-labelling strategy for 2D labels under un- known screen poses.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "It contains a physics-based differentiable projection module to bridge 3D and 2D gaze, along with a dynamic pseudo-labelling strategy for 2D labels under un- known screen poses. Our approach is both screen-calibration-free and source-free, signiﬁcantly expanding its application potential. Recent gaze estimation methods primarily focus on 3D gaze estimation [ 8, 36], wherein 3D direction vectors are derived from facial images. Such methods exhibit high adaptability, facilitating straightforward application in di- verse environments [38]."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "limitation",
+      "main_message": "However, they present limitations in practical applications, such as human-computer interac- tion, where precise gaze targets are essential.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "However, they present limitations in practical applications, such as human-computer interac- tion, where precise gaze targets are essential. Existing ap- proaches often require post-processing to calibrate the pose of interacted objects, e.g., a screen, and compute the inter- section between gaze and objects [ 40]. This process poses signiﬁcant challenges, particularly for non-expert users. Conversely, some methods directly estimate 2D gaze within screen coordinate systems."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "limitation",
+      "main_message": "Deep learning-based ap- proaches utilize large training datasets to map facial images to 2D gaze [ 4, 24].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "Deep learning-based ap- proaches utilize large training datasets to map facial images to 2D gaze [ 4, 24]. However, these models are often en- tangled with multiple device-speciﬁc factors. Traditional approaches construct 3D eye models using prior anatomical knowledge and ﬁt these models with few-shot calibration images [ 18]. Although such methods require specialized equipment for precise eye tracking, they raise the question, Can we achieve similar patterns within the deep learning paradigm for quick adaptation across various devices?"
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "background",
+      "main_message": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "2. We propose a framework to bridge 3D and 2D gaze es-",
+      "purpose": "Gives the high-level system view before module details.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiment",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "This task is highly challenging due to the domain gap between 3D and 2D gaze, unknown screen poses, and limited training data.",
+      "However, they present limitations in practical applications, such as human-computer interac- tion, where precise gaze targets are essential.",
+      "However, these models are often en- tangled with multiple device-speciﬁc factors.",
+      "However, several open questions re- main."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address these challenges, we propose a novel framework that bridges the gap between 3D and 2D gaze.",
+      "Our framework contains a physics-based differentiable projection module with learn- able parameters to model screen poses and project 3D gaze into 2D gaze.",
+      "We evaluate our method on MPIIGaze, EVE, and GazeCapture datasets, collected respectively on laptops, desktop comput- ers, and mobile devices.",
+      "Our method leverages a pre-trained 3D gaze estimation network and few-shot 2D gaze samples to achieve 2D gaze estimation on unseen devices.",
+      "We propose a framework to bridge 3D and 2D gaze es- timation, which includes a physics-based differentiable projection module with six learnable screen parameters to convert 3D gaze to 2D gaze.",
+      "Limitation: Our method infers 2D gaze through mathe- matical derivation within the differentiable projection mod- ule."
+    ],
+    "experiment_expression": [],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However, several open questions re- main.",
+    "However, these models are often en- tangled with multiple device-speciﬁc factors.",
+    "However, they present limitations in practical applications, such as human-computer interac- tion, where precise gaze targets are essential.",
+    "To address these challenges, we propose a novel framework that bridges the gap between 3D and 2D gaze.",
+    "We propose a framework to bridge 3D and 2D gaze es- timation, which includes a physics-based differentiable projection module with six learnable screen parameters to convert 3D gaze to 2D gaze.",
+    "Abstract 3D and 2D gaze estimation share the fundamental objec- tive of capturing eye movements but are traditionally treated as two distinct research domains.",
+    "Additionally, we introduce a dy- namic pseudo-labelling strategy for ﬂipped images, which is particularly challenging for 2D labels due to unknown screen poses.",
+    "Although such methods require specialized equipment for precise eye tracking, they raise the question, Can we achieve similar patterns within the deep learning paradigm for quick adaptation across various devices?",
+    "Although these cases can be easily ﬂagged in real-world applications, they may introduce biases during evaluation.",
+    "Besides, the adaption is rapid and source- free, signiﬁcantly broadening its practical applicability.",
+    "By leveraging few-shot 2D sam- ples, we adapt a 3D gaze model to 2D gaze estimation on unseen devices.",
+    "By leveraging this frame- work, we can quickly adapt a 3D gaze model for 2D gaze estimation using only a small number of images."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\n3D and 2D gaze estimation share the fundamental objec-\ntive of capturing eye movements but are traditionally treated\nas two distinct research domains. In this paper , we intro-\nduce a novel cross-task few-shot 2D gaze estimation ap-\nproach, aiming to adapt a pre-trained 3D gaze estimation\nnetwork for 2D gaze prediction on unseen devices using\nonly a few training images. This task is highly challenging\ndue to the domain gap between 3D and 2D gaze, unknown\nscreen poses, and limited training data. To address these\nchallenges, we propose a novel framework that bridges the\ngap between 3D and 2D gaze. Our framework contains a\nphysics-based differentiable projection module with learn-\nable parameters to model screen poses and project 3D gaze\ninto 2D gaze. The framework is fully differentiable and can\nintegrate into existing 3D gaze networks without modifying\ntheir original architecture. Additionally, we introduce a dy-\nnamic pseudo-labelling strategy for ﬂipped images, which\nis particularly challenging for 2D labels due to unknown\nscreen poses. To overcome this, we reverse the projection\nprocess by converting 2D labels to 3D space, where ﬂipping\nis performed. Notably, this 3D space is not aligned with the\ncamera coordinate system, so we learn a dynamic trans-\nformation matrix to compensate for this misalignment. We\nevaluate our method on MPIIGaze, EVE, and GazeCapture\ndatasets, collected respectively on laptops, desktop comput-\ners, and mobile devices. The superior performance high-\nlights the effectiveness of our approach, and demonstrates\nits strong potential for real-world applications.",
+    "introduction": "1. Introduction\nGaze estimation tracks eye movements to predict human at-\ntention [13]. It is a highly applied research topic, where var-\nious application scenarios, such as intelligent vehicles [ 14,\n23], VR/AR [ 26, 28, 31], and disease diagnosis [ 6, 34] de-\nmand distinct and specialized gaze estimation solutions.\n*Corresponding author\n\u0016'\u0003*D]H\u0003\n'LUHFWLRQ\n3UH\u0010WUDLQHG\nଷ஽\n6RXUFH\u0003)UHH\n6FUHHQ\u0003&DOLEUDWLRQ\u0003)UHH\n8QVHHQ\u0003'HYLFHV\u0016'\u00033ULRU'\\QDPLF\u00033VHXGR\u0010/DEHOOLQJ\n'LIIHUHQWLDEOH\u00033URMHFWLRQ\nଷ஽\n࢚\n'\u0015\nD]H\n࢚\nOLS\nܘ\nܘ\nHZ\u00106KRW\u00036DPSOHV\u0003\n࢚\nDFH \u0015'\u0003*D]H\n\u0015'\u0003*D]H\u0003(VWLPDWLRQ\nFigure 1. We introduce a novel cross-task few-shot 2D gaze es-\ntimation approach. Our method leverages a pre-trained 3D gaze\nestimation network and few-shot 2D gaze samples to achieve 2D\ngaze estimation on unseen devices. It contains a physics-based\ndifferentiable projection module to bridge 3D and 2D gaze, along\nwith a dynamic pseudo-labelling strategy for 2D labels under un-\nknown screen poses. Our approach is both screen-calibration-free\nand source-free, signiﬁcantly expanding its application potential.\nRecent gaze estimation methods primarily focus on 3D\ngaze estimation [ 8, 36], wherein 3D direction vectors are\nderived from facial images. Such methods exhibit high\nadaptability, facilitating straightforward application in di-\nverse environments [38]. However, they present limitations\nin practical applications, such as human-computer interac-\ntion, where precise gaze targets are essential. Existing ap-\nproaches often require post-processing to calibrate the pose\nof interacted objects, e.g., a screen, and compute the inter-\nsection between gaze and objects [ 40]. This process poses\nsigniﬁcant challenges, particularly for non-expert users.\nConversely, some methods directly estimate 2D gaze\nwithin screen coordinate systems. Deep learning-based ap-\nproaches utilize large training datasets to map facial images\nto 2D gaze [ 4, 24]. However, these models are often en-\ntangled with multiple device-speciﬁc factors. Traditional\napproaches construct 3D eye models using prior anatomical\nknowledge and ﬁt these models with few-shot calibration\nimages [ 18]. Although such methods require specialized\nequipment for precise eye tracking, they raise the question,\nCan we achieve similar patterns within the deep learning\nparadigm for quick adaptation across various devices?\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "2. We propose a framework to bridge 3D and 2D gaze es-\ntimation, which includes a physics-based differentiable\nprojection module with six learnable screen parameters\nto convert 3D gaze to 2D gaze. By leveraging this frame-\nwork, we can quickly adapt a 3D gaze model for 2D gaze\nestimation using only a small number of images.",
+    "experiments": "4. Experiment",
+    "conclusion": "5. Conclusion and Discussion\nIn this work, we introduce a novel cross-task few-shot 2D\ngaze estimation method. By leveraging few-shot 2D sam-\nples, we adapt a 3D gaze model to 2D gaze estimation on\nunseen devices. Since the 3D gaze network is trained in\n3D space without being tied to speciﬁc devices, it theoret-\nically maintains robust performance across different plat-\nforms. Our experiments validate this by proving results on\nthree datasets. Besides, the adaption is rapid and source-\nfree, signiﬁcantly broadening its practical applicability.\nLimitation: Our method infers 2D gaze through mathe-\nmatical derivation within the differentiable projection mod-\nule. While this approach enhances model interpretability\nand reliability, it can occasionally result in failure cases.\nFor instance, when the input images lack visible faces, the\npredicted 3D gaze can become erratic. In such scenar-\nios, the intersection point between the 3D gaze vector and\nthe screen plane may signiﬁcantly deviate from the ground\ntruth. This issue arises because, unlike neural networks that\nconstrain outputs to a plausible range, a purely mathemati-\ncal projection may yield extreme values, e.g., when the 3D\ngaze is nearly parallel to the plane. Although these cases\ncan be easily ﬂagged in real-world applications, they may\nintroduce biases during evaluation.\nFuture Directions: In this paper, we address the challenge\nof 2D pseudo-labeling. However, several open questions re-\nmain. For instance, can we leverage unlabeled face images\nto further enhance performance? Traditional methods often\nutilize a standard calibration pattern, could we incorporate\na similar strategy? It is worth noting that our approach re-\nquires collecting samples initially, akin to a calibration pro-\ncess. We argue that this step is essential as it provides the\nnecessary anchors for adapting to unseen devices. Nonethe-\nless, exploring user-unaware calibration techniques is also a\npromising direction for future research.\n23898"
+  }
+}

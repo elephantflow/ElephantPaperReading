@@ -1,0 +1,97 @@
+{
+  "paper_id": "3d-dental-model-segmentation-with-geometrical-boundary-preserving--d70cfa86a4",
+  "paper_title": "3D Dental Model Segmentation with Geometrical Boundary Preserving",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T08:34:35.635899+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Downloads/cvpr2025/3D Dental Model Segmentation with Geometrical Boundary Preserving.pdf",
+    "filename": "3D Dental Model Segmentation with Geometrical Boundary Preserving.pdf",
+    "sha1": "d70cfa86a443383019025147a10157cc5a047b0c",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "The main challenges [1] in crown segmentation arise from the intrinsic similarity between crown shapes, the close ar- rangement of adjacent teeth, as well as abnormal teeth with irregular shapes.",
+    "limitation": "This is because current deep learning based methods can not retain enough boundary details due to uni- form mesh downsampling and fail to fully leverage the net- work’s ability to learn boundary features merely based on coordinates and normal vectors, as shown in Fig.",
+    "insight": "But we can observe more clear tooth edges in images rendered from intraoral scan than in sampled points, indicated by red and blue boxes in the zoomed views respectively. ods [34, 40], contour-based methods [25], and harmonic field-based [18, 49] methods.",
+    "proposed_method": "To address these problems, we propose CrossTooth, a boundary-preserving segmentation method that combines 3D mesh selective downsampling to retain more vertices at the tooth-gingiva area, along with cross-modal discrim- inative boundary features extracted from multi-view ren- dered images, enhancing the geometric representation of the segmentation network.",
+    "experimental_evidence": "Using a point network as a back- bone and incorporating image complementary features, CrossTooth significantly improves segmentation accuracy, as demonstrated by experiments on a public intraoral scan dataset.",
+    "summary": "The main challenges [1] in crown segmentation arise from the intrinsic similarity between crown shapes, the close ar- rangement of adjacent teeth, as well as abnormal teeth with irregular shapes. This is because current deep learning based methods can not retain enough boundary details due to uni- form mesh downsampling and fail to fully leverage the net- work’s ability to learn boundary features merely based on coordinates and normal vectors, as shown in Fig. But we can observe more clear tooth edges in images rendered from intraoral scan than in sampled points, indicated by red and blue boxes in the zoomed views respectively. ods [34, 40], contour-based methods [25], and harmonic field-based [18, 49] methods. To address these problems, we propose CrossTooth, a boundary-preserving segmentation method that combines 3D mesh selective downsampling to retain more vertices at the tooth-gingiva area, along with cross-modal discrim- inative boundary features extracted from multi-view ren- dered images, enhancing the geometric representation of the segmentation network. Using a point network as a back- bone and incorporating image complementary features, CrossTooth significantly improves segmentation accuracy, as demonstrated by experiments on a public intraoral scan dataset."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Intraoral scanning is widely used in the field of digi- tal dentistry and the crown segmentation is the key step.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nIntraoral scanning is widely used in the field of digi-\ntal dentistry and the crown segmentation is the key step.\nThe main challenges [1] in crown segmentation arise from\nthe intrinsic similarity between crown shapes, the close ar-\nrangement of adjacent teeth, as well as abnormal teeth with\nirregular shapes. Additionally, external devices such as\nbraces can influence the crown structure, making it difficult\nto crown segmentation.\nTo address these challenges, various methods have been\nproposed. Traditional methods rely on manually defined\nfeatures for segmentation, including curvature-based meth-\n*Corresponding author.\nvisualize\ncurvature\nsample\npoints\ncamera\nrender\nFigure 1. An illustration of 3D intraoral scan model. The original\nintraoral scan consists of points and triangles, it can be visualized\nwith a mean curvature histogram. The more red the color is, the\nlower the curvature is. Deep learning methods usually take sam-\npled points as input, with blurry boundaries. But we can observe\nmore clear tooth edges in images rendered from intraoral scan than\nin sampled points, indicated by red and blue boxes in the zoomed\nviews respectively.\nods [34, 40], contour-based "
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "encoder-decoder structure to integrate multi-scale features using skip connections and layer-wise aggregation to better percept small objects.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "encoder-decoder structure to integrate multi-scale features\nusing skip connections and layer-wise aggregation to better\npercept small objects. Tooth centroid and bounding box de-\ntection methods [4, 23, 31], inspired by object detection net-\nworks like Faster-RCNN [24], first detect every single tooth\nand then segment the cropped regions for higher resolution.\nLatest methods [5, 10, 43] decouple coordinates and nor-\nmal vectors from intraoral scan triangles, further improving\nperformance by treating them as two different streams for\nlearning.\nAccurate identification of crown-gingiva boundary is\ncritical to the subsequent data processing work. While ex-\nisting methods have already achieved high segmentation ac-\ncuracy, the boundary area between crown-gingiva is still not\nwell treated. This is because current deep learning based\nmethods can not retain enough boundary details due to uni-\nform mesh downsampling and fail to fully leverage the net-\nwork’s ability to learn boundary features merely based on\ncoordinates and normal vectors, as shown in Fig. 1.\nTo address the above problems, we propose a boundary-\npreserving segmentation method named CrossTooth. We\ntake curvature information "
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methods",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Abstract 3D intraoral scan mesh is widely used in digital den- tistry diagnosis, segmenting 3D intraoral scan mesh is a critical preliminary task.",
+      "Accurate identification of crown-gingiva boundary is critical to the subsequent data processing work."
+    ],
+    "limitation_expression": [
+      "However, the segmentation accu- racy at the junction between the crown and the gum is still below average.",
+      "While ex- isting methods have already achieved high segmentation ac- curacy, the boundary area between crown-gingiva is still not well treated."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To address these problems, we propose CrossTooth, a boundary-preserving segmentation method that combines 3D mesh selective downsampling to retain more vertices at the tooth-gingiva area, along with cross-modal discrim- inative boundary features extracted from multi-view ren- dered images, enhancing the geometric representation of the segmentation network.",
+      "To address the above problems, we propose a boundary- preserving segmentation method named CrossTooth.",
+      "The main contributions of our work can be summarized as follows: • We propose a selective downsampling method.",
+      "By projecting rendered image features back to the point cloud, our method can enrich the sparse point cloud data with dense image features. • Our CrossTooth is evaluated on a public intraoral scan dataset [1].",
+      "Conclusion We propose CrossTooth to automatically segment indi- vidual teeth from intraoral scan models.",
+      "To avoid exist- ing downsampling methods from losing boundary details, we propose selective down-sampling based on curvature prior information.",
+      "By train- ing on the public intraoral scan model dataset, it is proved that our method is superior to other competing methods, achieving 95.86% and 82.05% at overall mIoU and bound- ary IoU respectively."
+    ],
+    "experiment_expression": [
+      "This is because current deep learning based methods can not retain enough boundary details due to uni- form mesh downsampling and fail to fully leverage the net- work’s ability to learn boundary features merely based on coordinates and normal vectors, as shown in Fig."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion We propose CrossTooth to automatically segment indi- vidual teeth from intraoral scan models.",
+    "However, the segmentation accu- racy at the junction between the crown and the gum is still below average.",
+    "The main contributions of our work can be summarized as follows: • We propose a selective downsampling method.",
+    "To address the above problems, we propose a boundary- preserving segmentation method named CrossTooth.",
+    "To avoid exist- ing downsampling methods from losing boundary details, we propose selective down-sampling based on curvature prior information.",
+    "10476 encoder-decoder structure to integrate multi-scale features using skip connections and layer-wise aggregation to better percept small objects.",
+    "Abstract 3D intraoral scan mesh is widely used in digital den- tistry diagnosis, segmenting 3D intraoral scan mesh is a critical preliminary task.",
+    "Accurate identification of crown-gingiva boundary is critical to the subsequent data processing work.",
+    "Additionally, external devices such as braces can influence the crown structure, making it difficult to crown segmentation.",
+    "Additionally, we extract discrimi- native boundary features from multi-view rendered images, which complement the sparse point cloud features.",
+    "An illustration of 3D intraoral scan model.",
+    "By projecting rendered image features back to the point cloud, our method can enrich the sparse point cloud data with dense image features. • Our CrossTooth is evaluated on a public intraoral scan dataset [1]."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\n3D intraoral scan mesh is widely used in digital den-\ntistry diagnosis, segmenting 3D intraoral scan mesh is a\ncritical preliminary task. Numerous approaches have been\ndevised for precise tooth segmentation. Currently, the deep\nlearning-based methods are capable of the high accuracy\nsegmentation of crown. However, the segmentation accu-\nracy at the junction between the crown and the gum is still\nbelow average. Existing down-sampling methods are un-\nable to effectively preserve the geometric details at the junc-\ntion. To address these problems, we propose CrossTooth,\na boundary-preserving segmentation method that combines\n3D mesh selective downsampling to retain more vertices\nat the tooth-gingiva area, along with cross-modal discrim-\ninative boundary features extracted from multi-view ren-\ndered images, enhancing the geometric representation of\nthe segmentation network. Using a point network as a back-\nbone and incorporating image complementary features,\nCrossTooth significantly improves segmentation accuracy,\nas demonstrated by experiments on a public intraoral scan\ndataset. The source code is available at https : / /\ngithub.com/XiShuFan/CrossTooth_CVPR2025",
+    "introduction": "1. Introduction\nIntraoral scanning is widely used in the field of digi-\ntal dentistry and the crown segmentation is the key step.\nThe main challenges [1] in crown segmentation arise from\nthe intrinsic similarity between crown shapes, the close ar-\nrangement of adjacent teeth, as well as abnormal teeth with\nirregular shapes. Additionally, external devices such as\nbraces can influence the crown structure, making it difficult\nto crown segmentation.\nTo address these challenges, various methods have been\nproposed. Traditional methods rely on manually defined\nfeatures for segmentation, including curvature-based meth-\n*Corresponding author.\nvisualize\ncurvature\nsample\npoints\ncamera\nrender\nFigure 1. An illustration of 3D intraoral scan model. The original\nintraoral scan consists of points and triangles, it can be visualized\nwith a mean curvature histogram. The more red the color is, the\nlower the curvature is. Deep learning methods usually take sam-\npled points as input, with blurry boundaries. But we can observe\nmore clear tooth edges in images rendered from intraoral scan than\nin sampled points, indicated by red and blue boxes in the zoomed\nviews respectively.\nods [34, 40], contour-based methods [25], and harmonic\nfield-based [18, 49] methods. Frequently used curvature-\nbased methods depend heavily on the intraoral scanner ac-\ncuracy and the teeth condition of patients. In areas where\ncurvatures are not apparent or in regions with steep curva-\ntures like tooth crowns, these methods perform poorly and\nrequire manual correction, which lacks robustness.\nDeep learning methods, driven by data, have surpassed\ntraditional ones. Several works have applied deep learn-\ning methods directly on 3D intraoral scan models for seg-\nmentation. Some methods [17, 28, 29, 46, 47] build net-\nworks in local-global feature fusion paradigm, where the\nnetwork learns both local details and global context infor-\nmation from the point clouds. Some [39, 41] follow the\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n10476\n\nencoder-decoder structure to integrate multi-scale features\nusing skip connections and layer-wise aggregation to better\npercept small objects. Tooth centroid and bounding box de-\ntection methods [4, 23, 31], inspired by object detection net-\nworks like Faster-RCNN [24], first detect every single tooth\nand then segment the cropped regions for higher resolution.\nLatest methods [5, 10, 43] decouple coordinates and nor-\nmal vectors from intraoral scan triangles, further improving\nperformance by treating them as two different streams for\nlearning.\nAccurate identification of crown-gingiva boundary is\ncritical to the subsequent data processing work. While ex-\nisting methods have already achieved high segmentation ac-\ncuracy, the boundary area between crown-gingiva is still not\nwell treated. This is because current deep learning based\nmethods can not retain enough boundary details due to uni-\nform mesh downsampling and fail to fully leverage the net-\nwork’s ability to learn boundary features merely based on\ncoordinates and normal vectors, as shown in Fig. 1.\nTo address the above problems, we propose a boundary-\npreserving segmentation method named CrossTooth. We\ntake curvature information from intraoral scans and dense\nfeatures from rendered images into account, improving\nthe overall segmentation performance, especially at tooth-\ngingiva areas. CrossTooth uses a carefully designed selec-\ntive downsampling method to preserve triangles from tooth\nboundary while reducing the intraoral scan mesh to a speci-\nfied number of triangles. Additionally, we extract discrimi-\nnative boundary features from multi-view rendered images,\nwhich complement the sparse point cloud features.\nThe main contributions of our work can be summarized\nas follows:\n• We propose a selective downsampling method. Ac-\ncording to the curvature of the intraoral scan model,\nthis method can retain more geometric details and\nproviding discriminative crown-gingival boundary fea-\ntures.\n• We use multi-view rendering under specific light-\ning conditions to generate the distinguish shading on\ncrown-gums boundary. By projecting rendered image\nfeatures back to the point cloud, our method can enrich\nthe sparse point cloud data with dense image features.\n• Our CrossTooth is evaluated on a public intraoral scan\ndataset [1]. The experimental results show that our\nCrossTooth significantly outperforms state-of-the-art\nsegmentation methods.",
+    "method": "3. Methods",
+    "experiments": "4. Experiments",
+    "conclusion": "6. Conclusion\nWe propose CrossTooth to automatically segment indi-\nvidual teeth from intraoral scan models. To avoid exist-\ning downsampling methods from losing boundary details,\nwe propose selective down-sampling based on curvature\nprior information. We fuse image dense features to improve\nthe point cloud segmentation accuracy, especially retaining\nthe detailed information at the tooth boundary. Compared\nwith popular QEM downsample method, selective down-\nsampling increases vertex density by 10% to 15%. By train-\ning on the public intraoral scan model dataset, it is proved\nthat our method is superior to other competing methods,\nachieving 95.86% and 82.05% at overall mIoU and bound-\nary IoU respectively. Our CrossTooth can effectively assist\ndoctors in clinical diagnosis and analysis.\nAcknowledgment. This work was supported in\npart by the National Natural Science Foundation\nof China under Grant 62132021, the Guangxi Sci-\nence and Technology Major Program under Grant\nGuiKeAA24206017 and the National Key R&D\nProgram of China under Grant 2023YFC3604505."
+  }
+}

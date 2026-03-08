@@ -1,0 +1,90 @@
+{
+  "paper_id": "3d-convex-splatting-radiance-field-rendering-with-3d-smooth-convexes--6dc1d30773",
+  "paper_title": "3D Convex Splatting: Radiance Field Rendering with 3D Smooth Convexes",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T08:34:35.291636+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Downloads/cvpr2025/3D Convex Splatting： Radiance Field Rendering with 3D Smooth Convexes.pdf",
+    "filename": "3D Convex Splatting： Radiance Field Rendering with 3D Smooth Convexes.pdf",
+    "sha1": "6dc1d30773036f9e0e6af31c22afa4c67817792e",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Reconstructing complex scenes and synthesizing novel views have been fundamental challenges in computer vision and graphics for decades [ 1, 12], with applications ranging from virtual reality to autonomous navigation [ 17, 36, 40].",
+    "limitation": "However, NeRF suffered from slow training and rendering times, limiting its practicality.",
+    "insight": "Abstract Recent advances in radiance ﬁeld reconstruction, such as 3D Gaussian Splatting (3DGS), have achieved high- quality novel view synthesis and fast rendering by repre- senting scenes with compositions of Gaussian primitives.",
+    "proposed_method": "To circum- vent these issues, we introduce a novel method, named 3D Convex Splatting (3DCS), which leverages 3D smooth con- vexes as primitives for modeling geometrically-meaningful radiance ﬁelds from multi-view images.",
+    "experimental_evidence": "Abstract Recent advances in radiance ﬁeld reconstruction, such as 3D Gaussian Splatting (3DGS), have achieved high- quality novel view synthesis and fast rendering by repre- senting scenes with compositions of Gaussian primitives.",
+    "summary": "Introduction Reconstructing complex scenes and synthesizing novel views have been fundamental challenges in computer vision and graphics for decades [ 1, 12], with applications ranging from virtual reality to autonomous navigation [ 17, 36, 40]. However, NeRF suffered from slow training and rendering times, limiting its practicality. Abstract Recent advances in radiance ﬁeld reconstruction, such as 3D Gaussian Splatting (3DGS), have achieved high- quality novel view synthesis and fast rendering by repre- senting scenes with compositions of Gaussian primitives. To circum- vent these issues, we introduce a novel method, named 3D Convex Splatting (3DCS), which leverages 3D smooth con- vexes as primitives for modeling geometrically-meaningful radiance ﬁelds from multi-view images. Abstract Recent advances in radiance ﬁeld reconstruction, such as 3D Gaussian Splatting (3DGS), have achieved high- quality novel view synthesis and fast rendering by repre- senting scenes with compositions of Gaussian primitives."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Reconstructing complex scenes and synthesizing novel views have been fundamental challenges in computer vision and graphics for decades [ 1, 12], with applications ranging from virtual reality to autonomous navigation [ 17, 36, 40].",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nReconstructing complex scenes and synthesizing novel\nviews have been fundamental challenges in computer vision\nand graphics for decades [\n1, 12], with applications ranging\nfrom virtual reality to autonomous navigation [ 17, 36, 40].\nNeural Radiance Fields (NeRF) [ 38] revolutionized this\narea by representing scenes as continuous volumetric radi-\nFigure 1. 3D Convex Splatting for Novel View Synthesis. We\nintroduce a novel primitive-based pipeline for novel view synthe-\nsis with 3D smooth convexes. Our 3D smooth convexes share the\nrendering speed of 3D Gaussians [\n26] and the ﬂexible represen-\ntation of smooth convexes [ 9]. As a result, 3D Convex Splatting\nbetter reconstructs scenes with fewer primitives.\nance ﬁelds, which are optimized to render novel views at\nhigh-quality. However, NeRF suffered from slow training\nand rendering times, limiting its practicality. To address\nthese issues, 3D Gaussian Splatting (3DGS) [\n26] emerged\nas an efﬁcient alternative, by representing scenes with mil-\nlions of 3D Gaussian primitives. 3DGS signiﬁcantly accel-\nerated training and enabled real-time rendering while main-\nThis CVPR paper is the Open Access version, provided by the Co"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "taining high-quality outputs.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "taining high-quality outputs.\nDespite this progress, Gaussian primitives have two in-\nherent limitations. (1) Gaussians lack deﬁned physical\nboundaries, making them unsuitable for accurately repre-\nsenting ﬂat surfaces or enabling physically meaningful de-\ncompositions of scenes. (2) In addition to their speciﬁc\nsmoothness and rounded nature, Gaussians are inadequate\nfor capturing hard edges and geometric structures. Each\nGaussian behaves similarly to an ellipsoid, with a symmet-\nrical distribution, struggling to conform to angular bound-\naries or ﬂat surfaces. This inherent limitation is highlighted\nby the sphere packing problem in computer graphics [\n8, 16],\nwhere densely packed spherical or ellipsoidal shapes leave\ngaps and result in inefﬁcient coverage, especially along ﬂat\nor sharp corners. As with spheres or ellipsoids, an impracti-\ncally large number of Gaussian primitives would be needed\nto ﬁll space without gaps, leading to increased memory con-\nsumption and computational overhead.\nTo overcome these limitations, we propose a novel\nmethod called 3D Convex Splatting (3DCS) , which lever-\nages 3D smooth convexes as primitives for modeling and\nreconstructing geometrically accu"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However , 3D Gaussians present several limitations for scene reconstruction.",
+      "However, NeRF suffered from slow training and rendering times, limiting its practicality."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "Specif- ically, our method attains an improvement of up to 0.81 in PSNR and 0.026 in LPIPS compared to 3DGS while main- taining high rendering speeds and reducing the number of required primitives.",
+      "To overcome these limitations, we propose a novel method called 3D Convex Splatting (3DCS) , which lever- ages 3D smooth convexes as primitives for modeling and reconstructing geometrically accurate radiance ﬁelds from multi-view images.",
+      "Partic- ularly, our method overcomes the limitations of 3D Gaus- sian Splatting, delivering denser representations with fewer primitives and parameters."
+    ],
+    "experiment_expression": [],
+    "contribution_expression": [
+      "We summarize our contributions as fol- lows: (i) We introduce 3D Convex Splatting (3DCS), uti- lizing 3D smooth convexes as novel primitives for ra- diance ﬁeld representation, addressing the limitations of Gaussian primitives in capturing dense volumetric features."
+    ]
+  },
+  "notable_sentences": [
+    "However , 3D Gaussians present several limitations for scene reconstruction.",
+    "However, NeRF suffered from slow training and rendering times, limiting its practicality.",
+    "To overcome these limitations, we propose a novel method called 3D Convex Splatting (3DCS) , which lever- ages 3D smooth convexes as primitives for modeling and reconstructing geometrically accurate radiance ﬁelds from multi-view images.",
+    "(1) Gaussians lack deﬁned physical boundaries, making them unsuitable for accurately repre- senting ﬂat surfaces or enabling physically meaningful de- compositions of scenes.",
+    "(2) In addition to their speciﬁc smoothness and rounded nature, Gaussians are inadequate for capturing hard edges and geometric structures.",
+    "(ii) We develop an optimization framework and a fast, differentiable GPU-based rendering pipeline for our 3D smooth convexes, enabling high-quality 3D scene represen- tations from multi-view images and high rendering speeds.",
+    "21360 taining high-quality outputs.",
+    "3.1) from CvxNet [ 9] with the primitive-based repre- sentation from 3DGS [26] for efﬁcient, real-time novel view synthesis.",
+    "3D Convex Splatting for Novel View Synthesis.",
+    "3D smooth convexes offer greater ﬂex- ibility than Gaussians, as they can form dense volumes that accurately capture hard edges and detailed surfaces using fewer primitives.",
+    "3DCS uses a point-based convex shape represen- tation and convex hull operations to enable straightforward differentiable projection of 3D convex shapes onto the 2D image plane (Sec.",
+    "3DGS signiﬁcantly accel- erated training and enabled real-time rendering while main- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRecent advances in radiance ﬁeld reconstruction, such\nas 3D Gaussian Splatting (3DGS), have achieved high-\nquality novel view synthesis and fast rendering by repre-\nsenting scenes with compositions of Gaussian primitives.\nHowever , 3D Gaussians present several limitations for\nscene reconstruction. Accurately capturing hard edges is\nchallenging without signiﬁcantly increasing the number of\nGaussians, creating a large memory footprint. Moreover ,\nthey struggle to represent ﬂat surfaces, as they are diffused\nin space. Without hand-crafted regularizers, they tend to\ndisperse irregularly around the actual surface. To circum-\nvent these issues, we introduce a novel method, named 3D\nConvex Splatting (3DCS), which leverages 3D smooth con-\nvexes as primitives for modeling geometrically-meaningful\nradiance ﬁelds from multi-view images. Smooth convex\nshapes offer greater ﬂexibility than Gaussians, allowing\nfor a better representation of 3D scenes with hard edges\nand dense volumes using fewer primitives. Powered by\nour efﬁcient CUDA-based rasterizer , 3DCS achieves supe-\nrior performance over 3DGS on benchmarks such as Mip-\nNeRF360, Tanks and Temples, and Deep Blending. Specif-\nically, our method attains an improvement of up to 0.81 in\nPSNR and 0.026 in LPIPS compared to 3DGS while main-\ntaining high rendering speeds and reducing the number of\nrequired primitives. Our results highlight the potential of\n3D Convex Splatting to become the new standard for high-\nquality scene reconstruction and novel view synthesis. The\nproject page is\nhttps://convexsplatting.github.io",
+    "introduction": "1. Introduction\nReconstructing complex scenes and synthesizing novel\nviews have been fundamental challenges in computer vision\nand graphics for decades [\n1, 12], with applications ranging\nfrom virtual reality to autonomous navigation [ 17, 36, 40].\nNeural Radiance Fields (NeRF) [ 38] revolutionized this\narea by representing scenes as continuous volumetric radi-\nFigure 1. 3D Convex Splatting for Novel View Synthesis. We\nintroduce a novel primitive-based pipeline for novel view synthe-\nsis with 3D smooth convexes. Our 3D smooth convexes share the\nrendering speed of 3D Gaussians [\n26] and the ﬂexible represen-\ntation of smooth convexes [ 9]. As a result, 3D Convex Splatting\nbetter reconstructs scenes with fewer primitives.\nance ﬁelds, which are optimized to render novel views at\nhigh-quality. However, NeRF suffered from slow training\nand rendering times, limiting its practicality. To address\nthese issues, 3D Gaussian Splatting (3DGS) [\n26] emerged\nas an efﬁcient alternative, by representing scenes with mil-\nlions of 3D Gaussian primitives. 3DGS signiﬁcantly accel-\nerated training and enabled real-time rendering while main-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n21360\n\ntaining high-quality outputs.\nDespite this progress, Gaussian primitives have two in-\nherent limitations. (1) Gaussians lack deﬁned physical\nboundaries, making them unsuitable for accurately repre-\nsenting ﬂat surfaces or enabling physically meaningful de-\ncompositions of scenes. (2) In addition to their speciﬁc\nsmoothness and rounded nature, Gaussians are inadequate\nfor capturing hard edges and geometric structures. Each\nGaussian behaves similarly to an ellipsoid, with a symmet-\nrical distribution, struggling to conform to angular bound-\naries or ﬂat surfaces. This inherent limitation is highlighted\nby the sphere packing problem in computer graphics [\n8, 16],\nwhere densely packed spherical or ellipsoidal shapes leave\ngaps and result in inefﬁcient coverage, especially along ﬂat\nor sharp corners. As with spheres or ellipsoids, an impracti-\ncally large number of Gaussian primitives would be needed\nto ﬁll space without gaps, leading to increased memory con-\nsumption and computational overhead.\nTo overcome these limitations, we propose a novel\nmethod called 3D Convex Splatting (3DCS) , which lever-\nages 3D smooth convexes as primitives for modeling and\nreconstructing geometrically accurate radiance ﬁelds from\nmulti-view images. 3D smooth convexes offer greater ﬂex-\nibility than Gaussians, as they can form dense volumes that\naccurately capture hard edges and detailed surfaces using\nfewer primitives. Figure\n1 illustrates this point, showing\nthat 3DCS enables the rendering of 3D smooth convexes\nto generate high-quality novel views of complex scenes.\nMoreover, by incorporating smoothness and sharpness pa-\nrameters, we can control the curvature and the diffusion of\nthe smooth convexes, respectively. This enables the creation\nof shapes that are hard or soft, dense or diffuse. Figure\n2\nshows a toy example of how smooth convexes can represent\na chair with hard edges with far fewer elements than Gaus-\nsians, while utilizing the same optimization. For novel view\nsynthesis, we merge the beneﬁts of the fast rendering pro-\ncess from Gaussians [\n26], with the ﬂexibility of 3D smooth\nconvexes [9]. We achieve this by rendering 3D smooth con-\nvexes using our efﬁcient CUDA-based rasterizer, which en-\nables real-time rendering and accelerates the optimization\nprocess. To the best of our knowledge, 3D Convex Splatting\nis the ﬁrst method to leverage differentiable smooth convex\nshapes for novel view synthesis on realistic scenes, outper-\nforming previous methods that use other primitives.\nContributions. We summarize our contributions as fol-\nlows: (i) We introduce 3D Convex Splatting (3DCS), uti-\nlizing 3D smooth convexes as novel primitives for ra-\ndiance ﬁeld representation, addressing the limitations of\nGaussian primitives in capturing dense volumetric features.\n(ii) We develop an optimization framework and a fast,\ndifferentiable GPU-based rendering pipeline for our 3D\nsmooth convexes, enabling high-quality 3D scene represen-\ntations from multi-view images and high rendering speeds.\nGS:\nPos: 2\nRot: 1\nScale:2\nOpac:1\nColor: 3\nTot: 9\nCS:\nPos: 6x2\nSigma: 1\nDelta: 1\nOpac: 1\nColor: 3\nTot: 18\n54\n 72\n# of\nPrimitives\n4 8 10 206\n36\n180\n72\n 108\n144\n90\n180",
+    "method": "3. Methodology\n3D Convex Splatting (3DCS) combines smooth convexes\n(Sec.\n3.1) from CvxNet [ 9] with the primitive-based repre-\nsentation from 3DGS [26] for efﬁcient, real-time novel view\nsynthesis. 3DCS uses a point-based convex shape represen-\ntation and convex hull operations to enable straightforward\ndifferentiable projection of 3D convex shapes onto the 2D\nimage plane (Sec.\n3.2). Further operations for smoothing,\nsplatting, and adaptive densiﬁcation are used to optimize\nthe representation from posed images (Sec.\n3.3). Figure 3\nshows an overview of our convex splatting pipeline.",
+    "experiments": "4. Experiments\nWe ﬁrst evaluate 3D Convex Splatting (3DCS) with syn-\nthetic experiments to showcase its superior shape represen-\ntation over Gaussian primitives. Then, we describe the real-\nworld setup, including tasks, datasets, baselines, metrics,\nand implementation, followed by results on novel view syn-\nthesis and an ablation study.",
+    "conclusion": "5. Conclusion\nWe introduce 3D Convex Splatting (3DCS), a novel method\nfor radiance ﬁeld rendering that leverages 3D smooth con-\nvexes to achieve high-quality novel view synthesis. Partic-\nularly, our method overcomes the limitations of 3D Gaus-\nsian Splatting, delivering denser representations with fewer\nprimitives and parameters. Furthermore, 3DCS demon-\nstrates substantial improvements on the novel view synthe-\nsis task. By combining the adaptability of convex shapes\nwith the efﬁciency of primitive-based radiance ﬁeld render-\ning, 3DCS achieves high-quality, real-time, and ﬂexible ra-\ndiance ﬁeld reconstruction. We envision this new primitive\nto set the ground for further research in the ﬁeld.\nAcknowledgments. J. Held, A. Deliege and A. Cioppa\nare funded by the F.R.S.-FNRS. The research reported in\nthis publication was supported by funding from KAUST\nCenter of Excellence on GenAI, under award number"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "paper_id": "3d-gaussian-inpainting-with-depth-guided-cross-view-consistency--3405981809",
+  "paper_title": "3D Gaussian Inpainting with Depth-Guided Cross-View Consistency",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T08:34:36.017885+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Downloads/cvpr2025/3D Gaussian Inpainting with Depth-Guided Cross-View Consistency.pdf",
+    "filename": "3D Gaussian Inpainting with Depth-Guided Cross-View Consistency.pdf",
+    "sha1": "3405981809d03fa747928b68ec460357d39c350e",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Among editing challenges, object removal and inpainting [ 17, 35] are particularly difficult, as direct removal creates visible holes, compromising visual qual- ity.",
+    "limitation": "However, practical VR/AR applications [3, 20] require more than reconstruc- tion: they need editing capabilities that these methods do not fully address.",
+    "insight": "Abstract When performing 3D inpainting using novel-view rendering methods like Neural Radiance Field (NeRF) or 3D Gaus- sian Splatting (3DGS), how to achieve texture and geometry consistency across camera views has been a challenge.",
+    "proposed_method": "In this paper, we propose a framework of 3D Gaussian Inpaint- ing with Depth-Guided Cross-View Consistency (3DGIC) for cross-view consistent 3D inpainting.",
+    "experimental_evidence": "Through extensive exper- iments on benchmark datasets, we confirm that our 3DGIC outperforms current state-of-the-art 3D inpainting methods quantitatively and qualitatively.",
+    "summary": "Among editing challenges, object removal and inpainting [ 17, 35] are particularly difficult, as direct removal creates visible holes, compromising visual qual- ity. However, practical VR/AR applications [3, 20] require more than reconstruc- tion: they need editing capabilities that these methods do not fully address. Abstract When performing 3D inpainting using novel-view rendering methods like Neural Radiance Field (NeRF) or 3D Gaus- sian Splatting (3DGS), how to achieve texture and geometry consistency across camera views has been a challenge. In this paper, we propose a framework of 3D Gaussian Inpaint- ing with Depth-Guided Cross-View Consistency (3DGIC) for cross-view consistent 3D inpainting. Through extensive exper- iments on benchmark datasets, we confirm that our 3DGIC outperforms current state-of-the-art 3D inpainting methods quantitatively and qualitatively."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Novel view synthesis for 3D scenes plays a vital role in 3D reconstruction and scene understanding.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nNovel view synthesis for 3D scenes plays a vital role in\n3D reconstruction and scene understanding. Recent ad-\nvancements, such as Neural Radiance Fields (NeRF) [ 1,\n4, 9, 21, 22, 26, 29, 32, 43] and 3D Gaussian Splatting\n(3DGS) [5, 14, 28, 41, 44], enable high-fidelity novel views\nby modeling volumetric properties. However, practical\nVR/AR applications [3, 20] require more than reconstruc-\ntion: they need editing capabilities that these methods do\nnot fully address. Among editing challenges, object removal\nand inpainting [ 17, 35] are particularly difficult, as direct\nremoval creates visible holes, compromising visual qual-\nity. While 2D inpainting [\n7, 19, 27, 31, 33, 38–40] across\nmultiple views is possible, maintaining consistency remains\nproblematic, leading to artifacts and reduced fidelity. Thus,\nachieving seamless, multi-view-consistent inpainting for 3D\nscenes is still an open challenge.\nAs a pioneering work in 3D scene inpainting, SPIn-\nNeRF [24] proposes to use a pre-trained segmentation net-\nwork [10] to generate plausible 2D inpaint masks for multi-\nview images with sparse human annotations of the ob-\nject to be removed. However, as noted in subsequent "
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "annotated 2D masks or sparse annotations to delineate the objects to be removed and the regions to be inpainted, mak- ing the process labor-intensive and limiting the scalability and practicality of these techniques.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "annotated 2D masks or sparse annotations to delineate the\nobjects to be removed and the regions to be inpainted, mak-\ning the process labor-intensive and limiting the scalability\nand practicality of these techniques.\nTo reduce the need for human annotation for obtaining\ninpainting masks, recent methods [ 41, 42] tend to lever-\nage the Segment Anything Model (SAM) [16] models with\nNeRF or 3DGS to obtain 2D inpainting masks for multi-view\nimages directly. Although these methods ease the require-\nment of human annotations for inpainting masks, they still\nrely on 2D inpainting results for different views as supervi-\nsion, limiting the multi-view consistency of the inpainted\n3D representations. To alleviate this limitation, some ap-\nproaches [6, 12, 17, 18, 25, 35, 36] attempt to build a cross-\nview consistent 3D inpainting method on top of the 2D\ninpainting mask obtained from SAM. By either leveraging\n2D diffusion models as perceptual guidance for the inpainted\nregion [6, 17, 36] or ensuring feature consistency of corre-\nsponding pixels across different views [35], these methods\nare able to produce more consistent 3D inpainting results\nwithout the requirement of human-annotated 2D inpa"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, practical VR/AR applications [3, 20] require more than reconstruc- tion: they need editing capabilities that these methods do not fully address.",
+      "Thus, achieving seamless, multi-view-consistent inpainting for 3D scenes is still an open challenge.",
+      "However, as noted in subsequent re- search [17, 35], SPIn-NeRF and similar approaches [37, 42] rely heavily on 2D inpainting of multiple views separately, which hinders the cross-view consistency of the 3D inpaint- ing results.",
+      "De- spite these advancements, these methods still require human- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "Although these methods ease the require- ment of human annotations for inpainting masks, they still rely on 2D inpainting results for different views as supervi- sion, limiting the multi-view consistency of the inpainted 3D representations."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "In this paper, we propose a framework of 3D Gaussian Inpaint- ing with Depth-Guided Cross-View Consistency (3DGIC) for cross-view consistent 3D inpainting.",
+      "In this paper, we propose a 3D Gaussian Inpainting with Depth-Guided Cross-View Consistency (3DGIC) to opti- mize the 3DGS model while achieving multi-view consistent and high-fidelity 3D inpainting with depth-guided inpaint- ing masks to locate the inpainting region.",
+      "The key contributions of our approach are as follows: • We propose a 3D Gaussian Inpainting with Depth-Guided Cross-View Consistency (3DGIC), achieving multi-view consistent 3D inpainting results with high fidelity. • By inferring Depth-Guided Inpainting Masks, the region to be inpainted is properly obtained by considering depth information across different views, allowing us to guide the inpainting process for 3DGS. • Based on the 2D inpaintings from a chosen reference view, our Inpainting-guided 3DGS Refinement optimizes new Gaussians of the object-removed scene by ensuring cross- view consistent inpainting results.",
+      "Conclusions In this paper, we propose the 3D Gaussian Inpainting with Depth-Guided Cross-View Consistency (3DGIC) for inpaint- ing real-world 3D scenes represented by 3D Gaussian Splat- ting (3DGS) models."
+    ],
+    "experiment_expression": [
+      "Through experiments on real-world datasets, we quantitatively and qualitatively demonstrate that our 3DGIC performs favorably against state-of-the-art NeRF/3DGS-based inpainting methods by achieving better fidelity and multi-view consistency."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusions In this paper, we propose the 3D Gaussian Inpainting with Depth-Guided Cross-View Consistency (3DGIC) for inpaint- ing real-world 3D scenes represented by 3D Gaussian Splat- ting (3DGS) models.",
+    "However, as noted in subsequent re- search [17, 35], SPIn-NeRF and similar approaches [37, 42] rely heavily on 2D inpainting of multiple views separately, which hinders the cross-view consistency of the 3D inpaint- ing results.",
+    "However, practical VR/AR applications [3, 20] require more than reconstruc- tion: they need editing capabilities that these methods do not fully address.",
+    "In this paper, we propose a framework of 3D Gaussian Inpaint- ing with Depth-Guided Cross-View Consistency (3DGIC) for cross-view consistent 3D inpainting.",
+    "26704 annotated 2D masks or sparse annotations to delineate the objects to be removed and the regions to be inpainted, mak- ing the process labor-intensive and limiting the scalability and practicality of these techniques.",
+    "Abstract When performing 3D inpainting using novel-view rendering methods like Neural Radiance Field (NeRF) or 3D Gaus- sian Splatting (3DGS), how to achieve texture and geometry consistency across camera views has been a challenge.",
+    "Although these methods ease the require- ment of human annotations for inpainting masks, they still rely on 2D inpainting results for different views as supervi- sion, limiting the multi-view consistency of the inpainted 3D representations.",
+    "Among editing challenges, object removal and inpainting [ 17, 35] are particularly difficult, as direct removal creates visible holes, compromising visual qual- ity.",
+    "As a result, the inpainted content within this area might be inconsistent across camera views, producing artifacts in the reconstructed 3D scene.",
+    "De- spite these advancements, these methods still require human- This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Guided by the rendered depth information from each training view, our 3DGIC exploits background pixels visible across different views for updating the inpainting mask, allowing us to refine the 3DGS for inpainting purposes."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nWhen performing 3D inpainting using novel-view rendering\nmethods like Neural Radiance Field (NeRF) or 3D Gaus-\nsian Splatting (3DGS), how to achieve texture and geometry\nconsistency across camera views has been a challenge. In\nthis paper, we propose a framework of 3D Gaussian Inpaint-\ning with Depth-Guided Cross-View Consistency (3DGIC)\nfor cross-view consistent 3D inpainting. Guided by the\nrendered depth information from each training view, our\n3DGIC exploits background pixels visible across different\nviews for updating the inpainting mask, allowing us to refine\nthe 3DGS for inpainting purposes. Through extensive exper-\niments on benchmark datasets, we confirm that our 3DGIC\noutperforms current state-of-the-art 3D inpainting methods\nquantitatively and qualitatively.",
+    "introduction": "1. Introduction\nNovel view synthesis for 3D scenes plays a vital role in\n3D reconstruction and scene understanding. Recent ad-\nvancements, such as Neural Radiance Fields (NeRF) [ 1,\n4, 9, 21, 22, 26, 29, 32, 43] and 3D Gaussian Splatting\n(3DGS) [5, 14, 28, 41, 44], enable high-fidelity novel views\nby modeling volumetric properties. However, practical\nVR/AR applications [3, 20] require more than reconstruc-\ntion: they need editing capabilities that these methods do\nnot fully address. Among editing challenges, object removal\nand inpainting [ 17, 35] are particularly difficult, as direct\nremoval creates visible holes, compromising visual qual-\nity. While 2D inpainting [\n7, 19, 27, 31, 33, 38–40] across\nmultiple views is possible, maintaining consistency remains\nproblematic, leading to artifacts and reduced fidelity. Thus,\nachieving seamless, multi-view-consistent inpainting for 3D\nscenes is still an open challenge.\nAs a pioneering work in 3D scene inpainting, SPIn-\nNeRF [24] proposes to use a pre-trained segmentation net-\nwork [10] to generate plausible 2D inpaint masks for multi-\nview images with sparse human annotations of the ob-\nject to be removed. However, as noted in subsequent re-\nsearch [17, 35], SPIn-NeRF and similar approaches [37, 42]\nrely heavily on 2D inpainting of multiple views separately,\nwhich hinders the cross-view consistency of the 3D inpaint-\ning results. To ensure cross-view consistency, RefNeRF [23]\nprojects the inpainted image from a specific reference view\nonto other views using depth-guided projection, thereby en-\nsuring more consistent inpainting results across views. De-\nspite these advancements, these methods still require human-\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n26704\n\nannotated 2D masks or sparse annotations to delineate the\nobjects to be removed and the regions to be inpainted, mak-\ning the process labor-intensive and limiting the scalability\nand practicality of these techniques.\nTo reduce the need for human annotation for obtaining\ninpainting masks, recent methods [ 41, 42] tend to lever-\nage the Segment Anything Model (SAM) [16] models with\nNeRF or 3DGS to obtain 2D inpainting masks for multi-view\nimages directly. Although these methods ease the require-\nment of human annotations for inpainting masks, they still\nrely on 2D inpainting results for different views as supervi-\nsion, limiting the multi-view consistency of the inpainted\n3D representations. To alleviate this limitation, some ap-\nproaches [6, 12, 17, 18, 25, 35, 36] attempt to build a cross-\nview consistent 3D inpainting method on top of the 2D\ninpainting mask obtained from SAM. By either leveraging\n2D diffusion models as perceptual guidance for the inpainted\nregion [6, 17, 36] or ensuring feature consistency of corre-\nsponding pixels across different views [35], these methods\nare able to produce more consistent 3D inpainting results\nwithout the requirement of human-annotated 2D inpainting\nmasks. Nevertheless, most of the aforementioned methods\nrely on the provided per-scene 2D inpainting masks (either\nfrom human annotation or from SAM) for each view, which\ncan include areas visible in other views, as mentioned in [41].\nAs a result, the inpainted content within this area might be\ninconsistent across camera views, producing artifacts in the\nreconstructed 3D scene.\nIn this paper, we propose a 3D Gaussian Inpainting with\nDepth-Guided Cross-View Consistency (3DGIC) to opti-\nmize the 3DGS model while achieving multi-view consistent\nand high-fidelity 3D inpainting with depth-guided inpaint-\ning masks to locate the inpainting region. Given a set of\nimages of a scene with corresponding camera views and the\nobject masks indicating an unwanted object in the scene (ob-\ntained from SAM [16], for example), our 3DGIC conducts\nthe process of Inferring Depth-Guided Inpainting Masks\nto consider depth information from all training views and\nrefine the inpainting mask by discovering background pix-\nels from different views. The refined inpainting masks are\nthen used to provide a joint update of inpainting results\nand the underlying 3DGS model via 3D Inpainting with\nCross-View Consistency. Through experiments on real-world\ndatasets, we quantitatively and qualitatively demonstrate\nthat our 3DGIC performs favorably against state-of-the-art\nNeRF/3DGS-based inpainting methods by achieving better\nfidelity and multi-view consistency.\nThe key contributions of our approach are as follows:\n• We propose a 3D Gaussian Inpainting with Depth-Guided\nCross-View Consistency (3DGIC), achieving multi-view\nconsistent 3D inpainting results with high fidelity.\n• By inferring Depth-Guided Inpainting Masks, the region\nto be inpainted is properly obtained by considering depth\ninformation across different views, allowing us to guide\nthe inpainting process for 3DGS.\n• Based on the 2D inpaintings from a chosen reference view,\nour Inpainting-guided 3DGS Refinement optimizes new\nGaussians of the object-removed scene by ensuring cross-\nview consistent inpainting results.",
+    "method": "3. Method",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusions\nIn this paper, we propose the 3D Gaussian Inpainting with\nDepth-Guided Cross-View Consistency (3DGIC) for inpaint-\ning real-world 3D scenes represented by 3D Gaussian Splat-\nting (3DGS) models. With the conduction of our Infer-\nring Depth-Guided Inpainting Masks, we are allowed to\nobtain precise inpainting masks by considering rendered\ndepth maps and visible background information from other\nviews. With these depth-guided inpainting masks properly\nobtained, our Inpainting-guided 3DGS Refinement optimizes\na newly initialized 3DGS model and performs 3D inpainting\nsimultaneously. In our experiments, we quantitatively and\nqualitatively show that our 3DGIC is able to handle scenes\nwith various ranges of camera views and perform favorably\nagainst existing 3D inpainting approaches."
+  }
+}

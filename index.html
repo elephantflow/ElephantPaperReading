@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elephant Paper Reading</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body class="page-home">
+    <div class="site-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Elephant Paper Reading</p>
+          <h1>Paper-reading notes presented like a journal, not a dashboard.</h1>
+          <p class="hero-text">
+            Ten CVPR 2025 papers, each indexed by its research story, writing
+            moves, and reusable academic phrasing.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#paper-index">Browse papers</a>
+            <a class="button button-secondary" href="data/index.json">Open index JSON</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="metric">
+            <span class="metric-label">Current set</span>
+            <strong id="paper-count">10</strong>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Themes</span>
+            <strong id="theme-count">-</strong>
+          </div>
+          <p class="panel-note">
+            Built for reading quality: quick scan at the top, deep structure one
+            click away.
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <section class="section controls">
+          <div>
+            <p class="section-kicker">Complete index</p>
+            <h2 id="paper-index">Find by title or theme</h2>
+          </div>
+          <div class="control-bar">
+            <label class="search">
+              <span class="sr-only">Search papers</span>
+              <input id="search-input" type="search" placeholder="Search titles, methods, summaries" />
+            </label>
+            <div class="theme-filter" id="theme-filter"></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="paper-grid" id="paper-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="paper-card-template">
+      <article class="paper-card">
+        <div class="card-topline">
+          <span class="theme-pill"></span>
+          <span class="dataset-pill"></span>
+        </div>
+        <h3 class="paper-title"></h3>
+        <p class="paper-summary"></p>
+        <div class="story-block">
+          <p class="story-label">Method move</p>
+          <p class="story-method"></p>
+        </div>
+        <div class="meta-grid">
+          <div>
+            <span class="meta-label">Intro blocks</span>
+            <strong class="meta-intro"></strong>
+          </div>
+          <div>
+            <span class="meta-label">Method headings</span>
+            <strong class="meta-method"></strong>
+          </div>
+          <div>
+            <span class="meta-label">Experiment headings</span>
+            <strong class="meta-exp"></strong>
+          </div>
+        </div>
+        <a class="card-link" href="#">Read paper analysis</a>
+      </article>
+    </template>
+
+    <script src="assets/app.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/elephantflow/ElephantPaperReading/schemas/paper_analysis.schema.json",
+  "title": "PaperWritingAnalysis",
+  "type": "object",
+  "required": [
+    "paper_id",
+    "paper_title",
+    "analysis_version",
+    "generated_at",
+    "source",
+    "core_story",
+    "introduction_structure",
+    "method_structure",
+    "experiment_structure",
+    "writing_templates",
+    "notable_sentences",
+    "raw_sections"
+  ],
+  "properties": {
+    "paper_id": {
+      "type": "string"
+    },
+    "paper_title": {
+      "type": "string"
+    },
+    "analysis_version": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "pdf_path",
+        "filename",
+        "sha1",
+        "page_count"
+      ],
+      "properties": {
+        "pdf_path": {
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "sha1": {
+          "type": "string"
+        },
+        "page_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "core_story": {
+      "type": "object",
+      "required": [
+        "problem",
+        "limitation",
+        "insight",
+        "proposed_method",
+        "experimental_evidence",
+        "summary"
+      ],
+      "properties": {
+        "problem": {
+          "type": "string"
+        },
+        "limitation": {
+          "type": "string"
+        },
+        "insight": {
+          "type": "string"
+        },
+        "proposed_method": {
+          "type": "string"
+        },
+        "experimental_evidence": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        }
+      }
+    },
+    "introduction_structure": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "paragraph_index",
+          "paragraph_role",
+          "main_message",
+          "writing_strategy",
+          "evidence_text"
+        ],
+        "properties": {
+          "paragraph_index": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "paragraph_role": {
+            "type": "string"
+          },
+          "main_message": {
+            "type": "string"
+          },
+          "writing_strategy": {
+            "type": "string"
+          },
+          "evidence_text": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "method_structure": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/sectionSummary"
+      }
+    },
+    "experiment_structure": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/sectionSummary"
+      }
+    },
+    "writing_templates": {
+      "type": "object",
+      "required": [
+        "problem_expression",
+        "limitation_expression",
+        "insight_expression",
+        "method_expression",
+        "experiment_expression",
+        "contribution_expression"
+      ],
+      "properties": {
+        "problem_expression": {
+          "$ref": "#/$defs/stringList"
+        },
+        "limitation_expression": {
+          "$ref": "#/$defs/stringList"
+        },
+        "insight_expression": {
+          "$ref": "#/$defs/stringList"
+        },
+        "method_expression": {
+          "$ref": "#/$defs/stringList"
+        },
+        "experiment_expression": {
+          "$ref": "#/$defs/stringList"
+        },
+        "contribution_expression": {
+          "$ref": "#/$defs/stringList"
+        }
+      }
+    },
+    "notable_sentences": {
+      "$ref": "#/$defs/stringList"
+    },
+    "raw_sections": {
+      "type": "object",
+      "required": [
+        "abstract",
+        "introduction",
+        "method",
+        "experiments",
+        "conclusion"
+      ],
+      "properties": {
+        "abstract": {
+          "type": "string"
+        },
+        "introduction": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "experiments": {
+          "type": "string"
+        },
+        "conclusion": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "stringList": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sectionSummary": {
+      "type": "object",
+      "required": [
+        "section_heading",
+        "purpose",
+        "author_introduction_strategy",
+        "useful_expressions"
+      ],
+      "properties": {
+        "section_heading": {
+          "type": "string"
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "author_introduction_strategy": {
+          "type": "string"
+        },
+        "useful_expressions": {
+          "$ref": "#/$defs/stringList"
+        }
+      }
+    }
+  }
+}

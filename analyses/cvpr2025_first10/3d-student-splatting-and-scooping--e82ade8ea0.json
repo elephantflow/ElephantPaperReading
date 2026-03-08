@@ -1,0 +1,115 @@
+{
+  "paper_id": "3d-student-splatting-and-scooping--e82ade8ea0",
+  "paper_title": "3D Student Splatting and Scooping",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T08:34:37.021413+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Downloads/cvpr2025/3D Student Splatting and Scooping.pdf",
+    "filename": "3D Student Splatting and Scooping.pdf",
+    "sha1": "e82ade8ea07d0c0baa948da0b8c15b3af355d6ce",
+    "page_count": 10
+  },
+  "core_story": {
+    "problem": "Introduction Presented initially as a neural rendering technique, 3D Gaussian Splatting (3DGS) [13] has quickly become a ver- satile component in various systems, e.g. geometry recon- struction, autonomous driving [3, 6].",
+    "limitation": "Introduction Presented initially as a neural rendering technique, 3D Gaussian Splatting (3DGS) [13] has quickly become a ver- satile component in various systems, e.g. geometry recon- struction, autonomous driving [3, 6].",
+    "insight": "Abstract Recently, 3D Gaussian Splatting (3DGS) provides a new framework for novel view synthesis, and has spiked a new wave of research in neural rendering and related appli- cations.",
+    "proposed_method": "To this end, we propose a simple yet effective general- ization of 3DGS.",
+    "experimental_evidence": "Through exhaustive evaluation and comparison, across multiple datasets, settings, and metrics, we demon- strate that SSS outperforms existing methods in terms of quality and parameter efficiency, e.g. achieving matching or better quality with similar numbers of components, and obtaining comparable results while reducing the component number by as much as 82%.",
+    "summary": "Introduction Presented initially as a neural rendering technique, 3D Gaussian Splatting (3DGS) [13] has quickly become a ver- satile component in various systems, e.g. geometry recon- struction, autonomous driving [3, 6]. Introduction Presented initially as a neural rendering technique, 3D Gaussian Splatting (3DGS) [13] has quickly become a ver- satile component in various systems, e.g. geometry recon- struction, autonomous driving [3, 6]. Abstract Recently, 3D Gaussian Splatting (3DGS) provides a new framework for novel view synthesis, and has spiked a new wave of research in neural rendering and related appli- cations. To this end, we propose a simple yet effective general- ization of 3DGS. Through exhaustive evaluation and comparison, across multiple datasets, settings, and metrics, we demon- strate that SSS outperforms existing methods in terms of quality and parameter efficiency, e.g. achieving matching or better quality with similar numbers of components, and obtaining comparable results while reducing the component number by as much as 82%."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "background",
+      "main_message": "Introduction Presented initially as a neural rendering technique, 3D Gaussian Splatting (3DGS) [13] has quickly become a ver- satile component in various systems, e.g. geometry recon- struction, autonomous driving [3, 6].",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "Introduction Presented initially as a neural rendering technique, 3D Gaussian Splatting (3DGS) [13] has quickly become a ver- satile component in various systems, e.g. geometry recon- struction, autonomous driving [3, 6]. Given its importance as a foundational component, very recently researchers start to investigate possible alternatives to the basic framework of 3DGS, e.g. more expressive distributions instead of Gaus- sians [8, 18], more principled optimization [14], which all focus on improving the model expressivity. Our research is among these attempts. The key to 3DGS’ success lies in its name: Gaussian and splatting."
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "background",
+      "main_message": "3DGS can be seen as a (unnormalized) Gaus- *Corresponding author, he wang@ucl.ac.uk sian mixture, which provides two advantages.",
+      "writing_strategy": "Builds context and advances the paper's argument.",
+      "evidence_text": "3DGS can be seen as a (unnormalized) Gaus- *Corresponding author, he wang@ucl.ac.uk sian mixture, which provides two advantages. As a general- purpose distribution, Gaussians can approximate an arbi- trary density function hence good expressivity. Also, Gaus- sians have analytical forms undere.g. affine transformation, enabling quick evaluation in 3D-2D projection, thus quick learning from images. Meanwhile, splatting provides a flex- ible way of identifying only the relevant Gaussians to an image for learning."
+    },
+    {
+      "paragraph_index": 3,
+      "paragraph_role": "method_overview",
+      "main_message": "Despite the success, the framework can still suffer from insufficient expressivity [16, 34], and low parameter efficiency,i.e. needing a large number of compo- nents [17, 28].",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Despite the success, the framework can still suffer from insufficient expressivity [16, 34], and low parameter efficiency,i.e. needing a large number of compo- nents [17, 28]. Therefore, we re-examine the three key com- ponents in 3DGS: Gaussian, splatting, and the optimization. Since its underlying principle is essentially to fit a 3D mix- ture model to a radiance field, we argue it needs not to be restricted to Gaussians or splatting. To this end, we propose a simple yet effective general- ization of 3DGS."
+    },
+    {
+      "paragraph_index": 4,
+      "paragraph_role": "problem_statement",
+      "main_message": "We first replace Gaussians with Student’s t distribution with one degree of freedom, referred to sim- ply as t-distribution.",
+      "writing_strategy": "Uses concrete examples to ground the narrative.",
+      "evidence_text": "We first replace Gaussians with Student’s t distribution with one degree of freedom, referred to sim- ply as t-distribution. Similar to Gaussians, t-distribution also enjoys good properties such as analytical forms un- der affine transformation. More importantly, t-distribution can be seen as a generalization of Gaussians and therefore is more expressive. t-distribution has a control parameter for the tail fatness, representing distributions ranging from Cauchy distribution to Gaussian distribution, and any dis- tribution inbetween. Compared with Gaussians, Cauchy is fat-tailed, i.e. a single Cauchy can cover a larger area with comparatively higher densities than a Gaussian."
+    },
+    {
+      "paragraph_index": 5,
+      "paragraph_role": "method_overview",
+      "main_message": "Further- more, by making this control parameter learnable, we learn components with a wide range of varying tail thicknesses.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Further- more, by making this control parameter learnable, we learn components with a wide range of varying tail thicknesses. Next, we extend the splatting scheme which only oper- ates in the positive density space. Inspired by mixture mod- els with negative components [20], we propose to employ both positive and negative components to splat (adding) and scoop (subtracting) densities from the model. This leads to more complex mathematical forms than 3DGS but we de- rive their close-form gradients for learning."
+    },
+    {
+      "paragraph_index": 6,
+      "paragraph_role": "method_overview",
+      "main_message": "Finally, as the increased model complexity, optimiza- tion methods based on naive stochastic gradient descent be- come insufficient, due to parameter coupling.",
+      "writing_strategy": "Transitions from problem framing to the high-level solution.",
+      "evidence_text": "Finally, as the increased model complexity, optimiza- tion methods based on naive stochastic gradient descent be- come insufficient, due to parameter coupling. Therefore, we propose a principled sampling scheme based on Stochastic This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Methodology",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "Despite the success, the framework can still suffer from insufficient expressivity [16, 34], and low parameter efficiency,i.e. needing a large number of compo- nents [17, 28]."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To this end, we propose a simple yet effective general- ization of 3DGS.",
+      "Inspired by mixture mod- els with negative components [20], we propose to employ both positive and negative components to splat (adding) and scoop (subtracting) densities from the model.",
+      "Therefore, we propose a principled sampling scheme based on Stochastic This CVPR paper is the Open Access version, provided by the Computer Vision Foundation."
+    ],
+    "experiment_expression": [],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "Conclusion, Discussion, and Future Work We proposed Student Splatting and Scooping (SSS), a new non-monotonic mixture model, consisting of positive and negative Student’s t distributions, learned by a principled SGHMC sampling.",
+    "Inspired by mixture mod- els with negative components [20], we propose to employ both positive and negative components to splat (adding) and scoop (subtracting) densities from the model.",
+    "Therefore, we propose a principled sampling scheme based on Stochastic This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "To this end, we propose a simple yet effective general- ization of 3DGS.",
+    "3DGS can be seen as a (unnormalized) Gaus- *Corresponding author, he wang@ucl.ac.uk sian mixture, which provides two advantages.",
+    "Abstract Recently, 3D Gaussian Splatting (3DGS) provides a new framework for novel view synthesis, and has spiked a new wave of research in neural rendering and related appli- cations.",
+    "Also, Gaus- sians have analytical forms undere.g. affine transformation, enabling quick evaluation in 3D-2D projection, thus quick learning from images.",
+    "As 3DGS is becoming a foundational compo- nent of many models, any improvement on 3DGS itself can bring huge benefits.",
+    "As a general- purpose distribution, Gaussians can approximate an arbi- trary density function hence good expressivity.",
+    "Compared with Gaussians, Cauchy is fat-tailed, i.e. a single Cauchy can cover a larger area with comparatively higher densities than a Gaussian.",
+    "Despite the success, the framework can still suffer from insufficient expressivity [16, 34], and low parameter efficiency,i.e. needing a large number of compo- nents [17, 28].",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nRecently, 3D Gaussian Splatting (3DGS) provides a new\nframework for novel view synthesis, and has spiked a new\nwave of research in neural rendering and related appli-\ncations. As 3DGS is becoming a foundational compo-\nnent of many models, any improvement on 3DGS itself can\nbring huge benefits. To this end, we aim to improve the\nfundamental paradigm and formulation of 3DGS. We ar-\ngue that as an unnormalized mixture model, it needs to\nbe neither Gaussians nor splatting. We subsequently pro-\npose a new mixture model consisting of flexible Student’s\nt distributions, with both positive (splatting) and negative\n(scooping) densities. We name our model Student Splatting\nand Scooping, or SSS. When providing better expressivity,\nSSS also poses new challenges in learning. Therefore, we\nalso propose a new principled sampling approach for opti-\nmization. Through exhaustive evaluation and comparison,\nacross multiple datasets, settings, and metrics, we demon-\nstrate that SSS outperforms existing methods in terms of\nquality and parameter efficiency, e.g. achieving matching\nor better quality with similar numbers of components, and\nobtaining comparable results while reducing the component\nnumber by as much as 82%.",
+    "introduction": "1. Introduction\nPresented initially as a neural rendering technique, 3D\nGaussian Splatting (3DGS) [13] has quickly become a ver-\nsatile component in various systems, e.g. geometry recon-\nstruction, autonomous driving [3, 6]. Given its importance\nas a foundational component, very recently researchers start\nto investigate possible alternatives to the basic framework of\n3DGS, e.g. more expressive distributions instead of Gaus-\nsians [8, 18], more principled optimization [14], which all\nfocus on improving the model expressivity. Our research is\namong these attempts.\nThe key to 3DGS’ success lies in its name: Gaussian\nand splatting. 3DGS can be seen as a (unnormalized) Gaus-\n*Corresponding author, he wang@ucl.ac.uk\nsian mixture, which provides two advantages. As a general-\npurpose distribution, Gaussians can approximate an arbi-\ntrary density function hence good expressivity. Also, Gaus-\nsians have analytical forms undere.g. affine transformation,\nenabling quick evaluation in 3D-2D projection, thus quick\nlearning from images. Meanwhile, splatting provides a flex-\nible way of identifying only the relevant Gaussians to an\nimage for learning. Despite the success, the framework can\nstill suffer from insufficient expressivity [16, 34], and low\nparameter efficiency,i.e. needing a large number of compo-\nnents [17, 28]. Therefore, we re-examine the three key com-\nponents in 3DGS: Gaussian, splatting, and the optimization.\nSince its underlying principle is essentially to fit a 3D mix-\nture model to a radiance field, we argue it needs not to be\nrestricted to Gaussians or splatting.\nTo this end, we propose a simple yet effective general-\nization of 3DGS. We first replace Gaussians with Student’s\nt distribution with one degree of freedom, referred to sim-\nply as t-distribution. Similar to Gaussians, t-distribution\nalso enjoys good properties such as analytical forms un-\nder affine transformation. More importantly, t-distribution\ncan be seen as a generalization of Gaussians and therefore\nis more expressive. t-distribution has a control parameter\nfor the tail fatness, representing distributions ranging from\nCauchy distribution to Gaussian distribution, and any dis-\ntribution inbetween. Compared with Gaussians, Cauchy is\nfat-tailed, i.e. a single Cauchy can cover a larger area with\ncomparatively higher densities than a Gaussian. Further-\nmore, by making this control parameter learnable, we learn\ncomponents with a wide range of varying tail thicknesses.\nNext, we extend the splatting scheme which only oper-\nates in the positive density space. Inspired by mixture mod-\nels with negative components [20], we propose to employ\nboth positive and negative components to splat (adding) and\nscoop (subtracting) densities from the model. This leads to\nmore complex mathematical forms than 3DGS but we de-\nrive their close-form gradients for learning.\nFinally, as the increased model complexity, optimiza-\ntion methods based on naive stochastic gradient descent be-\ncome insufficient, due to parameter coupling. Therefore, we\npropose a principled sampling scheme based on Stochastic\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.",
+    "method": "3. Methodology",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion, Discussion, and Future Work\nWe proposed Student Splatting and Scooping (SSS), a new\nnon-monotonic mixture model, consisting of positive and\nnegative Student’s t distributions, learned by a principled\nSGHMC sampling. SSS contains a simple yet strong and\nnon-trivial generalization of 3DGS and its variants. SSS\noutperforms existing methods in rendering quality, and\nshows high parameter efficiency,e.g. achieving comparable\nquality with less than 1\n3 of components.\nSSS has limitations. Its primitives are restricted to sym-\nmetric and smooth t-distributions, limiting its representa-\ntion. The sampling also needs hyperparameter tuning such\nas the percentage of negative components. In the future,\nwe will combine other distribution families ( e.g. Laplace)\nwith t-distribution to further enhance the expressivity, and\nmake the SGHMC self-adaptive to achieve better balances\nbetween the positive and negative components."
+  }
+}

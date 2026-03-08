@@ -1,0 +1,94 @@
+{
+  "paper_id": "3d-avs-lidar-based-3d-auto-vocabulary-segmentation--13ff1111f3",
+  "paper_title": "3D-AVS: LiDAR-based 3D Auto-Vocabulary Segmentation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T08:34:37.264604+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Downloads/cvpr2025/3D-AVS： LiDAR-based 3D Auto-Vocabulary Segmentation.pdf",
+    "filename": "3D-AVS： LiDAR-based 3D Auto-Vocabulary Segmentation.pdf",
+    "sha1": "13ff1111f3422ae8811e7ad4c62336e4110fabd3",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Introduction Existing perception methods [3, 24, 27, 46, 59, 61] for au- tonomous driving often rely on an inclusiveness assump- tion that all potential categories of interest must exist in the training dataset.",
+    "limitation": "Nevertheless, public datasets often anno- tate instances with pre-defined categories, which can vary from three (e.g. vehicle, cyclist and pedestrian) [31, 44] to several dozen types [2, 4], and fail to annotate rare objects ∗ Co-first author 3D-AVS (Ours) Pre-defined, Fixed Vocabulary Vocabulary Size Reference Images 3D-AVS (Ours) Figure 1.",
+    "insight": "Abstract Open-vocabulary segmentation methods offer promising ca- pabilities in detecting unseen object categories, but the cat- egory must be aware and needs to be provided by a hu- man, either via a text prompt or pre-labeled datasets, thus limiting their scalability.",
+    "proposed_method": "We propose 3D-AVS, a method for Auto-Vocabulary Segmentation of 3D point clouds for which the vocabulary is unknown and auto-generated for each input at runtime, thus eliminating the human in the loop and typically providing a substantially larger vocabu- lary for richer annotations.",
+    "experimental_evidence": "Our evaluations on nuScenes and ScanNet200 demonstrate 3D-AVS’s ability to generate semantic classes with accurate point-wise segmen- tations.",
+    "summary": "Introduction Existing perception methods [3, 24, 27, 46, 59, 61] for au- tonomous driving often rely on an inclusiveness assump- tion that all potential categories of interest must exist in the training dataset. Nevertheless, public datasets often anno- tate instances with pre-defined categories, which can vary from three (e.g. vehicle, cyclist and pedestrian) [31, 44] to several dozen types [2, 4], and fail to annotate rare objects ∗ Co-first author 3D-AVS (Ours) Pre-defined, Fixed Vocabulary Vocabulary Size Reference Images 3D-AVS (Ours) Figure 1. Abstract Open-vocabulary segmentation methods offer promising ca- pabilities in detecting unseen object categories, but the cat- egory must be aware and needs to be provided by a hu- man, either via a text prompt or pre-labeled datasets, thus limiting their scalability. We propose 3D-AVS, a method for Auto-Vocabulary Segmentation of 3D point clouds for which the vocabulary is unknown and auto-generated for each input at runtime, thus eliminating the human in the loop and typically providing a substantially larger vocabu- lary for richer annotations. Our evaluations on nuScenes and ScanNet200 demonstrate 3D-AVS’s ability to generate semantic classes with accurate point-wise segmen- tations."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "limitation",
+      "main_message": "Introduction Existing perception methods [3, 24, 27, 46, 59, 61] for au- tonomous driving often rely on an inclusiveness assump- tion that all potential categories of interest must exist in the training dataset.",
+      "writing_strategy": "Contrasts prior work and emphasizes unresolved weaknesses.",
+      "evidence_text": "1. Introduction\nExisting perception methods [3, 24, 27, 46, 59, 61] for au-\ntonomous driving often rely on an inclusiveness assump-\ntion that all potential categories of interest must exist in the\ntraining dataset. Nevertheless, public datasets often anno-\ntate instances with pre-defined categories, which can vary\nfrom three (e.g. vehicle, cyclist and pedestrian) [31, 44] to\nseveral dozen types [2, 4], and fail to annotate rare objects\n∗ Co-first author\n3D-AVS (Ours)\nPre-defined, Fixed Vocabulary Vocabulary\nSize\nReference Images\n3D-AVS\n(Ours)\nFigure 1. Pre-defined Vocabulary vs. Auto-Vocabulary. 3D-\nA VS automatically generates a vocabulary for which it predicts\nsegmentation masks, offering greater semantic precision. Our pre-\ndictions identify specific classese.g. building and signboard (high-\nlighted in red boxes), which are annotated with ambiguous terms\nlike manmade. Quantitatively, 3D-A VS recognizes 671 unique\ncategories on the validation set of nuScenes [4], significantly sur-\npassing nuScenes’s original 16 categories. Left: V ocabulary for a\nsingle scene, Right: V ocabulary for the entire dataset.\nwith correct semantic labels. Failing to recognize atypical\nobjects or road u"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "and retrieval [40], image captioning [34], video under- standing [51], and open-vocabulary learning [49].",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "and retrieval [40], image captioning [34], video under-\nstanding [51], and open-vocabulary learning [49]. Open-\nvocabulary learning methods often utilize pre-trained\nVLMs to find the correspondence between visual entities\nand a semantic vocabulary, thereby creating the potential\nto detect any category of interest [49, 66]. However, these\nmethods rely on human-specified queries, and thus can not\ndynamically recognize all semantic entities in a scene. Con-\nversely, predefining everything is neither scalable nor prac-\ntical in a dynamic world, as it is impossible to anticipate\nall the categories the model may encounter in advance.\nThis shortcoming severely limits the real-life applicability\nof existing methods, as newly encountered object categories\ncould still be unknown to the model or unaware to humans.\nIn this work, we propose 3D-A VS, a framework that au-\ntomatically recognizes objects, generates a vocabulary for\nthem and segments LiDAR points. We evaluate our method\non the indoor and outdoor datasets [4, 14, 43] and introduce\na metric TPSS to assess the model performance based on se-\nmantic consistency in CLIP [39] space. Figure 1 compares\nthe same segmenter, namely OpenScene [3"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "5. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [],
+    "limitation_expression": [
+      "However, these methods rely on human-specified queries, and thus can not dynamically recognize all semantic entities in a scene.",
+      "This shortcoming severely limits the real-life applicability of existing methods, as newly encountered object categories could still be unknown to the model or unaware to humans."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "We propose 3D-AVS, a method for Auto-Vocabulary Segmentation of 3D point clouds for which the vocabulary is unknown and auto-generated for each input at runtime, thus eliminating the human in the loop and typically providing a substantially larger vocabu- lary for richer annotations.",
+      "Our method incorporates both image-based and point- based recognition, enhancing robustness under challenging lighting conditions where geometric information from Li- DAR is especially valuable.",
+      "In this work, we propose 3D-A VS, a framework that au- tomatically recognizes objects, generates a vocabulary for them and segments LiDAR points.",
+      "We evaluate our method on the indoor and outdoor datasets [4, 14, 43] and introduce a metric TPSS to assess the model performance based on se- mantic consistency in CLIP [39] space.",
+      "Unlike methods that rely on predefined vo- cabularies, we address an unknown vocabulary setting by dynamically generating vocabulary per input; 2) we pro- pose 3D-A VS, a framework that automatically identifies ob- jects, either through an image-free point-based captioner or an off-the-shelf image-based captioner; 3) we propose a point captioner for 3D-A VS-LiDAR that decodes text from point-based CLIP features, achieving image independence and enhanced object diversity through a sparse masked at- tention pooling (SMAP) module; and 4) we introduce the Text-Point Semantic Similarity score, a novel CLIP-based, annotation-free metric that evaluates semantic consistency, accounting for synonyms, hierarchies, and similarity in unknown vocabularies, enabling scalable auto-vocabulary evaluation without human input."
+    ],
+    "experiment_expression": [
+      "Our evaluations on nuScenes and ScanNet200 demonstrate 3D-AVS’s ability to generate semantic classes with accurate point-wise segmen- tations."
+    ],
+    "contribution_expression": [
+      "Our contributions can be summarized as follows: 1) we introduce auto-vocabulary segmentation for point clouds, aiming to label all points using a rich and scene-specific vocabulary."
+    ]
+  },
+  "notable_sentences": [
+    "However, these methods rely on human-specified queries, and thus can not dynamically recognize all semantic entities in a scene.",
+    "In this work, we propose 3D-A VS, a framework that au- tomatically recognizes objects, generates a vocabulary for them and segments LiDAR points.",
+    "Our contributions can be summarized as follows: 1) we introduce auto-vocabulary segmentation for point clouds, aiming to label all points using a rich and scene-specific vocabulary.",
+    "3D- A VS automatically generates a vocabulary for which it predicts segmentation masks, offering greater semantic precision.",
+    "3D-A VS generates convincing semantic classes as well as accurate point-wise segmentations.",
+    "3D-AVS first recognizes seman- tic entities from image or point cloud data and then seg- ments all points with the automatically generated vocabu- lary.",
+    "8910 and retrieval [40], image captioning [34], video under- standing [51], and open-vocabulary learning [49].",
+    "Con- versely, predefining everything is neither scalable nor prac- tical in a dynamic world, as it is impossible to anticipate all the categories the model may encounter in advance.",
+    "Conclusion In this work, we presented 3D-A VS, the first method for auto-vocabulary LiDAR point segmentation, eliminating the need for human-defined target classes.",
+    "Except for this watermark, it is identical to the accepted version; the final published version of the proceedings is available on IEEE Xplore.",
+    "Failing to recognize atypical objects or road users poses a significant risk to the percep- tion model’s adaptability to diverse real-life scenarios.",
+    "Figure 1 compares the same segmenter, namely OpenScene [38] with differ- ent vocabularies."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nOpen-vocabulary segmentation methods offer promising ca-\npabilities in detecting unseen object categories, but the cat-\negory must be aware and needs to be provided by a hu-\nman, either via a text prompt or pre-labeled datasets, thus\nlimiting their scalability. We propose 3D-AVS, a method\nfor Auto-Vocabulary Segmentation of 3D point clouds for\nwhich the vocabulary is unknown and auto-generated for\neach input at runtime, thus eliminating the human in the\nloop and typically providing a substantially larger vocabu-\nlary for richer annotations. 3D-AVS first recognizes seman-\ntic entities from image or point cloud data and then seg-\nments all points with the automatically generated vocabu-\nlary. Our method incorporates both image-based and point-\nbased recognition, enhancing robustness under challenging\nlighting conditions where geometric information from Li-\nDAR is especially valuable. Our point-based recognition\nfeatures a Sparse Masked Attention Pooling (SMAP) mod-\nule to enrich the diversity of recognized objects. To ad-\ndress the challenges of evaluating unknown vocabularies\nand avoid annotation biases from label synonyms, hierar-\nchies, or semantic overlaps, we introduce the annotation-\nfree Text-Point Semantic Similarity (TPSS) metric for as-\nsessing generated vocabulary quality. Our evaluations on\nnuScenes and ScanNet200 demonstrate 3D-AVS’s ability to\ngenerate semantic classes with accurate point-wise segmen-\ntations.",
+    "introduction": "1. Introduction\nExisting perception methods [3, 24, 27, 46, 59, 61] for au-\ntonomous driving often rely on an inclusiveness assump-\ntion that all potential categories of interest must exist in the\ntraining dataset. Nevertheless, public datasets often anno-\ntate instances with pre-defined categories, which can vary\nfrom three (e.g. vehicle, cyclist and pedestrian) [31, 44] to\nseveral dozen types [2, 4], and fail to annotate rare objects\n∗ Co-first author\n3D-AVS (Ours)\nPre-defined, Fixed Vocabulary Vocabulary\nSize\nReference Images\n3D-AVS\n(Ours)\nFigure 1. Pre-defined Vocabulary vs. Auto-Vocabulary. 3D-\nA VS automatically generates a vocabulary for which it predicts\nsegmentation masks, offering greater semantic precision. Our pre-\ndictions identify specific classese.g. building and signboard (high-\nlighted in red boxes), which are annotated with ambiguous terms\nlike manmade. Quantitatively, 3D-A VS recognizes 671 unique\ncategories on the validation set of nuScenes [4], significantly sur-\npassing nuScenes’s original 16 categories. Left: V ocabulary for a\nsingle scene, Right: V ocabulary for the entire dataset.\nwith correct semantic labels. Failing to recognize atypical\nobjects or road users poses a significant risk to the percep-\ntion model’s adaptability to diverse real-life scenarios.\nThe development of Vision-Language Models (VLMs)\nstrengthens the connection between vision and language\nmodalities and promotes progress in multi-modal tasks,\nsuch as zero-shot image classification [39], image search\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n8910\n\nand retrieval [40], image captioning [34], video under-\nstanding [51], and open-vocabulary learning [49]. Open-\nvocabulary learning methods often utilize pre-trained\nVLMs to find the correspondence between visual entities\nand a semantic vocabulary, thereby creating the potential\nto detect any category of interest [49, 66]. However, these\nmethods rely on human-specified queries, and thus can not\ndynamically recognize all semantic entities in a scene. Con-\nversely, predefining everything is neither scalable nor prac-\ntical in a dynamic world, as it is impossible to anticipate\nall the categories the model may encounter in advance.\nThis shortcoming severely limits the real-life applicability\nof existing methods, as newly encountered object categories\ncould still be unknown to the model or unaware to humans.\nIn this work, we propose 3D-A VS, a framework that au-\ntomatically recognizes objects, generates a vocabulary for\nthem and segments LiDAR points. We evaluate our method\non the indoor and outdoor datasets [4, 14, 43] and introduce\na metric TPSS to assess the model performance based on se-\nmantic consistency in CLIP [39] space. Figure 1 compares\nthe same segmenter, namely OpenScene [38] with differ-\nent vocabularies. 3D-A VS generates convincing semantic\nclasses as well as accurate point-wise segmentations. More-\nover, when pre-defined categories are general and ambigu-\nous, e.g. man-made, 3D-A VS recognizes the semantically\nmore precise categories, e.g. building and signboard.\nOur contributions can be summarized as follows: 1) we\nintroduce auto-vocabulary segmentation for point clouds,\naiming to label all points using a rich and scene-specific\nvocabulary. Unlike methods that rely on predefined vo-\ncabularies, we address an unknown vocabulary setting by\ndynamically generating vocabulary per input; 2) we pro-\npose 3D-A VS, a framework that automatically identifies ob-\njects, either through an image-free point-based captioner\nor an off-the-shelf image-based captioner; 3) we propose a\npoint captioner for 3D-A VS-LiDAR that decodes text from\npoint-based CLIP features, achieving image independence\nand enhanced object diversity through a sparse masked at-\ntention pooling (SMAP) module; and 4) we introduce the\nText-Point Semantic Similarity score, a novel CLIP-based,\nannotation-free metric that evaluates semantic consistency,\naccounting for synonyms, hierarchies, and similarity in\nunknown vocabularies, enabling scalable auto-vocabulary\nevaluation without human input.",
+    "method": "3. Method",
+    "experiments": "5. Experiments",
+    "conclusion": "6. Conclusion\nIn this work, we presented 3D-A VS, the first method for\nauto-vocabulary LiDAR point segmentation, eliminating\nthe need for human-defined target classes. In suboptimal\nimage captioning conditions, our point captioner can cap-\nture missing semantics based on geometric information. To\nassess the quality of the generated vocabularies in relation\nto segmentations, we further proposed the TPSS metric.\nOur experiments show that our model’s segmentations are\nsemantically more aligned with the data than its annotations\nand achieves competitive masking accuracy. We believe\n3D-A VS advances scalable open-ended learning for LiDAR\npoint segmentation without human in the loop.\n8917"
+  }
+}

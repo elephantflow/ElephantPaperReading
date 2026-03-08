@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paper Analysis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body class="page-paper">
+    <div class="site-shell article-shell">
+      <header class="article-hero">
+        <a class="back-link" href="index.html">Back to index</a>
+        <p class="eyebrow">Elephant Paper Reading</p>
+        <h1 id="paper-title">Loading...</h1>
+        <p class="hero-text" id="paper-summary"></p>
+        <div class="hero-tags" id="paper-tags"></div>
+      </header>
+
+      <main class="article-layout">
+        <aside class="article-side">
+          <div class="side-card">
+            <p class="side-label">Source file</p>
+            <p id="paper-source"></p>
+          </div>
+          <div class="side-card">
+            <p class="side-label">Generated</p>
+            <p id="paper-generated"></p>
+          </div>
+          <div class="side-card">
+            <p class="side-label">Structure counts</p>
+            <ul class="side-list">
+              <li id="count-intro"></li>
+              <li id="count-method"></li>
+              <li id="count-exp"></li>
+            </ul>
+          </div>
+        </aside>
+
+        <section class="article-main">
+          <section class="content-card">
+            <p class="section-kicker">Core story</p>
+            <div class="story-rail" id="core-story"></div>
+          </section>
+
+          <section class="content-card">
+            <p class="section-kicker">Introduction map</p>
+            <div id="intro-structure" class="stack"></div>
+          </section>
+
+          <section class="content-card two-column">
+            <div>
+              <p class="section-kicker">Method structure</p>
+              <div id="method-structure" class="stack compact"></div>
+            </div>
+            <div>
+              <p class="section-kicker">Experiment structure</p>
+              <div id="experiment-structure" class="stack compact"></div>
+            </div>
+          </section>
+
+          <section class="content-card">
+            <p class="section-kicker">Reusable writing templates</p>
+            <div id="template-groups" class="template-groups"></div>
+          </section>
+
+          <section class="content-card">
+            <p class="section-kicker">Notable sentences</p>
+            <ol id="notable-sentences" class="sentence-list"></ol>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="assets/paper.js" type="module"></script>
+  </body>
+</html>

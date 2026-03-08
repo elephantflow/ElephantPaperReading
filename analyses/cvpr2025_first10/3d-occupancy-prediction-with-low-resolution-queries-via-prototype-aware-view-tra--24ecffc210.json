@@ -1,0 +1,97 @@
+{
+  "paper_id": "3d-occupancy-prediction-with-low-resolution-queries-via-prototype-aware-view-tra--24ecffc210",
+  "paper_title": "3D Occupancy Prediction with Low-Resolution Queries via Prototype-aware View Transformation",
+  "analysis_version": "v1",
+  "generated_at": "2026-03-08T08:34:36.300448+00:00",
+  "source": {
+    "pdf_path": "/Users/gulucaptain/Downloads/cvpr2025/3D Occupancy Prediction with Low-Resolution Queries via Prototype-aware View Transformation.pdf",
+    "filename": "3D Occupancy Prediction with Low-Resolution Queries via Prototype-aware View Transformation.pdf",
+    "sha1": "24ecffc21052e692f8508f4625ae7304aaed1913",
+    "page_count": 11
+  },
+  "core_story": {
+    "problem": "Therefore, the effectiveness of 3D vox- elization (i.e., voxel queries) plays a crucial role in determin- ing the prediction performance in camera-based 3DOP .",
+    "limitation": "However, it results in per- formance degradation primarily due to its inability to cap- ture precise high-level details within limited spatial storage, This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "insight": "Abstract The resolution of voxel queries signiﬁcantly inﬂuences the quality of view transformation in camera-based 3D oc- cupancy prediction.",
+    "proposed_method": "To this end, we introduce ProtoOcc, a novel occupancy network that leverages prototypes of clustered image segments in view transformation to enhance low- resolution context.",
+    "experimental_evidence": "Experimental results on both Occ3D and SemanticKITTI benchmarks demonstrate the effectiveness of the proposed method, showing clear improvements over the baselines.",
+    "summary": "Therefore, the effectiveness of 3D vox- elization (i.e., voxel queries) plays a crucial role in determin- ing the prediction performance in camera-based 3DOP . However, it results in per- formance degradation primarily due to its inability to cap- ture precise high-level details within limited spatial storage, This CVPR paper is the Open Access version, provided by the Computer Vision Foundation. Abstract The resolution of voxel queries signiﬁcantly inﬂuences the quality of view transformation in camera-based 3D oc- cupancy prediction. To this end, we introduce ProtoOcc, a novel occupancy network that leverages prototypes of clustered image segments in view transformation to enhance low- resolution context. Experimental results on both Occ3D and SemanticKITTI benchmarks demonstrate the effectiveness of the proposed method, showing clear improvements over the baselines."
+  },
+  "introduction_structure": [
+    {
+      "paragraph_index": 1,
+      "paragraph_role": "contribution_summary",
+      "main_message": "Introduction 3D occupancy prediction ( 3DOP) is the task of determining which parts of a 3D space are occupied by objects and iden- tifying their class categories.",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "1. Introduction\n3D occupancy prediction ( 3DOP) is the task of determining\nwhich parts of a 3D space are occupied by objects and iden-\ntifying their class categories. In particular, view transforma-\ntion from 2D to 3D space is an essential step for successful\ncamera-based occupancy prediction. Prior works employ\nvarious 3D space representation strategies, such as bird’s-\neye-view (BEV) plane, tri-perspective-view (TPV) planes,\nand 3D voxel cube, which aim to map multi-view camera in-\n*Equal contributions\n†Corresponding author (s.steve.jang@samsung.com, spk7@korea.ac.kr)\nFigure 1. (a) Our ProtoOcc can perform comparably to higher-\nresolution counterparts while using 75% less memory. (b-c) Re-\nducing query resolutions in standard view transformation (VT) is\nrequired for faster inference, but brings geometrical ambiguity. (d)\nOur prototype-aware VT can capture high-level geometric details\nwhile preserving computational efﬁciency.\nformation into corresponding grid cells in a uniﬁed 3D space.\nAmong these, 3D voxels are the most common representa-\ntion strategy in the 3DOP task [11, 12, 40, 43, 48, 50, 53, 55],\nas they naturally encode visual information into a structured\nsemantic 3D spa"
+    },
+    {
+      "paragraph_index": 2,
+      "paragraph_role": "contribution_summary",
+      "main_message": "which is crucial for 3DOP .",
+      "writing_strategy": "Enumerates takeaways to make the paper's value explicit.",
+      "evidence_text": "which is crucial for 3DOP . Hence, incorporating compre-\nhensive visual contexts into low-resolution voxel queries is\nessential for ensuring accurate 3DOP results while maintain-\ning computational efﬁciency.\nDespite its importance, existing approaches overlook\nthe constraints posed by low-resolution queries in view\ntransformation. They typically utilize a standard 2D-to-\n3D cross attention mechanism using low-level image fea-\ntures [12, 22, 28, 29, 47]. However, with reduced query res-\nolutions, it becomes insufﬁcient to solely rely on these low-\nlevel features to precisely reconstruct a 3D scene. Speciﬁ-\ncally, since images are packed into a smaller space, the en-\ncoded features lose spatial distinctiveness, thereby requiring\nan alternative method to preserve the necessary contextual\ninformation. In addition, it is also challenging to decode the\ndensely compressed and low-resolution voxel queries into a\nsparse and high-resolution 3D occupancy scene.\nTo this end, we propose ProtoOcc, a novel occupancy\nnetwork focusing on context enhancement in low-resolution\nview transformation for 3DOP . In particular, ProtoOcc fea-\ntures two main learning strategies: Prototype-aware View\nTransfor"
+    }
+  ],
+  "method_structure": [
+    {
+      "section_heading": "3. Method",
+      "purpose": "Introduces part of the proposed approach.",
+      "author_introduction_strategy": "Presents the method incrementally from overview to components.",
+      "useful_expressions": []
+    }
+  ],
+  "experiment_structure": [
+    {
+      "section_heading": "4. Experiments",
+      "purpose": "Presents experimental evidence supporting the paper.",
+      "author_introduction_strategy": "Uses staged evidence from setup to comparison and analysis.",
+      "useful_expressions": []
+    }
+  ],
+  "writing_templates": {
+    "problem_expression": [
+      "Therefore, the effectiveness of 3D vox- elization (i.e., voxel queries) plays a crucial role in determin- ing the prediction performance in camera-based 3DOP .",
+      "Learning voxel queries also encoun- ters this dilemma, especially in real-time and safety-critical vision systems such as autonomous driving and robotics.",
+      "17134 which is crucial for 3DOP .",
+      "Compared to the baseline, ProtoOcc can attend to more important details in the image (e.g. red dashed boxes), which is crucial for safe driving systems."
+    ],
+    "limitation_expression": [
+      "However , computational constraints and the practical necessity for real-time deployment re- quire smaller query resolutions, which inevitably leads to an information loss.",
+      "Therefore, it is essential to encode and preserve rich visual details within limited query sizes while ensuring a comprehensive representation of 3D oc- cupancy.",
+      "However, it results in per- formance degradation primarily due to its inability to cap- ture precise high-level details within limited spatial storage, This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+      "However, with reduced query res- olutions, it becomes insufﬁcient to solely rely on these low- level features to precisely reconstruct a 3D scene."
+    ],
+    "insight_expression": [],
+    "method_expression": [
+      "To this end, we propose ProtoOcc, a novel occupancy network focusing on context enhancement in low-resolution view transformation for 3DOP .",
+      "Therefore, we propose a multi- perspective decoding strategy using voxel augmentations."
+    ],
+    "experiment_expression": [
+      "Experimental results on both Occ3D and SemanticKITTI benchmarks demonstrate the effectiveness of the proposed method, showing clear improvements over the baselines.",
+      "Through extensive experiments on the Occ3D- nuScenes [ 39] and SemanticKITTI [ 2] benchmarks, we validate that the proposed ProtoOcc can be an effective solution for ensuring accurate 3DOP results while maintain- ing computational efﬁciency."
+    ],
+    "contribution_expression": []
+  },
+  "notable_sentences": [
+    "However , computational constraints and the practical necessity for real-time deployment re- quire smaller query resolutions, which inevitably leads to an information loss.",
+    "However, it results in per- formance degradation primarily due to its inability to cap- ture precise high-level details within limited spatial storage, This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.",
+    "However, with reduced query res- olutions, it becomes insufﬁcient to solely rely on these low- level features to precisely reconstruct a 3D scene.",
+    "Therefore, we propose a multi- perspective decoding strategy using voxel augmentations.",
+    "To this end, we propose ProtoOcc, a novel occupancy network focusing on context enhancement in low-resolution view transformation for 3DOP .",
+    "(a) Our ProtoOcc can perform comparably to higher- resolution counterparts while using 75% less memory.",
+    "(b-c) Re- ducing query resolutions in standard view transformation (VT) is required for faster inference, but brings geometrical ambiguity.",
+    "(d) Our prototype-aware VT can capture high-level geometric details while preserving computational efﬁciency. formation into corresponding grid cells in a uniﬁed 3D space.",
+    "17134 which is crucial for 3DOP .",
+    "3.1), then explain the technical details of each proposed method (Sec.",
+    "Abstract The resolution of voxel queries signiﬁcantly inﬂuences the quality of view transformation in camera-based 3D oc- cupancy prediction.",
+    "Accelerating the inference inevitably necessitates smaller query sizes."
+  ],
+  "raw_sections": {
+    "abstract": "Abstract\nThe resolution of voxel queries signiﬁcantly inﬂuences the\nquality of view transformation in camera-based 3D oc-\ncupancy prediction. However , computational constraints\nand the practical necessity for real-time deployment re-\nquire smaller query resolutions, which inevitably leads to\nan information loss. Therefore, it is essential to encode\nand preserve rich visual details within limited query sizes\nwhile ensuring a comprehensive representation of 3D oc-\ncupancy. To this end, we introduce ProtoOcc, a novel\noccupancy network that leverages prototypes of clustered\nimage segments in view transformation to enhance low-\nresolution context. In particular , the mapping of 2D proto-\ntypes onto 3D voxel queries encodes high-level visual geome-\ntries and complements the loss of spatial information from\nreduced query resolutions. Additionally, we design a multi-\nperspective decoding strategy to efﬁciently disentangle the\ndensely compressed visual cues into a high-dimensional 3D\noccupancy scene. Experimental results on both Occ3D and\nSemanticKITTI benchmarks demonstrate the effectiveness\nof the proposed method, showing clear improvements over\nthe baselines. More importantly, ProtoOcc achieves com-\npetitive performance against the baselines even with 75%\nreduced voxel resolution. Project page: https://kuai-\nlab.github.io/cvpr2025protoocc.",
+    "introduction": "1. Introduction\n3D occupancy prediction ( 3DOP) is the task of determining\nwhich parts of a 3D space are occupied by objects and iden-\ntifying their class categories. In particular, view transforma-\ntion from 2D to 3D space is an essential step for successful\ncamera-based occupancy prediction. Prior works employ\nvarious 3D space representation strategies, such as bird’s-\neye-view (BEV) plane, tri-perspective-view (TPV) planes,\nand 3D voxel cube, which aim to map multi-view camera in-\n*Equal contributions\n†Corresponding author (s.steve.jang@samsung.com, spk7@korea.ac.kr)\nFigure 1. (a) Our ProtoOcc can perform comparably to higher-\nresolution counterparts while using 75% less memory. (b-c) Re-\nducing query resolutions in standard view transformation (VT) is\nrequired for faster inference, but brings geometrical ambiguity. (d)\nOur prototype-aware VT can capture high-level geometric details\nwhile preserving computational efﬁciency.\nformation into corresponding grid cells in a uniﬁed 3D space.\nAmong these, 3D voxels are the most common representa-\ntion strategy in the 3DOP task [11, 12, 40, 43, 48, 50, 53, 55],\nas they naturally encode visual information into a structured\nsemantic 3D space. Therefore, the effectiveness of 3D vox-\nelization (i.e., voxel queries) plays a crucial role in determin-\ning the prediction performance in camera-based 3DOP .\nTrade-offs between computation and performance have\nlong been a challenge in various deep learning applica-\ntions [ 6, 8, 17, 26]. Learning voxel queries also encoun-\nters this dilemma, especially in real-time and safety-critical\nvision systems such as autonomous driving and robotics.\nAs illustrated in Figure 1, utilizing voxel queries with high-\nresolution may produce reliable performances, but requires\nintensive computation. Accelerating the inference inevitably\nnecessitates smaller query sizes. However, it results in per-\nformance degradation primarily due to its inability to cap-\nture precise high-level details within limited spatial storage,\nThis CVPR paper is the Open Access version, provided by the Computer Vision Foundation.\nExcept for this watermark, it is identical to the accepted version;\nthe final published version of the proceedings is available on IEEE Xplore.\n17134\n\nwhich is crucial for 3DOP . Hence, incorporating compre-\nhensive visual contexts into low-resolution voxel queries is\nessential for ensuring accurate 3DOP results while maintain-\ning computational efﬁciency.\nDespite its importance, existing approaches overlook\nthe constraints posed by low-resolution queries in view\ntransformation. They typically utilize a standard 2D-to-\n3D cross attention mechanism using low-level image fea-\ntures [12, 22, 28, 29, 47]. However, with reduced query res-\nolutions, it becomes insufﬁcient to solely rely on these low-\nlevel features to precisely reconstruct a 3D scene. Speciﬁ-\ncally, since images are packed into a smaller space, the en-\ncoded features lose spatial distinctiveness, thereby requiring\nan alternative method to preserve the necessary contextual\ninformation. In addition, it is also challenging to decode the\ndensely compressed and low-resolution voxel queries into a\nsparse and high-resolution 3D occupancy scene.\nTo this end, we propose ProtoOcc, a novel occupancy\nnetwork focusing on context enhancement in low-resolution\nview transformation for 3DOP . In particular, ProtoOcc fea-\ntures two main learning strategies: Prototype-aware View\nTransformation and Multi-perspective Occupancy Decoding.\nPrototype-aware View Transformation. Image prototypes\nare representations of clustered image segments that provide\na high-level understanding of visual structures [ 23, 44] (e.g.\nlayouts and boundaries). Therefore, mapping these structural\nelements of 2D onto 3D voxel queries effectively alleviates\nthe loss of spatial cues in reduced query resolutions. Further-\nmore, we optimize the prototype features to gain distinctive-\nness by leveraging pseudo-mask-based contrastive learning.\nAs a result, each prototype becomes more exclusive and in-\nformative, enabling the voxel queries to encode more precise\nspatial details even with reduced resolutions.\nMulti-perspective Occupancy Decoding. Reconstruct-\ning 3D occupancy from low-resolution queries is an ill-\nposed problem, requiring precise disentanglement of densely\nencoded visual details. Therefore, we propose a multi-\nperspective decoding strategy using voxel augmentations.\nEach augmentation is upsampled as a unique view of the\nscene, collectively forming a comprehensive representation\nof the 3D structure. Then, we apply a consistency regulariza-\ntion on different perspectives to ensure that they represent\nthe same 3D scene, which brings robustness in training.\nThrough extensive experiments on the Occ3D-\nnuScenes [ 39] and SemanticKITTI [ 2] benchmarks, we\nvalidate that the proposed ProtoOcc can be an effective\nsolution for ensuring accurate 3DOP results while maintain-\ning computational efﬁciency. Most importantly, ProtoOcc\nachieves competitive performance with even 75% smaller\nvoxel queries against models with larger-sized ones.\nIn summary, the contributions of this work include:\n• Introducing ProtoOcc as an exemplar in 3DOP by using\ncomputationally efﬁcient low-resolution voxel queries.\n• A prototype-aware view transformation and multi-\nperspective decoding strategy for enhancing the represen-\ntations of low-resolution voxel queries.\n• Demonstrating clear improvements over previous state-\nof-the-art methods in two major benchmarks, along with\ndetailed analyses.",
+    "method": "3. Method\nProtoOcc tackles the information loss problem occurring\nfrom reduced query resolutions through two main strategies:\nPrototype-aware View Transformation and Multi-perspective\nOccupancy Decoding. In this section, we ﬁrst go over the\noverview of ProtoOcc (Sec. 3.1), then explain the technical\ndetails of each proposed method (Sec. 3.2 and 3.3).",
+    "experiments": "4. Experiments",
+    "conclusion": "5. Conclusion\nThis paper introduces ProtoOcc, an innovative method ad-\ndressing the challenge of enriching contextual represen-\nFigure 4. Attention map visualization. Compared to the baseline,\nProtoOcc can attend to more important details in the image (e.g.\nred dashed boxes), which is crucial for safe driving systems.\nPanoOccPanoOcc (+ PVT)\nRGB Image\nPanoOccPanoOcc (+ PVT)\nRGB Image\nFigure 5. Feature map visualization. We visualize the learned\nvoxel queries, which are average-pooled on the channel and the\nz-axis. The red box indicates the region we focus on.\ntation in low-resolution voxel queries for camera-based\n3DOP . ProtoOcc enhances the interpretability of smaller-\nsized queries while mitigating information loss through\ntwo context-enriching strategies: 1) a prototype-aware view\ntransformation and 2) a multi-perspective occupancy de-\ncoding. Experimental evaluations on both Occ3D and Se-\nmanticKITTI benchmark underscore the signiﬁcance of Pro-\ntoOcc, revealing substantial enhancements over previous\napproaches. Notably, ProtoOcc achieves competitive perfor-\nmance even with smaller-sized queries, offering a promising\nsolution for real-time deployment without compromising\npredictive accuracy."
+  }
+}
