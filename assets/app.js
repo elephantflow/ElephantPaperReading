@@ -10,6 +10,32 @@ const searchInput = document.querySelector("#search-input");
 const themeFilter = document.querySelector("#theme-filter");
 const paperCount = document.querySelector("#paper-count");
 const themeCount = document.querySelector("#theme-count");
+const heroTitle = document.querySelector(".hero h1");
+
+function fitBlock(el, maxLines, minRem) {
+  if (!el) return;
+  el.style.fontSize = "";
+  const computed = window.getComputedStyle(el);
+  const lineHeight = parseFloat(computed.lineHeight);
+  let size = parseFloat(computed.fontSize) / 16;
+  const maxHeight = lineHeight * maxLines + 1;
+
+  while (el.scrollHeight > maxHeight && size > minRem) {
+    size -= 0.08;
+    el.style.fontSize = `${size}rem`;
+  }
+}
+
+function classifyCardTitle(el) {
+  if (!el) return;
+  const text = (el.textContent || "").trim();
+  const words = text.split(/\s+/).filter(Boolean);
+  const chars = text.length;
+  el.classList.remove("is-short");
+  if (words.length <= 8 || chars <= 58) {
+    el.classList.add("is-short");
+  }
+}
 
 function matchesPaper(paper) {
   const themeOk = state.activeTheme === "All" || paper.theme === state.activeTheme;
@@ -33,7 +59,9 @@ function renderPapers() {
     const node = cardTemplate.content.firstElementChild.cloneNode(true);
     node.querySelector(".theme-pill").textContent = paper.theme;
     node.querySelector(".dataset-pill").textContent = paper.dataset;
-    node.querySelector(".paper-title").textContent = paper.paper_title;
+    const title = node.querySelector(".paper-title");
+    title.textContent = paper.paper_title;
+    classifyCardTitle(title);
     node.querySelector(".paper-summary").textContent = paper.story_summary;
     node.querySelector(".story-method").textContent = paper.proposed_method;
     node.querySelector(".meta-intro").textContent = paper.intro_paragraphs;
@@ -42,6 +70,7 @@ function renderPapers() {
     const link = node.querySelector(".card-link");
     link.href = paper.detail_path;
     grid.appendChild(node);
+    fitBlock(title, 3, 0.96);
   }
 }
 
@@ -68,6 +97,7 @@ async function init() {
   state.papers = payload.papers;
   paperCount.textContent = payload.stats.paper_count;
   themeCount.textContent = payload.stats.theme_count;
+  fitBlock(heroTitle, 6, 2.2);
   renderThemes(payload.themes);
   renderPapers();
 }

@@ -5,6 +5,19 @@ function byId(id) {
   return document.querySelector(id);
 }
 
+function fitHeadline(el, maxLines = 4) {
+  const computed = window.getComputedStyle(el);
+  const lineHeight = parseFloat(computed.lineHeight);
+  const minSize = 1.7;
+  let size = parseFloat(computed.fontSize) / 16;
+  const maxHeight = lineHeight * maxLines + 1;
+
+  while (el.scrollHeight > maxHeight && size > minSize) {
+    size -= 0.08;
+    el.style.fontSize = `${size}rem`;
+  }
+}
+
 function renderStory(story) {
   const host = byId("#core-story");
   const labels = [
@@ -64,7 +77,8 @@ async function init() {
   const record = await recordResponse.json();
 
   document.title = `${record.paper_title} | Elephant Paper Reading`;
-  byId("#paper-title").textContent = record.paper_title;
+  const titleEl = byId("#paper-title");
+  titleEl.textContent = record.paper_title;
   byId("#paper-summary").textContent = record.core_story.summary || meta.story_summary;
   byId("#paper-source").textContent = record.source.filename;
   byId("#paper-generated").textContent = new Date(record.generated_at).toLocaleString();
@@ -79,6 +93,8 @@ async function init() {
     chip.textContent = label;
     tags.appendChild(chip);
   });
+
+  fitHeadline(titleEl, 4);
 
   renderStory(record.core_story);
   renderStack("#intro-structure", record.introduction_structure, (item) => `
